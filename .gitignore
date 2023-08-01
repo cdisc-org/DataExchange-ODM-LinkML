@@ -1,0 +1,5 @@
+*.log
+scratch
+venv
+debug.*
+tools/__pycache__
