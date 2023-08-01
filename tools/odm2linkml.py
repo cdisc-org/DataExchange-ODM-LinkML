@@ -3,7 +3,8 @@ from xsd2json import xsd2json
 import json
 import re
 from linkml_runtime.linkml_model import ClassDefinition, SlotDefinition, Prefix, \
-    EnumDefinition, SubsetDefinition, SubsetDefinitionName, TypeDefinition, TypeDefinitionName
+    EnumDefinition, SubsetDefinition, SubsetDefinitionName, TypeDefinition, \
+    TypeDefinitionName, PermissibleValue
 from linkml.generators.linkmlgen import LinkmlGenerator
 from linkml.utils.schema_builder import SchemaBuilder
 from linkml_runtime.utils.schemaview import SchemaView
@@ -163,9 +164,11 @@ for element in structure.get('xs:element'):
     if not props:
         print('no class definition found for element', element_name)
         continue
+
     klass = ClassDefinition(element_name)
     if props.get('xs:annotation'):
         klass.description = '\n'.join(props.get('xs:annotation').get('xs:documentation'))
+
     restricted_attribute_group = props.get('xs:complexContent', {}).get('xs:restriction',{}).get('xs:attributeGroup')
     slot_groups = props.get('xs:attributeGroup') or restricted_attribute_group
     if slot_groups:
@@ -212,18 +215,19 @@ for element in structure.get('xs:element'):
             # map_type(ref), minOccurs, maxOccurs
             #TODO Support for extensions
             pass
-
+        
+    klass.class_uri = namespace_prefix + ':' + element_name
     schema.add_class(klass)
 
 
 # Assemble enumerations / controlled terminology
-def create_enumeration(schema, enumerations, enum_name, alias) -> None:
+def create_enumeration(schema, enumerations, enum_name, alias, as_children = True) -> None:
     this_enum = EnumDefinition(name = enum_name)
-    values_list = []
+    values = {}
     for v in enumerations:
+        this_value = {}
         if isinstance(v, str):
-            enum_value = enumerations.get('value')
-            values_list.append(enum_value)
+            enum_value = v
         if isinstance(v, dict):
             enum_value = v.get('value')
             appinfo = v.get('xs:annotation', {}).get('xs:appinfo')
@@ -232,16 +236,11 @@ def create_enumeration(schema, enumerations, enum_name, alias) -> None:
             enum_meaning = ':'.join([aliases[0].get('Context'), aliases[0].get('Name')]) if appinfo else None
             enum_documentation = v.get('xs:annotation', {}).get('xs:documentation')
             enum_description = '\n'.join(enum_documentation) if enum_documentation else None
-            this_value = {}
-            if enum_description:
-                this_value['description'] = enum_description
-            if enum_meaning:
-                this_value['meaning'] = enum_meaning
-            if this_value:
-                values_list.append({enum_value: this_value})
-            else:
-                values_list.append(enum_value)
-    this_enum.permissible_values = values_list
+            this_value['description'] = enum_description or None
+            this_value['meaning'] = enum_meaning or None
+            this_value['is_a'] = enum_name if as_children else None
+        values[enum_value] = this_value
+    this_enum.permissible_values = values
 
     if alias:
         this_enum.code_set = alias[0].get('Context')
@@ -275,10 +274,9 @@ def create_simple_type(schema, element, type_name) -> None:
 
     # Assemble enumerations at current level
     enumerations = restriction.get('xs:enumeration', {})
-    enum_name = type_name + 'Enum'
     if enumerations:
-        slot.base  = enum_name
-        create_enumeration(schema, enumerations, enum_name, alias)
+        create_enumeration(schema, enumerations, type_name, alias)
+        return None
         
     # Assemble inline enumerations from xs:union
     nested_types = element.get('xs:union', {}).get('xs:simpleType', [])
@@ -292,8 +290,9 @@ def create_simple_type(schema, element, type_name) -> None:
 
         nested_enumerations = nested_types[0].get('xs:restriction', {}).get('xs:enumeration', [])
         if nested_enumerations:
+            enum_name = type_name + 'Enum'
             slot.base = enum_name
-            create_enumeration(schema, nested_enumerations, enum_name, alias)
+            create_enumeration(schema, nested_enumerations, enum_name, alias, as_children = False)
  
     member_types = element.get('xs:union', {}).get('memberTypes', [])
     if member_types:
@@ -330,5 +329,4 @@ with open(output, 'w+') as f:
     f.write(yaml_text)
 print('Schema converted to LinkML file', output)
 
-# Throw errors if the schema is invalid
-validator = Validator(schema = output)
+# Throw errors if the schema is invalidvalidator = Validator(schema = output)
