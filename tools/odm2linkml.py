@@ -77,7 +77,11 @@ def map_type(ref) -> str:
         return ref.split(':')[-1]
     
 # New slots to support XML schema elements
-schema.add_slot(SlotDefinition(name='language'))
+schema.add_type(TypeDefinition(name='_language',
+                               description='language context  local _content'))
+schema.add_type(TypeDefinition(name='_content',
+                               description='multi-line text content from between XML tags', 
+                               base=str))
 
 # Assemble slots
 attribute_groups = structure.get('xs:attributeGroup')
@@ -169,8 +173,11 @@ for element in structure.get('xs:element'):
     if props.get('xs:annotation'):
         klass.description = '\n'.join(props.get('xs:annotation').get('xs:documentation'))
 
-    restricted_attribute_group = props.get('xs:complexContent', {}).get('xs:restriction',{}).get('xs:attributeGroup')
-    slot_groups = props.get('xs:attributeGroup') or restricted_attribute_group
+    # extract attributes from groups listed at various levels
+    slot_groups = []
+    slot_groups.extend(props.get('xs:simpleContent', {}).get('xs:extension', {}).get('xs:attributeGroup', []))
+    slot_groups.extend(props.get('xs:complexContent', {}).get('xs:restriction', {}).get('xs:attributeGroup', []))
+    slot_groups.extend(props.get('xs:attributeGroup', []))
     if slot_groups:
         slot_usage = []
         for ag in slot_groups:

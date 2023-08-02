@@ -2,10 +2,10 @@
 ## FAIR clinical data (findable, accessible, interoperable, reusable)
 ODM should be expressed in every popular structured data format so that it is the easiest resource for developers to reach to. Adopting CDISC exchange standards for apps and automation minimises technical debt and makes clinical data FAIR end-to-end.
 
-## Metadata-driven, semantic datasets
+## Metadata-first, semantic datasets
 Clinical data can be piped to analysis-ready datasets according to the Define-XML specs (ODMv1). Instead of using it an automation spec, however, implementers have been treating dataset creation as manual and Define creation as post-hoc bureucracy. The largely SAS-based community of clinical programmers found XML too inaccessible to take advantage of the data structure.
 
-Armed with lessons learned from ODMv1 and community feedback,ODMv2 is a mature enough description of clinical data to bring to the semantic web and allow a broader range of developers, data engineers and data scientists to benefit
+With lessons learned from iterating on ODMv1, ODMv2 is a mature enough description of clinical data to bring to the semantic web. The intent is for a broader range of developers, data engineers and data scientists to get easy access to the benefits of structured data
 
 # LinkML and JSON-LD
 Between these 2 frameworks we can translate ODMv2 data & schemata into helpful representations
@@ -77,7 +77,7 @@ After creating a flattening the .xsd schema files into a single schema, ODMv2 ca
          xs:unique[{name, {xs:selector}, [{xs:field}]}]}
 
 
-## Translation
+## Translation from XML Schema
 
 * `xs:element` is a class
 
@@ -177,4 +177,18 @@ JSON-LD can transform CDISC JSON such Dataset-JSON into a semantic graph for enr
     pip install -r requirements.txt
     
     python3 tools/odm2linkml.py ../DataExchange-ODM/schema/ODM.xsd --output ODM.yaml
-    gen-project -d odm/ ODM.yaml
+    gen-project -d . ODM.yaml --exclude shex
+
+More detailed relationship and cardinality constraints still need to be ported from XML Schema before shex can be added.
+
+As content is added, refresh documentation and diagrams using `mkdocs` to keep it up to date with the latest batch of generated .md files
+
+    mkdocs build
+
+to explore the updated documentation changes locally
+
+    mkdocs serve
+
+and then upload them to where they are served
+
+    mkdocs gh-deploy

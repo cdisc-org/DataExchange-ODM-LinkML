@@ -41,6 +41,14 @@ subsets:
     name: AuditRecordSignatureNotationGroup
     from_schema: http://www.cdisc.org/ns/odm/v2.0
 types:
+  _language:
+    name: _language
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+  _content:
+    name: _content
+    description: multi-line text content from XML
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    base: <class 'str'>
   text:
     name: text
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1011,142 +1019,10 @@ enums:
         meaning: nci:ExtCodeID:C165637
         is_a: ItemGroupSubClass
 slots:
-  language:
-    name: language
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-  KeySequence:
-    name: KeySequence
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: integer
-  Originator:
-    name: Originator
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  LastPage:
-    name: LastPage
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: integer
-  Label:
-    name: Label
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  Path:
-    name: Path
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  href:
-    name: href
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: uriorcurie
-    - range: text
-  Other:
-    name: Other
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOnly
-  StandardOID:
-    name: StandardOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  Source:
-    name: Source
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: OriginSource
-    - range: QuerySourceType
-  ConditionOID:
-    name: ConditionOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  StudyTargetPopulationOID:
-    name: StudyTargetPopulationOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  UsedMethod:
-    name: UsedMethod
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOrNo
-  SourceSystem:
-    name: SourceSystem
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  PartOfOrganizationOID:
-    name: PartOfOrganizationOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  TransitionOID:
-    name: TransitionOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  DisplayFormat:
-    name: DisplayFormat
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  ItemGroupDataSeq:
-    name: ItemGroupDataSeq
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: integer
-  ParentClass:
-    name: ParentClass
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: ItemGroupClassSubClass
-  ShortName:
-    name: ShortName
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: name
   Title:
     name: Title
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
-  Context:
-    name: Context
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: text
-    - range: Context
-  TimepointTarget:
-    name: TimepointTarget
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: durationDatetime
-  LocationOID:
-    name: LocationOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  Domain:
-    name: Domain
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  Granularity:
-    name: Granularity
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: Granularity
-  IsReferenceData:
-    name: IsReferenceData
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOrNo
-  StudyInterventionOID:
-    name: StudyInterventionOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-  EndOID:
-    name: EndOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  ProtocolName:
-    name: ProtocolName
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: name
-  DurationTarget:
-    name: DurationTarget
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
-  OID:
-    name: OID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oid
-  _language:
-    name: _language
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
   Name:
     name: Name
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1156,184 +1032,315 @@ slots:
     - range: StandardName
     - range: ItemGroupClass
     - range: ItemGroupSubClass
-  DurationPostWindow:
-    name: DurationPostWindow
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
-  Repeating:
-    name: Repeating
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: YesOrNo
-    - range: ItemGroupRepeatingType
-  Role:
-    name: Role
+  Purpose:
+    name: Purpose
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
-  UserType:
-    name: UserType
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: UserType
-  EditPoint:
-    name: EditPoint
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: EditPointType
-  StudyEventOID:
-    name: StudyEventOID
+  ItemOID:
+    name: ItemOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  TimepointRelativeTarget:
-    name: TimepointRelativeTarget
+  Methodology:
+    name: Methodology
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
-  HasNoData:
-    name: HasNoData
+    range: SignMethod
+  Code:
+    name: Code
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOnly
-  ExtendedValue:
-    name: ExtendedValue
+    range: text
+  LastUpdateDatetime:
+    name: LastUpdateDatetime
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOnly
+    range: datetime
+  Version:
+    name: Version
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  LocationOID:
+    name: LocationOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  Comparator:
+    name: Comparator
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Comparator
+  PartOfOrganizationOID:
+    name: PartOfOrganizationOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  SourceOID:
+    name: SourceOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  StructuralElementOID:
+    name: StructuralElementOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  OrderNumber:
+    name: OrderNumber
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: integer
+  ref:
+    name: ref
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  RepeatingLimit:
+    name: RepeatingLimit
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: positiveInteger
   CollectionExceptionConditionOID:
     name: CollectionExceptionConditionOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  IsNonStandard:
-    name: IsNonStandard
+  Target:
+    name: Target
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOnly
+    range: text
+  TargetOID:
+    name: TargetOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  EffectiveDate:
+    name: EffectiveDate
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: date
+  SuccessorOID:
+    name: SuccessorOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  LastPage:
+    name: LastPage
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: integer
   Value:
     name: Value
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     any_of:
     - range: TrialPhaseType
     - range: text
+  href:
+    name: href
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: uriorcurie
+    - range: text
+  ID:
+    name: ID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oid
+  PageRefs:
+    name: PageRefs
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  Dictionary:
+    name: Dictionary
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: DictionaryNameType
+  TargetTransitionOID:
+    name: TargetTransitionOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  PredecessorOID:
+    name: PredecessorOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  SeqNum:
+    name: SeqNum
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: integer
+    - range: positiveInteger
+  ItemGroupOID:
+    name: ItemGroupOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  EndConditionOID:
+    name: EndConditionOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  Context:
+    name: Context
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: text
+    - range: Context
+  OrganizationOID:
+    name: OrganizationOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  FileOID:
+    name: FileOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oid
+  ParentClass:
+    name: ParentClass
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ItemGroupClassSubClass
+  Path:
+    name: Path
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  Granularity:
+    name: Granularity
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Granularity
+  Attribute:
+    name: Attribute
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  WorkflowOID:
+    name: WorkflowOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  ImageFileName:
+    name: ImageFileName
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: fileName
+  OID:
+    name: OID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oid
+  SignatureOID:
+    name: SignatureOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  SourceSystem:
+    name: SourceSystem
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  StudyEventGroupOID:
+    name: StudyEventGroupOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  Originator:
+    name: Originator
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  UnitsItemOID:
+    name: UnitsItemOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  StudyOID:
+    name: StudyOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  StandardOID:
+    name: StandardOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  Method:
+    name: Method
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: name
+  Category:
+    name: Category
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  SoftHard:
+    name: SoftHard
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: SoftOrHard
+  DurationTarget:
+    name: DurationTarget
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: durationDatetime
+  ItemGroupDataSeq:
+    name: ItemGroupDataSeq
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: integer
+  FirstPage:
+    name: FirstPage
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: integer
   CommentOID:
     name: CommentOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     any_of:
     - range: oidref
     - range: text
-  ArchiveLocationID:
-    name: ArchiveLocationID
+  SystemVersion:
+    name: SystemVersion
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  EndOID:
+    name: EndOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  MethodOID:
-    name: MethodOID
+  Repeat:
+    name: Repeat
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  AsOfDateTime:
-    name: AsOfDateTime
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: datetime
-  SourceSystemVersion:
-    name: SourceSystemVersion
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  ODMVersion:
-    name: ODMVersion
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: ODMVersion
-  type:
-    name: type
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  Target:
-    name: Target
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
+    range: YesOnly
   IsNull:
     name: IsNull
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: YesOnly
-  StudyEndPointOID:
-    name: StudyEndPointOID
+  HasNoData:
+    name: HasNoData
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  DataType:
-    name: DataType
+    range: YesOnly
+  DurationPostWindow:
+    name: DurationPostWindow
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: DataType
-    - range: CLDataType
-  Altitude:
-    name: Altitude
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: decimal
-  FileType:
-    name: FileType
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: FileType
-  WorkflowOID:
-    name: WorkflowOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  StudyName:
-    name: StudyName
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: name
-  StudyEventGroupOID:
-    name: StudyEventGroupOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  leafID:
-    name: leafID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: oid
-    - range: oidref
-  Library:
-    name: Library
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: name
-  Mandatory:
-    name: Mandatory
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOrNo
-  Method:
-    name: Method
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: name
-  EffectiveDate:
-    name: EffectiveDate
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: date
-  OrderNumber:
-    name: OrderNumber
+    range: durationDatetime
+  KeySequence:
+    name: KeySequence
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: integer
-  State:
-    name: State
+  PublishingSet:
+    name: PublishingSet
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: QueryStateType
-  StructuralElementOID:
-    name: StructuralElementOID
+    range: StandardPublishingSet
+  WhereClauseOID:
+    name: WhereClauseOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
+  Rank:
+    name: Rank
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: decimal
+  Other:
+    name: Other
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOnly
+  RoleCodeListOID:
+    name: RoleCodeListOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  Term:
+    name: Term
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: name
+  UserType:
+    name: UserType
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: UserType
+  StartOID:
+    name: StartOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  Role:
+    name: Role
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  _language:
+    name: _language
+  TimepointTarget:
+    name: TimepointTarget
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: durationDatetime
   TransactionType:
     name: TransactionType
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: TransactionType
-  EpochOID:
-    name: EpochOID
+  StudyName:
+    name: StudyName
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  OrganizationOID:
-    name: OrganizationOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  Purpose:
-    name: Purpose
+    range: name
+  SourceSystemVersion:
+    name: SourceSystemVersion
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
-  ValueListOID:
-    name: ValueListOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  ID:
-    name: ID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oid
   Type:
     name: Type
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1351,252 +1358,249 @@ slots:
     - range: BranchingType
     - range: OrganizationType
     - range: QueryType
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  Dictionary:
-    name: Dictionary
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: DictionaryNameType
-  PageRefs:
-    name: PageRefs
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  StudyOID:
-    name: StudyOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  SeqNum:
-    name: SeqNum
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: integer
-    - range: positiveInteger
-  Longitude:
-    name: Longitude
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: decimal
-  Category:
-    name: Category
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  RoleCodeListOID:
-    name: RoleCodeListOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  DatasetName:
-    name: DatasetName
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: name
-  Structure:
-    name: Structure
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  Definition:
-    name: Definition
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  Repeat:
-    name: Repeat
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOnly
-  SubjectKey:
-    name: SubjectKey
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: subjectKey
   System:
     name: System
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: uriorcurie
-  EndConditionOID:
-    name: EndConditionOID
+  StartConditionOID:
+    name: StartConditionOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  TimepointPreWindow:
-    name: TimepointPreWindow
+  IsReferenceData:
+    name: IsReferenceData
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOrNo
+  State:
+    name: State
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: QueryStateType
+  TimepointPostWindow:
+    name: TimepointPostWindow
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: durationDatetime
-  PriorFileOID:
-    name: PriorFileOID
+  Length:
+    name: Length
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: positiveInteger
+  ODMVersion:
+    name: ODMVersion
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ODMVersion
+  SystemName:
+    name: SystemName
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  ConditionOID:
+    name: ConditionOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  TargetOID:
-    name: TargetOID
+  Definition:
+    name: Definition
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  Library:
+    name: Library
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: name
+  TransitionOID:
+    name: TransitionOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  SponsorOrSite:
+    name: SponsorOrSite
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: CommentType
+  EpochOID:
+    name: EpochOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  ItemGroupRepeatKey:
+    name: ItemGroupRepeatKey
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: repeatKey
+  Label:
+    name: Label
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  Source:
+    name: Source
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: OriginSource
+    - range: QuerySourceType
+  EditPoint:
+    name: EditPoint
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: EditPointType
+  IsNonStandard:
+    name: IsNonStandard
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOnly
+  Latitude:
+    name: Latitude
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: decimal
+  UsedMethod:
+    name: UsedMethod
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOrNo
+  DurationPreWindow:
+    name: DurationPreWindow
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: durationDatetime
+  ExtendedValue:
+    name: ExtendedValue
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOnly
+  Domain:
+    name: Domain
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  ProtocolName:
+    name: ProtocolName
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: name
+  ArchiveLocationID:
+    name: ArchiveLocationID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
   UserOID:
     name: UserOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  SourceOID:
-    name: SourceOID
+  SubjectKey:
+    name: SubjectKey
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  Rank:
-    name: Rank
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: decimal
-  Length:
-    name: Length
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: positiveInteger
-  SystemVersion:
-    name: SystemVersion
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  UnitsItemOID:
-    name: UnitsItemOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  Attribute:
-    name: Attribute
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  CodedValue:
-    name: CodedValue
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: value
-  TimepointPostWindow:
-    name: TimepointPostWindow
+    range: subjectKey
+  TimepointRelativeTarget:
+    name: TimepointRelativeTarget
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: durationDatetime
-  SoftHard:
-    name: SoftHard
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: SoftOrHard
-  SuccessorOID:
-    name: SuccessorOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  ImageFileName:
-    name: ImageFileName
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: fileName
-  ItemOID:
-    name: ItemOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  PublishingSet:
-    name: PublishingSet
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: StandardPublishingSet
-  Latitude:
-    name: Latitude
+  Altitude:
+    name: Altitude
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: decimal
-  Term:
-    name: Term
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: name
-  ItemGroupOID:
-    name: ItemGroupOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  Comparator:
-    name: Comparator
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: Comparator
-  TargetTransitionOID:
-    name: TargetTransitionOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  Methodology:
-    name: Methodology
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: SignMethod
-  ItemGroupRepeatKey:
-    name: ItemGroupRepeatKey
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: repeatKey
-  WhereClauseOID:
-    name: WhereClauseOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  PredecessorOID:
-    name: PredecessorOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  MimeType:
-    name: MimeType
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  SignatureOID:
-    name: SignatureOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  ref:
-    name: ref
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  RepeatingLimit:
-    name: RepeatingLimit
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: positiveInteger
-  Version:
-    name: Version
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  CreationDateTime:
-    name: CreationDateTime
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: datetime
-  LastUpdateDatetime:
-    name: LastUpdateDatetime
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: datetime
   ArmOID:
     name: ArmOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  SystemName:
-    name: SystemName
+  StudyEventOID:
+    name: StudyEventOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  Repeating:
+    name: Repeating
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: YesOrNo
+    - range: ItemGroupRepeatingType
+  DisplayFormat:
+    name: DisplayFormat
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
-  FirstPage:
-    name: FirstPage
+  Structure:
+    name: Structure
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: integer
-  SponsorOrSite:
-    name: SponsorOrSite
+    range: text
+  DatasetName:
+    name: DatasetName
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: CommentType
-  DurationPreWindow:
-    name: DurationPreWindow
+    range: name
+  MetaDataVersionOID:
+    name: MetaDataVersionOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
+    range: oidref
   SequenceNumber:
     name: SequenceNumber
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: positiveInteger
-  StartOID:
-    name: StartOID
+  PriorFileOID:
+    name: PriorFileOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  Code:
-    name: Code
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
   CodeListOID:
     name: CodeListOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
+  StudyInterventionOID:
+    name: StudyInterventionOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
   StudyEventRepeatKey:
     name: StudyEventRepeatKey
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: repeatKey
+  AsOfDateTime:
+    name: AsOfDateTime
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: datetime
+  ValueListOID:
+    name: ValueListOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  StudyEndPointOID:
+    name: StudyEndPointOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  DataType:
+    name: DataType
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: DataType
+    - range: CLDataType
+  TimepointPreWindow:
+    name: TimepointPreWindow
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: durationDatetime
+  StudyTargetPopulationOID:
+    name: StudyTargetPopulationOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  CodedValue:
+    name: CodedValue
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: value
+  MimeType:
+    name: MimeType
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  type:
+    name: type
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  ShortName:
+    name: ShortName
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: name
+  Longitude:
+    name: Longitude
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: decimal
+  MethodOID:
+    name: MethodOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  leafID:
+    name: leafID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: oid
+    - range: oidref
   Status:
     name: Status
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: StandardStatus
-  StartConditionOID:
-    name: StartConditionOID
+  Mandatory:
+    name: Mandatory
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  FileOID:
-    name: FileOID
+    range: YesOrNo
+  CreationDateTime:
+    name: CreationDateTime
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oid
+    range: datetime
+  FileType:
+    name: FileType
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: FileType
 classes:
   Alias:
     name: Alias
@@ -2731,6 +2735,10 @@ classes:
   WorkflowEnd:
     name: WorkflowEnd
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slot_usage:
+    - EndOID:
+        required: true
+        range: oidref
     class_uri: odm:WorkflowEnd
   Criterion:
     name: Criterion
@@ -3215,10 +3223,18 @@ classes:
   FlagValue:
     name: FlagValue
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slot_usage:
+    - CodeListOID:
+        required: true
+        range: oidref
     class_uri: odm:FlagValue
   FlagType:
     name: FlagType
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slot_usage:
+    - CodeListOID:
+        required: true
+        range: oidref
     class_uri: odm:FlagType
   Coding:
     name: Coding
@@ -3274,4 +3290,8 @@ classes:
     class_uri: odm:Query
   Value:
     name: Value
+    slot_usage:
+    - SeqNum:
+        required: false
+        range: positiveInteger
     class_uri: odm:Value
