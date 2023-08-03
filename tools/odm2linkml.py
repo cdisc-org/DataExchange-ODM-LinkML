@@ -24,6 +24,9 @@ namespace_prefix = args.prefix or 'odm'
 
 json_from_xml_schema = xsd2json(xsd_schema_in)
 
+with open('json/' + output.replace('.yaml', '.json'), 'w+') as f:
+    f.write(json_from_xml_schema)
+
 structure = json.loads(json_from_xml_schema)
 
 schema_builder = SchemaBuilder(id = namespace, name = namespace_prefix)
@@ -56,7 +59,7 @@ def map_base(type):
         type = type_map[type]
         return type
     else:
-        return None
+        return 'str'
     
 def map_type(ref) -> str:
     if ref is None:
@@ -75,15 +78,7 @@ def map_type(ref) -> str:
         return type_map[ref]
     else:
         return ref.split(':')[-1]
-    
-# New slots to support XML schema elements
-schema.add_type(TypeDefinition(name='_language',
-                               description='language context  local _content'))
-schema.add_type(TypeDefinition(name='_content',
-                               description='multi-line text content from between XML tags', 
-                               base=str))
 
-# Assemble slots
 attribute_groups = structure.get('xs:attributeGroup')
 def get_attribs_from_group(name, attribute_groups=attribute_groups) -> [dict]:
     matches = [ag for ag in attribute_groups if ag['name'] == name]
@@ -262,22 +257,20 @@ def create_simple_type(schema, element, type_name) -> None:
     if schema.get_type(type_name):
         return None
     
-    slot = TypeDefinition(type_name)
+    type = TypeDefinition(type_name)
     restriction = element.get('xs:restriction', {})
-    base = map_base(restriction.get('base'))
+    base = map_base(restriction.get('base')) or 'str'
     if base:
-        slot.base = base
+        type.base = base
     
     alias = {}
     if element.get('xs:annotation'):
-        slot.description = '\n'.join(element.get('xs:annotation', {}).get('xs:documentation'))
+        type.description = '\n'.join(element.get('xs:annotation', {}).get('xs:documentation'))
         appinfo = element.get('xs:annotation', {}).get('xs:appinfo', {})
         if appinfo:
             alias = appinfo[0].get('odm:Alias')
             if alias:
-                slot.exact_mappings = [':'.join([a.get('Context'), a.get('Name')]) for a in alias]
-    
-
+                type.exact_mappings = [':'.join([a.get('Context'), a.get('Name')]) for a in alias]
 
     # Assemble enumerations at current level
     enumerations = restriction.get('xs:enumeration', {})
@@ -290,25 +283,23 @@ def create_simple_type(schema, element, type_name) -> None:
     if nested_types:
         nested_bases = [st.get('xs:restriction',{}).get('base') for st in nested_types]
         if nested_bases:
-            slot.base = nested_bases[0]
-            slot.typeof = TypeDefinitionName('string')
+            type.base = map_base(nested_bases[0])
             # TODO Handle multiple nested base types
-            # slot.any_of = [TypeDefinitionName(map_base(b) or map_type(b)) for b in nested_bases]
+            # type.any_of = [TypeDefinitionName(map_base(b) or map_type(b)) for b in nested_bases]
 
         nested_enumerations = nested_types[0].get('xs:restriction', {}).get('xs:enumeration', [])
         if nested_enumerations:
             enum_name = type_name + 'Enum'
-            slot.base = enum_name
+            type.base = map_base(nested_types[0].get('xs:restriction', {}).get('base'))
             create_enumeration(schema, nested_enumerations, enum_name, alias, as_children = False)
  
     member_types = element.get('xs:union', {}).get('memberTypes', [])
     if member_types:
-        slot.base = member_types[0]
-        slot.typeof = TypeDefinitionName('string')
-        # TODO Handle multiple member types, typeof
-        # slot.any_of = [TypeDefinitionName(t) for t in member_types]
+        # TODO Handle multiple member types
+        #type.typeof = TypeDefinitionName('string')
+        type.any_of = [{map_base(t): None} for t in member_types]
 
-    if not slot.base and not slot.typeof:
+    if not type.base and not type.typeof:
         print('no base provided for', element.get('name') ,'type')
 
     # Translate min/max length restrictions to pattern
@@ -316,24 +307,40 @@ def create_simple_type(schema, element, type_name) -> None:
     min_length = restriction.get('xs:minLength', {}).get('value')
     pattern = restriction.get('xs:pattern', {}).get('value')
     if min_length:
-        slot.pattern = f'.{{{min_length}, }}'
+        type.pattern = f'.{{{min_length}, }}'
     if max_length:
-        slot.pattern = f'.{{{min_length or 0}, {max_length}}}'    
+        type.pattern = f'.{{{min_length or 0}, {max_length}}}'    
     if pattern:
-        slot.pattern = pattern
+        type.pattern = pattern
 
-    slot.uri = namespace_prefix + ':' + type_name
-    schema.add_type(slot)
+    type.uri = namespace_prefix + ':' + type_name
+    schema.add_type(type)
     return None
-
 
 for element in structure.get('xs:simpleType'):
     create_simple_type(schema, element, element.get('name', 'DEFAULT_TYPE_NONE_FOUND'))
-   
+
+
+### HARDCODED CHANGES TO SOURCE SCHEMA ###   
+#  Types to support XML Schema-specific elements: _language, _content
+schema.add_type(TypeDefinition(uri='xml:lang', name='_language', base='str',
+                               description='language context for internationalisation and localisation'))
+
+schema.add_type(TypeDefinition(uri='xhtml:div', name='_content', base='str',
+                               description='multi-line text content from between XML tags'))
+
+# Workaround for ODM root class name clash: ODMFileMetadata
+clashing_class = schema.get_class('ODM')
+clashing_class.name = 'ODMFileMetadata'
+schema.add_class(clashing_class)
+schema.delete_class('ODM')
+###############################
+
 yaml_text = LinkmlGenerator(schema = schema_builder.schema, format='yaml').serialize()
 
 with open(output, 'w+') as f:
     f.write(yaml_text)
 print('Schema converted to LinkML file', output)
 
-# Throw errors if the schema is invalidvalidator = Validator(schema = output)
+# Validate the schema (Validator object self-validates on creation)
+validator = Validator(schema = output)
