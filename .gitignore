@@ -1,5 +1,6 @@
 *.log
-scratch
+site/
 venv
-debug.*
 tools/__pycache__
+scratch
+debug.*
