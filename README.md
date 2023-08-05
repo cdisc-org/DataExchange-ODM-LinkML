@@ -1,3 +1,6 @@
+# ODM structure descriptions
+Explore this repo to find the format that best suits your project
+
 # Motivation for expressing ODMv2 beyond XML
 ## FAIR clinical data (findable, accessible, interoperable, reusable)
 ODM should be expressed in every popular structured data format so that it is the easiest resource for developers to reach to. Adopting CDISC exchange standards for apps and automation minimises technical debt and makes clinical data FAIR end-to-end.
@@ -34,7 +37,7 @@ Between these 2 frameworks we can translate ODMv2 data & schemata into helpful r
 - Scope for adoption limited to life sciences community so far, relatively young project
 - Conversion to JSON-LD is not mature so JSON-LD needs separate handling
 
-# Steps to convert to JSON-LD and LinkML
+# Conversion of to JSON-LD and LinkML
 
 ## Strategy
 Break down the XML Schema into a consumable format, then pick one of the target frameworks to work on first. Ideally the one that most helps bootstrap the next format
@@ -177,18 +180,19 @@ JSON-LD can transform CDISC JSON such Dataset-JSON into a semantic graph for enr
     pip install -r requirements.txt
     
     python3 tools/odm2linkml.py ../DataExchange-ODM/schema/ODM.xsd --output ODM.yaml
-    gen-project -d . ODM.yaml --exclude shex
+    gen-project -d . ODM.yaml --exclude shex markdown
 
 More detailed relationship and cardinality constraints still need to be ported from XML Schema before shex can be added.
 
 As content is added, refresh documentation and diagrams using `mkdocs` to keep it up to date with the latest batch of generated .md files
 
+    gen-doc --hierarchical-class-view ODM.yaml -d docs/
     mkdocs build
 
-to explore the updated documentation changes locally
+to view the updated documentation changes locally
 
     mkdocs serve
 
-and then upload them to where they are served
+and eventually upload them to where they are served
 
     mkdocs gh-deploy

@@ -1,1 +1,18 @@
 site_name: DataExchange-ODM-LinkML
+site_url: http://www.cdisc.org/ns/odm/v2.0
+
+theme:
+  name: "readthedocs"
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+
+plugins:
+    - awesome-pages:
+        filename: .index
+        collapse_single_pages: true
+        strict: false
+        order: asc
+        sort_type: natural
+        order_by: title
