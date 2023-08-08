@@ -1,2507 +1,2512 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/AbsoluteTimingConstraint/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/AbsoluteTimingConstraint/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/AbsoluteTimingConstraintRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/AbsoluteTimingConstraintRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Address/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Address/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/AddressRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/AddressRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/AdminData/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/AdminData/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/AdminDataRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/AdminDataRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Alias/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Alias/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/AliasRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/AliasRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Altitude/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Altitude/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/AnnotatedCRF/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/AnnotatedCRF/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/AnnotatedCRFRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/AnnotatedCRFRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Annotation/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Annotation/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/AnnotationRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/AnnotationRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ArchiveLocationID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ArchiveLocationID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Arm/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Arm/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ArmOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ArmOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ArmRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ArmRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/AsOfDateTime/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/AsOfDateTime/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Association/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Association/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/AssociationRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/AssociationRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Attribute/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Attribute/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/AuditRecord/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/AuditRecord/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/AuditRecordRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/AuditRecordRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/AuditRecordSignatureNotationGroup/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/AuditRecordSignatureNotationGroup/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Base64Binary/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Base64Binary/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Base64Float/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Base64Float/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Boolean/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Boolean/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Branching/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Branching/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/BranchingType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/BranchingType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CLDataType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CLDataType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Category/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Category/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CheckValue/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CheckValue/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/City/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/City/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CityRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CityRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Class/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Class/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ClassRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ClassRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ClinicalData/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ClinicalData/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ClinicalDataRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ClinicalDataRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Code/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Code/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CodeList/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CodeList/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CodeListItem/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CodeListItem/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CodeListOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CodeListOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CodeListRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CodeListRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CodeListRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CodeListRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CodedValue/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CodedValue/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Coding/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Coding/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CodingRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CodingRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CollectionExceptionConditionOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CollectionExceptionConditionOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Comment/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Comment/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CommentDef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CommentDef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CommentDefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CommentDefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CommentOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CommentOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CommentRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CommentRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CommentType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CommentType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Comparator/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Comparator/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ConditionDef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ConditionDef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ConditionDefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ConditionDefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ConditionOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ConditionOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ContentType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ContentType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Context/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Context/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Country/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Country/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CountryRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CountryRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CreationDateTime/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CreationDateTime/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Criterion/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Criterion/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/CriterionRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/CriterionRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Curie/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Curie/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DataType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DataType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DatasetName/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DatasetName/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Date/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Date/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DateOrDatetime/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DateOrDatetime/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DateTimeStamp/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DateTimeStamp/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DateTimeStampRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DateTimeStampRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Datetime/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Datetime/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Decimal/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Decimal/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Decode/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Decode/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DecodeRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DecodeRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DefaultTransition/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DefaultTransition/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DefaultTransitionRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DefaultTransitionRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Definition/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Definition/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Description/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Description/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DescriptionRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DescriptionRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Dictionary/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Dictionary/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DictionaryNameType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DictionaryNameType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DictionaryNameTypeEnum/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DictionaryNameTypeEnum/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DisplayFormat/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DisplayFormat/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DocumentRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DocumentRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DocumentRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DocumentRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Domain/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Domain/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Double/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Double/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DurationDatetime/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DurationDatetime/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DurationPostWindow/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DurationPostWindow/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DurationPreWindow/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DurationPreWindow/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DurationTarget/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DurationTarget/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DurationTimingConstraint/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DurationTimingConstraint/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/DurationTimingConstraintRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/DurationTimingConstraintRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/EditPoint/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/EditPoint/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/EditPointType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/EditPointType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/EffectiveDate/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/EffectiveDate/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/EmptyTag/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/EmptyTag/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/EndConditionOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/EndConditionOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/EndOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/EndOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/EntryCriteria/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/EntryCriteria/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/EnumeratedItem/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/EnumeratedItem/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Epoch/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Epoch/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/EpochOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/EpochOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/EpochRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/EpochRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ErrorMessage/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ErrorMessage/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ErrorMessageRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ErrorMessageRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/EventType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/EventType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ExceptionEvent/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ExceptionEvent/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ExceptionEventGroupDefinition/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ExceptionEventGroupDefinition/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ExclusionCriteria/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ExclusionCriteria/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ExclusionCriteriaRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ExclusionCriteriaRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ExitCriteria/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ExitCriteria/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ExtendedValue/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ExtendedValue/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ExternalCodeLib/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ExternalCodeLib/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ExternalCodeList/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ExternalCodeList/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ExternalCodeListRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ExternalCodeListRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FamilyName/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FamilyName/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FamilyNameRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FamilyNameRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FileName/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FileName/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FileOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FileOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FileType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FileType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FirstPage/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FirstPage/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Flag/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Flag/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FlagRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FlagRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FlagType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FlagType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FlagTypeRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FlagTypeRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FlagValue/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FlagValue/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FlagValueRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FlagValueRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Float/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Float/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FormalExpression/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FormalExpression/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FormalExpressionRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FormalExpressionRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FullName/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FullName/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/FullNameRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/FullNameRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/GeoPosition/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/GeoPosition/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/GeoPositionRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/GeoPositionRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/GivenName/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/GivenName/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/GivenNameRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/GivenNameRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Granularity/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Granularity/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/HasNoData/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/HasNoData/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/HexBinary/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/HexBinary/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/HexFloat/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/HexFloat/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/HouseNumber/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/HouseNumber/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/HouseNumberRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/HouseNumberRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Image/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Image/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ImageFileName/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ImageFileName/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ImageRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ImageRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Include/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Include/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/IncludeRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/IncludeRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/InclusionCriteria/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/InclusionCriteria/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/InclusionCriteriaRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/InclusionCriteriaRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/InclusionExclusionCriteria/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/InclusionExclusionCriteria/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/InclusionExclusionCriteriaRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/InclusionExclusionCriteriaRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/IncompleteDate/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/IncompleteDate/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/IncompleteDatetime/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/IncompleteDatetime/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/IncompleteTime/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/IncompleteTime/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Integer/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Integer/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/IntercurrentEvent/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/IntercurrentEvent/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/IntercurrentEventRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/IntercurrentEventRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/IntervalDatetime/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/IntervalDatetime/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/InvestigatorRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/InvestigatorRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/InvestigatorRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/InvestigatorRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/IsNonStandard/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/IsNonStandard/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/IsNull/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/IsNull/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/IsReferenceData/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/IsReferenceData/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemData/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemData/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemDef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemDef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemDefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemDefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupClass/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupClass/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupClassSubClass/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupClassSubClass/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupData/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupData/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupDataGroup/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupDataGroup/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupDataRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupDataRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupDataSeq/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupDataSeq/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupDef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupDef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupDefGroup/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupDefGroup/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupDefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupDefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupRepeatKey/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupRepeatKey/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupRepeatingType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupRepeatingType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupSubClass/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupSubClass/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupTypeType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupTypeType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemGroupTypeTypeEnum/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemGroupTypeTypeEnum/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ItemRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ItemRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/KeySequence/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/KeySequence/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/KeySet/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/KeySet/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/KeySetRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/KeySetRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Label/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Label/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/LanguageType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/LanguageType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/LastPage/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/LastPage/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/LastUpdateDatetime/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/LastUpdateDatetime/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Latitude/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Latitude/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Leaf/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Leaf/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/LegalReason/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/LegalReason/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/LegalReasonRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/LegalReasonRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Length/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Length/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Library/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Library/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Location/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Location/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/LocationOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/LocationOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/LocationRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/LocationRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/LocationRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/LocationRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Longitude/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Longitude/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Mandatory/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Mandatory/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Meaning/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Meaning/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/MeaningRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/MeaningRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/MetaDataVersion/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/MetaDataVersion/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/MetaDataVersionOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/MetaDataVersionOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/MetaDataVersionRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/MetaDataVersionRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/MetaDataVersionRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/MetaDataVersionRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Method/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Method/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/MethodDef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/MethodDef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/MethodDefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/MethodDefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/MethodOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/MethodOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/MethodSignature/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/MethodSignature/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/MethodSignatureRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/MethodSignatureRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/MethodType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/MethodType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Methodology/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Methodology/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/MimeType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/MimeType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Name/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Name/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Ncname/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Ncname/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Nodeidentifier/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Nodeidentifier/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ODMFileMetadata/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ODMFileMetadata/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ODMVersion/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ODMVersion/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/OID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/OID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Objectidentifier/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Objectidentifier/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Oid/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Oid/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Oidref/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Oidref/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/OrderNumber/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/OrderNumber/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Organization/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Organization/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/OrganizationOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/OrganizationOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/OrganizationRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/OrganizationRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/OrganizationType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/OrganizationType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Origin/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Origin/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/OriginRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/OriginRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/OriginSource/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/OriginSource/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/OriginType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/OriginType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Originator/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Originator/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Other/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Other/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/OtherText/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/OtherText/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/OtherTextRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/OtherTextRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PDFPageRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PDFPageRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PDFPageRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PDFPageRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PDFPageType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PDFPageType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PageRefs/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PageRefs/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Parameter/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Parameter/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ParameterRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ParameterRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ParameterValue/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ParameterValue/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ParameterValueRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ParameterValueRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ParentClass/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ParentClass/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PartOfOrganizationOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PartOfOrganizationOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PartialDate/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PartialDate/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PartialDatetime/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PartialDatetime/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PartialTime/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PartialTime/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Path/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Path/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PositiveInteger/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PositiveInteger/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PostalCode/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PostalCode/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PostalCodeRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PostalCodeRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PredecessorOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PredecessorOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Prefix/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Prefix/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PrefixRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PrefixRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PriorFileOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PriorFileOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Protocol/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Protocol/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ProtocolName/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ProtocolName/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ProtocolRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ProtocolRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/PublishingSet/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/PublishingSet/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Purpose/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Purpose/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Query/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Query/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/QueryRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/QueryRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/QuerySourceType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/QuerySourceType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/QueryStateType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/QueryStateType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/QueryType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/QueryType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Question/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Question/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/QuestionRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/QuestionRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/RangeCheck/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/RangeCheck/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/RangeCheckRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/RangeCheckRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Rank/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Rank/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ReasonForChange/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ReasonForChange/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ReasonForChangeRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ReasonForChangeRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ReferenceData/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ReferenceData/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ReferenceDataRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ReferenceDataRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/RelativeTimingConstraint/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/RelativeTimingConstraint/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/RelativeTimingConstraintRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/RelativeTimingConstraintRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/RelativeTimingConstraintType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/RelativeTimingConstraintType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Repeat/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Repeat/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/RepeatKey/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/RepeatKey/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Repeating/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Repeating/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/RepeatingLimit/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/RepeatingLimit/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Resource/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Resource/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ResourceRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ResourceRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ReturnValue/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ReturnValue/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ReturnValueRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ReturnValueRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Role/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Role/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/RoleCodeListOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/RoleCodeListOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Selection/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Selection/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SelectionRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SelectionRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SeqNum/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SeqNum/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SequenceNumber/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SequenceNumber/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ShortName/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ShortName/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SignMethod/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SignMethod/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Signature/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Signature/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SignatureDef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SignatureDef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SignatureDefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SignatureDefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SignatureOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SignatureOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SignatureRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SignatureRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SignatureRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SignatureRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SiteRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SiteRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SiteRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SiteRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SoftHard/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SoftHard/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SoftOrHard/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SoftOrHard/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Source/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Source/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SourceID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SourceID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SourceIDRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SourceIDRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SourceItem/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SourceItem/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SourceItemRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SourceItemRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SourceItems/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SourceItems/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SourceItemsRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SourceItemsRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SourceOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SourceOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SourceSystem/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SourceSystem/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SourceSystemVersion/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SourceSystemVersion/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SponsorOrSite/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SponsorOrSite/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Standard/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Standard/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StandardName/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StandardName/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StandardOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StandardOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StandardPublishingSet/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StandardPublishingSet/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StandardRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StandardRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StandardStatus/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StandardStatus/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StandardStatusEnum/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StandardStatusEnum/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StandardType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StandardType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Standards/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Standards/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StandardsRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StandardsRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StartConditionOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StartConditionOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StartOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StartOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/State/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/State/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StateProv/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StateProv/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StateProvRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StateProvRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Status/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Status/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StreetName/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StreetName/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StreetNameRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StreetNameRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/String/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/String/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StructuralElementOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StructuralElementOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Structure/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Structure/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Study/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Study/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEndPoint/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEndPoint/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEndPointOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEndPointOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEndPointRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEndPointRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEndPointRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEndPointRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEndPointType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEndPointType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEndPoints/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEndPoints/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEndPointsRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEndPointsRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEstimand/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEstimand/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEstimandRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEstimandRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEstimands/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEstimands/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEstimandsRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEstimandsRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEventData/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEventData/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEventDataRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEventDataRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEventDef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEventDef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEventDefGroup/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEventDefGroup/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEventDefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEventDefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEventGroupDef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEventGroupDef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEventGroupDefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEventGroupDefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEventGroupOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEventGroupOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEventGroupRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEventGroupRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEventGroupRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEventGroupRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEventOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEventOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEventRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEventRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyEventRepeatKey/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyEventRepeatKey/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyIndication/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyIndication/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyIndicationRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyIndicationRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyIndications/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyIndications/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyIndicationsRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyIndicationsRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyIntervention/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyIntervention/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyInterventionOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyInterventionOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyInterventionRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyInterventionRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyInterventionRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyInterventionRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyInterventions/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyInterventions/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyInterventionsRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyInterventionsRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyName/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyName/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyObjective/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyObjective/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyObjectiveRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyObjectiveRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyObjectiveType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyObjectiveType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyObjectives/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyObjectives/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyObjectivesRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyObjectivesRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyParameter/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyParameter/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyParameterRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyParameterRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyStructure/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyStructure/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyStructureRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyStructureRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudySummary/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudySummary/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudySummaryRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudySummaryRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyTargetPopulation/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyTargetPopulation/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyTargetPopulationOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyTargetPopulationOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyTargetPopulationRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyTargetPopulationRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyTargetPopulationRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyTargetPopulationRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyTiming/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyTiming/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyTimingRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyTimingRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyTimings/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyTimings/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/StudyTimingsRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/StudyTimingsRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SubClass/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SubClass/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SubClassRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SubClassRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SubjectData/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SubjectData/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SubjectDataRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SubjectDataRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SubjectKey/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SubjectKey/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SuccessorOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SuccessorOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Suffix/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Suffix/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SuffixRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SuffixRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SummaryMeasure/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SummaryMeasure/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SummaryMeasureRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SummaryMeasureRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SupplementalDoc/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SupplementalDoc/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SupplementalDocRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SupplementalDocRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/System/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/System/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SystemName/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SystemName/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/SystemVersion/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/SystemVersion/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TDatetime/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TDatetime/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TDuration/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TDuration/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/THour/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/THour/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TIncomplete/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TIncomplete/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TIncompleteDate/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TIncompleteDate/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TIncompleteTime/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TIncompleteTime/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TInterval/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TInterval/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Target/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Target/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TargetOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TargetOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TargetTransition/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TargetTransition/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TargetTransitionOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TargetTransitionOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TargetTransitionRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TargetTransitionRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Telecom/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Telecom/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TelecomRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TelecomRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TelecomTypeType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TelecomTypeType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Term/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Term/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Text/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Text/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Time/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Time/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TimepointPostWindow/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TimepointPostWindow/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TimepointPreWindow/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TimepointPreWindow/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TimepointRelativeTarget/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TimepointRelativeTarget/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TimepointTarget/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TimepointTarget/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Title/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Title/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TransactionType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TransactionType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Transition/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Transition/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TransitionOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TransitionOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TransitionTimingConstraint/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TransitionTimingConstraint/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TransitionTimingConstraintRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TransitionTimingConstraintRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TranslatedText/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TranslatedText/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TranslatedTextRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TranslatedTextRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TrialPhase/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TrialPhase/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TrialPhaseRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TrialPhaseRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TrialPhaseType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TrialPhaseType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/TrialPhaseTypeEnum/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/TrialPhaseTypeEnum/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Type/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Type/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/UnitsItemOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/UnitsItemOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Uri/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Uri/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Uriorcurie/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Uriorcurie/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/UsedMethod/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/UsedMethod/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/User/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/User/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/UserName/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/UserName/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/UserNameRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/UserNameRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/UserOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/UserOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/UserRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/UserRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/UserRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/UserRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/UserType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/UserType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Value/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Value/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ValueListDef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ValueListDef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ValueListDefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ValueListDefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ValueListOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ValueListOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ValueListRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ValueListRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ValueListRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ValueListRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ValueRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ValueRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/Version/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/Version/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WhereClauseDef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WhereClauseDef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WhereClauseDefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WhereClauseDefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WhereClauseOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WhereClauseOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WhereClauseRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WhereClauseRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WhereClauseRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WhereClauseRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WorkflowDef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WorkflowDef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WorkflowDefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WorkflowDefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WorkflowEnd/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WorkflowEnd/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WorkflowEndRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WorkflowEndRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WorkflowOID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WorkflowOID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WorkflowRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WorkflowRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WorkflowRefRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WorkflowRefRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WorkflowStart/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WorkflowStart/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WorkflowStartRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WorkflowStartRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/WorkflowTransitionGroupDefinition/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/WorkflowTransitionGroupDefinition/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/YesOnly/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/YesOnly/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/YesOrNo/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/YesOrNo/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/_content/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/_content/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/_language/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/_language/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/_languageType/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/_languageType/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/href/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/about/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/leafID/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/href/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/leafRef/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/leafID/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/odm/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/leafRef/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/ref/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/odm/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/title/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/ref/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/cdisc-or/DataExchange-ODM-LinkML/type/</loc>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/title/</loc>
+         <lastmod>2023-08-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-Linkml/type/</loc>
          <lastmod>2023-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
