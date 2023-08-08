@@ -1,0 +1,126 @@
+# Class: InvestigatorRef
+
+
+
+URI: [odm:InvestigatorRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRef)
+
+
+
+```mermaid
+ classDiagram
+    class InvestigatorRef
+      InvestigatorRef : UserOID
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+
+## Slots
+
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [UserOID](UserOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [SubjectData](SubjectData.md) | [InvestigatorRefRef](InvestigatorRefRef.md) | range | [InvestigatorRef](InvestigatorRef.md) |
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | odm:InvestigatorRef |
+| native | odm:InvestigatorRef |
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: InvestigatorRef
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+slots:
+- UserOID
+slot_usage:
+  UserOID:
+    name: UserOID
+    domain_of:
+    - InvestigatorRef
+    - UserRef
+    range: oidref
+    required: true
+class_uri: odm:InvestigatorRef
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: InvestigatorRef
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+slot_usage:
+  UserOID:
+    name: UserOID
+    domain_of:
+    - InvestigatorRef
+    - UserRef
+    range: oidref
+    required: true
+attributes:
+  UserOID:
+    name: UserOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: UserOID
+    owner: InvestigatorRef
+    domain_of:
+    - InvestigatorRef
+    - UserRef
+    range: oidref
+    required: true
+class_uri: odm:InvestigatorRef
+
+```
+</details>

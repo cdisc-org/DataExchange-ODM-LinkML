@@ -1,18 +1,22 @@
+# gen-doc ODM.yaml --directory ./docs2 --hierarchical-class-view 
+
 site_name: DataExchange-ODM-LinkML
-site_url: http://www.cdisc.org/ns/odm/v2.0
+site_url: https://cdisc-org.github.io/DataExchange-ODM-Linkml
+repo_url: https://github.com/cdisc-org/DataExchange-ODM-LinkML
+
+site_dir: '../cdisc-org.github.io'
+docs_dir: './docs'
 
 theme:
-  name: "readthedocs"
+  name: "material"
   features:
-    - navigation.instant
-    - navigation.tabs
-    - navigation.tabs.sticky
+    - content.tabs.link
 
 plugins:
-    - awesome-pages:
-        filename: .index
-        collapse_single_pages: true
-        strict: false
-        order: asc
-        sort_type: natural
-        order_by: title
+    - search
+    - mermaid2
+
+nav:
+  # - Home: home.md
+  - Index: index.md
+  - About: about.md

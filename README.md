@@ -49,22 +49,22 @@ Between these 2 frameworks we can translate ODMv2 data & schemata into helpful r
     
     python3 tools/odm2linkml.py ../DataExchange-ODM/schema/ODM.xsd --output ODM.yaml
 
-    gen-project -d . ODM.yaml --exclude shex
+    gen-project -d . ODM.yaml --exclude shex --exclude markdown
 
 More detailed relationship and cardinality constraints still need to be ported from XML Schema before shex can be added.
 
 As content is added, refresh documentation and diagrams using `mkdocs` to keep it up to date with the latest batch of generated .md files
 
+    gen-doc ODM.yaml --hierarchical-class-view --directory docs/
     mkdocs build
 
-to view the updated documentation changes locally
+to check the updated documentation changes locally
 
     mkdocs serve
 
-and eventually upload them to where they are served
+and eventually upload them to Github pages (you need to have set up your Github access, and it takes time for changes to be picked up)
 
     mkdocs gh-deploy
-
 
 # Conversion to JSON-LD and LinkML
 

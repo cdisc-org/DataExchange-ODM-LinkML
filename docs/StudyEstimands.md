@@ -1,0 +1,131 @@
+# Class: StudyEstimands
+
+
+
+URI: [odm:StudyEstimands](http://www.cdisc.org/ns/odm/v2.0/StudyEstimands)
+
+
+
+```mermaid
+ classDiagram
+    class StudyEstimands
+      StudyEstimands : StudyEstimandRef
+        
+          StudyEstimands --|> StudyEstimand : StudyEstimandRef
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+
+## Slots
+
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [StudyEstimandRef](StudyEstimandRef.md) | 1..* <br/> [StudyEstimand](StudyEstimand.md) |  | direct |
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [Protocol](Protocol.md) | [StudyEstimandsRef](StudyEstimandsRef.md) | range | [StudyEstimands](StudyEstimands.md) |
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | odm:StudyEstimands |
+| native | odm:StudyEstimands |
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: StudyEstimands
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+slots:
+- StudyEstimandRef
+slot_usage:
+  StudyEstimandRef:
+    name: StudyEstimandRef
+    multivalued: true
+    domain_of:
+    - StudyEstimands
+    range: StudyEstimand
+    required: true
+    minimum_cardinality: 1
+class_uri: odm:StudyEstimands
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: StudyEstimands
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+slot_usage:
+  StudyEstimandRef:
+    name: StudyEstimandRef
+    multivalued: true
+    domain_of:
+    - StudyEstimands
+    range: StudyEstimand
+    required: true
+    minimum_cardinality: 1
+attributes:
+  StudyEstimandRef:
+    name: StudyEstimandRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    multivalued: true
+    alias: StudyEstimandRef
+    owner: StudyEstimands
+    domain_of:
+    - StudyEstimands
+    range: StudyEstimand
+    required: true
+    minimum_cardinality: 1
+class_uri: odm:StudyEstimands
+
+```
+</details>

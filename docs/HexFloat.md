@@ -1,0 +1,34 @@
+# Type: HexFloat
+
+
+
+URI: [odm:hexFloat](http://www.cdisc.org/ns/odm/v2.0/hexFloat)
+
+* [base](https://w3id.org/linkml/base): str
+
+* [uri](https://w3id.org/linkml/uri): odm:hexFloat
+
+
+
+* [pattern](https://w3id.org/linkml/pattern): `.{0, 16}`
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+

@@ -1,0 +1,4193 @@
+{
+    "$defs": {
+        "AbsoluteTimingConstraint": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "StudyEventGroupOID": {
+                    "type": "string"
+                },
+                "StudyEventOID": {
+                    "type": "string"
+                },
+                "TimepointPostWindow": {
+                    "type": "string"
+                },
+                "TimepointPreWindow": {
+                    "type": "string"
+                },
+                "TimepointTarget": {
+                    "anyOf": [
+                        {
+                            "format": "date",
+                            "type": "string"
+                        },
+                        {
+                            "format": "time",
+                            "type": "string"
+                        },
+                        {
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "TimepointTarget"
+            ],
+            "title": "AbsoluteTimingConstraint",
+            "type": "object"
+        },
+        "Address": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CityRef": {
+                    "$ref": "#/$defs/City"
+                },
+                "CountryRef": {
+                    "$ref": "#/$defs/Country"
+                },
+                "GeoPositionRef": {
+                    "$ref": "#/$defs/GeoPosition"
+                },
+                "HouseNumberRef": {
+                    "$ref": "#/$defs/HouseNumber"
+                },
+                "OtherTextRef": {
+                    "$ref": "#/$defs/OtherText"
+                },
+                "PostalCodeRef": {
+                    "$ref": "#/$defs/PostalCode"
+                },
+                "StateProvRef": {
+                    "$ref": "#/$defs/StateProv"
+                },
+                "StreetNameRef": {
+                    "$ref": "#/$defs/StreetName"
+                }
+            },
+            "title": "Address",
+            "type": "object"
+        },
+        "AdminData": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "LocationRef": {
+                    "items": {
+                        "$ref": "#/$defs/Location"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "OrganizationRef": {
+                    "items": {
+                        "$ref": "#/$defs/Organization"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "SignatureDefRef": {
+                    "items": {
+                        "$ref": "#/$defs/SignatureDef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "StudyOID": {
+                    "type": "string"
+                },
+                "UserRef": {
+                    "items": {
+                        "$ref": "#/$defs/User"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "title": "AdminData",
+            "type": "object"
+        },
+        "Alias": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Context": {
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Context",
+                "Name"
+            ],
+            "title": "Alias",
+            "type": "object"
+        },
+        "AnnotatedCRF": {
+            "additionalProperties": false,
+            "description": "An Annotated Case Report Form (CRF) is a Portable File Format (PDF) document that provides the mapping of data collection fields to the variables or discrete variable values contained within the datasets.",
+            "title": "AnnotatedCRF",
+            "type": "object"
+        },
+        "Annotation": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CommentRef": {
+                    "$ref": "#/$defs/Comment"
+                },
+                "FlagRef": {
+                    "items": {
+                        "$ref": "#/$defs/Flag"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "ID": {
+                    "description": "Unique identifier for the leaf that is referenced.",
+                    "type": "string"
+                },
+                "SeqNum": {
+                    "type": "integer"
+                },
+                "TransactionType": {
+                    "$ref": "#/$defs/TransactionType"
+                }
+            },
+            "required": [
+                "SeqNum"
+            ],
+            "title": "Annotation",
+            "type": "object"
+        },
+        "Arm": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "WorkflowRefRef": {
+                    "$ref": "#/$defs/WorkflowRef"
+                }
+            },
+            "required": [
+                "OID",
+                "Name"
+            ],
+            "title": "Arm",
+            "type": "object"
+        },
+        "Association": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AnnotationRef": {
+                    "$ref": "#/$defs/Annotation"
+                },
+                "KeySetRef": {
+                    "$ref": "#/$defs/KeySet"
+                },
+                "MetaDataVersionOID": {
+                    "type": "string"
+                },
+                "StudyOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StudyOID",
+                "MetaDataVersionOID",
+                "KeySetRef",
+                "AnnotationRef"
+            ],
+            "title": "Association",
+            "type": "object"
+        },
+        "AuditRecord": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "DateTimeStampRef": {
+                    "$ref": "#/$defs/DateTimeStamp"
+                },
+                "EditPoint": {
+                    "$ref": "#/$defs/EditPointType"
+                },
+                "LocationRefRef": {
+                    "$ref": "#/$defs/LocationRef"
+                },
+                "ReasonForChangeRef": {
+                    "$ref": "#/$defs/ReasonForChange"
+                },
+                "SourceIDRef": {
+                    "$ref": "#/$defs/SourceID"
+                },
+                "UsedMethod": {
+                    "$ref": "#/$defs/YesOrNo"
+                },
+                "UserRefRef": {
+                    "$ref": "#/$defs/UserRef"
+                }
+            },
+            "required": [
+                "UserRefRef",
+                "LocationRefRef",
+                "DateTimeStampRef"
+            ],
+            "title": "AuditRecord",
+            "type": "object"
+        },
+        "Branching": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "DefaultTransitionRef": {
+                    "items": {
+                        "$ref": "#/$defs/DefaultTransition"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "TargetTransitionRef": {
+                    "items": {
+                        "$ref": "#/$defs/TargetTransition"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "Type": {
+                    "$ref": "#/$defs/BranchingType",
+                    "description": "Type of page for page references indicated in the PageRefs attribute."
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "Type",
+                "TargetTransitionRef"
+            ],
+            "title": "Branching",
+            "type": "object"
+        },
+        "BranchingType": {
+            "description": "",
+            "enum": [
+                "Exclusive",
+                "Parallel"
+            ],
+            "title": "BranchingType",
+            "type": "string"
+        },
+        "CLDataType": {
+            "description": "",
+            "enum": [
+                "integer",
+                "decimal",
+                "text",
+                "string"
+            ],
+            "title": "CLDataType",
+            "type": "string"
+        },
+        "CheckValue": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "CheckValue",
+            "type": "object"
+        },
+        "City": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "City",
+            "type": "object"
+        },
+        "Class": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Name": {
+                    "$ref": "#/$defs/ItemGroupClass",
+                    "description": "General observation Sub Class."
+                }
+            },
+            "required": [
+                "Name"
+            ],
+            "title": "Class",
+            "type": "object"
+        },
+        "ClinicalData": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "ItemGroupDataRef": {
+                    "items": {
+                        "$ref": "#/$defs/ItemGroupData"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "MetaDataVersionOID": {
+                    "type": "string"
+                },
+                "QueryRef": {
+                    "items": {
+                        "$ref": "#/$defs/Query"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "StudyOID": {
+                    "type": "string"
+                },
+                "SubjectDataRef": {
+                    "items": {
+                        "$ref": "#/$defs/SubjectData"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "StudyOID",
+                "MetaDataVersionOID"
+            ],
+            "title": "ClinicalData",
+            "type": "object"
+        },
+        "Code": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "Code",
+            "type": "object"
+        },
+        "CodeList": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AliasRef": {
+                    "items": {
+                        "$ref": "#/$defs/Alias"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CommentOID": {
+                    "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
+                    "type": "string"
+                },
+                "DataType": {
+                    "$ref": "#/$defs/CLDataType",
+                    "description": "The DataType attribute specifies how the corresponding value\n                    elements are to be interpreted for comparison and storage."
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "ExternalCodeListRef": {
+                    "$ref": "#/$defs/ExternalCodeList"
+                },
+                "IsNonStandard": {
+                    "$ref": "#/$defs/YesOnly"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "StandardOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "DataType"
+            ],
+            "title": "CodeList",
+            "type": "object"
+        },
+        "CodeListItem": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AliasRef": {
+                    "items": {
+                        "$ref": "#/$defs/Alias"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CodedValue": {
+                    "type": "string"
+                },
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CommentOID": {
+                    "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
+                    "type": "string"
+                },
+                "DecodeRef": {
+                    "$ref": "#/$defs/Decode"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "ExtendedValue": {
+                    "$ref": "#/$defs/YesOnly"
+                },
+                "OrderNumber": {
+                    "type": "integer"
+                },
+                "Other": {
+                    "$ref": "#/$defs/YesOnly"
+                },
+                "Rank": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "CodedValue",
+                "DecodeRef"
+            ],
+            "title": "CodeListItem",
+            "type": "object"
+        },
+        "CodeListRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CodeListOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "CodeListOID"
+            ],
+            "title": "CodeListRef",
+            "type": "object"
+        },
+        "Coding": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Code": {
+                    "type": "string"
+                },
+                "CommentOID": {
+                    "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
+                    "type": "string"
+                },
+                "Label": {
+                    "type": "string"
+                },
+                "System": {
+                    "type": "string"
+                },
+                "SystemName": {
+                    "type": "string"
+                },
+                "SystemVersion": {
+                    "type": "string"
+                },
+                "href": {
+                    "description": "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Code",
+                "System"
+            ],
+            "title": "Coding",
+            "type": "object"
+        },
+        "Comment": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "SponsorOrSite": {
+                    "$ref": "#/$defs/CommentType"
+                }
+            },
+            "title": "Comment",
+            "type": "object"
+        },
+        "CommentDef": {
+            "additionalProperties": false,
+            "description": "The Comment element allows referencing short comments self-contained in the XML document or long comments normally included in external documents. For comments included in external documents, the reference could include specific pages of a document where the comments are included.",
+            "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description",
+                    "description": "Text of the comment."
+                },
+                "DocumentRefRef": {
+                    "description": "The DocumentRef element is a container for page references in a PDF file.",
+                    "items": {
+                        "$ref": "#/$defs/DocumentRef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "DescriptionRef"
+            ],
+            "title": "CommentDef",
+            "type": "object"
+        },
+        "CommentType": {
+            "description": "",
+            "enum": [
+                "Sponsor",
+                "Site"
+            ],
+            "title": "CommentType",
+            "type": "string"
+        },
+        "Comparator": {
+            "description": "",
+            "enum": [
+                "LT",
+                "LE",
+                "GT",
+                "GE",
+                "EQ",
+                "NE",
+                "IN",
+                "NOTIN"
+            ],
+            "title": "Comparator",
+            "type": "string"
+        },
+        "ConditionDef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AliasRef": {
+                    "items": {
+                        "$ref": "#/$defs/Alias"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CommentOID": {
+                    "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
+                    "type": "string"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "FormalExpressionRef": {
+                    "items": {
+                        "$ref": "#/$defs/FormalExpression"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "MethodSignatureRef": {
+                    "$ref": "#/$defs/MethodSignature"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "DescriptionRef",
+                "MethodSignatureRef"
+            ],
+            "title": "ConditionDef",
+            "type": "object"
+        },
+        "Context": {
+            "description": "",
+            "enum": [
+                "Archive",
+                "Exchange",
+                "Submission"
+            ],
+            "title": "Context",
+            "type": "string"
+        },
+        "Country": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "Country",
+            "type": "object"
+        },
+        "Criterion": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "ConditionOID": {
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "ConditionOID"
+            ],
+            "title": "Criterion",
+            "type": "object"
+        },
+        "DataType": {
+            "description": "",
+            "enum": [
+                "integer",
+                "decimal",
+                "float",
+                "double",
+                "date",
+                "datetime",
+                "time",
+                "text",
+                "string",
+                "URI",
+                "boolean",
+                "hexBinary",
+                "base64Binary",
+                "hexFloat",
+                "base64Float",
+                "partialDate",
+                "partialTime",
+                "partialDatetime",
+                "durationDatetime",
+                "intervalDatetime",
+                "incompleteDatetime",
+                "incompleteDate",
+                "incompleteTime"
+            ],
+            "title": "DataType",
+            "type": "string"
+        },
+        "DateTimeStamp": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "DateTimeStamp",
+            "type": "object"
+        },
+        "Decode": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "Decode",
+            "type": "object"
+        },
+        "DefaultTransition": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "TargetTransitionOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "TargetTransitionOID"
+            ],
+            "title": "DefaultTransition",
+            "type": "object"
+        },
+        "Description": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "Description",
+            "type": "object"
+        },
+        "DictionaryNameTypeEnum": {
+            "description": "",
+            "enum": [
+                "CDISC CT",
+                "COSTART",
+                "CTCAE",
+                "D-U-N-S NUMBER",
+                "ICD",
+                "LOINC",
+                "MED-RT",
+                "MedDRA",
+                "SNOMED",
+                "UNII",
+                "WHO ATC CLASSIFICATION SYSTEM",
+                "WHOART",
+                "WHODD"
+            ],
+            "title": "DictionaryNameTypeEnum",
+            "type": "string"
+        },
+        "DocumentRef": {
+            "additionalProperties": false,
+            "description": "Links to a leaf element with the location of the document.",
+            "properties": {
+                "leafID": {
+                    "description": "Unique identifier for the leaf element with the document location.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "leafID"
+            ],
+            "title": "DocumentRef",
+            "type": "object"
+        },
+        "DurationTimingConstraint": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "DurationPostWindow": {
+                    "type": "string"
+                },
+                "DurationPreWindow": {
+                    "type": "string"
+                },
+                "DurationTarget": {
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "StructuralElementOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "StructuralElementOID",
+                "DurationTarget"
+            ],
+            "title": "DurationTimingConstraint",
+            "type": "object"
+        },
+        "EditPointType": {
+            "description": "",
+            "enum": [
+                "Monitoring",
+                "DataManagement",
+                "DBAudit"
+            ],
+            "title": "EditPointType",
+            "type": "string"
+        },
+        "EntryCriteria": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "EntryCriteria",
+            "type": "object"
+        },
+        "EnumeratedItem": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AliasRef": {
+                    "items": {
+                        "$ref": "#/$defs/Alias"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CodedValue": {
+                    "type": "string"
+                },
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CommentOID": {
+                    "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
+                    "type": "string"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "ExtendedValue": {
+                    "$ref": "#/$defs/YesOnly"
+                },
+                "OrderNumber": {
+                    "type": "integer"
+                },
+                "Other": {
+                    "$ref": "#/$defs/YesOnly"
+                },
+                "Rank": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "CodedValue"
+            ],
+            "title": "EnumeratedItem",
+            "type": "object"
+        },
+        "Epoch": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "SequenceNumber": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "SequenceNumber"
+            ],
+            "title": "Epoch",
+            "type": "object"
+        },
+        "ErrorMessage": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "ErrorMessage",
+            "type": "object"
+        },
+        "EventType": {
+            "description": "",
+            "enum": [
+                "Scheduled",
+                "Unscheduled",
+                "Common"
+            ],
+            "title": "EventType",
+            "type": "string"
+        },
+        "ExceptionEvent": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "ConditionOID": {
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "Name"
+            ],
+            "title": "ExceptionEvent",
+            "type": "object"
+        },
+        "ExclusionCriteria": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "ExclusionCriteria",
+            "type": "object"
+        },
+        "ExitCriteria": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "ExitCriteria",
+            "type": "object"
+        },
+        "ExternalCodeLib": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Library": {
+                    "type": "string"
+                },
+                "Method": {
+                    "type": "string"
+                },
+                "Version": {
+                    "description": "Version of Standard.",
+                    "type": "string"
+                },
+                "href": {
+                    "description": "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file.",
+                    "type": "string"
+                },
+                "ref": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Library"
+            ],
+            "title": "ExternalCodeLib",
+            "type": "object"
+        },
+        "ExternalCodeList": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Dictionary": {
+                    "type": "string"
+                },
+                "Version": {
+                    "description": "Version of Standard.",
+                    "type": "string"
+                },
+                "href": {
+                    "description": "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file.",
+                    "type": "string"
+                },
+                "ref": {
+                    "type": "string"
+                }
+            },
+            "title": "ExternalCodeList",
+            "type": "object"
+        },
+        "FamilyName": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "FamilyName",
+            "type": "object"
+        },
+        "FileType": {
+            "description": "",
+            "enum": [
+                "Snapshot",
+                "Transactional"
+            ],
+            "title": "FileType",
+            "type": "string"
+        },
+        "Flag": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "FlagTypeRef": {
+                    "$ref": "#/$defs/FlagType"
+                },
+                "FlagValueRef": {
+                    "$ref": "#/$defs/FlagValue"
+                }
+            },
+            "required": [
+                "FlagValueRef"
+            ],
+            "title": "Flag",
+            "type": "object"
+        },
+        "FlagType": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CodeListOID": {
+                    "type": "string"
+                },
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "CodeListOID"
+            ],
+            "title": "FlagType",
+            "type": "object"
+        },
+        "FlagValue": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CodeListOID": {
+                    "type": "string"
+                },
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "CodeListOID"
+            ],
+            "title": "FlagValue",
+            "type": "object"
+        },
+        "FormalExpression": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Context": {
+                    "type": "string"
+                }
+            },
+            "title": "FormalExpression",
+            "type": "object"
+        },
+        "FullName": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "FullName",
+            "type": "object"
+        },
+        "GeoPosition": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Altitude": {
+                    "type": "number"
+                },
+                "Latitude": {
+                    "type": "number"
+                },
+                "Longitude": {
+                    "type": "number"
+                }
+            },
+            "title": "GeoPosition",
+            "type": "object"
+        },
+        "GivenName": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "GivenName",
+            "type": "object"
+        },
+        "Granularity": {
+            "description": "",
+            "enum": [
+                "All",
+                "Metadata",
+                "AdminData",
+                "ReferenceData",
+                "AllClinicalData",
+                "SingleSite",
+                "SingleSubject"
+            ],
+            "title": "Granularity",
+            "type": "string"
+        },
+        "HouseNumber": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "HouseNumber",
+            "type": "object"
+        },
+        "Image": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "ImageFileName": {
+                    "type": "string"
+                },
+                "MimeType": {
+                    "type": "string"
+                },
+                "href": {
+                    "description": "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file.",
+                    "type": "string"
+                }
+            },
+            "title": "Image",
+            "type": "object"
+        },
+        "Include": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "MetaDataVersionOID": {
+                    "type": "string"
+                },
+                "StudyOID": {
+                    "type": "string"
+                },
+                "href": {
+                    "description": "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StudyOID",
+                "MetaDataVersionOID"
+            ],
+            "title": "Include",
+            "type": "object"
+        },
+        "InclusionCriteria": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "InclusionCriteria",
+            "type": "object"
+        },
+        "InclusionExclusionCriteria": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "ExclusionCriteriaRef": {
+                    "$ref": "#/$defs/ExclusionCriteria"
+                },
+                "InclusionCriteriaRef": {
+                    "$ref": "#/$defs/InclusionCriteria"
+                }
+            },
+            "title": "InclusionExclusionCriteria",
+            "type": "object"
+        },
+        "IntercurrentEvent": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "IntercurrentEvent",
+            "type": "object"
+        },
+        "InvestigatorRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "UserOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "UserOID"
+            ],
+            "title": "InvestigatorRef",
+            "type": "object"
+        },
+        "ItemData": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "IsNull": {
+                    "$ref": "#/$defs/YesOnly"
+                },
+                "ItemOID": {
+                    "type": "string"
+                },
+                "QueryRef": {
+                    "items": {
+                        "$ref": "#/$defs/Query"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "TransactionType": {
+                    "$ref": "#/$defs/TransactionType"
+                },
+                "ValueRef": {
+                    "items": {
+                        "$ref": "#/$defs/Value"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "ItemOID"
+            ],
+            "title": "ItemData",
+            "type": "object"
+        },
+        "ItemDef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AliasRef": {
+                    "items": {
+                        "$ref": "#/$defs/Alias"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CodeListRefRef": {
+                    "$ref": "#/$defs/CodeListRef"
+                },
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CommentOID": {
+                    "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
+                    "type": "string"
+                },
+                "DataType": {
+                    "$ref": "#/$defs/DataType",
+                    "description": "The DataType attribute specifies how the corresponding value\n                    elements are to be interpreted for comparison and storage."
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "DisplayFormat": {
+                    "type": "string"
+                },
+                "Length": {
+                    "description": "The Length attribute is optional when DataType is text, string,\n                    integer, or float; and should not be used for the other\n                    datatypes.",
+                    "type": "integer"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "QuestionRef": {
+                    "$ref": "#/$defs/Question"
+                },
+                "RangeCheckRef": {
+                    "items": {
+                        "$ref": "#/$defs/RangeCheck"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "ValueListRefRef": {
+                    "$ref": "#/$defs/ValueListRef"
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "DataType"
+            ],
+            "title": "ItemDef",
+            "type": "object"
+        },
+        "ItemGroupClass": {
+            "description": "",
+            "enum": [
+                "ADAM OTHER",
+                "BASIC DATA STRUCTURE",
+                "DEVICE LEVEL ANALYSIS DATASET",
+                "EVENTS",
+                "FINDINGS",
+                "FINDINGS ABOUT",
+                "INTERVENTIONS",
+                "MEDICAL DEVICE BASIC DATA STRUCTURE",
+                "MEDICAL DEVICE OCCURRENCE DATA STRUCTURE",
+                "OCCURRENCE DATA STRUCTURE",
+                "RELATIONSHIP",
+                "SPECIAL PURPOSE",
+                "STUDY REFERENCE",
+                "SUBJECT LEVEL ANALYSIS DATASET",
+                "TRIAL DESIGN"
+            ],
+            "title": "ItemGroupClass",
+            "type": "string"
+        },
+        "ItemGroupData": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "ItemGroupDataSeq": {
+                    "type": "integer"
+                },
+                "ItemGroupOID": {
+                    "type": "string"
+                },
+                "ItemGroupRepeatKey": {
+                    "type": "string"
+                },
+                "TransactionType": {
+                    "$ref": "#/$defs/TransactionType"
+                }
+            },
+            "required": [
+                "ItemGroupOID"
+            ],
+            "title": "ItemGroupData",
+            "type": "object"
+        },
+        "ItemGroupDef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AliasRef": {
+                    "items": {
+                        "$ref": "#/$defs/Alias"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "ArchiveLocationID": {
+                    "type": "string"
+                },
+                "ClassRef": {
+                    "$ref": "#/$defs/Class"
+                },
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CommentOID": {
+                    "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
+                    "type": "string"
+                },
+                "DatasetName": {
+                    "type": "string"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "Domain": {
+                    "type": "string"
+                },
+                "HasNoData": {
+                    "$ref": "#/$defs/YesOnly"
+                },
+                "IsNonStandard": {
+                    "$ref": "#/$defs/YesOnly"
+                },
+                "IsReferenceData": {
+                    "$ref": "#/$defs/YesOrNo"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "OriginRef": {
+                    "items": {
+                        "$ref": "#/$defs/Origin"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Purpose": {
+                    "type": "string"
+                },
+                "Repeating": {
+                    "$ref": "#/$defs/ItemGroupRepeatingType"
+                },
+                "RepeatingLimit": {
+                    "type": "integer"
+                },
+                "StandardOID": {
+                    "type": "string"
+                },
+                "Structure": {
+                    "type": "string"
+                },
+                "Type": {
+                    "description": "Type of page for page references indicated in the PageRefs attribute.",
+                    "type": "string"
+                },
+                "WorkflowRefRef": {
+                    "$ref": "#/$defs/WorkflowRef"
+                },
+                "leafRef": {
+                    "$ref": "#/$defs/Leaf"
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "Repeating",
+                "Type"
+            ],
+            "title": "ItemGroupDef",
+            "type": "object"
+        },
+        "ItemGroupRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CollectionExceptionConditionOID": {
+                    "type": "string"
+                },
+                "ItemGroupOID": {
+                    "type": "string"
+                },
+                "Mandatory": {
+                    "$ref": "#/$defs/YesOrNo"
+                },
+                "MethodOID": {
+                    "type": "string"
+                },
+                "OrderNumber": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "ItemGroupOID",
+                "Mandatory"
+            ],
+            "title": "ItemGroupRef",
+            "type": "object"
+        },
+        "ItemGroupRepeatingType": {
+            "description": "",
+            "enum": [
+                "No",
+                "Simple",
+                "Dynamic",
+                "Static"
+            ],
+            "title": "ItemGroupRepeatingType",
+            "type": "string"
+        },
+        "ItemGroupSubClass": {
+            "description": "",
+            "enum": [
+                "ADVERSE EVENT",
+                "MEDICAL DEVICE TIME-TO-EVENT",
+                "NON-COMPARTMENTAL ANALYSIS",
+                "TIME-TO-EVENT"
+            ],
+            "title": "ItemGroupSubClass",
+            "type": "string"
+        },
+        "ItemGroupTypeTypeEnum": {
+            "description": "",
+            "enum": [],
+            "title": "ItemGroupTypeTypeEnum",
+            "type": "string"
+        },
+        "ItemRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CollectionExceptionConditionOID": {
+                    "type": "string"
+                },
+                "HasNoData": {
+                    "$ref": "#/$defs/YesOnly"
+                },
+                "IsNonStandard": {
+                    "$ref": "#/$defs/YesOnly"
+                },
+                "ItemOID": {
+                    "type": "string"
+                },
+                "KeySequence": {
+                    "type": "integer"
+                },
+                "Mandatory": {
+                    "$ref": "#/$defs/YesOrNo"
+                },
+                "MethodOID": {
+                    "type": "string"
+                },
+                "OrderNumber": {
+                    "type": "integer"
+                },
+                "OriginRef": {
+                    "items": {
+                        "$ref": "#/$defs/Origin"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Other": {
+                    "$ref": "#/$defs/YesOnly"
+                },
+                "Repeat": {
+                    "$ref": "#/$defs/YesOnly"
+                },
+                "Role": {
+                    "type": "string"
+                },
+                "RoleCodeListOID": {
+                    "type": "string"
+                },
+                "UnitsItemOID": {
+                    "type": "string"
+                },
+                "WhereClauseRefRef": {
+                    "items": {
+                        "$ref": "#/$defs/WhereClauseRef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "ItemOID",
+                "Mandatory"
+            ],
+            "title": "ItemRef",
+            "type": "object"
+        },
+        "KeySet": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "ItemGroupOID": {
+                    "type": "string"
+                },
+                "ItemGroupRepeatKey": {
+                    "type": "string"
+                },
+                "ItemOID": {
+                    "type": "string"
+                },
+                "MetaDataVersionOID": {
+                    "type": "string"
+                },
+                "StudyEventOID": {
+                    "type": "string"
+                },
+                "StudyEventRepeatKey": {
+                    "type": "string"
+                },
+                "StudyOID": {
+                    "type": "string"
+                },
+                "SubjectKey": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StudyOID"
+            ],
+            "title": "KeySet",
+            "type": "object"
+        },
+        "Leaf": {
+            "additionalProperties": false,
+            "description": "Contains the XLink information referenced by DocumentRef or ArchiveLocationID",
+            "properties": {
+                "ID": {
+                    "description": "Unique identifier for the leaf that is referenced.",
+                    "type": "string"
+                },
+                "href": {
+                    "description": "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ID",
+                "href"
+            ],
+            "title": "Leaf",
+            "type": "object"
+        },
+        "LegalReason": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "LegalReason",
+            "type": "object"
+        },
+        "Location": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AddressRef": {
+                    "items": {
+                        "$ref": "#/$defs/Address"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "MetaDataVersionRefRef": {
+                    "items": {
+                        "$ref": "#/$defs/MetaDataVersionRef"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "OrganizationOID": {
+                    "type": "string"
+                },
+                "QueryRef": {
+                    "items": {
+                        "$ref": "#/$defs/Query"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Role": {
+                    "type": "string"
+                },
+                "TelecomRef": {
+                    "items": {
+                        "$ref": "#/$defs/Telecom"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "MetaDataVersionRefRef"
+            ],
+            "title": "Location",
+            "type": "object"
+        },
+        "LocationRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "LocationOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "LocationOID"
+            ],
+            "title": "LocationRef",
+            "type": "object"
+        },
+        "Meaning": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "Meaning",
+            "type": "object"
+        },
+        "MetaDataVersion": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AnnotatedCRFRef": {
+                    "$ref": "#/$defs/AnnotatedCRF"
+                },
+                "CodeListRef": {
+                    "items": {
+                        "$ref": "#/$defs/CodeList"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CommentDefRef": {
+                    "items": {
+                        "$ref": "#/$defs/CommentDef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CommentOID": {
+                    "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
+                    "type": "string"
+                },
+                "ConditionDefRef": {
+                    "items": {
+                        "$ref": "#/$defs/ConditionDef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "IncludeRef": {
+                    "$ref": "#/$defs/Include"
+                },
+                "ItemDefRef": {
+                    "items": {
+                        "$ref": "#/$defs/ItemDef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "ItemGroupDefRef": {
+                    "items": {
+                        "$ref": "#/$defs/ItemGroupDef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "MethodDefRef": {
+                    "items": {
+                        "$ref": "#/$defs/MethodDef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "ProtocolRef": {
+                    "$ref": "#/$defs/Protocol"
+                },
+                "StandardsRef": {
+                    "$ref": "#/$defs/Standards"
+                },
+                "StudyEventDefRef": {
+                    "items": {
+                        "$ref": "#/$defs/StudyEventDef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "StudyEventGroupDefRef": {
+                    "items": {
+                        "$ref": "#/$defs/StudyEventGroupDef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "SupplementalDocRef": {
+                    "$ref": "#/$defs/SupplementalDoc"
+                },
+                "ValueListDefRef": {
+                    "items": {
+                        "$ref": "#/$defs/ValueListDef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "WhereClauseDefRef": {
+                    "items": {
+                        "$ref": "#/$defs/WhereClauseDef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "WorkflowDefRef": {
+                    "items": {
+                        "$ref": "#/$defs/WorkflowDef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "leafRef": {
+                    "items": {
+                        "$ref": "#/$defs/Leaf"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "OID",
+                "Name"
+            ],
+            "title": "MetaDataVersion",
+            "type": "object"
+        },
+        "MetaDataVersionRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "EffectiveDate": {
+                    "format": "date",
+                    "type": "string"
+                },
+                "MetaDataVersionOID": {
+                    "type": "string"
+                },
+                "StudyOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StudyOID",
+                "MetaDataVersionOID",
+                "EffectiveDate"
+            ],
+            "title": "MetaDataVersionRef",
+            "type": "object"
+        },
+        "MethodDef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AliasRef": {
+                    "items": {
+                        "$ref": "#/$defs/Alias"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CommentOID": {
+                    "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
+                    "type": "string"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "DocumentRefRef": {
+                    "description": "The DocumentRef element is a container for page references in a PDF file.",
+                    "items": {
+                        "$ref": "#/$defs/DocumentRef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "FormalExpressionRef": {
+                    "items": {
+                        "$ref": "#/$defs/FormalExpression"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "MethodSignatureRef": {
+                    "$ref": "#/$defs/MethodSignature"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "Type": {
+                    "$ref": "#/$defs/MethodType",
+                    "description": "Type of page for page references indicated in the PageRefs attribute."
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "DescriptionRef",
+                "MethodSignatureRef"
+            ],
+            "title": "MethodDef",
+            "type": "object"
+        },
+        "MethodSignature": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "ParameterRef": {
+                    "items": {
+                        "$ref": "#/$defs/Parameter"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "ReturnValueRef": {
+                    "items": {
+                        "$ref": "#/$defs/ReturnValue"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "title": "MethodSignature",
+            "type": "object"
+        },
+        "MethodType": {
+            "description": "",
+            "enum": [
+                "Computation",
+                "Imputation",
+                "Preload",
+                "Transpose"
+            ],
+            "title": "MethodType",
+            "type": "string"
+        },
+        "ODMFileMetadata": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AdminDataRef": {
+                    "items": {
+                        "$ref": "#/$defs/AdminData"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "AsOfDateTime": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "AssociationRef": {
+                    "items": {
+                        "$ref": "#/$defs/Association"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "ClinicalDataRef": {
+                    "items": {
+                        "$ref": "#/$defs/ClinicalData"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Context": {
+                    "$ref": "#/$defs/Context"
+                },
+                "CreationDateTime": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "FileOID": {
+                    "type": "string"
+                },
+                "FileType": {
+                    "$ref": "#/$defs/FileType"
+                },
+                "Granularity": {
+                    "$ref": "#/$defs/Granularity"
+                },
+                "ODMVersion": {
+                    "type": "string"
+                },
+                "Originator": {
+                    "type": "string"
+                },
+                "PriorFileOID": {
+                    "type": "string"
+                },
+                "ReferenceDataRef": {
+                    "items": {
+                        "$ref": "#/$defs/ReferenceData"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "SourceSystem": {
+                    "type": "string"
+                },
+                "SourceSystemVersion": {
+                    "type": "string"
+                },
+                "StudyRef": {
+                    "items": {
+                        "$ref": "#/$defs/Study"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "FileType",
+                "FileOID",
+                "CreationDateTime"
+            ],
+            "title": "ODMFileMetadata",
+            "type": "object"
+        },
+        "Organization": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AddressRef": {
+                    "items": {
+                        "$ref": "#/$defs/Address"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "LocationOID": {
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "PartOfOrganizationOID": {
+                    "type": "string"
+                },
+                "Role": {
+                    "type": "string"
+                },
+                "TelecomRef": {
+                    "items": {
+                        "$ref": "#/$defs/Telecom"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Type": {
+                    "$ref": "#/$defs/OrganizationType",
+                    "description": "Type of page for page references indicated in the PageRefs attribute."
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "Type"
+            ],
+            "title": "Organization",
+            "type": "object"
+        },
+        "OrganizationType": {
+            "description": "",
+            "enum": [
+                "Sponsor",
+                "Site",
+                "CRO",
+                "Lab",
+                "Other",
+                "TechnologyProvider"
+            ],
+            "title": "OrganizationType",
+            "type": "string"
+        },
+        "Origin": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "DocumentRefRef": {
+                    "description": "The DocumentRef element is a container for page references in a PDF file.",
+                    "items": {
+                        "$ref": "#/$defs/DocumentRef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Source": {
+                    "$ref": "#/$defs/OriginSource"
+                },
+                "SourceItemsRef": {
+                    "$ref": "#/$defs/SourceItems"
+                },
+                "Type": {
+                    "$ref": "#/$defs/OriginType",
+                    "description": "Type of page for page references indicated in the PageRefs attribute."
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "title": "Origin",
+            "type": "object"
+        },
+        "OriginSource": {
+            "description": "",
+            "enum": [
+                "Investigator",
+                "Sponsor",
+                "Subject",
+                "Vendor"
+            ],
+            "title": "OriginSource",
+            "type": "string"
+        },
+        "OriginType": {
+            "description": "",
+            "enum": [
+                "Assigned",
+                "Collected",
+                "Derived",
+                "EHR",
+                "Not Available",
+                "Other",
+                "Predecessor",
+                "Protocol"
+            ],
+            "title": "OriginType",
+            "type": "string"
+        },
+        "OtherText": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "OtherText",
+            "type": "object"
+        },
+        "PDFPageRef": {
+            "additionalProperties": false,
+            "description": "This element is the container for CRF page references.",
+            "properties": {
+                "FirstPage": {
+                    "description": "First page in a range of pages.",
+                    "type": "integer"
+                },
+                "LastPage": {
+                    "description": "Last page in a range of pages.",
+                    "type": "integer"
+                },
+                "PageRefs": {
+                    "description": "List of PDF pages separated by a space.",
+                    "type": "string"
+                },
+                "Title": {
+                    "description": "Text with the label for the document reference.",
+                    "type": "string"
+                },
+                "Type": {
+                    "$ref": "#/$defs/PDFPageType",
+                    "description": "Type of page for page references indicated in the PageRefs attribute."
+                }
+            },
+            "required": [
+                "Type"
+            ],
+            "title": "PDFPageRef",
+            "type": "object"
+        },
+        "PDFPageType": {
+            "description": "",
+            "enum": [
+                "NamedDestination",
+                "PhysicalRef"
+            ],
+            "title": "PDFPageType",
+            "type": "string"
+        },
+        "Parameter": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "DataType": {
+                    "$ref": "#/$defs/DataType",
+                    "description": "The DataType attribute specifies how the corresponding value\n                    elements are to be interpreted for comparison and storage."
+                },
+                "Definition": {
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OrderNumber": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "Name",
+                "DataType"
+            ],
+            "title": "Parameter",
+            "type": "object"
+        },
+        "ParameterValue": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Value"
+            ],
+            "title": "ParameterValue",
+            "type": "object"
+        },
+        "PostalCode": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "PostalCode",
+            "type": "object"
+        },
+        "Prefix": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "Prefix",
+            "type": "object"
+        },
+        "Protocol": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AliasRef": {
+                    "items": {
+                        "$ref": "#/$defs/Alias"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "InclusionExclusionCriteriaRef": {
+                    "$ref": "#/$defs/InclusionExclusionCriteria"
+                },
+                "StudyEndPointsRef": {
+                    "$ref": "#/$defs/StudyEndPoints"
+                },
+                "StudyEstimandsRef": {
+                    "$ref": "#/$defs/StudyEstimands"
+                },
+                "StudyEventGroupRefRef": {
+                    "items": {
+                        "$ref": "#/$defs/StudyEventGroupRef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "StudyIndicationsRef": {
+                    "$ref": "#/$defs/StudyIndications"
+                },
+                "StudyInterventionsRef": {
+                    "$ref": "#/$defs/StudyInterventions"
+                },
+                "StudyObjectivesRef": {
+                    "$ref": "#/$defs/StudyObjectives"
+                },
+                "StudyStructureRef": {
+                    "$ref": "#/$defs/StudyStructure"
+                },
+                "StudySummaryRef": {
+                    "$ref": "#/$defs/StudySummary"
+                },
+                "StudyTargetPopulationRef": {
+                    "$ref": "#/$defs/StudyTargetPopulation"
+                },
+                "StudyTimingsRef": {
+                    "$ref": "#/$defs/StudyTimings"
+                },
+                "TrialPhaseRef": {
+                    "$ref": "#/$defs/TrialPhase"
+                },
+                "WorkflowRefRef": {
+                    "$ref": "#/$defs/WorkflowRef"
+                }
+            },
+            "title": "Protocol",
+            "type": "object"
+        },
+        "Query": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AuditRecordRef": {
+                    "$ref": "#/$defs/AuditRecord"
+                },
+                "LastUpdateDatetime": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "Source": {
+                    "$ref": "#/$defs/QuerySourceType"
+                },
+                "State": {
+                    "$ref": "#/$defs/QueryStateType"
+                },
+                "Target": {
+                    "type": "string"
+                },
+                "Type": {
+                    "$ref": "#/$defs/QueryType",
+                    "description": "Type of page for page references indicated in the PageRefs attribute."
+                },
+                "ValueRef": {
+                    "$ref": "#/$defs/Value"
+                }
+            },
+            "required": [
+                "OID",
+                "Source",
+                "State",
+                "LastUpdateDatetime",
+                "ValueRef"
+            ],
+            "title": "Query",
+            "type": "object"
+        },
+        "QuerySourceType": {
+            "description": "",
+            "enum": [
+                "System",
+                "Data Management",
+                "Site Monitor",
+                "Coding System",
+                "Safety Reviewer"
+            ],
+            "title": "QuerySourceType",
+            "type": "string"
+        },
+        "QueryStateType": {
+            "description": "",
+            "enum": [
+                "Candidate",
+                "Open",
+                "Answered",
+                "Closed",
+                "Cancelled",
+                "Resolved"
+            ],
+            "title": "QueryStateType",
+            "type": "string"
+        },
+        "QueryType": {
+            "description": "",
+            "enum": [
+                "Manual",
+                "System"
+            ],
+            "title": "QueryType",
+            "type": "string"
+        },
+        "Question": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "Question",
+            "type": "object"
+        },
+        "RangeCheck": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Comparator": {
+                    "$ref": "#/$defs/Comparator"
+                },
+                "ItemOID": {
+                    "type": "string"
+                },
+                "SoftHard": {
+                    "$ref": "#/$defs/SoftOrHard"
+                }
+            },
+            "title": "RangeCheck",
+            "type": "object"
+        },
+        "ReasonForChange": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "ReasonForChange",
+            "type": "object"
+        },
+        "ReferenceData": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "MetaDataVersionOID": {
+                    "type": "string"
+                },
+                "StudyOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StudyOID",
+                "MetaDataVersionOID"
+            ],
+            "title": "ReferenceData",
+            "type": "object"
+        },
+        "RelativeTimingConstraint": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "PredecessorOID": {
+                    "type": "string"
+                },
+                "SuccessorOID": {
+                    "type": "string"
+                },
+                "TimepointPostWindow": {
+                    "type": "string"
+                },
+                "TimepointPreWindow": {
+                    "type": "string"
+                },
+                "TimepointRelativeTarget": {
+                    "type": "string"
+                },
+                "Type": {
+                    "$ref": "#/$defs/RelativeTimingConstraintType",
+                    "description": "Type of page for page references indicated in the PageRefs attribute."
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "TimepointRelativeTarget"
+            ],
+            "title": "RelativeTimingConstraint",
+            "type": "object"
+        },
+        "RelativeTimingConstraintType": {
+            "description": "",
+            "enum": [
+                "StartToStart",
+                "StartToFinish",
+                "FinishToStart",
+                "FinishToFinish"
+            ],
+            "title": "RelativeTimingConstraintType",
+            "type": "string"
+        },
+        "Resource": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Attribute": {
+                    "type": "string"
+                },
+                "Label": {
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "Type": {
+                    "description": "Type of page for page references indicated in the PageRefs attribute.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Type",
+                "Name"
+            ],
+            "title": "Resource",
+            "type": "object"
+        },
+        "ReturnValue": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "DataType": {
+                    "$ref": "#/$defs/DataType",
+                    "description": "The DataType attribute specifies how the corresponding value\n                    elements are to be interpreted for comparison and storage."
+                },
+                "Definition": {
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OrderNumber": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "Name",
+                "DataType"
+            ],
+            "title": "ReturnValue",
+            "type": "object"
+        },
+        "Selection": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Path": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Path"
+            ],
+            "title": "Selection",
+            "type": "object"
+        },
+        "SignMethod": {
+            "description": "",
+            "enum": [
+                "Digital",
+                "Electronic"
+            ],
+            "title": "SignMethod",
+            "type": "string"
+        },
+        "Signature": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "DateTimeStampRef": {
+                    "$ref": "#/$defs/DateTimeStamp"
+                },
+                "ID": {
+                    "description": "Unique identifier for the leaf that is referenced.",
+                    "type": "string"
+                },
+                "LocationRefRef": {
+                    "$ref": "#/$defs/LocationRef"
+                },
+                "SignatureRefRef": {
+                    "$ref": "#/$defs/SignatureRef"
+                },
+                "UserRefRef": {
+                    "$ref": "#/$defs/UserRef"
+                }
+            },
+            "required": [
+                "UserRefRef",
+                "LocationRefRef",
+                "SignatureRefRef",
+                "DateTimeStampRef"
+            ],
+            "title": "Signature",
+            "type": "object"
+        },
+        "SignatureDef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "LegalReasonRef": {
+                    "$ref": "#/$defs/LegalReason"
+                },
+                "MeaningRef": {
+                    "$ref": "#/$defs/Meaning"
+                },
+                "Methodology": {
+                    "$ref": "#/$defs/SignMethod"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "MeaningRef",
+                "LegalReasonRef"
+            ],
+            "title": "SignatureDef",
+            "type": "object"
+        },
+        "SignatureRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "SignatureOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "SignatureOID"
+            ],
+            "title": "SignatureRef",
+            "type": "object"
+        },
+        "SiteRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "LocationOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "LocationOID"
+            ],
+            "title": "SiteRef",
+            "type": "object"
+        },
+        "SoftOrHard": {
+            "description": "",
+            "enum": [
+                "Soft",
+                "Hard"
+            ],
+            "title": "SoftOrHard",
+            "type": "string"
+        },
+        "SourceID": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "SourceID",
+            "type": "object"
+        },
+        "SourceItem": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "ItemGroupOID": {
+                    "type": "string"
+                },
+                "ItemOID": {
+                    "type": "string"
+                },
+                "MetaDataVersionOID": {
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "ResourceRef": {
+                    "items": {
+                        "$ref": "#/$defs/Resource"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "StudyOID": {
+                    "type": "string"
+                },
+                "leafID": {
+                    "description": "Unique identifier for the leaf element with the document location.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ResourceRef"
+            ],
+            "title": "SourceItem",
+            "type": "object"
+        },
+        "SourceItems": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "SourceItemRef": {
+                    "items": {
+                        "$ref": "#/$defs/SourceItem"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "SourceItemRef"
+            ],
+            "title": "SourceItems",
+            "type": "object"
+        },
+        "Standard": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CommentOID": {
+                    "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
+                    "type": "string"
+                },
+                "Name": {
+                    "$ref": "#/$defs/StandardName",
+                    "description": "General observation Sub Class."
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "PublishingSet": {
+                    "$ref": "#/$defs/StandardPublishingSet",
+                    "description": "Set of published files of Standard when Type=\"CT\" (e.g. SDTM, ADaM, SEND, CDASH, COA)."
+                },
+                "Status": {
+                    "description": "Status of Standard.",
+                    "type": "string"
+                },
+                "Type": {
+                    "$ref": "#/$defs/StandardType",
+                    "description": "Type of page for page references indicated in the PageRefs attribute."
+                },
+                "Version": {
+                    "description": "Version of Standard.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "Type",
+                "Version",
+                "Status"
+            ],
+            "title": "Standard",
+            "type": "object"
+        },
+        "StandardName": {
+            "description": "",
+            "enum": [
+                "ADaMIG",
+                "CDISC/NCI",
+                "SDTMIG",
+                "SDTMIG-AP",
+                "SDTMIG-MD",
+                "SENDIG",
+                "SENDIG-AR",
+                "SENDIG-DART"
+            ],
+            "title": "StandardName",
+            "type": "string"
+        },
+        "StandardPublishingSet": {
+            "description": "",
+            "enum": [
+                "ADaM",
+                "CDASH",
+                "DEFINE-XML",
+                "SDTM",
+                "SEND"
+            ],
+            "title": "StandardPublishingSet",
+            "type": "string"
+        },
+        "StandardStatusEnum": {
+            "description": "",
+            "enum": [
+                "Draft",
+                "Final",
+                "Provisional"
+            ],
+            "title": "StandardStatusEnum",
+            "type": "string"
+        },
+        "StandardType": {
+            "description": "",
+            "enum": [
+                "CT",
+                "IG"
+            ],
+            "title": "StandardType",
+            "type": "string"
+        },
+        "Standards": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "Standards",
+            "type": "object"
+        },
+        "StateProv": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "StateProv",
+            "type": "object"
+        },
+        "StreetName": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "StreetName",
+            "type": "object"
+        },
+        "Study": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "MetaDataVersionRef": {
+                    "items": {
+                        "$ref": "#/$defs/MetaDataVersion"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "ProtocolName": {
+                    "type": "string"
+                },
+                "StudyName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "StudyName",
+                "ProtocolName",
+                "MetaDataVersionRef"
+            ],
+            "title": "Study",
+            "type": "object"
+        },
+        "StudyEndPoint": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "FormalExpressionRef": {
+                    "items": {
+                        "$ref": "#/$defs/FormalExpression"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "Type": {
+                    "$ref": "#/$defs/StudyEndPointType",
+                    "description": "Type of page for page references indicated in the PageRefs attribute."
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "DescriptionRef"
+            ],
+            "title": "StudyEndPoint",
+            "type": "object"
+        },
+        "StudyEndPointRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "OrderNumber": {
+                    "type": "integer"
+                },
+                "StudyEndPointOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StudyEndPointOID"
+            ],
+            "title": "StudyEndPointRef",
+            "type": "object"
+        },
+        "StudyEndPointType": {
+            "description": "",
+            "enum": [
+                "Simple",
+                "Humane",
+                "Surrogate",
+                "Composite"
+            ],
+            "title": "StudyEndPointType",
+            "type": "string"
+        },
+        "StudyEndPoints": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "StudyEndPoints",
+            "type": "object"
+        },
+        "StudyEstimand": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "IntercurrentEventRef": {
+                    "items": {
+                        "$ref": "#/$defs/IntercurrentEvent"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "StudyEndPointRefRef": {
+                    "$ref": "#/$defs/StudyEndPointRef"
+                },
+                "StudyInterventionRefRef": {
+                    "$ref": "#/$defs/StudyInterventionRef"
+                },
+                "StudyTargetPopulationRefRef": {
+                    "$ref": "#/$defs/StudyTargetPopulationRef"
+                },
+                "SummaryMeasureRef": {
+                    "$ref": "#/$defs/SummaryMeasure"
+                }
+            },
+            "required": [
+                "OID",
+                "Name"
+            ],
+            "title": "StudyEstimand",
+            "type": "object"
+        },
+        "StudyEstimands": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "StudyEstimands",
+            "type": "object"
+        },
+        "StudyEventData": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "ItemGroupDataRef": {
+                    "items": {
+                        "$ref": "#/$defs/ItemGroupData"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "QueryRef": {
+                    "items": {
+                        "$ref": "#/$defs/Query"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "StudyEventOID": {
+                    "type": "string"
+                },
+                "StudyEventRepeatKey": {
+                    "type": "string"
+                },
+                "TransactionType": {
+                    "$ref": "#/$defs/TransactionType"
+                }
+            },
+            "required": [
+                "StudyEventOID"
+            ],
+            "title": "StudyEventData",
+            "type": "object"
+        },
+        "StudyEventDef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AliasRef": {
+                    "items": {
+                        "$ref": "#/$defs/Alias"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Category": {
+                    "type": "string"
+                },
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CommentOID": {
+                    "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
+                    "type": "string"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "ItemGroupRefRef": {
+                    "items": {
+                        "$ref": "#/$defs/ItemGroupRef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "Repeating": {
+                    "$ref": "#/$defs/YesOrNo"
+                },
+                "Type": {
+                    "$ref": "#/$defs/EventType",
+                    "description": "Type of page for page references indicated in the PageRefs attribute."
+                },
+                "WorkflowRefRef": {
+                    "$ref": "#/$defs/WorkflowRef"
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "Repeating",
+                "Type"
+            ],
+            "title": "StudyEventDef",
+            "type": "object"
+        },
+        "StudyEventGroupDef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "ArmOID": {
+                    "type": "string"
+                },
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "CommentOID": {
+                    "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
+                    "type": "string"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "EpochOID": {
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "WorkflowRefRef": {
+                    "$ref": "#/$defs/WorkflowRef"
+                }
+            },
+            "required": [
+                "OID",
+                "Name"
+            ],
+            "title": "StudyEventGroupDef",
+            "type": "object"
+        },
+        "StudyEventGroupRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CollectionExceptionConditionOID": {
+                    "type": "string"
+                },
+                "Mandatory": {
+                    "$ref": "#/$defs/YesOrNo"
+                },
+                "OrderNumber": {
+                    "type": "integer"
+                },
+                "StudyEventGroupOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StudyEventGroupOID",
+                "Mandatory"
+            ],
+            "title": "StudyEventGroupRef",
+            "type": "object"
+        },
+        "StudyEventRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CollectionExceptionConditionOID": {
+                    "type": "string"
+                },
+                "Mandatory": {
+                    "$ref": "#/$defs/YesOrNo"
+                },
+                "OrderNumber": {
+                    "type": "integer"
+                },
+                "StudyEventOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StudyEventOID",
+                "Mandatory"
+            ],
+            "title": "StudyEventRef",
+            "type": "object"
+        },
+        "StudyIndication": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "DescriptionRef"
+            ],
+            "title": "StudyIndication",
+            "type": "object"
+        },
+        "StudyIndications": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "StudyIndications",
+            "type": "object"
+        },
+        "StudyIntervention": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "DescriptionRef"
+            ],
+            "title": "StudyIntervention",
+            "type": "object"
+        },
+        "StudyInterventionRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "StudyInterventionOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StudyInterventionOID"
+            ],
+            "title": "StudyInterventionRef",
+            "type": "object"
+        },
+        "StudyInterventions": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "StudyInterventions",
+            "type": "object"
+        },
+        "StudyObjective": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "StudyEndPointRefRef": {
+                    "items": {
+                        "$ref": "#/$defs/StudyEndPointRef"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Type": {
+                    "$ref": "#/$defs/StudyObjectiveType",
+                    "description": "Type of page for page references indicated in the PageRefs attribute."
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "DescriptionRef"
+            ],
+            "title": "StudyObjective",
+            "type": "object"
+        },
+        "StudyObjectiveType": {
+            "description": "",
+            "enum": [
+                "Primary",
+                "Secondary"
+            ],
+            "title": "StudyObjectiveType",
+            "type": "string"
+        },
+        "StudyObjectives": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "StudyObjectives",
+            "type": "object"
+        },
+        "StudyParameter": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "ParameterValueRef": {
+                    "items": {
+                        "$ref": "#/$defs/ParameterValue"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "ShortName": {
+                    "type": "string"
+                },
+                "Term": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "Term",
+                "ParameterValueRef"
+            ],
+            "title": "StudyParameter",
+            "type": "object"
+        },
+        "StudyStructure": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "ArmRef": {
+                    "items": {
+                        "$ref": "#/$defs/Arm"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "EpochRef": {
+                    "items": {
+                        "$ref": "#/$defs/Epoch"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "WorkflowRefRef": {
+                    "$ref": "#/$defs/WorkflowRef"
+                }
+            },
+            "title": "StudyStructure",
+            "type": "object"
+        },
+        "StudySummary": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "StudySummary",
+            "type": "object"
+        },
+        "StudyTargetPopulation": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "FormalExpressionRef": {
+                    "items": {
+                        "$ref": "#/$defs/FormalExpression"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "DescriptionRef"
+            ],
+            "title": "StudyTargetPopulation",
+            "type": "object"
+        },
+        "StudyTargetPopulationRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "StudyTargetPopulationOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StudyTargetPopulationOID"
+            ],
+            "title": "StudyTargetPopulationRef",
+            "type": "object"
+        },
+        "StudyTiming": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AbsoluteTimingConstraintRef": {
+                    "items": {
+                        "$ref": "#/$defs/AbsoluteTimingConstraint"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "DurationTimingConstraintRef": {
+                    "items": {
+                        "$ref": "#/$defs/DurationTimingConstraint"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "RelativeTimingConstraintRef": {
+                    "items": {
+                        "$ref": "#/$defs/RelativeTimingConstraint"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "TransitionTimingConstraintRef": {
+                    "items": {
+                        "$ref": "#/$defs/TransitionTimingConstraint"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "OID",
+                "Name"
+            ],
+            "title": "StudyTiming",
+            "type": "object"
+        },
+        "StudyTimings": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "StudyTimings",
+            "type": "object"
+        },
+        "SubClass": {
+            "additionalProperties": false,
+            "description": "This element contains SubClass definitions.",
+            "properties": {
+                "Name": {
+                    "$ref": "#/$defs/ItemGroupSubClass",
+                    "description": "General observation Sub Class."
+                },
+                "ParentClass": {
+                    "description": "Parent class of the Sub Class",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Name"
+            ],
+            "title": "SubClass",
+            "type": "object"
+        },
+        "SubjectData": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "InvestigatorRefRef": {
+                    "$ref": "#/$defs/InvestigatorRef"
+                },
+                "QueryRef": {
+                    "items": {
+                        "$ref": "#/$defs/Query"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "SiteRefRef": {
+                    "$ref": "#/$defs/SiteRef"
+                },
+                "StudyEventDataRef": {
+                    "items": {
+                        "$ref": "#/$defs/StudyEventData"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "SubjectKey": {
+                    "type": "string"
+                },
+                "TransactionType": {
+                    "$ref": "#/$defs/TransactionType"
+                }
+            },
+            "required": [
+                "SubjectKey"
+            ],
+            "title": "SubjectData",
+            "type": "object"
+        },
+        "Suffix": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "Suffix",
+            "type": "object"
+        },
+        "SummaryMeasure": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "SummaryMeasure",
+            "type": "object"
+        },
+        "SupplementalDoc": {
+            "additionalProperties": false,
+            "description": "Supplemental data definitions",
+            "title": "SupplementalDoc",
+            "type": "object"
+        },
+        "TargetTransition": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "ConditionOID": {
+                    "type": "string"
+                },
+                "TargetTransitionOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "TargetTransitionOID"
+            ],
+            "title": "TargetTransition",
+            "type": "object"
+        },
+        "Telecom": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "Telecom",
+            "type": "object"
+        },
+        "TelecomTypeType": {
+            "description": "",
+            "enum": [
+                "Email",
+                "Pager",
+                "Phone",
+                "Fax",
+                "SMS",
+                "URL",
+                "Other"
+            ],
+            "title": "TelecomTypeType",
+            "type": "string"
+        },
+        "TransactionType": {
+            "description": "",
+            "enum": [
+                "Insert",
+                "Update",
+                "Remove",
+                "Upsert",
+                "Context"
+            ],
+            "title": "TransactionType",
+            "type": "string"
+        },
+        "Transition": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "EndConditionOID": {
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "SourceOID": {
+                    "type": "string"
+                },
+                "StartConditionOID": {
+                    "type": "string"
+                },
+                "TargetOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "SourceOID",
+                "TargetOID"
+            ],
+            "title": "Transition",
+            "type": "object"
+        },
+        "TransitionTimingConstraint": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "MethodOID": {
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "TimepointPostWindow": {
+                    "type": "string"
+                },
+                "TimepointPreWindow": {
+                    "type": "string"
+                },
+                "TimepointTarget": {
+                    "type": "string"
+                },
+                "TransitionOID": {
+                    "type": "string"
+                },
+                "Type": {
+                    "$ref": "#/$defs/RelativeTimingConstraintType",
+                    "description": "Type of page for page references indicated in the PageRefs attribute."
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "TransitionOID",
+                "TimepointTarget"
+            ],
+            "title": "TransitionTimingConstraint",
+            "type": "object"
+        },
+        "TranslatedText": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_language": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type"
+            ],
+            "title": "TranslatedText",
+            "type": "object"
+        },
+        "TrialPhase": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "Value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Value"
+            ],
+            "title": "TrialPhase",
+            "type": "object"
+        },
+        "TrialPhaseTypeEnum": {
+            "description": "",
+            "enum": [
+                "NOT APPLICABLE",
+                "PHASE 0 TRIAL",
+                "PHASE I TRIAL",
+                "PHASE I/II TRIAL",
+                "PHASE II TRIAL",
+                "PHASE II/III TRIAL",
+                "PHASE IIA TRIAL",
+                "PHASE IIB TRIAL",
+                "PHASE III TRIAL",
+                "PHASE IIIA TRIAL",
+                "PHASE IIIB TRIAL",
+                "PHASE IV TRIAL",
+                "PHASE V TRIAL"
+            ],
+            "title": "TrialPhaseTypeEnum",
+            "type": "string"
+        },
+        "User": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "AddressRef": {
+                    "items": {
+                        "$ref": "#/$defs/Address"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "FamilyNameRef": {
+                    "$ref": "#/$defs/FamilyName"
+                },
+                "FullNameRef": {
+                    "$ref": "#/$defs/FullName"
+                },
+                "GivenNameRef": {
+                    "$ref": "#/$defs/GivenName"
+                },
+                "ImageRef": {
+                    "$ref": "#/$defs/Image"
+                },
+                "LocationOID": {
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "OrganizationOID": {
+                    "type": "string"
+                },
+                "PrefixRef": {
+                    "$ref": "#/$defs/Prefix"
+                },
+                "SuffixRef": {
+                    "$ref": "#/$defs/Suffix"
+                },
+                "TelecomRef": {
+                    "items": {
+                        "$ref": "#/$defs/Telecom"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "UserNameRef": {
+                    "$ref": "#/$defs/UserName"
+                },
+                "UserType": {
+                    "$ref": "#/$defs/UserType"
+                }
+            },
+            "required": [
+                "OID"
+            ],
+            "title": "User",
+            "type": "object"
+        },
+        "UserName": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "UserName",
+            "type": "object"
+        },
+        "UserRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "UserOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "UserOID"
+            ],
+            "title": "UserRef",
+            "type": "object"
+        },
+        "UserType": {
+            "description": "",
+            "enum": [
+                "Sponsor",
+                "Investigator",
+                "Lab",
+                "Other",
+                "Subject",
+                "Monitor",
+                "Data analyst",
+                "Care provider",
+                "Assessor"
+            ],
+            "title": "UserType",
+            "type": "string"
+        },
+        "Value": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "SeqNum": {
+                    "type": "integer"
+                },
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "Value",
+            "type": "object"
+        },
+        "ValueListDef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description",
+                    "description": "Description of the value list."
+                },
+                "ItemRefRef": {
+                    "description": "The ItemRef element contains the reference to the value attributes definitions.",
+                    "items": {
+                        "$ref": "#/$defs/ItemRef"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID",
+                "ItemRefRef"
+            ],
+            "title": "ValueListDef",
+            "type": "object"
+        },
+        "ValueListRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "ValueListOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ValueListOID"
+            ],
+            "title": "ValueListRef",
+            "type": "object"
+        },
+        "WhereClauseDef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "CommentOID": {
+                    "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "OID"
+            ],
+            "title": "WhereClauseDef",
+            "type": "object"
+        },
+        "WhereClauseRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "WhereClauseOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "WhereClauseOID"
+            ],
+            "title": "WhereClauseRef",
+            "type": "object"
+        },
+        "WorkflowDef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "Name": {
+                    "description": "General observation Sub Class.",
+                    "type": "string"
+                },
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "WorkflowEndRef": {
+                    "items": {
+                        "$ref": "#/$defs/WorkflowEnd"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "WorkflowStartRef": {
+                    "$ref": "#/$defs/WorkflowStart"
+                }
+            },
+            "required": [
+                "OID",
+                "Name",
+                "WorkflowStartRef",
+                "WorkflowEndRef"
+            ],
+            "title": "WorkflowDef",
+            "type": "object"
+        },
+        "WorkflowEnd": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "EndOID": {
+                    "type": "string"
+                },
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "EndOID"
+            ],
+            "title": "WorkflowEnd",
+            "type": "object"
+        },
+        "WorkflowRef": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "WorkflowOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "WorkflowOID"
+            ],
+            "title": "WorkflowRef",
+            "type": "object"
+        },
+        "WorkflowStart": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "StartOID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "StartOID"
+            ],
+            "title": "WorkflowStart",
+            "type": "object"
+        },
+        "YesOnly": {
+            "description": "",
+            "enum": [],
+            "title": "YesOnly",
+            "type": "string"
+        },
+        "YesOrNo": {
+            "description": "",
+            "enum": [
+                "Yes",
+                "No"
+            ],
+            "title": "YesOrNo",
+            "type": "string"
+        }
+    },
+    "$id": "http://www.cdisc.org/ns/odm/v2.0",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": true,
+    "metamodel_version": "1.7.0",
+    "title": "odm",
+    "type": "object",
+    "version": null
+}
