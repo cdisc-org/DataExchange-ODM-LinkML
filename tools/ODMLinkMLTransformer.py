@@ -5,6 +5,15 @@ from linkml_runtime.linkml_model import ClassDefinition, SlotDefinition, Prefix,
     TypeDefinitionName, PermissibleValue, SchemaDefinition
 from linkml.utils.schema_builder import SchemaBuilder
 from linkml_runtime.utils.schemaview import SchemaView
+from collections import OrderedDict
+
+# element between XML tags needs a key: _content, content, <ClassName>Text, $, _text, or _value 
+CONTENT_KEY = '_content'
+LANGUAGE_KEY = '_language'
+REFERENCE_SUFFIX = 'Ref'
+TYPE_SUFFIX = 'Type'
+DEBUG = False
+
 
 @dataclass
 class ODMLinkMLTransformer():
@@ -17,6 +26,10 @@ class ODMLinkMLTransformer():
     namespace: str = field(default = 'http://www.cdisc.org/ns/odm/v2.0')
     namespace_prefix: str = field(default = 'odm')
     look_up_membership: dict = None
+    class_names: list = None
+    slot_names: list = None
+    type_names: list = None
+    unique_keys: dict = None
 
     def create_schema(self):
         '''
@@ -33,24 +46,40 @@ class ODMLinkMLTransformer():
         attribute_groups = self.structure.get('xs:attributeGroup', [])
         simple_types = self.structure.get('xs:simpleType', [])
         elements = self.structure.get('xs:element', [])
+        self.class_names = [elem.get('name') for elem in elements]
+        self.type_names = [t.get('name') or t.get('ref') for t in simple_types]
+        self.slot_names = []
+        self.unique_keys = {}
 
-        self.create_subsets(groups)
-        [self.create_simple_type(simple, simple.get('name')) for simple in simple_types]
-        self.create_slots(attribute_groups)
-        [self.create_class(elem, attribute_groups) for elem in elements]
+        _ = self.create_subsets(groups)
+        _ = self.create_slots(attribute_groups)
+        _ = [self.create_simple_type(simple, simple.get('name')) for simple in simple_types]
+        _ = [self.create_class(elem, attribute_groups) for elem in elements]
+        _ = self.apply_class_relationships()
+        _ = self.hardcoded_modifications()
 
-        self.hardcoded_modifications()
-        
+
     def hardcoded_modifications(self):
         '''
         Content that is different from the Source Schema
         '''
         # New Type for renamed XML Schema-specific element: internationalisation/localisation attribute
-        self.schema.add_type(TypeDefinition(uri='xml:lang', name='_languageType', base='str',
-                                    description='language context for internationalisation and localisation'))
-        # New Type for renamed XML Schema-specific elements: text between tags
-        self.schema.add_type(TypeDefinition(uri='xhtml:div', name='_contentType', base='str',
-                                    description='multi-line text content from between XML tags'))
+        range = LANGUAGE_KEY + TYPE_SUFFIX
+        self.schema.add_slot(
+            SlotDefinition(name =LANGUAGE_KEY, range = range, 
+                description='language context for internationalisation and localisation'))
+        self.schema.add_type(
+            TypeDefinition(uri = 'xml:lang', name = range, base = 'str',
+                description='language context for internationalisation and localisation'))
+        
+        # New Slot for renamed XML Schema-specific elements: text between tags
+        range = CONTENT_KEY + TYPE_SUFFIX
+        self.schema.add_slot(
+            SlotDefinition(name = CONTENT_KEY, range = range,
+                description='multi-line text content from between XML tags'))
+        self.schema.add_type(
+            TypeDefinition(uri='xhtml:div', name = range, base = 'str',
+                description='multi-line text content from between XML tags'))
 
         # Workaround for ODM root class name clash: ODMFileMetadata
         clashing_class = self.schema.get_class('ODM')
@@ -95,13 +124,16 @@ class ODMLinkMLTransformer():
             return None
         result = re.search(r'{.*?}(\w+)', ref)
         ref = result.group(1) if result else ref
+        ref = ref.replace('@', '')
         type_map = {
             'xs:anyURI': 'uriorcurie',
             'xs:ID': 'oid',
             'xs:IDREF': 'oid',
             'xlink:href': 'href',
-            'xml:lang': '_language',
-            'xhtml:div': '_content',
+            'xml:lang': LANGUAGE_KEY,
+            'xhtml:div': CONTENT_KEY,
+            LANGUAGE_KEY: LANGUAGE_KEY + TYPE_SUFFIX,
+            CONTENT_KEY: CONTENT_KEY + TYPE_SUFFIX
         }
         if ref in type_map.keys():
             return type_map[ref]
@@ -114,11 +146,9 @@ class ODMLinkMLTransformer():
         slot_names = []
         for ag in attribute_groups:
             for attribute in ag.get('xs:attribute', []):
-                ref = attribute.get('ref')
+                ref = self.map_type(attribute.get('ref'))
                 name = attribute.get('name') or self.map_type(ref)
-                range = self.map_type(attribute.get('type')) 
-                if ref and not range:
-                    range = self.map_type(ref) + 'Type'
+                range = self.map_type(attribute.get('type'))
                 description = '\n'.join(attribute.get('xs:annotation', {}).get('xs:documentation', []))
                 # handle slot conflicts
                 if name in slot_names:
@@ -135,6 +165,7 @@ class ODMLinkMLTransformer():
                 slot_names.append(name)
 
         for slot_name in set(slot_names):
+            self.print_debug('creating slot', slot_name)
             name = slots[slot_name].get('name')
             description = slots[slot_name].get('description')
             ref = slots[slot_name].get('ref')
@@ -153,6 +184,8 @@ class ODMLinkMLTransformer():
             else:
                 print('no range found for slot', slot_name, ranges, ref, description)
             self.schema.add_slot(slot)
+
+        self.slot_names = slot_names
         return None
 
 
@@ -165,7 +198,8 @@ class ODMLinkMLTransformer():
                 continue
             self.look_up_membership[g.get('name')] = [e for e in sequence.get('xs:element')]
 
-        for group, ref_list in self.look_up_membership.items():
+        for group, _ in self.look_up_membership.items():
+            self.print_debug('creating subset', group)
             subset = SubsetDefinition(group)
             subset.from_schema = self.namespace
             self.schema.schema.subsets[subset.name] = subset
@@ -174,6 +208,7 @@ class ODMLinkMLTransformer():
     # Assemble enumerations / controlled terminology
     def create_enumeration(self, enumerations, enum_name, alias, as_children = True) -> None:
         # https://linkml.io/linkml-model/docs/EnumDefinition
+        self.print_debug('creating enumeration', enum_name)
         this_enum = EnumDefinition(name = enum_name)
         values = {}
         for v in enumerations:
@@ -206,6 +241,7 @@ class ODMLinkMLTransformer():
         # https://linkml.io/linkml-model/docs/TypeDefinition
         if self.schema.get_type(type_name):
             return None
+        self.print_debug('creating type', type_name)
         type = TypeDefinition(type_name)
         restriction = element.get('xs:restriction', {})
         base = self.map_base(restriction.get('base')) or 'str'
@@ -281,43 +317,71 @@ class ODMLinkMLTransformer():
                     groups_found.append(name)
         return groups_found
 
-    def map_cardinality(self, element) -> dict:
+    def map_reference(self, element) -> dict:
+        if not element:
+            return None
+        range = self.map_type(element.get('ref'))
+        name = element.get('name') or range
+        self.print_debug('mapping reference', name)
         min_occurs = element.get('minOccurs')
         max_occurs = element.get('maxOccurs')
-        range = self.map_type(element.get('ref'))
-        print(element)
-        if min_occurs == max_occurs:
-            cardinality = min_occurs
-        else:
-            max_occurs_repr = '*' if max_occurs == 'unbounded' else max_occurs or '*'
-            cardinality = f"{min_occurs or '0'}..{max_occurs_repr}"
+        documentation = element.get('xs:annotation', {}).get('xs:documentation',[])
+
+        max_occurs_repr = None if max_occurs == 'unbounded' else str(max_occurs)
         return {
-            'range': range,
+            'name': name,
+            'range': self.map_type(range),
             'required': bool(int(min_occurs) and int(min_occurs) > 0),
-            'multivalued': bool(int(max_occurs) and int(max_occurs) > 1),
-            'cardinality': cardinality,
-            'description': '\n'.join(element.get('xs:annotation', {}).get('xs:documentation',[]))
-        } if range else None
+            'multivalued': True if max_occurs == 'unbounded' else None,
+            'minimum_cardinality': str(min_occurs) or '0',
+            'maximum_cardinality': max_occurs_repr,
+            'description': '\n'.join(documentation) if documentation else None
+        } if name else None
 
 
     def create_class(self, element, attribute_groups) -> None:
         # https://linkml.io/linkml-model/docs/ClassDefinition/
-        element_name = element.get('name')
+        class_name = element.get('name')
+        self.print_debug('creating class', class_name)
+        if not class_name:
+            print('no element name', element)
         matching_types = [t for t in self.structure.get('xs:complexType') if element.get('type') == t.get('name')]
         if not matching_types:
             print('no type definition found for', element.get('type'))
         props = matching_types[0]
         if not props:
-            print('no class definition found for element', element_name)
+            print('no class definition found for element', class_name)
             return None
 
-        klass = ClassDefinition(element_name)
+        klass = ClassDefinition(class_name)
         if props.get('xs:annotation'):
             klass.description = '\n'.join(props.get('xs:annotation').get('xs:documentation'))
 
-        # extract attributes from groups listed at various levels
-        
-        slot_usage = []
+        # Handle unique relation constraints
+        unique = element.get('xs:unique')
+        list_elements_unique = []
+        selector = None
+        if unique:
+            if type(unique) == dict:
+                unique = [unique]
+            for un in unique:
+                constraint_name = un.get('name')
+                relation_targets = []
+                for field in  un.get('xs:field'):
+                    for k, xpath in field.items():
+                        if not xpath:
+                            continue
+                        field = self.map_type(xpath)
+                    relation_targets.append(field)
+                for _, v in un.get('xs:selector').items():
+                    selector = self.map_type(v)
+                    constraint = {constraint_name : {'unique_key_slots': relation_targets}}
+                    selector_repr = ['.'.join([selector, t]) for t in relation_targets]
+                    self.print_debug('creating unique constraint from', class_name, 'to', selector_repr)
+                    self.unique_keys[selector] = constraint
+
+        # extract slots from groups listed at various levels
+        slot_usage = {}
         slot_groups = []
         slot_groups.extend(props.get('xs:simpleContent', {}).get('xs:extension', {}).get('xs:attributeGroup', []))
         slot_groups.extend(props.get('xs:complexContent', {}).get('xs:restriction', {}).get('xs:attributeGroup', []))
@@ -330,10 +394,10 @@ class ODMLinkMLTransformer():
             for attrib in attribs:
                 attrib_name = attrib.get('name') or self.map_type(attrib.get('ref'))
                 if not attrib_name:
-                    print(element_name, 'attribute has no name', attrib)
+                    print(class_name, 'attribute has no name', attrib)
                     continue
                 required = (attrib.get('use') == 'required')
-                this_slot_usage = {attrib_name  : {'required': required}}
+                this_slot_usage = {'required': required}
                 range = self.map_type(attrib.get('type'))
                 simpleType = attrib.get('xs:simpleType')
                 if not range and not simpleType:
@@ -341,54 +405,90 @@ class ODMLinkMLTransformer():
                 if simpleType and simpleType.get('xs:union'):
                     types = simpleType.get('xs:union', {}).get('memberTypes', {})
                     range_list = [{'range': self.map_type(t)} for t in types]
-                    this_slot_usage[attrib_name]['any_of'] = range_list
+                    this_slot_usage['any_of'] = range_list
                 else:
-                    this_slot_usage[attrib_name]['range'] = range
-                slot_usage.append(this_slot_usage)
+                    this_slot_usage['range'] = range
+                slot_usage[attrib_name] = this_slot_usage
 
-        groups_found = self.get_groups(element_name, self.look_up_membership)
+        # Identify groups that have this class as a member
+        groups_found = self.get_groups(class_name, self.look_up_membership)
         subsets = [SubsetDefinitionName(g) for g in groups_found]
         if groups_found:
             klass.in_subset = subsets[0]
 
-        # TODO Handle relationships and cardinality
-        '''
-        Each {selector} can have only one {field}
-        xs:unique[{name, {xs:selector}, [{xs:field}]}]}
-        e.g. 
-        {
-          "name": "UC-CL-1",
-          "xs:selector": {
-            "xpath": "odm:CodeListItem"
-          },
-          "xs:field": [
-            {
-              "xpath": "@CodedValue"
-            }
-          ]
-        }
-        '''
-        # minOccurs, maxOccurs
-        # xs:sequence determines order of elements and included groups
+        # Relationships to other classes
         sequence = props.get('xs:sequence')
         if sequence:
-            element_list = element.get('xs:element', [])
-            group = element.get('xs:group')
-            for seq_element in element_list:
-                print(seq_element)
-                relation = self.map_cardinality(seq_element)
-                ref_name = relation.pop('range')
-                if ref_name:
-                    slot_usage.append({ref_name : relation})
+            relations = sequence.get('xs:element', {})
+            if type(relations) == dict:
+                relations = [relations]
+            for relation in relations:
+                if type(relation) is not dict:
+                    continue
                 else:
-                    print('No name found for sequence element', seq_element)
+                    mapped = self.map_reference(relation)
+                if not mapped:
+                    continue
+                ref_name = mapped.pop('name')
+                original_name = ref_name
+                if ref_name in self.class_names and ref_name not in self.type_names:
+                    ref_name += REFERENCE_SUFFIX    
+                range = mapped.get('range')
+                if ref_name:
+                    this_slot = SlotDefinition(ref_name)
+                    this_slot['range'] = range
+                    this_slot['description'] = mapped.get('description')
+                    this_slot['name'] = ref_name
+                    if ref_name not in self.slot_names:
+                        self.schema.add_slot(this_slot)
+
+                    if original_name == selector:
+                        this_slot['list_elements_unique'] = True
+                        mapped['list_elements_unique'] = True
+                    slot_usage[ref_name] = mapped
+                else:
+                    print('No name found for', mapped , 'referenced from', class_name )
                 pass
 
+            group = sequence.get('xs:group')
             if group:
                 # self.map_type(ref), minOccurs, maxOccurs
-                #TODO Add / reference relationships from _____ElementExtension 
+                #TODO Add / reference relationships from ___ElementExtension and ___DefGroup
                 pass
 
+        # Create a slot for unnamed content between XML tags
+        xml_content_base = props.get('xs:simpleContent', {}).get('xs:extension', {}).get('base')
+        match xml_content_base:
+            case 'text' | 'datetime' | 'value' | 'name':
+                slot_usage[CONTENT_KEY] = {'range': xml_content_base}
+            case None:
+                pass
+            case _:
+                print('content base new type:', xml_content_base)
+
         klass.slot_usage = slot_usage
-        klass.class_uri = self.namespace_prefix + ':' + element_name
+        klass.slots = [k for k, _ in slot_usage.items()]
+        klass.class_uri = self.namespace_prefix + ':' + class_name
         self.schema.add_class(klass)
+
+
+    def apply_class_relationships(self):
+        for class_name, unique_keys in self.unique_keys.items():
+            klass = None
+            class_list = [klass for k, klass in self.schema.schema.classes.items() if class_name == k]
+            if class_list:
+                klass = class_list[0]
+            if not klass:
+                continue
+            self.print_debug('adding unique keys to ', class_name)
+            self.schema.schema.classes.pop(class_name)
+            klass['unique_keys'] = unique_keys
+            self.schema.add_class(klass)
+
+
+
+    @classmethod
+    def print_debug(self, *args):
+        if DEBUG:
+            print(*args)
+

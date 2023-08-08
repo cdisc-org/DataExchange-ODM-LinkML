@@ -412,7 +412,6 @@ types:
 enums:
   DataType:
     name: DataType
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
     permissible_values:
       integer:
         is_a: DataType
@@ -474,7 +473,6 @@ enums:
         is_a: CLDataType
   FileType:
     name: FileType
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
     permissible_values:
       Snapshot:
         is_a: FileType
@@ -482,7 +480,6 @@ enums:
         is_a: FileType
   Granularity:
     name: Granularity
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
     permissible_values:
       All:
         is_a: Granularity
@@ -500,7 +497,6 @@ enums:
         is_a: Granularity
   Context:
     name: Context
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
     permissible_values:
       Archive:
         is_a: Context
@@ -593,7 +589,6 @@ enums:
         is_a: RelativeTimingConstraintType
   Comparator:
     name: Comparator
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
     permissible_values:
       LT:
         is_a: Comparator
@@ -621,7 +616,6 @@ enums:
         is_a: SoftOrHard
   TransactionType:
     name: TransactionType
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
     permissible_values:
       Insert:
         is_a: TransactionType
@@ -635,7 +629,6 @@ enums:
         is_a: TransactionType
   UserType:
     name: UserType
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
     permissible_values:
       Sponsor:
         is_a: UserType
@@ -1023,52 +1016,93 @@ enums:
         meaning: nci:ExtCodeID:C165637
         is_a: ItemGroupSubClass
 slots:
+  RepeatingLimit:
+    name: RepeatingLimit
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: positiveInteger
   Repeating:
     name: Repeating
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     any_of:
     - range: YesOrNo
     - range: ItemGroupRepeatingType
-  ItemGroupOID:
-    name: ItemGroupOID
+  PublishingSet:
+    name: PublishingSet
+    description: Set of published files of Standard when Type="CT" (e.g. SDTM, ADaM,
+      SEND, CDASH, COA).
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  AsOfDateTime:
-    name: AsOfDateTime
+    range: StandardPublishingSet
+  IsReferenceData:
+    name: IsReferenceData
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: datetime
-  Originator:
-    name: Originator
+    range: YesOrNo
+  DurationPreWindow:
+    name: DurationPreWindow
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: durationDatetime
+  Label:
+    name: Label
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
+  ConditionOID:
+    name: ConditionOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
   PageRefs:
     name: PageRefs
     description: List of PDF pages separated by a space.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
-  SeqNum:
-    name: SeqNum
+  System:
+    name: System
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: uriorcurie
+  SuccessorOID:
+    name: SuccessorOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  SystemName:
+    name: SystemName
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  CommentOID:
+    name: CommentOID
+    description: "The Comment identifier that this value refers to. Needed when the\
+      \ WhereClause references Items across different domains.\n                The\
+      \ Comment would define any join assumptions."
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     any_of:
-    - range: integer
-    - range: positiveInteger
+    - range: oidref
+    - range: text
+  ID:
+    name: ID
+    description: Unique identifier for the leaf that is referenced.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oid
+  Path:
+    name: Path
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  ExtendedValue:
+    name: ExtendedValue
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOnly
+  CreationDateTime:
+    name: CreationDateTime
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: datetime
   SubjectKey:
     name: SubjectKey
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: subjectKey
-  FirstPage:
-    name: FirstPage
-    description: First page in a range of pages.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: integer
-  DatasetName:
-    name: DatasetName
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: name
-  Other:
-    name: Other
+  IsNonStandard:
+    name: IsNonStandard
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: YesOnly
+  TimepointPreWindow:
+    name: TimepointPreWindow
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: durationDatetime
   DataType:
     name: DataType
     description: "The DataType attribute specifies how the corresponding value\n \
@@ -1077,57 +1111,24 @@ slots:
     any_of:
     - range: DataType
     - range: CLDataType
-  SequenceNumber:
-    name: SequenceNumber
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: positiveInteger
-  SourceOID:
-    name: SourceOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  StudyInterventionOID:
-    name: StudyInterventionOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-  Mandatory:
-    name: Mandatory
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOrNo
-  MimeType:
-    name: MimeType
+  Role:
+    name: Role
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
-  StudyName:
-    name: StudyName
+  Methodology:
+    name: Methodology
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: name
-  StudyEndPointOID:
-    name: StudyEndPointOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  Value:
-    name: Value
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: TrialPhaseType
-    - range: text
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+    range: SignMethod
+  StartOID:
+    name: StartOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  UserOID:
-    name: UserOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  Comparator:
-    name: Comparator
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: Comparator
-  Altitude:
-    name: Altitude
+  Longitude:
+    name: Longitude
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: decimal
-  PartOfOrganizationOID:
-    name: PartOfOrganizationOID
+  OrganizationOID:
+    name: OrganizationOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
   Name:
@@ -1140,333 +1141,193 @@ slots:
     - range: StandardName
     - range: ItemGroupClass
     - range: ItemGroupSubClass
-  RepeatingLimit:
-    name: RepeatingLimit
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: positiveInteger
-  Role:
-    name: Role
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  type:
-    name: type
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  UnitsItemOID:
-    name: UnitsItemOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  System:
-    name: System
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: uriorcurie
-  DurationPostWindow:
-    name: DurationPostWindow
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
-  Code:
-    name: Code
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  StandardOID:
-    name: StandardOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  FileType:
-    name: FileType
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: FileType
-  StructuralElementOID:
-    name: StructuralElementOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  ref:
-    name: ref
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  ItemGroupDataSeq:
-    name: ItemGroupDataSeq
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: integer
-  ODMVersion:
-    name: ODMVersion
-    range: ODMVersion
-  EditPoint:
-    name: EditPoint
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: EditPointType
-  Method:
-    name: Method
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: name
-  SuccessorOID:
-    name: SuccessorOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  Rank:
-    name: Rank
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: decimal
-  SourceSystemVersion:
-    name: SourceSystemVersion
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  Purpose:
-    name: Purpose
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  Methodology:
-    name: Methodology
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: SignMethod
-  Granularity:
-    name: Granularity
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: Granularity
-  SponsorOrSite:
-    name: SponsorOrSite
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: CommentType
   KeySequence:
     name: KeySequence
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: integer
-  TimepointPreWindow:
-    name: TimepointPreWindow
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
   DisplayFormat:
     name: DisplayFormat
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
-  Term:
-    name: Term
+  UserType:
+    name: UserType
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: name
-  UsedMethod:
-    name: UsedMethod
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOrNo
-  OID:
-    name: OID
-    description: Unique identifier of the version within the XML document.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oid
-  leafID:
-    name: leafID
-    description: Unique identifier for the leaf element with the document location.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: oid
-    - range: oidref
-  Source:
-    name: Source
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: OriginSource
-    - range: QuerySourceType
-  _language:
-    name: _language
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: _languageType
-  TimepointPostWindow:
-    name: TimepointPostWindow
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
-  StudyEventRepeatKey:
-    name: StudyEventRepeatKey
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: repeatKey
-  SourceSystem:
-    name: SourceSystem
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  WhereClauseOID:
-    name: WhereClauseOID
+    range: UserType
+  EndOID:
+    name: EndOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  CodeListOID:
-    name: CodeListOID
+  EpochOID:
+    name: EpochOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  DurationPreWindow:
-    name: DurationPreWindow
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
-  CollectionExceptionConditionOID:
-    name: CollectionExceptionConditionOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  TargetTransitionOID:
-    name: TargetTransitionOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  ParentClass:
-    name: ParentClass
-    description: Parent class of the Sub Class
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: ItemGroupClassSubClass
-  Title:
-    name: Title
-    description: Text with the label for the document reference.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  IsReferenceData:
-    name: IsReferenceData
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOrNo
-  ShortName:
-    name: ShortName
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: name
-  PublishingSet:
-    name: PublishingSet
-    description: Set of published files of Standard when Type="CT" (e.g. SDTM, ADaM,
-      SEND, CDASH, COA).
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: StandardPublishingSet
   PredecessorOID:
     name: PredecessorOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  TransitionOID:
-    name: TransitionOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  ConditionOID:
-    name: ConditionOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  StudyTargetPopulationOID:
-    name: StudyTargetPopulationOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  Longitude:
-    name: Longitude
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: decimal
-  SystemName:
-    name: SystemName
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  RoleCodeListOID:
-    name: RoleCodeListOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  StartOID:
-    name: StartOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
   TimepointRelativeTarget:
     name: TimepointRelativeTarget
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: durationDatetime
-  WorkflowOID:
-    name: WorkflowOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  Dictionary:
-    name: Dictionary
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: DictionaryNameType
-  Category:
-    name: Category
+  Code:
+    name: Code
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
-  DurationTarget:
-    name: DurationTarget
+  MimeType:
+    name: MimeType
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
-  EffectiveDate:
-    name: EffectiveDate
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: date
-  SignatureOID:
-    name: SignatureOID
+    range: text
+  PriorFileOID:
+    name: PriorFileOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  EndConditionOID:
-    name: EndConditionOID
+  CodeListOID:
+    name: CodeListOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  HasNoData:
-    name: HasNoData
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOnly
-  ProtocolName:
-    name: ProtocolName
+  ShortName:
+    name: ShortName
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: name
-  Status:
-    name: Status
-    description: Status of Standard.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: StandardStatus
-  Library:
-    name: Library
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: name
-  ExtendedValue:
-    name: ExtendedValue
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOnly
   State:
     name: State
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: QueryStateType
-  LastPage:
-    name: LastPage
-    description: Last page in a range of pages.
+  FirstPage:
+    name: FirstPage
+    description: First page in a range of pages.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: integer
-  StartConditionOID:
-    name: StartConditionOID
+  Purpose:
+    name: Purpose
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  SystemVersion:
+    name: SystemVersion
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  TransactionType:
+    name: TransactionType
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: TransactionType
+  Category:
+    name: Category
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  Definition:
+    name: Definition
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  Title:
+    name: Title
+    description: Text with the label for the document reference.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  ProtocolName:
+    name: ProtocolName
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: name
+  MetaDataVersionOID:
+    name: MetaDataVersionOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  TargetOID:
-    name: TargetOID
+  Attribute:
+    name: Attribute
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  UsedMethod:
+    name: UsedMethod
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOrNo
+  DatasetName:
+    name: DatasetName
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: name
+  TimepointPostWindow:
+    name: TimepointPostWindow
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: durationDatetime
+  StudyTargetPopulationOID:
+    name: StudyTargetPopulationOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  SoftHard:
-    name: SoftHard
+  type:
+    name: type
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: SoftOrHard
-  StudyOID:
-    name: StudyOID
+    range: text
+  SourceSystemVersion:
+    name: SourceSystemVersion
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  SequenceNumber:
+    name: SequenceNumber
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: positiveInteger
+  Dictionary:
+    name: Dictionary
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: DictionaryNameType
+  ODMVersion:
+    name: ODMVersion
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ODMVersion
+  ArmOID:
+    name: ArmOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  LocationOID:
+    name: LocationOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
   StudyEventGroupOID:
     name: StudyEventGroupOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  Repeat:
-    name: Repeat
+  _languageType:
+    name: _languageType
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOnly
-  SystemVersion:
-    name: SystemVersion
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  Structure:
-    name: Structure
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  LocationOID:
-    name: LocationOID
+  TransitionOID:
+    name: TransitionOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  CreationDateTime:
-    name: CreationDateTime
+  Library:
+    name: Library
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: datetime
-  CodedValue:
-    name: CodedValue
+    range: name
+  Latitude:
+    name: Latitude
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: value
+    range: decimal
+  FileOID:
+    name: FileOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oid
+  ItemGroupOID:
+    name: ItemGroupOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
   IsNull:
     name: IsNull
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: YesOnly
+  StartConditionOID:
+    name: StartConditionOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  SeqNum:
+    name: SeqNum
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: integer
+    - range: positiveInteger
+  RoleCodeListOID:
+    name: RoleCodeListOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  EndConditionOID:
+    name: EndConditionOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
   Type:
     name: Type
     description: Type of page for page references indicated in the PageRefs attribute.
@@ -1485,69 +1346,168 @@ slots:
     - range: BranchingType
     - range: OrganizationType
     - range: QueryType
-  Domain:
-    name: Domain
+  LastUpdateDatetime:
+    name: LastUpdateDatetime
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
+    range: datetime
+  UserOID:
+    name: UserOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
   href:
     name: href
     description: URL that can be used to identify the location of a document or dataset
       file relative to the folder containing the ODM file.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     any_of:
-    - range: hrefType
     - range: uriorcurie
     - range: text
+  Target:
+    name: Target
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  WorkflowOID:
+    name: WorkflowOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  CollectionExceptionConditionOID:
+    name: CollectionExceptionConditionOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  ArchiveLocationID:
+    name: ArchiveLocationID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  DurationTarget:
+    name: DurationTarget
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: durationDatetime
+  ParentClass:
+    name: ParentClass
+    description: Parent class of the Sub Class
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ItemGroupClassSubClass
+  UnitsItemOID:
+    name: UnitsItemOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  AsOfDateTime:
+    name: AsOfDateTime
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: datetime
+  StudyEndPointOID:
+    name: StudyEndPointOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
   MethodOID:
     name: MethodOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  Label:
-    name: Label
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  Latitude:
-    name: Latitude
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: decimal
-  ItemGroupRepeatKey:
-    name: ItemGroupRepeatKey
+  StudyEventRepeatKey:
+    name: StudyEventRepeatKey
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: repeatKey
-  StudyEventOID:
-    name: StudyEventOID
+  ItemGroupDataSeq:
+    name: ItemGroupDataSeq
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  UserType:
-    name: UserType
+    range: integer
+  Repeat:
+    name: Repeat
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: UserType
+    range: YesOnly
   ItemOID:
     name: ItemOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
+  Originator:
+    name: Originator
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  OID:
+    name: OID
+    description: Unique identifier of the version within the XML document.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oid
+  Granularity:
+    name: Granularity
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Granularity
+  TargetTransitionOID:
+    name: TargetTransitionOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  StudyInterventionOID:
+    name: StudyInterventionOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+  Method:
+    name: Method
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: name
+  Term:
+    name: Term
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: name
+  Source:
+    name: Source
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: OriginSource
+    - range: QuerySourceType
+  PartOfOrganizationOID:
+    name: PartOfOrganizationOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  Structure:
+    name: Structure
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  Other:
+    name: Other
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOnly
+  FileType:
+    name: FileType
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: FileType
+  Mandatory:
+    name: Mandatory
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOrNo
   OrderNumber:
     name: OrderNumber
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: integer
-  EndOID:
-    name: EndOID
+  SoftHard:
+    name: SoftHard
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: SoftOrHard
+  LastPage:
+    name: LastPage
+    description: Last page in a range of pages.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: integer
+  SourceSystem:
+    name: SourceSystem
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  WhereClauseOID:
+    name: WhereClauseOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  OrganizationOID:
-    name: OrganizationOID
+  Status:
+    name: Status
+    description: Status of Standard.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  EpochOID:
-    name: EpochOID
+    range: StandardStatus
+  Altitude:
+    name: Altitude
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  Context:
-    name: Context
+    range: decimal
+  TimepointTarget:
+    name: TimepointTarget
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     any_of:
-    - range: text
-    - range: Context
+    - range: durationDatetime
   Length:
     name: Length
     description: "The Length attribute is optional when DataType is text, string,\n\
@@ -1555,162 +1515,715 @@ slots:
       \                    datatypes."
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: positiveInteger
-  Target:
-    name: Target
+  StructuralElementOID:
+    name: StructuralElementOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  TimepointTarget:
-    name: TimepointTarget
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: durationDatetime
-  IsNonStandard:
-    name: IsNonStandard
+    range: oidref
+  HasNoData:
+    name: HasNoData
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: YesOnly
-  ArmOID:
-    name: ArmOID
+  StandardOID:
+    name: StandardOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  PriorFileOID:
-    name: PriorFileOID
+  DurationPostWindow:
+    name: DurationPostWindow
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  ID:
-    name: ID
-    description: Unique identifier for the leaf that is referenced.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oid
-  CommentOID:
-    name: CommentOID
-    description: "The Comment identifier that this value refers to. Needed when the\
-      \ WhereClause references Items across different domains.\n                The\
-      \ Comment would define any join assumptions."
+    range: durationDatetime
+  Value:
+    name: Value
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     any_of:
-    - range: oidref
+    - range: TrialPhaseType
     - range: text
-  LastUpdateDatetime:
-    name: LastUpdateDatetime
+  EditPoint:
+    name: EditPoint
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: datetime
+    range: EditPointType
+  Context:
+    name: Context
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: text
+    - range: Context
+  ImageFileName:
+    name: ImageFileName
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: fileName
+  leafID:
+    name: leafID
+    description: Unique identifier for the leaf element with the document location.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: oid
+    - range: oidref
   Version:
     name: Version
     description: Version of Standard.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
-  FileOID:
-    name: FileOID
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oid
-  Path:
-    name: Path
+  Domain:
+    name: Domain
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
-  ImageFileName:
-    name: ImageFileName
+  SignatureOID:
+    name: SignatureOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: fileName
-  Definition:
-    name: Definition
+    range: oidref
+  EffectiveDate:
+    name: EffectiveDate
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  TransactionType:
-    name: TransactionType
+    range: date
+  StudyOID:
+    name: StudyOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: TransactionType
-  Attribute:
-    name: Attribute
+    range: oidref
+  TargetOID:
+    name: TargetOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  ItemGroupRepeatKey:
+    name: ItemGroupRepeatKey
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: repeatKey
+  CodedValue:
+    name: CodedValue
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: value
+  SourceOID:
+    name: SourceOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  SponsorOrSite:
+    name: SponsorOrSite
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: CommentType
+  ref:
+    name: ref
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
   ValueListOID:
     name: ValueListOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  ArchiveLocationID:
-    name: ArchiveLocationID
+  Rank:
+    name: Rank
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: decimal
+  StudyName:
+    name: StudyName
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: name
+  StudyEventOID:
+    name: StudyEventOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-classes:
-  Alias:
-    name: Alias
+  Comparator:
+    name: Comparator
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - Context:
-        required: true
-        range: text
-    - Name:
-        required: true
-        range: text
-    class_uri: odm:Alias
+    range: Comparator
+  TranslatedTextRef:
+    name: TranslatedTextRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: TranslatedText
+  _content:
+    name: _content
+    description: multi-line text content from between XML tags
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: _contentType
+  DescriptionRef:
+    name: DescriptionRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Description
+  MetaDataVersionRef:
+    name: MetaDataVersionRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    list_elements_unique: true
+    range: MetaDataVersion
+  IncludeRef:
+    name: IncludeRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Include
+  StandardsRef:
+    name: StandardsRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Standards
+  AnnotatedCRFRef:
+    name: AnnotatedCRFRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: AnnotatedCRF
+  SupplementalDocRef:
+    name: SupplementalDocRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: SupplementalDoc
+  ValueListDefRef:
+    name: ValueListDefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ValueListDef
+  WhereClauseDefRef:
+    name: WhereClauseDefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: WhereClauseDef
+  ProtocolRef:
+    name: ProtocolRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Protocol
+  WorkflowDefRef:
+    name: WorkflowDefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: WorkflowDef
+  StudyEventGroupDefRef:
+    name: StudyEventGroupDefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyEventGroupDef
+  StudyEventDefRef:
+    name: StudyEventDefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyEventDef
+  ItemGroupDefRef:
+    name: ItemGroupDefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ItemGroupDef
+  ItemDefRef:
+    name: ItemDefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ItemDef
+  CodeListRef:
+    name: CodeListRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: CodeList
+  ConditionDefRef:
+    name: ConditionDefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ConditionDef
+  MethodDefRef:
+    name: MethodDefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: MethodDef
+  CommentDefRef:
+    name: CommentDefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: CommentDef
+  leafRef:
+    name: leafRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: leaf
+  PDFPageRefRef:
+    name: PDFPageRefRef
+    description: The PDFPageRef element is a container for page references in a PDF
+      file.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: PDFPageRef
+  title:
+    name: title
+    description: Text with the label for the document or dataset.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+  StandardRef:
+    name: StandardRef
+    description: Definition of a standard referenced in the Define-XML document.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    list_elements_unique: true
+    range: Standard
+  DocumentRefRef:
+    name: DocumentRefRef
+    description: The DocumentRef element is a container for page references in a PDF
+      file.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: DocumentRef
+  ItemRefRef:
+    name: ItemRefRef
+    description: The ItemRef element contains the reference to the value attributes
+      definitions.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    list_elements_unique: true
+    range: ItemRef
+  RangeCheckRef:
+    name: RangeCheckRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: RangeCheck
+  WorkflowRefRef:
+    name: WorkflowRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: WorkflowRef
+  CodingRef:
+    name: CodingRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Coding
+  ItemGroupRefRef:
+    name: ItemGroupRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ItemGroupRef
+  AliasRef:
+    name: AliasRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    list_elements_unique: true
+    range: Alias
+  ClassRef:
+    name: ClassRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Class
+  OriginRef:
+    name: OriginRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Origin
+  SubClassRef:
+    name: SubClassRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: SubClass
+  WhereClauseRefRef:
+    name: WhereClauseRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: WhereClauseRef
+  SourceItemsRef:
+    name: SourceItemsRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: SourceItems
+  SourceItemRef:
+    name: SourceItemRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: SourceItem
+  ResourceRef:
+    name: ResourceRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Resource
+  SelectionRef:
+    name: SelectionRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Selection
+  QuestionRef:
+    name: QuestionRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Question
+  CodeListRefRef:
+    name: CodeListRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: CodeListRef
+  ValueListRefRef:
+    name: ValueListRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ValueListRef
+  ErrorMessageRef:
+    name: ErrorMessageRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ErrorMessage
+  ExternalCodeListRef:
+    name: ExternalCodeListRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ExternalCodeList
+  DecodeRef:
+    name: DecodeRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Decode
+  MethodSignatureRef:
+    name: MethodSignatureRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: MethodSignature
+  FormalExpressionRef:
+    name: FormalExpressionRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: FormalExpression
+  ParameterRef:
+    name: ParameterRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Parameter
+  ReturnValueRef:
+    name: ReturnValueRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ReturnValue
+  StudySummaryRef:
+    name: StudySummaryRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudySummary
+  StudyStructureRef:
+    name: StudyStructureRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyStructure
+  TrialPhaseRef:
+    name: TrialPhaseRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: TrialPhase
+  StudyTimingsRef:
+    name: StudyTimingsRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyTimings
+  StudyIndicationsRef:
+    name: StudyIndicationsRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyIndications
+  StudyInterventionsRef:
+    name: StudyInterventionsRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyInterventions
+  StudyObjectivesRef:
+    name: StudyObjectivesRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyObjectives
+  StudyEndPointsRef:
+    name: StudyEndPointsRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyEndPoints
+  StudyTargetPopulationRef:
+    name: StudyTargetPopulationRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyTargetPopulation
+  StudyEstimandsRef:
+    name: StudyEstimandsRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyEstimands
+  InclusionExclusionCriteriaRef:
+    name: InclusionExclusionCriteriaRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: InclusionExclusionCriteria
+  StudyEventGroupRefRef:
+    name: StudyEventGroupRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyEventGroupRef
+  ArmRef:
+    name: ArmRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Arm
+  EpochRef:
+    name: EpochRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Epoch
+  StudyIndicationRef:
+    name: StudyIndicationRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyIndication
+  StudyInterventionRef:
+    name: StudyInterventionRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyIntervention
+  StudyObjectiveRef:
+    name: StudyObjectiveRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyObjective
+  StudyEndPointRefRef:
+    name: StudyEndPointRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyEndPointRef
+  StudyEndPointRef:
+    name: StudyEndPointRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyEndPoint
+  StudyEstimandRef:
+    name: StudyEstimandRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyEstimand
+  StudyTargetPopulationRefRef:
+    name: StudyTargetPopulationRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyTargetPopulationRef
+  StudyInterventionRefRef:
+    name: StudyInterventionRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyInterventionRef
+  IntercurrentEventRef:
+    name: IntercurrentEventRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: IntercurrentEvent
+  SummaryMeasureRef:
+    name: SummaryMeasureRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: SummaryMeasure
+  InclusionCriteriaRef:
+    name: InclusionCriteriaRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: InclusionCriteria
+  ExclusionCriteriaRef:
+    name: ExclusionCriteriaRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ExclusionCriteria
+  CriterionRef:
+    name: CriterionRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Criterion
+  StudyParameterRef:
+    name: StudyParameterRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyParameter
+  ParameterValueRef:
+    name: ParameterValueRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ParameterValue
+  StudyTimingRef:
+    name: StudyTimingRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyTiming
+  AbsoluteTimingConstraintRef:
+    name: AbsoluteTimingConstraintRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: AbsoluteTimingConstraint
+  RelativeTimingConstraintRef:
+    name: RelativeTimingConstraintRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: RelativeTimingConstraint
+  TransitionTimingConstraintRef:
+    name: TransitionTimingConstraintRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: TransitionTimingConstraint
+  DurationTimingConstraintRef:
+    name: DurationTimingConstraintRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: DurationTimingConstraint
+  WorkflowStartRef:
+    name: WorkflowStartRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: WorkflowStart
+  WorkflowEndRef:
+    name: WorkflowEndRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: WorkflowEnd
+  TargetTransitionRef:
+    name: TargetTransitionRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: TargetTransition
+  DefaultTransitionRef:
+    name: DefaultTransitionRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: DefaultTransition
+  UserRef:
+    name: UserRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: User
+  OrganizationRef:
+    name: OrganizationRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Organization
+  LocationRef:
+    name: LocationRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Location
+  SignatureDefRef:
+    name: SignatureDefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    list_elements_unique: true
+    range: SignatureDef
+  UserNameRef:
+    name: UserNameRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: UserName
+  PrefixRef:
+    name: PrefixRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Prefix
+  SuffixRef:
+    name: SuffixRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Suffix
+  FullNameRef:
+    name: FullNameRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: FullName
+  GivenNameRef:
+    name: GivenNameRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: GivenName
+  FamilyNameRef:
+    name: FamilyNameRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: FamilyName
+  ImageRef:
+    name: ImageRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Image
+  AddressRef:
+    name: AddressRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Address
+  TelecomRef:
+    name: TelecomRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Telecom
+  MetaDataVersionRefRef:
+    name: MetaDataVersionRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: MetaDataVersionRef
+  QueryRef:
+    name: QueryRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Query
+  StreetNameRef:
+    name: StreetNameRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StreetName
+  HouseNumberRef:
+    name: HouseNumberRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: HouseNumber
+  CityRef:
+    name: CityRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: City
+  StateProvRef:
+    name: StateProvRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StateProv
+  CountryRef:
+    name: CountryRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Country
+  PostalCodeRef:
+    name: PostalCodeRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: PostalCode
+  GeoPositionRef:
+    name: GeoPositionRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: GeoPosition
+  OtherTextRef:
+    name: OtherTextRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: OtherText
+  MeaningRef:
+    name: MeaningRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Meaning
+  LegalReasonRef:
+    name: LegalReasonRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: LegalReason
+  ItemGroupDataRef:
+    name: ItemGroupDataRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ItemGroupData
+  SubjectDataRef:
+    name: SubjectDataRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: SubjectData
+  InvestigatorRefRef:
+    name: InvestigatorRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: InvestigatorRef
+  SiteRefRef:
+    name: SiteRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: SiteRef
+  StudyEventDataRef:
+    name: StudyEventDataRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StudyEventData
+  ValueRef:
+    name: ValueRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Value
+  UserRefRef:
+    name: UserRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: UserRef
+  LocationRefRef:
+    name: LocationRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: LocationRef
+  DateTimeStampRef:
+    name: DateTimeStampRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: DateTimeStamp
+  ReasonForChangeRef:
+    name: ReasonForChangeRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ReasonForChange
+  SourceIDRef:
+    name: SourceIDRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: SourceID
+  SignatureRefRef:
+    name: SignatureRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: SignatureRef
+  StudyRef:
+    name: StudyRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    list_elements_unique: true
+    range: Study
+  AdminDataRef:
+    name: AdminDataRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: AdminData
+  ReferenceDataRef:
+    name: ReferenceDataRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ReferenceData
+  ClinicalDataRef:
+    name: ClinicalDataRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ClinicalData
+  AssociationRef:
+    name: AssociationRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Association
+  KeySetRef:
+    name: KeySetRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: KeySet
+  AnnotationRef:
+    name: AnnotationRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Annotation
+  CommentRef:
+    name: CommentRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Comment
+  FlagRef:
+    name: FlagRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Flag
+  FlagValueRef:
+    name: FlagValueRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: FlagValue
+  FlagTypeRef:
+    name: FlagTypeRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: FlagType
+  AuditRecordRef:
+    name: AuditRecordRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: AuditRecord
+  _language:
+    name: _language
+    description: language context for internationalisation and localisation
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: _languageType
+classes:
   Description:
     name: Description
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - TranslatedTextRef
+    slot_usage:
+      TranslatedTextRef:
+        range: TranslatedText
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
+        list_elements_unique: true
     class_uri: odm:Description
-  TranslatedText:
-    name: TranslatedText
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - required: false
-    - type:
-        required: true
-        range: text
-    class_uri: odm:TranslatedText
-  Study:
-    name: Study
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - OID:
-        required: true
-        range: oid
-    - StudyName:
-        required: true
-        range: name
-    - ProtocolName:
-        required: true
-        range: name
-    class_uri: odm:Study
-  MetaDataVersion:
-    name: MetaDataVersion
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - OID:
-        required: true
-        range: oid
-    - Name:
-        required: true
-        range: name
-    - CommentOID:
-        required: false
-        range: oidref
-    class_uri: odm:MetaDataVersion
-  DocumentRef:
-    name: DocumentRef
-    description: Links to a leaf element with the location of the document.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - leafID:
-        required: true
-        range: oid
-    class_uri: odm:DocumentRef
   PDFPageRef:
     name: PDFPageRef
     description: This element is the container for CRF page references.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - PageRefs
+    - FirstPage
+    - LastPage
+    - Type
+    - Title
     slot_usage:
-    - PageRefs:
+      PageRefs:
         required: false
         range: text
-    - FirstPage:
+      FirstPage:
         required: false
         range: integer
-    - LastPage:
+      LastPage:
         required: false
         range: integer
-    - Type:
+      Type:
         required: true
         range: PDFPageType
-    - Title:
+      Title:
         required: false
         range: text
     class_uri: odm:PDFPageRef
@@ -1718,626 +2231,621 @@ classes:
     name: leaf
     description: Contains the XLink information referenced by DocumentRef or ArchiveLocationID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - ID
+    - href
+    - title
     slot_usage:
-    - ID:
+      ID:
         required: true
         range: oid
-    - href:
+      href:
         required: true
+      title:
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+        description: Text with the label for the document or dataset.
     class_uri: odm:leaf
   Include:
     name: Include
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyOID
+    - MetaDataVersionOID
+    - href
     slot_usage:
-    - StudyOID:
+      StudyOID:
         required: true
         range: oidref
-    - MetaDataVersionOID:
+      MetaDataVersionOID:
         required: true
         range: oidref
-    - href:
+      href:
         required: false
         range: uriorcurie
     class_uri: odm:Include
   Standards:
     name: Standards
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    class_uri: odm:Standards
-  Standard:
-    name: Standard
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StandardRef
     slot_usage:
-    - OID:
+      StandardRef:
+        range: Standard
         required: true
-        range: oid
-    - Name:
-        required: true
-        range: StandardName
-    - Type:
-        required: true
-        range: StandardType
-    - PublishingSet:
-        required: false
-        range: StandardPublishingSet
-    - Version:
-        required: true
-        range: text
-    - Status:
-        required: true
-        range: StandardStatus
-    - CommentOID:
-        required: false
-        range: oidref
-    class_uri: odm:Standard
+        multivalued: true
+        minimum_cardinality: '1'
+        description: Definition of a standard referenced in the Define-XML document.
+        list_elements_unique: true
+    class_uri: odm:Standards
   AnnotatedCRF:
     name: AnnotatedCRF
     description: An Annotated Case Report Form (CRF) is a Portable File Format (PDF)
       document that provides the mapping of data collection fields to the variables
       or discrete variable values contained within the datasets.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - DocumentRefRef
+    slot_usage:
+      DocumentRefRef:
+        range: DocumentRef
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
+        description: Links to a def:leaf element with the location of the document.
+        list_elements_unique: true
     class_uri: odm:AnnotatedCRF
   SupplementalDoc:
     name: SupplementalDoc
     description: Supplemental data definitions
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - DocumentRefRef
+    slot_usage:
+      DocumentRefRef:
+        range: DocumentRef
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
+        description: Links to a leaf element with the location of the document.
+        list_elements_unique: true
     class_uri: odm:SupplementalDoc
   ValueListDef:
     name: ValueListDef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - DescriptionRef
+    - ItemRefRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+        description: Description of the value list.
+      ItemRefRef:
+        range: ItemRef
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
+        description: The ItemRef element contains the reference to the value attributes
+          definitions.
+        list_elements_unique: true
     class_uri: odm:ValueListDef
   WhereClauseRef:
     name: WhereClauseRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - WhereClauseOID
     slot_usage:
-    - WhereClauseOID:
+      WhereClauseOID:
         required: true
         range: oidref
     class_uri: odm:WhereClauseRef
   WhereClauseDef:
     name: WhereClauseDef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - CommentOID
+    - RangeCheckRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - CommentOID:
+      CommentOID:
         required: false
         range: oidref
+      RangeCheckRef:
+        range: RangeCheck
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
+        description: A WhereClause element defines a condition by using one or more
+          RangeCheck elements.
     class_uri: odm:WhereClauseDef
   StudyEventGroupRef:
     name: StudyEventGroupRef
     in_subset: StudyEventDefGroup
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyEventGroupOID
+    - OrderNumber
+    - Mandatory
+    - CollectionExceptionConditionOID
+    - DescriptionRef
     slot_usage:
-    - StudyEventGroupOID:
+      StudyEventGroupOID:
         required: true
         range: oidref
-    - OrderNumber:
+      OrderNumber:
         required: false
         range: integer
-    - Mandatory:
+      Mandatory:
         required: true
         range: YesOrNo
-    - CollectionExceptionConditionOID:
+      CollectionExceptionConditionOID:
         required: false
         range: oidref
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:StudyEventGroupRef
   StudyEventGroupDef:
     name: StudyEventGroupDef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - ArmOID
+    - EpochOID
+    - CommentOID
+    - DescriptionRef
+    - WorkflowRefRef
+    - CodingRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
-    - ArmOID:
+      ArmOID:
         required: false
         range: oidref
-    - EpochOID:
+      EpochOID:
         required: false
         range: oidref
-    - CommentOID:
+      CommentOID:
         required: false
         range: oidref
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      WorkflowRefRef:
+        range: WorkflowRef
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:StudyEventGroupDef
   StudyEventRef:
     name: StudyEventRef
     in_subset: StudyEventDefGroup
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyEventOID
+    - OrderNumber
+    - Mandatory
+    - CollectionExceptionConditionOID
     slot_usage:
-    - StudyEventOID:
+      StudyEventOID:
         required: true
         range: oidref
-    - OrderNumber:
+      OrderNumber:
         required: false
         range: integer
-    - Mandatory:
+      Mandatory:
         required: true
         range: YesOrNo
-    - CollectionExceptionConditionOID:
+      CollectionExceptionConditionOID:
         required: false
         range: oidref
     class_uri: odm:StudyEventRef
-  StudyEventDef:
-    name: StudyEventDef
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - OID:
-        required: true
-        range: oid
-    - Name:
-        required: true
-        range: name
-    - Repeating:
-        required: true
-        range: YesOrNo
-    - Type:
-        required: true
-        range: EventType
-    - Category:
-        required: false
-        range: text
-    - CommentOID:
-        required: false
-        range: oidref
-    class_uri: odm:StudyEventDef
-  ItemGroupRef:
-    name: ItemGroupRef
-    in_subset: ItemGroupDefGroup
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - ItemGroupOID:
-        required: true
-        range: oidref
-    - MethodOID:
-        required: false
-        range: oidref
-    - OrderNumber:
-        required: false
-        range: integer
-    - Mandatory:
-        required: true
-        range: YesOrNo
-    - CollectionExceptionConditionOID:
-        required: false
-        range: oidref
-    class_uri: odm:ItemGroupRef
-  ItemGroupDef:
-    name: ItemGroupDef
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - OID:
-        required: true
-        range: oid
-    - Name:
-        required: true
-        range: name
-    - Repeating:
-        required: true
-        range: ItemGroupRepeatingType
-    - RepeatingLimit:
-        required: false
-        range: positiveInteger
-    - IsReferenceData:
-        required: false
-        range: YesOrNo
-    - Structure:
-        required: false
-        range: text
-    - ArchiveLocationID:
-        required: false
-        range: oidref
-    - DatasetName:
-        required: false
-        range: name
-    - Domain:
-        required: false
-        range: text
-    - Type:
-        required: true
-        range: ItemGroupTypeType
-    - Purpose:
-        required: false
-        range: text
-    - StandardOID:
-        required: false
-        range: oidref
-    - IsNonStandard:
-        required: false
-        range: YesOnly
-    - HasNoData:
-        required: false
-        range: YesOnly
-    - CommentOID:
-        required: false
-        range: oidref
-    class_uri: odm:ItemGroupDef
   Class:
     name: Class
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Name
+    - SubClassRef
     slot_usage:
-    - Name:
+      Name:
         required: true
         range: ItemGroupClass
+      SubClassRef:
+        range: SubClass
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:Class
   SubClass:
     name: SubClass
     description: This element contains SubClass definitions.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Name
+    - ParentClass
     slot_usage:
-    - Name:
+      Name:
         required: true
         range: ItemGroupSubClass
-    - ParentClass:
+      ParentClass:
         required: false
         range: ItemGroupClassSubClass
     class_uri: odm:SubClass
-  ItemRef:
-    name: ItemRef
-    in_subset: ItemGroupDefGroup
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - ItemOID:
-        required: true
-        range: oidref
-    - KeySequence:
-        required: false
-        range: integer
-    - IsNonStandard:
-        required: false
-        range: YesOnly
-    - HasNoData:
-        required: false
-        range: YesOnly
-    - MethodOID:
-        required: false
-        range: oidref
-    - UnitsItemOID:
-        required: false
-        range: oidref
-    - Repeat:
-        required: false
-        range: YesOnly
-    - Other:
-        required: false
-        range: YesOnly
-    - Role:
-        required: false
-        range: text
-    - RoleCodeListOID:
-        required: false
-        range: oidref
-    - OrderNumber:
-        required: false
-        range: integer
-    - Mandatory:
-        required: true
-        range: YesOrNo
-    - CollectionExceptionConditionOID:
-        required: false
-        range: oidref
-    class_uri: odm:ItemRef
   Origin:
     name: Origin
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Type
+    - Source
+    - DescriptionRef
+    - SourceItemsRef
+    - CodingRef
+    - DocumentRefRef
     slot_usage:
-    - Type:
+      Type:
         required: true
         range: OriginType
-    - Source:
+      Source:
         required: false
         range: OriginSource
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      SourceItemsRef:
+        range: SourceItems
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      DocumentRefRef:
+        range: DocumentRef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:Origin
   SourceItems:
     name: SourceItems
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - SourceItemRef
+    - CodingRef
+    slot_usage:
+      SourceItemRef:
+        range: SourceItem
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:SourceItems
   SourceItem:
     name: SourceItem
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - ItemOID
+    - ItemGroupOID
+    - MetaDataVersionOID
+    - StudyOID
+    - leafID
+    - Name
+    - ResourceRef
+    - CodingRef
     slot_usage:
-    - ItemOID:
+      ItemOID:
         required: false
         range: oidref
-    - ItemGroupOID:
+      ItemGroupOID:
         required: false
         range: oidref
-    - MetaDataVersionOID:
+      MetaDataVersionOID:
         required: false
         range: oidref
-    - StudyOID:
+      StudyOID:
         required: false
         range: oidref
-    - leafID:
+      leafID:
         required: false
         range: oidref
-    - Name:
+      Name:
         required: false
         range: name
+      ResourceRef:
+        range: Resource
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:SourceItem
   Resource:
     name: Resource
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Type
+    - Name
+    - Attribute
+    - Label
+    - SelectionRef
     slot_usage:
-    - Type:
+      Type:
         required: true
         range: text
-    - Name:
+      Name:
         required: true
         range: name
-    - Attribute:
+      Attribute:
         required: false
         range: text
-    - Label:
+      Label:
         required: false
         range: text
+      SelectionRef:
+        range: Selection
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:Resource
   Selection:
     name: Selection
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Path
     slot_usage:
-    - Path:
+      Path:
         required: true
         range: text
     class_uri: odm:Selection
-  ItemDef:
-    name: ItemDef
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - OID:
-        required: true
-        range: oid
-    - Name:
-        required: true
-        range: name
-    - DataType:
-        required: true
-        range: DataType
-    - Length:
-        required: false
-        range: positiveInteger
-    - DisplayFormat:
-        required: false
-        range: text
-    - CommentOID:
-        required: false
-        range: oidref
-    class_uri: odm:ItemDef
   Question:
     name: Question
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - TranslatedTextRef
+    slot_usage:
+      TranslatedTextRef:
+        range: TranslatedText
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
+        list_elements_unique: true
     class_uri: odm:Question
   RangeCheck:
     name: RangeCheck
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Comparator
+    - SoftHard
+    - ItemOID
+    - ErrorMessageRef
     slot_usage:
-    - Comparator:
+      Comparator:
         required: false
         range: Comparator
-    - SoftHard:
+      SoftHard:
         required: false
         range: SoftOrHard
-    - ItemOID:
+      ItemOID:
         required: false
         range: oidref
+      ErrorMessageRef:
+        range: ErrorMessage
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:RangeCheck
   CheckValue:
     name: CheckValue
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: value
     class_uri: odm:CheckValue
   ErrorMessage:
     name: ErrorMessage
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - TranslatedTextRef
+    slot_usage:
+      TranslatedTextRef:
+        range: TranslatedText
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
+        list_elements_unique: true
     class_uri: odm:ErrorMessage
   CodeListRef:
     name: CodeListRef
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - CodeListOID
     slot_usage:
-    - CodeListOID:
+      CodeListOID:
         required: true
         range: oidref
     class_uri: odm:CodeListRef
   ValueListRef:
     name: ValueListRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - ValueListOID
     slot_usage:
-    - ValueListOID:
+      ValueListOID:
         required: true
         range: oidref
     class_uri: odm:ValueListRef
-  CodeList:
-    name: CodeList
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - OID:
-        required: true
-        range: oid
-    - Name:
-        required: true
-        range: name
-    - DataType:
-        required: true
-        range: CLDataType
-    - CommentOID:
-        required: false
-        range: oidref
-    - StandardOID:
-        required: false
-        range: oidref
-    - IsNonStandard:
-        required: false
-        range: YesOnly
-    class_uri: odm:CodeList
-  CodeListItem:
-    name: CodeListItem
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - CodedValue:
-        required: true
-        range: value
-    - Rank:
-        required: false
-        range: decimal
-    - Other:
-        required: false
-        range: YesOnly
-    - OrderNumber:
-        required: false
-        range: integer
-    - ExtendedValue:
-        required: false
-        range: YesOnly
-    - CommentOID:
-        required: false
-        range: oidref
-    class_uri: odm:CodeListItem
   Decode:
     name: Decode
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    class_uri: odm:Decode
-  EnumeratedItem:
-    name: EnumeratedItem
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - TranslatedTextRef
     slot_usage:
-    - CodedValue:
+      TranslatedTextRef:
+        range: TranslatedText
         required: true
-        range: value
-    - Rank:
-        required: false
-        range: decimal
-    - Other:
-        required: false
-        range: YesOnly
-    - OrderNumber:
-        required: false
-        range: integer
-    - ExtendedValue:
-        required: false
-        range: YesOnly
-    - CommentOID:
-        required: false
-        range: oidref
-    class_uri: odm:EnumeratedItem
+        multivalued: true
+        minimum_cardinality: '1'
+        list_elements_unique: true
+    class_uri: odm:Decode
   ExternalCodeList:
     name: ExternalCodeList
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Dictionary
+    - Version
+    - href
+    - ref
     slot_usage:
-    - Dictionary:
+      Dictionary:
         required: false
         range: DictionaryNameType
-    - Version:
+      Version:
         required: false
         range: text
-    - href:
+      href:
         required: false
         range: uriorcurie
-    - ref:
+      ref:
         required: false
         range: text
     class_uri: odm:ExternalCodeList
-  MethodDef:
-    name: MethodDef
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - OID:
-        required: true
-        range: oid
-    - Name:
-        required: true
-        range: name
-    - Type:
-        required: false
-        range: MethodType
-    - CommentOID:
-        required: false
-        range: oidref
-    class_uri: odm:MethodDef
   MethodSignature:
     name: MethodSignature
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - ParameterRef
+    - ReturnValueRef
+    slot_usage:
+      ParameterRef:
+        range: Parameter
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      ReturnValueRef:
+        range: ReturnValue
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:MethodSignature
   Parameter:
     name: Parameter
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Name
+    - DataType
+    - Definition
+    - OrderNumber
     slot_usage:
-    - Name:
+      Name:
         required: true
         range: name
-    - DataType:
+      DataType:
         required: true
         range: DataType
-    - Definition:
+      Definition:
         required: false
         range: text
-    - OrderNumber:
+      OrderNumber:
         required: false
         range: integer
     class_uri: odm:Parameter
   ReturnValue:
     name: ReturnValue
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Name
+    - DataType
+    - Definition
+    - OrderNumber
     slot_usage:
-    - Name:
+      Name:
         required: true
         range: name
-    - DataType:
+      DataType:
         required: true
         range: DataType
-    - Definition:
+      Definition:
         required: false
         range: text
-    - OrderNumber:
+      OrderNumber:
         required: false
         range: integer
     class_uri: odm:ReturnValue
-  ConditionDef:
-    name: ConditionDef
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - OID:
-        required: true
-        range: oid
-    - Name:
-        required: true
-        range: name
-    - CommentOID:
-        required: false
-        range: oidref
-    class_uri: odm:ConditionDef
   FormalExpression:
     name: FormalExpression
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Context
     slot_usage:
-    - Context:
+      Context:
         required: false
         range: text
     class_uri: odm:FormalExpression
   Code:
     name: Code
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:Code
   ExternalCodeLib:
     name: ExternalCodeLib
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Library
+    - Method
+    - Version
+    - ref
+    - href
     slot_usage:
-    - Library:
+      Library:
         required: true
         range: name
-    - Method:
+      Method:
         required: false
         range: name
-    - Version:
+      Version:
         required: false
         range: text
-    - ref:
+      ref:
         required: false
         range: text
-    - href:
+      href:
         required: false
         range: uriorcurie
     class_uri: odm:ExternalCodeLib
@@ -2348,280 +2856,752 @@ classes:
       For comments included in external documents, the reference could include specific
       pages of a document where the comments are included.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - DescriptionRef
+    - DocumentRefRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
+      DescriptionRef:
+        range: Description
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+        description: Text of the comment.
+      DocumentRefRef:
+        range: DocumentRef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+        description: The DocumentRef element is a container for page references in
+          a PDF file.
     class_uri: odm:CommentDef
   Protocol:
     name: Protocol
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - DescriptionRef
+    - StudySummaryRef
+    - StudyStructureRef
+    - TrialPhaseRef
+    - StudyTimingsRef
+    - StudyIndicationsRef
+    - StudyInterventionsRef
+    - StudyObjectivesRef
+    - StudyEndPointsRef
+    - StudyTargetPopulationRef
+    - StudyEstimandsRef
+    - InclusionExclusionCriteriaRef
+    - StudyEventGroupRefRef
+    - WorkflowRefRef
+    - AliasRef
+    slot_usage:
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudySummaryRef:
+        range: StudySummary
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudyStructureRef:
+        range: StudyStructure
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      TrialPhaseRef:
+        range: TrialPhase
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudyTimingsRef:
+        range: StudyTimings
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudyIndicationsRef:
+        range: StudyIndications
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudyInterventionsRef:
+        range: StudyInterventions
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudyObjectivesRef:
+        range: StudyObjectives
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudyEndPointsRef:
+        range: StudyEndPoints
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudyTargetPopulationRef:
+        range: StudyTargetPopulation
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudyEstimandsRef:
+        range: StudyEstimands
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      InclusionExclusionCriteriaRef:
+        range: InclusionExclusionCriteria
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudyEventGroupRefRef:
+        range: StudyEventGroupRef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      WorkflowRefRef:
+        range: WorkflowRef
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      AliasRef:
+        range: Alias
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+        list_elements_unique: true
     class_uri: odm:Protocol
   StudyStructure:
     name: StudyStructure
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - DescriptionRef
+    - ArmRef
+    - EpochRef
+    - WorkflowRefRef
+    slot_usage:
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      ArmRef:
+        range: Arm
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      EpochRef:
+        range: Epoch
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      WorkflowRefRef:
+        range: WorkflowRef
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:StudyStructure
   TrialPhase:
     name: TrialPhase
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Value
+    - DescriptionRef
     slot_usage:
-    - Value:
+      Value:
         required: true
         range: TrialPhaseType
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:TrialPhase
   StudyIndications:
     name: StudyIndications
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyIndicationRef
+    slot_usage:
+      StudyIndicationRef:
+        range: StudyIndication
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
     class_uri: odm:StudyIndications
   StudyIndication:
     name: StudyIndication
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - DescriptionRef
+    - CodingRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
+      DescriptionRef:
+        range: Description
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:StudyIndication
   StudyInterventions:
     name: StudyInterventions
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyInterventionRef
+    slot_usage:
+      StudyInterventionRef:
+        range: StudyIntervention
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
     class_uri: odm:StudyInterventions
   StudyIntervention:
     name: StudyIntervention
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - DescriptionRef
+    - CodingRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
+      DescriptionRef:
+        range: Description
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:StudyIntervention
   StudyObjectives:
     name: StudyObjectives
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyObjectiveRef
+    slot_usage:
+      StudyObjectiveRef:
+        range: StudyObjective
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
     class_uri: odm:StudyObjectives
   StudyObjective:
     name: StudyObjective
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - Type
+    - DescriptionRef
+    - StudyEndPointRefRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
-    - Type:
+      Type:
         required: false
         range: StudyObjectiveType
+      DescriptionRef:
+        range: Description
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      StudyEndPointRefRef:
+        range: StudyEndPointRef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:StudyObjective
   StudyEndPointRef:
     name: StudyEndPointRef
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyEndPointOID
+    - OrderNumber
     slot_usage:
-    - StudyEndPointOID:
+      StudyEndPointOID:
         required: true
         range: oidref
-    - OrderNumber:
+      OrderNumber:
         required: false
         range: integer
     class_uri: odm:StudyEndPointRef
   StudyEndPoints:
     name: StudyEndPoints
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyEndPointRef
+    slot_usage:
+      StudyEndPointRef:
+        range: StudyEndPoint
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
     class_uri: odm:StudyEndPoints
   StudyEndPoint:
     name: StudyEndPoint
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - Type
+    - DescriptionRef
+    - FormalExpressionRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
-    - Type:
+      Type:
         required: false
         range: StudyEndPointType
+      DescriptionRef:
+        range: Description
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      FormalExpressionRef:
+        range: FormalExpression
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:StudyEndPoint
   StudyTargetPopulation:
     name: StudyTargetPopulation
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - DescriptionRef
+    - CodingRef
+    - FormalExpressionRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
+      DescriptionRef:
+        range: Description
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      FormalExpressionRef:
+        range: FormalExpression
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:StudyTargetPopulation
   StudyEstimands:
     name: StudyEstimands
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyEstimandRef
+    slot_usage:
+      StudyEstimandRef:
+        range: StudyEstimand
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
     class_uri: odm:StudyEstimands
   StudyEstimand:
     name: StudyEstimand
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - DescriptionRef
+    - StudyTargetPopulationRefRef
+    - StudyInterventionRefRef
+    - StudyEndPointRefRef
+    - IntercurrentEventRef
+    - SummaryMeasureRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudyTargetPopulationRefRef:
+        range: StudyTargetPopulationRef
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudyInterventionRefRef:
+        range: StudyInterventionRef
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudyEndPointRefRef:
+        range: StudyEndPointRef
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      IntercurrentEventRef:
+        range: IntercurrentEvent
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      SummaryMeasureRef:
+        range: SummaryMeasure
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:StudyEstimand
   InclusionExclusionCriteria:
     name: InclusionExclusionCriteria
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - InclusionCriteriaRef
+    - ExclusionCriteriaRef
+    slot_usage:
+      InclusionCriteriaRef:
+        range: InclusionCriteria
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      ExclusionCriteriaRef:
+        range: ExclusionCriteria
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:InclusionExclusionCriteria
   InclusionCriteria:
     name: InclusionCriteria
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - CriterionRef
+    slot_usage:
+      CriterionRef:
+        range: Criterion
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
     class_uri: odm:InclusionCriteria
   ExclusionCriteria:
     name: ExclusionCriteria
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - CriterionRef
+    slot_usage:
+      CriterionRef:
+        range: Criterion
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
     class_uri: odm:ExclusionCriteria
   StudyTargetPopulationRef:
     name: StudyTargetPopulationRef
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyTargetPopulationOID
     slot_usage:
-    - StudyTargetPopulationOID:
+      StudyTargetPopulationOID:
         required: true
         range: oidref
     class_uri: odm:StudyTargetPopulationRef
   StudyInterventionRef:
     name: StudyInterventionRef
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyInterventionOID
     slot_usage:
-    - StudyInterventionOID:
+      StudyInterventionOID:
         required: true
     class_uri: odm:StudyInterventionRef
   IntercurrentEvent:
     name: IntercurrentEvent
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - DescriptionRef
+    slot_usage:
+      DescriptionRef:
+        range: Description
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
     class_uri: odm:IntercurrentEvent
   SummaryMeasure:
     name: SummaryMeasure
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - DescriptionRef
+    slot_usage:
+      DescriptionRef:
+        range: Description
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
     class_uri: odm:SummaryMeasure
   Arm:
     name: Arm
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - DescriptionRef
+    - WorkflowRefRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      WorkflowRefRef:
+        range: WorkflowRef
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:Arm
   Epoch:
     name: Epoch
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - SequenceNumber
+    - DescriptionRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
-    - SequenceNumber:
+      SequenceNumber:
         required: true
         range: positiveInteger
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:Epoch
   WorkflowRef:
     name: WorkflowRef
     in_subset: ExceptionEventGroupDefinition
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - WorkflowOID
     slot_usage:
-    - WorkflowOID:
+      WorkflowOID:
         required: true
         range: oidref
     class_uri: odm:WorkflowRef
   StudySummary:
     name: StudySummary
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyParameterRef
+    slot_usage:
+      StudyParameterRef:
+        range: StudyParameter
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
     class_uri: odm:StudySummary
   StudyParameter:
     name: StudyParameter
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Term
+    - ShortName
+    - ParameterValueRef
+    - CodingRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Term:
+      Term:
         required: true
         range: name
-    - ShortName:
+      ShortName:
         required: false
         range: name
+      ParameterValueRef:
+        range: ParameterValue
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:StudyParameter
   ParameterValue:
     name: ParameterValue
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Value
+    - CodingRef
     slot_usage:
-    - Value:
+      Value:
         required: true
         range: text
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:ParameterValue
   StudyTimings:
     name: StudyTimings
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyTimingRef
+    slot_usage:
+      StudyTimingRef:
+        range: StudyTiming
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
     class_uri: odm:StudyTimings
   StudyTiming:
     name: StudyTiming
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - AbsoluteTimingConstraintRef
+    - RelativeTimingConstraintRef
+    - TransitionTimingConstraintRef
+    - DurationTimingConstraintRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
+      AbsoluteTimingConstraintRef:
+        range: AbsoluteTimingConstraint
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      RelativeTimingConstraintRef:
+        range: RelativeTimingConstraint
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      TransitionTimingConstraintRef:
+        range: TransitionTimingConstraint
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      DurationTimingConstraintRef:
+        range: DurationTimingConstraint
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:StudyTiming
   TransitionTimingConstraint:
     name: TransitionTimingConstraint
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - TransitionOID
+    - MethodOID
+    - Type
+    - TimepointTarget
+    - TimepointPreWindow
+    - TimepointPostWindow
+    - DescriptionRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
-    - TransitionOID:
+      TransitionOID:
         required: true
         range: oidref
-    - MethodOID:
+      MethodOID:
         required: false
         range: oidref
-    - Type:
+      Type:
         required: false
         range: RelativeTimingConstraintType
-    - TimepointTarget:
+      TimepointTarget:
         required: true
         range: durationDatetime
-    - TimepointPreWindow:
+      TimepointPreWindow:
         required: false
         range: durationDatetime
-    - TimepointPostWindow:
+      TimepointPostWindow:
         required: false
         range: durationDatetime
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:TransitionTimingConstraint
   AbsoluteTimingConstraint:
     name: AbsoluteTimingConstraint
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - StudyEventGroupOID
+    - StudyEventOID
+    - TimepointTarget
+    - TimepointPreWindow
+    - TimepointPostWindow
+    - DescriptionRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
-    - StudyEventGroupOID:
+      StudyEventGroupOID:
         required: false
         range: oidref
-    - StudyEventOID:
+      StudyEventOID:
         required: false
         range: oidref
-    - TimepointTarget:
+      TimepointTarget:
         required: true
         any_of:
         - range: date
@@ -2630,81 +3610,137 @@ classes:
         - range: partialDate
         - range: partialTime
         - range: partialDatetime
-    - TimepointPreWindow:
+      TimepointPreWindow:
         required: false
         range: durationDatetime
-    - TimepointPostWindow:
+      TimepointPostWindow:
         required: false
         range: durationDatetime
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:AbsoluteTimingConstraint
   RelativeTimingConstraint:
     name: RelativeTimingConstraint
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - PredecessorOID
+    - SuccessorOID
+    - Type
+    - TimepointRelativeTarget
+    - TimepointPreWindow
+    - TimepointPostWindow
+    - DescriptionRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
-    - PredecessorOID:
+      PredecessorOID:
         required: false
         range: oidref
-    - SuccessorOID:
+      SuccessorOID:
         required: false
         range: oidref
-    - Type:
+      Type:
         required: false
         range: RelativeTimingConstraintType
-    - TimepointRelativeTarget:
+      TimepointRelativeTarget:
         required: true
         range: durationDatetime
-    - TimepointPreWindow:
+      TimepointPreWindow:
         required: false
         range: durationDatetime
-    - TimepointPostWindow:
+      TimepointPostWindow:
         required: false
         range: durationDatetime
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:RelativeTimingConstraint
   DurationTimingConstraint:
     name: DurationTimingConstraint
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - StructuralElementOID
+    - DurationTarget
+    - DurationPreWindow
+    - DurationPostWindow
+    - DescriptionRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
-    - StructuralElementOID:
+      StructuralElementOID:
         required: true
         range: oidref
-    - DurationTarget:
+      DurationTarget:
         required: true
         range: durationDatetime
-    - DurationPreWindow:
+      DurationPreWindow:
         required: false
         range: durationDatetime
-    - DurationPostWindow:
+      DurationPostWindow:
         required: false
         range: durationDatetime
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:DurationTimingConstraint
   WorkflowDef:
     name: WorkflowDef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - DescriptionRef
+    - WorkflowStartRef
+    - WorkflowEndRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      WorkflowStartRef:
+        range: WorkflowStart
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      WorkflowEndRef:
+        range: WorkflowEnd
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
     class_uri: odm:WorkflowDef
   WorkflowStart:
     name: WorkflowStart
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StartOID
     slot_usage:
-    - StartOID:
+      StartOID:
         required: true
         range: oidref
     class_uri: odm:WorkflowStart
@@ -2712,209 +3748,374 @@ classes:
     name: Transition
     in_subset: WorkflowTransitionGroupDefinition
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - SourceOID
+    - TargetOID
+    - StartConditionOID
+    - EndConditionOID
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
-    - SourceOID:
+      SourceOID:
         required: true
         range: oidref
-    - TargetOID:
+      TargetOID:
         required: true
         range: oidref
-    - StartConditionOID:
+      StartConditionOID:
         required: false
         range: oidref
-    - EndConditionOID:
+      EndConditionOID:
         required: false
         range: oidref
     class_uri: odm:Transition
   Branching:
     name: Branching
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - Type
+    - TargetTransitionRef
+    - DefaultTransitionRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
-    - Type:
+      Type:
         required: true
         range: BranchingType
+      TargetTransitionRef:
+        range: TargetTransition
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
+      DefaultTransitionRef:
+        range: DefaultTransition
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:Branching
   TargetTransition:
     name: TargetTransition
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - TargetTransitionOID
+    - ConditionOID
     slot_usage:
-    - TargetTransitionOID:
+      TargetTransitionOID:
         required: true
         range: oidref
-    - ConditionOID:
+      ConditionOID:
         required: false
         range: oidref
     class_uri: odm:TargetTransition
   DefaultTransition:
     name: DefaultTransition
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - TargetTransitionOID
     slot_usage:
-    - TargetTransitionOID:
+      TargetTransitionOID:
         required: true
         range: oidref
     class_uri: odm:DefaultTransition
   WorkflowEnd:
     name: WorkflowEnd
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - EndOID
+    - _content
     slot_usage:
-    - EndOID:
+      EndOID:
         required: true
         range: oidref
+      _content:
+        range: text
     class_uri: odm:WorkflowEnd
   Criterion:
     name: Criterion
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - ConditionOID
+    - DescriptionRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
-    - ConditionOID:
+      ConditionOID:
         required: true
         range: oidref
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:Criterion
   EntryCriteria:
     name: EntryCriteria
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - CriterionRef
+    slot_usage:
+      CriterionRef:
+        range: Criterion
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:EntryCriteria
   ExitCriteria:
     name: ExitCriteria
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - CriterionRef
+    slot_usage:
+      CriterionRef:
+        range: Criterion
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:ExitCriteria
   ExceptionEvent:
     name: ExceptionEvent
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - ConditionOID
+    - DescriptionRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
-    - ConditionOID:
+      ConditionOID:
         required: false
         range: oidref
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:ExceptionEvent
   AdminData:
     name: AdminData
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyOID
+    - UserRef
+    - OrganizationRef
+    - LocationRef
+    - SignatureDefRef
     slot_usage:
-    - StudyOID:
+      StudyOID:
         required: false
         range: oidref
+      UserRef:
+        range: User
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      OrganizationRef:
+        range: Organization
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      LocationRef:
+        range: Location
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      SignatureDefRef:
+        range: SignatureDef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+        list_elements_unique: true
     class_uri: odm:AdminData
-  User:
-    name: User
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - OID:
-        required: true
-        range: oid
-    - UserType:
-        required: false
-        range: UserType
-    - OrganizationOID:
-        required: false
-        range: oidref
-    - LocationOID:
-        required: false
-        range: oidref
-    class_uri: odm:User
   UserName:
     name: UserName
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:UserName
   Prefix:
     name: Prefix
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:Prefix
   Suffix:
     name: Suffix
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:Suffix
   FullName:
     name: FullName
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:FullName
   GivenName:
     name: GivenName
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:GivenName
   FamilyName:
     name: FamilyName
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:FamilyName
   Image:
     name: Image
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - ImageFileName
+    - href
+    - MimeType
     slot_usage:
-    - ImageFileName:
+      ImageFileName:
         required: false
         range: fileName
-    - href:
+      href:
         required: false
         range: text
-    - MimeType:
+      MimeType:
         required: false
         range: text
     class_uri: odm:Image
   Organization:
     name: Organization
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - Role
+    - Type
+    - LocationOID
+    - PartOfOrganizationOID
+    - DescriptionRef
+    - AddressRef
+    - TelecomRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Name:
+      Name:
         required: true
         range: name
-    - Role:
+      Role:
         required: false
         range: text
-    - Type:
+      Type:
         required: true
         range: OrganizationType
-    - LocationOID:
+      LocationOID:
         required: false
         range: oidref
-    - PartOfOrganizationOID:
+      PartOfOrganizationOID:
         required: false
         range: oidref
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      AddressRef:
+        range: Address
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      TelecomRef:
+        range: Telecom
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:Organization
-  Location:
-    name: Location
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - OID:
-        required: true
-        range: oid
-    - Name:
-        required: true
-        range: name
-    - Role:
-        required: false
-        range: text
-    - OrganizationOID:
-        required: false
-        range: oidref
-    class_uri: odm:Location
   Address:
     name: Address
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StreetNameRef
+    - HouseNumberRef
+    - CityRef
+    - StateProvRef
+    - CountryRef
+    - PostalCodeRef
+    - GeoPositionRef
+    - OtherTextRef
+    slot_usage:
+      StreetNameRef:
+        range: StreetName
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      HouseNumberRef:
+        range: HouseNumber
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      CityRef:
+        range: City
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StateProvRef:
+        range: StateProv
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      CountryRef:
+        range: Country
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      PostalCodeRef:
+        range: PostalCode
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      GeoPositionRef:
+        range: GeoPosition
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      OtherTextRef:
+        range: OtherText
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:Address
   Telecom:
     name: Telecom
@@ -2923,268 +4124,503 @@ classes:
   StreetName:
     name: StreetName
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:StreetName
   HouseNumber:
     name: HouseNumber
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:HouseNumber
   City:
     name: City
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:City
   StateProv:
     name: StateProv
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:StateProv
   Country:
     name: Country
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:Country
   PostalCode:
     name: PostalCode
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:PostalCode
   GeoPosition:
     name: GeoPosition
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Longitude
+    - Latitude
+    - Altitude
     slot_usage:
-    - Longitude:
+      Longitude:
         required: false
         range: decimal
-    - Latitude:
+      Latitude:
         required: false
         range: decimal
-    - Altitude:
+      Altitude:
         required: false
         range: decimal
     class_uri: odm:GeoPosition
   OtherText:
     name: OtherText
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:OtherText
   MetaDataVersionRef:
     name: MetaDataVersionRef
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyOID
+    - MetaDataVersionOID
+    - EffectiveDate
     slot_usage:
-    - StudyOID:
+      StudyOID:
         required: true
         range: oidref
-    - MetaDataVersionOID:
+      MetaDataVersionOID:
         required: true
         range: oidref
-    - EffectiveDate:
+      EffectiveDate:
         required: true
         range: date
     class_uri: odm:MetaDataVersionRef
-  SignatureDef:
-    name: SignatureDef
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    slot_usage:
-    - OID:
-        required: true
-        range: oid
-    - Methodology:
-        required: false
-        range: SignMethod
-    class_uri: odm:SignatureDef
   Meaning:
     name: Meaning
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:Meaning
   LegalReason:
     name: LegalReason
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:LegalReason
   ReferenceData:
     name: ReferenceData
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyOID
+    - MetaDataVersionOID
+    - ItemGroupDataRef
     slot_usage:
-    - StudyOID:
+      StudyOID:
         required: true
         range: oidref
-    - MetaDataVersionOID:
+      MetaDataVersionOID:
         required: true
         range: oidref
+      ItemGroupDataRef:
+        range: ItemGroupData
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:ReferenceData
   ClinicalData:
     name: ClinicalData
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyOID
+    - MetaDataVersionOID
+    - SubjectDataRef
+    - ItemGroupDataRef
+    - QueryRef
     slot_usage:
-    - StudyOID:
+      StudyOID:
         required: true
         range: oidref
-    - MetaDataVersionOID:
+      MetaDataVersionOID:
         required: true
         range: oidref
+      SubjectDataRef:
+        range: SubjectData
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      ItemGroupDataRef:
+        range: ItemGroupData
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      QueryRef:
+        range: Query
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:ClinicalData
   SubjectData:
     name: SubjectData
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - SubjectKey
+    - TransactionType
+    - InvestigatorRefRef
+    - SiteRefRef
+    - StudyEventDataRef
+    - QueryRef
     slot_usage:
-    - SubjectKey:
+      SubjectKey:
         required: true
         range: subjectKey
-    - TransactionType:
+      TransactionType:
         required: false
         range: TransactionType
+      InvestigatorRefRef:
+        range: InvestigatorRef
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      SiteRefRef:
+        range: SiteRef
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudyEventDataRef:
+        range: StudyEventData
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      QueryRef:
+        range: Query
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:SubjectData
   SiteRef:
     name: SiteRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - LocationOID
     slot_usage:
-    - LocationOID:
+      LocationOID:
         required: true
         range: oidref
     class_uri: odm:SiteRef
   InvestigatorRef:
     name: InvestigatorRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - UserOID
     slot_usage:
-    - UserOID:
+      UserOID:
         required: true
         range: oidref
     class_uri: odm:InvestigatorRef
   StudyEventData:
     name: StudyEventData
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyEventOID
+    - StudyEventRepeatKey
+    - TransactionType
+    - ItemGroupDataRef
+    - QueryRef
     slot_usage:
-    - StudyEventOID:
+      StudyEventOID:
         required: true
         range: oidref
-    - StudyEventRepeatKey:
+      StudyEventRepeatKey:
         required: false
         range: repeatKey
-    - TransactionType:
+      TransactionType:
         required: false
         range: TransactionType
+      ItemGroupDataRef:
+        range: ItemGroupData
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      QueryRef:
+        range: Query
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:StudyEventData
   ItemGroupData:
     name: ItemGroupData
     in_subset: ItemGroupDataGroup
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - ItemGroupOID
+    - ItemGroupRepeatKey
+    - TransactionType
+    - ItemGroupDataSeq
+    - QueryRef
     slot_usage:
-    - ItemGroupOID:
+      ItemGroupOID:
         required: true
         range: oidref
-    - ItemGroupRepeatKey:
+      ItemGroupRepeatKey:
         required: false
         range: repeatKey
-    - TransactionType:
+      TransactionType:
         required: false
         range: TransactionType
-    - ItemGroupDataSeq:
+      ItemGroupDataSeq:
         required: false
         range: integer
+      QueryRef:
+        range: Query
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:ItemGroupData
   ItemData:
     name: ItemData
     in_subset: ItemGroupDataGroup
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - ItemOID
+    - TransactionType
+    - IsNull
+    - ValueRef
+    - QueryRef
     slot_usage:
-    - ItemOID:
+      ItemOID:
         required: true
         range: oidref
-    - TransactionType:
+      TransactionType:
         required: false
         range: TransactionType
-    - IsNull:
+      IsNull:
         required: false
         range: YesOnly
+      ValueRef:
+        range: Value
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      QueryRef:
+        range: Query
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:ItemData
   AuditRecord:
     name: AuditRecord
     in_subset: AuditRecordSignatureNotationGroup
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - EditPoint
+    - UsedMethod
+    - UserRefRef
+    - LocationRefRef
+    - DateTimeStampRef
+    - ReasonForChangeRef
+    - SourceIDRef
     slot_usage:
-    - EditPoint:
+      EditPoint:
         required: false
         range: EditPointType
-    - UsedMethod:
+      UsedMethod:
         required: false
         range: YesOrNo
+      UserRefRef:
+        range: UserRef
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      LocationRefRef:
+        range: LocationRef
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      DateTimeStampRef:
+        range: DateTimeStamp
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      ReasonForChangeRef:
+        range: ReasonForChange
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      SourceIDRef:
+        range: SourceID
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:AuditRecord
   UserRef:
     name: UserRef
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - UserOID
     slot_usage:
-    - UserOID:
+      UserOID:
         required: true
         range: oidref
     class_uri: odm:UserRef
   LocationRef:
     name: LocationRef
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - LocationOID
     slot_usage:
-    - LocationOID:
+      LocationOID:
         required: true
         range: oidref
     class_uri: odm:LocationRef
   DateTimeStamp:
     name: DateTimeStamp
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: datetime
     class_uri: odm:DateTimeStamp
   ReasonForChange:
     name: ReasonForChange
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:ReasonForChange
   SourceID:
     name: SourceID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _content
+    slot_usage:
+      range: text
     class_uri: odm:SourceID
   Signature:
     name: Signature
     in_subset: AuditRecordSignatureNotationGroup
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - ID
+    - UserRefRef
+    - LocationRefRef
+    - SignatureRefRef
+    - DateTimeStampRef
     slot_usage:
-    - ID:
+      ID:
         required: false
         range: oid
+      UserRefRef:
+        range: UserRef
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      LocationRefRef:
+        range: LocationRef
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      SignatureRefRef:
+        range: SignatureRef
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      DateTimeStampRef:
+        range: DateTimeStamp
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
     class_uri: odm:Signature
   SignatureRef:
     name: SignatureRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - SignatureOID
     slot_usage:
-    - SignatureOID:
+      SignatureOID:
         required: true
         range: oidref
     class_uri: odm:SignatureRef
   Association:
     name: Association
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyOID
+    - MetaDataVersionOID
+    - KeySetRef
+    - AnnotationRef
     slot_usage:
-    - StudyOID:
+      StudyOID:
         required: true
         range: oidref
-    - MetaDataVersionOID:
+      MetaDataVersionOID:
         required: true
         range: oidref
+      KeySetRef:
+        range: KeySet
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      AnnotationRef:
+        range: Annotation
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
     class_uri: odm:Association
   KeySet:
     name: KeySet
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - StudyOID
+    - SubjectKey
+    - MetaDataVersionOID
+    - StudyEventOID
+    - StudyEventRepeatKey
+    - ItemGroupOID
+    - ItemGroupRepeatKey
+    - ItemOID
     slot_usage:
-    - StudyOID:
+      StudyOID:
         required: true
         range: oidref
-    - SubjectKey:
+      SubjectKey:
         required: false
         range: subjectKey
-    - MetaDataVersionOID:
+      MetaDataVersionOID:
         required: false
         range: oidref
-    - StudyEventOID:
+      StudyEventOID:
         required: false
         range: oidref
-    - StudyEventRepeatKey:
+      StudyEventRepeatKey:
         required: false
         range: repeatKey
-    - ItemGroupOID:
+      ItemGroupOID:
         required: false
         range: oidref
-    - ItemGroupRepeatKey:
+      ItemGroupRepeatKey:
         required: false
         range: repeatKey
-    - ItemOID:
+      ItemOID:
         required: false
         range: oidref
     class_uri: odm:KeySet
@@ -3192,139 +4628,1345 @@ classes:
     name: Annotation
     in_subset: AuditRecordSignatureNotationGroup
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - SeqNum
+    - TransactionType
+    - ID
+    - CommentRef
+    - CodingRef
+    - FlagRef
     slot_usage:
-    - SeqNum:
+      SeqNum:
         required: true
         range: integer
-    - TransactionType:
+      TransactionType:
         required: false
         range: TransactionType
-    - ID:
+      ID:
         required: false
         range: oid
+      CommentRef:
+        range: Comment
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      FlagRef:
+        range: Flag
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:Annotation
   Comment:
     name: Comment
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - SponsorOrSite
+    - TranslatedTextRef
     slot_usage:
-    - SponsorOrSite:
+      SponsorOrSite:
         required: false
         range: CommentType
+      TranslatedTextRef:
+        range: TranslatedText
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
     class_uri: odm:Comment
   Flag:
     name: Flag
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - FlagValueRef
+    - FlagTypeRef
+    slot_usage:
+      FlagValueRef:
+        range: FlagValue
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      FlagTypeRef:
+        range: FlagType
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:Flag
   FlagValue:
     name: FlagValue
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - CodeListOID
+    - _content
     slot_usage:
-    - CodeListOID:
+      CodeListOID:
         required: true
         range: oidref
+      _content:
+        range: name
     class_uri: odm:FlagValue
   FlagType:
     name: FlagType
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - CodeListOID
+    - _content
     slot_usage:
-    - CodeListOID:
+      CodeListOID:
         required: true
         range: oidref
+      _content:
+        range: name
     class_uri: odm:FlagType
   Coding:
     name: Coding
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Code
+    - System
+    - SystemName
+    - SystemVersion
+    - Label
+    - href
+    - CommentOID
     slot_usage:
-    - Code:
+      Code:
         required: true
         range: text
-    - System:
+      System:
         required: true
         range: uriorcurie
-    - SystemName:
+      SystemName:
         required: false
         range: text
-    - SystemVersion:
+      SystemVersion:
         required: false
         range: text
-    - Label:
+      Label:
         required: false
         range: text
-    - href:
+      href:
         required: false
         range: uriorcurie
-    - CommentOID:
+      CommentOID:
         required: false
         range: text
     class_uri: odm:Coding
   Query:
     name: Query
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Source
+    - Target
+    - Type
+    - State
+    - LastUpdateDatetime
+    - Name
+    - ValueRef
+    - AuditRecordRef
     slot_usage:
-    - OID:
+      OID:
         required: true
         range: oid
-    - Source:
+      Source:
         required: true
         range: QuerySourceType
-    - Target:
+      Target:
         required: false
         range: text
-    - Type:
+      Type:
         required: false
         range: QueryType
-    - State:
+      State:
         required: true
         range: QueryStateType
-    - LastUpdateDatetime:
+      LastUpdateDatetime:
         required: true
         range: datetime
-    - Name:
+      Name:
         required: false
         range: name
+      ValueRef:
+        range: Value
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      AuditRecordRef:
+        range: AuditRecord
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
     class_uri: odm:Query
   Value:
     name: Value
+    slots:
+    - SeqNum
+    - _content
     slot_usage:
-    - SeqNum:
+      SeqNum:
         required: false
         range: positiveInteger
+      _content:
+        range: text
     class_uri: odm:Value
+  TranslatedText:
+    name: TranslatedText
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - _language
+    - type
+    - _content
+    slot_usage:
+      _language:
+        required: false
+      type:
+        required: true
+        range: text
+      _content:
+        range: _contentType
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+    class_uri: odm:TranslatedText
+    unique_keys:
+      UC-DEC-1:
+        unique_key_slots:
+        - type
+        - _language
+  MetaDataVersion:
+    name: MetaDataVersion
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - CommentOID
+    - DescriptionRef
+    - IncludeRef
+    - StandardsRef
+    - AnnotatedCRFRef
+    - SupplementalDocRef
+    - ValueListDefRef
+    - WhereClauseDefRef
+    - ProtocolRef
+    - WorkflowDefRef
+    - StudyEventGroupDefRef
+    - StudyEventDefRef
+    - ItemGroupDefRef
+    - ItemDefRef
+    - CodeListRef
+    - ConditionDefRef
+    - MethodDefRef
+    - CommentDefRef
+    - leafRef
+    slot_usage:
+      OID:
+        required: true
+        range: oid
+      Name:
+        required: true
+        range: name
+      CommentOID:
+        required: false
+        range: oidref
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      IncludeRef:
+        range: Include
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StandardsRef:
+        range: Standards
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      AnnotatedCRFRef:
+        range: AnnotatedCRF
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      SupplementalDocRef:
+        range: SupplementalDoc
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      ValueListDefRef:
+        range: ValueListDef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      WhereClauseDefRef:
+        range: WhereClauseDef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      ProtocolRef:
+        range: Protocol
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      WorkflowDefRef:
+        range: WorkflowDef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      StudyEventGroupDefRef:
+        range: StudyEventGroupDef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      StudyEventDefRef:
+        range: StudyEventDef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      ItemGroupDefRef:
+        range: ItemGroupDef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      ItemDefRef:
+        range: ItemDef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      CodeListRef:
+        range: CodeList
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      ConditionDefRef:
+        range: ConditionDef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      MethodDefRef:
+        range: MethodDef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      CommentDefRef:
+        range: CommentDef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      leafRef:
+        range: leaf
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+    class_uri: odm:MetaDataVersion
+    unique_keys:
+      UC-S-2:
+        unique_key_slots:
+        - OID
+  StudyEventDef:
+    name: StudyEventDef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - Repeating
+    - Type
+    - Category
+    - CommentOID
+    - DescriptionRef
+    - ItemGroupRefRef
+    - WorkflowRefRef
+    - CodingRef
+    - AliasRef
+    slot_usage:
+      OID:
+        required: true
+        range: oid
+      Name:
+        required: true
+        range: name
+      Repeating:
+        required: true
+        range: YesOrNo
+      Type:
+        required: true
+        range: EventType
+      Category:
+        required: false
+        range: text
+      CommentOID:
+        required: false
+        range: oidref
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      ItemGroupRefRef:
+        range: ItemGroupRef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      WorkflowRefRef:
+        range: WorkflowRef
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      AliasRef:
+        range: Alias
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+        list_elements_unique: true
+    class_uri: odm:StudyEventDef
+    unique_keys:
+      UC-MDV-1:
+        unique_key_slots:
+        - OID
+  ItemGroupDef:
+    name: ItemGroupDef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - Repeating
+    - RepeatingLimit
+    - IsReferenceData
+    - Structure
+    - ArchiveLocationID
+    - DatasetName
+    - Domain
+    - Type
+    - Purpose
+    - StandardOID
+    - IsNonStandard
+    - HasNoData
+    - CommentOID
+    - DescriptionRef
+    - ClassRef
+    - CodingRef
+    - WorkflowRefRef
+    - OriginRef
+    - AliasRef
+    - leafRef
+    slot_usage:
+      OID:
+        required: true
+        range: oid
+      Name:
+        required: true
+        range: name
+      Repeating:
+        required: true
+        range: ItemGroupRepeatingType
+      RepeatingLimit:
+        required: false
+        range: positiveInteger
+      IsReferenceData:
+        required: false
+        range: YesOrNo
+      Structure:
+        required: false
+        range: text
+      ArchiveLocationID:
+        required: false
+        range: oidref
+      DatasetName:
+        required: false
+        range: name
+      Domain:
+        required: false
+        range: text
+      Type:
+        required: true
+        range: ItemGroupTypeType
+      Purpose:
+        required: false
+        range: text
+      StandardOID:
+        required: false
+        range: oidref
+      IsNonStandard:
+        required: false
+        range: YesOnly
+      HasNoData:
+        required: false
+        range: YesOnly
+      CommentOID:
+        required: false
+        range: oidref
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      ClassRef:
+        range: Class
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      WorkflowRefRef:
+        range: WorkflowRef
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      OriginRef:
+        range: Origin
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      AliasRef:
+        range: Alias
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+        list_elements_unique: true
+      leafRef:
+        range: leaf
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+    class_uri: odm:ItemGroupDef
+    unique_keys:
+      UC-MDV-3:
+        unique_key_slots:
+        - OID
+  ItemDef:
+    name: ItemDef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - DataType
+    - Length
+    - DisplayFormat
+    - CommentOID
+    - DescriptionRef
+    - QuestionRef
+    - RangeCheckRef
+    - CodeListRefRef
+    - ValueListRefRef
+    - CodingRef
+    - AliasRef
+    slot_usage:
+      OID:
+        required: true
+        range: oid
+      Name:
+        required: true
+        range: name
+      DataType:
+        required: true
+        range: DataType
+      Length:
+        required: false
+        range: positiveInteger
+      DisplayFormat:
+        required: false
+        range: text
+      CommentOID:
+        required: false
+        range: oidref
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      QuestionRef:
+        range: Question
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      RangeCheckRef:
+        range: RangeCheck
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      CodeListRefRef:
+        range: CodeListRef
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      ValueListRefRef:
+        range: ValueListRef
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      AliasRef:
+        range: Alias
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+        list_elements_unique: true
+    class_uri: odm:ItemDef
+    unique_keys:
+      UC-MDV-4:
+        unique_key_slots:
+        - OID
+  CodeList:
+    name: CodeList
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - DataType
+    - CommentOID
+    - StandardOID
+    - IsNonStandard
+    - DescriptionRef
+    - ExternalCodeListRef
+    - CodingRef
+    - AliasRef
+    slot_usage:
+      OID:
+        required: true
+        range: oid
+      Name:
+        required: true
+        range: name
+      DataType:
+        required: true
+        range: CLDataType
+      CommentOID:
+        required: false
+        range: oidref
+      StandardOID:
+        required: false
+        range: oidref
+      IsNonStandard:
+        required: false
+        range: YesOnly
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      ExternalCodeListRef:
+        range: ExternalCodeList
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      AliasRef:
+        range: Alias
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+        list_elements_unique: true
+    class_uri: odm:CodeList
+    unique_keys:
+      UC-MDV-5:
+        unique_key_slots:
+        - OID
+  ConditionDef:
+    name: ConditionDef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - CommentOID
+    - DescriptionRef
+    - MethodSignatureRef
+    - FormalExpressionRef
+    - AliasRef
+    slot_usage:
+      OID:
+        required: true
+        range: oid
+      Name:
+        required: true
+        range: name
+      CommentOID:
+        required: false
+        range: oidref
+      DescriptionRef:
+        range: Description
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      MethodSignatureRef:
+        range: MethodSignature
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      FormalExpressionRef:
+        range: FormalExpression
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      AliasRef:
+        range: Alias
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+        list_elements_unique: true
+    class_uri: odm:ConditionDef
+    unique_keys:
+      UC-MDV-8:
+        unique_key_slots:
+        - OID
+  MethodDef:
+    name: MethodDef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - Type
+    - CommentOID
+    - DescriptionRef
+    - MethodSignatureRef
+    - FormalExpressionRef
+    - AliasRef
+    - DocumentRefRef
+    slot_usage:
+      OID:
+        required: true
+        range: oid
+      Name:
+        required: true
+        range: name
+      Type:
+        required: false
+        range: MethodType
+      CommentOID:
+        required: false
+        range: oidref
+      DescriptionRef:
+        range: Description
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      MethodSignatureRef:
+        range: MethodSignature
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      FormalExpressionRef:
+        range: FormalExpression
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      AliasRef:
+        range: Alias
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+        list_elements_unique: true
+      DocumentRefRef:
+        range: DocumentRef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+    class_uri: odm:MethodDef
+    unique_keys:
+      UC-MDV-10:
+        unique_key_slots:
+        - OID
+  Standard:
+    name: Standard
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - Type
+    - PublishingSet
+    - Version
+    - Status
+    - CommentOID
+    slot_usage:
+      OID:
+        required: true
+        range: oid
+      Name:
+        required: true
+        range: StandardName
+      Type:
+        required: true
+        range: StandardType
+      PublishingSet:
+        required: false
+        range: StandardPublishingSet
+      Version:
+        required: true
+        range: text
+      Status:
+        required: true
+        range: StandardStatus
+      CommentOID:
+        required: false
+        range: oidref
+    class_uri: odm:Standard
+    unique_keys:
+      UC-STD-1:
+        unique_key_slots:
+        - OID
+  DocumentRef:
+    name: DocumentRef
+    description: Links to a leaf element with the location of the document.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - leafID
+    - PDFPageRefRef
+    slot_usage:
+      leafID:
+        required: true
+        range: oid
+      PDFPageRefRef:
+        range: PDFPageRef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+        description: The PDFPageRef element is a container for page references in
+          a PDF file.
+    class_uri: odm:DocumentRef
+    unique_keys:
+      UC-SUPPD-1:
+        unique_key_slots:
+        - leafID
+  ItemRef:
+    name: ItemRef
+    in_subset: ItemGroupDefGroup
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - ItemOID
+    - KeySequence
+    - IsNonStandard
+    - HasNoData
+    - MethodOID
+    - UnitsItemOID
+    - Repeat
+    - Other
+    - Role
+    - RoleCodeListOID
+    - OrderNumber
+    - Mandatory
+    - CollectionExceptionConditionOID
+    - OriginRef
+    - WhereClauseRefRef
+    slot_usage:
+      ItemOID:
+        required: true
+        range: oidref
+      KeySequence:
+        required: false
+        range: integer
+      IsNonStandard:
+        required: false
+        range: YesOnly
+      HasNoData:
+        required: false
+        range: YesOnly
+      MethodOID:
+        required: false
+        range: oidref
+      UnitsItemOID:
+        required: false
+        range: oidref
+      Repeat:
+        required: false
+        range: YesOnly
+      Other:
+        required: false
+        range: YesOnly
+      Role:
+        required: false
+        range: text
+      RoleCodeListOID:
+        required: false
+        range: oidref
+      OrderNumber:
+        required: false
+        range: integer
+      Mandatory:
+        required: true
+        range: YesOrNo
+      CollectionExceptionConditionOID:
+        required: false
+        range: oidref
+      OriginRef:
+        range: Origin
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      WhereClauseRefRef:
+        range: WhereClauseRef
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+    class_uri: odm:ItemRef
+    unique_keys:
+      UC-IGD-3:
+        unique_key_slots:
+        - KeySequence
+  ItemGroupRef:
+    name: ItemGroupRef
+    in_subset: ItemGroupDefGroup
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - ItemGroupOID
+    - MethodOID
+    - OrderNumber
+    - Mandatory
+    - CollectionExceptionConditionOID
+    slot_usage:
+      ItemGroupOID:
+        required: true
+        range: oidref
+      MethodOID:
+        required: false
+        range: oidref
+      OrderNumber:
+        required: false
+        range: integer
+      Mandatory:
+        required: true
+        range: YesOrNo
+      CollectionExceptionConditionOID:
+        required: false
+        range: oidref
+    class_uri: odm:ItemGroupRef
+    unique_keys:
+      UC-SED-2:
+        unique_key_slots:
+        - OrderNumber
+  Alias:
+    name: Alias
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - Context
+    - Name
+    slot_usage:
+      Context:
+        required: true
+        range: text
+      Name:
+        required: true
+        range: text
+    class_uri: odm:Alias
+    unique_keys:
+      UC-P-1:
+        unique_key_slots:
+        - Context
+  CodeListItem:
+    name: CodeListItem
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - CodedValue
+    - Rank
+    - Other
+    - OrderNumber
+    - ExtendedValue
+    - CommentOID
+    - DescriptionRef
+    - DecodeRef
+    - CodingRef
+    - AliasRef
+    slot_usage:
+      CodedValue:
+        required: true
+        range: value
+      Rank:
+        required: false
+        range: decimal
+      Other:
+        required: false
+        range: YesOnly
+      OrderNumber:
+        required: false
+        range: integer
+      ExtendedValue:
+        required: false
+        range: YesOnly
+      CommentOID:
+        required: false
+        range: oidref
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      DecodeRef:
+        range: Decode
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      AliasRef:
+        range: Alias
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+        list_elements_unique: true
+    class_uri: odm:CodeListItem
+    unique_keys:
+      UC-CL-2:
+        unique_key_slots:
+        - OrderNumber
+  EnumeratedItem:
+    name: EnumeratedItem
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - CodedValue
+    - Rank
+    - Other
+    - OrderNumber
+    - ExtendedValue
+    - CommentOID
+    - DescriptionRef
+    - CodingRef
+    - AliasRef
+    slot_usage:
+      CodedValue:
+        required: true
+        range: value
+      Rank:
+        required: false
+        range: decimal
+      Other:
+        required: false
+        range: YesOnly
+      OrderNumber:
+        required: false
+        range: integer
+      ExtendedValue:
+        required: false
+        range: YesOnly
+      CommentOID:
+        required: false
+        range: oidref
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      CodingRef:
+        range: Coding
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      AliasRef:
+        range: Alias
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+        list_elements_unique: true
+    class_uri: odm:EnumeratedItem
+    unique_keys:
+      UC-CL-4:
+        unique_key_slots:
+        - OrderNumber
+  User:
+    name: User
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - UserType
+    - OrganizationOID
+    - LocationOID
+    - UserNameRef
+    - PrefixRef
+    - SuffixRef
+    - FullNameRef
+    - GivenNameRef
+    - FamilyNameRef
+    - ImageRef
+    - AddressRef
+    - TelecomRef
+    slot_usage:
+      OID:
+        required: true
+        range: oid
+      UserType:
+        required: false
+        range: UserType
+      OrganizationOID:
+        required: false
+        range: oidref
+      LocationOID:
+        required: false
+        range: oidref
+      UserNameRef:
+        range: UserName
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      PrefixRef:
+        range: Prefix
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      SuffixRef:
+        range: Suffix
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      FullNameRef:
+        range: FullName
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      GivenNameRef:
+        range: GivenName
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      FamilyNameRef:
+        range: FamilyName
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      ImageRef:
+        range: Image
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      AddressRef:
+        range: Address
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      TelecomRef:
+        range: Telecom
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+    class_uri: odm:User
+    unique_keys:
+      UC-AD-1:
+        unique_key_slots:
+        - OID
+  Location:
+    name: Location
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Name
+    - Role
+    - OrganizationOID
+    - DescriptionRef
+    - MetaDataVersionRefRef
+    - AddressRef
+    - TelecomRef
+    - QueryRef
+    slot_usage:
+      OID:
+        required: true
+        range: oid
+      Name:
+        required: true
+        range: name
+      Role:
+        required: false
+        range: text
+      OrganizationOID:
+        required: false
+        range: oidref
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      MetaDataVersionRefRef:
+        range: MetaDataVersionRef
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
+      AddressRef:
+        range: Address
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      TelecomRef:
+        range: Telecom
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      QueryRef:
+        range: Query
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+    class_uri: odm:Location
+    unique_keys:
+      UC-AD-2:
+        unique_key_slots:
+        - OID
+  SignatureDef:
+    name: SignatureDef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - Methodology
+    - MeaningRef
+    - LegalReasonRef
+    slot_usage:
+      OID:
+        required: true
+        range: oid
+      Methodology:
+        required: false
+        range: SignMethod
+      MeaningRef:
+        range: Meaning
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+      LegalReasonRef:
+        range: LegalReason
+        required: true
+        minimum_cardinality: '1'
+        maximum_cardinality: '1'
+    class_uri: odm:SignatureDef
+    unique_keys:
+      UC-AD-3:
+        unique_key_slots:
+        - OID
+  Study:
+    name: Study
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - OID
+    - StudyName
+    - ProtocolName
+    - DescriptionRef
+    - MetaDataVersionRef
+    slot_usage:
+      OID:
+        required: true
+        range: oid
+      StudyName:
+        required: true
+        range: name
+      ProtocolName:
+        required: true
+        range: name
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      MetaDataVersionRef:
+        range: MetaDataVersion
+        required: true
+        multivalued: true
+        minimum_cardinality: '1'
+        list_elements_unique: true
+    class_uri: odm:Study
+    unique_keys:
+      UC-O-1:
+        unique_key_slots:
+        - OID
   ODMFileMetadata:
     name: ODMFileMetadata
     from_schema: http://www.cdisc.org/ns/odm/v2.0
+    slots:
+    - FileType
+    - Granularity
+    - Context
+    - FileOID
+    - CreationDateTime
+    - PriorFileOID
+    - AsOfDateTime
+    - ODMVersion
+    - Originator
+    - SourceSystem
+    - SourceSystemVersion
+    - DescriptionRef
+    - StudyRef
+    - AdminDataRef
+    - ReferenceDataRef
+    - ClinicalDataRef
+    - AssociationRef
     slot_usage:
-    - FileType:
+      FileType:
         required: true
         range: FileType
-    - Granularity:
+      Granularity:
         required: false
         range: Granularity
-    - Context:
+      Context:
         required: false
         range: Context
-    - FileOID:
+      FileOID:
         required: true
         range: oid
-    - CreationDateTime:
+      CreationDateTime:
         required: true
         range: datetime
-    - PriorFileOID:
+      PriorFileOID:
         required: false
         range: oidref
-    - AsOfDateTime:
+      AsOfDateTime:
         required: false
         range: datetime
-    - ODMVersion:
+      ODMVersion:
         required: false
         range: ODMVersion
-    - Originator:
+      Originator:
         required: false
         range: text
-    - SourceSystem:
+      SourceSystem:
         required: false
         range: text
-    - SourceSystemVersion:
+      SourceSystemVersion:
         required: false
         range: text
+      DescriptionRef:
+        range: Description
+        required: false
+        minimum_cardinality: '0'
+        maximum_cardinality: '1'
+      StudyRef:
+        range: Study
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+        list_elements_unique: true
+      AdminDataRef:
+        range: AdminData
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      ReferenceDataRef:
+        range: ReferenceData
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      ClinicalDataRef:
+        range: ClinicalData
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
+      AssociationRef:
+        range: Association
+        required: false
+        multivalued: true
+        minimum_cardinality: '0'
     class_uri: odm:ODM

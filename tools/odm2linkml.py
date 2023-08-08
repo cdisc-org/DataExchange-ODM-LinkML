@@ -31,4 +31,5 @@ with open(output, 'w+') as f:
 print('Schema converted to LinkML file', output)
 
 # Validate the schema (Validator object self-validates on creation)
+print('Validating LinkML schema file')
 validator = Validator(schema = output)

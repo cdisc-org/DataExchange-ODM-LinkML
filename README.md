@@ -1,14 +1,18 @@
-# ODM structure descriptions
+# CDISC Operational Data Model Structure Descriptions
 Explore this repo to find the format that best suits your project
 
 # Motivation for expressing ODMv2 beyond XML
+
 ## FAIR clinical data (findable, accessible, interoperable, reusable)
-ODM should be expressed in every popular structured data format so that it is the easiest resource for developers to reach to. Adopting CDISC exchange standards for apps and automation minimises technical debt and makes clinical data FAIR end-to-end.
+Adopting CDISC exchange standards for apps and automation minimises technical debt and makes clinical data FAIR end-to-end
 
 ## Metadata-first, semantic datasets
-Clinical data can be piped to analysis-ready datasets according to the Define-XML specs (ODMv1). Instead of using it an automation spec, however, implementers have been treating dataset creation as manual and Define creation as post-hoc bureucracy. The largely SAS-based community of clinical programmers found XML too inaccessible to take advantage of the data structure.
+Clinical data can be piped to analysis-ready datasets according to the Define-XML specs (ODMv1). Instead of using it an automation spec, however, implementers treated dataset creation as manual and Define creation as post-hoc bureucracy. The largely SAS-based community of clinical programmers found XML too inaccessible to take advantage of the data structure
 
 With lessons learned from iterating on ODMv1, ODMv2 is a mature enough description of clinical data to bring to the semantic web. The intent is for a broader range of developers, data engineers and data scientists to get easy access to the benefits of structured data
+
+## Convergence through utility
+ODM expressed in every popular structured data format so that it is easier for developers to pick it up and apply to their project than to build their own model
 
 # LinkML and JSON-LD
 Between these 2 frameworks we can translate ODMv2 data & schemata into helpful representations
@@ -19,11 +23,11 @@ Between these 2 frameworks we can translate ODMv2 data & schemata into helpful r
 * GraphQL Schema
 * JSON Schema
 * JSON, YAML
-* Graphs and Shape Constraints (RDF, OWL, SHACL, SHEX)
+* Graphs and Shape Constraints (RDF, OWL, SHACL, SHEX, JSON-LD)
 * Python/Typescript/Java classes
 * XLSX file with objects as tabs and attributes and columns
 * CSV
-* Mermaid entity-relationship diagrams
+* Entity-relationship diagrams
 
 [JSON-LD](https://json-ld.org/) serialises RDF as JSON, helping to
 * translate between a JSON file (e.g. Dataset-JSON) and a RDF graph according to a defined context
@@ -37,7 +41,32 @@ Between these 2 frameworks we can translate ODMv2 data & schemata into helpful r
 - Scope for adoption limited to life sciences community so far, relatively young project
 - Conversion to JSON-LD is not mature so JSON-LD needs separate handling
 
-# Conversion of to JSON-LD and LinkML
+# How to generate schemata and documentation from source ODM XML
+    git clone https://github.com/cdisc-org/DataExchange-ODM.git
+    git clone https://github.com/cdisc-org/DataExchange-ODM-LinkML.git
+    cd DataExchange-ODM-LinkML
+    pip install -r requirements.txt
+    
+    python3 tools/odm2linkml.py ../DataExchange-ODM/schema/ODM.xsd --output ODM.yaml
+
+    gen-project -d . ODM.yaml --exclude shex
+
+More detailed relationship and cardinality constraints still need to be ported from XML Schema before shex can be added.
+
+As content is added, refresh documentation and diagrams using `mkdocs` to keep it up to date with the latest batch of generated .md files
+
+    mkdocs build
+
+to view the updated documentation changes locally
+
+    mkdocs serve
+
+and eventually upload them to where they are served
+
+    mkdocs gh-deploy
+
+
+# Conversion to JSON-LD and LinkML
 
 ## Strategy
 Break down the XML Schema into a consumable format, then pick one of the target frameworks to work on first. Ideally the one that most helps bootstrap the next format
@@ -139,7 +168,7 @@ Each `xs:attributeGroup` member looks like this i.e. the same slot can have a di
 
 * `ref` references a named definition or class, e.g. in a relationship cardinality constraint
 
-* `xs:simpleContent` contains `xs:extension` or restrictions on a text-only complextype or on a simple type as content and contains noelements.
+* `xs:simpleContent` contains `xs:extension` or restrictions on a text-only complextype; or on a simple type with only _content slot if it contains neither attributes nor elements.
 
 * `xs:extension` consists of `base` and `xs:attributeGroup:[{ref}]` referencing the extension object
 
@@ -155,7 +184,7 @@ LinkML has some [advanced features](https://linkml.io/linkml/schemas/advanced.ht
 JSON-LD can transform CDISC JSON such Dataset-JSON into a semantic graph for enriched archiving, search, and retrieval
 
 
-# Solutions assessed for converting ODM XML Schema (bundle of .xsd files)
+# Methods for converting ODM XML Schema (bundle of .xsd files)
 ## Rejected
 * LinkML does not support XML Schema at all
 * xml2dict (formerly Xml2json) works for simple XML, does not support XSD well
@@ -163,36 +192,15 @@ JSON-LD can transform CDISC JSON such Dataset-JSON into a semantic graph for enr
 * JSONIX Javascript lib is powerful but is no longer supported since the main author passed, and literal transformation from XML schema is rough - used in the Dataset-JSON hackathon to make a prototype Define-JSON
 * Oxygen proprietary XML editor documentation mentions JSON schema creation from JSON and support for JSON schema handling within the JSON ecosystem. Could not find anything about XML schema to JSON schema. 
 
-## Useful / Worth another look
+## Used
 * xmlschema
 * lxml
 
-## To assess
-* LinkML generators for LinkML
-* See whether Python dataclass __dict__ can be turned into to linkml
-* Consider building JSON-LD first to turn ODMv2 into a RDF graph
 
+# Methods for creating LinkML schema
+## Used
+* LinkML generators applied to xmlschema object structure
 
-# Quick start
-    git clone https://github.com/cdisc-org/DataExchange-ODM.git
-    git clone https://github.com/cdisc-org/DataExchange-ODM-LinkML.git
-    cd DataExchange-ODM-LinkML
-    pip install -r requirements.txt
-    
-    python3 tools/odm2linkml.py ../DataExchange-ODM/schema/ODM.xsd --output ODM.yaml
-    gen-project -d . ODM.yaml --exclude shex markdown
-
-More detailed relationship and cardinality constraints still need to be ported from XML Schema before shex can be added.
-
-As content is added, refresh documentation and diagrams using `mkdocs` to keep it up to date with the latest batch of generated .md files
-
-    gen-doc --hierarchical-class-view ODM.yaml -d docs/
-    mkdocs build
-
-to view the updated documentation changes locally
-
-    mkdocs serve
-
-and eventually upload them to where they are served
-
-    mkdocs gh-deploy
+## Not tried
+* turn Python dataclass __dict__ into to linkml
+* create JSON-LD @context for the xmlschema object structure
