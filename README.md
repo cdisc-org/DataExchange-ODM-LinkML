@@ -1,7 +1,7 @@
 # CDISC Operational Data Model Structure Descriptions
 Explore this repo to find the format that best suits your project
 
-[Documentation here](https://cdisc-org.github.io/DataExchange-ODM-Linkml) describes the model in-depth
+[Documentation here](https://cdisc-org.github.io/DataExchange-ODM-LinkML/) describes the model in-depth
 
 # Motivation for expressing ODMv2 beyond XML
 
