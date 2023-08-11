@@ -20,16 +20,16 @@ ODM expressed in every popular structured data format so that it is easier for d
 Between these 2 frameworks we can translate ODMv2 data & schemata into helpful representations
 
 [LinkML](https://linkml.io/) can convert a schema into
-* Markdown Documentation
-* SQL Table Schema
-* GraphQL Schema
-* JSON Schema
-* JSON, YAML
-* Graphs and Shape Constraints (RDF, OWL, SHACL, SHEX, JSON-LD)
-* Python/Typescript/Java classes
-* XLSX file with objects as tabs and attributes and columns
-* CSV
-* Entity-relationship diagrams
+* [JSON](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/jsonschema/ODM.schema.json)
+* [GraphQL](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/graphql/ODM.graphql)
+* [SQL](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/sqlschema/ODM.sql)
+* [Python dataclasses](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/ODM.py)
+* [RDF: OWL](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/shacl/ODM.shacl.ttl)
+* [RDF: SCHACL](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/owl/ODM.owl.ttl)
+* [Excel](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/protobuf/ODM.proto)
+* [Excel](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/excel/ODM.xlsx)
+* [Markdown documentation on Github pages](https://cdisc-org.github.io/DataExchange-ODM-LinkML/)
+* [... and more including Pydantic, Java, JS, TS](https://linkml.io/linkml/generators/index.html)
 
 [JSON-LD](https://json-ld.org/) serialises RDF as JSON, helping to
 * translate between a JSON file (e.g. Dataset-JSON) and a RDF graph according to a defined context
@@ -38,10 +38,13 @@ Between these 2 frameworks we can translate ODMv2 data & schemata into helpful r
 * tell the semantic web what your site/document/file contains (how Googling works)
 * compact graph data into JSON form or expand it back, e.g. for an API
 
-## Gaps in LinkML as of 2023-07-28
+## Limitations in LinkML as of Q3 2023
 - No translation either to or from XML Schema
 - Scope for adoption limited to life sciences community so far, relatively young project
 - Conversion to JSON-LD is not mature so JSON-LD needs separate handling
+- Names in ODM need changing to avoid collisions between Slots/Types/Classes
+- Handling of conditional slot population rules: exactly_one_of, any_of, all_of, none_of
+- Capitalises Type names in documentation and Python outputs
 
 # How to generate schemata and documentation from source ODM XML
     git clone https://github.com/cdisc-org/DataExchange-ODM.git

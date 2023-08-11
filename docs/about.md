@@ -11,8 +11,8 @@ The purpose of LinkML is to bridge multiple different modelling languages. By ex
 * [Python dataclasses](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/ODM.py)
 * [RDF: OWL](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/shacl/ODM.shacl.ttl)
 * [RDF: SCHACL](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/owl/ODM.owl.ttl)
-* [Protobuf](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/shacl/ODM.shacl.ttl)
 * [Excel](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/protobuf/ODM.proto)
+* [Excel](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/excel/ODM.xlsx)
 * [Markdown documentation on Github pages](https://cdisc-org.github.io/DataExchange-ODM-LinkML/)
 * [... and more including Pydantic, Java, JS, TS](https://linkml.io/linkml/generators/index.html)
 
