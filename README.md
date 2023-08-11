@@ -179,6 +179,10 @@ Only `Subclass` and `PDFPageRef` use this
 
 * `odm:Alias` is an exact mapping to NCIT concept (more exact mappings can be added)
 
+* `xs:choice` nests population rules via (exactly_one_of | all_of | any_of) for the following situations 
+    * `FormalExpression` must have one of either `Code` or `ExternalCodeLib` populated
+    * `RangeCheck` must have either `CheckValue`, or (`MethodSignature` and `FormalExpression`) populated
+
 
 ## Potential new functionality
 LinkML has some [advanced features](https://linkml.io/linkml/schemas/advanced.html) that ODM could make use of
