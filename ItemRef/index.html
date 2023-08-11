@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -202,6 +207,8 @@
     class ItemRef
       ItemRef : CollectionExceptionConditionOID
 
+      ItemRef : Core
+
       ItemRef : HasNoData
 
           ItemRef --|&gt; YesOnly : HasNoData
@@ -229,6 +236,8 @@
       ItemRef : Other
 
           ItemRef --|&gt; YesOnly : Other
+
+      ItemRef : PreSpecifiedValue
 
       ItemRef : Repeat
 
@@ -266,7 +275,7 @@
 </tr>
 <tr>
 <td><a href="../KeySequence/">KeySequence</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>0..1 <br/> <a href="../PositiveInteger/">PositiveInteger</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -319,8 +328,20 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../Core/">Core</a></td>
+<td>0..1 <br/> <a href="../CoreType/">CoreType</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../PreSpecifiedValue/">PreSpecifiedValue</a></td>
+<td>0..1 <br/> <a href="../Text/">Text</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../OrderNumber/">OrderNumber</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>0..1 <br/> <a href="../PositiveInteger/">PositiveInteger</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -367,8 +388,18 @@
 <td>range</td>
 <td><a href="./">ItemRef</a></td>
 </tr>
+<tr>
+<td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
+<td><a href="../ItemRefRef/">ItemRefRef</a></td>
+<td>range</td>
+<td><a href="./">ItemRef</a></td>
+</tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/ItemRef">https://wiki.cdisc.org/display/ODM2/ItemRef</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -398,9 +429,9 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ItemRef
-in_subset:
-- ItemGroupDefGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ItemRef
 slots:
 - ItemOID
 - KeySequence
@@ -412,6 +443,8 @@ slots:
 - Other
 - Role
 - RoleCodeListOID
+- Core
+- PreSpecifiedValue
 - OrderNumber
 - Mandatory
 - CollectionExceptionConditionOID
@@ -421,97 +454,95 @@ slot_usage:
   ItemOID:
     name: ItemOID
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
     required: true
   KeySequence:
     name: KeySequence
     domain_of:
     - ItemRef
-    range: integer
-    required: false
+    range: positiveInteger
   IsNonStandard:
     name: IsNonStandard
     domain_of:
     - ItemGroupDef
-    - CodeList
     - ItemRef
+    - CodeList
     range: YesOnly
-    required: false
   HasNoData:
     name: HasNoData
     domain_of:
     - ItemGroupDef
     - ItemRef
     range: YesOnly
-    required: false
   MethodOID:
     name: MethodOID
     domain_of:
-    - TransitionTimingConstraint
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
+    - TransitionTimingConstraint
     range: oidref
-    required: false
   UnitsItemOID:
     name: UnitsItemOID
     domain_of:
     - ItemRef
     range: oidref
-    required: false
   Repeat:
     name: Repeat
     domain_of:
     - ItemRef
     range: YesOnly
-    required: false
   Other:
     name: Other
     domain_of:
     - ItemRef
     - CodeListItem
-    - EnumeratedItem
     range: YesOnly
-    required: false
   Role:
     name: Role
     domain_of:
-    - Organization
     - ItemRef
+    - Organization
     - Location
     range: text
-    required: false
   RoleCodeListOID:
     name: RoleCodeListOID
     domain_of:
     - ItemRef
     range: oidref
-    required: false
+  Core:
+    name: Core
+    domain_of:
+    - ItemRef
+    range: CoreType
+  PreSpecifiedValue:
+    name: PreSpecifiedValue
+    domain_of:
+    - ItemRef
+    range: text
   OrderNumber:
     name: OrderNumber
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   Mandatory:
     name: Mandatory
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: YesOrNo
     required: true
   CollectionExceptionConditionOID:
@@ -519,10 +550,9 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: oidref
-    required: false
   OriginRef:
     name: OriginRef
     multivalued: true
@@ -530,126 +560,119 @@ slot_usage:
     - ItemGroupDef
     - ItemRef
     range: Origin
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WhereClauseRefRef:
     name: WhereClauseRefRef
     multivalued: true
     domain_of:
     - ItemRef
     range: WhereClauseRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:ItemRef
-unique_keys:
-  UC-IGD-3:
-    unique_key_name: UC-IGD-3
-    unique_key_slots:
-    - KeySequence
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ItemRef
-in_subset:
-- ItemGroupDefGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ItemRef
 slot_usage:
   ItemOID:
     name: ItemOID
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
     required: true
   KeySequence:
     name: KeySequence
     domain_of:
     - ItemRef
-    range: integer
-    required: false
+    range: positiveInteger
   IsNonStandard:
     name: IsNonStandard
     domain_of:
     - ItemGroupDef
-    - CodeList
     - ItemRef
+    - CodeList
     range: YesOnly
-    required: false
   HasNoData:
     name: HasNoData
     domain_of:
     - ItemGroupDef
     - ItemRef
     range: YesOnly
-    required: false
   MethodOID:
     name: MethodOID
     domain_of:
-    - TransitionTimingConstraint
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
+    - TransitionTimingConstraint
     range: oidref
-    required: false
   UnitsItemOID:
     name: UnitsItemOID
     domain_of:
     - ItemRef
     range: oidref
-    required: false
   Repeat:
     name: Repeat
     domain_of:
     - ItemRef
     range: YesOnly
-    required: false
   Other:
     name: Other
     domain_of:
     - ItemRef
     - CodeListItem
-    - EnumeratedItem
     range: YesOnly
-    required: false
   Role:
     name: Role
     domain_of:
-    - Organization
     - ItemRef
+    - Organization
     - Location
     range: text
-    required: false
   RoleCodeListOID:
     name: RoleCodeListOID
     domain_of:
     - ItemRef
     range: oidref
-    required: false
+  Core:
+    name: Core
+    domain_of:
+    - ItemRef
+    range: CoreType
+  PreSpecifiedValue:
+    name: PreSpecifiedValue
+    domain_of:
+    - ItemRef
+    range: text
   OrderNumber:
     name: OrderNumber
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   Mandatory:
     name: Mandatory
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: YesOrNo
     required: true
   CollectionExceptionConditionOID:
@@ -657,10 +680,9 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: oidref
-    required: false
   OriginRef:
     name: OriginRef
     multivalued: true
@@ -668,16 +690,16 @@ slot_usage:
     - ItemGroupDef
     - ItemRef
     range: Origin
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WhereClauseRefRef:
     name: WhereClauseRefRef
     multivalued: true
     domain_of:
     - ItemRef
     range: WhereClauseRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   ItemOID:
     name: ItemOID
@@ -686,11 +708,11 @@ attributes:
     alias: ItemOID
     owner: ItemRef
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
     required: true
   KeySequence:
@@ -701,8 +723,7 @@ attributes:
     owner: ItemRef
     domain_of:
     - ItemRef
-    range: integer
-    required: false
+    range: positiveInteger
   IsNonStandard:
     name: IsNonStandard
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -711,10 +732,9 @@ attributes:
     owner: ItemRef
     domain_of:
     - ItemGroupDef
-    - CodeList
     - ItemRef
+    - CodeList
     range: YesOnly
-    required: false
   HasNoData:
     name: HasNoData
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -725,7 +745,6 @@ attributes:
     - ItemGroupDef
     - ItemRef
     range: YesOnly
-    required: false
   MethodOID:
     name: MethodOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -733,11 +752,10 @@ attributes:
     alias: MethodOID
     owner: ItemRef
     domain_of:
-    - TransitionTimingConstraint
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
+    - TransitionTimingConstraint
     range: oidref
-    required: false
   UnitsItemOID:
     name: UnitsItemOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -747,7 +765,6 @@ attributes:
     domain_of:
     - ItemRef
     range: oidref
-    required: false
   Repeat:
     name: Repeat
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -757,7 +774,6 @@ attributes:
     domain_of:
     - ItemRef
     range: YesOnly
-    required: false
   Other:
     name: Other
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -767,9 +783,7 @@ attributes:
     domain_of:
     - ItemRef
     - CodeListItem
-    - EnumeratedItem
     range: YesOnly
-    required: false
   Role:
     name: Role
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -777,11 +791,10 @@ attributes:
     alias: Role
     owner: ItemRef
     domain_of:
-    - Organization
     - ItemRef
+    - Organization
     - Location
     range: text
-    required: false
   RoleCodeListOID:
     name: RoleCodeListOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -791,7 +804,24 @@ attributes:
     domain_of:
     - ItemRef
     range: oidref
-    required: false
+  Core:
+    name: Core
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: Core
+    owner: ItemRef
+    domain_of:
+    - ItemRef
+    range: CoreType
+  PreSpecifiedValue:
+    name: PreSpecifiedValue
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: PreSpecifiedValue
+    owner: ItemRef
+    domain_of:
+    - ItemRef
+    range: text
   OrderNumber:
     name: OrderNumber
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -801,15 +831,13 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   Mandatory:
     name: Mandatory
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -819,8 +847,8 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: YesOrNo
     required: true
   CollectionExceptionConditionOID:
@@ -832,10 +860,9 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: oidref
-    required: false
   OriginRef:
     name: OriginRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -847,8 +874,8 @@ attributes:
     - ItemGroupDef
     - ItemRef
     range: Origin
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WhereClauseRefRef:
     name: WhereClauseRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -859,14 +886,9 @@ attributes:
     domain_of:
     - ItemRef
     range: WhereClauseRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:ItemRef
-unique_keys:
-  UC-IGD-3:
-    unique_key_name: UC-IGD-3
-    unique_key_slots:
-    - KeySequence
 
 </code></pre>
 </details>

@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -200,13 +205,15 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Coding">odm:Coding</a></p>
 <div class="mermaid"> classDiagram
     class Coding
-      Coding : Code
+      Coding : CodeRef
 
       Coding : CommentOID
 
       Coding : href
 
       Coding : Label
+
+      Coding : ref
 
       Coding : System
 
@@ -229,8 +236,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Code/">Code</a></td>
-<td>1..1 <br/> <a href="../Text/">Text</a></td>
+<td><a href="../CodeRef/">CodeRef</a></td>
+<td>0..1 <br/> <a href="../Text/">Text</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -265,6 +272,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../ref/">ref</a></td>
+<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../CommentOID/">CommentOID</a></td>
 <td>0..1 <br/> <a href="../Text/">Text</a></td>
 <td>The Comment identifier that this value refers to</td>
@@ -290,6 +303,18 @@
 <td><a href="./">Coding</a></td>
 </tr>
 <tr>
+<td><a href="../StudyEventDef/">StudyEventDef</a></td>
+<td><a href="../CodingRef/">CodingRef</a></td>
+<td>range</td>
+<td><a href="./">Coding</a></td>
+</tr>
+<tr>
+<td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
+<td><a href="../CodingRef/">CodingRef</a></td>
+<td>range</td>
+<td><a href="./">Coding</a></td>
+</tr>
+<tr>
 <td><a href="../Origin/">Origin</a></td>
 <td><a href="../CodingRef/">CodingRef</a></td>
 <td>range</td>
@@ -303,6 +328,24 @@
 </tr>
 <tr>
 <td><a href="../SourceItem/">SourceItem</a></td>
+<td><a href="../CodingRef/">CodingRef</a></td>
+<td>range</td>
+<td><a href="./">Coding</a></td>
+</tr>
+<tr>
+<td><a href="../ItemDef/">ItemDef</a></td>
+<td><a href="../CodingRef/">CodingRef</a></td>
+<td>range</td>
+<td><a href="./">Coding</a></td>
+</tr>
+<tr>
+<td><a href="../CodeList/">CodeList</a></td>
+<td><a href="../CodingRef/">CodingRef</a></td>
+<td>range</td>
+<td><a href="./">Coding</a></td>
+</tr>
+<tr>
+<td><a href="../CodeListItem/">CodeListItem</a></td>
 <td><a href="../CodingRef/">CodingRef</a></td>
 <td>range</td>
 <td><a href="./">Coding</a></td>
@@ -338,49 +381,23 @@
 <td><a href="./">Coding</a></td>
 </tr>
 <tr>
+<td><a href="../Criterion/">Criterion</a></td>
+<td><a href="../CodingRef/">CodingRef</a></td>
+<td>range</td>
+<td><a href="./">Coding</a></td>
+</tr>
+<tr>
 <td><a href="../Annotation/">Annotation</a></td>
-<td><a href="../CodingRef/">CodingRef</a></td>
-<td>range</td>
-<td><a href="./">Coding</a></td>
-</tr>
-<tr>
-<td><a href="../StudyEventDef/">StudyEventDef</a></td>
-<td><a href="../CodingRef/">CodingRef</a></td>
-<td>range</td>
-<td><a href="./">Coding</a></td>
-</tr>
-<tr>
-<td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
-<td><a href="../CodingRef/">CodingRef</a></td>
-<td>range</td>
-<td><a href="./">Coding</a></td>
-</tr>
-<tr>
-<td><a href="../ItemDef/">ItemDef</a></td>
-<td><a href="../CodingRef/">CodingRef</a></td>
-<td>range</td>
-<td><a href="./">Coding</a></td>
-</tr>
-<tr>
-<td><a href="../CodeList/">CodeList</a></td>
-<td><a href="../CodingRef/">CodingRef</a></td>
-<td>range</td>
-<td><a href="./">Coding</a></td>
-</tr>
-<tr>
-<td><a href="../CodeListItem/">CodeListItem</a></td>
-<td><a href="../CodingRef/">CodingRef</a></td>
-<td>range</td>
-<td><a href="./">Coding</a></td>
-</tr>
-<tr>
-<td><a href="../EnumeratedItem/">EnumeratedItem</a></td>
 <td><a href="../CodingRef/">CodingRef</a></td>
 <td>range</td>
 <td><a href="./">Coding</a></td>
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/Coding">https://wiki.cdisc.org/display/ODM2/Coding</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -411,21 +428,24 @@
 <details>
 <pre><code class="language-yaml">name: Coding
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Coding
 slots:
-- Code
+- CodeRef
 - System
 - SystemName
 - SystemVersion
 - Label
 - href
+- ref
 - CommentOID
 slot_usage:
-  Code:
-    name: Code
+  CodeRef:
+    name: CodeRef
     domain_of:
+    - FormalExpression
     - Coding
     range: text
-    required: true
   System:
     name: System
     domain_of:
@@ -437,49 +457,48 @@ slot_usage:
     domain_of:
     - Coding
     range: text
-    required: false
   SystemVersion:
     name: SystemVersion
     domain_of:
     - Coding
     range: text
-    required: false
   Label:
     name: Label
     domain_of:
     - Resource
     - Coding
     range: text
-    required: false
   href:
     name: href
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding
     range: uriorcurie
-    required: false
+  ref:
+    name: ref
+    domain_of:
+    - ExternalCodeLib
+    - Coding
+    range: uriorcurie
   CommentOID:
     name: CommentOID
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: text
-    required: false
 class_uri: odm:Coding
 
 </code></pre>
@@ -488,13 +507,15 @@ class_uri: odm:Coding
 <details>
 <pre><code class="language-yaml">name: Coding
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Coding
 slot_usage:
-  Code:
-    name: Code
+  CodeRef:
+    name: CodeRef
     domain_of:
+    - FormalExpression
     - Coding
     range: text
-    required: true
   System:
     name: System
     domain_of:
@@ -506,60 +527,59 @@ slot_usage:
     domain_of:
     - Coding
     range: text
-    required: false
   SystemVersion:
     name: SystemVersion
     domain_of:
     - Coding
     range: text
-    required: false
   Label:
     name: Label
     domain_of:
     - Resource
     - Coding
     range: text
-    required: false
   href:
     name: href
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding
     range: uriorcurie
-    required: false
+  ref:
+    name: ref
+    domain_of:
+    - ExternalCodeLib
+    - Coding
+    range: uriorcurie
   CommentOID:
     name: CommentOID
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
-    range: text
-    required: false
-attributes:
-  Code:
-    name: Code
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    alias: Code
-    owner: Coding
-    domain_of:
+    - MethodDef
+    - ConditionDef
     - Coding
     range: text
-    required: true
+attributes:
+  CodeRef:
+    name: CodeRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: CodeRef
+    owner: Coding
+    domain_of:
+    - FormalExpression
+    - Coding
+    range: text
   System:
     name: System
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -579,7 +599,6 @@ attributes:
     domain_of:
     - Coding
     range: text
-    required: false
   SystemVersion:
     name: SystemVersion
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -589,7 +608,6 @@ attributes:
     domain_of:
     - Coding
     range: text
-    required: false
   Label:
     name: Label
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -600,7 +618,6 @@ attributes:
     - Resource
     - Coding
     range: text
-    required: false
   href:
     name: href
     description: URL that can be used to identify the location of a document or dataset
@@ -612,12 +629,20 @@ attributes:
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding
     range: uriorcurie
-    required: false
+  ref:
+    name: ref
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: ref
+    owner: Coding
+    domain_of:
+    - ExternalCodeLib
+    - Coding
+    range: uriorcurie
   CommentOID:
     name: CommentOID
     description: "The Comment identifier that this value refers to. Needed when the\
@@ -628,21 +653,19 @@ attributes:
     alias: CommentOID
     owner: Coding
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: text
-    required: false
 class_uri: odm:Coding
 
 </code></pre>

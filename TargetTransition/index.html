@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -251,6 +256,10 @@
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/TargetTransition">https://wiki.cdisc.org/display/ODM2/TargetTransition</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -281,6 +290,8 @@
 <details>
 <pre><code class="language-yaml">name: TargetTransition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/TargetTransition
 slots:
 - TargetTransitionOID
 - ConditionOID
@@ -299,7 +310,6 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     range: oidref
-    required: false
 class_uri: odm:TargetTransition
 
 </code></pre>
@@ -308,6 +318,8 @@ class_uri: odm:TargetTransition
 <details>
 <pre><code class="language-yaml">name: TargetTransition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/TargetTransition
 slot_usage:
   TargetTransitionOID:
     name: TargetTransitionOID
@@ -323,7 +335,6 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     range: oidref
-    required: false
 attributes:
   TargetTransitionOID:
     name: TargetTransitionOID
@@ -347,7 +358,6 @@ attributes:
     - Criterion
     - ExceptionEvent
     range: oidref
-    required: false
 class_uri: odm:TargetTransition
 
 </code></pre>

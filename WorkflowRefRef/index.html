@@ -331,6 +331,16 @@
 <td>yes</td>
 </tr>
 <tr>
+<td><a href="../StudyEventDef/">StudyEventDef</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
 <td><a href="../Protocol/">Protocol</a></td>
 <td></td>
 <td>yes</td>
@@ -346,12 +356,7 @@
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../StudyEventDef/">StudyEventDef</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
+<td><a href="../ExceptionEvent/">ExceptionEvent</a></td>
 <td></td>
 <td>yes</td>
 </tr>
@@ -375,11 +380,12 @@ rank: 1000
 alias: WorkflowRefRef
 domain_of:
 - StudyEventGroupDef
+- StudyEventDef
+- ItemGroupDef
 - Protocol
 - StudyStructure
 - Arm
-- StudyEventDef
-- ItemGroupDef
+- ExceptionEvent
 range: WorkflowRef
 
 </code></pre>

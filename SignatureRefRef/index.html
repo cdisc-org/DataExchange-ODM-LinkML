@@ -326,6 +326,36 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../ReferenceData/">ReferenceData</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../ClinicalData/">ClinicalData</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../SubjectData/">SubjectData</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../StudyEventData/">StudyEventData</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../ItemGroupData/">ItemGroupData</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../ItemData/">ItemData</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
 <td><a href="../Signature/">Signature</a></td>
 <td></td>
 <td>yes</td>
@@ -349,6 +379,12 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SignatureRefRef
 domain_of:
+- ReferenceData
+- ClinicalData
+- SubjectData
+- StudyEventData
+- ItemGroupData
+- ItemData
 - Signature
 range: SignatureRef
 

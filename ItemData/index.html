@@ -147,6 +147,16 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#usages">
+    Usages
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -195,6 +205,14 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ItemData">odm:ItemData</a></p>
 <div class="mermaid"> classDiagram
     class ItemData
+      ItemData : AnnotationRef
+
+          ItemData --|&gt; Annotation : AnnotationRef
+
+      ItemData : AuditRecordRef
+
+          ItemData --|&gt; AuditRecord : AuditRecordRef
+
       ItemData : IsNull
 
           ItemData --|&gt; YesOnly : IsNull
@@ -205,9 +223,13 @@
 
           ItemData --|&gt; Query : QueryRef
 
-      ItemData : TransactionType
+      ItemData : SignatureRefRef
 
-          ItemData --|&gt; TransactionType : TransactionType
+          ItemData --|&gt; Signature : SignatureRefRef
+
+      ItemData : TransactionTypeRef
+
+          ItemData --|&gt; TransactionType : TransactionTypeRef
 
       ItemData : ValueRef
 
@@ -234,7 +256,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../TransactionType/">TransactionType</a></td>
+<td><a href="../TransactionTypeRef/">TransactionTypeRef</a></td>
 <td>0..1 <br/> <a href="../TransactionType/">TransactionType</a></td>
 <td></td>
 <td>direct</td>
@@ -257,8 +279,49 @@
 <td></td>
 <td>direct</td>
 </tr>
+<tr>
+<td><a href="../AuditRecordRef/">AuditRecordRef</a></td>
+<td>0..1 <br/> <a href="../AuditRecord/">AuditRecord</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../SignatureRefRef/">SignatureRefRef</a></td>
+<td>0..1 <br/> <a href="../Signature/">Signature</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../AnnotationRef/">AnnotationRef</a></td>
+<td>0..* <br/> <a href="../Annotation/">Annotation</a></td>
+<td></td>
+<td>direct</td>
+</tr>
 </tbody>
 </table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ItemGroupData/">ItemGroupData</a></td>
+<td><a href="../ItemDataRef/">ItemDataRef</a></td>
+<td>range</td>
+<td><a href="./">ItemData</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/ItemData">https://wiki.cdisc.org/display/ODM2/ItemData</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -288,28 +351,31 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ItemData
-in_subset:
-- ItemGroupDataGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ItemData
 slots:
 - ItemOID
-- TransactionType
+- TransactionTypeRef
 - IsNull
 - ValueRef
 - QueryRef
+- AuditRecordRef
+- SignatureRefRef
+- AnnotationRef
 slot_usage:
   ItemOID:
     name: ItemOID
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
     required: true
-  TransactionType:
-    name: TransactionType
+  TransactionTypeRef:
+    name: TransactionTypeRef
     domain_of:
     - SubjectData
     - StudyEventData
@@ -317,35 +383,73 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-    required: false
   IsNull:
     name: IsNull
     domain_of:
     - ItemData
     range: YesOnly
-    required: false
   ValueRef:
     name: ValueRef
     multivalued: true
     domain_of:
+    - TrialPhase
+    - ParameterValue
     - ItemData
     - Query
     range: Value
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   QueryRef:
     name: QueryRef
     multivalued: true
     domain_of:
+    - Location
     - ClinicalData
     - SubjectData
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Location
     range: Query
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
+  AuditRecordRef:
+    name: AuditRecordRef
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Query
+    range: AuditRecord
+    maximum_cardinality: 1
+  SignatureRefRef:
+    name: SignatureRefRef
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Signature
+    range: Signature
+    maximum_cardinality: 1
+  AnnotationRef:
+    name: AnnotationRef
+    multivalued: true
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Association
+    range: Annotation
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:ItemData
 
 </code></pre>
@@ -353,22 +457,22 @@ class_uri: odm:ItemData
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ItemData
-in_subset:
-- ItemGroupDataGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ItemData
 slot_usage:
   ItemOID:
     name: ItemOID
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
     required: true
-  TransactionType:
-    name: TransactionType
+  TransactionTypeRef:
+    name: TransactionTypeRef
     domain_of:
     - SubjectData
     - StudyEventData
@@ -376,35 +480,73 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-    required: false
   IsNull:
     name: IsNull
     domain_of:
     - ItemData
     range: YesOnly
-    required: false
   ValueRef:
     name: ValueRef
     multivalued: true
     domain_of:
+    - TrialPhase
+    - ParameterValue
     - ItemData
     - Query
     range: Value
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   QueryRef:
     name: QueryRef
     multivalued: true
     domain_of:
+    - Location
     - ClinicalData
     - SubjectData
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Location
     range: Query
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
+  AuditRecordRef:
+    name: AuditRecordRef
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Query
+    range: AuditRecord
+    maximum_cardinality: 1
+  SignatureRefRef:
+    name: SignatureRefRef
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Signature
+    range: Signature
+    maximum_cardinality: 1
+  AnnotationRef:
+    name: AnnotationRef
+    multivalued: true
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Association
+    range: Annotation
+    inlined: true
+    inlined_as_list: true
 attributes:
   ItemOID:
     name: ItemOID
@@ -413,18 +555,18 @@ attributes:
     alias: ItemOID
     owner: ItemData
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
     required: true
-  TransactionType:
-    name: TransactionType
+  TransactionTypeRef:
+    name: TransactionTypeRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TransactionType
+    alias: TransactionTypeRef
     owner: ItemData
     domain_of:
     - SubjectData
@@ -433,7 +575,6 @@ attributes:
     - ItemData
     - Annotation
     range: TransactionType
-    required: false
   IsNull:
     name: IsNull
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -443,7 +584,6 @@ attributes:
     domain_of:
     - ItemData
     range: YesOnly
-    required: false
   ValueRef:
     name: ValueRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -452,11 +592,13 @@ attributes:
     alias: ValueRef
     owner: ItemData
     domain_of:
+    - TrialPhase
+    - ParameterValue
     - ItemData
     - Query
     range: Value
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   QueryRef:
     name: QueryRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -465,15 +607,65 @@ attributes:
     alias: QueryRef
     owner: ItemData
     domain_of:
+    - Location
     - ClinicalData
     - SubjectData
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Location
     range: Query
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
+  AuditRecordRef:
+    name: AuditRecordRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: AuditRecordRef
+    owner: ItemData
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Query
+    range: AuditRecord
+    maximum_cardinality: 1
+  SignatureRefRef:
+    name: SignatureRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: SignatureRefRef
+    owner: ItemData
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Signature
+    range: Signature
+    maximum_cardinality: 1
+  AnnotationRef:
+    name: AnnotationRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    multivalued: true
+    alias: AnnotationRef
+    owner: ItemData
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Association
+    range: Annotation
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:ItemData
 
 </code></pre>

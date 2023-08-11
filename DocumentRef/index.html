@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -265,19 +270,23 @@
 <td><a href="./">DocumentRef</a></td>
 </tr>
 <tr>
-<td><a href="../CommentDef/">CommentDef</a></td>
+<td><a href="../MethodDef/">MethodDef</a></td>
 <td><a href="../DocumentRefRef/">DocumentRefRef</a></td>
 <td>range</td>
 <td><a href="./">DocumentRef</a></td>
 </tr>
 <tr>
-<td><a href="../MethodDef/">MethodDef</a></td>
+<td><a href="../CommentDef/">CommentDef</a></td>
 <td><a href="../DocumentRefRef/">DocumentRefRef</a></td>
 <td>range</td>
 <td><a href="./">DocumentRef</a></td>
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/DocumentRef">https://wiki.cdisc.org/display/ODM2/DocumentRef</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -309,6 +318,8 @@
 <pre><code class="language-yaml">name: DocumentRef
 description: Links to a leaf element with the location of the document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/DocumentRef
 slots:
 - leafID
 - PDFPageRefRef
@@ -316,8 +327,8 @@ slot_usage:
   leafID:
     name: leafID
     domain_of:
-    - SourceItem
     - DocumentRef
+    - SourceItem
     range: oid
     required: true
   PDFPageRefRef:
@@ -328,14 +339,9 @@ slot_usage:
     domain_of:
     - DocumentRef
     range: PDFPageRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:DocumentRef
-unique_keys:
-  UC-SUPPD-1:
-    unique_key_name: UC-SUPPD-1
-    unique_key_slots:
-    - leafID
 
 </code></pre>
 </details>
@@ -344,12 +350,14 @@ unique_keys:
 <pre><code class="language-yaml">name: DocumentRef
 description: Links to a leaf element with the location of the document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/DocumentRef
 slot_usage:
   leafID:
     name: leafID
     domain_of:
-    - SourceItem
     - DocumentRef
+    - SourceItem
     range: oid
     required: true
   PDFPageRefRef:
@@ -360,19 +368,20 @@ slot_usage:
     domain_of:
     - DocumentRef
     range: PDFPageRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   leafID:
     name: leafID
     description: Unique identifier for the leaf element with the document location.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: leafID
     owner: DocumentRef
     domain_of:
-    - SourceItem
     - DocumentRef
+    - SourceItem
     range: oid
     required: true
   PDFPageRefRef:
@@ -387,14 +396,9 @@ attributes:
     domain_of:
     - DocumentRef
     range: PDFPageRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:DocumentRef
-unique_keys:
-  UC-SUPPD-1:
-    unique_key_name: UC-SUPPD-1
-    unique_key_slots:
-    - leafID
 
 </code></pre>
 </details>

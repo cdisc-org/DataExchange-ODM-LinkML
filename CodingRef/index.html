@@ -331,6 +331,16 @@
 <td>yes</td>
 </tr>
 <tr>
+<td><a href="../StudyEventDef/">StudyEventDef</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
 <td><a href="../Origin/">Origin</a></td>
 <td></td>
 <td>yes</td>
@@ -342,6 +352,21 @@
 </tr>
 <tr>
 <td><a href="../SourceItem/">SourceItem</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../ItemDef/">ItemDef</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../CodeList/">CodeList</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../CodeListItem/">CodeListItem</a></td>
 <td></td>
 <td>yes</td>
 </tr>
@@ -371,37 +396,12 @@
 <td>yes</td>
 </tr>
 <tr>
+<td><a href="../Criterion/">Criterion</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
 <td><a href="../Annotation/">Annotation</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../StudyEventDef/">StudyEventDef</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../ItemDef/">ItemDef</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../CodeList/">CodeList</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../CodeListItem/">CodeListItem</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../EnumeratedItem/">EnumeratedItem</a></td>
 <td></td>
 <td>yes</td>
 </tr>
@@ -425,21 +425,21 @@ rank: 1000
 alias: CodingRef
 domain_of:
 - StudyEventGroupDef
+- StudyEventDef
+- ItemGroupDef
 - Origin
 - SourceItems
 - SourceItem
+- ItemDef
+- CodeList
+- CodeListItem
 - StudyIndication
 - StudyIntervention
 - StudyTargetPopulation
 - StudyParameter
 - ParameterValue
+- Criterion
 - Annotation
-- StudyEventDef
-- ItemGroupDef
-- ItemDef
-- CodeList
-- CodeListItem
-- EnumeratedItem
 range: Coding
 
 </code></pre>

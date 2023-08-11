@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -236,7 +241,7 @@
 </tr>
 <tr>
 <td><a href="../OrderNumber/">OrderNumber</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>0..1 <br/> <a href="../PositiveInteger/">PositiveInteger</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -272,13 +277,29 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../StudyEventGroupDef/">StudyEventGroupDef</a></td>
+<td><a href="../StudyEventGroupRefRef/">StudyEventGroupRefRef</a></td>
+<td>range</td>
+<td><a href="./">StudyEventGroupRef</a></td>
+</tr>
+<tr>
 <td><a href="../Protocol/">Protocol</a></td>
+<td><a href="../StudyEventGroupRefRef/">StudyEventGroupRefRef</a></td>
+<td>range</td>
+<td><a href="./">StudyEventGroupRef</a></td>
+</tr>
+<tr>
+<td><a href="../ExceptionEvent/">ExceptionEvent</a></td>
 <td><a href="../StudyEventGroupRefRef/">StudyEventGroupRefRef</a></td>
 <td>range</td>
 <td><a href="./">StudyEventGroupRef</a></td>
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/StudyEventGroupRef">https://wiki.cdisc.org/display/ODM2/StudyEventGroupRef</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -308,9 +329,9 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: StudyEventGroupRef
-in_subset:
-- StudyEventDefGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyEventGroupRef
 slots:
 - StudyEventGroupOID
 - OrderNumber
@@ -330,22 +351,20 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   Mandatory:
     name: Mandatory
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: YesOrNo
     required: true
   CollectionExceptionConditionOID:
@@ -353,17 +372,25 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -386,21 +413,9 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:StudyEventGroupRef
 
@@ -409,9 +424,9 @@ class_uri: odm:StudyEventGroupRef
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: StudyEventGroupRef
-in_subset:
-- StudyEventDefGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyEventGroupRef
 slot_usage:
   StudyEventGroupOID:
     name: StudyEventGroupOID
@@ -425,22 +440,20 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   Mandatory:
     name: Mandatory
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: YesOrNo
     required: true
   CollectionExceptionConditionOID:
@@ -448,17 +461,25 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -481,21 +502,9 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 attributes:
   StudyEventGroupOID:
@@ -518,15 +527,13 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   Mandatory:
     name: Mandatory
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -536,8 +543,8 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: YesOrNo
     required: true
   CollectionExceptionConditionOID:
@@ -549,10 +556,9 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -560,10 +566,19 @@ attributes:
     alias: DescriptionRef
     owner: StudyEventGroupRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -586,21 +601,9 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:StudyEventGroupRef
 

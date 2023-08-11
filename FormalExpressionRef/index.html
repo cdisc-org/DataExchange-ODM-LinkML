@@ -326,12 +326,12 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../StudyEndPoint/">StudyEndPoint</a></td>
+<td><a href="../RangeCheck/">RangeCheck</a></td>
 <td></td>
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../StudyTargetPopulation/">StudyTargetPopulation</a></td>
+<td><a href="../MethodDef/">MethodDef</a></td>
 <td></td>
 <td>yes</td>
 </tr>
@@ -341,7 +341,12 @@
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../MethodDef/">MethodDef</a></td>
+<td><a href="../StudyEndPoint/">StudyEndPoint</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../StudyTargetPopulation/">StudyTargetPopulation</a></td>
 <td></td>
 <td>yes</td>
 </tr>
@@ -364,10 +369,11 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: FormalExpressionRef
 domain_of:
+- RangeCheck
+- MethodDef
+- ConditionDef
 - StudyEndPoint
 - StudyTargetPopulation
-- ConditionDef
-- MethodDef
 range: FormalExpression
 
 </code></pre>

@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -222,7 +227,7 @@
 <tbody>
 <tr>
 <td><a href="../_language/">_language</a></td>
-<td>0..1 <br/> <a href="../_languageType/">_languageType</a></td>
+<td>0..1 <br/> <a href="../LanguageType/">LanguageType</a></td>
 <td>language context for internationalisation and localisation</td>
 <td>direct</td>
 </tr>
@@ -264,6 +269,36 @@
 <td><a href="./">TranslatedText</a></td>
 </tr>
 <tr>
+<td><a href="../Definition/">Definition</a></td>
+<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td>range</td>
+<td><a href="./">TranslatedText</a></td>
+</tr>
+<tr>
+<td><a href="../Prompt/">Prompt</a></td>
+<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td>range</td>
+<td><a href="./">TranslatedText</a></td>
+</tr>
+<tr>
+<td><a href="../CRFCompletionInstructions/">CRFCompletionInstructions</a></td>
+<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td>range</td>
+<td><a href="./">TranslatedText</a></td>
+</tr>
+<tr>
+<td><a href="../ImplementationNotes/">ImplementationNotes</a></td>
+<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td>range</td>
+<td><a href="./">TranslatedText</a></td>
+</tr>
+<tr>
+<td><a href="../CDISCNotes/">CDISCNotes</a></td>
+<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td>range</td>
+<td><a href="./">TranslatedText</a></td>
+</tr>
+<tr>
 <td><a href="../ErrorMessage/">ErrorMessage</a></td>
 <td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
 <td>range</td>
@@ -283,6 +318,10 @@
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/TranslatedText">https://wiki.cdisc.org/display/ODM2/TranslatedText</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -313,16 +352,13 @@
 <details>
 <pre><code class="language-yaml">name: TranslatedText
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/TranslatedText
 slots:
 - _language
 - type
 - _content
 slot_usage:
-  _language:
-    name: _language
-    domain_of:
-    - TranslatedText
-    required: false
   type:
     name: type
     domain_of:
@@ -332,6 +368,7 @@ slot_usage:
   _content:
     name: _content
     domain_of:
+    - TranslatedText
     - CheckValue
     - Code
     - WorkflowEnd
@@ -356,18 +393,9 @@ slot_usage:
     - FlagValue
     - FlagType
     - Value
-    - TranslatedText
     range: _contentType
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:TranslatedText
-unique_keys:
-  UC-DEC-1:
-    unique_key_name: UC-DEC-1
-    unique_key_slots:
-    - type
-    - _language
 
 </code></pre>
 </details>
@@ -375,12 +403,9 @@ unique_keys:
 <details>
 <pre><code class="language-yaml">name: TranslatedText
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/TranslatedText
 slot_usage:
-  _language:
-    name: _language
-    domain_of:
-    - TranslatedText
-    required: false
   type:
     name: type
     domain_of:
@@ -390,6 +415,7 @@ slot_usage:
   _content:
     name: _content
     domain_of:
+    - TranslatedText
     - CheckValue
     - Code
     - WorkflowEnd
@@ -414,10 +440,7 @@ slot_usage:
     - FlagValue
     - FlagType
     - Value
-    - TranslatedText
     range: _contentType
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 attributes:
   _language:
@@ -430,7 +453,6 @@ attributes:
     domain_of:
     - TranslatedText
     range: _languageType
-    required: false
   type:
     name: type
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -449,6 +471,7 @@ attributes:
     alias: _content
     owner: TranslatedText
     domain_of:
+    - TranslatedText
     - CheckValue
     - Code
     - WorkflowEnd
@@ -473,18 +496,10 @@ attributes:
     - FlagValue
     - FlagType
     - Value
-    - TranslatedText
     range: _contentType
-    required: false
-    minimum_cardinality: 0
+    inlined: true
     maximum_cardinality: 1
 class_uri: odm:TranslatedText
-unique_keys:
-  UC-DEC-1:
-    unique_key_name: UC-DEC-1
-    unique_key_slots:
-    - type
-    - _language
 
 </code></pre>
 </details>

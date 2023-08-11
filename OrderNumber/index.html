@@ -336,6 +336,21 @@
 <td>yes</td>
 </tr>
 <tr>
+<td><a href="../ItemGroupRef/">ItemGroupRef</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../ItemRef/">ItemRef</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../CodeListItem/">CodeListItem</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
 <td><a href="../Parameter/">Parameter</a></td>
 <td></td>
 <td>yes</td>
@@ -350,31 +365,11 @@
 <td></td>
 <td>yes</td>
 </tr>
-<tr>
-<td><a href="../ItemRef/">ItemRef</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../ItemGroupRef/">ItemGroupRef</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../CodeListItem/">CodeListItem</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../EnumeratedItem/">EnumeratedItem</a></td>
-<td></td>
-<td>yes</td>
-</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Integer/">Integer</a></li>
+<li>Range: <a href="../PositiveInteger/">PositiveInteger</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -391,14 +386,13 @@ alias: OrderNumber
 domain_of:
 - StudyEventGroupRef
 - StudyEventRef
+- ItemGroupRef
+- ItemRef
+- CodeListItem
 - Parameter
 - ReturnValue
 - StudyEndPointRef
-- ItemRef
-- ItemGroupRef
-- CodeListItem
-- EnumeratedItem
-range: integer
+range: positiveInteger
 
 </code></pre>
 

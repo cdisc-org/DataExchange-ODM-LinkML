@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -216,9 +221,9 @@
 
       Annotation : SeqNum
 
-      Annotation : TransactionType
+      Annotation : TransactionTypeRef
 
-          Annotation --|&gt; TransactionType : TransactionType
+          Annotation --|&gt; TransactionType : TransactionTypeRef
 
 
 </div>
@@ -236,19 +241,19 @@
 <tbody>
 <tr>
 <td><a href="../SeqNum/">SeqNum</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>1..1 <br/> <a href="../PositiveInteger/">PositiveInteger</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../TransactionType/">TransactionType</a></td>
+<td><a href="../TransactionTypeRef/">TransactionTypeRef</a></td>
 <td>0..1 <br/> <a href="../TransactionType/">TransactionType</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ID/">ID</a></td>
-<td>0..1 <br/> <a href="../Oid/">Oid</a></td>
+<td>1..1 <br/> <a href="../Oid/">Oid</a></td>
 <td>Unique identifier for the leaf that is referenced</td>
 <td>direct</td>
 </tr>
@@ -284,6 +289,42 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../ReferenceData/">ReferenceData</a></td>
+<td><a href="../AnnotationRef/">AnnotationRef</a></td>
+<td>range</td>
+<td><a href="./">Annotation</a></td>
+</tr>
+<tr>
+<td><a href="../ClinicalData/">ClinicalData</a></td>
+<td><a href="../AnnotationRef/">AnnotationRef</a></td>
+<td>range</td>
+<td><a href="./">Annotation</a></td>
+</tr>
+<tr>
+<td><a href="../SubjectData/">SubjectData</a></td>
+<td><a href="../AnnotationRef/">AnnotationRef</a></td>
+<td>range</td>
+<td><a href="./">Annotation</a></td>
+</tr>
+<tr>
+<td><a href="../StudyEventData/">StudyEventData</a></td>
+<td><a href="../AnnotationRef/">AnnotationRef</a></td>
+<td>range</td>
+<td><a href="./">Annotation</a></td>
+</tr>
+<tr>
+<td><a href="../ItemGroupData/">ItemGroupData</a></td>
+<td><a href="../AnnotationRef/">AnnotationRef</a></td>
+<td>range</td>
+<td><a href="./">Annotation</a></td>
+</tr>
+<tr>
+<td><a href="../ItemData/">ItemData</a></td>
+<td><a href="../AnnotationRef/">AnnotationRef</a></td>
+<td>range</td>
+<td><a href="./">Annotation</a></td>
+</tr>
+<tr>
 <td><a href="../Association/">Association</a></td>
 <td><a href="../AnnotationRef/">AnnotationRef</a></td>
 <td>range</td>
@@ -291,6 +332,10 @@
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/Annotation">https://wiki.cdisc.org/display/ODM2/Annotation</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -320,12 +365,12 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Annotation
-in_subset:
-- AuditRecordSignatureNotationGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Annotation
 slots:
 - SeqNum
-- TransactionType
+- TransactionTypeRef
 - ID
 - CommentRef
 - CodingRef
@@ -336,10 +381,10 @@ slot_usage:
     domain_of:
     - Annotation
     - Value
-    range: integer
+    range: positiveInteger
     required: true
-  TransactionType:
-    name: TransactionType
+  TransactionTypeRef:
+    name: TransactionTypeRef
     domain_of:
     - SubjectData
     - StudyEventData
@@ -347,7 +392,6 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-    required: false
   ID:
     name: ID
     domain_of:
@@ -355,46 +399,43 @@ slot_usage:
     - Signature
     - Annotation
     range: oid
-    required: false
   CommentRef:
     name: CommentRef
     domain_of:
     - Annotation
     range: Comment
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   FlagRef:
     name: FlagRef
     multivalued: true
     domain_of:
     - Annotation
     range: Flag
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Annotation
 
 </code></pre>
@@ -402,19 +443,19 @@ class_uri: odm:Annotation
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Annotation
-in_subset:
-- AuditRecordSignatureNotationGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Annotation
 slot_usage:
   SeqNum:
     name: SeqNum
     domain_of:
     - Annotation
     - Value
-    range: integer
+    range: positiveInteger
     required: true
-  TransactionType:
-    name: TransactionType
+  TransactionTypeRef:
+    name: TransactionTypeRef
     domain_of:
     - SubjectData
     - StudyEventData
@@ -422,7 +463,6 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-    required: false
   ID:
     name: ID
     domain_of:
@@ -430,46 +470,43 @@ slot_usage:
     - Signature
     - Annotation
     range: oid
-    required: false
   CommentRef:
     name: CommentRef
     domain_of:
     - Annotation
     range: Comment
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   FlagRef:
     name: FlagRef
     multivalued: true
     domain_of:
     - Annotation
     range: Flag
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   SeqNum:
     name: SeqNum
@@ -480,13 +517,13 @@ attributes:
     domain_of:
     - Annotation
     - Value
-    range: integer
+    range: positiveInteger
     required: true
-  TransactionType:
-    name: TransactionType
+  TransactionTypeRef:
+    name: TransactionTypeRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TransactionType
+    alias: TransactionTypeRef
     owner: Annotation
     domain_of:
     - SubjectData
@@ -495,12 +532,12 @@ attributes:
     - ItemData
     - Annotation
     range: TransactionType
-    required: false
   ID:
     name: ID
     description: Unique identifier for the leaf that is referenced.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: ID
     owner: Annotation
     domain_of:
@@ -508,7 +545,7 @@ attributes:
     - Signature
     - Annotation
     range: oid
-    required: false
+    required: true
   CommentRef:
     name: CommentRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -518,8 +555,6 @@ attributes:
     domain_of:
     - Annotation
     range: Comment
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -530,24 +565,24 @@ attributes:
     owner: Annotation
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   FlagRef:
     name: FlagRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -558,8 +593,8 @@ attributes:
     domain_of:
     - Annotation
     range: Flag
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Annotation
 
 </code></pre>

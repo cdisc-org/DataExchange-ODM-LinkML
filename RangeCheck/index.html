@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -200,15 +205,27 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/RangeCheck">odm:RangeCheck</a></p>
 <div class="mermaid"> classDiagram
     class RangeCheck
-      RangeCheck : Comparator
+      RangeCheck : CheckValueRef
 
-          RangeCheck --|&gt; Comparator : Comparator
+          RangeCheck --|&gt; CheckValue : CheckValueRef
+
+      RangeCheck : ComparatorRef
+
+          RangeCheck --|&gt; Comparator : ComparatorRef
 
       RangeCheck : ErrorMessageRef
 
           RangeCheck --|&gt; ErrorMessage : ErrorMessageRef
 
+      RangeCheck : FormalExpressionRef
+
+          RangeCheck --|&gt; FormalExpression : FormalExpressionRef
+
       RangeCheck : ItemOID
+
+      RangeCheck : MethodSignatureRef
+
+          RangeCheck --|&gt; MethodSignature : MethodSignatureRef
 
       RangeCheck : SoftHard
 
@@ -229,7 +246,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Comparator/">Comparator</a></td>
+<td><a href="../ComparatorRef/">ComparatorRef</a></td>
 <td>0..1 <br/> <a href="../Comparator/">Comparator</a></td>
 <td></td>
 <td>direct</td>
@@ -249,6 +266,24 @@
 <tr>
 <td><a href="../ErrorMessageRef/">ErrorMessageRef</a></td>
 <td>0..1 <br/> <a href="../ErrorMessage/">ErrorMessage</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../MethodSignatureRef/">MethodSignatureRef</a></td>
+<td>0..1 <br/> <a href="../MethodSignature/">MethodSignature</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../FormalExpressionRef/">FormalExpressionRef</a></td>
+<td>0..* <br/> <a href="../FormalExpression/">FormalExpression</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../CheckValueRef/">CheckValueRef</a></td>
+<td>1..* <br/> <a href="../CheckValue/">CheckValue</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -279,6 +314,10 @@
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/RangeCheck">https://wiki.cdisc.org/display/ODM2/RangeCheck</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -309,42 +348,72 @@
 <details>
 <pre><code class="language-yaml">name: RangeCheck
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/RangeCheck
 slots:
-- Comparator
+- ComparatorRef
 - SoftHard
 - ItemOID
 - ErrorMessageRef
+- MethodSignatureRef
+- FormalExpressionRef
+- CheckValueRef
 slot_usage:
-  Comparator:
-    name: Comparator
+  ComparatorRef:
+    name: ComparatorRef
     domain_of:
     - RangeCheck
     range: Comparator
-    required: false
   SoftHard:
     name: SoftHard
     domain_of:
     - RangeCheck
     range: SoftOrHard
-    required: false
   ItemOID:
     name: ItemOID
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
-    required: false
   ErrorMessageRef:
     name: ErrorMessageRef
     domain_of:
     - RangeCheck
     range: ErrorMessage
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
+  MethodSignatureRef:
+    name: MethodSignatureRef
+    domain_of:
+    - RangeCheck
+    - MethodDef
+    - ConditionDef
+    range: MethodSignature
+    maximum_cardinality: 1
+  FormalExpressionRef:
+    name: FormalExpressionRef
+    multivalued: true
+    domain_of:
+    - RangeCheck
+    - MethodDef
+    - ConditionDef
+    - StudyEndPoint
+    - StudyTargetPopulation
+    range: FormalExpression
+    inlined: true
+    inlined_as_list: true
+  CheckValueRef:
+    name: CheckValueRef
+    multivalued: true
+    domain_of:
+    - RangeCheck
+    range: CheckValue
+    required: true
+    inlined: true
+    inlined_as_list: true
+    minimum_cardinality: 1
 class_uri: odm:RangeCheck
 
 </code></pre>
@@ -353,48 +422,74 @@ class_uri: odm:RangeCheck
 <details>
 <pre><code class="language-yaml">name: RangeCheck
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/RangeCheck
 slot_usage:
-  Comparator:
-    name: Comparator
+  ComparatorRef:
+    name: ComparatorRef
     domain_of:
     - RangeCheck
     range: Comparator
-    required: false
   SoftHard:
     name: SoftHard
     domain_of:
     - RangeCheck
     range: SoftOrHard
-    required: false
   ItemOID:
     name: ItemOID
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
-    required: false
   ErrorMessageRef:
     name: ErrorMessageRef
     domain_of:
     - RangeCheck
     range: ErrorMessage
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
+  MethodSignatureRef:
+    name: MethodSignatureRef
+    domain_of:
+    - RangeCheck
+    - MethodDef
+    - ConditionDef
+    range: MethodSignature
+    maximum_cardinality: 1
+  FormalExpressionRef:
+    name: FormalExpressionRef
+    multivalued: true
+    domain_of:
+    - RangeCheck
+    - MethodDef
+    - ConditionDef
+    - StudyEndPoint
+    - StudyTargetPopulation
+    range: FormalExpression
+    inlined: true
+    inlined_as_list: true
+  CheckValueRef:
+    name: CheckValueRef
+    multivalued: true
+    domain_of:
+    - RangeCheck
+    range: CheckValue
+    required: true
+    inlined: true
+    inlined_as_list: true
+    minimum_cardinality: 1
 attributes:
-  Comparator:
-    name: Comparator
+  ComparatorRef:
+    name: ComparatorRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Comparator
+    alias: ComparatorRef
     owner: RangeCheck
     domain_of:
     - RangeCheck
     range: Comparator
-    required: false
   SoftHard:
     name: SoftHard
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -404,7 +499,6 @@ attributes:
     domain_of:
     - RangeCheck
     range: SoftOrHard
-    required: false
   ItemOID:
     name: ItemOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -412,13 +506,12 @@ attributes:
     alias: ItemOID
     owner: RangeCheck
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
-    required: false
   ErrorMessageRef:
     name: ErrorMessageRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -428,9 +521,49 @@ attributes:
     domain_of:
     - RangeCheck
     range: ErrorMessage
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
+  MethodSignatureRef:
+    name: MethodSignatureRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: MethodSignatureRef
+    owner: RangeCheck
+    domain_of:
+    - RangeCheck
+    - MethodDef
+    - ConditionDef
+    range: MethodSignature
+    maximum_cardinality: 1
+  FormalExpressionRef:
+    name: FormalExpressionRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    multivalued: true
+    alias: FormalExpressionRef
+    owner: RangeCheck
+    domain_of:
+    - RangeCheck
+    - MethodDef
+    - ConditionDef
+    - StudyEndPoint
+    - StudyTargetPopulation
+    range: FormalExpression
+    inlined: true
+    inlined_as_list: true
+  CheckValueRef:
+    name: CheckValueRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    multivalued: true
+    alias: CheckValueRef
+    owner: RangeCheck
+    domain_of:
+    - RangeCheck
+    range: CheckValue
+    required: true
+    inlined: true
+    inlined_as_list: true
+    minimum_cardinality: 1
 class_uri: odm:RangeCheck
 
 </code></pre>

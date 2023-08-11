@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -200,7 +205,15 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/FormalExpression">odm:FormalExpression</a></p>
 <div class="mermaid"> classDiagram
     class FormalExpression
-      FormalExpression : Context
+      FormalExpression : CodeRef
+
+          FormalExpression --|&gt; Code : CodeRef
+
+      FormalExpression : ContextRef
+
+      FormalExpression : ExternalCodeLibRef
+
+          FormalExpression --|&gt; ExternalCodeLib : ExternalCodeLibRef
 
 
 </div>
@@ -217,8 +230,20 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Context/">Context</a></td>
+<td><a href="../ContextRef/">ContextRef</a></td>
 <td>0..1 <br/> <a href="../Text/">Text</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../CodeRef/">CodeRef</a></td>
+<td>1..1 <br/> <a href="../Code/">Code</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../ExternalCodeLibRef/">ExternalCodeLibRef</a></td>
+<td>1..1 <br/> <a href="../ExternalCodeLib/">ExternalCodeLib</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -236,13 +261,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../StudyEndPoint/">StudyEndPoint</a></td>
+<td><a href="../RangeCheck/">RangeCheck</a></td>
 <td><a href="../FormalExpressionRef/">FormalExpressionRef</a></td>
 <td>range</td>
 <td><a href="./">FormalExpression</a></td>
 </tr>
 <tr>
-<td><a href="../StudyTargetPopulation/">StudyTargetPopulation</a></td>
+<td><a href="../MethodDef/">MethodDef</a></td>
 <td><a href="../FormalExpressionRef/">FormalExpressionRef</a></td>
 <td>range</td>
 <td><a href="./">FormalExpression</a></td>
@@ -254,13 +279,23 @@
 <td><a href="./">FormalExpression</a></td>
 </tr>
 <tr>
-<td><a href="../MethodDef/">MethodDef</a></td>
+<td><a href="../StudyEndPoint/">StudyEndPoint</a></td>
+<td><a href="../FormalExpressionRef/">FormalExpressionRef</a></td>
+<td>range</td>
+<td><a href="./">FormalExpression</a></td>
+</tr>
+<tr>
+<td><a href="../StudyTargetPopulation/">StudyTargetPopulation</a></td>
 <td><a href="../FormalExpressionRef/">FormalExpressionRef</a></td>
 <td>range</td>
 <td><a href="./">FormalExpression</a></td>
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/FormalExpression">https://wiki.cdisc.org/display/ODM2/FormalExpression</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -291,17 +326,37 @@
 <details>
 <pre><code class="language-yaml">name: FormalExpression
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/FormalExpression
 slots:
-- Context
+- ContextRef
+- CodeRef
+- ExternalCodeLibRef
 slot_usage:
-  Context:
-    name: Context
+  ContextRef:
+    name: ContextRef
     domain_of:
-    - FormalExpression
     - Alias
+    - FormalExpression
     - ODMFileMetadata
     range: text
-    required: false
+  CodeRef:
+    name: CodeRef
+    domain_of:
+    - FormalExpression
+    - Coding
+    range: Code
+    required: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
+  ExternalCodeLibRef:
+    name: ExternalCodeLibRef
+    domain_of:
+    - FormalExpression
+    range: ExternalCodeLib
+    required: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
 class_uri: odm:FormalExpression
 
 </code></pre>
@@ -310,28 +365,70 @@ class_uri: odm:FormalExpression
 <details>
 <pre><code class="language-yaml">name: FormalExpression
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/FormalExpression
 slot_usage:
-  Context:
-    name: Context
+  ContextRef:
+    name: ContextRef
     domain_of:
-    - FormalExpression
     - Alias
+    - FormalExpression
     - ODMFileMetadata
     range: text
-    required: false
+  CodeRef:
+    name: CodeRef
+    domain_of:
+    - FormalExpression
+    - Coding
+    range: Code
+    required: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
+  ExternalCodeLibRef:
+    name: ExternalCodeLibRef
+    domain_of:
+    - FormalExpression
+    range: ExternalCodeLib
+    required: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
 attributes:
-  Context:
-    name: Context
+  ContextRef:
+    name: ContextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Context
+    alias: ContextRef
+    owner: FormalExpression
+    domain_of:
+    - Alias
+    - FormalExpression
+    - ODMFileMetadata
+    range: text
+  CodeRef:
+    name: CodeRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: CodeRef
     owner: FormalExpression
     domain_of:
     - FormalExpression
-    - Alias
-    - ODMFileMetadata
-    range: text
-    required: false
+    - Coding
+    range: Code
+    required: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
+  ExternalCodeLibRef:
+    name: ExternalCodeLibRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: ExternalCodeLibRef
+    owner: FormalExpression
+    domain_of:
+    - FormalExpression
+    range: ExternalCodeLib
+    required: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
 class_uri: odm:FormalExpression
 
 </code></pre>

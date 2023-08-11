@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -235,13 +240,13 @@
 </tr>
 <tr>
 <td><a href="../FirstPage/">FirstPage</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>0..1 <br/> <a href="../PositiveInteger/">PositiveInteger</a></td>
 <td>First page in a range of pages</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../LastPage/">LastPage</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>0..1 <br/> <a href="../PositiveInteger/">PositiveInteger</a></td>
 <td>Last page in a range of pages</td>
 <td>direct</td>
 </tr>
@@ -278,6 +283,10 @@
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/PDFPageRef">https://wiki.cdisc.org/display/ODM2/PDFPageRef</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -309,6 +318,8 @@
 <pre><code class="language-yaml">name: PDFPageRef
 description: This element is the container for CRF page references.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/PDFPageRef
 slots:
 - PageRefs
 - FirstPage
@@ -321,25 +332,26 @@ slot_usage:
     domain_of:
     - PDFPageRef
     range: text
-    required: false
   FirstPage:
     name: FirstPage
     domain_of:
     - PDFPageRef
-    range: integer
-    required: false
+    range: positiveInteger
   LastPage:
     name: LastPage
     domain_of:
     - PDFPageRef
-    range: integer
-    required: false
+    range: positiveInteger
   Type:
     name: Type
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -347,10 +359,6 @@ slot_usage:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: PDFPageType
     required: true
   Title:
@@ -358,7 +366,6 @@ slot_usage:
     domain_of:
     - PDFPageRef
     range: text
-    required: false
 class_uri: odm:PDFPageRef
 
 </code></pre>
@@ -368,31 +375,34 @@ class_uri: odm:PDFPageRef
 <pre><code class="language-yaml">name: PDFPageRef
 description: This element is the container for CRF page references.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/PDFPageRef
 slot_usage:
   PageRefs:
     name: PageRefs
     domain_of:
     - PDFPageRef
     range: text
-    required: false
   FirstPage:
     name: FirstPage
     domain_of:
     - PDFPageRef
-    range: integer
-    required: false
+    range: positiveInteger
   LastPage:
     name: LastPage
     domain_of:
     - PDFPageRef
-    range: integer
-    required: false
+    range: positiveInteger
   Type:
     name: Type
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -400,10 +410,6 @@ slot_usage:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: PDFPageType
     required: true
   Title:
@@ -411,7 +417,6 @@ slot_usage:
     domain_of:
     - PDFPageRef
     range: text
-    required: false
 attributes:
   PageRefs:
     name: PageRefs
@@ -423,7 +428,6 @@ attributes:
     domain_of:
     - PDFPageRef
     range: text
-    required: false
   FirstPage:
     name: FirstPage
     description: First page in a range of pages.
@@ -433,8 +437,7 @@ attributes:
     owner: PDFPageRef
     domain_of:
     - PDFPageRef
-    range: integer
-    required: false
+    range: positiveInteger
   LastPage:
     name: LastPage
     description: Last page in a range of pages.
@@ -444,8 +447,7 @@ attributes:
     owner: PDFPageRef
     domain_of:
     - PDFPageRef
-    range: integer
-    required: false
+    range: positiveInteger
   Type:
     name: Type
     description: Type of page for page references indicated in the PageRefs attribute.
@@ -455,8 +457,12 @@ attributes:
     owner: PDFPageRef
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -464,10 +470,6 @@ attributes:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: PDFPageType
     required: true
   Title:
@@ -480,7 +482,6 @@ attributes:
     domain_of:
     - PDFPageRef
     range: text
-    required: false
 class_uri: odm:PDFPageRef
 
 </code></pre>

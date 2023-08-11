@@ -328,22 +328,22 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../MetaDataVersion/">MetaDataVersion</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../Standard/">Standard</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
 <td><a href="../WhereClauseDef/">WhereClauseDef</a></td>
 <td></td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../StudyEventGroupDef/">StudyEventGroupDef</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../Coding/">Coding</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../MetaDataVersion/">MetaDataVersion</a></td>
 <td></td>
 <td>yes</td>
 </tr>
@@ -368,7 +368,7 @@
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../ConditionDef/">ConditionDef</a></td>
+<td><a href="../CodeListItem/">CodeListItem</a></td>
 <td></td>
 <td>yes</td>
 </tr>
@@ -378,17 +378,12 @@
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../Standard/">Standard</a></td>
+<td><a href="../ConditionDef/">ConditionDef</a></td>
 <td></td>
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../CodeListItem/">CodeListItem</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../EnumeratedItem/">EnumeratedItem</a></td>
+<td><a href="../Coding/">Coding</a></td>
 <td></td>
 <td>yes</td>
 </tr>
@@ -414,19 +409,18 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: CommentOID
 domain_of:
+- MetaDataVersion
+- Standard
 - WhereClauseDef
 - StudyEventGroupDef
-- Coding
-- MetaDataVersion
 - StudyEventDef
 - ItemGroupDef
 - ItemDef
 - CodeList
-- ConditionDef
-- MethodDef
-- Standard
 - CodeListItem
-- EnumeratedItem
+- MethodDef
+- ConditionDef
+- Coding
 range: string
 any_of:
 - range: oidref

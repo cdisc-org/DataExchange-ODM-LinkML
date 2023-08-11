@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -200,11 +205,23 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ReferenceData">odm:ReferenceData</a></p>
 <div class="mermaid"> classDiagram
     class ReferenceData
+      ReferenceData : AnnotationRef
+
+          ReferenceData --|&gt; Annotation : AnnotationRef
+
+      ReferenceData : AuditRecordRef
+
+          ReferenceData --|&gt; AuditRecord : AuditRecordRef
+
       ReferenceData : ItemGroupDataRef
 
           ReferenceData --|&gt; ItemGroupData : ItemGroupDataRef
 
       ReferenceData : MetaDataVersionOID
+
+      ReferenceData : SignatureRefRef
+
+          ReferenceData --|&gt; Signature : SignatureRefRef
 
       ReferenceData : StudyOID
 
@@ -240,6 +257,24 @@
 <td></td>
 <td>direct</td>
 </tr>
+<tr>
+<td><a href="../AuditRecordRef/">AuditRecordRef</a></td>
+<td>0..1 <br/> <a href="../AuditRecord/">AuditRecord</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../SignatureRefRef/">SignatureRefRef</a></td>
+<td>0..1 <br/> <a href="../Signature/">Signature</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../AnnotationRef/">AnnotationRef</a></td>
+<td>0..* <br/> <a href="../Annotation/">Annotation</a></td>
+<td></td>
+<td>direct</td>
+</tr>
 </tbody>
 </table>
 <h2 id="usages">Usages</h2>
@@ -261,6 +296,10 @@
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/ReferenceData">https://wiki.cdisc.org/display/ODM2/ReferenceData</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -291,10 +330,15 @@
 <details>
 <pre><code class="language-yaml">name: ReferenceData
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ReferenceData
 slots:
 - StudyOID
 - MetaDataVersionOID
 - ItemGroupDataRef
+- AuditRecordRef
+- SignatureRefRef
+- AnnotationRef
 slot_usage:
   StudyOID:
     name: StudyOID
@@ -328,9 +372,48 @@ slot_usage:
     - ReferenceData
     - ClinicalData
     - StudyEventData
+    - ItemGroupData
     range: ItemGroupData
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
+  AuditRecordRef:
+    name: AuditRecordRef
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Query
+    range: AuditRecord
+    maximum_cardinality: 1
+  SignatureRefRef:
+    name: SignatureRefRef
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Signature
+    range: Signature
+    maximum_cardinality: 1
+  AnnotationRef:
+    name: AnnotationRef
+    multivalued: true
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Association
+    range: Annotation
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:ReferenceData
 
 </code></pre>
@@ -339,6 +422,8 @@ class_uri: odm:ReferenceData
 <details>
 <pre><code class="language-yaml">name: ReferenceData
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ReferenceData
 slot_usage:
   StudyOID:
     name: StudyOID
@@ -372,9 +457,48 @@ slot_usage:
     - ReferenceData
     - ClinicalData
     - StudyEventData
+    - ItemGroupData
     range: ItemGroupData
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
+  AuditRecordRef:
+    name: AuditRecordRef
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Query
+    range: AuditRecord
+    maximum_cardinality: 1
+  SignatureRefRef:
+    name: SignatureRefRef
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Signature
+    range: Signature
+    maximum_cardinality: 1
+  AnnotationRef:
+    name: AnnotationRef
+    multivalued: true
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Association
+    range: Annotation
+    inlined: true
+    inlined_as_list: true
 attributes:
   StudyOID:
     name: StudyOID
@@ -420,9 +544,60 @@ attributes:
     - ReferenceData
     - ClinicalData
     - StudyEventData
+    - ItemGroupData
     range: ItemGroupData
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
+  AuditRecordRef:
+    name: AuditRecordRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: AuditRecordRef
+    owner: ReferenceData
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Query
+    range: AuditRecord
+    maximum_cardinality: 1
+  SignatureRefRef:
+    name: SignatureRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: SignatureRefRef
+    owner: ReferenceData
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Signature
+    range: Signature
+    maximum_cardinality: 1
+  AnnotationRef:
+    name: AnnotationRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    multivalued: true
+    alias: AnnotationRef
+    owner: ReferenceData
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Association
+    range: Annotation
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:ReferenceData
 
 </code></pre>

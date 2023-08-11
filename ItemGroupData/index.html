@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -200,6 +205,22 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ItemGroupData">odm:ItemGroupData</a></p>
 <div class="mermaid"> classDiagram
     class ItemGroupData
+      ItemGroupData : AnnotationRef
+
+          ItemGroupData --|&gt; Annotation : AnnotationRef
+
+      ItemGroupData : AuditRecordRef
+
+          ItemGroupData --|&gt; AuditRecord : AuditRecordRef
+
+      ItemGroupData : ItemDataRef
+
+          ItemGroupData --|&gt; ItemData : ItemDataRef
+
+      ItemGroupData : ItemGroupDataRef
+
+          ItemGroupData --|&gt; ItemGroupData : ItemGroupDataRef
+
       ItemGroupData : ItemGroupDataSeq
 
       ItemGroupData : ItemGroupOID
@@ -210,9 +231,13 @@
 
           ItemGroupData --|&gt; Query : QueryRef
 
-      ItemGroupData : TransactionType
+      ItemGroupData : SignatureRefRef
 
-          ItemGroupData --|&gt; TransactionType : TransactionType
+          ItemGroupData --|&gt; Signature : SignatureRefRef
+
+      ItemGroupData : TransactionTypeRef
+
+          ItemGroupData --|&gt; TransactionType : TransactionTypeRef
 
 
 </div>
@@ -241,20 +266,50 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../TransactionType/">TransactionType</a></td>
+<td><a href="../TransactionTypeRef/">TransactionTypeRef</a></td>
 <td>0..1 <br/> <a href="../TransactionType/">TransactionType</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ItemGroupDataSeq/">ItemGroupDataSeq</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>0..1 <br/> <a href="../PositiveInteger/">PositiveInteger</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../QueryRef/">QueryRef</a></td>
 <td>0..* <br/> <a href="../Query/">Query</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../ItemGroupDataRef/">ItemGroupDataRef</a></td>
+<td>0..1 <br/> <a href="./">ItemGroupData</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../ItemDataRef/">ItemDataRef</a></td>
+<td>0..1 <br/> <a href="../ItemData/">ItemData</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../AuditRecordRef/">AuditRecordRef</a></td>
+<td>0..1 <br/> <a href="../AuditRecord/">AuditRecord</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../SignatureRefRef/">SignatureRefRef</a></td>
+<td>0..1 <br/> <a href="../Signature/">Signature</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../AnnotationRef/">AnnotationRef</a></td>
+<td>0..* <br/> <a href="../Annotation/">Annotation</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -289,8 +344,18 @@
 <td>range</td>
 <td><a href="./">ItemGroupData</a></td>
 </tr>
+<tr>
+<td><a href="./">ItemGroupData</a></td>
+<td><a href="../ItemGroupDataRef/">ItemGroupDataRef</a></td>
+<td>range</td>
+<td><a href="./">ItemGroupData</a></td>
+</tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/ItemGroupData">https://wiki.cdisc.org/display/ODM2/ItemGroupData</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -320,23 +385,28 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ItemGroupData
-in_subset:
-- ItemGroupDataGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ItemGroupData
 slots:
 - ItemGroupOID
 - ItemGroupRepeatKey
-- TransactionType
+- TransactionTypeRef
 - ItemGroupDataSeq
 - QueryRef
+- ItemGroupDataRef
+- ItemDataRef
+- AuditRecordRef
+- SignatureRefRef
+- AnnotationRef
 slot_usage:
   ItemGroupOID:
     name: ItemGroupOID
     domain_of:
+    - ItemGroupRef
     - SourceItem
     - ItemGroupData
     - KeySet
-    - ItemGroupRef
     range: oidref
     required: true
   ItemGroupRepeatKey:
@@ -345,9 +415,8 @@ slot_usage:
     - ItemGroupData
     - KeySet
     range: repeatKey
-    required: false
-  TransactionType:
-    name: TransactionType
+  TransactionTypeRef:
+    name: TransactionTypeRef
     domain_of:
     - SubjectData
     - StudyEventData
@@ -355,26 +424,77 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-    required: false
   ItemGroupDataSeq:
     name: ItemGroupDataSeq
     domain_of:
     - ItemGroupData
-    range: integer
-    required: false
+    range: positiveInteger
   QueryRef:
     name: QueryRef
     multivalued: true
     domain_of:
+    - Location
     - ClinicalData
     - SubjectData
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Location
     range: Query
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
+  ItemGroupDataRef:
+    name: ItemGroupDataRef
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - StudyEventData
+    - ItemGroupData
+    range: ItemGroupData
+    maximum_cardinality: 1
+  ItemDataRef:
+    name: ItemDataRef
+    domain_of:
+    - ItemGroupData
+    range: ItemData
+    maximum_cardinality: 1
+  AuditRecordRef:
+    name: AuditRecordRef
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Query
+    range: AuditRecord
+    maximum_cardinality: 1
+  SignatureRefRef:
+    name: SignatureRefRef
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Signature
+    range: Signature
+    maximum_cardinality: 1
+  AnnotationRef:
+    name: AnnotationRef
+    multivalued: true
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Association
+    range: Annotation
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:ItemGroupData
 
 </code></pre>
@@ -382,17 +502,17 @@ class_uri: odm:ItemGroupData
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ItemGroupData
-in_subset:
-- ItemGroupDataGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ItemGroupData
 slot_usage:
   ItemGroupOID:
     name: ItemGroupOID
     domain_of:
+    - ItemGroupRef
     - SourceItem
     - ItemGroupData
     - KeySet
-    - ItemGroupRef
     range: oidref
     required: true
   ItemGroupRepeatKey:
@@ -401,9 +521,8 @@ slot_usage:
     - ItemGroupData
     - KeySet
     range: repeatKey
-    required: false
-  TransactionType:
-    name: TransactionType
+  TransactionTypeRef:
+    name: TransactionTypeRef
     domain_of:
     - SubjectData
     - StudyEventData
@@ -411,26 +530,77 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-    required: false
   ItemGroupDataSeq:
     name: ItemGroupDataSeq
     domain_of:
     - ItemGroupData
-    range: integer
-    required: false
+    range: positiveInteger
   QueryRef:
     name: QueryRef
     multivalued: true
     domain_of:
+    - Location
     - ClinicalData
     - SubjectData
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Location
     range: Query
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
+  ItemGroupDataRef:
+    name: ItemGroupDataRef
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - StudyEventData
+    - ItemGroupData
+    range: ItemGroupData
+    maximum_cardinality: 1
+  ItemDataRef:
+    name: ItemDataRef
+    domain_of:
+    - ItemGroupData
+    range: ItemData
+    maximum_cardinality: 1
+  AuditRecordRef:
+    name: AuditRecordRef
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Query
+    range: AuditRecord
+    maximum_cardinality: 1
+  SignatureRefRef:
+    name: SignatureRefRef
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Signature
+    range: Signature
+    maximum_cardinality: 1
+  AnnotationRef:
+    name: AnnotationRef
+    multivalued: true
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Association
+    range: Annotation
+    inlined: true
+    inlined_as_list: true
 attributes:
   ItemGroupOID:
     name: ItemGroupOID
@@ -439,10 +609,10 @@ attributes:
     alias: ItemGroupOID
     owner: ItemGroupData
     domain_of:
+    - ItemGroupRef
     - SourceItem
     - ItemGroupData
     - KeySet
-    - ItemGroupRef
     range: oidref
     required: true
   ItemGroupRepeatKey:
@@ -455,12 +625,11 @@ attributes:
     - ItemGroupData
     - KeySet
     range: repeatKey
-    required: false
-  TransactionType:
-    name: TransactionType
+  TransactionTypeRef:
+    name: TransactionTypeRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TransactionType
+    alias: TransactionTypeRef
     owner: ItemGroupData
     domain_of:
     - SubjectData
@@ -469,7 +638,6 @@ attributes:
     - ItemData
     - Annotation
     range: TransactionType
-    required: false
   ItemGroupDataSeq:
     name: ItemGroupDataSeq
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -478,8 +646,7 @@ attributes:
     owner: ItemGroupData
     domain_of:
     - ItemGroupData
-    range: integer
-    required: false
+    range: positiveInteger
   QueryRef:
     name: QueryRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -488,15 +655,88 @@ attributes:
     alias: QueryRef
     owner: ItemGroupData
     domain_of:
+    - Location
     - ClinicalData
     - SubjectData
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Location
     range: Query
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
+  ItemGroupDataRef:
+    name: ItemGroupDataRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: ItemGroupDataRef
+    owner: ItemGroupData
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - StudyEventData
+    - ItemGroupData
+    range: ItemGroupData
+    maximum_cardinality: 1
+  ItemDataRef:
+    name: ItemDataRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: ItemDataRef
+    owner: ItemGroupData
+    domain_of:
+    - ItemGroupData
+    range: ItemData
+    maximum_cardinality: 1
+  AuditRecordRef:
+    name: AuditRecordRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: AuditRecordRef
+    owner: ItemGroupData
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Query
+    range: AuditRecord
+    maximum_cardinality: 1
+  SignatureRefRef:
+    name: SignatureRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: SignatureRefRef
+    owner: ItemGroupData
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Signature
+    range: Signature
+    maximum_cardinality: 1
+  AnnotationRef:
+    name: AnnotationRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    multivalued: true
+    alias: AnnotationRef
+    owner: ItemGroupData
+    domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
+    - Association
+    range: Annotation
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:ItemGroupData
 
 </code></pre>

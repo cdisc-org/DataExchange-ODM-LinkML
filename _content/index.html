@@ -327,6 +327,11 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../TranslatedText/">TranslatedText</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
 <td><a href="../CheckValue/">CheckValue</a></td>
 <td></td>
 <td>no</td>
@@ -446,11 +451,6 @@
 <td></td>
 <td>yes</td>
 </tr>
-<tr>
-<td><a href="../TranslatedText/">TranslatedText</a></td>
-<td></td>
-<td>yes</td>
-</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
@@ -471,6 +471,7 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: _content
 domain_of:
+- TranslatedText
 - CheckValue
 - Code
 - WorkflowEnd
@@ -495,8 +496,8 @@ domain_of:
 - FlagValue
 - FlagType
 - Value
-- TranslatedText
 range: _contentType
+inlined: true
 
 </code></pre>
 

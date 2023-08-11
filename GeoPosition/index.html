@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -259,6 +264,10 @@
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/GeoPosition">https://wiki.cdisc.org/display/ODM2/GeoPosition</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -289,6 +298,8 @@
 <details>
 <pre><code class="language-yaml">name: GeoPosition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/GeoPosition
 slots:
 - Longitude
 - Latitude
@@ -299,19 +310,16 @@ slot_usage:
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
   Latitude:
     name: Latitude
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
   Altitude:
     name: Altitude
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
 class_uri: odm:GeoPosition
 
 </code></pre>
@@ -320,25 +328,24 @@ class_uri: odm:GeoPosition
 <details>
 <pre><code class="language-yaml">name: GeoPosition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/GeoPosition
 slot_usage:
   Longitude:
     name: Longitude
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
   Latitude:
     name: Latitude
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
   Altitude:
     name: Altitude
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
 attributes:
   Longitude:
     name: Longitude
@@ -349,7 +356,6 @@ attributes:
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
   Latitude:
     name: Latitude
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -359,7 +365,6 @@ attributes:
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
   Altitude:
     name: Altitude
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -369,7 +374,6 @@ attributes:
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
 class_uri: odm:GeoPosition
 
 </code></pre>

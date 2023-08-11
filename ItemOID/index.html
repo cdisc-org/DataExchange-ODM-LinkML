@@ -326,6 +326,11 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../ItemRef/">ItemRef</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
 <td><a href="../SourceItem/">SourceItem</a></td>
 <td></td>
 <td>yes</td>
@@ -342,11 +347,6 @@
 </tr>
 <tr>
 <td><a href="../KeySet/">KeySet</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../ItemRef/">ItemRef</a></td>
 <td></td>
 <td>yes</td>
 </tr>
@@ -369,11 +369,11 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ItemOID
 domain_of:
+- ItemRef
 - SourceItem
 - RangeCheck
 - ItemData
 - KeySet
-- ItemRef
 range: oidref
 
 </code></pre>

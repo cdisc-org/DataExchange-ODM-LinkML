@@ -147,6 +147,16 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#usages">
+    Usages
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -229,7 +239,7 @@
 <tbody>
 <tr>
 <td><a href="../ID/">ID</a></td>
-<td>0..1 <br/> <a href="../Oid/">Oid</a></td>
+<td>1..1 <br/> <a href="../Oid/">Oid</a></td>
 <td>Unique identifier for the leaf that is referenced</td>
 <td>direct</td>
 </tr>
@@ -259,6 +269,59 @@
 </tr>
 </tbody>
 </table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ReferenceData/">ReferenceData</a></td>
+<td><a href="../SignatureRefRef/">SignatureRefRef</a></td>
+<td>range</td>
+<td><a href="./">Signature</a></td>
+</tr>
+<tr>
+<td><a href="../ClinicalData/">ClinicalData</a></td>
+<td><a href="../SignatureRefRef/">SignatureRefRef</a></td>
+<td>range</td>
+<td><a href="./">Signature</a></td>
+</tr>
+<tr>
+<td><a href="../SubjectData/">SubjectData</a></td>
+<td><a href="../SignatureRefRef/">SignatureRefRef</a></td>
+<td>range</td>
+<td><a href="./">Signature</a></td>
+</tr>
+<tr>
+<td><a href="../StudyEventData/">StudyEventData</a></td>
+<td><a href="../SignatureRefRef/">SignatureRefRef</a></td>
+<td>range</td>
+<td><a href="./">Signature</a></td>
+</tr>
+<tr>
+<td><a href="../ItemGroupData/">ItemGroupData</a></td>
+<td><a href="../SignatureRefRef/">SignatureRefRef</a></td>
+<td>range</td>
+<td><a href="./">Signature</a></td>
+</tr>
+<tr>
+<td><a href="../ItemData/">ItemData</a></td>
+<td><a href="../SignatureRefRef/">SignatureRefRef</a></td>
+<td>range</td>
+<td><a href="./">Signature</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/Signature">https://wiki.cdisc.org/display/ODM2/Signature</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -288,9 +351,9 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Signature
-in_subset:
-- AuditRecordSignatureNotationGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Signature
 slots:
 - ID
 - UserRefRef
@@ -305,10 +368,10 @@ slot_usage:
     - Signature
     - Annotation
     range: oid
-    required: false
   UserRefRef:
     name: UserRefRef
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
@@ -318,6 +381,7 @@ slot_usage:
   LocationRefRef:
     name: LocationRefRef
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
@@ -327,6 +391,12 @@ slot_usage:
   SignatureRefRef:
     name: SignatureRefRef
     domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
     - Signature
     range: SignatureRef
     required: true
@@ -348,9 +418,9 @@ class_uri: odm:Signature
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Signature
-in_subset:
-- AuditRecordSignatureNotationGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Signature
 slot_usage:
   ID:
     name: ID
@@ -359,10 +429,10 @@ slot_usage:
     - Signature
     - Annotation
     range: oid
-    required: false
   UserRefRef:
     name: UserRefRef
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
@@ -372,6 +442,7 @@ slot_usage:
   LocationRefRef:
     name: LocationRefRef
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
@@ -381,6 +452,12 @@ slot_usage:
   SignatureRefRef:
     name: SignatureRefRef
     domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
     - Signature
     range: SignatureRef
     required: true
@@ -401,6 +478,7 @@ attributes:
     description: Unique identifier for the leaf that is referenced.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: ID
     owner: Signature
     domain_of:
@@ -408,7 +486,7 @@ attributes:
     - Signature
     - Annotation
     range: oid
-    required: false
+    required: true
   UserRefRef:
     name: UserRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -416,6 +494,7 @@ attributes:
     alias: UserRefRef
     owner: Signature
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
@@ -429,6 +508,7 @@ attributes:
     alias: LocationRefRef
     owner: Signature
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
@@ -442,6 +522,12 @@ attributes:
     alias: SignatureRefRef
     owner: Signature
     domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
     - Signature
     range: SignatureRef
     required: true

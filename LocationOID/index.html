@@ -326,6 +326,11 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../User/">User</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
 <td><a href="../Organization/">Organization</a></td>
 <td></td>
 <td>yes</td>
@@ -337,11 +342,6 @@
 </tr>
 <tr>
 <td><a href="../LocationRef/">LocationRef</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../User/">User</a></td>
 <td></td>
 <td>yes</td>
 </tr>
@@ -364,10 +364,10 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: LocationOID
 domain_of:
+- User
 - Organization
 - SiteRef
 - LocationRef
-- User
 range: oidref
 
 </code></pre>

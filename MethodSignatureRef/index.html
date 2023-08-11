@@ -326,12 +326,17 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ConditionDef/">ConditionDef</a></td>
+<td><a href="../RangeCheck/">RangeCheck</a></td>
 <td></td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../MethodDef/">MethodDef</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../ConditionDef/">ConditionDef</a></td>
 <td></td>
 <td>yes</td>
 </tr>
@@ -354,8 +359,9 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: MethodSignatureRef
 domain_of:
-- ConditionDef
+- RangeCheck
 - MethodDef
+- ConditionDef
 range: MethodSignature
 
 </code></pre>

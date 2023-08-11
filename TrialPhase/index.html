@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -204,7 +209,7 @@
 
           TrialPhase --|&gt; Description : DescriptionRef
 
-      TrialPhase : Value
+      TrialPhase : ValueRef
 
 
 </div>
@@ -221,7 +226,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Value/">Value</a></td>
+<td><a href="../ValueRef/">ValueRef</a></td>
 <td>1..1 <br/> <a href="../TrialPhaseType/">TrialPhaseType</a></td>
 <td></td>
 <td>direct</td>
@@ -253,6 +258,10 @@
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/TrialPhase">https://wiki.cdisc.org/display/ODM2/TrialPhase</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -283,24 +292,37 @@
 <details>
 <pre><code class="language-yaml">name: TrialPhase
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/TrialPhase
 slots:
-- Value
+- ValueRef
 - DescriptionRef
 slot_usage:
-  Value:
-    name: Value
+  ValueRef:
+    name: ValueRef
     domain_of:
     - TrialPhase
     - ParameterValue
+    - ItemData
+    - Query
     range: TrialPhaseType
     required: true
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -323,21 +345,9 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:TrialPhase
 
@@ -347,21 +357,34 @@ class_uri: odm:TrialPhase
 <details>
 <pre><code class="language-yaml">name: TrialPhase
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/TrialPhase
 slot_usage:
-  Value:
-    name: Value
+  ValueRef:
+    name: ValueRef
     domain_of:
     - TrialPhase
     - ParameterValue
+    - ItemData
+    - Query
     range: TrialPhaseType
     required: true
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -384,32 +407,22 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 attributes:
-  Value:
-    name: Value
+  ValueRef:
+    name: ValueRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Value
+    alias: ValueRef
     owner: TrialPhase
     domain_of:
     - TrialPhase
     - ParameterValue
+    - ItemData
+    - Query
     range: TrialPhaseType
     required: true
   DescriptionRef:
@@ -419,10 +432,19 @@ attributes:
     alias: DescriptionRef
     owner: TrialPhase
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -445,21 +467,9 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:TrialPhase
 

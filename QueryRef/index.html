@@ -326,6 +326,11 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../Location/">Location</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
 <td><a href="../ClinicalData/">ClinicalData</a></td>
 <td></td>
 <td>yes</td>
@@ -350,11 +355,6 @@
 <td></td>
 <td>yes</td>
 </tr>
-<tr>
-<td><a href="../Location/">Location</a></td>
-<td></td>
-<td>yes</td>
-</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
@@ -374,12 +374,12 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: QueryRef
 domain_of:
+- Location
 - ClinicalData
 - SubjectData
 - StudyEventData
 - ItemGroupData
 - ItemData
-- Location
 range: Query
 
 </code></pre>

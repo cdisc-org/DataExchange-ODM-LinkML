@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -204,6 +209,10 @@
 
           ItemDef --|&gt; Alias : AliasRef
 
+      ItemDef : CDISCNotesRef
+
+          ItemDef --|&gt; CDISCNotes : CDISCNotesRef
+
       ItemDef : CodeListRefRef
 
           ItemDef --|&gt; CodeListRef : CodeListRefRef
@@ -214,9 +223,17 @@
 
       ItemDef : CommentOID
 
-      ItemDef : DataType
+      ItemDef : CRFCompletionInstructionsRef
 
-          ItemDef --|&gt; DataType : DataType
+          ItemDef --|&gt; CRFCompletionInstructions : CRFCompletionInstructionsRef
+
+      ItemDef : DataTypeRef
+
+          ItemDef --|&gt; DataType : DataTypeRef
+
+      ItemDef : DefinitionRef
+
+          ItemDef --|&gt; Definition : DefinitionRef
 
       ItemDef : DescriptionRef
 
@@ -224,11 +241,19 @@
 
       ItemDef : DisplayFormat
 
+      ItemDef : ImplementationNotesRef
+
+          ItemDef --|&gt; ImplementationNotes : ImplementationNotesRef
+
       ItemDef : Length
 
       ItemDef : Name
 
       ItemDef : OID
+
+      ItemDef : PromptRef
+
+          ItemDef --|&gt; Prompt : PromptRef
 
       ItemDef : QuestionRef
 
@@ -241,6 +266,8 @@
       ItemDef : ValueListRefRef
 
           ItemDef --|&gt; ValueListRef : ValueListRefRef
+
+      ItemDef : VariableSet
 
 
 </div>
@@ -269,7 +296,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../DataType/">DataType</a></td>
+<td><a href="../DataTypeRef/">DataTypeRef</a></td>
 <td>1..1 <br/> <a href="../DataType/">DataType</a></td>
 <td>The DataType attribute specifies how the corresponding value</td>
 <td>direct</td>
@@ -287,6 +314,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../VariableSet/">VariableSet</a></td>
+<td>0..1 <br/> <a href="../Text/">Text</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../CommentOID/">CommentOID</a></td>
 <td>0..1 <br/> <a href="../Oidref/">Oidref</a></td>
 <td>The Comment identifier that this value refers to</td>
@@ -299,8 +332,38 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../DefinitionRef/">DefinitionRef</a></td>
+<td>0..1 <br/> <a href="../Definition/">Definition</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../QuestionRef/">QuestionRef</a></td>
 <td>0..1 <br/> <a href="../Question/">Question</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../PromptRef/">PromptRef</a></td>
+<td>0..1 <br/> <a href="../Prompt/">Prompt</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../CRFCompletionInstructionsRef/">CRFCompletionInstructionsRef</a></td>
+<td>0..1 <br/> <a href="../CRFCompletionInstructions/">CRFCompletionInstructions</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../ImplementationNotesRef/">ImplementationNotesRef</a></td>
+<td>0..1 <br/> <a href="../ImplementationNotes/">ImplementationNotes</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../CDISCNotesRef/">CDISCNotesRef</a></td>
+<td>0..1 <br/> <a href="../CDISCNotes/">CDISCNotes</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -355,6 +418,10 @@
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/ItemDef">https://wiki.cdisc.org/display/ODM2/ItemDef</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -385,15 +452,23 @@
 <details>
 <pre><code class="language-yaml">name: ItemDef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ItemDef
 slots:
 - OID
 - Name
-- DataType
+- DataTypeRef
 - Length
 - DisplayFormat
+- VariableSet
 - CommentOID
 - DescriptionRef
+- DefinitionRef
 - QuestionRef
+- PromptRef
+- CRFCompletionInstructionsRef
+- ImplementationNotesRef
+- CDISCNotesRef
 - RangeCheckRef
 - CodeListRefRef
 - ValueListRefRef
@@ -403,9 +478,18 @@ slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -426,32 +510,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -469,26 +553,17 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
-  DataType:
-    name: DataType
+  DataTypeRef:
+    name: DataTypeRef
     domain_of:
-    - Parameter
-    - ReturnValue
     - ItemDef
     - CodeList
+    - Parameter
+    - ReturnValue
     range: DataType
     required: true
   Length:
@@ -496,38 +571,48 @@ slot_usage:
     domain_of:
     - ItemDef
     range: positiveInteger
-    required: false
   DisplayFormat:
     name: DisplayFormat
     domain_of:
     - ItemDef
     range: text
-    required: false
+  VariableSet:
+    name: VariableSet
+    domain_of:
+    - ItemDef
+    range: text
   CommentOID:
     name: CommentOID
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -550,29 +635,47 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
+    maximum_cardinality: 1
+  DefinitionRef:
+    name: DefinitionRef
+    domain_of:
+    - ItemDef
+    - Parameter
+    - ReturnValue
+    range: Definition
     maximum_cardinality: 1
   QuestionRef:
     name: QuestionRef
     domain_of:
     - ItemDef
     range: Question
-    required: false
-    minimum_cardinality: 0
+    maximum_cardinality: 1
+  PromptRef:
+    name: PromptRef
+    domain_of:
+    - ItemDef
+    range: Prompt
+    maximum_cardinality: 1
+  CRFCompletionInstructionsRef:
+    name: CRFCompletionInstructionsRef
+    domain_of:
+    - ItemDef
+    range: CRFCompletionInstructions
+    maximum_cardinality: 1
+  ImplementationNotesRef:
+    name: ImplementationNotesRef
+    domain_of:
+    - ItemDef
+    range: ImplementationNotes
+    maximum_cardinality: 1
+  CDISCNotesRef:
+    name: CDISCNotesRef
+    domain_of:
+    - ItemDef
+    range: CDISCNotes
     maximum_cardinality: 1
   RangeCheckRef:
     name: RangeCheckRef
@@ -581,70 +684,60 @@ slot_usage:
     - WhereClauseDef
     - ItemDef
     range: RangeCheck
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   CodeListRefRef:
     name: CodeListRefRef
     domain_of:
+    - MetaDataVersion
     - ItemDef
     range: CodeListRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ValueListRefRef:
     name: ValueListRefRef
     domain_of:
     - ItemDef
     range: ValueListRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AliasRef:
     name: AliasRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:ItemDef
-unique_keys:
-  UC-MDV-4:
-    unique_key_name: UC-MDV-4
-    unique_key_slots:
-    - OID
 
 </code></pre>
 </details>
@@ -652,13 +745,24 @@ unique_keys:
 <details>
 <pre><code class="language-yaml">name: ItemDef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ItemDef
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -679,32 +783,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -722,26 +826,17 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
-  DataType:
-    name: DataType
+  DataTypeRef:
+    name: DataTypeRef
     domain_of:
-    - Parameter
-    - ReturnValue
     - ItemDef
     - CodeList
+    - Parameter
+    - ReturnValue
     range: DataType
     required: true
   Length:
@@ -749,38 +844,48 @@ slot_usage:
     domain_of:
     - ItemDef
     range: positiveInteger
-    required: false
   DisplayFormat:
     name: DisplayFormat
     domain_of:
     - ItemDef
     range: text
-    required: false
+  VariableSet:
+    name: VariableSet
+    domain_of:
+    - ItemDef
+    range: text
   CommentOID:
     name: CommentOID
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -803,29 +908,47 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
+    maximum_cardinality: 1
+  DefinitionRef:
+    name: DefinitionRef
+    domain_of:
+    - ItemDef
+    - Parameter
+    - ReturnValue
+    range: Definition
     maximum_cardinality: 1
   QuestionRef:
     name: QuestionRef
     domain_of:
     - ItemDef
     range: Question
-    required: false
-    minimum_cardinality: 0
+    maximum_cardinality: 1
+  PromptRef:
+    name: PromptRef
+    domain_of:
+    - ItemDef
+    range: Prompt
+    maximum_cardinality: 1
+  CRFCompletionInstructionsRef:
+    name: CRFCompletionInstructionsRef
+    domain_of:
+    - ItemDef
+    range: CRFCompletionInstructions
+    maximum_cardinality: 1
+  ImplementationNotesRef:
+    name: ImplementationNotesRef
+    domain_of:
+    - ItemDef
+    range: ImplementationNotes
+    maximum_cardinality: 1
+  CDISCNotesRef:
+    name: CDISCNotesRef
+    domain_of:
+    - ItemDef
+    range: CDISCNotes
     maximum_cardinality: 1
   RangeCheckRef:
     name: RangeCheckRef
@@ -834,76 +957,81 @@ slot_usage:
     - WhereClauseDef
     - ItemDef
     range: RangeCheck
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   CodeListRefRef:
     name: CodeListRefRef
     domain_of:
+    - MetaDataVersion
     - ItemDef
     range: CodeListRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ValueListRefRef:
     name: ValueListRefRef
     domain_of:
     - ItemDef
     range: ValueListRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AliasRef:
     name: AliasRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   OID:
     name: OID
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: OID
     owner: ItemDef
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -924,20 +1052,11 @@ attributes:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
@@ -948,13 +1067,22 @@ attributes:
     alias: Name
     owner: ItemDef
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -972,32 +1100,23 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
-  DataType:
-    name: DataType
+  DataTypeRef:
+    name: DataTypeRef
     description: "The DataType attribute specifies how the corresponding value\n \
       \                   elements are to be interpreted for comparison and storage."
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: DataType
+    alias: DataTypeRef
     owner: ItemDef
     domain_of:
-    - Parameter
-    - ReturnValue
     - ItemDef
     - CodeList
+    - Parameter
+    - ReturnValue
     range: DataType
     required: true
   Length:
@@ -1012,7 +1131,6 @@ attributes:
     domain_of:
     - ItemDef
     range: positiveInteger
-    required: false
   DisplayFormat:
     name: DisplayFormat
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1022,7 +1140,15 @@ attributes:
     domain_of:
     - ItemDef
     range: text
-    required: false
+  VariableSet:
+    name: VariableSet
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: VariableSet
+    owner: ItemDef
+    domain_of:
+    - ItemDef
+    range: text
   CommentOID:
     name: CommentOID
     description: "The Comment identifier that this value refers to. Needed when the\
@@ -1033,21 +1159,19 @@ attributes:
     alias: CommentOID
     owner: ItemDef
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1055,10 +1179,19 @@ attributes:
     alias: DescriptionRef
     owner: ItemDef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -1081,21 +1214,21 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
+    maximum_cardinality: 1
+  DefinitionRef:
+    name: DefinitionRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: DefinitionRef
+    owner: ItemDef
+    domain_of:
+    - ItemDef
+    - Parameter
+    - ReturnValue
+    range: Definition
     maximum_cardinality: 1
   QuestionRef:
     name: QuestionRef
@@ -1106,8 +1239,46 @@ attributes:
     domain_of:
     - ItemDef
     range: Question
-    required: false
-    minimum_cardinality: 0
+    maximum_cardinality: 1
+  PromptRef:
+    name: PromptRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: PromptRef
+    owner: ItemDef
+    domain_of:
+    - ItemDef
+    range: Prompt
+    maximum_cardinality: 1
+  CRFCompletionInstructionsRef:
+    name: CRFCompletionInstructionsRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: CRFCompletionInstructionsRef
+    owner: ItemDef
+    domain_of:
+    - ItemDef
+    range: CRFCompletionInstructions
+    maximum_cardinality: 1
+  ImplementationNotesRef:
+    name: ImplementationNotesRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: ImplementationNotesRef
+    owner: ItemDef
+    domain_of:
+    - ItemDef
+    range: ImplementationNotes
+    maximum_cardinality: 1
+  CDISCNotesRef:
+    name: CDISCNotesRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: CDISCNotesRef
+    owner: ItemDef
+    domain_of:
+    - ItemDef
+    range: CDISCNotes
     maximum_cardinality: 1
   RangeCheckRef:
     name: RangeCheckRef
@@ -1120,8 +1291,8 @@ attributes:
     - WhereClauseDef
     - ItemDef
     range: RangeCheck
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   CodeListRefRef:
     name: CodeListRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1129,10 +1300,9 @@ attributes:
     alias: CodeListRefRef
     owner: ItemDef
     domain_of:
+    - MetaDataVersion
     - ItemDef
     range: CodeListRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ValueListRefRef:
     name: ValueListRefRef
@@ -1143,8 +1313,6 @@ attributes:
     domain_of:
     - ItemDef
     range: ValueListRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -1155,51 +1323,44 @@ attributes:
     owner: ItemDef
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AliasRef:
     name: AliasRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
     alias: AliasRef
     owner: ItemDef
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:ItemDef
-unique_keys:
-  UC-MDV-4:
-    unique_key_name: UC-MDV-4
-    unique_key_slots:
-    - OID
 
 </code></pre>
 </details>

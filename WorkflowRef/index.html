@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -242,6 +247,18 @@
 <td><a href="./">WorkflowRef</a></td>
 </tr>
 <tr>
+<td><a href="../StudyEventDef/">StudyEventDef</a></td>
+<td><a href="../WorkflowRefRef/">WorkflowRefRef</a></td>
+<td>range</td>
+<td><a href="./">WorkflowRef</a></td>
+</tr>
+<tr>
+<td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
+<td><a href="../WorkflowRefRef/">WorkflowRefRef</a></td>
+<td>range</td>
+<td><a href="./">WorkflowRef</a></td>
+</tr>
+<tr>
 <td><a href="../Protocol/">Protocol</a></td>
 <td><a href="../WorkflowRefRef/">WorkflowRefRef</a></td>
 <td>range</td>
@@ -260,19 +277,17 @@
 <td><a href="./">WorkflowRef</a></td>
 </tr>
 <tr>
-<td><a href="../StudyEventDef/">StudyEventDef</a></td>
-<td><a href="../WorkflowRefRef/">WorkflowRefRef</a></td>
-<td>range</td>
-<td><a href="./">WorkflowRef</a></td>
-</tr>
-<tr>
-<td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
+<td><a href="../ExceptionEvent/">ExceptionEvent</a></td>
 <td><a href="../WorkflowRefRef/">WorkflowRefRef</a></td>
 <td>range</td>
 <td><a href="./">WorkflowRef</a></td>
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/WorkflowRef">https://wiki.cdisc.org/display/ODM2/WorkflowRef</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -302,9 +317,9 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: WorkflowRef
-in_subset:
-- ExceptionEventGroupDefinition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/WorkflowRef
 slots:
 - WorkflowOID
 slot_usage:
@@ -321,9 +336,9 @@ class_uri: odm:WorkflowRef
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: WorkflowRef
-in_subset:
-- ExceptionEventGroupDefinition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/WorkflowRef
 slot_usage:
   WorkflowOID:
     name: WorkflowOID

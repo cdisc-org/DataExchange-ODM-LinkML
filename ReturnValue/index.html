@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -200,11 +205,11 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ReturnValue">odm:ReturnValue</a></p>
 <div class="mermaid"> classDiagram
     class ReturnValue
-      ReturnValue : DataType
+      ReturnValue : DataTypeRef
 
-          ReturnValue --|&gt; DataType : DataType
+          ReturnValue --|&gt; DataType : DataTypeRef
 
-      ReturnValue : Definition
+      ReturnValue : DefinitionRef
 
       ReturnValue : Name
 
@@ -231,20 +236,20 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../DataType/">DataType</a></td>
+<td><a href="../DataTypeRef/">DataTypeRef</a></td>
 <td>1..1 <br/> <a href="../DataType/">DataType</a></td>
 <td>The DataType attribute specifies how the corresponding value</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../Definition/">Definition</a></td>
+<td><a href="../DefinitionRef/">DefinitionRef</a></td>
 <td>0..1 <br/> <a href="../Text/">Text</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../OrderNumber/">OrderNumber</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>0..1 <br/> <a href="../PositiveInteger/">PositiveInteger</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -269,6 +274,10 @@
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/ReturnValue">https://wiki.cdisc.org/display/ODM2/ReturnValue</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -299,22 +308,33 @@
 <details>
 <pre><code class="language-yaml">name: ReturnValue
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ReturnValue
 slots:
 - Name
-- DataType
-- Definition
+- DataTypeRef
+- DefinitionRef
 - OrderNumber
 slot_usage:
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -332,49 +352,38 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
-  DataType:
-    name: DataType
+  DataTypeRef:
+    name: DataTypeRef
     domain_of:
-    - Parameter
-    - ReturnValue
     - ItemDef
     - CodeList
+    - Parameter
+    - ReturnValue
     range: DataType
     required: true
-  Definition:
-    name: Definition
+  DefinitionRef:
+    name: DefinitionRef
     domain_of:
+    - ItemDef
     - Parameter
     - ReturnValue
     range: text
-    required: false
   OrderNumber:
     name: OrderNumber
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
 class_uri: odm:ReturnValue
 
 </code></pre>
@@ -383,17 +392,28 @@ class_uri: odm:ReturnValue
 <details>
 <pre><code class="language-yaml">name: ReturnValue
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ReturnValue
 slot_usage:
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -411,49 +431,38 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
-  DataType:
-    name: DataType
+  DataTypeRef:
+    name: DataTypeRef
     domain_of:
-    - Parameter
-    - ReturnValue
     - ItemDef
     - CodeList
+    - Parameter
+    - ReturnValue
     range: DataType
     required: true
-  Definition:
-    name: Definition
+  DefinitionRef:
+    name: DefinitionRef
     domain_of:
+    - ItemDef
     - Parameter
     - ReturnValue
     range: text
-    required: false
   OrderNumber:
     name: OrderNumber
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
 attributes:
   Name:
     name: Name
@@ -463,13 +472,22 @@ attributes:
     alias: Name
     owner: ReturnValue
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -487,45 +505,36 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
-  DataType:
-    name: DataType
+  DataTypeRef:
+    name: DataTypeRef
     description: "The DataType attribute specifies how the corresponding value\n \
       \                   elements are to be interpreted for comparison and storage."
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: DataType
+    alias: DataTypeRef
     owner: ReturnValue
     domain_of:
-    - Parameter
-    - ReturnValue
     - ItemDef
     - CodeList
+    - Parameter
+    - ReturnValue
     range: DataType
     required: true
-  Definition:
-    name: Definition
+  DefinitionRef:
+    name: DefinitionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Definition
+    alias: DefinitionRef
     owner: ReturnValue
     domain_of:
+    - ItemDef
     - Parameter
     - ReturnValue
     range: text
-    required: false
   OrderNumber:
     name: OrderNumber
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -535,15 +544,13 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
 class_uri: odm:ReturnValue
 
 </code></pre>

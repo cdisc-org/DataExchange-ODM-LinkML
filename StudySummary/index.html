@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -245,6 +250,10 @@
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://wiki.cdisc.org/display/ODM2/StudySummary">https://wiki.cdisc.org/display/ODM2/StudySummary</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -275,6 +284,8 @@
 <details>
 <pre><code class="language-yaml">name: StudySummary
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudySummary
 slots:
 - StudyParameterRef
 slot_usage:
@@ -285,6 +296,8 @@ slot_usage:
     - StudySummary
     range: StudyParameter
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudySummary
 
@@ -294,6 +307,8 @@ class_uri: odm:StudySummary
 <details>
 <pre><code class="language-yaml">name: StudySummary
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudySummary
 slot_usage:
   StudyParameterRef:
     name: StudyParameterRef
@@ -302,6 +317,8 @@ slot_usage:
     - StudySummary
     range: StudyParameter
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   StudyParameterRef:
@@ -315,6 +332,8 @@ attributes:
     - StudySummary
     range: StudyParameter
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudySummary
 
