@@ -56,6 +56,10 @@ URI: [odm:CommentDef](http://www.cdisc.org/ns/odm/v2.0/CommentDef)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/CommentDef](https://wiki.cdisc.org/display/ODM2/CommentDef)
+
 ## Identifier and Mapping Information
 
 
@@ -98,6 +102,8 @@ description: The Comment element allows referencing short comments self-containe
   comments included in external documents, the reference could include specific pages
   of a document where the comments are included.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/CommentDef
 slots:
 - OID
 - DescriptionRef
@@ -106,9 +112,18 @@ slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -129,30 +144,30 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   DescriptionRef:
     name: DescriptionRef
     description: Text of the comment.
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -175,17 +190,7 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
     required: true
@@ -200,11 +205,11 @@ slot_usage:
     - AnnotatedCRF
     - SupplementalDoc
     - Origin
-    - CommentDef
     - MethodDef
+    - CommentDef
     range: DocumentRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:CommentDef
 
 ```
@@ -220,13 +225,24 @@ description: The Comment element allows referencing short comments self-containe
   comments included in external documents, the reference could include specific pages
   of a document where the comments are included.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/CommentDef
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -247,30 +263,30 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   DescriptionRef:
     name: DescriptionRef
     description: Text of the comment.
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -293,17 +309,7 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
     required: true
@@ -318,23 +324,33 @@ slot_usage:
     - AnnotatedCRF
     - SupplementalDoc
     - Origin
-    - CommentDef
     - MethodDef
+    - CommentDef
     range: DocumentRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   OID:
     name: OID
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: OID
     owner: CommentDef
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -355,20 +371,11 @@ attributes:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   DescriptionRef:
@@ -379,10 +386,19 @@ attributes:
     alias: DescriptionRef
     owner: CommentDef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -405,17 +421,7 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
     required: true
@@ -434,11 +440,11 @@ attributes:
     - AnnotatedCRF
     - SupplementalDoc
     - Origin
-    - CommentDef
     - MethodDef
+    - CommentDef
     range: DocumentRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:CommentDef
 
 ```

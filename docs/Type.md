@@ -19,8 +19,12 @@ URI: [odm:Type](http://www.cdisc.org/ns/odm/v2.0/Type)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [PDFPageRef](PDFPageRef.md) | This element is the container for CRF page references |  yes  |
+[Standard](Standard.md) |  |  yes  |
+[StudyEventDef](StudyEventDef.md) |  |  yes  |
+[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
 [Origin](Origin.md) |  |  yes  |
 [Resource](Resource.md) |  |  yes  |
+[MethodDef](MethodDef.md) |  |  yes  |
 [StudyObjective](StudyObjective.md) |  |  yes  |
 [StudyEndPoint](StudyEndPoint.md) |  |  yes  |
 [TransitionTimingConstraint](TransitionTimingConstraint.md) |  |  yes  |
@@ -28,10 +32,6 @@ URI: [odm:Type](http://www.cdisc.org/ns/odm/v2.0/Type)
 [Branching](Branching.md) |  |  yes  |
 [Organization](Organization.md) |  |  yes  |
 [Query](Query.md) |  |  yes  |
-[StudyEventDef](StudyEventDef.md) |  |  yes  |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
-[MethodDef](MethodDef.md) |  |  yes  |
-[Standard](Standard.md) |  |  yes  |
 
 
 
@@ -74,8 +74,12 @@ rank: 1000
 alias: Type
 domain_of:
 - PDFPageRef
+- Standard
+- StudyEventDef
+- ItemGroupDef
 - Origin
 - Resource
+- MethodDef
 - StudyObjective
 - StudyEndPoint
 - TransitionTimingConstraint
@@ -83,10 +87,6 @@ domain_of:
 - Branching
 - Organization
 - Query
-- StudyEventDef
-- ItemGroupDef
-- MethodDef
-- Standard
 range: string
 any_of:
 - range: StandardType
@@ -96,7 +96,7 @@ any_of:
 - range: OriginType
 - range: text
 - range: MethodType
-- range: StudyObjectiveType
+- range: StudyObjectiveLevel
 - range: StudyEndPointType
 - range: RelativeTimingConstraintType
 - range: BranchingType

@@ -18,9 +18,18 @@ URI: [odm:OID](http://www.cdisc.org/ns/odm/v2.0/OID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[Study](Study.md) |  |  yes  |
+[MetaDataVersion](MetaDataVersion.md) |  |  yes  |
+[Standard](Standard.md) |  |  yes  |
 [ValueListDef](ValueListDef.md) |  |  yes  |
 [WhereClauseDef](WhereClauseDef.md) |  |  yes  |
 [StudyEventGroupDef](StudyEventGroupDef.md) |  |  yes  |
+[StudyEventDef](StudyEventDef.md) |  |  yes  |
+[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
+[ItemDef](ItemDef.md) |  |  yes  |
+[CodeList](CodeList.md) |  |  yes  |
+[MethodDef](MethodDef.md) |  |  yes  |
+[ConditionDef](ConditionDef.md) |  |  yes  |
 [CommentDef](CommentDef.md) | The Comment element allows referencing short comments self-contained in the X... |  yes  |
 [StudyIndication](StudyIndication.md) |  |  yes  |
 [StudyIntervention](StudyIntervention.md) |  |  yes  |
@@ -41,20 +50,11 @@ URI: [odm:OID](http://www.cdisc.org/ns/odm/v2.0/OID)
 [Branching](Branching.md) |  |  yes  |
 [Criterion](Criterion.md) |  |  yes  |
 [ExceptionEvent](ExceptionEvent.md) |  |  yes  |
-[Organization](Organization.md) |  |  yes  |
-[Query](Query.md) |  |  yes  |
-[MetaDataVersion](MetaDataVersion.md) |  |  yes  |
-[StudyEventDef](StudyEventDef.md) |  |  yes  |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
-[ItemDef](ItemDef.md) |  |  yes  |
-[CodeList](CodeList.md) |  |  yes  |
-[ConditionDef](ConditionDef.md) |  |  yes  |
-[MethodDef](MethodDef.md) |  |  yes  |
-[Standard](Standard.md) |  |  yes  |
 [User](User.md) |  |  yes  |
+[Organization](Organization.md) |  |  yes  |
 [Location](Location.md) |  |  yes  |
 [SignatureDef](SignatureDef.md) |  |  yes  |
-[Study](Study.md) |  |  yes  |
+[Query](Query.md) |  |  yes  |
 
 
 
@@ -65,6 +65,8 @@ URI: [odm:OID](http://www.cdisc.org/ns/odm/v2.0/OID)
 ## Properties
 
 * Range: [Oid](Oid.md)
+
+* Required: True
 
 
 
@@ -94,11 +96,21 @@ name: OID
 description: Unique identifier of the version within the XML document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: true
 alias: OID
 domain_of:
+- Study
+- MetaDataVersion
+- Standard
 - ValueListDef
 - WhereClauseDef
 - StudyEventGroupDef
+- StudyEventDef
+- ItemGroupDef
+- ItemDef
+- CodeList
+- MethodDef
+- ConditionDef
 - CommentDef
 - StudyIndication
 - StudyIntervention
@@ -119,21 +131,13 @@ domain_of:
 - Branching
 - Criterion
 - ExceptionEvent
-- Organization
-- Query
-- MetaDataVersion
-- StudyEventDef
-- ItemGroupDef
-- ItemDef
-- CodeList
-- ConditionDef
-- MethodDef
-- Standard
 - User
+- Organization
 - Location
 - SignatureDef
-- Study
+- Query
 range: oid
+required: true
 
 ```
 </details>

@@ -36,6 +36,10 @@ URI: [odm:EntryCriteria](http://www.cdisc.org/ns/odm/v2.0/EntryCriteria)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/EntryCriteria](https://wiki.cdisc.org/display/ODM2/EntryCriteria)
+
 ## Identifier and Mapping Information
 
 
@@ -74,6 +78,8 @@ URI: [odm:EntryCriteria](http://www.cdisc.org/ns/odm/v2.0/EntryCriteria)
 ```yaml
 name: EntryCriteria
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/EntryCriteria
 slots:
 - CriterionRef
 slot_usage:
@@ -86,8 +92,8 @@ slot_usage:
     - EntryCriteria
     - ExitCriteria
     range: Criterion
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:EntryCriteria
 
 ```
@@ -99,6 +105,8 @@ class_uri: odm:EntryCriteria
 ```yaml
 name: EntryCriteria
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/EntryCriteria
 slot_usage:
   CriterionRef:
     name: CriterionRef
@@ -109,8 +117,8 @@ slot_usage:
     - EntryCriteria
     - ExitCriteria
     range: Criterion
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   CriterionRef:
     name: CriterionRef
@@ -125,8 +133,8 @@ attributes:
     - EntryCriteria
     - ExitCriteria
     range: Criterion
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:EntryCriteria
 
 ```

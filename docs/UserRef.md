@@ -1,29 +1,34 @@
-# Slot: UserRef
+# Class: UserRef
+
+
 
 URI: [odm:UserRef](http://www.cdisc.org/ns/odm/v2.0/UserRef)
+
+
+
+```mermaid
+ classDiagram
+    class UserRef
+      UserRef : UserOID
+        
+      
+```
+
 
 
 
 <!-- no inheritance hierarchy -->
 
 
+## Slots
 
-
-## Applicable Classes
-
-| Name | Description | Modifies Slot |
-| --- | --- | --- |
-[AdminData](AdminData.md) |  |  yes  |
-
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [UserOID](UserOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
 
 
 
 
-
-
-## Properties
-
-* Range: [User](User.md)
 
 ## Usages
 
@@ -36,6 +41,10 @@ URI: [odm:UserRef](http://www.cdisc.org/ns/odm/v2.0/UserRef)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/UserRef](https://wiki.cdisc.org/display/ODM2/UserRef)
 
 ## Identifier and Mapping Information
 
@@ -53,17 +62,74 @@ URI: [odm:UserRef](http://www.cdisc.org/ns/odm/v2.0/UserRef)
 
 
 
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | odm:UserRef |
+| native | odm:UserRef |
+
+
+
+
+
 ## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
 
 <details>
 ```yaml
 name: UserRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
-rank: 1000
-alias: UserRef
-domain_of:
-- AdminData
-range: User
+see_also:
+- https://wiki.cdisc.org/display/ODM2/UserRef
+slots:
+- UserOID
+slot_usage:
+  UserOID:
+    name: UserOID
+    domain_of:
+    - InvestigatorRef
+    - UserRef
+    range: oidref
+    required: true
+class_uri: odm:UserRef
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: UserRef
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/UserRef
+slot_usage:
+  UserOID:
+    name: UserOID
+    domain_of:
+    - InvestigatorRef
+    - UserRef
+    range: oidref
+    required: true
+attributes:
+  UserOID:
+    name: UserOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: UserOID
+    owner: UserRef
+    domain_of:
+    - InvestigatorRef
+    - UserRef
+    range: oidref
+    required: true
+class_uri: odm:UserRef
 
 ```
 </details>

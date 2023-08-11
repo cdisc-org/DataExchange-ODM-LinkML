@@ -36,7 +36,7 @@ URI: [odm:ItemGroupRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRef)
 | ---  | --- | --- | --- |
 | [ItemGroupOID](ItemGroupOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
 | [MethodOID](MethodOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [Integer](Integer.md) |  | direct |
+| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) |  | direct |
 | [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) |  | direct |
 | [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
 
@@ -49,11 +49,16 @@ URI: [odm:ItemGroupRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRef)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [StudyEventDef](StudyEventDef.md) | [ItemGroupRefRef](ItemGroupRefRef.md) | range | [ItemGroupRef](ItemGroupRef.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [ItemGroupRefRef](ItemGroupRefRef.md) | range | [ItemGroupRef](ItemGroupRef.md) |
 
 
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/ItemGroupRef](https://wiki.cdisc.org/display/ODM2/ItemGroupRef)
 
 ## Identifier and Mapping Information
 
@@ -92,9 +97,9 @@ URI: [odm:ItemGroupRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRef)
 <details>
 ```yaml
 name: ItemGroupRef
-in_subset:
-- ItemGroupDefGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ItemGroupRef
 slots:
 - ItemGroupOID
 - MethodOID
@@ -105,41 +110,38 @@ slot_usage:
   ItemGroupOID:
     name: ItemGroupOID
     domain_of:
+    - ItemGroupRef
     - SourceItem
     - ItemGroupData
     - KeySet
-    - ItemGroupRef
     range: oidref
     required: true
   MethodOID:
     name: MethodOID
     domain_of:
-    - TransitionTimingConstraint
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
+    - TransitionTimingConstraint
     range: oidref
-    required: false
   OrderNumber:
     name: OrderNumber
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   Mandatory:
     name: Mandatory
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: YesOrNo
     required: true
   CollectionExceptionConditionOID:
@@ -147,16 +149,10 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: oidref
-    required: false
 class_uri: odm:ItemGroupRef
-unique_keys:
-  UC-SED-2:
-    unique_key_name: UC-SED-2
-    unique_key_slots:
-    - OrderNumber
 
 ```
 </details>
@@ -166,48 +162,45 @@ unique_keys:
 <details>
 ```yaml
 name: ItemGroupRef
-in_subset:
-- ItemGroupDefGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ItemGroupRef
 slot_usage:
   ItemGroupOID:
     name: ItemGroupOID
     domain_of:
+    - ItemGroupRef
     - SourceItem
     - ItemGroupData
     - KeySet
-    - ItemGroupRef
     range: oidref
     required: true
   MethodOID:
     name: MethodOID
     domain_of:
-    - TransitionTimingConstraint
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
+    - TransitionTimingConstraint
     range: oidref
-    required: false
   OrderNumber:
     name: OrderNumber
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   Mandatory:
     name: Mandatory
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: YesOrNo
     required: true
   CollectionExceptionConditionOID:
@@ -215,10 +208,9 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: oidref
-    required: false
 attributes:
   ItemGroupOID:
     name: ItemGroupOID
@@ -227,10 +219,10 @@ attributes:
     alias: ItemGroupOID
     owner: ItemGroupRef
     domain_of:
+    - ItemGroupRef
     - SourceItem
     - ItemGroupData
     - KeySet
-    - ItemGroupRef
     range: oidref
     required: true
   MethodOID:
@@ -240,11 +232,10 @@ attributes:
     alias: MethodOID
     owner: ItemGroupRef
     domain_of:
-    - TransitionTimingConstraint
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
+    - TransitionTimingConstraint
     range: oidref
-    required: false
   OrderNumber:
     name: OrderNumber
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -254,15 +245,13 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   Mandatory:
     name: Mandatory
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -272,8 +261,8 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: YesOrNo
     required: true
   CollectionExceptionConditionOID:
@@ -285,16 +274,10 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: oidref
-    required: false
 class_uri: odm:ItemGroupRef
-unique_keys:
-  UC-SED-2:
-    unique_key_name: UC-SED-2
-    unique_key_slots:
-    - OrderNumber
 
 ```
 </details>

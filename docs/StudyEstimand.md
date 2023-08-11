@@ -74,6 +74,10 @@ URI: [odm:StudyEstimand](http://www.cdisc.org/ns/odm/v2.0/StudyEstimand)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/StudyEstimand](https://wiki.cdisc.org/display/ODM2/StudyEstimand)
+
 ## Identifier and Mapping Information
 
 
@@ -112,6 +116,8 @@ URI: [odm:StudyEstimand](http://www.cdisc.org/ns/odm/v2.0/StudyEstimand)
 ```yaml
 name: StudyEstimand
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyEstimand
 slots:
 - OID
 - Name
@@ -125,9 +131,18 @@ slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -148,32 +163,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -191,26 +206,26 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -233,46 +248,31 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyTargetPopulationRefRef:
     name: StudyTargetPopulationRefRef
     domain_of:
+    - Protocol
     - StudyEstimand
     range: StudyTargetPopulationRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyInterventionRefRef:
     name: StudyInterventionRefRef
     domain_of:
+    - StudyInterventions
     - StudyEstimand
     range: StudyInterventionRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyEndPointRefRef:
     name: StudyEndPointRefRef
     domain_of:
     - StudyObjective
+    - StudyEndPoints
     - StudyEstimand
     range: StudyEndPointRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   IntercurrentEventRef:
     name: IntercurrentEventRef
@@ -280,15 +280,13 @@ slot_usage:
     domain_of:
     - StudyEstimand
     range: IntercurrentEvent
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   SummaryMeasureRef:
     name: SummaryMeasureRef
     domain_of:
     - StudyEstimand
     range: SummaryMeasure
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:StudyEstimand
 
@@ -301,13 +299,24 @@ class_uri: odm:StudyEstimand
 ```yaml
 name: StudyEstimand
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyEstimand
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -328,32 +337,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -371,26 +380,26 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -413,46 +422,31 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyTargetPopulationRefRef:
     name: StudyTargetPopulationRefRef
     domain_of:
+    - Protocol
     - StudyEstimand
     range: StudyTargetPopulationRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyInterventionRefRef:
     name: StudyInterventionRefRef
     domain_of:
+    - StudyInterventions
     - StudyEstimand
     range: StudyInterventionRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyEndPointRefRef:
     name: StudyEndPointRefRef
     domain_of:
     - StudyObjective
+    - StudyEndPoints
     - StudyEstimand
     range: StudyEndPointRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   IntercurrentEventRef:
     name: IntercurrentEventRef
@@ -460,15 +454,13 @@ slot_usage:
     domain_of:
     - StudyEstimand
     range: IntercurrentEvent
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   SummaryMeasureRef:
     name: SummaryMeasureRef
     domain_of:
     - StudyEstimand
     range: SummaryMeasure
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 attributes:
   OID:
@@ -476,12 +468,22 @@ attributes:
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: OID
     owner: StudyEstimand
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -502,20 +504,11 @@ attributes:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
@@ -526,13 +519,22 @@ attributes:
     alias: Name
     owner: StudyEstimand
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -550,17 +552,8 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   DescriptionRef:
@@ -570,10 +563,19 @@ attributes:
     alias: DescriptionRef
     owner: StudyEstimand
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -596,21 +598,9 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyTargetPopulationRefRef:
     name: StudyTargetPopulationRefRef
@@ -619,10 +609,9 @@ attributes:
     alias: StudyTargetPopulationRefRef
     owner: StudyEstimand
     domain_of:
+    - Protocol
     - StudyEstimand
     range: StudyTargetPopulationRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyInterventionRefRef:
     name: StudyInterventionRefRef
@@ -631,10 +620,9 @@ attributes:
     alias: StudyInterventionRefRef
     owner: StudyEstimand
     domain_of:
+    - StudyInterventions
     - StudyEstimand
     range: StudyInterventionRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyEndPointRefRef:
     name: StudyEndPointRefRef
@@ -644,10 +632,9 @@ attributes:
     owner: StudyEstimand
     domain_of:
     - StudyObjective
+    - StudyEndPoints
     - StudyEstimand
     range: StudyEndPointRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   IntercurrentEventRef:
     name: IntercurrentEventRef
@@ -659,8 +646,8 @@ attributes:
     domain_of:
     - StudyEstimand
     range: IntercurrentEvent
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   SummaryMeasureRef:
     name: SummaryMeasureRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -670,8 +657,6 @@ attributes:
     domain_of:
     - StudyEstimand
     range: SummaryMeasure
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:StudyEstimand
 

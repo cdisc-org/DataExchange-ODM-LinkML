@@ -22,6 +22,7 @@ Name: odm
 | [Association](Association.md) | None |
 | [AuditRecord](AuditRecord.md) | None |
 | [Branching](Branching.md) | None |
+| [CDISCNotes](CDISCNotes.md) | None |
 | [CheckValue](CheckValue.md) | None |
 | [City](City.md) | None |
 | [Class](Class.md) | None |
@@ -35,22 +36,22 @@ Name: odm
 | [CommentDef](CommentDef.md) | The Comment element allows referencing short comments self-contained in the XML document or long comments normally included in external documents. For comments included in external documents, the reference could include specific pages of a document where the comments are included. |
 | [ConditionDef](ConditionDef.md) | None |
 | [Country](Country.md) | None |
+| [CRFCompletionInstructions](CRFCompletionInstructions.md) | None |
 | [Criterion](Criterion.md) | None |
 | [DateTimeStamp](DateTimeStamp.md) | None |
 | [Decode](Decode.md) | None |
 | [DefaultTransition](DefaultTransition.md) | None |
+| [Definition](Definition.md) | None |
 | [Description](Description.md) | None |
 | [DocumentRef](DocumentRef.md) | Links to a leaf element with the location of the document. |
 | [DurationTimingConstraint](DurationTimingConstraint.md) | None |
 | [EntryCriteria](EntryCriteria.md) | None |
-| [EnumeratedItem](EnumeratedItem.md) | None |
 | [Epoch](Epoch.md) | None |
 | [ErrorMessage](ErrorMessage.md) | None |
 | [ExceptionEvent](ExceptionEvent.md) | None |
 | [ExclusionCriteria](ExclusionCriteria.md) | None |
 | [ExitCriteria](ExitCriteria.md) | None |
 | [ExternalCodeLib](ExternalCodeLib.md) | None |
-| [ExternalCodeList](ExternalCodeList.md) | None |
 | [FamilyName](FamilyName.md) | None |
 | [Flag](Flag.md) | None |
 | [FlagType](FlagType.md) | None |
@@ -61,6 +62,7 @@ Name: odm
 | [GivenName](GivenName.md) | None |
 | [HouseNumber](HouseNumber.md) | None |
 | [Image](Image.md) | None |
+| [ImplementationNotes](ImplementationNotes.md) | None |
 | [Include](Include.md) | None |
 | [InclusionCriteria](InclusionCriteria.md) | None |
 | [InclusionExclusionCriteria](InclusionExclusionCriteria.md) | None |
@@ -91,6 +93,7 @@ Name: odm
 | [PDFPageRef](PDFPageRef.md) | This element is the container for CRF page references. |
 | [PostalCode](PostalCode.md) | None |
 | [Prefix](Prefix.md) | None |
+| [Prompt](Prompt.md) | None |
 | [Protocol](Protocol.md) | None |
 | [Query](Query.md) | None |
 | [Question](Question.md) | None |
@@ -169,7 +172,6 @@ Name: odm
 | --- | --- |
 | [_content](_content.md) | multi-line text content from between XML tags |
 | [_language](_language.md) | language context for internationalisation and localisation |
-| [_languageType](_languageType.md) |  |
 | [AbsoluteTimingConstraintRef](AbsoluteTimingConstraintRef.md) |  |
 | [AddressRef](AddressRef.md) |  |
 | [AdminDataRef](AdminDataRef.md) |  |
@@ -184,33 +186,38 @@ Name: odm
 | [AssociationRef](AssociationRef.md) |  |
 | [Attribute](Attribute.md) |  |
 | [AuditRecordRef](AuditRecordRef.md) |  |
+| [BranchingRef](BranchingRef.md) |  |
 | [Category](Category.md) |  |
+| [CDISCNotesRef](CDISCNotesRef.md) |  |
+| [CheckValueRef](CheckValueRef.md) |  |
 | [CityRef](CityRef.md) |  |
 | [ClassRef](ClassRef.md) |  |
 | [ClinicalDataRef](ClinicalDataRef.md) |  |
-| [Code](Code.md) |  |
 | [CodedValue](CodedValue.md) |  |
+| [CodeListItemRef](CodeListItemRef.md) |  |
 | [CodeListOID](CodeListOID.md) |  |
-| [CodeListRef](CodeListRef.md) |  |
 | [CodeListRefRef](CodeListRefRef.md) |  |
+| [CodeRef](CodeRef.md) |  |
 | [CodingRef](CodingRef.md) |  |
 | [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) |  |
 | [CommentDefRef](CommentDefRef.md) |  |
 | [CommentOID](CommentOID.md) | The Comment identifier that this value refers to |
 | [CommentRef](CommentRef.md) |  |
-| [Comparator](Comparator.md) |  |
+| [ComparatorRef](ComparatorRef.md) |  |
 | [ConditionDefRef](ConditionDefRef.md) |  |
 | [ConditionOID](ConditionOID.md) |  |
-| [Context](Context.md) |  |
+| [ContextRef](ContextRef.md) |  |
+| [Core](Core.md) |  |
 | [CountryRef](CountryRef.md) |  |
 | [CreationDateTime](CreationDateTime.md) |  |
+| [CRFCompletionInstructionsRef](CRFCompletionInstructionsRef.md) |  |
 | [CriterionRef](CriterionRef.md) |  |
 | [DatasetName](DatasetName.md) |  |
-| [DataType](DataType.md) | The DataType attribute specifies how the corresponding value |
+| [DataTypeRef](DataTypeRef.md) | The DataType attribute specifies how the corresponding value |
 | [DateTimeStampRef](DateTimeStampRef.md) |  |
 | [DecodeRef](DecodeRef.md) |  |
 | [DefaultTransitionRef](DefaultTransitionRef.md) |  |
-| [Definition](Definition.md) |  |
+| [DefinitionRef](DefinitionRef.md) |  |
 | [DescriptionRef](DescriptionRef.md) |  |
 | [Dictionary](Dictionary.md) |  |
 | [DisplayFormat](DisplayFormat.md) |  |
@@ -229,10 +236,10 @@ Name: odm
 | [ErrorMessageRef](ErrorMessageRef.md) |  |
 | [ExclusionCriteriaRef](ExclusionCriteriaRef.md) |  |
 | [ExtendedValue](ExtendedValue.md) |  |
-| [ExternalCodeListRef](ExternalCodeListRef.md) |  |
+| [ExternalCodeLibRef](ExternalCodeLibRef.md) |  |
 | [FamilyNameRef](FamilyNameRef.md) |  |
 | [FileOID](FileOID.md) |  |
-| [FileType](FileType.md) |  |
+| [FileTypeRef](FileTypeRef.md) |  |
 | [FirstPage](FirstPage.md) | First page in a range of pages |
 | [FlagRef](FlagRef.md) |  |
 | [FlagTypeRef](FlagTypeRef.md) |  |
@@ -241,13 +248,14 @@ Name: odm
 | [FullNameRef](FullNameRef.md) |  |
 | [GeoPositionRef](GeoPositionRef.md) |  |
 | [GivenNameRef](GivenNameRef.md) |  |
-| [Granularity](Granularity.md) |  |
+| [GranularityRef](GranularityRef.md) |  |
 | [HasNoData](HasNoData.md) |  |
 | [HouseNumberRef](HouseNumberRef.md) |  |
 | [href](href.md) | URL that can be used to identify the location of a document or dataset file r... |
 | [ID](ID.md) | Unique identifier for the leaf that is referenced |
 | [ImageFileName](ImageFileName.md) |  |
 | [ImageRef](ImageRef.md) |  |
+| [ImplementationNotesRef](ImplementationNotesRef.md) |  |
 | [IncludeRef](IncludeRef.md) |  |
 | [InclusionCriteriaRef](InclusionCriteriaRef.md) |  |
 | [InclusionExclusionCriteriaRef](InclusionExclusionCriteriaRef.md) |  |
@@ -256,6 +264,7 @@ Name: odm
 | [IsNonStandard](IsNonStandard.md) |  |
 | [IsNull](IsNull.md) |  |
 | [IsReferenceData](IsReferenceData.md) |  |
+| [ItemDataRef](ItemDataRef.md) |  |
 | [ItemDefRef](ItemDefRef.md) |  |
 | [ItemGroupDataRef](ItemGroupDataRef.md) |  |
 | [ItemGroupDataSeq](ItemGroupDataSeq.md) |  |
@@ -264,7 +273,7 @@ Name: odm
 | [ItemGroupRefRef](ItemGroupRefRef.md) |  |
 | [ItemGroupRepeatKey](ItemGroupRepeatKey.md) |  |
 | [ItemOID](ItemOID.md) |  |
-| [ItemRefRef](ItemRefRef.md) | The ItemRef element contains the reference to the value attributes definition... |
+| [ItemRefRef](ItemRefRef.md) |  |
 | [KeySequence](KeySequence.md) |  |
 | [KeySetRef](KeySetRef.md) |  |
 | [Label](Label.md) |  |
@@ -275,15 +284,14 @@ Name: odm
 | [leafRef](leafRef.md) |  |
 | [LegalReasonRef](LegalReasonRef.md) |  |
 | [Length](Length.md) | The Length attribute is optional when DataType is text, string, |
+| [Level](Level.md) |  |
 | [Library](Library.md) |  |
 | [LocationOID](LocationOID.md) |  |
-| [LocationRef](LocationRef.md) |  |
 | [LocationRefRef](LocationRefRef.md) |  |
 | [Longitude](Longitude.md) |  |
 | [Mandatory](Mandatory.md) |  |
 | [MeaningRef](MeaningRef.md) |  |
 | [MetaDataVersionOID](MetaDataVersionOID.md) |  |
-| [MetaDataVersionRef](MetaDataVersionRef.md) |  |
 | [MetaDataVersionRefRef](MetaDataVersionRefRef.md) |  |
 | [Method](Method.md) |  |
 | [MethodDefRef](MethodDefRef.md) |  |
@@ -292,7 +300,7 @@ Name: odm
 | [MethodSignatureRef](MethodSignatureRef.md) |  |
 | [MimeType](MimeType.md) |  |
 | [Name](Name.md) | General observation Sub Class |
-| [ODMVersion](ODMVersion.md) |  |
+| [ODMVersionRef](ODMVersionRef.md) |  |
 | [OID](OID.md) | Unique identifier of the version within the XML document |
 | [OrderNumber](OrderNumber.md) |  |
 | [OrganizationOID](OrganizationOID.md) |  |
@@ -311,7 +319,9 @@ Name: odm
 | [PostalCodeRef](PostalCodeRef.md) |  |
 | [PredecessorOID](PredecessorOID.md) |  |
 | [PrefixRef](PrefixRef.md) |  |
+| [PreSpecifiedValue](PreSpecifiedValue.md) |  |
 | [PriorFileOID](PriorFileOID.md) |  |
+| [PromptRef](PromptRef.md) |  |
 | [ProtocolName](ProtocolName.md) |  |
 | [ProtocolRef](ProtocolRef.md) |  |
 | [PublishingSet](PublishingSet.md) | Set of published files of Standard when Type="CT" (e |
@@ -360,7 +370,6 @@ Name: odm
 | [StructuralElementOID](StructuralElementOID.md) |  |
 | [Structure](Structure.md) |  |
 | [StudyEndPointOID](StudyEndPointOID.md) |  |
-| [StudyEndPointRef](StudyEndPointRef.md) |  |
 | [StudyEndPointRefRef](StudyEndPointRefRef.md) |  |
 | [StudyEndPointsRef](StudyEndPointsRef.md) |  |
 | [StudyEstimandRef](StudyEstimandRef.md) |  |
@@ -371,11 +380,11 @@ Name: odm
 | [StudyEventGroupOID](StudyEventGroupOID.md) |  |
 | [StudyEventGroupRefRef](StudyEventGroupRefRef.md) |  |
 | [StudyEventOID](StudyEventOID.md) |  |
+| [StudyEventRefRef](StudyEventRefRef.md) |  |
 | [StudyEventRepeatKey](StudyEventRepeatKey.md) |  |
 | [StudyIndicationRef](StudyIndicationRef.md) |  |
 | [StudyIndicationsRef](StudyIndicationsRef.md) |  |
 | [StudyInterventionOID](StudyInterventionOID.md) |  |
-| [StudyInterventionRef](StudyInterventionRef.md) |  |
 | [StudyInterventionRefRef](StudyInterventionRefRef.md) |  |
 | [StudyInterventionsRef](StudyInterventionsRef.md) |  |
 | [StudyName](StudyName.md) |  |
@@ -387,7 +396,6 @@ Name: odm
 | [StudyStructureRef](StudyStructureRef.md) |  |
 | [StudySummaryRef](StudySummaryRef.md) |  |
 | [StudyTargetPopulationOID](StudyTargetPopulationOID.md) |  |
-| [StudyTargetPopulationRef](StudyTargetPopulationRef.md) |  |
 | [StudyTargetPopulationRefRef](StudyTargetPopulationRefRef.md) |  |
 | [StudyTimingRef](StudyTimingRef.md) |  |
 | [StudyTimingsRef](StudyTimingsRef.md) |  |
@@ -413,8 +421,9 @@ Name: odm
 | [TimepointTarget](TimepointTarget.md) |  |
 | [Title](Title.md) | Text with the label for the document reference |
 | [title](title.md) | Text with the label for the document or dataset |
-| [TransactionType](TransactionType.md) |  |
+| [TransactionTypeRef](TransactionTypeRef.md) |  |
 | [TransitionOID](TransitionOID.md) |  |
+| [TransitionRef](TransitionRef.md) |  |
 | [TransitionTimingConstraintRef](TransitionTimingConstraintRef.md) |  |
 | [TranslatedTextRef](TranslatedTextRef.md) |  |
 | [TrialPhaseRef](TrialPhaseRef.md) |  |
@@ -424,15 +433,16 @@ Name: odm
 | [UsedMethod](UsedMethod.md) |  |
 | [UserNameRef](UserNameRef.md) |  |
 | [UserOID](UserOID.md) |  |
-| [UserRef](UserRef.md) |  |
 | [UserRefRef](UserRefRef.md) |  |
-| [UserType](UserType.md) |  |
-| [Value](Value.md) |  |
+| [UserTypeRef](UserTypeRef.md) |  |
 | [ValueListDefRef](ValueListDefRef.md) |  |
 | [ValueListOID](ValueListOID.md) |  |
 | [ValueListRefRef](ValueListRefRef.md) |  |
 | [ValueRef](ValueRef.md) |  |
+| [VariableSet](VariableSet.md) |  |
 | [Version](Version.md) | Version of Standard |
+| [VersionID](VersionID.md) |  |
+| [VersionName](VersionName.md) |  |
 | [WhereClauseDefRef](WhereClauseDefRef.md) |  |
 | [WhereClauseOID](WhereClauseOID.md) |  |
 | [WhereClauseRefRef](WhereClauseRefRef.md) |  |
@@ -453,6 +463,7 @@ Name: odm
 | [Comparator](Comparator.md) |  |
 | [Context](Context.md) |  |
 | [DataType](DataType.md) |  |
+| [DefCoreType](DefCoreType.md) |  |
 | [DictionaryNameTypeEnum](DictionaryNameTypeEnum.md) |  |
 | [EditPointType](EditPointType.md) |  |
 | [EventType](EventType.md) |  |
@@ -463,6 +474,7 @@ Name: odm
 | [ItemGroupSubClass](ItemGroupSubClass.md) |  |
 | [ItemGroupTypeTypeEnum](ItemGroupTypeTypeEnum.md) |  |
 | [MethodType](MethodType.md) |  |
+| [ODMCoreType](ODMCoreType.md) |  |
 | [OrganizationType](OrganizationType.md) |  |
 | [OriginSource](OriginSource.md) |  |
 | [OriginType](OriginType.md) |  |
@@ -477,8 +489,9 @@ Name: odm
 | [StandardPublishingSet](StandardPublishingSet.md) |  |
 | [StandardStatusEnum](StandardStatusEnum.md) |  |
 | [StandardType](StandardType.md) |  |
+| [StudyEndPointLevel](StudyEndPointLevel.md) |  |
 | [StudyEndPointType](StudyEndPointType.md) |  |
-| [StudyObjectiveType](StudyObjectiveType.md) |  |
+| [StudyObjectiveLevel](StudyObjectiveLevel.md) |  |
 | [TelecomTypeType](TelecomTypeType.md) |  |
 | [TransactionType](TransactionType.md) |  |
 | [TrialPhaseTypeEnum](TrialPhaseTypeEnum.md) |  |
@@ -496,12 +509,13 @@ Name: odm
 | [Base64Binary](Base64Binary.md) |  |
 | [Base64Float](Base64Float.md) |  |
 | [Boolean](Boolean.md) | A binary (true or false) value |
+| [CoreType](CoreType.md) | Core |
 | [Curie](Curie.md) | a compact URI |
 | [Date](Date.md) | a date (year, month and day) in an idealized calendar |
 | [DateOrDatetime](DateOrDatetime.md) | Either a date or a datetime |
 | [Datetime](Datetime.md) | The combination of a date and time |
 | [Decimal](Decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [DictionaryNameType](DictionaryNameType.md) | A name given to a reference source that lists words and gives their meaning |
+| [DictionaryNameType](DictionaryNameType.md) | A name given to a reference source that lists words and gives their |
 | [Double](Double.md) | A real number that conforms to the xsd:double specification |
 | [DurationDatetime](DurationDatetime.md) |  |
 | [EmptyTag](EmptyTag.md) |  |
@@ -540,7 +554,7 @@ Name: odm
 | [TIncompleteDate](TIncompleteDate.md) |  |
 | [TIncompleteTime](TIncompleteTime.md) |  |
 | [TInterval](TInterval.md) |  |
-| [TrialPhaseType](TrialPhaseType.md) | A terminology codelist relevant to the phase, or stage, of the clinical trial |
+| [TrialPhaseType](TrialPhaseType.md) | A terminology codelist relevant to the phase, or stage, of the |
 | [Uri](Uri.md) | a complete URI |
 | [Uriorcurie](Uriorcurie.md) | a URI or a CURIE |
 | [Value](Value.md) |  |
@@ -550,9 +564,130 @@ Name: odm
 
 | Subset | Description |
 | --- | --- |
+| [AbsoluteTimingConstraintElementExtension](AbsoluteTimingConstraintElementExtension.md) |  |
+| [AddressElementExtension](AddressElementExtension.md) |  |
+| [AdminDataElementExtension](AdminDataElementExtension.md) |  |
+| [AliasElementExtension](AliasElementExtension.md) |  |
+| [AnnotatedCRFElementExtension](AnnotatedCRFElementExtension.md) |  |
+| [AnnotationElementExtension](AnnotationElementExtension.md) |  |
+| [ArmElementExtension](ArmElementExtension.md) |  |
+| [AssociationElementExtension](AssociationElementExtension.md) |  |
+| [AuditRecordElementExtension](AuditRecordElementExtension.md) |  |
 | [AuditRecordSignatureNotationGroup](AuditRecordSignatureNotationGroup.md) |  |
+| [BranchingElementExtension](BranchingElementExtension.md) |  |
+| [CDISCNotesElementExtension](CDISCNotesElementExtension.md) |  |
+| [ClassElementExtension](ClassElementExtension.md) |  |
+| [ClinicalDataElementExtension](ClinicalDataElementExtension.md) |  |
+| [CodeListElementExtension](CodeListElementExtension.md) |  |
+| [CodeListItemElementExtension](CodeListItemElementExtension.md) |  |
+| [CodeListRefElementExtension](CodeListRefElementExtension.md) |  |
+| [CodingElementExtension](CodingElementExtension.md) |  |
+| [CommentDefElementExtension](CommentDefElementExtension.md) |  |
+| [CommentElementExtension](CommentElementExtension.md) |  |
+| [ConditionDefElementExtension](ConditionDefElementExtension.md) |  |
+| [CRFCompletionInstructionsElementExtension](CRFCompletionInstructionsElementExtension.md) |  |
+| [CriterionElementExtension](CriterionElementExtension.md) |  |
+| [DecodeElementExtension](DecodeElementExtension.md) |  |
+| [DefaultTransitionElementExtension](DefaultTransitionElementExtension.md) |  |
+| [DefinitionElementExtension](DefinitionElementExtension.md) |  |
+| [DescriptionElementExtension](DescriptionElementExtension.md) |  |
+| [DocumentRefElementExtension](DocumentRefElementExtension.md) |  |
+| [DurationTimingConstraintElementExtension](DurationTimingConstraintElementExtension.md) |  |
+| [EntryCriteriaElementExtension](EntryCriteriaElementExtension.md) |  |
+| [EpochElementExtension](EpochElementExtension.md) |  |
+| [ErrorMessageElementExtension](ErrorMessageElementExtension.md) |  |
+| [ExceptionEventElementExtension](ExceptionEventElementExtension.md) |  |
 | [ExceptionEventGroupDefinition](ExceptionEventGroupDefinition.md) |  |
+| [ExclusionCriteriaElementExtension](ExclusionCriteriaElementExtension.md) |  |
+| [ExitCriteriaElementExtension](ExitCriteriaElementExtension.md) |  |
+| [FlagElementExtension](FlagElementExtension.md) |  |
+| [FormalExpressionElementExtension](FormalExpressionElementExtension.md) |  |
+| [GeoPositionElementExtension](GeoPositionElementExtension.md) |  |
+| [ImageElementExtension](ImageElementExtension.md) |  |
+| [ImplementationNotesElementExtension](ImplementationNotesElementExtension.md) |  |
+| [IncludeElementExtension](IncludeElementExtension.md) |  |
+| [InclusionCriteriaElementExtension](InclusionCriteriaElementExtension.md) |  |
+| [InclusionExclusionCriteriaElementExtension](InclusionExclusionCriteriaElementExtension.md) |  |
+| [IntercurrentEventElementExtension](IntercurrentEventElementExtension.md) |  |
+| [InvestigatorRefElementExtension](InvestigatorRefElementExtension.md) |  |
+| [ItemDataElementExtension](ItemDataElementExtension.md) |  |
+| [ItemDefElementExtension](ItemDefElementExtension.md) |  |
+| [ItemGroupDataElementExtension](ItemGroupDataElementExtension.md) |  |
 | [ItemGroupDataGroup](ItemGroupDataGroup.md) |  |
+| [ItemGroupDefElementExtension](ItemGroupDefElementExtension.md) |  |
 | [ItemGroupDefGroup](ItemGroupDefGroup.md) |  |
+| [ItemGroupRefElementExtension](ItemGroupRefElementExtension.md) |  |
+| [ItemRefElementExtension](ItemRefElementExtension.md) |  |
+| [KeySetElementExtension](KeySetElementExtension.md) |  |
+| [LeafElementExtension](LeafElementExtension.md) |  |
+| [LocationElementExtension](LocationElementExtension.md) |  |
+| [LocationRefElementExtension](LocationRefElementExtension.md) |  |
+| [MetaDataVersionElementExtension](MetaDataVersionElementExtension.md) |  |
+| [MetaDataVersionPreIncludeElementExtension](MetaDataVersionPreIncludeElementExtension.md) |  |
+| [MetaDataVersionRefElementExtension](MetaDataVersionRefElementExtension.md) |  |
+| [MethodDefElementExtension](MethodDefElementExtension.md) |  |
+| [MethodSignatureElementExtension](MethodSignatureElementExtension.md) |  |
+| [ODMElementExtension](ODMElementExtension.md) |  |
+| [OrganizationElementExtension](OrganizationElementExtension.md) |  |
+| [OriginElementExtension](OriginElementExtension.md) |  |
+| [ParameterElementExtension](ParameterElementExtension.md) |  |
+| [ParameterValueElementExtension](ParameterValueElementExtension.md) |  |
+| [PromptElementExtension](PromptElementExtension.md) |  |
+| [ProtocolElementExtension](ProtocolElementExtension.md) |  |
+| [QueryElementExtension](QueryElementExtension.md) |  |
+| [QuestionElementExtension](QuestionElementExtension.md) |  |
+| [RangeCheckElementExtension](RangeCheckElementExtension.md) |  |
+| [ReferenceDataElementExtension](ReferenceDataElementExtension.md) |  |
+| [RelativeTimingConstraintElementExtension](RelativeTimingConstraintElementExtension.md) |  |
+| [ResourceElementExtension](ResourceElementExtension.md) |  |
+| [ReturnValueElementExtension](ReturnValueElementExtension.md) |  |
+| [SelectionElementExtension](SelectionElementExtension.md) |  |
+| [SignatureDefElementExtension](SignatureDefElementExtension.md) |  |
+| [SignatureElementExtension](SignatureElementExtension.md) |  |
+| [SignatureRefElementExtension](SignatureRefElementExtension.md) |  |
+| [SiteRefElementExtension](SiteRefElementExtension.md) |  |
+| [SourceItemElementExtension](SourceItemElementExtension.md) |  |
+| [SourceItemsElementExtension](SourceItemsElementExtension.md) |  |
+| [StandardElementExtension](StandardElementExtension.md) |  |
+| [StudyElementExtension](StudyElementExtension.md) |  |
+| [StudyEndPointElementExtension](StudyEndPointElementExtension.md) |  |
+| [StudyEndPointRefElementExtension](StudyEndPointRefElementExtension.md) |  |
+| [StudyEndPointsElementExtension](StudyEndPointsElementExtension.md) |  |
+| [StudyEstimandElementExtension](StudyEstimandElementExtension.md) |  |
+| [StudyEstimandsElementExtension](StudyEstimandsElementExtension.md) |  |
+| [StudyEventDataElementExtension](StudyEventDataElementExtension.md) |  |
+| [StudyEventDefElementExtension](StudyEventDefElementExtension.md) |  |
 | [StudyEventDefGroup](StudyEventDefGroup.md) |  |
+| [StudyEventGroupDefElementExtension](StudyEventGroupDefElementExtension.md) |  |
+| [StudyEventGroupRefElementExtension](StudyEventGroupRefElementExtension.md) |  |
+| [StudyEventRefElementExtension](StudyEventRefElementExtension.md) |  |
+| [StudyIndicationElementExtension](StudyIndicationElementExtension.md) |  |
+| [StudyIndicationsElementExtension](StudyIndicationsElementExtension.md) |  |
+| [StudyInterventionElementExtension](StudyInterventionElementExtension.md) |  |
+| [StudyInterventionsElementExtension](StudyInterventionsElementExtension.md) |  |
+| [StudyObjectiveElementExtension](StudyObjectiveElementExtension.md) |  |
+| [StudyObjectivesElementExtension](StudyObjectivesElementExtension.md) |  |
+| [StudyParameterElementExtension](StudyParameterElementExtension.md) |  |
+| [StudyStructureElementExtension](StudyStructureElementExtension.md) |  |
+| [StudySummaryElementExtension](StudySummaryElementExtension.md) |  |
+| [StudyTargetPopulationElementExtension](StudyTargetPopulationElementExtension.md) |  |
+| [StudyTimingElementExtension](StudyTimingElementExtension.md) |  |
+| [StudyTimingsElementExtension](StudyTimingsElementExtension.md) |  |
+| [SubjectDataElementExtension](SubjectDataElementExtension.md) |  |
+| [SummaryMeasureElementExtension](SummaryMeasureElementExtension.md) |  |
+| [SupplementalDocElementExtension](SupplementalDocElementExtension.md) |  |
+| [TargetTransitionElementExtension](TargetTransitionElementExtension.md) |  |
+| [TelecomElementExtension](TelecomElementExtension.md) |  |
+| [TransitionElementExtension](TransitionElementExtension.md) |  |
+| [TransitionTimingConstraintElementExtension](TransitionTimingConstraintElementExtension.md) |  |
+| [TrialPhaseElementExtension](TrialPhaseElementExtension.md) |  |
+| [UserElementExtension](UserElementExtension.md) |  |
+| [UserRefElementExtension](UserRefElementExtension.md) |  |
+| [ValueListDefElementExtension](ValueListDefElementExtension.md) |  |
+| [ValueListRefElementExtension](ValueListRefElementExtension.md) |  |
+| [WhereClauseDefElementExtension](WhereClauseDefElementExtension.md) |  |
+| [WhereClauseRefElementExtension](WhereClauseRefElementExtension.md) |  |
+| [WorkflowDefElementExtension](WorkflowDefElementExtension.md) |  |
+| [WorkflowRefElementExtension](WorkflowRefElementExtension.md) |  |
+| [WorkflowStartElementExtension](WorkflowStartElementExtension.md) |  |
 | [WorkflowTransitionGroupDefinition](WorkflowTransitionGroupDefinition.md) |  |

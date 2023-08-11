@@ -41,6 +41,10 @@ URI: [odm:FamilyName](http://www.cdisc.org/ns/odm/v2.0/FamilyName)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/FamilyName](https://wiki.cdisc.org/display/ODM2/FamilyName)
+
 ## Identifier and Mapping Information
 
 
@@ -79,6 +83,8 @@ URI: [odm:FamilyName](http://www.cdisc.org/ns/odm/v2.0/FamilyName)
 ```yaml
 name: FamilyName
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/FamilyName
 slots:
 - _content
 slot_usage:
@@ -97,6 +103,8 @@ class_uri: odm:FamilyName
 ```yaml
 name: FamilyName
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/FamilyName
 slot_usage:
   range:
     name: range
@@ -110,6 +118,7 @@ attributes:
   alias: _content
   owner: FamilyName
   domain_of:
+  - TranslatedText
   - CheckValue
   - Code
   - WorkflowEnd
@@ -134,8 +143,8 @@ attributes:
   - FlagValue
   - FlagType
   - Value
-  - TranslatedText
   range: _contentType
+  inlined: true
 class_uri: odm:FamilyName
 
 ```

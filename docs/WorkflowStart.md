@@ -41,6 +41,10 @@ URI: [odm:WorkflowStart](http://www.cdisc.org/ns/odm/v2.0/WorkflowStart)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/WorkflowStart](https://wiki.cdisc.org/display/ODM2/WorkflowStart)
+
 ## Identifier and Mapping Information
 
 
@@ -79,6 +83,8 @@ URI: [odm:WorkflowStart](http://www.cdisc.org/ns/odm/v2.0/WorkflowStart)
 ```yaml
 name: WorkflowStart
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/WorkflowStart
 slots:
 - StartOID
 slot_usage:
@@ -99,6 +105,8 @@ class_uri: odm:WorkflowStart
 ```yaml
 name: WorkflowStart
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/WorkflowStart
 slot_usage:
   StartOID:
     name: StartOID

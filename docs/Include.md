@@ -47,6 +47,10 @@ URI: [odm:Include](http://www.cdisc.org/ns/odm/v2.0/Include)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Include](https://wiki.cdisc.org/display/ODM2/Include)
+
 ## Identifier and Mapping Information
 
 
@@ -85,6 +89,8 @@ URI: [odm:Include](http://www.cdisc.org/ns/odm/v2.0/Include)
 ```yaml
 name: Include
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Include
 slots:
 - StudyOID
 - MetaDataVersionOID
@@ -120,12 +126,10 @@ slot_usage:
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding
     range: uriorcurie
-    required: false
 class_uri: odm:Include
 
 ```
@@ -137,6 +141,8 @@ class_uri: odm:Include
 ```yaml
 name: Include
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Include
 slot_usage:
   StudyOID:
     name: StudyOID
@@ -168,12 +174,10 @@ slot_usage:
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding
     range: uriorcurie
-    required: false
 attributes:
   StudyOID:
     name: StudyOID
@@ -219,12 +223,10 @@ attributes:
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding
     range: uriorcurie
-    required: false
 class_uri: odm:Include
 
 ```

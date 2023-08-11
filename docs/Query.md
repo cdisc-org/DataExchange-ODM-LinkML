@@ -58,7 +58,7 @@ URI: [odm:Query](http://www.cdisc.org/ns/odm/v2.0/Query)
 | [LastUpdateDatetime](LastUpdateDatetime.md) | 1..1 <br/> [Datetime](Datetime.md) |  | direct |
 | [Name](Name.md) | 0..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
 | [ValueRef](ValueRef.md) | 1..1 <br/> [Value](Value.md) |  | direct |
-| [AuditRecordRef](AuditRecordRef.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) |  | direct |
+| [AuditRecordRef](AuditRecordRef.md) | 0..* <br/> [AuditRecord](AuditRecord.md) |  | direct |
 
 
 
@@ -68,17 +68,21 @@ URI: [odm:Query](http://www.cdisc.org/ns/odm/v2.0/Query)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [Location](Location.md) | [QueryRef](QueryRef.md) | range | [Query](Query.md) |
 | [ClinicalData](ClinicalData.md) | [QueryRef](QueryRef.md) | range | [Query](Query.md) |
 | [SubjectData](SubjectData.md) | [QueryRef](QueryRef.md) | range | [Query](Query.md) |
 | [StudyEventData](StudyEventData.md) | [QueryRef](QueryRef.md) | range | [Query](Query.md) |
 | [ItemGroupData](ItemGroupData.md) | [QueryRef](QueryRef.md) | range | [Query](Query.md) |
 | [ItemData](ItemData.md) | [QueryRef](QueryRef.md) | range | [Query](Query.md) |
-| [Location](Location.md) | [QueryRef](QueryRef.md) | range | [Query](Query.md) |
 
 
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Query](https://wiki.cdisc.org/display/ODM2/Query)
 
 ## Identifier and Mapping Information
 
@@ -118,6 +122,8 @@ URI: [odm:Query](http://www.cdisc.org/ns/odm/v2.0/Query)
 ```yaml
 name: Query
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Query
 slots:
 - OID
 - Source
@@ -132,9 +138,18 @@ slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -155,20 +170,11 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Source:
@@ -183,13 +189,16 @@ slot_usage:
     domain_of:
     - Query
     range: text
-    required: false
   Type:
     name: Type
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -197,12 +206,7 @@ slot_usage:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: QueryType
-    required: false
   State:
     name: State
     domain_of:
@@ -218,13 +222,22 @@ slot_usage:
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -242,22 +255,14 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
-    required: false
   ValueRef:
     name: ValueRef
     domain_of:
+    - TrialPhase
+    - ParameterValue
     - ItemData
     - Query
     range: Value
@@ -266,12 +271,18 @@ slot_usage:
     maximum_cardinality: 1
   AuditRecordRef:
     name: AuditRecordRef
+    multivalued: true
     domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
     - Query
     range: AuditRecord
-    required: false
-    minimum_cardinality: 0
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Query
 
 ```
@@ -283,13 +294,24 @@ class_uri: odm:Query
 ```yaml
 name: Query
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Query
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -310,20 +332,11 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Source:
@@ -338,13 +351,16 @@ slot_usage:
     domain_of:
     - Query
     range: text
-    required: false
   Type:
     name: Type
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -352,12 +368,7 @@ slot_usage:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: QueryType
-    required: false
   State:
     name: State
     domain_of:
@@ -373,13 +384,22 @@ slot_usage:
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -397,22 +417,14 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
-    required: false
   ValueRef:
     name: ValueRef
     domain_of:
+    - TrialPhase
+    - ParameterValue
     - ItemData
     - Query
     range: Value
@@ -421,24 +433,40 @@ slot_usage:
     maximum_cardinality: 1
   AuditRecordRef:
     name: AuditRecordRef
+    multivalued: true
     domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
     - Query
     range: AuditRecord
-    required: false
-    minimum_cardinality: 0
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
 attributes:
   OID:
     name: OID
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: OID
     owner: Query
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -459,20 +487,11 @@ attributes:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Source:
@@ -495,7 +514,6 @@ attributes:
     domain_of:
     - Query
     range: text
-    required: false
   Type:
     name: Type
     description: Type of page for page references indicated in the PageRefs attribute.
@@ -505,8 +523,12 @@ attributes:
     owner: Query
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -514,12 +536,7 @@ attributes:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: QueryType
-    required: false
   State:
     name: State
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -548,13 +565,22 @@ attributes:
     alias: Name
     owner: Query
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -572,19 +598,9 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
-    required: false
   ValueRef:
     name: ValueRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -592,6 +608,8 @@ attributes:
     alias: ValueRef
     owner: Query
     domain_of:
+    - TrialPhase
+    - ParameterValue
     - ItemData
     - Query
     range: Value
@@ -602,14 +620,20 @@ attributes:
     name: AuditRecordRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    multivalued: true
     alias: AuditRecordRef
     owner: Query
     domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
     - Query
     range: AuditRecord
-    required: false
-    minimum_cardinality: 0
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Query
 
 ```

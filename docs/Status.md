@@ -18,6 +18,7 @@ URI: [odm:Status](http://www.cdisc.org/ns/odm/v2.0/Status)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[Study](Study.md) |  |  yes  |
 [Standard](Standard.md) |  |  yes  |
 
 
@@ -28,7 +29,7 @@ URI: [odm:Status](http://www.cdisc.org/ns/odm/v2.0/Status)
 
 ## Properties
 
-* Range: [StandardStatus](StandardStatus.md)
+* Range: [String](String.md)
 
 
 
@@ -60,8 +61,12 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Status
 domain_of:
+- Study
 - Standard
-range: StandardStatus
+range: string
+any_of:
+- range: name
+- range: StandardStatus
 
 ```
 </details>

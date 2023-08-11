@@ -21,12 +21,12 @@ URI: [TransactionType](TransactionType)
 
 | Name | Description |
 | ---  | --- |
-| [TransactionType](TransactionType.md) |  |
-| [TransactionType](TransactionType.md) |  |
-| [TransactionType](TransactionType.md) |  |
-| [TransactionType](TransactionType.md) |  |
-| [TransactionType](TransactionType.md) |  |
-| [TransactionType](TransactionType.md) |  |
+| [TransactionTypeRef](TransactionTypeRef.md) |  |
+| [TransactionTypeRef](TransactionTypeRef.md) |  |
+| [TransactionTypeRef](TransactionTypeRef.md) |  |
+| [TransactionTypeRef](TransactionTypeRef.md) |  |
+| [TransactionTypeRef](TransactionTypeRef.md) |  |
+| [TransactionTypeRef](TransactionTypeRef.md) |  |
 
 
 
@@ -41,12 +41,20 @@ URI: [TransactionType](TransactionType)
 
 
 
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+
 
 ## LinkML Source
 
 <details>
 ```yaml
 name: TransactionType
+from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:
   Insert:

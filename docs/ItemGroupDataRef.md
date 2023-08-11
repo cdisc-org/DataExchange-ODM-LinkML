@@ -16,6 +16,7 @@ URI: [odm:ItemGroupDataRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDataRef)
 [ReferenceData](ReferenceData.md) |  |  yes  |
 [ClinicalData](ClinicalData.md) |  |  yes  |
 [StudyEventData](StudyEventData.md) |  |  yes  |
+[ItemGroupData](ItemGroupData.md) |  |  yes  |
 
 
 
@@ -59,6 +60,7 @@ domain_of:
 - ReferenceData
 - ClinicalData
 - StudyEventData
+- ItemGroupData
 range: ItemGroupData
 
 ```

@@ -41,6 +41,10 @@ URI: [odm:ValueListRef](http://www.cdisc.org/ns/odm/v2.0/ValueListRef)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/ValueListRef](https://wiki.cdisc.org/display/ODM2/ValueListRef)
+
 ## Identifier and Mapping Information
 
 
@@ -79,6 +83,8 @@ URI: [odm:ValueListRef](http://www.cdisc.org/ns/odm/v2.0/ValueListRef)
 ```yaml
 name: ValueListRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ValueListRef
 slots:
 - ValueListOID
 slot_usage:
@@ -99,6 +105,8 @@ class_uri: odm:ValueListRef
 ```yaml
 name: ValueListRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ValueListRef
 slot_usage:
   ValueListOID:
     name: ValueListOID

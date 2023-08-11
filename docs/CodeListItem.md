@@ -57,11 +57,11 @@ URI: [odm:CodeListItem](http://www.cdisc.org/ns/odm/v2.0/CodeListItem)
 | [CodedValue](CodedValue.md) | 1..1 <br/> [Value](Value.md) |  | direct |
 | [Rank](Rank.md) | 0..1 <br/> [Decimal](Decimal.md) |  | direct |
 | [Other](Other.md) | 0..1 <br/> [YesOnly](YesOnly.md) |  | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [Integer](Integer.md) |  | direct |
+| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) |  | direct |
 | [ExtendedValue](ExtendedValue.md) | 0..1 <br/> [YesOnly](YesOnly.md) |  | direct |
 | [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | The Comment identifier that this value refers to | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [DecodeRef](DecodeRef.md) | 1..1 <br/> [Decode](Decode.md) |  | direct |
+| [DecodeRef](DecodeRef.md) | 0..1 <br/> [Decode](Decode.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
 | [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) |  | direct |
 
@@ -69,9 +69,20 @@ URI: [odm:CodeListItem](http://www.cdisc.org/ns/odm/v2.0/CodeListItem)
 
 
 
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [CodeList](CodeList.md) | [CodeListItemRef](CodeListItemRef.md) | range | [CodeListItem](CodeListItem.md) |
 
 
 
+
+
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/CodeListItem](https://wiki.cdisc.org/display/ODM2/CodeListItem)
 
 ## Identifier and Mapping Information
 
@@ -111,6 +122,8 @@ URI: [odm:CodeListItem](http://www.cdisc.org/ns/odm/v2.0/CodeListItem)
 ```yaml
 name: CodeListItem
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/CodeListItem
 slots:
 - CodedValue
 - Rank
@@ -127,70 +140,68 @@ slot_usage:
     name: CodedValue
     domain_of:
     - CodeListItem
-    - EnumeratedItem
     range: value
     required: true
   Rank:
     name: Rank
     domain_of:
     - CodeListItem
-    - EnumeratedItem
     range: decimal
-    required: false
   Other:
     name: Other
     domain_of:
     - ItemRef
     - CodeListItem
-    - EnumeratedItem
     range: YesOnly
-    required: false
   OrderNumber:
     name: OrderNumber
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   ExtendedValue:
     name: ExtendedValue
     domain_of:
     - CodeListItem
-    - EnumeratedItem
     range: YesOnly
-    required: false
   CommentOID:
     name: CommentOID
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -213,76 +224,55 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   DecodeRef:
     name: DecodeRef
     domain_of:
     - CodeListItem
     range: Decode
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AliasRef:
     name: AliasRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:CodeListItem
-unique_keys:
-  UC-CL-2:
-    unique_key_name: UC-CL-2
-    unique_key_slots:
-    - OrderNumber
 
 ```
 </details>
@@ -293,75 +283,75 @@ unique_keys:
 ```yaml
 name: CodeListItem
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/CodeListItem
 slot_usage:
   CodedValue:
     name: CodedValue
     domain_of:
     - CodeListItem
-    - EnumeratedItem
     range: value
     required: true
   Rank:
     name: Rank
     domain_of:
     - CodeListItem
-    - EnumeratedItem
     range: decimal
-    required: false
   Other:
     name: Other
     domain_of:
     - ItemRef
     - CodeListItem
-    - EnumeratedItem
     range: YesOnly
-    required: false
   OrderNumber:
     name: OrderNumber
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   ExtendedValue:
     name: ExtendedValue
     domain_of:
     - CodeListItem
-    - EnumeratedItem
     range: YesOnly
-    required: false
   CommentOID:
     name: CommentOID
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -384,70 +374,54 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   DecodeRef:
     name: DecodeRef
     domain_of:
     - CodeListItem
     range: Decode
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AliasRef:
     name: AliasRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   CodedValue:
     name: CodedValue
@@ -457,7 +431,6 @@ attributes:
     owner: CodeListItem
     domain_of:
     - CodeListItem
-    - EnumeratedItem
     range: value
     required: true
   Rank:
@@ -468,9 +441,7 @@ attributes:
     owner: CodeListItem
     domain_of:
     - CodeListItem
-    - EnumeratedItem
     range: decimal
-    required: false
   Other:
     name: Other
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -480,9 +451,7 @@ attributes:
     domain_of:
     - ItemRef
     - CodeListItem
-    - EnumeratedItem
     range: YesOnly
-    required: false
   OrderNumber:
     name: OrderNumber
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -492,15 +461,13 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   ExtendedValue:
     name: ExtendedValue
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -509,9 +476,7 @@ attributes:
     owner: CodeListItem
     domain_of:
     - CodeListItem
-    - EnumeratedItem
     range: YesOnly
-    required: false
   CommentOID:
     name: CommentOID
     description: "The Comment identifier that this value refers to. Needed when the\
@@ -522,21 +487,19 @@ attributes:
     alias: CommentOID
     owner: CodeListItem
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -544,10 +507,19 @@ attributes:
     alias: DescriptionRef
     owner: CodeListItem
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -570,21 +542,9 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   DecodeRef:
     name: DecodeRef
@@ -595,8 +555,6 @@ attributes:
     domain_of:
     - CodeListItem
     range: Decode
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -607,51 +565,44 @@ attributes:
     owner: CodeListItem
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AliasRef:
     name: AliasRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
     alias: AliasRef
     owner: CodeListItem
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:CodeListItem
-unique_keys:
-  UC-CL-2:
-    unique_key_name: UC-CL-2
-    unique_key_slots:
-    - OrderNumber
 
 ```
 </details>

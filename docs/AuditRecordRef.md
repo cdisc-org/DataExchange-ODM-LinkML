@@ -13,6 +13,12 @@ URI: [odm:AuditRecordRef](http://www.cdisc.org/ns/odm/v2.0/AuditRecordRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[ReferenceData](ReferenceData.md) |  |  yes  |
+[ClinicalData](ClinicalData.md) |  |  yes  |
+[SubjectData](SubjectData.md) |  |  yes  |
+[StudyEventData](StudyEventData.md) |  |  yes  |
+[ItemGroupData](ItemGroupData.md) |  |  yes  |
+[ItemData](ItemData.md) |  |  yes  |
 [Query](Query.md) |  |  yes  |
 
 
@@ -54,6 +60,12 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: AuditRecordRef
 domain_of:
+- ReferenceData
+- ClinicalData
+- SubjectData
+- StudyEventData
+- ItemGroupData
+- ItemData
 - Query
 range: AuditRecord
 

@@ -4,6 +4,9 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
                 "Name": {
                     "description": "General observation Sub Class.",
                     "type": "string"
@@ -95,35 +98,31 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "LocationRef": {
+                "LocationRefRef": {
                     "items": {
                         "$ref": "#/$defs/Location"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "OrganizationRef": {
                     "items": {
                         "$ref": "#/$defs/Organization"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "SignatureDefRef": {
                     "items": {
                         "$ref": "#/$defs/SignatureDef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "StudyOID": {
                     "type": "string"
                 },
-                "UserRef": {
+                "UserRefRef": {
                     "items": {
                         "$ref": "#/$defs/User"
                     },
-                    "minItems": 0,
                     "type": "array"
                 }
             },
@@ -134,7 +133,7 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "Context": {
+                "ContextRef": {
                     "type": "string"
                 },
                 "Name": {
@@ -143,7 +142,7 @@
                 }
             },
             "required": [
-                "Context",
+                "ContextRef",
                 "Name"
             ],
             "title": "Alias",
@@ -152,6 +151,19 @@
         "AnnotatedCRF": {
             "additionalProperties": false,
             "description": "An Annotated Case Report Form (CRF) is a Portable File Format (PDF) document that provides the mapping of data collection fields to the variables or discrete variable values contained within the datasets.",
+            "properties": {
+                "DocumentRefRef": {
+                    "description": "Links to a def:leaf element with the location of the document.",
+                    "items": {
+                        "$ref": "#/$defs/DocumentRef"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "DocumentRefRef"
+            ],
             "title": "AnnotatedCRF",
             "type": "object"
         },
@@ -163,7 +175,6 @@
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "CommentRef": {
@@ -173,7 +184,6 @@
                     "items": {
                         "$ref": "#/$defs/Flag"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "ID": {
@@ -183,12 +193,13 @@
                 "SeqNum": {
                     "type": "integer"
                 },
-                "TransactionType": {
+                "TransactionTypeRef": {
                     "$ref": "#/$defs/TransactionType"
                 }
             },
             "required": [
-                "SeqNum"
+                "SeqNum",
+                "ID"
             ],
             "title": "Annotation",
             "type": "object"
@@ -224,7 +235,7 @@
             "description": "",
             "properties": {
                 "AnnotationRef": {
-                    "$ref": "#/$defs/Annotation"
+                    "type": "string"
                 },
                 "KeySetRef": {
                     "$ref": "#/$defs/KeySet"
@@ -287,7 +298,6 @@
                     "items": {
                         "$ref": "#/$defs/DefaultTransition"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "Name": {
@@ -328,6 +338,24 @@
             "title": "BranchingType",
             "type": "string"
         },
+        "CDISCNotes": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "TranslatedTextRef": {
+                    "items": {
+                        "$ref": "#/$defs/TranslatedText"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "TranslatedTextRef"
+            ],
+            "title": "CDISCNotes",
+            "type": "object"
+        },
         "CLDataType": {
             "description": "",
             "enum": [
@@ -338,6 +366,24 @@
             ],
             "title": "CLDataType",
             "type": "string"
+        },
+        "CRFCompletionInstructions": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "TranslatedTextRef": {
+                    "items": {
+                        "$ref": "#/$defs/TranslatedText"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "TranslatedTextRef"
+            ],
+            "title": "CRFCompletionInstructions",
+            "type": "object"
         },
         "CheckValue": {
             "additionalProperties": false,
@@ -370,6 +416,12 @@
                 "Name": {
                     "$ref": "#/$defs/ItemGroupClass",
                     "description": "General observation Sub Class."
+                },
+                "SubClassRef": {
+                    "items": {
+                        "$ref": "#/$defs/SubClass"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -382,11 +434,19 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "AnnotationRef": {
+                    "items": {
+                        "$ref": "#/$defs/Annotation"
+                    },
+                    "type": "array"
+                },
+                "AuditRecordRef": {
+                    "$ref": "#/$defs/AuditRecord"
+                },
                 "ItemGroupDataRef": {
                     "items": {
                         "$ref": "#/$defs/ItemGroupData"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "MetaDataVersionOID": {
@@ -396,8 +456,10 @@
                     "items": {
                         "$ref": "#/$defs/Query"
                     },
-                    "minItems": 0,
                     "type": "array"
+                },
+                "SignatureRefRef": {
+                    "type": "string"
                 },
                 "StudyOID": {
                     "type": "string"
@@ -406,7 +468,6 @@
                     "items": {
                         "$ref": "#/$defs/SubjectData"
                     },
-                    "minItems": 0,
                     "type": "array"
                 }
             },
@@ -437,29 +498,30 @@
                     "items": {
                         "$ref": "#/$defs/Alias"
                     },
-                    "minItems": 0,
+                    "type": "array"
+                },
+                "CodeListItemRef": {
+                    "items": {
+                        "$ref": "#/$defs/CodeListItem"
+                    },
                     "type": "array"
                 },
                 "CodingRef": {
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "CommentOID": {
                     "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
                     "type": "string"
                 },
-                "DataType": {
+                "DataTypeRef": {
                     "$ref": "#/$defs/CLDataType",
                     "description": "The DataType attribute specifies how the corresponding value\n                    elements are to be interpreted for comparison and storage."
                 },
                 "DescriptionRef": {
                     "$ref": "#/$defs/Description"
-                },
-                "ExternalCodeListRef": {
-                    "$ref": "#/$defs/ExternalCodeList"
                 },
                 "IsNonStandard": {
                     "$ref": "#/$defs/YesOnly"
@@ -479,7 +541,7 @@
             "required": [
                 "OID",
                 "Name",
-                "DataType"
+                "DataTypeRef"
             ],
             "title": "CodeList",
             "type": "object"
@@ -492,7 +554,6 @@
                     "items": {
                         "$ref": "#/$defs/Alias"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "CodedValue": {
@@ -502,7 +563,6 @@
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "CommentOID": {
@@ -529,8 +589,7 @@
                 }
             },
             "required": [
-                "CodedValue",
-                "DecodeRef"
+                "CodedValue"
             ],
             "title": "CodeListItem",
             "type": "object"
@@ -553,7 +612,7 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "Code": {
+                "CodeRef": {
                     "type": "string"
                 },
                 "CommentOID": {
@@ -575,10 +634,12 @@
                 "href": {
                     "description": "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file.",
                     "type": "string"
+                },
+                "ref": {
+                    "type": "string"
                 }
             },
             "required": [
-                "Code",
                 "System"
             ],
             "title": "Coding",
@@ -590,8 +651,18 @@
             "properties": {
                 "SponsorOrSite": {
                     "$ref": "#/$defs/CommentType"
+                },
+                "TranslatedTextRef": {
+                    "items": {
+                        "$ref": "#/$defs/TranslatedText"
+                    },
+                    "minItems": 1,
+                    "type": "array"
                 }
             },
+            "required": [
+                "TranslatedTextRef"
+            ],
             "title": "Comment",
             "type": "object"
         },
@@ -608,7 +679,6 @@
                     "items": {
                         "$ref": "#/$defs/DocumentRef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "OID": {
@@ -655,7 +725,6 @@
                     "items": {
                         "$ref": "#/$defs/Alias"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "CommentOID": {
@@ -669,7 +738,6 @@
                     "items": {
                         "$ref": "#/$defs/FormalExpression"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "MethodSignatureRef": {
@@ -719,8 +787,17 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "type": "array"
+                },
                 "ConditionOID": {
                     "type": "string"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
                 },
                 "Name": {
                     "description": "General observation Sub Class.",
@@ -784,8 +861,31 @@
         "Decode": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "TranslatedTextRef": {
+                    "items": {
+                        "$ref": "#/$defs/TranslatedText"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "TranslatedTextRef"
+            ],
             "title": "Decode",
             "type": "object"
+        },
+        "DefCoreType": {
+            "description": "",
+            "enum": [
+                "Cond",
+                "Exp",
+                "Perm",
+                "Req"
+            ],
+            "title": "DefCoreType",
+            "type": "string"
         },
         "DefaultTransition": {
             "additionalProperties": false,
@@ -801,9 +901,39 @@
             "title": "DefaultTransition",
             "type": "object"
         },
+        "Definition": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "TranslatedTextRef": {
+                    "items": {
+                        "$ref": "#/$defs/TranslatedText"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "TranslatedTextRef"
+            ],
+            "title": "Definition",
+            "type": "object"
+        },
         "Description": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "TranslatedTextRef": {
+                    "items": {
+                        "$ref": "#/$defs/TranslatedText"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "TranslatedTextRef"
+            ],
             "title": "Description",
             "type": "object"
         },
@@ -831,6 +961,13 @@
             "additionalProperties": false,
             "description": "Links to a leaf element with the location of the document.",
             "properties": {
+                "PDFPageRefRef": {
+                    "description": "The PDFPageRef element is a container for page references in a PDF file.",
+                    "items": {
+                        "$ref": "#/$defs/PDFPageRef"
+                    },
+                    "type": "array"
+                },
                 "leafID": {
                     "description": "Unique identifier for the leaf element with the document location.",
                     "type": "string"
@@ -846,6 +983,9 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
                 "DurationPostWindow": {
                     "type": "string"
                 },
@@ -889,60 +1029,24 @@
         "EntryCriteria": {
             "additionalProperties": false,
             "description": "",
-            "title": "EntryCriteria",
-            "type": "object"
-        },
-        "EnumeratedItem": {
-            "additionalProperties": false,
-            "description": "",
             "properties": {
-                "AliasRef": {
+                "CriterionRef": {
                     "items": {
-                        "$ref": "#/$defs/Alias"
+                        "$ref": "#/$defs/Criterion"
                     },
-                    "minItems": 0,
                     "type": "array"
-                },
-                "CodedValue": {
-                    "type": "string"
-                },
-                "CodingRef": {
-                    "items": {
-                        "$ref": "#/$defs/Coding"
-                    },
-                    "minItems": 0,
-                    "type": "array"
-                },
-                "CommentOID": {
-                    "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
-                    "type": "string"
-                },
-                "DescriptionRef": {
-                    "$ref": "#/$defs/Description"
-                },
-                "ExtendedValue": {
-                    "$ref": "#/$defs/YesOnly"
-                },
-                "OrderNumber": {
-                    "type": "integer"
-                },
-                "Other": {
-                    "$ref": "#/$defs/YesOnly"
-                },
-                "Rank": {
-                    "type": "number"
                 }
             },
-            "required": [
-                "CodedValue"
-            ],
-            "title": "EnumeratedItem",
+            "title": "EntryCriteria",
             "type": "object"
         },
         "Epoch": {
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
                 "Name": {
                     "description": "General observation Sub Class.",
                     "type": "string"
@@ -966,6 +1070,18 @@
         "ErrorMessage": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "TranslatedTextRef": {
+                    "items": {
+                        "$ref": "#/$defs/TranslatedText"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "TranslatedTextRef"
+            ],
             "title": "ErrorMessage",
             "type": "object"
         },
@@ -986,6 +1102,9 @@
                 "ConditionOID": {
                     "type": "string"
                 },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
                 "Name": {
                     "description": "General observation Sub Class.",
                     "type": "string"
@@ -993,11 +1112,31 @@
                 "OID": {
                     "description": "Unique identifier of the version within the XML document.",
                     "type": "string"
+                },
+                "StudyEventGroupRefRef": {
+                    "items": {
+                        "$ref": "#/$defs/StudyEventGroupRef"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "StudyEventRefRef": {
+                    "items": {
+                        "$ref": "#/$defs/StudyEventRef"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "WorkflowRefRef": {
+                    "$ref": "#/$defs/WorkflowRef"
                 }
             },
             "required": [
                 "OID",
-                "Name"
+                "Name",
+                "WorkflowRefRef",
+                "StudyEventGroupRefRef",
+                "StudyEventRefRef"
             ],
             "title": "ExceptionEvent",
             "type": "object"
@@ -1005,12 +1144,32 @@
         "ExclusionCriteria": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "CriterionRef": {
+                    "items": {
+                        "$ref": "#/$defs/Criterion"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "CriterionRef"
+            ],
             "title": "ExclusionCriteria",
             "type": "object"
         },
         "ExitCriteria": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "CriterionRef": {
+                    "items": {
+                        "$ref": "#/$defs/Criterion"
+                    },
+                    "type": "array"
+                }
+            },
             "title": "ExitCriteria",
             "type": "object"
         },
@@ -1040,28 +1199,6 @@
                 "Library"
             ],
             "title": "ExternalCodeLib",
-            "type": "object"
-        },
-        "ExternalCodeList": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "Dictionary": {
-                    "type": "string"
-                },
-                "Version": {
-                    "description": "Version of Standard.",
-                    "type": "string"
-                },
-                "href": {
-                    "description": "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file.",
-                    "type": "string"
-                },
-                "ref": {
-                    "type": "string"
-                }
-            },
-            "title": "ExternalCodeList",
             "type": "object"
         },
         "FamilyName": {
@@ -1142,10 +1279,20 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "Context": {
+                "CodeRef": {
+                    "$ref": "#/$defs/Code"
+                },
+                "ContextRef": {
                     "type": "string"
+                },
+                "ExternalCodeLibRef": {
+                    "$ref": "#/$defs/ExternalCodeLib"
                 }
             },
+            "required": [
+                "CodeRef",
+                "ExternalCodeLibRef"
+            ],
             "title": "FormalExpression",
             "type": "object"
         },
@@ -1234,6 +1381,24 @@
             "title": "Image",
             "type": "object"
         },
+        "ImplementationNotes": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "TranslatedTextRef": {
+                    "items": {
+                        "$ref": "#/$defs/TranslatedText"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "TranslatedTextRef"
+            ],
+            "title": "ImplementationNotes",
+            "type": "object"
+        },
         "Include": {
             "additionalProperties": false,
             "description": "",
@@ -1259,6 +1424,18 @@
         "InclusionCriteria": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "CriterionRef": {
+                    "items": {
+                        "$ref": "#/$defs/Criterion"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "CriterionRef"
+            ],
             "title": "InclusionCriteria",
             "type": "object"
         },
@@ -1279,6 +1456,14 @@
         "IntercurrentEvent": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                }
+            },
+            "required": [
+                "DescriptionRef"
+            ],
             "title": "IntercurrentEvent",
             "type": "object"
         },
@@ -1300,6 +1485,15 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "AnnotationRef": {
+                    "items": {
+                        "$ref": "#/$defs/Annotation"
+                    },
+                    "type": "array"
+                },
+                "AuditRecordRef": {
+                    "$ref": "#/$defs/AuditRecord"
+                },
                 "IsNull": {
                     "$ref": "#/$defs/YesOnly"
                 },
@@ -1310,17 +1504,18 @@
                     "items": {
                         "$ref": "#/$defs/Query"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
-                "TransactionType": {
+                "SignatureRefRef": {
+                    "type": "string"
+                },
+                "TransactionTypeRef": {
                     "$ref": "#/$defs/TransactionType"
                 },
                 "ValueRef": {
                     "items": {
                         "$ref": "#/$defs/Value"
                     },
-                    "minItems": 0,
                     "type": "array"
                 }
             },
@@ -1338,8 +1533,13 @@
                     "items": {
                         "$ref": "#/$defs/Alias"
                     },
-                    "minItems": 0,
                     "type": "array"
+                },
+                "CDISCNotesRef": {
+                    "$ref": "#/$defs/CDISCNotes"
+                },
+                "CRFCompletionInstructionsRef": {
+                    "$ref": "#/$defs/CRFCompletionInstructions"
                 },
                 "CodeListRefRef": {
                     "$ref": "#/$defs/CodeListRef"
@@ -1348,22 +1548,27 @@
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "CommentOID": {
                     "description": "The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.\n                The Comment would define any join assumptions.",
                     "type": "string"
                 },
-                "DataType": {
+                "DataTypeRef": {
                     "$ref": "#/$defs/DataType",
                     "description": "The DataType attribute specifies how the corresponding value\n                    elements are to be interpreted for comparison and storage."
+                },
+                "DefinitionRef": {
+                    "$ref": "#/$defs/Definition"
                 },
                 "DescriptionRef": {
                     "$ref": "#/$defs/Description"
                 },
                 "DisplayFormat": {
                     "type": "string"
+                },
+                "ImplementationNotesRef": {
+                    "$ref": "#/$defs/ImplementationNotes"
                 },
                 "Length": {
                     "description": "The Length attribute is optional when DataType is text, string,\n                    integer, or float; and should not be used for the other\n                    datatypes.",
@@ -1377,6 +1582,9 @@
                     "description": "Unique identifier of the version within the XML document.",
                     "type": "string"
                 },
+                "PromptRef": {
+                    "$ref": "#/$defs/Prompt"
+                },
                 "QuestionRef": {
                     "$ref": "#/$defs/Question"
                 },
@@ -1384,17 +1592,19 @@
                     "items": {
                         "$ref": "#/$defs/RangeCheck"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "ValueListRefRef": {
                     "$ref": "#/$defs/ValueListRef"
+                },
+                "VariableSet": {
+                    "type": "string"
                 }
             },
             "required": [
                 "OID",
                 "Name",
-                "DataType"
+                "DataTypeRef"
             ],
             "title": "ItemDef",
             "type": "object"
@@ -1425,6 +1635,21 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "AnnotationRef": {
+                    "items": {
+                        "$ref": "#/$defs/Annotation"
+                    },
+                    "type": "array"
+                },
+                "AuditRecordRef": {
+                    "$ref": "#/$defs/AuditRecord"
+                },
+                "ItemDataRef": {
+                    "$ref": "#/$defs/ItemData"
+                },
+                "ItemGroupDataRef": {
+                    "$ref": "#/$defs/ItemGroupData"
+                },
                 "ItemGroupDataSeq": {
                     "type": "integer"
                 },
@@ -1434,7 +1659,16 @@
                 "ItemGroupRepeatKey": {
                     "type": "string"
                 },
-                "TransactionType": {
+                "QueryRef": {
+                    "items": {
+                        "$ref": "#/$defs/Query"
+                    },
+                    "type": "array"
+                },
+                "SignatureRefRef": {
+                    "type": "string"
+                },
+                "TransactionTypeRef": {
                     "$ref": "#/$defs/TransactionType"
                 }
             },
@@ -1452,7 +1686,6 @@
                     "items": {
                         "$ref": "#/$defs/Alias"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "ArchiveLocationID": {
@@ -1465,7 +1698,6 @@
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "CommentOID": {
@@ -1490,6 +1722,12 @@
                 "IsReferenceData": {
                     "$ref": "#/$defs/YesOrNo"
                 },
+                "ItemGroupRefRef": {
+                    "$ref": "#/$defs/ItemGroupRef"
+                },
+                "ItemRefRef": {
+                    "$ref": "#/$defs/ItemRef"
+                },
                 "Name": {
                     "description": "General observation Sub Class.",
                     "type": "string"
@@ -1502,7 +1740,6 @@
                     "items": {
                         "$ref": "#/$defs/Origin"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "Purpose": {
@@ -1528,7 +1765,7 @@
                     "$ref": "#/$defs/WorkflowRef"
                 },
                 "leafRef": {
-                    "$ref": "#/$defs/Leaf"
+                    "type": "string"
                 }
             },
             "required": [
@@ -1602,6 +1839,9 @@
                 "CollectionExceptionConditionOID": {
                     "type": "string"
                 },
+                "Core": {
+                    "type": "string"
+                },
                 "HasNoData": {
                     "$ref": "#/$defs/YesOnly"
                 },
@@ -1627,11 +1867,13 @@
                     "items": {
                         "$ref": "#/$defs/Origin"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "Other": {
                     "$ref": "#/$defs/YesOnly"
+                },
+                "PreSpecifiedValue": {
+                    "type": "string"
                 },
                 "Repeat": {
                     "$ref": "#/$defs/YesOnly"
@@ -1649,7 +1891,6 @@
                     "items": {
                         "$ref": "#/$defs/WhereClauseRef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 }
             },
@@ -1706,11 +1947,16 @@
                 "href": {
                     "description": "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file.",
                     "type": "string"
+                },
+                "title": {
+                    "description": "Text with the label for the document or dataset.",
+                    "type": "string"
                 }
             },
             "required": [
                 "ID",
-                "href"
+                "href",
+                "title"
             ],
             "title": "Leaf",
             "type": "object"
@@ -1735,7 +1981,6 @@
                     "items": {
                         "$ref": "#/$defs/Address"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "DescriptionRef": {
@@ -1763,7 +2008,6 @@
                     "items": {
                         "$ref": "#/$defs/Query"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "Role": {
@@ -1773,7 +2017,6 @@
                     "items": {
                         "$ref": "#/$defs/Telecom"
                     },
-                    "minItems": 0,
                     "type": "array"
                 }
             },
@@ -1818,18 +2061,16 @@
                 "AnnotatedCRFRef": {
                     "$ref": "#/$defs/AnnotatedCRF"
                 },
-                "CodeListRef": {
+                "CodeListRefRef": {
                     "items": {
                         "$ref": "#/$defs/CodeList"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "CommentDefRef": {
                     "items": {
                         "$ref": "#/$defs/CommentDef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "CommentOID": {
@@ -1840,7 +2081,6 @@
                     "items": {
                         "$ref": "#/$defs/ConditionDef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "DescriptionRef": {
@@ -1853,21 +2093,18 @@
                     "items": {
                         "$ref": "#/$defs/ItemDef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "ItemGroupDefRef": {
                     "items": {
                         "$ref": "#/$defs/ItemGroupDef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "MethodDefRef": {
                     "items": {
                         "$ref": "#/$defs/MethodDef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "Name": {
@@ -1888,14 +2125,12 @@
                     "items": {
                         "$ref": "#/$defs/StudyEventDef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "StudyEventGroupDefRef": {
                     "items": {
                         "$ref": "#/$defs/StudyEventGroupDef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "SupplementalDocRef": {
@@ -1905,28 +2140,24 @@
                     "items": {
                         "$ref": "#/$defs/ValueListDef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "WhereClauseDefRef": {
                     "items": {
                         "$ref": "#/$defs/WhereClauseDef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "WorkflowDefRef": {
                     "items": {
                         "$ref": "#/$defs/WorkflowDef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "leafRef": {
                     "items": {
                         "$ref": "#/$defs/Leaf"
                     },
-                    "minItems": 0,
                     "type": "array"
                 }
             },
@@ -1968,7 +2199,6 @@
                     "items": {
                         "$ref": "#/$defs/Alias"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "CommentOID": {
@@ -1983,14 +2213,12 @@
                     "items": {
                         "$ref": "#/$defs/DocumentRef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "FormalExpressionRef": {
                     "items": {
                         "$ref": "#/$defs/FormalExpression"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "MethodSignatureRef": {
@@ -2026,14 +2254,12 @@
                     "items": {
                         "$ref": "#/$defs/Parameter"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "ReturnValueRef": {
                     "items": {
                         "$ref": "#/$defs/ReturnValue"
                     },
-                    "minItems": 0,
                     "type": "array"
                 }
             },
@@ -2051,6 +2277,16 @@
             "title": "MethodType",
             "type": "string"
         },
+        "ODMCoreType": {
+            "description": "",
+            "enum": [
+                "HR",
+                "O",
+                "R/C"
+            ],
+            "title": "ODMCoreType",
+            "type": "string"
+        },
         "ODMFileMetadata": {
             "additionalProperties": false,
             "description": "",
@@ -2059,7 +2295,6 @@
                     "items": {
                         "$ref": "#/$defs/AdminData"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "AsOfDateTime": {
@@ -2070,17 +2305,15 @@
                     "items": {
                         "$ref": "#/$defs/Association"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "ClinicalDataRef": {
                     "items": {
                         "$ref": "#/$defs/ClinicalData"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
-                "Context": {
+                "ContextRef": {
                     "$ref": "#/$defs/Context"
                 },
                 "CreationDateTime": {
@@ -2093,13 +2326,13 @@
                 "FileOID": {
                     "type": "string"
                 },
-                "FileType": {
+                "FileTypeRef": {
                     "$ref": "#/$defs/FileType"
                 },
-                "Granularity": {
+                "GranularityRef": {
                     "$ref": "#/$defs/Granularity"
                 },
-                "ODMVersion": {
+                "ODMVersionRef": {
                     "type": "string"
                 },
                 "Originator": {
@@ -2112,7 +2345,6 @@
                     "items": {
                         "$ref": "#/$defs/ReferenceData"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "SourceSystem": {
@@ -2125,12 +2357,11 @@
                     "items": {
                         "$ref": "#/$defs/Study"
                     },
-                    "minItems": 0,
                     "type": "array"
                 }
             },
             "required": [
-                "FileType",
+                "FileTypeRef",
                 "FileOID",
                 "CreationDateTime"
             ],
@@ -2145,7 +2376,6 @@
                     "items": {
                         "$ref": "#/$defs/Address"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "DescriptionRef": {
@@ -2172,7 +2402,6 @@
                     "items": {
                         "$ref": "#/$defs/Telecom"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "Type": {
@@ -2209,7 +2438,6 @@
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "DescriptionRef": {
@@ -2220,7 +2448,6 @@
                     "items": {
                         "$ref": "#/$defs/DocumentRef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "Source": {
@@ -2322,11 +2549,11 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "DataType": {
+                "DataTypeRef": {
                     "$ref": "#/$defs/DataType",
                     "description": "The DataType attribute specifies how the corresponding value\n                    elements are to be interpreted for comparison and storage."
                 },
-                "Definition": {
+                "DefinitionRef": {
                     "type": "string"
                 },
                 "Name": {
@@ -2339,7 +2566,7 @@
             },
             "required": [
                 "Name",
-                "DataType"
+                "DataTypeRef"
             ],
             "title": "Parameter",
             "type": "object"
@@ -2348,12 +2575,18 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "Value": {
+                "CodingRef": {
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "type": "array"
+                },
+                "ValueRef": {
                     "type": "string"
                 }
             },
             "required": [
-                "Value"
+                "ValueRef"
             ],
             "title": "ParameterValue",
             "type": "object"
@@ -2382,6 +2615,24 @@
             "title": "Prefix",
             "type": "object"
         },
+        "Prompt": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "TranslatedTextRef": {
+                    "items": {
+                        "$ref": "#/$defs/TranslatedText"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "TranslatedTextRef"
+            ],
+            "title": "Prompt",
+            "type": "object"
+        },
         "Protocol": {
             "additionalProperties": false,
             "description": "",
@@ -2390,7 +2641,6 @@
                     "items": {
                         "$ref": "#/$defs/Alias"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "DescriptionRef": {
@@ -2409,7 +2659,6 @@
                     "items": {
                         "$ref": "#/$defs/StudyEventGroupRef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "StudyIndicationsRef": {
@@ -2427,8 +2676,8 @@
                 "StudySummaryRef": {
                     "$ref": "#/$defs/StudySummary"
                 },
-                "StudyTargetPopulationRef": {
-                    "$ref": "#/$defs/StudyTargetPopulation"
+                "StudyTargetPopulationRefRef": {
+                    "type": "string"
                 },
                 "StudyTimingsRef": {
                     "$ref": "#/$defs/StudyTimings"
@@ -2448,7 +2697,10 @@
             "description": "",
             "properties": {
                 "AuditRecordRef": {
-                    "$ref": "#/$defs/AuditRecord"
+                    "items": {
+                        "$ref": "#/$defs/AuditRecord"
+                    },
+                    "type": "array"
                 },
                 "LastUpdateDatetime": {
                     "format": "date-time",
@@ -2526,6 +2778,18 @@
         "Question": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "TranslatedTextRef": {
+                    "items": {
+                        "$ref": "#/$defs/TranslatedText"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "TranslatedTextRef"
+            ],
             "title": "Question",
             "type": "object"
         },
@@ -2533,16 +2797,38 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "Comparator": {
+                "CheckValueRef": {
+                    "items": {
+                        "$ref": "#/$defs/CheckValue"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "ComparatorRef": {
                     "$ref": "#/$defs/Comparator"
+                },
+                "ErrorMessageRef": {
+                    "$ref": "#/$defs/ErrorMessage"
+                },
+                "FormalExpressionRef": {
+                    "items": {
+                        "$ref": "#/$defs/FormalExpression"
+                    },
+                    "type": "array"
                 },
                 "ItemOID": {
                     "type": "string"
+                },
+                "MethodSignatureRef": {
+                    "$ref": "#/$defs/MethodSignature"
                 },
                 "SoftHard": {
                     "$ref": "#/$defs/SoftOrHard"
                 }
             },
+            "required": [
+                "CheckValueRef"
+            ],
             "title": "RangeCheck",
             "type": "object"
         },
@@ -2562,7 +2848,25 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "AnnotationRef": {
+                    "items": {
+                        "$ref": "#/$defs/Annotation"
+                    },
+                    "type": "array"
+                },
+                "AuditRecordRef": {
+                    "$ref": "#/$defs/AuditRecord"
+                },
+                "ItemGroupDataRef": {
+                    "items": {
+                        "$ref": "#/$defs/ItemGroupData"
+                    },
+                    "type": "array"
+                },
                 "MetaDataVersionOID": {
+                    "type": "string"
+                },
+                "SignatureRefRef": {
                     "type": "string"
                 },
                 "StudyOID": {
@@ -2580,6 +2884,9 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
                 "Name": {
                     "description": "General observation Sub Class.",
                     "type": "string"
@@ -2641,6 +2948,12 @@
                     "description": "General observation Sub Class.",
                     "type": "string"
                 },
+                "SelectionRef": {
+                    "items": {
+                        "$ref": "#/$defs/Selection"
+                    },
+                    "type": "array"
+                },
                 "Type": {
                     "description": "Type of page for page references indicated in the PageRefs attribute.",
                     "type": "string"
@@ -2657,11 +2970,11 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "DataType": {
+                "DataTypeRef": {
                     "$ref": "#/$defs/DataType",
                     "description": "The DataType attribute specifies how the corresponding value\n                    elements are to be interpreted for comparison and storage."
                 },
-                "Definition": {
+                "DefinitionRef": {
                     "type": "string"
                 },
                 "Name": {
@@ -2674,7 +2987,7 @@
             },
             "required": [
                 "Name",
-                "DataType"
+                "DataTypeRef"
             ],
             "title": "ReturnValue",
             "type": "object"
@@ -2724,6 +3037,7 @@
                 }
             },
             "required": [
+                "ID",
                 "UserRefRef",
                 "LocationRefRef",
                 "SignatureRefRef",
@@ -2815,7 +3129,6 @@
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "ItemGroupOID": {
@@ -2847,6 +3160,7 @@
                 }
             },
             "required": [
+                "leafID",
                 "ResourceRef"
             ],
             "title": "SourceItem",
@@ -2860,7 +3174,6 @@
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "SourceItemRef": {
@@ -2969,6 +3282,19 @@
         "Standards": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "StandardRef": {
+                    "description": "Definition of a standard referenced in the Define-XML document.",
+                    "items": {
+                        "$ref": "#/$defs/Standard"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "StandardRef"
+            ],
             "title": "Standards",
             "type": "object"
         },
@@ -3003,7 +3329,7 @@
                 "DescriptionRef": {
                     "$ref": "#/$defs/Description"
                 },
-                "MetaDataVersionRef": {
+                "MetaDataVersionRefRef": {
                     "items": {
                         "$ref": "#/$defs/MetaDataVersion"
                     },
@@ -3017,7 +3343,17 @@
                 "ProtocolName": {
                     "type": "string"
                 },
+                "Status": {
+                    "description": "Status of Standard.",
+                    "type": "string"
+                },
                 "StudyName": {
+                    "type": "string"
+                },
+                "VersionID": {
+                    "type": "string"
+                },
+                "VersionName": {
                     "type": "string"
                 }
             },
@@ -3025,7 +3361,7 @@
                 "OID",
                 "StudyName",
                 "ProtocolName",
-                "MetaDataVersionRef"
+                "MetaDataVersionRefRef"
             ],
             "title": "Study",
             "type": "object"
@@ -3041,8 +3377,10 @@
                     "items": {
                         "$ref": "#/$defs/FormalExpression"
                     },
-                    "minItems": 0,
                     "type": "array"
+                },
+                "Level": {
+                    "$ref": "#/$defs/StudyEndPointLevel"
                 },
                 "Name": {
                     "description": "General observation Sub Class.",
@@ -3064,6 +3402,16 @@
             ],
             "title": "StudyEndPoint",
             "type": "object"
+        },
+        "StudyEndPointLevel": {
+            "description": "",
+            "enum": [
+                "Primary",
+                "Secondary",
+                "Exploratory"
+            ],
+            "title": "StudyEndPointLevel",
+            "type": "string"
         },
         "StudyEndPointRef": {
             "additionalProperties": false,
@@ -3096,6 +3444,18 @@
         "StudyEndPoints": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "StudyEndPointRefRef": {
+                    "items": {
+                        "$ref": "#/$defs/StudyEndPoint"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "StudyEndPointRefRef"
+            ],
             "title": "StudyEndPoints",
             "type": "object"
         },
@@ -3110,7 +3470,6 @@
                     "items": {
                         "$ref": "#/$defs/IntercurrentEvent"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "Name": {
@@ -3144,6 +3503,18 @@
         "StudyEstimands": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "StudyEstimandRef": {
+                    "items": {
+                        "$ref": "#/$defs/StudyEstimand"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "StudyEstimandRef"
+            ],
             "title": "StudyEstimands",
             "type": "object"
         },
@@ -3151,19 +3522,29 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "AnnotationRef": {
+                    "items": {
+                        "$ref": "#/$defs/Annotation"
+                    },
+                    "type": "array"
+                },
+                "AuditRecordRef": {
+                    "$ref": "#/$defs/AuditRecord"
+                },
                 "ItemGroupDataRef": {
                     "items": {
                         "$ref": "#/$defs/ItemGroupData"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "QueryRef": {
                     "items": {
                         "$ref": "#/$defs/Query"
                     },
-                    "minItems": 0,
                     "type": "array"
+                },
+                "SignatureRefRef": {
+                    "type": "string"
                 },
                 "StudyEventOID": {
                     "type": "string"
@@ -3171,7 +3552,7 @@
                 "StudyEventRepeatKey": {
                     "type": "string"
                 },
-                "TransactionType": {
+                "TransactionTypeRef": {
                     "$ref": "#/$defs/TransactionType"
                 }
             },
@@ -3189,7 +3570,6 @@
                     "items": {
                         "$ref": "#/$defs/Alias"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "Category": {
@@ -3199,7 +3579,6 @@
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "CommentOID": {
@@ -3213,7 +3592,6 @@
                     "items": {
                         "$ref": "#/$defs/ItemGroupRef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "Name": {
@@ -3255,7 +3633,6 @@
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "CommentOID": {
@@ -3276,6 +3653,12 @@
                     "description": "Unique identifier of the version within the XML document.",
                     "type": "string"
                 },
+                "StudyEventGroupRefRef": {
+                    "$ref": "#/$defs/StudyEventGroupRef"
+                },
+                "StudyEventRefRef": {
+                    "$ref": "#/$defs/StudyEventRef"
+                },
                 "WorkflowRefRef": {
                     "$ref": "#/$defs/WorkflowRef"
                 }
@@ -3293,6 +3676,9 @@
             "properties": {
                 "CollectionExceptionConditionOID": {
                     "type": "string"
+                },
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
                 },
                 "Mandatory": {
                     "$ref": "#/$defs/YesOrNo"
@@ -3343,7 +3729,6 @@
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "DescriptionRef": {
@@ -3364,6 +3749,18 @@
         "StudyIndications": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "StudyIndicationRef": {
+                    "items": {
+                        "$ref": "#/$defs/StudyIndication"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "StudyIndicationRef"
+            ],
             "title": "StudyIndications",
             "type": "object"
         },
@@ -3375,7 +3772,6 @@
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "DescriptionRef": {
@@ -3410,6 +3806,18 @@
         "StudyInterventions": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "StudyInterventionRefRef": {
+                    "items": {
+                        "$ref": "#/$defs/StudyIntervention"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "StudyInterventionRefRef"
+            ],
             "title": "StudyInterventions",
             "type": "object"
         },
@@ -3432,34 +3840,45 @@
                     "items": {
                         "$ref": "#/$defs/StudyEndPointRef"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "Type": {
-                    "$ref": "#/$defs/StudyObjectiveType",
+                    "$ref": "#/$defs/StudyObjectiveLevel",
                     "description": "Type of page for page references indicated in the PageRefs attribute."
                 }
             },
             "required": [
                 "OID",
-                "Name",
-                "DescriptionRef"
+                "Name"
             ],
             "title": "StudyObjective",
             "type": "object"
         },
-        "StudyObjectiveType": {
+        "StudyObjectiveLevel": {
             "description": "",
             "enum": [
                 "Primary",
-                "Secondary"
+                "Secondary",
+                "Exploratory"
             ],
-            "title": "StudyObjectiveType",
+            "title": "StudyObjectiveLevel",
             "type": "string"
         },
         "StudyObjectives": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "StudyObjectiveRef": {
+                    "items": {
+                        "$ref": "#/$defs/StudyObjective"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "StudyObjectiveRef"
+            ],
             "title": "StudyObjectives",
             "type": "object"
         },
@@ -3471,7 +3890,6 @@
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "OID": {
@@ -3479,11 +3897,7 @@
                     "type": "string"
                 },
                 "ParameterValueRef": {
-                    "items": {
-                        "$ref": "#/$defs/ParameterValue"
-                    },
-                    "minItems": 1,
-                    "type": "array"
+                    "$ref": "#/$defs/ParameterValue"
                 },
                 "ShortName": {
                     "type": "string"
@@ -3508,7 +3922,6 @@
                     "items": {
                         "$ref": "#/$defs/Arm"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "DescriptionRef": {
@@ -3518,7 +3931,6 @@
                     "items": {
                         "$ref": "#/$defs/Epoch"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "WorkflowRefRef": {
@@ -3531,6 +3943,18 @@
         "StudySummary": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "StudyParameterRef": {
+                    "items": {
+                        "$ref": "#/$defs/StudyParameter"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "StudyParameterRef"
+            ],
             "title": "StudySummary",
             "type": "object"
         },
@@ -3542,7 +3966,6 @@
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "DescriptionRef": {
@@ -3552,7 +3975,6 @@
                     "items": {
                         "$ref": "#/$defs/FormalExpression"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "Name": {
@@ -3594,14 +4016,12 @@
                     "items": {
                         "$ref": "#/$defs/AbsoluteTimingConstraint"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "DurationTimingConstraintRef": {
                     "items": {
                         "$ref": "#/$defs/DurationTimingConstraint"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "Name": {
@@ -3616,14 +4036,12 @@
                     "items": {
                         "$ref": "#/$defs/RelativeTimingConstraint"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "TransitionTimingConstraintRef": {
                     "items": {
                         "$ref": "#/$defs/TransitionTimingConstraint"
                     },
-                    "minItems": 0,
                     "type": "array"
                 }
             },
@@ -3637,6 +4055,18 @@
         "StudyTimings": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "StudyTimingRef": {
+                    "items": {
+                        "$ref": "#/$defs/StudyTiming"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "StudyTimingRef"
+            ],
             "title": "StudyTimings",
             "type": "object"
         },
@@ -3663,6 +4093,15 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "AnnotationRef": {
+                    "items": {
+                        "$ref": "#/$defs/Annotation"
+                    },
+                    "type": "array"
+                },
+                "AuditRecordRef": {
+                    "$ref": "#/$defs/AuditRecord"
+                },
                 "InvestigatorRefRef": {
                     "$ref": "#/$defs/InvestigatorRef"
                 },
@@ -3670,8 +4109,10 @@
                     "items": {
                         "$ref": "#/$defs/Query"
                     },
-                    "minItems": 0,
                     "type": "array"
+                },
+                "SignatureRefRef": {
+                    "type": "string"
                 },
                 "SiteRefRef": {
                     "$ref": "#/$defs/SiteRef"
@@ -3680,13 +4121,12 @@
                     "items": {
                         "$ref": "#/$defs/StudyEventData"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "SubjectKey": {
                     "type": "string"
                 },
-                "TransactionType": {
+                "TransactionTypeRef": {
                     "$ref": "#/$defs/TransactionType"
                 }
             },
@@ -3711,12 +4151,33 @@
         "SummaryMeasure": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                }
+            },
+            "required": [
+                "DescriptionRef"
+            ],
             "title": "SummaryMeasure",
             "type": "object"
         },
         "SupplementalDoc": {
             "additionalProperties": false,
             "description": "Supplemental data definitions",
+            "properties": {
+                "DocumentRefRef": {
+                    "description": "Links to a leaf element with the location of the document.",
+                    "items": {
+                        "$ref": "#/$defs/DocumentRef"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "DocumentRefRef"
+            ],
             "title": "SupplementalDoc",
             "type": "object"
         },
@@ -3807,6 +4268,9 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
                 "MethodOID": {
                     "type": "string"
                 },
@@ -3848,7 +4312,12 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                },
                 "_language": {
+                    "description": "language context for internationalisation and localisation",
                     "type": "string"
                 },
                 "type": {
@@ -3865,12 +4334,15 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "Value": {
+                "DescriptionRef": {
+                    "$ref": "#/$defs/Description"
+                },
+                "ValueRef": {
                     "type": "string"
                 }
             },
             "required": [
-                "Value"
+                "ValueRef"
             ],
             "title": "TrialPhase",
             "type": "object"
@@ -3903,7 +4375,6 @@
                     "items": {
                         "$ref": "#/$defs/Address"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "FamilyNameRef": {
@@ -3938,13 +4409,12 @@
                     "items": {
                         "$ref": "#/$defs/Telecom"
                     },
-                    "minItems": 0,
                     "type": "array"
                 },
                 "UserNameRef": {
                     "$ref": "#/$defs/UserName"
                 },
-                "UserType": {
+                "UserTypeRef": {
                     "$ref": "#/$defs/UserType"
                 }
             },
@@ -4064,10 +4534,19 @@
                 "OID": {
                     "description": "Unique identifier of the version within the XML document.",
                     "type": "string"
+                },
+                "RangeCheckRef": {
+                    "description": "A WhereClause element defines a condition by using one or more RangeCheck elements.",
+                    "items": {
+                        "$ref": "#/$defs/RangeCheck"
+                    },
+                    "minItems": 1,
+                    "type": "array"
                 }
             },
             "required": [
-                "OID"
+                "OID",
+                "RangeCheckRef"
             ],
             "title": "WhereClauseDef",
             "type": "object"
@@ -4090,6 +4569,9 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "BranchingRef": {
+                    "type": "string"
+                },
                 "DescriptionRef": {
                     "$ref": "#/$defs/Description"
                 },
@@ -4099,6 +4581,9 @@
                 },
                 "OID": {
                     "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
+                "TransitionRef": {
                     "type": "string"
                 },
                 "WorkflowEndRef": {

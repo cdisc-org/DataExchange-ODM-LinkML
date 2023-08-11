@@ -43,6 +43,10 @@ URI: [odm:ErrorMessage](http://www.cdisc.org/ns/odm/v2.0/ErrorMessage)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/ErrorMessage](https://wiki.cdisc.org/display/ODM2/ErrorMessage)
+
 ## Identifier and Mapping Information
 
 
@@ -81,21 +85,29 @@ URI: [odm:ErrorMessage](http://www.cdisc.org/ns/odm/v2.0/ErrorMessage)
 ```yaml
 name: ErrorMessage
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ErrorMessage
 slots:
 - TranslatedTextRef
 slot_usage:
   TranslatedTextRef:
     name: TranslatedTextRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:ErrorMessage
 
@@ -108,19 +120,27 @@ class_uri: odm:ErrorMessage
 ```yaml
 name: ErrorMessage
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ErrorMessage
 slot_usage:
   TranslatedTextRef:
     name: TranslatedTextRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   TranslatedTextRef:
@@ -128,17 +148,23 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
     alias: TranslatedTextRef
     owner: ErrorMessage
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:ErrorMessage
 

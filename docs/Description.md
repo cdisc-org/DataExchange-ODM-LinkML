@@ -36,10 +36,19 @@ URI: [odm:Description](http://www.cdisc.org/ns/odm/v2.0/Description)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [Study](Study.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
+| [MetaDataVersion](MetaDataVersion.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [ValueListDef](ValueListDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [StudyEventGroupRef](StudyEventGroupRef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [StudyEventGroupDef](StudyEventGroupDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
+| [StudyEventDef](StudyEventDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [Origin](Origin.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
+| [ItemDef](ItemDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
+| [CodeList](CodeList.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
+| [CodeListItem](CodeListItem.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
+| [MethodDef](MethodDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
+| [ConditionDef](ConditionDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [CommentDef](CommentDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [Protocol](Protocol.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [StudyStructure](StudyStructure.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
@@ -62,23 +71,17 @@ URI: [odm:Description](http://www.cdisc.org/ns/odm/v2.0/Description)
 | [Criterion](Criterion.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [ExceptionEvent](ExceptionEvent.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [Organization](Organization.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [MetaDataVersion](MetaDataVersion.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [StudyEventDef](StudyEventDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [ItemGroupDef](ItemGroupDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [ItemDef](ItemDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [CodeList](CodeList.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [ConditionDef](ConditionDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [MethodDef](MethodDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [CodeListItem](CodeListItem.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [EnumeratedItem](EnumeratedItem.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [Location](Location.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [Study](Study.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [ODMFileMetadata](ODMFileMetadata.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 
 
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Description](https://wiki.cdisc.org/display/ODM2/Description)
 
 ## Identifier and Mapping Information
 
@@ -118,21 +121,29 @@ URI: [odm:Description](http://www.cdisc.org/ns/odm/v2.0/Description)
 ```yaml
 name: Description
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Description
 slots:
 - TranslatedTextRef
 slot_usage:
   TranslatedTextRef:
     name: TranslatedTextRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:Description
 
@@ -145,19 +156,27 @@ class_uri: odm:Description
 ```yaml
 name: Description
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Description
 slot_usage:
   TranslatedTextRef:
     name: TranslatedTextRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   TranslatedTextRef:
@@ -165,17 +184,23 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
     alias: TranslatedTextRef
     owner: Description
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:Description
 

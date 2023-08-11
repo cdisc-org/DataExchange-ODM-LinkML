@@ -18,8 +18,8 @@ URI: [FileType](FileType)
 
 | Name | Description |
 | ---  | --- |
-| [FileType](FileType.md) |  |
-| [FileType](FileType.md) |  |
+| [FileTypeRef](FileTypeRef.md) |  |
+| [FileTypeRef](FileTypeRef.md) |  |
 
 
 
@@ -34,12 +34,20 @@ URI: [FileType](FileType)
 
 
 
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+
 
 ## LinkML Source
 
 <details>
 ```yaml
 name: FileType
+from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:
   Snapshot:

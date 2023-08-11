@@ -41,6 +41,10 @@ URI: [odm:HouseNumber](http://www.cdisc.org/ns/odm/v2.0/HouseNumber)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/HouseNumber](https://wiki.cdisc.org/display/ODM2/HouseNumber)
+
 ## Identifier and Mapping Information
 
 
@@ -79,6 +83,8 @@ URI: [odm:HouseNumber](http://www.cdisc.org/ns/odm/v2.0/HouseNumber)
 ```yaml
 name: HouseNumber
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/HouseNumber
 slots:
 - _content
 slot_usage:
@@ -97,6 +103,8 @@ class_uri: odm:HouseNumber
 ```yaml
 name: HouseNumber
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/HouseNumber
 slot_usage:
   range:
     name: range
@@ -110,6 +118,7 @@ attributes:
   alias: _content
   owner: HouseNumber
   domain_of:
+  - TranslatedText
   - CheckValue
   - Code
   - WorkflowEnd
@@ -134,8 +143,8 @@ attributes:
   - FlagValue
   - FlagType
   - Value
-  - TranslatedText
   range: _contentType
+  inlined: true
 class_uri: odm:HouseNumber
 
 ```

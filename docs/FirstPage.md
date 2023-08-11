@@ -28,7 +28,7 @@ URI: [odm:FirstPage](http://www.cdisc.org/ns/odm/v2.0/FirstPage)
 
 ## Properties
 
-* Range: [Integer](Integer.md)
+* Range: [PositiveInteger](PositiveInteger.md)
 
 
 
@@ -61,7 +61,7 @@ rank: 1000
 alias: FirstPage
 domain_of:
 - PDFPageRef
-range: integer
+range: positiveInteger
 
 ```
 </details>

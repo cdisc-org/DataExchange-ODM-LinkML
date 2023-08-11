@@ -3,9 +3,9 @@
 
 
 
-_A name given to a reference source that lists words and gives their meaning._
+_A name given to a reference source that lists words and gives their_
 
-_                (NCI)_
+_                meaning. (NCI)_
 
 
 

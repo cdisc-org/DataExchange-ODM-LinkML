@@ -1,33 +1,49 @@
-# Slot: Code
+# Class: Code
+
+
 
 URI: [odm:Code](http://www.cdisc.org/ns/odm/v2.0/Code)
+
+
+
+```mermaid
+ classDiagram
+    class Code
+      Code : _content
+        
+      
+```
+
 
 
 
 <!-- no inheritance hierarchy -->
 
 
+## Slots
 
-
-## Applicable Classes
-
-| Name | Description | Modifies Slot |
-| --- | --- | --- |
-[Coding](Coding.md) |  |  yes  |
-
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [_content](_content.md) | 0..1 <br/> [ContentType](ContentType.md) | multi-line text content from between XML tags | direct |
 
 
 
 
 
+## Usages
 
-## Properties
-
-* Range: [Text](Text.md)
-
-
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [FormalExpression](FormalExpression.md) | [CodeRef](CodeRef.md) | range | [Code](Code.md) |
 
 
+
+
+
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Code](https://wiki.cdisc.org/display/ODM2/Code)
 
 ## Identifier and Mapping Information
 
@@ -45,17 +61,91 @@ URI: [odm:Code](http://www.cdisc.org/ns/odm/v2.0/Code)
 
 
 
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | odm:Code |
+| native | odm:Code |
+
+
+
+
+
 ## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
 
 <details>
 ```yaml
 name: Code
 from_schema: http://www.cdisc.org/ns/odm/v2.0
-rank: 1000
-alias: Code
-domain_of:
-- Coding
-range: text
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Code
+slots:
+- _content
+slot_usage:
+  range:
+    name: range
+    id_prefixes:
+    - text
+class_uri: odm:Code
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Code
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Code
+slot_usage:
+  range:
+    name: range
+    id_prefixes:
+    - text
+attributes:
+  name: _content
+  description: multi-line text content from between XML tags
+  from_schema: http://www.cdisc.org/ns/odm/v2.0
+  rank: 1000
+  alias: _content
+  owner: Code
+  domain_of:
+  - TranslatedText
+  - CheckValue
+  - Code
+  - WorkflowEnd
+  - UserName
+  - Prefix
+  - Suffix
+  - FullName
+  - GivenName
+  - FamilyName
+  - StreetName
+  - HouseNumber
+  - City
+  - StateProv
+  - Country
+  - PostalCode
+  - OtherText
+  - Meaning
+  - LegalReason
+  - DateTimeStamp
+  - ReasonForChange
+  - SourceID
+  - FlagValue
+  - FlagType
+  - Value
+  range: _contentType
+  inlined: true
+class_uri: odm:Code
 
 ```
 </details>

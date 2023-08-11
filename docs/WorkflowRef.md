@@ -35,16 +35,21 @@ URI: [odm:WorkflowRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRef)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [StudyEventGroupDef](StudyEventGroupDef.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
+| [StudyEventDef](StudyEventDef.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
 | [Protocol](Protocol.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
 | [StudyStructure](StudyStructure.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
 | [Arm](Arm.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
-| [StudyEventDef](StudyEventDef.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
-| [ItemGroupDef](ItemGroupDef.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
+| [ExceptionEvent](ExceptionEvent.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
 
 
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/WorkflowRef](https://wiki.cdisc.org/display/ODM2/WorkflowRef)
 
 ## Identifier and Mapping Information
 
@@ -83,9 +88,9 @@ URI: [odm:WorkflowRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRef)
 <details>
 ```yaml
 name: WorkflowRef
-in_subset:
-- ExceptionEventGroupDefinition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/WorkflowRef
 slots:
 - WorkflowOID
 slot_usage:
@@ -105,9 +110,9 @@ class_uri: odm:WorkflowRef
 <details>
 ```yaml
 name: WorkflowRef
-in_subset:
-- ExceptionEventGroupDefinition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/WorkflowRef
 slot_usage:
   WorkflowOID:
     name: WorkflowOID

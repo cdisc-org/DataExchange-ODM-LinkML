@@ -13,9 +13,9 @@ URI: [odm:MethodOID](http://www.cdisc.org/ns/odm/v2.0/MethodOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[TransitionTimingConstraint](TransitionTimingConstraint.md) |  |  yes  |
-[ItemRef](ItemRef.md) |  |  yes  |
 [ItemGroupRef](ItemGroupRef.md) |  |  yes  |
+[ItemRef](ItemRef.md) |  |  yes  |
+[TransitionTimingConstraint](TransitionTimingConstraint.md) |  |  yes  |
 
 
 
@@ -56,9 +56,9 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: MethodOID
 domain_of:
-- TransitionTimingConstraint
-- ItemRef
 - ItemGroupRef
+- ItemRef
+- TransitionTimingConstraint
 range: oidref
 
 ```

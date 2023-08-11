@@ -14,11 +14,12 @@ URI: [odm:WorkflowRefRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRefRef)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [StudyEventGroupDef](StudyEventGroupDef.md) |  |  yes  |
+[StudyEventDef](StudyEventDef.md) |  |  yes  |
+[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
 [Protocol](Protocol.md) |  |  yes  |
 [StudyStructure](StudyStructure.md) |  |  yes  |
 [Arm](Arm.md) |  |  yes  |
-[StudyEventDef](StudyEventDef.md) |  |  yes  |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
+[ExceptionEvent](ExceptionEvent.md) |  |  yes  |
 
 
 
@@ -60,11 +61,12 @@ rank: 1000
 alias: WorkflowRefRef
 domain_of:
 - StudyEventGroupDef
+- StudyEventDef
+- ItemGroupDef
 - Protocol
 - StudyStructure
 - Arm
-- StudyEventDef
-- ItemGroupDef
+- ExceptionEvent
 range: WorkflowRef
 
 ```

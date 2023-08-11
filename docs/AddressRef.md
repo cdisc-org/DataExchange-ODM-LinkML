@@ -13,8 +13,8 @@ URI: [odm:AddressRef](http://www.cdisc.org/ns/odm/v2.0/AddressRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Organization](Organization.md) |  |  yes  |
 [User](User.md) |  |  yes  |
+[Organization](Organization.md) |  |  yes  |
 [Location](Location.md) |  |  yes  |
 
 
@@ -56,8 +56,8 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: AddressRef
 domain_of:
-- Organization
 - User
+- Organization
 - Location
 range: Address
 

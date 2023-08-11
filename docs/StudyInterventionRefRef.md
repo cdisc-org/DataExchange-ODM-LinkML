@@ -13,6 +13,7 @@ URI: [odm:StudyInterventionRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterve
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[StudyInterventions](StudyInterventions.md) |  |  yes  |
 [StudyEstimand](StudyEstimand.md) |  |  yes  |
 
 
@@ -54,6 +55,7 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: StudyInterventionRefRef
 domain_of:
+- StudyInterventions
 - StudyEstimand
 range: StudyInterventionRef
 

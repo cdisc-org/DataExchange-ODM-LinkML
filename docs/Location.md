@@ -68,12 +68,16 @@ URI: [odm:Location](http://www.cdisc.org/ns/odm/v2.0/Location)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdminData](AdminData.md) | [LocationRef](LocationRef.md) | range | [Location](Location.md) |
+| [AdminData](AdminData.md) | [LocationRefRef](LocationRefRef.md) | range | [Location](Location.md) |
 
 
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Location](https://wiki.cdisc.org/display/ODM2/Location)
 
 ## Identifier and Mapping Information
 
@@ -113,6 +117,8 @@ URI: [odm:Location](http://www.cdisc.org/ns/odm/v2.0/Location)
 ```yaml
 name: Location
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Location
 slots:
 - OID
 - Name
@@ -127,9 +133,18 @@ slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -150,32 +165,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -193,41 +208,39 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   Role:
     name: Role
     domain_of:
-    - Organization
     - ItemRef
+    - Organization
     - Location
     range: text
-    required: false
   OrganizationOID:
     name: OrganizationOID
     domain_of:
     - User
     - Location
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -250,69 +263,55 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   MetaDataVersionRefRef:
     name: MetaDataVersionRefRef
     multivalued: true
     domain_of:
+    - Study
     - Location
     range: MetaDataVersionRef
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
   AddressRef:
     name: AddressRef
     multivalued: true
     domain_of:
-    - Organization
     - User
+    - Organization
     - Location
     range: Address
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   TelecomRef:
     name: TelecomRef
     multivalued: true
     domain_of:
-    - Organization
     - User
+    - Organization
     - Location
     range: Telecom
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   QueryRef:
     name: QueryRef
     multivalued: true
     domain_of:
+    - Location
     - ClinicalData
     - SubjectData
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Location
     range: Query
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Location
-unique_keys:
-  UC-AD-2:
-    unique_key_name: UC-AD-2
-    unique_key_slots:
-    - OID
 
 ```
 </details>
@@ -323,13 +322,24 @@ unique_keys:
 ```yaml
 name: Location
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Location
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -350,32 +360,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -393,41 +403,39 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   Role:
     name: Role
     domain_of:
-    - Organization
     - ItemRef
+    - Organization
     - Location
     range: text
-    required: false
   OrganizationOID:
     name: OrganizationOID
     domain_of:
     - User
     - Location
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -450,75 +458,76 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   MetaDataVersionRefRef:
     name: MetaDataVersionRefRef
     multivalued: true
     domain_of:
+    - Study
     - Location
     range: MetaDataVersionRef
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
   AddressRef:
     name: AddressRef
     multivalued: true
     domain_of:
-    - Organization
     - User
+    - Organization
     - Location
     range: Address
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   TelecomRef:
     name: TelecomRef
     multivalued: true
     domain_of:
-    - Organization
     - User
+    - Organization
     - Location
     range: Telecom
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   QueryRef:
     name: QueryRef
     multivalued: true
     domain_of:
+    - Location
     - ClinicalData
     - SubjectData
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Location
     range: Query
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   OID:
     name: OID
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: OID
     owner: Location
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -539,20 +548,11 @@ attributes:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
@@ -563,13 +563,22 @@ attributes:
     alias: Name
     owner: Location
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -587,17 +596,8 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   Role:
@@ -607,11 +607,10 @@ attributes:
     alias: Role
     owner: Location
     domain_of:
-    - Organization
     - ItemRef
+    - Organization
     - Location
     range: text
-    required: false
   OrganizationOID:
     name: OrganizationOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -622,7 +621,6 @@ attributes:
     - User
     - Location
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -630,10 +628,19 @@ attributes:
     alias: DescriptionRef
     owner: Location
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -656,21 +663,9 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   MetaDataVersionRefRef:
     name: MetaDataVersionRefRef
@@ -680,9 +675,12 @@ attributes:
     alias: MetaDataVersionRefRef
     owner: Location
     domain_of:
+    - Study
     - Location
     range: MetaDataVersionRef
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
   AddressRef:
     name: AddressRef
@@ -692,12 +690,12 @@ attributes:
     alias: AddressRef
     owner: Location
     domain_of:
-    - Organization
     - User
+    - Organization
     - Location
     range: Address
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   TelecomRef:
     name: TelecomRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -706,12 +704,12 @@ attributes:
     alias: TelecomRef
     owner: Location
     domain_of:
-    - Organization
     - User
+    - Organization
     - Location
     range: Telecom
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   QueryRef:
     name: QueryRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -720,21 +718,16 @@ attributes:
     alias: QueryRef
     owner: Location
     domain_of:
+    - Location
     - ClinicalData
     - SubjectData
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Location
     range: Query
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Location
-unique_keys:
-  UC-AD-2:
-    unique_key_name: UC-AD-2
-    unique_key_slots:
-    - OID
 
 ```
 </details>

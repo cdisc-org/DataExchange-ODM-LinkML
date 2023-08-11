@@ -23,7 +23,7 @@ URI: [odm:KeySequence](http://www.cdisc.org/ns/odm/v2.0/KeySequence)
 
 ## Properties
 
-* Range: [Integer](Integer.md)
+* Range: [PositiveInteger](PositiveInteger.md)
 
 
 
@@ -55,7 +55,7 @@ rank: 1000
 alias: KeySequence
 domain_of:
 - ItemRef
-range: integer
+range: positiveInteger
 
 ```
 </details>

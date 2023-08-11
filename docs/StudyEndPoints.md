@@ -9,9 +9,9 @@ URI: [odm:StudyEndPoints](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoints)
 ```mermaid
  classDiagram
     class StudyEndPoints
-      StudyEndPoints : StudyEndPointRef
+      StudyEndPoints : StudyEndPointRefRef
         
-          StudyEndPoints --|> StudyEndPoint : StudyEndPointRef
+          StudyEndPoints --|> StudyEndPoint : StudyEndPointRefRef
         
       
 ```
@@ -26,7 +26,7 @@ URI: [odm:StudyEndPoints](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoints)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEndPointRef](StudyEndPointRef.md) | 1..* <br/> [StudyEndPoint](StudyEndPoint.md) |  | direct |
+| [StudyEndPointRefRef](StudyEndPointRefRef.md) | 1..* <br/> [StudyEndPoint](StudyEndPoint.md) |  | direct |
 
 
 
@@ -42,6 +42,10 @@ URI: [odm:StudyEndPoints](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoints)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/StudyEndPoints](https://wiki.cdisc.org/display/ODM2/StudyEndPoints)
 
 ## Identifier and Mapping Information
 
@@ -81,16 +85,22 @@ URI: [odm:StudyEndPoints](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoints)
 ```yaml
 name: StudyEndPoints
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyEndPoints
 slots:
-- StudyEndPointRef
+- StudyEndPointRefRef
 slot_usage:
-  StudyEndPointRef:
-    name: StudyEndPointRef
+  StudyEndPointRefRef:
+    name: StudyEndPointRefRef
     multivalued: true
     domain_of:
+    - StudyObjective
     - StudyEndPoints
+    - StudyEstimand
     range: StudyEndPoint
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudyEndPoints
 
@@ -103,27 +113,37 @@ class_uri: odm:StudyEndPoints
 ```yaml
 name: StudyEndPoints
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyEndPoints
 slot_usage:
-  StudyEndPointRef:
-    name: StudyEndPointRef
+  StudyEndPointRefRef:
+    name: StudyEndPointRefRef
     multivalued: true
     domain_of:
+    - StudyObjective
     - StudyEndPoints
+    - StudyEstimand
     range: StudyEndPoint
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
-  StudyEndPointRef:
-    name: StudyEndPointRef
+  StudyEndPointRefRef:
+    name: StudyEndPointRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    alias: StudyEndPointRef
+    alias: StudyEndPointRefRef
     owner: StudyEndPoints
     domain_of:
+    - StudyObjective
     - StudyEndPoints
+    - StudyEstimand
     range: StudyEndPoint
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudyEndPoints
 

@@ -1,29 +1,34 @@
-# Slot: CodeListRef
+# Class: CodeListRef
+
+
 
 URI: [odm:CodeListRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRef)
+
+
+
+```mermaid
+ classDiagram
+    class CodeListRef
+      CodeListRef : CodeListOID
+        
+      
+```
+
 
 
 
 <!-- no inheritance hierarchy -->
 
 
+## Slots
 
-
-## Applicable Classes
-
-| Name | Description | Modifies Slot |
-| --- | --- | --- |
-[MetaDataVersion](MetaDataVersion.md) |  |  yes  |
-
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [CodeListOID](CodeListOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
 
 
 
 
-
-
-## Properties
-
-* Range: [CodeList](CodeList.md)
 
 ## Usages
 
@@ -35,6 +40,10 @@ URI: [odm:CodeListRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRef)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/CodeListRef](https://wiki.cdisc.org/display/ODM2/CodeListRef)
 
 ## Identifier and Mapping Information
 
@@ -52,17 +61,77 @@ URI: [odm:CodeListRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRef)
 
 
 
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | odm:CodeListRef |
+| native | odm:CodeListRef |
+
+
+
+
+
 ## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
 
 <details>
 ```yaml
 name: CodeListRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
-rank: 1000
-alias: CodeListRef
-domain_of:
-- MetaDataVersion
-range: CodeList
+see_also:
+- https://wiki.cdisc.org/display/ODM2/CodeListRef
+slots:
+- CodeListOID
+slot_usage:
+  CodeListOID:
+    name: CodeListOID
+    domain_of:
+    - CodeListRef
+    - FlagValue
+    - FlagType
+    range: oidref
+    required: true
+class_uri: odm:CodeListRef
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: CodeListRef
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/CodeListRef
+slot_usage:
+  CodeListOID:
+    name: CodeListOID
+    domain_of:
+    - CodeListRef
+    - FlagValue
+    - FlagType
+    range: oidref
+    required: true
+attributes:
+  CodeListOID:
+    name: CodeListOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: CodeListOID
+    owner: CodeListRef
+    domain_of:
+    - CodeListRef
+    - FlagValue
+    - FlagType
+    range: oidref
+    required: true
+class_uri: odm:CodeListRef
 
 ```
 </details>

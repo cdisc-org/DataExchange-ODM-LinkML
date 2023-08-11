@@ -13,11 +13,11 @@ URI: [odm:ItemOID](http://www.cdisc.org/ns/odm/v2.0/ItemOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[ItemRef](ItemRef.md) |  |  yes  |
 [SourceItem](SourceItem.md) |  |  yes  |
 [RangeCheck](RangeCheck.md) |  |  yes  |
 [ItemData](ItemData.md) |  |  yes  |
 [KeySet](KeySet.md) |  |  yes  |
-[ItemRef](ItemRef.md) |  |  yes  |
 
 
 
@@ -58,11 +58,11 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ItemOID
 domain_of:
+- ItemRef
 - SourceItem
 - RangeCheck
 - ItemData
 - KeySet
-- ItemRef
 range: oidref
 
 ```

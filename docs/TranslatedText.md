@@ -28,7 +28,7 @@ URI: [odm:TranslatedText](http://www.cdisc.org/ns/odm/v2.0/TranslatedText)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [_language](_language.md) | 0..1 <br/> [_languageType](_languageType.md) | language context for internationalisation and localisation | direct |
+| [_language](_language.md) | 0..1 <br/> [LanguageType](LanguageType.md) | language context for internationalisation and localisation | direct |
 | [type](type.md) | 1..1 <br/> [Text](Text.md) |  | direct |
 | [_content](_content.md) | 0..1 <br/> [ContentType](ContentType.md) | multi-line text content from between XML tags | direct |
 
@@ -42,6 +42,11 @@ URI: [odm:TranslatedText](http://www.cdisc.org/ns/odm/v2.0/TranslatedText)
 | ---  | --- | --- | --- |
 | [Description](Description.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
 | [Question](Question.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
+| [Definition](Definition.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
+| [Prompt](Prompt.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
+| [CRFCompletionInstructions](CRFCompletionInstructions.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
+| [ImplementationNotes](ImplementationNotes.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
+| [CDISCNotes](CDISCNotes.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
 | [ErrorMessage](ErrorMessage.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
 | [Decode](Decode.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
 | [Comment](Comment.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
@@ -50,6 +55,10 @@ URI: [odm:TranslatedText](http://www.cdisc.org/ns/odm/v2.0/TranslatedText)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/TranslatedText](https://wiki.cdisc.org/display/ODM2/TranslatedText)
 
 ## Identifier and Mapping Information
 
@@ -89,16 +98,13 @@ URI: [odm:TranslatedText](http://www.cdisc.org/ns/odm/v2.0/TranslatedText)
 ```yaml
 name: TranslatedText
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/TranslatedText
 slots:
 - _language
 - type
 - _content
 slot_usage:
-  _language:
-    name: _language
-    domain_of:
-    - TranslatedText
-    required: false
   type:
     name: type
     domain_of:
@@ -108,6 +114,7 @@ slot_usage:
   _content:
     name: _content
     domain_of:
+    - TranslatedText
     - CheckValue
     - Code
     - WorkflowEnd
@@ -132,18 +139,9 @@ slot_usage:
     - FlagValue
     - FlagType
     - Value
-    - TranslatedText
     range: _contentType
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:TranslatedText
-unique_keys:
-  UC-DEC-1:
-    unique_key_name: UC-DEC-1
-    unique_key_slots:
-    - type
-    - _language
 
 ```
 </details>
@@ -154,12 +152,9 @@ unique_keys:
 ```yaml
 name: TranslatedText
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/TranslatedText
 slot_usage:
-  _language:
-    name: _language
-    domain_of:
-    - TranslatedText
-    required: false
   type:
     name: type
     domain_of:
@@ -169,6 +164,7 @@ slot_usage:
   _content:
     name: _content
     domain_of:
+    - TranslatedText
     - CheckValue
     - Code
     - WorkflowEnd
@@ -193,10 +189,7 @@ slot_usage:
     - FlagValue
     - FlagType
     - Value
-    - TranslatedText
     range: _contentType
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 attributes:
   _language:
@@ -209,7 +202,6 @@ attributes:
     domain_of:
     - TranslatedText
     range: _languageType
-    required: false
   type:
     name: type
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -228,6 +220,7 @@ attributes:
     alias: _content
     owner: TranslatedText
     domain_of:
+    - TranslatedText
     - CheckValue
     - Code
     - WorkflowEnd
@@ -252,18 +245,10 @@ attributes:
     - FlagValue
     - FlagType
     - Value
-    - TranslatedText
     range: _contentType
-    required: false
-    minimum_cardinality: 0
+    inlined: true
     maximum_cardinality: 1
 class_uri: odm:TranslatedText
-unique_keys:
-  UC-DEC-1:
-    unique_key_name: UC-DEC-1
-    unique_key_slots:
-    - type
-    - _language
 
 ```
 </details>

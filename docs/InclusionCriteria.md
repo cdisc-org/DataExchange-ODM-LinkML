@@ -43,6 +43,10 @@ URI: [odm:InclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/InclusionCriteria)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/InclusionCriteria](https://wiki.cdisc.org/display/ODM2/InclusionCriteria)
+
 ## Identifier and Mapping Information
 
 
@@ -81,6 +85,8 @@ URI: [odm:InclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/InclusionCriteria)
 ```yaml
 name: InclusionCriteria
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/InclusionCriteria
 slots:
 - CriterionRef
 slot_usage:
@@ -94,6 +100,8 @@ slot_usage:
     - ExitCriteria
     range: Criterion
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:InclusionCriteria
 
@@ -106,6 +114,8 @@ class_uri: odm:InclusionCriteria
 ```yaml
 name: InclusionCriteria
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/InclusionCriteria
 slot_usage:
   CriterionRef:
     name: CriterionRef
@@ -117,6 +127,8 @@ slot_usage:
     - ExitCriteria
     range: Criterion
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   CriterionRef:
@@ -133,6 +145,8 @@ attributes:
     - ExitCriteria
     range: Criterion
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:InclusionCriteria
 

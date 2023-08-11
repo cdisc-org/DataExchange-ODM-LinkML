@@ -43,6 +43,10 @@ URI: [odm:StudySummary](http://www.cdisc.org/ns/odm/v2.0/StudySummary)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/StudySummary](https://wiki.cdisc.org/display/ODM2/StudySummary)
+
 ## Identifier and Mapping Information
 
 
@@ -81,6 +85,8 @@ URI: [odm:StudySummary](http://www.cdisc.org/ns/odm/v2.0/StudySummary)
 ```yaml
 name: StudySummary
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudySummary
 slots:
 - StudyParameterRef
 slot_usage:
@@ -91,6 +97,8 @@ slot_usage:
     - StudySummary
     range: StudyParameter
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudySummary
 
@@ -103,6 +111,8 @@ class_uri: odm:StudySummary
 ```yaml
 name: StudySummary
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudySummary
 slot_usage:
   StudyParameterRef:
     name: StudyParameterRef
@@ -111,6 +121,8 @@ slot_usage:
     - StudySummary
     range: StudyParameter
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   StudyParameterRef:
@@ -124,6 +136,8 @@ attributes:
     - StudySummary
     range: StudyParameter
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudySummary
 

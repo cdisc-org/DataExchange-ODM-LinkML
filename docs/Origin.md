@@ -69,6 +69,10 @@ URI: [odm:Origin](http://www.cdisc.org/ns/odm/v2.0/Origin)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Origin](https://wiki.cdisc.org/display/ODM2/Origin)
+
 ## Identifier and Mapping Information
 
 
@@ -107,6 +111,8 @@ URI: [odm:Origin](http://www.cdisc.org/ns/odm/v2.0/Origin)
 ```yaml
 name: Origin
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Origin
 slots:
 - Type
 - Source
@@ -119,8 +125,12 @@ slot_usage:
     name: Type
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -128,10 +138,6 @@ slot_usage:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: OriginType
     required: true
   Source:
@@ -140,14 +146,22 @@ slot_usage:
     - Origin
     - Query
     range: OriginSource
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -170,53 +184,39 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   SourceItemsRef:
     name: SourceItemsRef
     domain_of:
     - Origin
     range: SourceItems
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   DocumentRefRef:
     name: DocumentRefRef
     multivalued: true
@@ -224,11 +224,11 @@ slot_usage:
     - AnnotatedCRF
     - SupplementalDoc
     - Origin
-    - CommentDef
     - MethodDef
+    - CommentDef
     range: DocumentRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Origin
 
 ```
@@ -240,13 +240,19 @@ class_uri: odm:Origin
 ```yaml
 name: Origin
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Origin
 slot_usage:
   Type:
     name: Type
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -254,10 +260,6 @@ slot_usage:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: OriginType
     required: true
   Source:
@@ -266,14 +268,22 @@ slot_usage:
     - Origin
     - Query
     range: OriginSource
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -296,53 +306,39 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   SourceItemsRef:
     name: SourceItemsRef
     domain_of:
     - Origin
     range: SourceItems
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   DocumentRefRef:
     name: DocumentRefRef
     multivalued: true
@@ -350,11 +346,11 @@ slot_usage:
     - AnnotatedCRF
     - SupplementalDoc
     - Origin
-    - CommentDef
     - MethodDef
+    - CommentDef
     range: DocumentRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   Type:
     name: Type
@@ -365,8 +361,12 @@ attributes:
     owner: Origin
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -374,10 +374,6 @@ attributes:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: OriginType
     required: true
   Source:
@@ -390,7 +386,6 @@ attributes:
     - Origin
     - Query
     range: OriginSource
-    required: false
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -398,10 +393,19 @@ attributes:
     alias: DescriptionRef
     owner: Origin
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -424,21 +428,9 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   SourceItemsRef:
     name: SourceItemsRef
@@ -449,8 +441,6 @@ attributes:
     domain_of:
     - Origin
     range: SourceItems
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -461,24 +451,24 @@ attributes:
     owner: Origin
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   DocumentRefRef:
     name: DocumentRefRef
     description: The DocumentRef element is a container for page references in a PDF
@@ -492,11 +482,11 @@ attributes:
     - AnnotatedCRF
     - SupplementalDoc
     - Origin
-    - CommentDef
     - MethodDef
+    - CommentDef
     range: DocumentRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Origin
 
 ```

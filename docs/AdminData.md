@@ -9,9 +9,9 @@ URI: [odm:AdminData](http://www.cdisc.org/ns/odm/v2.0/AdminData)
 ```mermaid
  classDiagram
     class AdminData
-      AdminData : LocationRef
+      AdminData : LocationRefRef
         
-          AdminData --|> Location : LocationRef
+          AdminData --|> Location : LocationRefRef
         
       AdminData : OrganizationRef
         
@@ -23,9 +23,9 @@ URI: [odm:AdminData](http://www.cdisc.org/ns/odm/v2.0/AdminData)
         
       AdminData : StudyOID
         
-      AdminData : UserRef
+      AdminData : UserRefRef
         
-          AdminData --|> User : UserRef
+          AdminData --|> User : UserRefRef
         
       
 ```
@@ -41,9 +41,9 @@ URI: [odm:AdminData](http://www.cdisc.org/ns/odm/v2.0/AdminData)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyOID](StudyOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [UserRef](UserRef.md) | 0..* <br/> [User](User.md) |  | direct |
+| [UserRefRef](UserRefRef.md) | 0..* <br/> [User](User.md) |  | direct |
 | [OrganizationRef](OrganizationRef.md) | 0..* <br/> [Organization](Organization.md) |  | direct |
-| [LocationRef](LocationRef.md) | 0..* <br/> [Location](Location.md) |  | direct |
+| [LocationRefRef](LocationRefRef.md) | 0..* <br/> [Location](Location.md) |  | direct |
 | [SignatureDefRef](SignatureDefRef.md) | 0..* <br/> [SignatureDef](SignatureDef.md) |  | direct |
 
 
@@ -60,6 +60,10 @@ URI: [odm:AdminData](http://www.cdisc.org/ns/odm/v2.0/AdminData)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/AdminData](https://wiki.cdisc.org/display/ODM2/AdminData)
 
 ## Identifier and Mapping Information
 
@@ -99,11 +103,13 @@ URI: [odm:AdminData](http://www.cdisc.org/ns/odm/v2.0/AdminData)
 ```yaml
 name: AdminData
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/AdminData
 slots:
 - StudyOID
-- UserRef
+- UserRefRef
 - OrganizationRef
-- LocationRef
+- LocationRefRef
 - SignatureDefRef
 slot_usage:
   StudyOID:
@@ -118,40 +124,42 @@ slot_usage:
     - Association
     - KeySet
     range: oidref
-    required: false
-  UserRef:
-    name: UserRef
+  UserRefRef:
+    name: UserRefRef
     multivalued: true
     domain_of:
     - AdminData
+    - AuditRecord
+    - Signature
     range: User
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   OrganizationRef:
     name: OrganizationRef
     multivalued: true
     domain_of:
     - AdminData
     range: Organization
-    required: false
-    minimum_cardinality: 0
-  LocationRef:
-    name: LocationRef
+    inlined: true
+    inlined_as_list: true
+  LocationRefRef:
+    name: LocationRefRef
     multivalued: true
     domain_of:
     - AdminData
+    - AuditRecord
+    - Signature
     range: Location
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   SignatureDefRef:
     name: SignatureDefRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - AdminData
     range: SignatureDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:AdminData
 
 ```
@@ -163,6 +171,8 @@ class_uri: odm:AdminData
 ```yaml
 name: AdminData
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/AdminData
 slot_usage:
   StudyOID:
     name: StudyOID
@@ -176,40 +186,42 @@ slot_usage:
     - Association
     - KeySet
     range: oidref
-    required: false
-  UserRef:
-    name: UserRef
+  UserRefRef:
+    name: UserRefRef
     multivalued: true
     domain_of:
     - AdminData
+    - AuditRecord
+    - Signature
     range: User
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   OrganizationRef:
     name: OrganizationRef
     multivalued: true
     domain_of:
     - AdminData
     range: Organization
-    required: false
-    minimum_cardinality: 0
-  LocationRef:
-    name: LocationRef
+    inlined: true
+    inlined_as_list: true
+  LocationRefRef:
+    name: LocationRefRef
     multivalued: true
     domain_of:
     - AdminData
+    - AuditRecord
+    - Signature
     range: Location
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   SignatureDefRef:
     name: SignatureDefRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - AdminData
     range: SignatureDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   StudyOID:
     name: StudyOID
@@ -227,19 +239,20 @@ attributes:
     - Association
     - KeySet
     range: oidref
-    required: false
-  UserRef:
-    name: UserRef
+  UserRefRef:
+    name: UserRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    alias: UserRef
+    alias: UserRefRef
     owner: AdminData
     domain_of:
     - AdminData
+    - AuditRecord
+    - Signature
     range: User
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   OrganizationRef:
     name: OrganizationRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -250,33 +263,34 @@ attributes:
     domain_of:
     - AdminData
     range: Organization
-    required: false
-    minimum_cardinality: 0
-  LocationRef:
-    name: LocationRef
+    inlined: true
+    inlined_as_list: true
+  LocationRefRef:
+    name: LocationRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    alias: LocationRef
+    alias: LocationRefRef
     owner: AdminData
     domain_of:
     - AdminData
+    - AuditRecord
+    - Signature
     range: Location
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   SignatureDefRef:
     name: SignatureDefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
     alias: SignatureDefRef
     owner: AdminData
     domain_of:
     - AdminData
     range: SignatureDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:AdminData
 
 ```

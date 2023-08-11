@@ -15,8 +15,8 @@ URI: [odm:Mandatory](http://www.cdisc.org/ns/odm/v2.0/Mandatory)
 | --- | --- | --- |
 [StudyEventGroupRef](StudyEventGroupRef.md) |  |  yes  |
 [StudyEventRef](StudyEventRef.md) |  |  yes  |
-[ItemRef](ItemRef.md) |  |  yes  |
 [ItemGroupRef](ItemGroupRef.md) |  |  yes  |
+[ItemRef](ItemRef.md) |  |  yes  |
 
 
 
@@ -59,8 +59,8 @@ alias: Mandatory
 domain_of:
 - StudyEventGroupRef
 - StudyEventRef
-- ItemRef
 - ItemGroupRef
+- ItemRef
 range: YesOrNo
 
 ```

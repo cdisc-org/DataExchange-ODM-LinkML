@@ -13,7 +13,7 @@ URI: [odm:ParameterValue](http://www.cdisc.org/ns/odm/v2.0/ParameterValue)
         
           ParameterValue --|> Coding : CodingRef
         
-      ParameterValue : Value
+      ParameterValue : ValueRef
         
       
 ```
@@ -28,7 +28,7 @@ URI: [odm:ParameterValue](http://www.cdisc.org/ns/odm/v2.0/ParameterValue)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Value](Value.md) | 1..1 <br/> [Text](Text.md) |  | direct |
+| [ValueRef](ValueRef.md) | 1..1 <br/> [Text](Text.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
 
 
@@ -45,6 +45,10 @@ URI: [odm:ParameterValue](http://www.cdisc.org/ns/odm/v2.0/ParameterValue)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/ParameterValue](https://wiki.cdisc.org/display/ODM2/ParameterValue)
 
 ## Identifier and Mapping Information
 
@@ -84,15 +88,19 @@ URI: [odm:ParameterValue](http://www.cdisc.org/ns/odm/v2.0/ParameterValue)
 ```yaml
 name: ParameterValue
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ParameterValue
 slots:
-- Value
+- ValueRef
 - CodingRef
 slot_usage:
-  Value:
-    name: Value
+  ValueRef:
+    name: ValueRef
     domain_of:
     - TrialPhase
     - ParameterValue
+    - ItemData
+    - Query
     range: text
     required: true
   CodingRef:
@@ -100,24 +108,24 @@ slot_usage:
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:ParameterValue
 
 ```
@@ -129,12 +137,16 @@ class_uri: odm:ParameterValue
 ```yaml
 name: ParameterValue
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ParameterValue
 slot_usage:
-  Value:
-    name: Value
+  ValueRef:
+    name: ValueRef
     domain_of:
     - TrialPhase
     - ParameterValue
+    - ItemData
+    - Query
     range: text
     required: true
   CodingRef:
@@ -142,34 +154,36 @@ slot_usage:
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
-  Value:
-    name: Value
+  ValueRef:
+    name: ValueRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Value
+    alias: ValueRef
     owner: ParameterValue
     domain_of:
     - TrialPhase
     - ParameterValue
+    - ItemData
+    - Query
     range: text
     required: true
   CodingRef:
@@ -181,24 +195,24 @@ attributes:
     owner: ParameterValue
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:ParameterValue
 
 ```

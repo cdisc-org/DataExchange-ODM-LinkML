@@ -48,6 +48,10 @@ URI: [odm:InclusionExclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/Inclusion
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/InclusionExclusionCriteria](https://wiki.cdisc.org/display/ODM2/InclusionExclusionCriteria)
+
 ## Identifier and Mapping Information
 
 
@@ -86,6 +90,8 @@ URI: [odm:InclusionExclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/Inclusion
 ```yaml
 name: InclusionExclusionCriteria
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/InclusionExclusionCriteria
 slots:
 - InclusionCriteriaRef
 - ExclusionCriteriaRef
@@ -95,16 +101,12 @@ slot_usage:
     domain_of:
     - InclusionExclusionCriteria
     range: InclusionCriteria
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ExclusionCriteriaRef:
     name: ExclusionCriteriaRef
     domain_of:
     - InclusionExclusionCriteria
     range: ExclusionCriteria
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:InclusionExclusionCriteria
 
@@ -117,22 +119,20 @@ class_uri: odm:InclusionExclusionCriteria
 ```yaml
 name: InclusionExclusionCriteria
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/InclusionExclusionCriteria
 slot_usage:
   InclusionCriteriaRef:
     name: InclusionCriteriaRef
     domain_of:
     - InclusionExclusionCriteria
     range: InclusionCriteria
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ExclusionCriteriaRef:
     name: ExclusionCriteriaRef
     domain_of:
     - InclusionExclusionCriteria
     range: ExclusionCriteria
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 attributes:
   InclusionCriteriaRef:
@@ -144,8 +144,6 @@ attributes:
     domain_of:
     - InclusionExclusionCriteria
     range: InclusionCriteria
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ExclusionCriteriaRef:
     name: ExclusionCriteriaRef
@@ -156,8 +154,6 @@ attributes:
     domain_of:
     - InclusionExclusionCriteria
     range: ExclusionCriteria
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:InclusionExclusionCriteria
 

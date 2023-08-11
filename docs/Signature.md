@@ -40,7 +40,7 @@ URI: [odm:Signature](http://www.cdisc.org/ns/odm/v2.0/Signature)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ID](ID.md) | 0..1 <br/> [Oid](Oid.md) | Unique identifier for the leaf that is referenced | direct |
+| [ID](ID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the leaf that is referenced | direct |
 | [UserRefRef](UserRefRef.md) | 1..1 <br/> [UserRef](UserRef.md) |  | direct |
 | [LocationRefRef](LocationRefRef.md) | 1..1 <br/> [LocationRef](LocationRef.md) |  | direct |
 | [SignatureRefRef](SignatureRefRef.md) | 1..1 <br/> [SignatureRef](SignatureRef.md) |  | direct |
@@ -50,9 +50,25 @@ URI: [odm:Signature](http://www.cdisc.org/ns/odm/v2.0/Signature)
 
 
 
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [ReferenceData](ReferenceData.md) | [SignatureRefRef](SignatureRefRef.md) | range | [Signature](Signature.md) |
+| [ClinicalData](ClinicalData.md) | [SignatureRefRef](SignatureRefRef.md) | range | [Signature](Signature.md) |
+| [SubjectData](SubjectData.md) | [SignatureRefRef](SignatureRefRef.md) | range | [Signature](Signature.md) |
+| [StudyEventData](StudyEventData.md) | [SignatureRefRef](SignatureRefRef.md) | range | [Signature](Signature.md) |
+| [ItemGroupData](ItemGroupData.md) | [SignatureRefRef](SignatureRefRef.md) | range | [Signature](Signature.md) |
+| [ItemData](ItemData.md) | [SignatureRefRef](SignatureRefRef.md) | range | [Signature](Signature.md) |
 
 
 
+
+
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Signature](https://wiki.cdisc.org/display/ODM2/Signature)
 
 ## Identifier and Mapping Information
 
@@ -91,9 +107,9 @@ URI: [odm:Signature](http://www.cdisc.org/ns/odm/v2.0/Signature)
 <details>
 ```yaml
 name: Signature
-in_subset:
-- AuditRecordSignatureNotationGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Signature
 slots:
 - ID
 - UserRefRef
@@ -108,10 +124,10 @@ slot_usage:
     - Signature
     - Annotation
     range: oid
-    required: false
   UserRefRef:
     name: UserRefRef
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
@@ -121,6 +137,7 @@ slot_usage:
   LocationRefRef:
     name: LocationRefRef
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
@@ -130,6 +147,12 @@ slot_usage:
   SignatureRefRef:
     name: SignatureRefRef
     domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
     - Signature
     range: SignatureRef
     required: true
@@ -154,9 +177,9 @@ class_uri: odm:Signature
 <details>
 ```yaml
 name: Signature
-in_subset:
-- AuditRecordSignatureNotationGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Signature
 slot_usage:
   ID:
     name: ID
@@ -165,10 +188,10 @@ slot_usage:
     - Signature
     - Annotation
     range: oid
-    required: false
   UserRefRef:
     name: UserRefRef
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
@@ -178,6 +201,7 @@ slot_usage:
   LocationRefRef:
     name: LocationRefRef
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
@@ -187,6 +211,12 @@ slot_usage:
   SignatureRefRef:
     name: SignatureRefRef
     domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
     - Signature
     range: SignatureRef
     required: true
@@ -207,6 +237,7 @@ attributes:
     description: Unique identifier for the leaf that is referenced.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: ID
     owner: Signature
     domain_of:
@@ -214,7 +245,7 @@ attributes:
     - Signature
     - Annotation
     range: oid
-    required: false
+    required: true
   UserRefRef:
     name: UserRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -222,6 +253,7 @@ attributes:
     alias: UserRefRef
     owner: Signature
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
@@ -235,6 +267,7 @@ attributes:
     alias: LocationRefRef
     owner: Signature
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
@@ -248,6 +281,12 @@ attributes:
     alias: SignatureRefRef
     owner: Signature
     domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
     - Signature
     range: SignatureRef
     required: true

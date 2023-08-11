@@ -41,6 +41,10 @@ URI: [odm:Suffix](http://www.cdisc.org/ns/odm/v2.0/Suffix)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Suffix](https://wiki.cdisc.org/display/ODM2/Suffix)
+
 ## Identifier and Mapping Information
 
 
@@ -79,6 +83,8 @@ URI: [odm:Suffix](http://www.cdisc.org/ns/odm/v2.0/Suffix)
 ```yaml
 name: Suffix
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Suffix
 slots:
 - _content
 slot_usage:
@@ -97,6 +103,8 @@ class_uri: odm:Suffix
 ```yaml
 name: Suffix
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Suffix
 slot_usage:
   range:
     name: range
@@ -110,6 +118,7 @@ attributes:
   alias: _content
   owner: Suffix
   domain_of:
+  - TranslatedText
   - CheckValue
   - Code
   - WorkflowEnd
@@ -134,8 +143,8 @@ attributes:
   - FlagValue
   - FlagType
   - Value
-  - TranslatedText
   range: _contentType
+  inlined: true
 class_uri: odm:Suffix
 
 ```

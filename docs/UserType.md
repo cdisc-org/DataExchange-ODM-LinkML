@@ -25,8 +25,8 @@ URI: [UserType](UserType)
 
 | Name | Description |
 | ---  | --- |
-| [UserType](UserType.md) |  |
-| [UserType](UserType.md) |  |
+| [UserTypeRef](UserTypeRef.md) |  |
+| [UserTypeRef](UserTypeRef.md) |  |
 
 
 
@@ -41,12 +41,20 @@ URI: [UserType](UserType)
 
 
 
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+
 
 ## LinkML Source
 
 <details>
 ```yaml
 name: UserType
+from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:
   Sponsor:

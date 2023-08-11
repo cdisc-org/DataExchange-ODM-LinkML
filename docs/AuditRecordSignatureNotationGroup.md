@@ -26,33 +26,6 @@ URI: [AuditRecordSignatureNotationGroup](AuditRecordSignatureNotationGroup)
 
 | Class | Description |
 | --- | --- |
-| [Annotation](Annotation.md) |  |
-| [AuditRecord](AuditRecord.md) |  |
-| [Signature](Signature.md) |  |
-
-
-### Annotation
-
-None
-
-| Name | Cardinality and Range  | Description  |
-| ---  | ---  | --- |
-
-
-### AuditRecord
-
-None
-
-| Name | Cardinality and Range  | Description  |
-| ---  | ---  | --- |
-
-
-### Signature
-
-None
-
-| Name | Cardinality and Range  | Description  |
-| ---  | ---  | --- |
 
 
 

@@ -5,7 +5,7 @@ The purpose of the ODM (Operational Data Model) is to provide an extensible mode
 
 The purpose of LinkML is to bridge multiple different modelling languages. By expressing ODM as LinkML, clinical trial engineers and scientists can pick up the model directly as schemata and classes
 
-* [JSON](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/initial/jsonschema/ODM.schema.json)
+* [JSON](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/jsonschema/ODM.schema.json)
 * [GraphQL](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/graphql/ODM.graphql)
 * [SQL](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/sqlschema/ODM.sql)
 * [Python dataclasses](https://github.com/cdisc-org/DataExchange-ODM-LinkML/blob/main/ODM.py)

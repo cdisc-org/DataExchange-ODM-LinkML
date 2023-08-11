@@ -48,6 +48,10 @@ URI: [odm:SupplementalDoc](http://www.cdisc.org/ns/odm/v2.0/SupplementalDoc)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/SupplementalDoc](https://wiki.cdisc.org/display/ODM2/SupplementalDoc)
+
 ## Identifier and Mapping Information
 
 
@@ -87,6 +91,8 @@ URI: [odm:SupplementalDoc](http://www.cdisc.org/ns/odm/v2.0/SupplementalDoc)
 name: SupplementalDoc
 description: Supplemental data definitions
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SupplementalDoc
 slots:
 - DocumentRefRef
 slot_usage:
@@ -94,15 +100,16 @@ slot_usage:
     name: DocumentRefRef
     description: Links to a leaf element with the location of the document.
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - AnnotatedCRF
     - SupplementalDoc
     - Origin
-    - CommentDef
     - MethodDef
+    - CommentDef
     range: DocumentRef
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:SupplementalDoc
 
@@ -116,20 +123,23 @@ class_uri: odm:SupplementalDoc
 name: SupplementalDoc
 description: Supplemental data definitions
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SupplementalDoc
 slot_usage:
   DocumentRefRef:
     name: DocumentRefRef
     description: Links to a leaf element with the location of the document.
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - AnnotatedCRF
     - SupplementalDoc
     - Origin
-    - CommentDef
     - MethodDef
+    - CommentDef
     range: DocumentRef
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   DocumentRefRef:
@@ -138,17 +148,18 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
     alias: DocumentRefRef
     owner: SupplementalDoc
     domain_of:
     - AnnotatedCRF
     - SupplementalDoc
     - Origin
-    - CommentDef
     - MethodDef
+    - CommentDef
     range: DocumentRef
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:SupplementalDoc
 

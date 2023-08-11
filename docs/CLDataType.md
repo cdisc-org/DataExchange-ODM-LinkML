@@ -20,7 +20,7 @@ URI: [CLDataType](CLDataType)
 
 | Name | Description |
 | ---  | --- |
-| [DataType](DataType.md) |  |
+| [DataTypeRef](DataTypeRef.md) |  |
 
 
 

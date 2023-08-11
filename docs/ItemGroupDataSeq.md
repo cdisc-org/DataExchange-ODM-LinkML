@@ -23,7 +23,7 @@ URI: [odm:ItemGroupDataSeq](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDataSeq)
 
 ## Properties
 
-* Range: [Integer](Integer.md)
+* Range: [PositiveInteger](PositiveInteger.md)
 
 
 
@@ -55,7 +55,7 @@ rank: 1000
 alias: ItemGroupDataSeq
 domain_of:
 - ItemGroupData
-range: integer
+range: positiveInteger
 
 ```
 </details>

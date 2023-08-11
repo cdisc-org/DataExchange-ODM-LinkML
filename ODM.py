@@ -1,5 +1,5 @@
 # Auto generated from ODM.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-08-06T01:42:04
+# Generation date: 2023-08-11T09:39:34
 # Schema: odm
 #
 # id: http://www.cdisc.org/ns/odm/v2.0
@@ -257,7 +257,8 @@ class ODMVersion(str):
 
 
 class TrialPhaseType(str):
-    """ A terminology codelist relevant to the phase, or stage, of the clinical trial. """
+    """ A terminology codelist relevant to the phase, or stage, of the
+                clinical trial. """
     type_class_uri = ODM.TrialPhaseType
     type_class_curie = "odm:TrialPhaseType"
     type_name = "TrialPhaseType"
@@ -271,6 +272,14 @@ class ItemGroupTypeType(str):
     type_model_uri = ODM.ItemGroupTypeType
 
 
+class CoreType(str):
+    """ Core. """
+    type_class_uri = ODM.CoreType
+    type_class_curie = "odm:CoreType"
+    type_name = "CoreType"
+    type_model_uri = ODM.CoreType
+
+
 class StandardStatus(str):
     """ Terminology relevant to the development or publication status of the
                 standard. """
@@ -281,8 +290,8 @@ class StandardStatus(str):
 
 
 class DictionaryNameType(str):
-    """ A name given to a reference source that lists words and gives their meaning.
-                (NCI) """
+    """ A name given to a reference source that lists words and gives their
+                meaning. (NCI) """
     type_class_uri = ODM.DictionaryNameType
     type_class_curie = "odm:DictionaryNameType"
     type_name = "DictionaryNameType"
@@ -304,6 +313,14 @@ class LanguageType(str):
     type_class_curie = "nci:lang"
     type_name = "_languageType"
     type_model_uri = ODM.LanguageType
+
+
+class ContentType(str):
+    """ multi-line text content from between XML tags """
+    type_class_uri = XHTML.div
+    type_class_curie = "xhtml:div"
+    type_name = "_contentType"
+    type_model_uri = ODM.ContentType
 
 
 class String(str):
@@ -435,7 +452,172 @@ class Nodeidentifier(NodeIdentifier):
 
 
 # Class references
+class StudyOID(extended_str):
+    pass
 
+
+class MetaDataVersionOID(extended_str):
+    pass
+
+
+class DocumentRefLeafID(extended_str):
+    pass
+
+
+class LeafID(extended_str):
+    pass
+
+
+class StandardOID(extended_str):
+    pass
+
+
+class ValueListDefOID(extended_str):
+    pass
+
+
+class WhereClauseDefOID(extended_str):
+    pass
+
+
+class StudyEventGroupDefOID(extended_str):
+    pass
+
+
+class StudyEventDefOID(extended_str):
+    pass
+
+
+class ItemGroupDefOID(extended_str):
+    pass
+
+
+class SourceItemLeafID(extended_str):
+    pass
+
+
+class ItemDefOID(extended_str):
+    pass
+
+
+class CodeListOID(extended_str):
+    pass
+
+
+class MethodDefOID(extended_str):
+    pass
+
+
+class ConditionDefOID(extended_str):
+    pass
+
+
+class CommentDefOID(extended_str):
+    pass
+
+
+class StudyIndicationOID(extended_str):
+    pass
+
+
+class StudyInterventionOID(extended_str):
+    pass
+
+
+class StudyObjectiveOID(extended_str):
+    pass
+
+
+class StudyEndPointOID(extended_str):
+    pass
+
+
+class StudyTargetPopulationOID(extended_str):
+    pass
+
+
+class StudyEstimandOID(extended_str):
+    pass
+
+
+class ArmOID(extended_str):
+    pass
+
+
+class EpochOID(extended_str):
+    pass
+
+
+class StudyParameterOID(extended_str):
+    pass
+
+
+class StudyTimingOID(extended_str):
+    pass
+
+
+class TransitionTimingConstraintOID(extended_str):
+    pass
+
+
+class AbsoluteTimingConstraintOID(extended_str):
+    pass
+
+
+class RelativeTimingConstraintOID(extended_str):
+    pass
+
+
+class DurationTimingConstraintOID(extended_str):
+    pass
+
+
+class WorkflowDefOID(extended_str):
+    pass
+
+
+class TransitionOID(extended_str):
+    pass
+
+
+class BranchingOID(extended_str):
+    pass
+
+
+class CriterionOID(extended_str):
+    pass
+
+
+class ExceptionEventOID(extended_str):
+    pass
+
+
+class UserOID(extended_str):
+    pass
+
+
+class OrganizationOID(extended_str):
+    pass
+
+
+class LocationOID(extended_str):
+    pass
+
+
+class SignatureDefOID(extended_str):
+    pass
+
+
+class SignatureID(extended_str):
+    pass
+
+
+class AnnotationID(extended_str):
+    pass
+
+
+class QueryOID(extended_str):
+    pass
 
 
 @dataclass
@@ -447,14 +629,14 @@ class Alias(YAMLRoot):
     class_name: ClassVar[str] = "Alias"
     class_model_uri: ClassVar[URIRef] = ODM.Alias
 
-    Context: str = None
+    ContextRef: str = None
     Name: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.Context):
-            self.MissingRequiredField("Context")
-        if not isinstance(self.Context, str):
-            self.Context = str(self.Context)
+        if self._is_empty(self.ContextRef):
+            self.MissingRequiredField("ContextRef")
+        if not isinstance(self.ContextRef, str):
+            self.ContextRef = str(self.ContextRef)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -464,6 +646,7 @@ class Alias(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class Description(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -471,6 +654,17 @@ class Description(YAMLRoot):
     class_class_curie: ClassVar[str] = "odm:Description"
     class_name: ClassVar[str] = "Description"
     class_model_uri: ClassVar[URIRef] = ODM.Description
+
+    TranslatedTextRef: Union[Union[dict, "TranslatedText"], List[Union[dict, "TranslatedText"]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.TranslatedTextRef):
+            self.MissingRequiredField("TranslatedTextRef")
+        if not isinstance(self.TranslatedTextRef, list):
+            self.TranslatedTextRef = [self.TranslatedTextRef] if self.TranslatedTextRef is not None else []
+        self.TranslatedTextRef = [v if isinstance(v, TranslatedText) else TranslatedText(**as_dict(v)) for v in self.TranslatedTextRef]
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -484,6 +678,7 @@ class TranslatedText(YAMLRoot):
 
     type: str = None
     _language: Optional[str] = None
+    _content: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.type):
@@ -493,6 +688,9 @@ class TranslatedText(YAMLRoot):
 
         if self._language is not None and not isinstance(self._language, str):
             self._language = str(self._language)
+
+        if self._content is not None and not isinstance(self._content, str):
+            self._content = str(self._content)
 
         super().__post_init__(**kwargs)
 
@@ -506,17 +704,20 @@ class Study(YAMLRoot):
     class_name: ClassVar[str] = "Study"
     class_model_uri: ClassVar[URIRef] = ODM.Study
 
-    OID: str = None
+    OID: Union[str, StudyOID] = None
     StudyName: str = None
     ProtocolName: str = None
-    MetaDataVersionRef: Union[Union[dict, "MetaDataVersion"], List[Union[dict, "MetaDataVersion"]]] = None
+    MetaDataVersionRefRef: Union[Dict[Union[str, MetaDataVersionOID], Union[dict, "MetaDataVersion"]], List[Union[dict, "MetaDataVersion"]]] = empty_dict()
+    VersionID: Optional[str] = None
+    VersionName: Optional[str] = None
+    Status: Optional[str] = None
     DescriptionRef: Optional[Union[dict, Description]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, StudyOID):
+            self.OID = StudyOID(self.OID)
 
         if self._is_empty(self.StudyName):
             self.MissingRequiredField("StudyName")
@@ -528,12 +729,21 @@ class Study(YAMLRoot):
         if not isinstance(self.ProtocolName, str):
             self.ProtocolName = str(self.ProtocolName)
 
-        if self._is_empty(self.MetaDataVersionRef):
-            self.MissingRequiredField("MetaDataVersionRef")
-        self._normalize_inlined_as_dict(slot_name="MetaDataVersionRef", slot_type=MetaDataVersion, key_name="OID", keyed=False)
+        if self._is_empty(self.MetaDataVersionRefRef):
+            self.MissingRequiredField("MetaDataVersionRefRef")
+        self._normalize_inlined_as_list(slot_name="MetaDataVersionRefRef", slot_type=MetaDataVersion, key_name="OID", keyed=True)
+
+        if self.VersionID is not None and not isinstance(self.VersionID, str):
+            self.VersionID = str(self.VersionID)
+
+        if self.VersionName is not None and not isinstance(self.VersionName, str):
+            self.VersionName = str(self.VersionName)
+
+        if self.Status is not None and not isinstance(self.Status, str):
+            self.Status = str(self.Status)
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         super().__post_init__(**kwargs)
 
@@ -547,7 +757,7 @@ class MetaDataVersion(YAMLRoot):
     class_name: ClassVar[str] = "MetaDataVersion"
     class_model_uri: ClassVar[URIRef] = ODM.MetaDataVersion
 
-    OID: str = None
+    OID: Union[str, MetaDataVersionOID] = None
     Name: str = None
     CommentOID: Optional[str] = None
     DescriptionRef: Optional[Union[dict, Description]] = None
@@ -555,25 +765,25 @@ class MetaDataVersion(YAMLRoot):
     StandardsRef: Optional[Union[dict, "Standards"]] = None
     AnnotatedCRFRef: Optional[Union[dict, "AnnotatedCRF"]] = None
     SupplementalDocRef: Optional[Union[dict, "SupplementalDoc"]] = None
-    ValueListDefRef: Optional[Union[Union[dict, "ValueListDef"], List[Union[dict, "ValueListDef"]]]] = empty_list()
-    WhereClauseDefRef: Optional[Union[Union[dict, "WhereClauseDef"], List[Union[dict, "WhereClauseDef"]]]] = empty_list()
+    ValueListDefRef: Optional[Union[Dict[Union[str, ValueListDefOID], Union[dict, "ValueListDef"]], List[Union[dict, "ValueListDef"]]]] = empty_dict()
+    WhereClauseDefRef: Optional[Union[Dict[Union[str, WhereClauseDefOID], Union[dict, "WhereClauseDef"]], List[Union[dict, "WhereClauseDef"]]]] = empty_dict()
     ProtocolRef: Optional[Union[dict, "Protocol"]] = None
-    WorkflowDefRef: Optional[Union[Union[dict, "WorkflowDef"], List[Union[dict, "WorkflowDef"]]]] = empty_list()
-    StudyEventGroupDefRef: Optional[Union[Union[dict, "StudyEventGroupDef"], List[Union[dict, "StudyEventGroupDef"]]]] = empty_list()
-    StudyEventDefRef: Optional[Union[Union[dict, "StudyEventDef"], List[Union[dict, "StudyEventDef"]]]] = empty_list()
-    ItemGroupDefRef: Optional[Union[Union[dict, "ItemGroupDef"], List[Union[dict, "ItemGroupDef"]]]] = empty_list()
-    ItemDefRef: Optional[Union[Union[dict, "ItemDef"], List[Union[dict, "ItemDef"]]]] = empty_list()
-    CodeListRef: Optional[Union[Union[dict, "CodeList"], List[Union[dict, "CodeList"]]]] = empty_list()
-    ConditionDefRef: Optional[Union[Union[dict, "ConditionDef"], List[Union[dict, "ConditionDef"]]]] = empty_list()
-    MethodDefRef: Optional[Union[Union[dict, "MethodDef"], List[Union[dict, "MethodDef"]]]] = empty_list()
-    CommentDefRef: Optional[Union[Union[dict, "CommentDef"], List[Union[dict, "CommentDef"]]]] = empty_list()
-    leafRef: Optional[Union[Union[dict, "Leaf"], List[Union[dict, "Leaf"]]]] = empty_list()
+    WorkflowDefRef: Optional[Union[Dict[Union[str, WorkflowDefOID], Union[dict, "WorkflowDef"]], List[Union[dict, "WorkflowDef"]]]] = empty_dict()
+    StudyEventGroupDefRef: Optional[Union[Dict[Union[str, StudyEventGroupDefOID], Union[dict, "StudyEventGroupDef"]], List[Union[dict, "StudyEventGroupDef"]]]] = empty_dict()
+    StudyEventDefRef: Optional[Union[Dict[Union[str, StudyEventDefOID], Union[dict, "StudyEventDef"]], List[Union[dict, "StudyEventDef"]]]] = empty_dict()
+    ItemGroupDefRef: Optional[Union[Dict[Union[str, ItemGroupDefOID], Union[dict, "ItemGroupDef"]], List[Union[dict, "ItemGroupDef"]]]] = empty_dict()
+    ItemDefRef: Optional[Union[Dict[Union[str, ItemDefOID], Union[dict, "ItemDef"]], List[Union[dict, "ItemDef"]]]] = empty_dict()
+    CodeListRefRef: Optional[Union[Dict[Union[str, CodeListOID], Union[dict, "CodeList"]], List[Union[dict, "CodeList"]]]] = empty_dict()
+    ConditionDefRef: Optional[Union[Dict[Union[str, ConditionDefOID], Union[dict, "ConditionDef"]], List[Union[dict, "ConditionDef"]]]] = empty_dict()
+    MethodDefRef: Optional[Union[Dict[Union[str, MethodDefOID], Union[dict, "MethodDef"]], List[Union[dict, "MethodDef"]]]] = empty_dict()
+    CommentDefRef: Optional[Union[Dict[Union[str, CommentDefOID], Union[dict, "CommentDef"]], List[Union[dict, "CommentDef"]]]] = empty_dict()
+    leafRef: Optional[Union[Dict[Union[str, LeafID], Union[dict, "Leaf"]], List[Union[dict, "Leaf"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, MetaDataVersionOID):
+            self.OID = MetaDataVersionOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -584,46 +794,46 @@ class MetaDataVersion(YAMLRoot):
             self.CommentOID = str(self.CommentOID)
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         if self.IncludeRef is not None and not isinstance(self.IncludeRef, Include):
             self.IncludeRef = Include(**as_dict(self.IncludeRef))
 
         if self.StandardsRef is not None and not isinstance(self.StandardsRef, Standards):
-            self.StandardsRef = Standards()
+            self.StandardsRef = Standards(**as_dict(self.StandardsRef))
 
         if self.AnnotatedCRFRef is not None and not isinstance(self.AnnotatedCRFRef, AnnotatedCRF):
-            self.AnnotatedCRFRef = AnnotatedCRF()
+            self.AnnotatedCRFRef = AnnotatedCRF(**as_dict(self.AnnotatedCRFRef))
 
         if self.SupplementalDocRef is not None and not isinstance(self.SupplementalDocRef, SupplementalDoc):
-            self.SupplementalDocRef = SupplementalDoc()
+            self.SupplementalDocRef = SupplementalDoc(**as_dict(self.SupplementalDocRef))
 
-        self._normalize_inlined_as_dict(slot_name="ValueListDefRef", slot_type=ValueListDef, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="ValueListDefRef", slot_type=ValueListDef, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="WhereClauseDefRef", slot_type=WhereClauseDef, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="WhereClauseDefRef", slot_type=WhereClauseDef, key_name="OID", keyed=True)
 
         if self.ProtocolRef is not None and not isinstance(self.ProtocolRef, Protocol):
             self.ProtocolRef = Protocol(**as_dict(self.ProtocolRef))
 
-        self._normalize_inlined_as_dict(slot_name="WorkflowDefRef", slot_type=WorkflowDef, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="WorkflowDefRef", slot_type=WorkflowDef, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="StudyEventGroupDefRef", slot_type=StudyEventGroupDef, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="StudyEventGroupDefRef", slot_type=StudyEventGroupDef, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="StudyEventDefRef", slot_type=StudyEventDef, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="StudyEventDefRef", slot_type=StudyEventDef, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="ItemGroupDefRef", slot_type=ItemGroupDef, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="ItemGroupDefRef", slot_type=ItemGroupDef, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="ItemDefRef", slot_type=ItemDef, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="ItemDefRef", slot_type=ItemDef, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="CodeListRef", slot_type=CodeList, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="CodeListRefRef", slot_type=CodeList, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="ConditionDefRef", slot_type=ConditionDef, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="ConditionDefRef", slot_type=ConditionDef, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="MethodDefRef", slot_type=MethodDef, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="MethodDefRef", slot_type=MethodDef, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="CommentDefRef", slot_type=CommentDef, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="CommentDefRef", slot_type=CommentDef, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="leafRef", slot_type=Leaf, key_name="ID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="leafRef", slot_type=Leaf, key_name="ID", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -640,13 +850,18 @@ class DocumentRef(YAMLRoot):
     class_name: ClassVar[str] = "DocumentRef"
     class_model_uri: ClassVar[URIRef] = ODM.DocumentRef
 
-    leafID: str = None
+    leafID: Union[str, DocumentRefLeafID] = None
+    PDFPageRefRef: Optional[Union[Union[dict, "PDFPageRef"], List[Union[dict, "PDFPageRef"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.leafID):
             self.MissingRequiredField("leafID")
-        if not isinstance(self.leafID, str):
-            self.leafID = str(self.leafID)
+        if not isinstance(self.leafID, DocumentRefLeafID):
+            self.leafID = DocumentRefLeafID(self.leafID)
+
+        if not isinstance(self.PDFPageRefRef, list):
+            self.PDFPageRefRef = [self.PDFPageRefRef] if self.PDFPageRefRef is not None else []
+        self.PDFPageRefRef = [v if isinstance(v, PDFPageRef) else PDFPageRef(**as_dict(v)) for v in self.PDFPageRefRef]
 
         super().__post_init__(**kwargs)
 
@@ -702,19 +917,25 @@ class Leaf(YAMLRoot):
     class_name: ClassVar[str] = "leaf"
     class_model_uri: ClassVar[URIRef] = ODM.Leaf
 
-    ID: str = None
+    ID: Union[str, LeafID] = None
     href: str = None
+    title: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.ID):
             self.MissingRequiredField("ID")
-        if not isinstance(self.ID, str):
-            self.ID = str(self.ID)
+        if not isinstance(self.ID, LeafID):
+            self.ID = LeafID(self.ID)
 
         if self._is_empty(self.href):
             self.MissingRequiredField("href")
         if not isinstance(self.href, str):
             self.href = str(self.href)
+
+        if self._is_empty(self.title):
+            self.MissingRequiredField("title")
+        if not isinstance(self.title, str):
+            self.title = str(self.title)
 
         super().__post_init__(**kwargs)
 
@@ -749,6 +970,7 @@ class Include(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class Standards(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -756,6 +978,15 @@ class Standards(YAMLRoot):
     class_class_curie: ClassVar[str] = "odm:Standards"
     class_name: ClassVar[str] = "Standards"
     class_model_uri: ClassVar[URIRef] = ODM.Standards
+
+    StandardRef: Union[Dict[Union[str, StandardOID], Union[dict, "Standard"]], List[Union[dict, "Standard"]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.StandardRef):
+            self.MissingRequiredField("StandardRef")
+        self._normalize_inlined_as_list(slot_name="StandardRef", slot_type=Standard, key_name="OID", keyed=True)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -767,7 +998,7 @@ class Standard(YAMLRoot):
     class_name: ClassVar[str] = "Standard"
     class_model_uri: ClassVar[URIRef] = ODM.Standard
 
-    OID: str = None
+    OID: Union[str, StandardOID] = None
     Name: Union[str, "StandardName"] = None
     Type: Union[str, "StandardType"] = None
     Version: str = None
@@ -778,8 +1009,8 @@ class Standard(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, StandardOID):
+            self.OID = StandardOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -810,6 +1041,7 @@ class Standard(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class AnnotatedCRF(YAMLRoot):
     """
     An Annotated Case Report Form (CRF) is a Portable File Format (PDF) document that provides the mapping of data
@@ -822,7 +1054,17 @@ class AnnotatedCRF(YAMLRoot):
     class_name: ClassVar[str] = "AnnotatedCRF"
     class_model_uri: ClassVar[URIRef] = ODM.AnnotatedCRF
 
+    DocumentRefRef: Union[Dict[Union[str, DocumentRefLeafID], Union[dict, DocumentRef]], List[Union[dict, DocumentRef]]] = empty_dict()
 
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.DocumentRefRef):
+            self.MissingRequiredField("DocumentRefRef")
+        self._normalize_inlined_as_list(slot_name="DocumentRefRef", slot_type=DocumentRef, key_name="leafID", keyed=True)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
 class SupplementalDoc(YAMLRoot):
     """
     Supplemental data definitions
@@ -834,6 +1076,15 @@ class SupplementalDoc(YAMLRoot):
     class_name: ClassVar[str] = "SupplementalDoc"
     class_model_uri: ClassVar[URIRef] = ODM.SupplementalDoc
 
+    DocumentRefRef: Union[Dict[Union[str, DocumentRefLeafID], Union[dict, DocumentRef]], List[Union[dict, DocumentRef]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.DocumentRefRef):
+            self.MissingRequiredField("DocumentRefRef")
+        self._normalize_inlined_as_list(slot_name="DocumentRefRef", slot_type=DocumentRef, key_name="leafID", keyed=True)
+
+        super().__post_init__(**kwargs)
+
 
 @dataclass
 class ValueListDef(YAMLRoot):
@@ -844,22 +1095,24 @@ class ValueListDef(YAMLRoot):
     class_name: ClassVar[str] = "ValueListDef"
     class_model_uri: ClassVar[URIRef] = ODM.ValueListDef
 
-    OID: str = None
+    OID: Union[str, ValueListDefOID] = None
     ItemRefRef: Union[Union[dict, "ItemRef"], List[Union[dict, "ItemRef"]]] = None
     DescriptionRef: Optional[Union[dict, Description]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, ValueListDefOID):
+            self.OID = ValueListDefOID(self.OID)
 
         if self._is_empty(self.ItemRefRef):
             self.MissingRequiredField("ItemRefRef")
-        self._normalize_inlined_as_dict(slot_name="ItemRefRef", slot_type=ItemRef, key_name="ItemOID", keyed=False)
+        if not isinstance(self.ItemRefRef, list):
+            self.ItemRefRef = [self.ItemRefRef] if self.ItemRefRef is not None else []
+        self.ItemRefRef = [v if isinstance(v, ItemRef) else ItemRef(**as_dict(v)) for v in self.ItemRefRef]
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         super().__post_init__(**kwargs)
 
@@ -893,14 +1146,21 @@ class WhereClauseDef(YAMLRoot):
     class_name: ClassVar[str] = "WhereClauseDef"
     class_model_uri: ClassVar[URIRef] = ODM.WhereClauseDef
 
-    OID: str = None
+    OID: Union[str, WhereClauseDefOID] = None
+    RangeCheckRef: Union[Union[dict, "RangeCheck"], List[Union[dict, "RangeCheck"]]] = None
     CommentOID: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, WhereClauseDefOID):
+            self.OID = WhereClauseDefOID(self.OID)
+
+        if self._is_empty(self.RangeCheckRef):
+            self.MissingRequiredField("RangeCheckRef")
+        if not isinstance(self.RangeCheckRef, list):
+            self.RangeCheckRef = [self.RangeCheckRef] if self.RangeCheckRef is not None else []
+        self.RangeCheckRef = [v if isinstance(v, RangeCheck) else RangeCheck(**as_dict(v)) for v in self.RangeCheckRef]
 
         if self.CommentOID is not None and not isinstance(self.CommentOID, str):
             self.CommentOID = str(self.CommentOID)
@@ -921,6 +1181,7 @@ class StudyEventGroupRef(YAMLRoot):
     Mandatory: Union[str, "YesOrNo"] = None
     OrderNumber: Optional[int] = None
     CollectionExceptionConditionOID: Optional[str] = None
+    DescriptionRef: Optional[Union[dict, Description]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.StudyEventGroupOID):
@@ -939,6 +1200,9 @@ class StudyEventGroupRef(YAMLRoot):
         if self.CollectionExceptionConditionOID is not None and not isinstance(self.CollectionExceptionConditionOID, str):
             self.CollectionExceptionConditionOID = str(self.CollectionExceptionConditionOID)
 
+        if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
+
         super().__post_init__(**kwargs)
 
 
@@ -951,7 +1215,7 @@ class StudyEventGroupDef(YAMLRoot):
     class_name: ClassVar[str] = "StudyEventGroupDef"
     class_model_uri: ClassVar[URIRef] = ODM.StudyEventGroupDef
 
-    OID: str = None
+    OID: Union[str, StudyEventGroupDefOID] = None
     Name: str = None
     ArmOID: Optional[str] = None
     EpochOID: Optional[str] = None
@@ -959,12 +1223,14 @@ class StudyEventGroupDef(YAMLRoot):
     DescriptionRef: Optional[Union[dict, Description]] = None
     WorkflowRefRef: Optional[Union[dict, "WorkflowRef"]] = None
     CodingRef: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
+    StudyEventGroupRefRef: Optional[Union[dict, StudyEventGroupRef]] = None
+    StudyEventRefRef: Optional[Union[dict, "StudyEventRef"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, StudyEventGroupDefOID):
+            self.OID = StudyEventGroupDefOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -981,12 +1247,20 @@ class StudyEventGroupDef(YAMLRoot):
             self.CommentOID = str(self.CommentOID)
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         if self.WorkflowRefRef is not None and not isinstance(self.WorkflowRefRef, WorkflowRef):
             self.WorkflowRefRef = WorkflowRef(**as_dict(self.WorkflowRefRef))
 
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
+
+        if self.StudyEventGroupRefRef is not None and not isinstance(self.StudyEventGroupRefRef, StudyEventGroupRef):
+            self.StudyEventGroupRefRef = StudyEventGroupRef(**as_dict(self.StudyEventGroupRefRef))
+
+        if self.StudyEventRefRef is not None and not isinstance(self.StudyEventRefRef, StudyEventRef):
+            self.StudyEventRefRef = StudyEventRef(**as_dict(self.StudyEventRefRef))
 
         super().__post_init__(**kwargs)
 
@@ -1034,7 +1308,7 @@ class StudyEventDef(YAMLRoot):
     class_name: ClassVar[str] = "StudyEventDef"
     class_model_uri: ClassVar[URIRef] = ODM.StudyEventDef
 
-    OID: str = None
+    OID: Union[str, StudyEventDefOID] = None
     Name: str = None
     Repeating: Union[str, "YesOrNo"] = None
     Type: Union[str, "EventType"] = None
@@ -1049,8 +1323,8 @@ class StudyEventDef(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, StudyEventDefOID):
+            self.OID = StudyEventDefOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -1074,16 +1348,22 @@ class StudyEventDef(YAMLRoot):
             self.CommentOID = str(self.CommentOID)
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
-        self._normalize_inlined_as_dict(slot_name="ItemGroupRefRef", slot_type=ItemGroupRef, key_name="ItemGroupOID", keyed=False)
+        if not isinstance(self.ItemGroupRefRef, list):
+            self.ItemGroupRefRef = [self.ItemGroupRefRef] if self.ItemGroupRefRef is not None else []
+        self.ItemGroupRefRef = [v if isinstance(v, ItemGroupRef) else ItemGroupRef(**as_dict(v)) for v in self.ItemGroupRefRef]
 
         if self.WorkflowRefRef is not None and not isinstance(self.WorkflowRefRef, WorkflowRef):
             self.WorkflowRefRef = WorkflowRef(**as_dict(self.WorkflowRefRef))
 
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
 
-        self._normalize_inlined_as_dict(slot_name="AliasRef", slot_type=Alias, key_name="Context", keyed=False)
+        if not isinstance(self.AliasRef, list):
+            self.AliasRef = [self.AliasRef] if self.AliasRef is not None else []
+        self.AliasRef = [v if isinstance(v, Alias) else Alias(**as_dict(v)) for v in self.AliasRef]
 
         super().__post_init__(**kwargs)
 
@@ -1135,7 +1415,7 @@ class ItemGroupDef(YAMLRoot):
     class_name: ClassVar[str] = "ItemGroupDef"
     class_model_uri: ClassVar[URIRef] = ODM.ItemGroupDef
 
-    OID: str = None
+    OID: Union[str, ItemGroupDefOID] = None
     Name: str = None
     Repeating: Union[str, "ItemGroupRepeatingType"] = None
     Type: str = None
@@ -1156,13 +1436,15 @@ class ItemGroupDef(YAMLRoot):
     WorkflowRefRef: Optional[Union[dict, "WorkflowRef"]] = None
     OriginRef: Optional[Union[Union[dict, "Origin"], List[Union[dict, "Origin"]]]] = empty_list()
     AliasRef: Optional[Union[Union[dict, Alias], List[Union[dict, Alias]]]] = empty_list()
-    leafRef: Optional[Union[dict, Leaf]] = None
+    leafRef: Optional[Union[str, LeafID]] = None
+    ItemGroupRefRef: Optional[Union[dict, ItemGroupRef]] = None
+    ItemRefRef: Optional[Union[dict, "ItemRef"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, ItemGroupDefOID):
+            self.OID = ItemGroupDefOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -1213,22 +1495,34 @@ class ItemGroupDef(YAMLRoot):
             self.CommentOID = str(self.CommentOID)
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         if self.ClassRef is not None and not isinstance(self.ClassRef, Class):
             self.ClassRef = Class(**as_dict(self.ClassRef))
 
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
 
         if self.WorkflowRefRef is not None and not isinstance(self.WorkflowRefRef, WorkflowRef):
             self.WorkflowRefRef = WorkflowRef(**as_dict(self.WorkflowRefRef))
 
-        self._normalize_inlined_as_dict(slot_name="OriginRef", slot_type=Origin, key_name="Type", keyed=False)
+        if not isinstance(self.OriginRef, list):
+            self.OriginRef = [self.OriginRef] if self.OriginRef is not None else []
+        self.OriginRef = [v if isinstance(v, Origin) else Origin(**as_dict(v)) for v in self.OriginRef]
 
-        self._normalize_inlined_as_dict(slot_name="AliasRef", slot_type=Alias, key_name="Context", keyed=False)
+        if not isinstance(self.AliasRef, list):
+            self.AliasRef = [self.AliasRef] if self.AliasRef is not None else []
+        self.AliasRef = [v if isinstance(v, Alias) else Alias(**as_dict(v)) for v in self.AliasRef]
 
-        if self.leafRef is not None and not isinstance(self.leafRef, Leaf):
-            self.leafRef = Leaf(**as_dict(self.leafRef))
+        if self.leafRef is not None and not isinstance(self.leafRef, LeafID):
+            self.leafRef = LeafID(self.leafRef)
+
+        if self.ItemGroupRefRef is not None and not isinstance(self.ItemGroupRefRef, ItemGroupRef):
+            self.ItemGroupRefRef = ItemGroupRef(**as_dict(self.ItemGroupRefRef))
+
+        if self.ItemRefRef is not None and not isinstance(self.ItemRefRef, ItemRef):
+            self.ItemRefRef = ItemRef(**as_dict(self.ItemRefRef))
 
         super().__post_init__(**kwargs)
 
@@ -1243,12 +1537,17 @@ class Class(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ODM.Class
 
     Name: Union[str, "ItemGroupClass"] = None
+    SubClassRef: Optional[Union[Union[dict, "SubClass"], List[Union[dict, "SubClass"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
         if not isinstance(self.Name, ItemGroupClass):
             self.Name = ItemGroupClass(self.Name)
+
+        if not isinstance(self.SubClassRef, list):
+            self.SubClassRef = [self.SubClassRef] if self.SubClassRef is not None else []
+        self.SubClassRef = [v if isinstance(v, SubClass) else SubClass(**as_dict(v)) for v in self.SubClassRef]
 
         super().__post_init__(**kwargs)
 
@@ -1300,6 +1599,8 @@ class ItemRef(YAMLRoot):
     Other: Optional[Union[str, "YesOnly"]] = None
     Role: Optional[str] = None
     RoleCodeListOID: Optional[str] = None
+    Core: Optional[str] = None
+    PreSpecifiedValue: Optional[str] = None
     OrderNumber: Optional[int] = None
     CollectionExceptionConditionOID: Optional[str] = None
     OriginRef: Optional[Union[Union[dict, "Origin"], List[Union[dict, "Origin"]]]] = empty_list()
@@ -1343,15 +1644,25 @@ class ItemRef(YAMLRoot):
         if self.RoleCodeListOID is not None and not isinstance(self.RoleCodeListOID, str):
             self.RoleCodeListOID = str(self.RoleCodeListOID)
 
+        if self.Core is not None and not isinstance(self.Core, str):
+            self.Core = str(self.Core)
+
+        if self.PreSpecifiedValue is not None and not isinstance(self.PreSpecifiedValue, str):
+            self.PreSpecifiedValue = str(self.PreSpecifiedValue)
+
         if self.OrderNumber is not None and not isinstance(self.OrderNumber, int):
             self.OrderNumber = int(self.OrderNumber)
 
         if self.CollectionExceptionConditionOID is not None and not isinstance(self.CollectionExceptionConditionOID, str):
             self.CollectionExceptionConditionOID = str(self.CollectionExceptionConditionOID)
 
-        self._normalize_inlined_as_dict(slot_name="OriginRef", slot_type=Origin, key_name="Type", keyed=False)
+        if not isinstance(self.OriginRef, list):
+            self.OriginRef = [self.OriginRef] if self.OriginRef is not None else []
+        self.OriginRef = [v if isinstance(v, Origin) else Origin(**as_dict(v)) for v in self.OriginRef]
 
-        self._normalize_inlined_as_dict(slot_name="WhereClauseRefRef", slot_type=WhereClauseRef, key_name="WhereClauseOID", keyed=False)
+        if not isinstance(self.WhereClauseRefRef, list):
+            self.WhereClauseRefRef = [self.WhereClauseRefRef] if self.WhereClauseRefRef is not None else []
+        self.WhereClauseRefRef = [v if isinstance(v, WhereClauseRef) else WhereClauseRef(**as_dict(v)) for v in self.WhereClauseRefRef]
 
         super().__post_init__(**kwargs)
 
@@ -1370,7 +1681,7 @@ class Origin(YAMLRoot):
     DescriptionRef: Optional[Union[dict, Description]] = None
     SourceItemsRef: Optional[Union[dict, "SourceItems"]] = None
     CodingRef: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
-    DocumentRefRef: Optional[Union[Union[dict, DocumentRef], List[Union[dict, DocumentRef]]]] = empty_list()
+    DocumentRefRef: Optional[Union[Dict[Union[str, DocumentRefLeafID], Union[dict, DocumentRef]], List[Union[dict, DocumentRef]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.Type):
@@ -1382,14 +1693,16 @@ class Origin(YAMLRoot):
             self.Source = OriginSource(self.Source)
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         if self.SourceItemsRef is not None and not isinstance(self.SourceItemsRef, SourceItems):
             self.SourceItemsRef = SourceItems(**as_dict(self.SourceItemsRef))
 
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
 
-        self._normalize_inlined_as_dict(slot_name="DocumentRefRef", slot_type=DocumentRef, key_name="leafID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="DocumentRefRef", slot_type=DocumentRef, key_name="leafID", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -1403,15 +1716,17 @@ class SourceItems(YAMLRoot):
     class_name: ClassVar[str] = "SourceItems"
     class_model_uri: ClassVar[URIRef] = ODM.SourceItems
 
-    SourceItemRef: Union[Union[dict, "SourceItem"], List[Union[dict, "SourceItem"]]] = None
+    SourceItemRef: Union[Dict[Union[str, SourceItemLeafID], Union[dict, "SourceItem"]], List[Union[dict, "SourceItem"]]] = empty_dict()
     CodingRef: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.SourceItemRef):
             self.MissingRequiredField("SourceItemRef")
-        self._normalize_inlined_as_dict(slot_name="SourceItemRef", slot_type=SourceItem, key_name="ResourceRef", keyed=False)
+        self._normalize_inlined_as_list(slot_name="SourceItemRef", slot_type=SourceItem, key_name="leafID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
 
         super().__post_init__(**kwargs)
 
@@ -1425,19 +1740,26 @@ class SourceItem(YAMLRoot):
     class_name: ClassVar[str] = "SourceItem"
     class_model_uri: ClassVar[URIRef] = ODM.SourceItem
 
+    leafID: Union[str, SourceItemLeafID] = None
     ResourceRef: Union[Union[dict, "Resource"], List[Union[dict, "Resource"]]] = None
     ItemOID: Optional[str] = None
     ItemGroupOID: Optional[str] = None
     MetaDataVersionOID: Optional[str] = None
     StudyOID: Optional[str] = None
-    leafID: Optional[str] = None
     Name: Optional[str] = None
     CodingRef: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.leafID):
+            self.MissingRequiredField("leafID")
+        if not isinstance(self.leafID, SourceItemLeafID):
+            self.leafID = SourceItemLeafID(self.leafID)
+
         if self._is_empty(self.ResourceRef):
             self.MissingRequiredField("ResourceRef")
-        self._normalize_inlined_as_dict(slot_name="ResourceRef", slot_type=Resource, key_name="Type", keyed=False)
+        if not isinstance(self.ResourceRef, list):
+            self.ResourceRef = [self.ResourceRef] if self.ResourceRef is not None else []
+        self.ResourceRef = [v if isinstance(v, Resource) else Resource(**as_dict(v)) for v in self.ResourceRef]
 
         if self.ItemOID is not None and not isinstance(self.ItemOID, str):
             self.ItemOID = str(self.ItemOID)
@@ -1451,13 +1773,12 @@ class SourceItem(YAMLRoot):
         if self.StudyOID is not None and not isinstance(self.StudyOID, str):
             self.StudyOID = str(self.StudyOID)
 
-        if self.leafID is not None and not isinstance(self.leafID, str):
-            self.leafID = str(self.leafID)
-
         if self.Name is not None and not isinstance(self.Name, str):
             self.Name = str(self.Name)
 
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
 
         super().__post_init__(**kwargs)
 
@@ -1475,6 +1796,7 @@ class Resource(YAMLRoot):
     Name: str = None
     Attribute: Optional[str] = None
     Label: Optional[str] = None
+    SelectionRef: Optional[Union[Union[dict, "Selection"], List[Union[dict, "Selection"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.Type):
@@ -1492,6 +1814,10 @@ class Resource(YAMLRoot):
 
         if self.Label is not None and not isinstance(self.Label, str):
             self.Label = str(self.Label)
+
+        if not isinstance(self.SelectionRef, list):
+            self.SelectionRef = [self.SelectionRef] if self.SelectionRef is not None else []
+        self.SelectionRef = [v if isinstance(v, Selection) else Selection(**as_dict(v)) for v in self.SelectionRef]
 
         super().__post_init__(**kwargs)
 
@@ -1525,14 +1851,20 @@ class ItemDef(YAMLRoot):
     class_name: ClassVar[str] = "ItemDef"
     class_model_uri: ClassVar[URIRef] = ODM.ItemDef
 
-    OID: str = None
+    OID: Union[str, ItemDefOID] = None
     Name: str = None
-    DataType: Union[str, "DataType"] = None
+    DataTypeRef: Union[str, "DataType"] = None
     Length: Optional[int] = None
     DisplayFormat: Optional[str] = None
+    VariableSet: Optional[str] = None
     CommentOID: Optional[str] = None
     DescriptionRef: Optional[Union[dict, Description]] = None
+    DefinitionRef: Optional[Union[dict, "Definition"]] = None
     QuestionRef: Optional[Union[dict, "Question"]] = None
+    PromptRef: Optional[Union[dict, "Prompt"]] = None
+    CRFCompletionInstructionsRef: Optional[Union[dict, "CRFCompletionInstructions"]] = None
+    ImplementationNotesRef: Optional[Union[dict, "ImplementationNotes"]] = None
+    CDISCNotesRef: Optional[Union[dict, "CDISCNotes"]] = None
     RangeCheckRef: Optional[Union[Union[dict, "RangeCheck"], List[Union[dict, "RangeCheck"]]]] = empty_list()
     CodeListRefRef: Optional[Union[dict, "CodeListRef"]] = None
     ValueListRefRef: Optional[Union[dict, "ValueListRef"]] = None
@@ -1542,18 +1874,18 @@ class ItemDef(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, ItemDefOID):
+            self.OID = ItemDefOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
         if not isinstance(self.Name, str):
             self.Name = str(self.Name)
 
-        if self._is_empty(self.DataType):
-            self.MissingRequiredField("DataType")
-        if not isinstance(self.DataType, DataType):
-            self.DataType = DataType(self.DataType)
+        if self._is_empty(self.DataTypeRef):
+            self.MissingRequiredField("DataTypeRef")
+        if not isinstance(self.DataTypeRef, DataType):
+            self.DataTypeRef = DataType(self.DataTypeRef)
 
         if self.Length is not None and not isinstance(self.Length, int):
             self.Length = int(self.Length)
@@ -1561,14 +1893,32 @@ class ItemDef(YAMLRoot):
         if self.DisplayFormat is not None and not isinstance(self.DisplayFormat, str):
             self.DisplayFormat = str(self.DisplayFormat)
 
+        if self.VariableSet is not None and not isinstance(self.VariableSet, str):
+            self.VariableSet = str(self.VariableSet)
+
         if self.CommentOID is not None and not isinstance(self.CommentOID, str):
             self.CommentOID = str(self.CommentOID)
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
+
+        if self.DefinitionRef is not None and not isinstance(self.DefinitionRef, Definition):
+            self.DefinitionRef = Definition(**as_dict(self.DefinitionRef))
 
         if self.QuestionRef is not None and not isinstance(self.QuestionRef, Question):
-            self.QuestionRef = Question()
+            self.QuestionRef = Question(**as_dict(self.QuestionRef))
+
+        if self.PromptRef is not None and not isinstance(self.PromptRef, Prompt):
+            self.PromptRef = Prompt(**as_dict(self.PromptRef))
+
+        if self.CRFCompletionInstructionsRef is not None and not isinstance(self.CRFCompletionInstructionsRef, CRFCompletionInstructions):
+            self.CRFCompletionInstructionsRef = CRFCompletionInstructions(**as_dict(self.CRFCompletionInstructionsRef))
+
+        if self.ImplementationNotesRef is not None and not isinstance(self.ImplementationNotesRef, ImplementationNotes):
+            self.ImplementationNotesRef = ImplementationNotes(**as_dict(self.ImplementationNotesRef))
+
+        if self.CDISCNotesRef is not None and not isinstance(self.CDISCNotesRef, CDISCNotes):
+            self.CDISCNotesRef = CDISCNotes(**as_dict(self.CDISCNotesRef))
 
         if not isinstance(self.RangeCheckRef, list):
             self.RangeCheckRef = [self.RangeCheckRef] if self.RangeCheckRef is not None else []
@@ -1580,13 +1930,18 @@ class ItemDef(YAMLRoot):
         if self.ValueListRefRef is not None and not isinstance(self.ValueListRefRef, ValueListRef):
             self.ValueListRefRef = ValueListRef(**as_dict(self.ValueListRefRef))
 
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
 
-        self._normalize_inlined_as_dict(slot_name="AliasRef", slot_type=Alias, key_name="Context", keyed=False)
+        if not isinstance(self.AliasRef, list):
+            self.AliasRef = [self.AliasRef] if self.AliasRef is not None else []
+        self.AliasRef = [v if isinstance(v, Alias) else Alias(**as_dict(v)) for v in self.AliasRef]
 
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class Question(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1594,6 +1949,122 @@ class Question(YAMLRoot):
     class_class_curie: ClassVar[str] = "odm:Question"
     class_name: ClassVar[str] = "Question"
     class_model_uri: ClassVar[URIRef] = ODM.Question
+
+    TranslatedTextRef: Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.TranslatedTextRef):
+            self.MissingRequiredField("TranslatedTextRef")
+        if not isinstance(self.TranslatedTextRef, list):
+            self.TranslatedTextRef = [self.TranslatedTextRef] if self.TranslatedTextRef is not None else []
+        self.TranslatedTextRef = [v if isinstance(v, TranslatedText) else TranslatedText(**as_dict(v)) for v in self.TranslatedTextRef]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Definition(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ODM.Definition
+    class_class_curie: ClassVar[str] = "odm:Definition"
+    class_name: ClassVar[str] = "Definition"
+    class_model_uri: ClassVar[URIRef] = ODM.Definition
+
+    TranslatedTextRef: Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.TranslatedTextRef):
+            self.MissingRequiredField("TranslatedTextRef")
+        if not isinstance(self.TranslatedTextRef, list):
+            self.TranslatedTextRef = [self.TranslatedTextRef] if self.TranslatedTextRef is not None else []
+        self.TranslatedTextRef = [v if isinstance(v, TranslatedText) else TranslatedText(**as_dict(v)) for v in self.TranslatedTextRef]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Prompt(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ODM.Prompt
+    class_class_curie: ClassVar[str] = "odm:Prompt"
+    class_name: ClassVar[str] = "Prompt"
+    class_model_uri: ClassVar[URIRef] = ODM.Prompt
+
+    TranslatedTextRef: Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.TranslatedTextRef):
+            self.MissingRequiredField("TranslatedTextRef")
+        if not isinstance(self.TranslatedTextRef, list):
+            self.TranslatedTextRef = [self.TranslatedTextRef] if self.TranslatedTextRef is not None else []
+        self.TranslatedTextRef = [v if isinstance(v, TranslatedText) else TranslatedText(**as_dict(v)) for v in self.TranslatedTextRef]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class CRFCompletionInstructions(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ODM.CRFCompletionInstructions
+    class_class_curie: ClassVar[str] = "odm:CRFCompletionInstructions"
+    class_name: ClassVar[str] = "CRFCompletionInstructions"
+    class_model_uri: ClassVar[URIRef] = ODM.CRFCompletionInstructions
+
+    TranslatedTextRef: Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.TranslatedTextRef):
+            self.MissingRequiredField("TranslatedTextRef")
+        if not isinstance(self.TranslatedTextRef, list):
+            self.TranslatedTextRef = [self.TranslatedTextRef] if self.TranslatedTextRef is not None else []
+        self.TranslatedTextRef = [v if isinstance(v, TranslatedText) else TranslatedText(**as_dict(v)) for v in self.TranslatedTextRef]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class ImplementationNotes(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ODM.ImplementationNotes
+    class_class_curie: ClassVar[str] = "odm:ImplementationNotes"
+    class_name: ClassVar[str] = "ImplementationNotes"
+    class_model_uri: ClassVar[URIRef] = ODM.ImplementationNotes
+
+    TranslatedTextRef: Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.TranslatedTextRef):
+            self.MissingRequiredField("TranslatedTextRef")
+        if not isinstance(self.TranslatedTextRef, list):
+            self.TranslatedTextRef = [self.TranslatedTextRef] if self.TranslatedTextRef is not None else []
+        self.TranslatedTextRef = [v if isinstance(v, TranslatedText) else TranslatedText(**as_dict(v)) for v in self.TranslatedTextRef]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class CDISCNotes(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ODM.CDISCNotes
+    class_class_curie: ClassVar[str] = "odm:CDISCNotes"
+    class_name: ClassVar[str] = "CDISCNotes"
+    class_model_uri: ClassVar[URIRef] = ODM.CDISCNotes
+
+    TranslatedTextRef: Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.TranslatedTextRef):
+            self.MissingRequiredField("TranslatedTextRef")
+        if not isinstance(self.TranslatedTextRef, list):
+            self.TranslatedTextRef = [self.TranslatedTextRef] if self.TranslatedTextRef is not None else []
+        self.TranslatedTextRef = [v if isinstance(v, TranslatedText) else TranslatedText(**as_dict(v)) for v in self.TranslatedTextRef]
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -1605,19 +2076,39 @@ class RangeCheck(YAMLRoot):
     class_name: ClassVar[str] = "RangeCheck"
     class_model_uri: ClassVar[URIRef] = ODM.RangeCheck
 
-    Comparator: Optional[Union[str, "Comparator"]] = None
+    CheckValueRef: Union[Union[dict, "CheckValue"], List[Union[dict, "CheckValue"]]] = None
+    ComparatorRef: Optional[Union[str, "Comparator"]] = None
     SoftHard: Optional[Union[str, "SoftOrHard"]] = None
     ItemOID: Optional[str] = None
+    ErrorMessageRef: Optional[Union[dict, "ErrorMessage"]] = None
+    MethodSignatureRef: Optional[Union[dict, "MethodSignature"]] = None
+    FormalExpressionRef: Optional[Union[Union[dict, "FormalExpression"], List[Union[dict, "FormalExpression"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.Comparator is not None and not isinstance(self.Comparator, Comparator):
-            self.Comparator = Comparator(self.Comparator)
+        if self._is_empty(self.CheckValueRef):
+            self.MissingRequiredField("CheckValueRef")
+        if not isinstance(self.CheckValueRef, list):
+            self.CheckValueRef = [self.CheckValueRef] if self.CheckValueRef is not None else []
+        self.CheckValueRef = [v if isinstance(v, CheckValue) else CheckValue(**as_dict(v)) for v in self.CheckValueRef]
+
+        if self.ComparatorRef is not None and not isinstance(self.ComparatorRef, Comparator):
+            self.ComparatorRef = Comparator(self.ComparatorRef)
 
         if self.SoftHard is not None and not isinstance(self.SoftHard, SoftOrHard):
             self.SoftHard = SoftOrHard(self.SoftHard)
 
         if self.ItemOID is not None and not isinstance(self.ItemOID, str):
             self.ItemOID = str(self.ItemOID)
+
+        if self.ErrorMessageRef is not None and not isinstance(self.ErrorMessageRef, ErrorMessage):
+            self.ErrorMessageRef = ErrorMessage(**as_dict(self.ErrorMessageRef))
+
+        if self.MethodSignatureRef is not None and not isinstance(self.MethodSignatureRef, MethodSignature):
+            self.MethodSignatureRef = MethodSignature(**as_dict(self.MethodSignatureRef))
+
+        if not isinstance(self.FormalExpressionRef, list):
+            self.FormalExpressionRef = [self.FormalExpressionRef] if self.FormalExpressionRef is not None else []
+        self.FormalExpressionRef = [v if isinstance(v, FormalExpression) else FormalExpression(**as_dict(v)) for v in self.FormalExpressionRef]
 
         super().__post_init__(**kwargs)
 
@@ -1644,6 +2135,7 @@ class CheckValue(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class ErrorMessage(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1651,6 +2143,17 @@ class ErrorMessage(YAMLRoot):
     class_class_curie: ClassVar[str] = "odm:ErrorMessage"
     class_name: ClassVar[str] = "ErrorMessage"
     class_model_uri: ClassVar[URIRef] = ODM.ErrorMessage
+
+    TranslatedTextRef: Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.TranslatedTextRef):
+            self.MissingRequiredField("TranslatedTextRef")
+        if not isinstance(self.TranslatedTextRef, list):
+            self.TranslatedTextRef = [self.TranslatedTextRef] if self.TranslatedTextRef is not None else []
+        self.TranslatedTextRef = [v if isinstance(v, TranslatedText) else TranslatedText(**as_dict(v)) for v in self.TranslatedTextRef]
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -1702,32 +2205,32 @@ class CodeList(YAMLRoot):
     class_name: ClassVar[str] = "CodeList"
     class_model_uri: ClassVar[URIRef] = ODM.CodeList
 
-    OID: str = None
+    OID: Union[str, CodeListOID] = None
     Name: str = None
-    DataType: Union[str, "CLDataType"] = None
+    DataTypeRef: Union[str, "CLDataType"] = None
     CommentOID: Optional[str] = None
     StandardOID: Optional[str] = None
     IsNonStandard: Optional[Union[str, "YesOnly"]] = None
     DescriptionRef: Optional[Union[dict, Description]] = None
-    ExternalCodeListRef: Optional[Union[dict, "ExternalCodeList"]] = None
+    CodeListItemRef: Optional[Union[Union[dict, "CodeListItem"], List[Union[dict, "CodeListItem"]]]] = empty_list()
     CodingRef: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
     AliasRef: Optional[Union[Union[dict, Alias], List[Union[dict, Alias]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, CodeListOID):
+            self.OID = CodeListOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
         if not isinstance(self.Name, str):
             self.Name = str(self.Name)
 
-        if self._is_empty(self.DataType):
-            self.MissingRequiredField("DataType")
-        if not isinstance(self.DataType, CLDataType):
-            self.DataType = CLDataType(self.DataType)
+        if self._is_empty(self.DataTypeRef):
+            self.MissingRequiredField("DataTypeRef")
+        if not isinstance(self.DataTypeRef, CLDataType):
+            self.DataTypeRef = CLDataType(self.DataTypeRef)
 
         if self.CommentOID is not None and not isinstance(self.CommentOID, str):
             self.CommentOID = str(self.CommentOID)
@@ -1739,14 +2242,19 @@ class CodeList(YAMLRoot):
             self.IsNonStandard = YesOnly(self.IsNonStandard)
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
-        if self.ExternalCodeListRef is not None and not isinstance(self.ExternalCodeListRef, ExternalCodeList):
-            self.ExternalCodeListRef = ExternalCodeList(**as_dict(self.ExternalCodeListRef))
+        if not isinstance(self.CodeListItemRef, list):
+            self.CodeListItemRef = [self.CodeListItemRef] if self.CodeListItemRef is not None else []
+        self.CodeListItemRef = [v if isinstance(v, CodeListItem) else CodeListItem(**as_dict(v)) for v in self.CodeListItemRef]
 
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
 
-        self._normalize_inlined_as_dict(slot_name="AliasRef", slot_type=Alias, key_name="Context", keyed=False)
+        if not isinstance(self.AliasRef, list):
+            self.AliasRef = [self.AliasRef] if self.AliasRef is not None else []
+        self.AliasRef = [v if isinstance(v, Alias) else Alias(**as_dict(v)) for v in self.AliasRef]
 
         super().__post_init__(**kwargs)
 
@@ -1761,13 +2269,13 @@ class CodeListItem(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ODM.CodeListItem
 
     CodedValue: str = None
-    DecodeRef: Union[dict, "Decode"] = None
     Rank: Optional[Decimal] = None
     Other: Optional[Union[str, "YesOnly"]] = None
     OrderNumber: Optional[int] = None
     ExtendedValue: Optional[Union[str, "YesOnly"]] = None
     CommentOID: Optional[str] = None
     DescriptionRef: Optional[Union[dict, Description]] = None
+    DecodeRef: Optional[Union[dict, "Decode"]] = None
     CodingRef: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
     AliasRef: Optional[Union[Union[dict, Alias], List[Union[dict, Alias]]]] = empty_list()
 
@@ -1776,11 +2284,6 @@ class CodeListItem(YAMLRoot):
             self.MissingRequiredField("CodedValue")
         if not isinstance(self.CodedValue, str):
             self.CodedValue = str(self.CodedValue)
-
-        if self._is_empty(self.DecodeRef):
-            self.MissingRequiredField("DecodeRef")
-        if not isinstance(self.DecodeRef, Decode):
-            self.DecodeRef = Decode()
 
         if self.Rank is not None and not isinstance(self.Rank, Decimal):
             self.Rank = Decimal(self.Rank)
@@ -1798,15 +2301,23 @@ class CodeListItem(YAMLRoot):
             self.CommentOID = str(self.CommentOID)
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
+        if self.DecodeRef is not None and not isinstance(self.DecodeRef, Decode):
+            self.DecodeRef = Decode(**as_dict(self.DecodeRef))
 
-        self._normalize_inlined_as_dict(slot_name="AliasRef", slot_type=Alias, key_name="Context", keyed=False)
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
+
+        if not isinstance(self.AliasRef, list):
+            self.AliasRef = [self.AliasRef] if self.AliasRef is not None else []
+        self.AliasRef = [v if isinstance(v, Alias) else Alias(**as_dict(v)) for v in self.AliasRef]
 
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class Decode(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1815,83 +2326,14 @@ class Decode(YAMLRoot):
     class_name: ClassVar[str] = "Decode"
     class_model_uri: ClassVar[URIRef] = ODM.Decode
 
-
-@dataclass
-class EnumeratedItem(YAMLRoot):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ODM.EnumeratedItem
-    class_class_curie: ClassVar[str] = "odm:EnumeratedItem"
-    class_name: ClassVar[str] = "EnumeratedItem"
-    class_model_uri: ClassVar[URIRef] = ODM.EnumeratedItem
-
-    CodedValue: str = None
-    Rank: Optional[Decimal] = None
-    Other: Optional[Union[str, "YesOnly"]] = None
-    OrderNumber: Optional[int] = None
-    ExtendedValue: Optional[Union[str, "YesOnly"]] = None
-    CommentOID: Optional[str] = None
-    DescriptionRef: Optional[Union[dict, Description]] = None
-    CodingRef: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
-    AliasRef: Optional[Union[Union[dict, Alias], List[Union[dict, Alias]]]] = empty_list()
+    TranslatedTextRef: Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.CodedValue):
-            self.MissingRequiredField("CodedValue")
-        if not isinstance(self.CodedValue, str):
-            self.CodedValue = str(self.CodedValue)
-
-        if self.Rank is not None and not isinstance(self.Rank, Decimal):
-            self.Rank = Decimal(self.Rank)
-
-        if self.Other is not None and not isinstance(self.Other, YesOnly):
-            self.Other = YesOnly(self.Other)
-
-        if self.OrderNumber is not None and not isinstance(self.OrderNumber, int):
-            self.OrderNumber = int(self.OrderNumber)
-
-        if self.ExtendedValue is not None and not isinstance(self.ExtendedValue, YesOnly):
-            self.ExtendedValue = YesOnly(self.ExtendedValue)
-
-        if self.CommentOID is not None and not isinstance(self.CommentOID, str):
-            self.CommentOID = str(self.CommentOID)
-
-        if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
-
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
-
-        self._normalize_inlined_as_dict(slot_name="AliasRef", slot_type=Alias, key_name="Context", keyed=False)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class ExternalCodeList(YAMLRoot):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ODM.ExternalCodeList
-    class_class_curie: ClassVar[str] = "odm:ExternalCodeList"
-    class_name: ClassVar[str] = "ExternalCodeList"
-    class_model_uri: ClassVar[URIRef] = ODM.ExternalCodeList
-
-    Dictionary: Optional[str] = None
-    Version: Optional[str] = None
-    href: Optional[Union[str, URIorCURIE]] = None
-    ref: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.Dictionary is not None and not isinstance(self.Dictionary, str):
-            self.Dictionary = str(self.Dictionary)
-
-        if self.Version is not None and not isinstance(self.Version, str):
-            self.Version = str(self.Version)
-
-        if self.href is not None and not isinstance(self.href, URIorCURIE):
-            self.href = URIorCURIE(self.href)
-
-        if self.ref is not None and not isinstance(self.ref, str):
-            self.ref = str(self.ref)
+        if self._is_empty(self.TranslatedTextRef):
+            self.MissingRequiredField("TranslatedTextRef")
+        if not isinstance(self.TranslatedTextRef, list):
+            self.TranslatedTextRef = [self.TranslatedTextRef] if self.TranslatedTextRef is not None else []
+        self.TranslatedTextRef = [v if isinstance(v, TranslatedText) else TranslatedText(**as_dict(v)) for v in self.TranslatedTextRef]
 
         super().__post_init__(**kwargs)
 
@@ -1905,7 +2347,7 @@ class MethodDef(YAMLRoot):
     class_name: ClassVar[str] = "MethodDef"
     class_model_uri: ClassVar[URIRef] = ODM.MethodDef
 
-    OID: str = None
+    OID: Union[str, MethodDefOID] = None
     Name: str = None
     DescriptionRef: Union[dict, Description] = None
     MethodSignatureRef: Union[dict, "MethodSignature"] = None
@@ -1913,13 +2355,13 @@ class MethodDef(YAMLRoot):
     CommentOID: Optional[str] = None
     FormalExpressionRef: Optional[Union[Union[dict, "FormalExpression"], List[Union[dict, "FormalExpression"]]]] = empty_list()
     AliasRef: Optional[Union[Union[dict, Alias], List[Union[dict, Alias]]]] = empty_list()
-    DocumentRefRef: Optional[Union[Union[dict, DocumentRef], List[Union[dict, DocumentRef]]]] = empty_list()
+    DocumentRefRef: Optional[Union[Dict[Union[str, DocumentRefLeafID], Union[dict, DocumentRef]], List[Union[dict, DocumentRef]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, MethodDefOID):
+            self.OID = MethodDefOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -1929,7 +2371,7 @@ class MethodDef(YAMLRoot):
         if self._is_empty(self.DescriptionRef):
             self.MissingRequiredField("DescriptionRef")
         if not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         if self._is_empty(self.MethodSignatureRef):
             self.MissingRequiredField("MethodSignatureRef")
@@ -1946,9 +2388,11 @@ class MethodDef(YAMLRoot):
             self.FormalExpressionRef = [self.FormalExpressionRef] if self.FormalExpressionRef is not None else []
         self.FormalExpressionRef = [v if isinstance(v, FormalExpression) else FormalExpression(**as_dict(v)) for v in self.FormalExpressionRef]
 
-        self._normalize_inlined_as_dict(slot_name="AliasRef", slot_type=Alias, key_name="Context", keyed=False)
+        if not isinstance(self.AliasRef, list):
+            self.AliasRef = [self.AliasRef] if self.AliasRef is not None else []
+        self.AliasRef = [v if isinstance(v, Alias) else Alias(**as_dict(v)) for v in self.AliasRef]
 
-        self._normalize_inlined_as_dict(slot_name="DocumentRefRef", slot_type=DocumentRef, key_name="leafID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="DocumentRefRef", slot_type=DocumentRef, key_name="leafID", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -1966,9 +2410,13 @@ class MethodSignature(YAMLRoot):
     ReturnValueRef: Optional[Union[Union[dict, "ReturnValue"], List[Union[dict, "ReturnValue"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="ParameterRef", slot_type=Parameter, key_name="Name", keyed=False)
+        if not isinstance(self.ParameterRef, list):
+            self.ParameterRef = [self.ParameterRef] if self.ParameterRef is not None else []
+        self.ParameterRef = [v if isinstance(v, Parameter) else Parameter(**as_dict(v)) for v in self.ParameterRef]
 
-        self._normalize_inlined_as_dict(slot_name="ReturnValueRef", slot_type=ReturnValue, key_name="Name", keyed=False)
+        if not isinstance(self.ReturnValueRef, list):
+            self.ReturnValueRef = [self.ReturnValueRef] if self.ReturnValueRef is not None else []
+        self.ReturnValueRef = [v if isinstance(v, ReturnValue) else ReturnValue(**as_dict(v)) for v in self.ReturnValueRef]
 
         super().__post_init__(**kwargs)
 
@@ -1983,8 +2431,8 @@ class Parameter(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ODM.Parameter
 
     Name: str = None
-    DataType: Union[str, "DataType"] = None
-    Definition: Optional[str] = None
+    DataTypeRef: Union[str, "DataType"] = None
+    DefinitionRef: Optional[str] = None
     OrderNumber: Optional[int] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1993,13 +2441,13 @@ class Parameter(YAMLRoot):
         if not isinstance(self.Name, str):
             self.Name = str(self.Name)
 
-        if self._is_empty(self.DataType):
-            self.MissingRequiredField("DataType")
-        if not isinstance(self.DataType, DataType):
-            self.DataType = DataType(self.DataType)
+        if self._is_empty(self.DataTypeRef):
+            self.MissingRequiredField("DataTypeRef")
+        if not isinstance(self.DataTypeRef, DataType):
+            self.DataTypeRef = DataType(self.DataTypeRef)
 
-        if self.Definition is not None and not isinstance(self.Definition, str):
-            self.Definition = str(self.Definition)
+        if self.DefinitionRef is not None and not isinstance(self.DefinitionRef, str):
+            self.DefinitionRef = str(self.DefinitionRef)
 
         if self.OrderNumber is not None and not isinstance(self.OrderNumber, int):
             self.OrderNumber = int(self.OrderNumber)
@@ -2017,8 +2465,8 @@ class ReturnValue(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ODM.ReturnValue
 
     Name: str = None
-    DataType: Union[str, "DataType"] = None
-    Definition: Optional[str] = None
+    DataTypeRef: Union[str, "DataType"] = None
+    DefinitionRef: Optional[str] = None
     OrderNumber: Optional[int] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -2027,13 +2475,13 @@ class ReturnValue(YAMLRoot):
         if not isinstance(self.Name, str):
             self.Name = str(self.Name)
 
-        if self._is_empty(self.DataType):
-            self.MissingRequiredField("DataType")
-        if not isinstance(self.DataType, DataType):
-            self.DataType = DataType(self.DataType)
+        if self._is_empty(self.DataTypeRef):
+            self.MissingRequiredField("DataTypeRef")
+        if not isinstance(self.DataTypeRef, DataType):
+            self.DataTypeRef = DataType(self.DataTypeRef)
 
-        if self.Definition is not None and not isinstance(self.Definition, str):
-            self.Definition = str(self.Definition)
+        if self.DefinitionRef is not None and not isinstance(self.DefinitionRef, str):
+            self.DefinitionRef = str(self.DefinitionRef)
 
         if self.OrderNumber is not None and not isinstance(self.OrderNumber, int):
             self.OrderNumber = int(self.OrderNumber)
@@ -2050,7 +2498,7 @@ class ConditionDef(YAMLRoot):
     class_name: ClassVar[str] = "ConditionDef"
     class_model_uri: ClassVar[URIRef] = ODM.ConditionDef
 
-    OID: str = None
+    OID: Union[str, ConditionDefOID] = None
     Name: str = None
     DescriptionRef: Union[dict, Description] = None
     MethodSignatureRef: Union[dict, MethodSignature] = None
@@ -2061,8 +2509,8 @@ class ConditionDef(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, ConditionDefOID):
+            self.OID = ConditionDefOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -2072,7 +2520,7 @@ class ConditionDef(YAMLRoot):
         if self._is_empty(self.DescriptionRef):
             self.MissingRequiredField("DescriptionRef")
         if not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         if self._is_empty(self.MethodSignatureRef):
             self.MissingRequiredField("MethodSignatureRef")
@@ -2086,7 +2534,9 @@ class ConditionDef(YAMLRoot):
             self.FormalExpressionRef = [self.FormalExpressionRef] if self.FormalExpressionRef is not None else []
         self.FormalExpressionRef = [v if isinstance(v, FormalExpression) else FormalExpression(**as_dict(v)) for v in self.FormalExpressionRef]
 
-        self._normalize_inlined_as_dict(slot_name="AliasRef", slot_type=Alias, key_name="Context", keyed=False)
+        if not isinstance(self.AliasRef, list):
+            self.AliasRef = [self.AliasRef] if self.AliasRef is not None else []
+        self.AliasRef = [v if isinstance(v, Alias) else Alias(**as_dict(v)) for v in self.AliasRef]
 
         super().__post_init__(**kwargs)
 
@@ -2100,11 +2550,23 @@ class FormalExpression(YAMLRoot):
     class_name: ClassVar[str] = "FormalExpression"
     class_model_uri: ClassVar[URIRef] = ODM.FormalExpression
 
-    Context: Optional[str] = None
+    CodeRef: Union[dict, "Code"] = None
+    ExternalCodeLibRef: Union[dict, "ExternalCodeLib"] = None
+    ContextRef: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.Context is not None and not isinstance(self.Context, str):
-            self.Context = str(self.Context)
+        if self._is_empty(self.CodeRef):
+            self.MissingRequiredField("CodeRef")
+        if not isinstance(self.CodeRef, Code):
+            self.CodeRef = Code(**as_dict(self.CodeRef))
+
+        if self._is_empty(self.ExternalCodeLibRef):
+            self.MissingRequiredField("ExternalCodeLibRef")
+        if not isinstance(self.ExternalCodeLibRef, ExternalCodeLib):
+            self.ExternalCodeLibRef = ExternalCodeLib(**as_dict(self.ExternalCodeLibRef))
+
+        if self.ContextRef is not None and not isinstance(self.ContextRef, str):
+            self.ContextRef = str(self.ContextRef)
 
         super().__post_init__(**kwargs)
 
@@ -2181,22 +2643,22 @@ class CommentDef(YAMLRoot):
     class_name: ClassVar[str] = "CommentDef"
     class_model_uri: ClassVar[URIRef] = ODM.CommentDef
 
-    OID: str = None
+    OID: Union[str, CommentDefOID] = None
     DescriptionRef: Union[dict, Description] = None
-    DocumentRefRef: Optional[Union[Union[dict, DocumentRef], List[Union[dict, DocumentRef]]]] = empty_list()
+    DocumentRefRef: Optional[Union[Dict[Union[str, DocumentRefLeafID], Union[dict, DocumentRef]], List[Union[dict, DocumentRef]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, CommentDefOID):
+            self.OID = CommentDefOID(self.OID)
 
         if self._is_empty(self.DescriptionRef):
             self.MissingRequiredField("DescriptionRef")
         if not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
-        self._normalize_inlined_as_dict(slot_name="DocumentRefRef", slot_type=DocumentRef, key_name="leafID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="DocumentRefRef", slot_type=DocumentRef, key_name="leafID", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -2219,7 +2681,7 @@ class Protocol(YAMLRoot):
     StudyInterventionsRef: Optional[Union[dict, "StudyInterventions"]] = None
     StudyObjectivesRef: Optional[Union[dict, "StudyObjectives"]] = None
     StudyEndPointsRef: Optional[Union[dict, "StudyEndPoints"]] = None
-    StudyTargetPopulationRef: Optional[Union[dict, "StudyTargetPopulation"]] = None
+    StudyTargetPopulationRefRef: Optional[Union[str, StudyTargetPopulationOID]] = None
     StudyEstimandsRef: Optional[Union[dict, "StudyEstimands"]] = None
     InclusionExclusionCriteriaRef: Optional[Union[dict, "InclusionExclusionCriteria"]] = None
     StudyEventGroupRefRef: Optional[Union[Union[dict, StudyEventGroupRef], List[Union[dict, StudyEventGroupRef]]]] = empty_list()
@@ -2228,10 +2690,10 @@ class Protocol(YAMLRoot):
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         if self.StudySummaryRef is not None and not isinstance(self.StudySummaryRef, StudySummary):
-            self.StudySummaryRef = StudySummary()
+            self.StudySummaryRef = StudySummary(**as_dict(self.StudySummaryRef))
 
         if self.StudyStructureRef is not None and not isinstance(self.StudyStructureRef, StudyStructure):
             self.StudyStructureRef = StudyStructure(**as_dict(self.StudyStructureRef))
@@ -2240,35 +2702,39 @@ class Protocol(YAMLRoot):
             self.TrialPhaseRef = TrialPhase(**as_dict(self.TrialPhaseRef))
 
         if self.StudyTimingsRef is not None and not isinstance(self.StudyTimingsRef, StudyTimings):
-            self.StudyTimingsRef = StudyTimings()
+            self.StudyTimingsRef = StudyTimings(**as_dict(self.StudyTimingsRef))
 
         if self.StudyIndicationsRef is not None and not isinstance(self.StudyIndicationsRef, StudyIndications):
-            self.StudyIndicationsRef = StudyIndications()
+            self.StudyIndicationsRef = StudyIndications(**as_dict(self.StudyIndicationsRef))
 
         if self.StudyInterventionsRef is not None and not isinstance(self.StudyInterventionsRef, StudyInterventions):
-            self.StudyInterventionsRef = StudyInterventions()
+            self.StudyInterventionsRef = StudyInterventions(**as_dict(self.StudyInterventionsRef))
 
         if self.StudyObjectivesRef is not None and not isinstance(self.StudyObjectivesRef, StudyObjectives):
-            self.StudyObjectivesRef = StudyObjectives()
+            self.StudyObjectivesRef = StudyObjectives(**as_dict(self.StudyObjectivesRef))
 
         if self.StudyEndPointsRef is not None and not isinstance(self.StudyEndPointsRef, StudyEndPoints):
-            self.StudyEndPointsRef = StudyEndPoints()
+            self.StudyEndPointsRef = StudyEndPoints(**as_dict(self.StudyEndPointsRef))
 
-        if self.StudyTargetPopulationRef is not None and not isinstance(self.StudyTargetPopulationRef, StudyTargetPopulation):
-            self.StudyTargetPopulationRef = StudyTargetPopulation(**as_dict(self.StudyTargetPopulationRef))
+        if self.StudyTargetPopulationRefRef is not None and not isinstance(self.StudyTargetPopulationRefRef, StudyTargetPopulationOID):
+            self.StudyTargetPopulationRefRef = StudyTargetPopulationOID(self.StudyTargetPopulationRefRef)
 
         if self.StudyEstimandsRef is not None and not isinstance(self.StudyEstimandsRef, StudyEstimands):
-            self.StudyEstimandsRef = StudyEstimands()
+            self.StudyEstimandsRef = StudyEstimands(**as_dict(self.StudyEstimandsRef))
 
         if self.InclusionExclusionCriteriaRef is not None and not isinstance(self.InclusionExclusionCriteriaRef, InclusionExclusionCriteria):
             self.InclusionExclusionCriteriaRef = InclusionExclusionCriteria(**as_dict(self.InclusionExclusionCriteriaRef))
 
-        self._normalize_inlined_as_dict(slot_name="StudyEventGroupRefRef", slot_type=StudyEventGroupRef, key_name="StudyEventGroupOID", keyed=False)
+        if not isinstance(self.StudyEventGroupRefRef, list):
+            self.StudyEventGroupRefRef = [self.StudyEventGroupRefRef] if self.StudyEventGroupRefRef is not None else []
+        self.StudyEventGroupRefRef = [v if isinstance(v, StudyEventGroupRef) else StudyEventGroupRef(**as_dict(v)) for v in self.StudyEventGroupRefRef]
 
         if self.WorkflowRefRef is not None and not isinstance(self.WorkflowRefRef, WorkflowRef):
             self.WorkflowRefRef = WorkflowRef(**as_dict(self.WorkflowRefRef))
 
-        self._normalize_inlined_as_dict(slot_name="AliasRef", slot_type=Alias, key_name="Context", keyed=False)
+        if not isinstance(self.AliasRef, list):
+            self.AliasRef = [self.AliasRef] if self.AliasRef is not None else []
+        self.AliasRef = [v if isinstance(v, Alias) else Alias(**as_dict(v)) for v in self.AliasRef]
 
         super().__post_init__(**kwargs)
 
@@ -2283,17 +2749,17 @@ class StudyStructure(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ODM.StudyStructure
 
     DescriptionRef: Optional[Union[dict, Description]] = None
-    ArmRef: Optional[Union[Union[dict, "Arm"], List[Union[dict, "Arm"]]]] = empty_list()
-    EpochRef: Optional[Union[Union[dict, "Epoch"], List[Union[dict, "Epoch"]]]] = empty_list()
+    ArmRef: Optional[Union[Dict[Union[str, ArmOID], Union[dict, "Arm"]], List[Union[dict, "Arm"]]]] = empty_dict()
+    EpochRef: Optional[Union[Dict[Union[str, EpochOID], Union[dict, "Epoch"]], List[Union[dict, "Epoch"]]]] = empty_dict()
     WorkflowRefRef: Optional[Union[dict, "WorkflowRef"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
-        self._normalize_inlined_as_dict(slot_name="ArmRef", slot_type=Arm, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="ArmRef", slot_type=Arm, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="EpochRef", slot_type=Epoch, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="EpochRef", slot_type=Epoch, key_name="OID", keyed=True)
 
         if self.WorkflowRefRef is not None and not isinstance(self.WorkflowRefRef, WorkflowRef):
             self.WorkflowRefRef = WorkflowRef(**as_dict(self.WorkflowRefRef))
@@ -2310,17 +2776,22 @@ class TrialPhase(YAMLRoot):
     class_name: ClassVar[str] = "TrialPhase"
     class_model_uri: ClassVar[URIRef] = ODM.TrialPhase
 
-    Value: str = None
+    ValueRef: str = None
+    DescriptionRef: Optional[Union[dict, Description]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.Value):
-            self.MissingRequiredField("Value")
-        if not isinstance(self.Value, str):
-            self.Value = str(self.Value)
+        if self._is_empty(self.ValueRef):
+            self.MissingRequiredField("ValueRef")
+        if not isinstance(self.ValueRef, str):
+            self.ValueRef = str(self.ValueRef)
+
+        if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class StudyIndications(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2328,6 +2799,15 @@ class StudyIndications(YAMLRoot):
     class_class_curie: ClassVar[str] = "odm:StudyIndications"
     class_name: ClassVar[str] = "StudyIndications"
     class_model_uri: ClassVar[URIRef] = ODM.StudyIndications
+
+    StudyIndicationRef: Union[Dict[Union[str, StudyIndicationOID], Union[dict, "StudyIndication"]], List[Union[dict, "StudyIndication"]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.StudyIndicationRef):
+            self.MissingRequiredField("StudyIndicationRef")
+        self._normalize_inlined_as_list(slot_name="StudyIndicationRef", slot_type=StudyIndication, key_name="OID", keyed=True)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -2339,26 +2819,29 @@ class StudyIndication(YAMLRoot):
     class_name: ClassVar[str] = "StudyIndication"
     class_model_uri: ClassVar[URIRef] = ODM.StudyIndication
 
-    OID: str = None
+    OID: Union[str, StudyIndicationOID] = None
     DescriptionRef: Union[dict, Description] = None
     CodingRef: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, StudyIndicationOID):
+            self.OID = StudyIndicationOID(self.OID)
 
         if self._is_empty(self.DescriptionRef):
             self.MissingRequiredField("DescriptionRef")
         if not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
 
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class StudyInterventions(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2366,6 +2849,15 @@ class StudyInterventions(YAMLRoot):
     class_class_curie: ClassVar[str] = "odm:StudyInterventions"
     class_name: ClassVar[str] = "StudyInterventions"
     class_model_uri: ClassVar[URIRef] = ODM.StudyInterventions
+
+    StudyInterventionRefRef: Union[Dict[Union[str, StudyInterventionOID], Union[dict, "StudyIntervention"]], List[Union[dict, "StudyIntervention"]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.StudyInterventionRefRef):
+            self.MissingRequiredField("StudyInterventionRefRef")
+        self._normalize_inlined_as_list(slot_name="StudyInterventionRefRef", slot_type=StudyIntervention, key_name="OID", keyed=True)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -2377,26 +2869,29 @@ class StudyIntervention(YAMLRoot):
     class_name: ClassVar[str] = "StudyIntervention"
     class_model_uri: ClassVar[URIRef] = ODM.StudyIntervention
 
-    OID: str = None
+    OID: Union[str, StudyInterventionOID] = None
     DescriptionRef: Union[dict, Description] = None
     CodingRef: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, StudyInterventionOID):
+            self.OID = StudyInterventionOID(self.OID)
 
         if self._is_empty(self.DescriptionRef):
             self.MissingRequiredField("DescriptionRef")
         if not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
 
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class StudyObjectives(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2404,6 +2899,15 @@ class StudyObjectives(YAMLRoot):
     class_class_curie: ClassVar[str] = "odm:StudyObjectives"
     class_name: ClassVar[str] = "StudyObjectives"
     class_model_uri: ClassVar[URIRef] = ODM.StudyObjectives
+
+    StudyObjectiveRef: Union[Dict[Union[str, StudyObjectiveOID], Union[dict, "StudyObjective"]], List[Union[dict, "StudyObjective"]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.StudyObjectiveRef):
+            self.MissingRequiredField("StudyObjectiveRef")
+        self._normalize_inlined_as_list(slot_name="StudyObjectiveRef", slot_type=StudyObjective, key_name="OID", keyed=True)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -2415,32 +2919,32 @@ class StudyObjective(YAMLRoot):
     class_name: ClassVar[str] = "StudyObjective"
     class_model_uri: ClassVar[URIRef] = ODM.StudyObjective
 
-    OID: str = None
+    OID: Union[str, StudyObjectiveOID] = None
     Name: str = None
-    DescriptionRef: Union[dict, Description] = None
-    Type: Optional[Union[str, "StudyObjectiveType"]] = None
+    Type: Optional[Union[str, "StudyObjectiveLevel"]] = None
+    DescriptionRef: Optional[Union[dict, Description]] = None
     StudyEndPointRefRef: Optional[Union[Union[dict, "StudyEndPointRef"], List[Union[dict, "StudyEndPointRef"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, StudyObjectiveOID):
+            self.OID = StudyObjectiveOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
         if not isinstance(self.Name, str):
             self.Name = str(self.Name)
 
-        if self._is_empty(self.DescriptionRef):
-            self.MissingRequiredField("DescriptionRef")
-        if not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+        if self.Type is not None and not isinstance(self.Type, StudyObjectiveLevel):
+            self.Type = StudyObjectiveLevel(self.Type)
 
-        if self.Type is not None and not isinstance(self.Type, StudyObjectiveType):
-            self.Type = StudyObjectiveType(self.Type)
+        if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
-        self._normalize_inlined_as_dict(slot_name="StudyEndPointRefRef", slot_type=StudyEndPointRef, key_name="StudyEndPointOID", keyed=False)
+        if not isinstance(self.StudyEndPointRefRef, list):
+            self.StudyEndPointRefRef = [self.StudyEndPointRefRef] if self.StudyEndPointRefRef is not None else []
+        self.StudyEndPointRefRef = [v if isinstance(v, StudyEndPointRef) else StudyEndPointRef(**as_dict(v)) for v in self.StudyEndPointRefRef]
 
         super().__post_init__(**kwargs)
 
@@ -2469,6 +2973,7 @@ class StudyEndPointRef(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class StudyEndPoints(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2476,6 +2981,15 @@ class StudyEndPoints(YAMLRoot):
     class_class_curie: ClassVar[str] = "odm:StudyEndPoints"
     class_name: ClassVar[str] = "StudyEndPoints"
     class_model_uri: ClassVar[URIRef] = ODM.StudyEndPoints
+
+    StudyEndPointRefRef: Union[Dict[Union[str, StudyEndPointOID], Union[dict, "StudyEndPoint"]], List[Union[dict, "StudyEndPoint"]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.StudyEndPointRefRef):
+            self.MissingRequiredField("StudyEndPointRefRef")
+        self._normalize_inlined_as_list(slot_name="StudyEndPointRefRef", slot_type=StudyEndPoint, key_name="OID", keyed=True)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -2487,17 +3001,18 @@ class StudyEndPoint(YAMLRoot):
     class_name: ClassVar[str] = "StudyEndPoint"
     class_model_uri: ClassVar[URIRef] = ODM.StudyEndPoint
 
-    OID: str = None
+    OID: Union[str, StudyEndPointOID] = None
     Name: str = None
     DescriptionRef: Union[dict, Description] = None
     Type: Optional[Union[str, "StudyEndPointType"]] = None
+    Level: Optional[Union[str, "StudyEndPointLevel"]] = None
     FormalExpressionRef: Optional[Union[Union[dict, FormalExpression], List[Union[dict, FormalExpression]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, StudyEndPointOID):
+            self.OID = StudyEndPointOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -2507,10 +3022,13 @@ class StudyEndPoint(YAMLRoot):
         if self._is_empty(self.DescriptionRef):
             self.MissingRequiredField("DescriptionRef")
         if not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         if self.Type is not None and not isinstance(self.Type, StudyEndPointType):
             self.Type = StudyEndPointType(self.Type)
+
+        if self.Level is not None and not isinstance(self.Level, StudyEndPointLevel):
+            self.Level = StudyEndPointLevel(self.Level)
 
         if not isinstance(self.FormalExpressionRef, list):
             self.FormalExpressionRef = [self.FormalExpressionRef] if self.FormalExpressionRef is not None else []
@@ -2528,7 +3046,7 @@ class StudyTargetPopulation(YAMLRoot):
     class_name: ClassVar[str] = "StudyTargetPopulation"
     class_model_uri: ClassVar[URIRef] = ODM.StudyTargetPopulation
 
-    OID: str = None
+    OID: Union[str, StudyTargetPopulationOID] = None
     Name: str = None
     DescriptionRef: Union[dict, Description] = None
     CodingRef: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
@@ -2537,8 +3055,8 @@ class StudyTargetPopulation(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, StudyTargetPopulationOID):
+            self.OID = StudyTargetPopulationOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -2548,9 +3066,11 @@ class StudyTargetPopulation(YAMLRoot):
         if self._is_empty(self.DescriptionRef):
             self.MissingRequiredField("DescriptionRef")
         if not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
 
         if not isinstance(self.FormalExpressionRef, list):
             self.FormalExpressionRef = [self.FormalExpressionRef] if self.FormalExpressionRef is not None else []
@@ -2559,6 +3079,7 @@ class StudyTargetPopulation(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class StudyEstimands(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2566,6 +3087,15 @@ class StudyEstimands(YAMLRoot):
     class_class_curie: ClassVar[str] = "odm:StudyEstimands"
     class_name: ClassVar[str] = "StudyEstimands"
     class_model_uri: ClassVar[URIRef] = ODM.StudyEstimands
+
+    StudyEstimandRef: Union[Dict[Union[str, StudyEstimandOID], Union[dict, "StudyEstimand"]], List[Union[dict, "StudyEstimand"]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.StudyEstimandRef):
+            self.MissingRequiredField("StudyEstimandRef")
+        self._normalize_inlined_as_list(slot_name="StudyEstimandRef", slot_type=StudyEstimand, key_name="OID", keyed=True)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -2577,7 +3107,7 @@ class StudyEstimand(YAMLRoot):
     class_name: ClassVar[str] = "StudyEstimand"
     class_model_uri: ClassVar[URIRef] = ODM.StudyEstimand
 
-    OID: str = None
+    OID: Union[str, StudyEstimandOID] = None
     Name: str = None
     DescriptionRef: Optional[Union[dict, Description]] = None
     StudyTargetPopulationRefRef: Optional[Union[dict, "StudyTargetPopulationRef"]] = None
@@ -2589,8 +3119,8 @@ class StudyEstimand(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, StudyEstimandOID):
+            self.OID = StudyEstimandOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -2598,7 +3128,7 @@ class StudyEstimand(YAMLRoot):
             self.Name = str(self.Name)
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         if self.StudyTargetPopulationRefRef is not None and not isinstance(self.StudyTargetPopulationRefRef, StudyTargetPopulationRef):
             self.StudyTargetPopulationRefRef = StudyTargetPopulationRef(**as_dict(self.StudyTargetPopulationRefRef))
@@ -2614,7 +3144,7 @@ class StudyEstimand(YAMLRoot):
         self.IntercurrentEventRef = [v if isinstance(v, IntercurrentEvent) else IntercurrentEvent(**as_dict(v)) for v in self.IntercurrentEventRef]
 
         if self.SummaryMeasureRef is not None and not isinstance(self.SummaryMeasureRef, SummaryMeasure):
-            self.SummaryMeasureRef = SummaryMeasure()
+            self.SummaryMeasureRef = SummaryMeasure(**as_dict(self.SummaryMeasureRef))
 
         super().__post_init__(**kwargs)
 
@@ -2633,14 +3163,15 @@ class InclusionExclusionCriteria(YAMLRoot):
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.InclusionCriteriaRef is not None and not isinstance(self.InclusionCriteriaRef, InclusionCriteria):
-            self.InclusionCriteriaRef = InclusionCriteria()
+            self.InclusionCriteriaRef = InclusionCriteria(**as_dict(self.InclusionCriteriaRef))
 
         if self.ExclusionCriteriaRef is not None and not isinstance(self.ExclusionCriteriaRef, ExclusionCriteria):
-            self.ExclusionCriteriaRef = ExclusionCriteria()
+            self.ExclusionCriteriaRef = ExclusionCriteria(**as_dict(self.ExclusionCriteriaRef))
 
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class InclusionCriteria(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2649,7 +3180,17 @@ class InclusionCriteria(YAMLRoot):
     class_name: ClassVar[str] = "InclusionCriteria"
     class_model_uri: ClassVar[URIRef] = ODM.InclusionCriteria
 
+    CriterionRef: Union[Dict[Union[str, CriterionOID], Union[dict, "Criterion"]], List[Union[dict, "Criterion"]]] = empty_dict()
 
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.CriterionRef):
+            self.MissingRequiredField("CriterionRef")
+        self._normalize_inlined_as_list(slot_name="CriterionRef", slot_type=Criterion, key_name="OID", keyed=True)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
 class ExclusionCriteria(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2657,6 +3198,15 @@ class ExclusionCriteria(YAMLRoot):
     class_class_curie: ClassVar[str] = "odm:ExclusionCriteria"
     class_name: ClassVar[str] = "ExclusionCriteria"
     class_model_uri: ClassVar[URIRef] = ODM.ExclusionCriteria
+
+    CriterionRef: Union[Dict[Union[str, CriterionOID], Union[dict, "Criterion"]], List[Union[dict, "Criterion"]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.CriterionRef):
+            self.MissingRequiredField("CriterionRef")
+        self._normalize_inlined_as_list(slot_name="CriterionRef", slot_type=Criterion, key_name="OID", keyed=True)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -2699,6 +3249,7 @@ class StudyInterventionRef(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class IntercurrentEvent(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2707,7 +3258,18 @@ class IntercurrentEvent(YAMLRoot):
     class_name: ClassVar[str] = "IntercurrentEvent"
     class_model_uri: ClassVar[URIRef] = ODM.IntercurrentEvent
 
+    DescriptionRef: Union[dict, Description] = None
 
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.DescriptionRef):
+            self.MissingRequiredField("DescriptionRef")
+        if not isinstance(self.DescriptionRef, Description):
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
 class SummaryMeasure(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2715,6 +3277,16 @@ class SummaryMeasure(YAMLRoot):
     class_class_curie: ClassVar[str] = "odm:SummaryMeasure"
     class_name: ClassVar[str] = "SummaryMeasure"
     class_model_uri: ClassVar[URIRef] = ODM.SummaryMeasure
+
+    DescriptionRef: Union[dict, Description] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.DescriptionRef):
+            self.MissingRequiredField("DescriptionRef")
+        if not isinstance(self.DescriptionRef, Description):
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -2726,7 +3298,7 @@ class Arm(YAMLRoot):
     class_name: ClassVar[str] = "Arm"
     class_model_uri: ClassVar[URIRef] = ODM.Arm
 
-    OID: str = None
+    OID: Union[str, ArmOID] = None
     Name: str = None
     DescriptionRef: Optional[Union[dict, Description]] = None
     WorkflowRefRef: Optional[Union[dict, "WorkflowRef"]] = None
@@ -2734,8 +3306,8 @@ class Arm(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, ArmOID):
+            self.OID = ArmOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -2743,7 +3315,7 @@ class Arm(YAMLRoot):
             self.Name = str(self.Name)
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         if self.WorkflowRefRef is not None and not isinstance(self.WorkflowRefRef, WorkflowRef):
             self.WorkflowRefRef = WorkflowRef(**as_dict(self.WorkflowRefRef))
@@ -2760,15 +3332,16 @@ class Epoch(YAMLRoot):
     class_name: ClassVar[str] = "Epoch"
     class_model_uri: ClassVar[URIRef] = ODM.Epoch
 
-    OID: str = None
+    OID: Union[str, EpochOID] = None
     Name: str = None
     SequenceNumber: int = None
+    DescriptionRef: Optional[Union[dict, Description]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, EpochOID):
+            self.OID = EpochOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -2779,6 +3352,9 @@ class Epoch(YAMLRoot):
             self.MissingRequiredField("SequenceNumber")
         if not isinstance(self.SequenceNumber, int):
             self.SequenceNumber = int(self.SequenceNumber)
+
+        if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         super().__post_init__(**kwargs)
 
@@ -2803,6 +3379,7 @@ class WorkflowRef(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class StudySummary(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2810,6 +3387,15 @@ class StudySummary(YAMLRoot):
     class_class_curie: ClassVar[str] = "odm:StudySummary"
     class_name: ClassVar[str] = "StudySummary"
     class_model_uri: ClassVar[URIRef] = ODM.StudySummary
+
+    StudyParameterRef: Union[Dict[Union[str, StudyParameterOID], Union[dict, "StudyParameter"]], List[Union[dict, "StudyParameter"]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.StudyParameterRef):
+            self.MissingRequiredField("StudyParameterRef")
+        self._normalize_inlined_as_list(slot_name="StudyParameterRef", slot_type=StudyParameter, key_name="OID", keyed=True)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -2821,17 +3407,17 @@ class StudyParameter(YAMLRoot):
     class_name: ClassVar[str] = "StudyParameter"
     class_model_uri: ClassVar[URIRef] = ODM.StudyParameter
 
-    OID: str = None
+    OID: Union[str, StudyParameterOID] = None
     Term: str = None
-    ParameterValueRef: Union[Union[dict, "ParameterValue"], List[Union[dict, "ParameterValue"]]] = None
+    ParameterValueRef: Union[dict, "ParameterValue"] = None
     ShortName: Optional[str] = None
     CodingRef: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, StudyParameterOID):
+            self.OID = StudyParameterOID(self.OID)
 
         if self._is_empty(self.Term):
             self.MissingRequiredField("Term")
@@ -2840,12 +3426,15 @@ class StudyParameter(YAMLRoot):
 
         if self._is_empty(self.ParameterValueRef):
             self.MissingRequiredField("ParameterValueRef")
-        self._normalize_inlined_as_dict(slot_name="ParameterValueRef", slot_type=ParameterValue, key_name="Value", keyed=False)
+        if not isinstance(self.ParameterValueRef, ParameterValue):
+            self.ParameterValueRef = ParameterValue(**as_dict(self.ParameterValueRef))
 
         if self.ShortName is not None and not isinstance(self.ShortName, str):
             self.ShortName = str(self.ShortName)
 
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
 
         super().__post_init__(**kwargs)
 
@@ -2859,17 +3448,23 @@ class ParameterValue(YAMLRoot):
     class_name: ClassVar[str] = "ParameterValue"
     class_model_uri: ClassVar[URIRef] = ODM.ParameterValue
 
-    Value: str = None
+    ValueRef: str = None
+    CodingRef: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.Value):
-            self.MissingRequiredField("Value")
-        if not isinstance(self.Value, str):
-            self.Value = str(self.Value)
+        if self._is_empty(self.ValueRef):
+            self.MissingRequiredField("ValueRef")
+        if not isinstance(self.ValueRef, str):
+            self.ValueRef = str(self.ValueRef)
+
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
 
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class StudyTimings(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2877,6 +3472,15 @@ class StudyTimings(YAMLRoot):
     class_class_curie: ClassVar[str] = "odm:StudyTimings"
     class_name: ClassVar[str] = "StudyTimings"
     class_model_uri: ClassVar[URIRef] = ODM.StudyTimings
+
+    StudyTimingRef: Union[Dict[Union[str, StudyTimingOID], Union[dict, "StudyTiming"]], List[Union[dict, "StudyTiming"]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.StudyTimingRef):
+            self.MissingRequiredField("StudyTimingRef")
+        self._normalize_inlined_as_list(slot_name="StudyTimingRef", slot_type=StudyTiming, key_name="OID", keyed=True)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -2888,31 +3492,31 @@ class StudyTiming(YAMLRoot):
     class_name: ClassVar[str] = "StudyTiming"
     class_model_uri: ClassVar[URIRef] = ODM.StudyTiming
 
-    OID: str = None
+    OID: Union[str, StudyTimingOID] = None
     Name: str = None
-    AbsoluteTimingConstraintRef: Optional[Union[Union[dict, "AbsoluteTimingConstraint"], List[Union[dict, "AbsoluteTimingConstraint"]]]] = empty_list()
-    RelativeTimingConstraintRef: Optional[Union[Union[dict, "RelativeTimingConstraint"], List[Union[dict, "RelativeTimingConstraint"]]]] = empty_list()
-    TransitionTimingConstraintRef: Optional[Union[Union[dict, "TransitionTimingConstraint"], List[Union[dict, "TransitionTimingConstraint"]]]] = empty_list()
-    DurationTimingConstraintRef: Optional[Union[Union[dict, "DurationTimingConstraint"], List[Union[dict, "DurationTimingConstraint"]]]] = empty_list()
+    AbsoluteTimingConstraintRef: Optional[Union[Dict[Union[str, AbsoluteTimingConstraintOID], Union[dict, "AbsoluteTimingConstraint"]], List[Union[dict, "AbsoluteTimingConstraint"]]]] = empty_dict()
+    RelativeTimingConstraintRef: Optional[Union[Dict[Union[str, RelativeTimingConstraintOID], Union[dict, "RelativeTimingConstraint"]], List[Union[dict, "RelativeTimingConstraint"]]]] = empty_dict()
+    TransitionTimingConstraintRef: Optional[Union[Dict[Union[str, TransitionTimingConstraintOID], Union[dict, "TransitionTimingConstraint"]], List[Union[dict, "TransitionTimingConstraint"]]]] = empty_dict()
+    DurationTimingConstraintRef: Optional[Union[Dict[Union[str, DurationTimingConstraintOID], Union[dict, "DurationTimingConstraint"]], List[Union[dict, "DurationTimingConstraint"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, StudyTimingOID):
+            self.OID = StudyTimingOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
         if not isinstance(self.Name, str):
             self.Name = str(self.Name)
 
-        self._normalize_inlined_as_dict(slot_name="AbsoluteTimingConstraintRef", slot_type=AbsoluteTimingConstraint, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="AbsoluteTimingConstraintRef", slot_type=AbsoluteTimingConstraint, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="RelativeTimingConstraintRef", slot_type=RelativeTimingConstraint, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="RelativeTimingConstraintRef", slot_type=RelativeTimingConstraint, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="TransitionTimingConstraintRef", slot_type=TransitionTimingConstraint, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="TransitionTimingConstraintRef", slot_type=TransitionTimingConstraint, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="DurationTimingConstraintRef", slot_type=DurationTimingConstraint, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="DurationTimingConstraintRef", slot_type=DurationTimingConstraint, key_name="OID", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -2926,7 +3530,7 @@ class TransitionTimingConstraint(YAMLRoot):
     class_name: ClassVar[str] = "TransitionTimingConstraint"
     class_model_uri: ClassVar[URIRef] = ODM.TransitionTimingConstraint
 
-    OID: str = None
+    OID: Union[str, TransitionTimingConstraintOID] = None
     Name: str = None
     TransitionOID: str = None
     TimepointTarget: str = None
@@ -2934,12 +3538,13 @@ class TransitionTimingConstraint(YAMLRoot):
     Type: Optional[Union[str, "RelativeTimingConstraintType"]] = None
     TimepointPreWindow: Optional[str] = None
     TimepointPostWindow: Optional[str] = None
+    DescriptionRef: Optional[Union[dict, Description]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, TransitionTimingConstraintOID):
+            self.OID = TransitionTimingConstraintOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -2968,6 +3573,9 @@ class TransitionTimingConstraint(YAMLRoot):
         if self.TimepointPostWindow is not None and not isinstance(self.TimepointPostWindow, str):
             self.TimepointPostWindow = str(self.TimepointPostWindow)
 
+        if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
+
         super().__post_init__(**kwargs)
 
 
@@ -2980,19 +3588,20 @@ class AbsoluteTimingConstraint(YAMLRoot):
     class_name: ClassVar[str] = "AbsoluteTimingConstraint"
     class_model_uri: ClassVar[URIRef] = ODM.AbsoluteTimingConstraint
 
-    OID: str = None
+    OID: Union[str, AbsoluteTimingConstraintOID] = None
     Name: str = None
     TimepointTarget: str = None
     StudyEventGroupOID: Optional[str] = None
     StudyEventOID: Optional[str] = None
     TimepointPreWindow: Optional[str] = None
     TimepointPostWindow: Optional[str] = None
+    DescriptionRef: Optional[Union[dict, Description]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, AbsoluteTimingConstraintOID):
+            self.OID = AbsoluteTimingConstraintOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -3016,6 +3625,9 @@ class AbsoluteTimingConstraint(YAMLRoot):
         if self.TimepointPostWindow is not None and not isinstance(self.TimepointPostWindow, str):
             self.TimepointPostWindow = str(self.TimepointPostWindow)
 
+        if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
+
         super().__post_init__(**kwargs)
 
 
@@ -3028,7 +3640,7 @@ class RelativeTimingConstraint(YAMLRoot):
     class_name: ClassVar[str] = "RelativeTimingConstraint"
     class_model_uri: ClassVar[URIRef] = ODM.RelativeTimingConstraint
 
-    OID: str = None
+    OID: Union[str, RelativeTimingConstraintOID] = None
     Name: str = None
     TimepointRelativeTarget: str = None
     PredecessorOID: Optional[str] = None
@@ -3036,12 +3648,13 @@ class RelativeTimingConstraint(YAMLRoot):
     Type: Optional[Union[str, "RelativeTimingConstraintType"]] = None
     TimepointPreWindow: Optional[str] = None
     TimepointPostWindow: Optional[str] = None
+    DescriptionRef: Optional[Union[dict, Description]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, RelativeTimingConstraintOID):
+            self.OID = RelativeTimingConstraintOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -3068,6 +3681,9 @@ class RelativeTimingConstraint(YAMLRoot):
         if self.TimepointPostWindow is not None and not isinstance(self.TimepointPostWindow, str):
             self.TimepointPostWindow = str(self.TimepointPostWindow)
 
+        if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
+
         super().__post_init__(**kwargs)
 
 
@@ -3080,18 +3696,19 @@ class DurationTimingConstraint(YAMLRoot):
     class_name: ClassVar[str] = "DurationTimingConstraint"
     class_model_uri: ClassVar[URIRef] = ODM.DurationTimingConstraint
 
-    OID: str = None
+    OID: Union[str, DurationTimingConstraintOID] = None
     Name: str = None
     StructuralElementOID: str = None
     DurationTarget: str = None
     DurationPreWindow: Optional[str] = None
     DurationPostWindow: Optional[str] = None
+    DescriptionRef: Optional[Union[dict, Description]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, DurationTimingConstraintOID):
+            self.OID = DurationTimingConstraintOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -3114,6 +3731,9 @@ class DurationTimingConstraint(YAMLRoot):
         if self.DurationPostWindow is not None and not isinstance(self.DurationPostWindow, str):
             self.DurationPostWindow = str(self.DurationPostWindow)
 
+        if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
+
         super().__post_init__(**kwargs)
 
 
@@ -3126,17 +3746,19 @@ class WorkflowDef(YAMLRoot):
     class_name: ClassVar[str] = "WorkflowDef"
     class_model_uri: ClassVar[URIRef] = ODM.WorkflowDef
 
-    OID: str = None
+    OID: Union[str, WorkflowDefOID] = None
     Name: str = None
     WorkflowStartRef: Union[dict, "WorkflowStart"] = None
     WorkflowEndRef: Union[Union[dict, "WorkflowEnd"], List[Union[dict, "WorkflowEnd"]]] = None
     DescriptionRef: Optional[Union[dict, Description]] = None
+    TransitionRef: Optional[Union[str, TransitionOID]] = None
+    BranchingRef: Optional[Union[str, BranchingOID]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, WorkflowDefOID):
+            self.OID = WorkflowDefOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -3150,10 +3772,18 @@ class WorkflowDef(YAMLRoot):
 
         if self._is_empty(self.WorkflowEndRef):
             self.MissingRequiredField("WorkflowEndRef")
-        self._normalize_inlined_as_dict(slot_name="WorkflowEndRef", slot_type=WorkflowEnd, key_name="EndOID", keyed=False)
+        if not isinstance(self.WorkflowEndRef, list):
+            self.WorkflowEndRef = [self.WorkflowEndRef] if self.WorkflowEndRef is not None else []
+        self.WorkflowEndRef = [v if isinstance(v, WorkflowEnd) else WorkflowEnd(**as_dict(v)) for v in self.WorkflowEndRef]
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
+
+        if self.TransitionRef is not None and not isinstance(self.TransitionRef, TransitionOID):
+            self.TransitionRef = TransitionOID(self.TransitionRef)
+
+        if self.BranchingRef is not None and not isinstance(self.BranchingRef, BranchingOID):
+            self.BranchingRef = BranchingOID(self.BranchingRef)
 
         super().__post_init__(**kwargs)
 
@@ -3187,7 +3817,7 @@ class Transition(YAMLRoot):
     class_name: ClassVar[str] = "Transition"
     class_model_uri: ClassVar[URIRef] = ODM.Transition
 
-    OID: str = None
+    OID: Union[str, TransitionOID] = None
     Name: str = None
     SourceOID: str = None
     TargetOID: str = None
@@ -3197,8 +3827,8 @@ class Transition(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, TransitionOID):
+            self.OID = TransitionOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -3233,7 +3863,7 @@ class Branching(YAMLRoot):
     class_name: ClassVar[str] = "Branching"
     class_model_uri: ClassVar[URIRef] = ODM.Branching
 
-    OID: str = None
+    OID: Union[str, BranchingOID] = None
     Name: str = None
     Type: Union[str, "BranchingType"] = None
     TargetTransitionRef: Union[Union[dict, "TargetTransition"], List[Union[dict, "TargetTransition"]]] = None
@@ -3242,8 +3872,8 @@ class Branching(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, BranchingOID):
+            self.OID = BranchingOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -3257,9 +3887,13 @@ class Branching(YAMLRoot):
 
         if self._is_empty(self.TargetTransitionRef):
             self.MissingRequiredField("TargetTransitionRef")
-        self._normalize_inlined_as_dict(slot_name="TargetTransitionRef", slot_type=TargetTransition, key_name="TargetTransitionOID", keyed=False)
+        if not isinstance(self.TargetTransitionRef, list):
+            self.TargetTransitionRef = [self.TargetTransitionRef] if self.TargetTransitionRef is not None else []
+        self.TargetTransitionRef = [v if isinstance(v, TargetTransition) else TargetTransition(**as_dict(v)) for v in self.TargetTransitionRef]
 
-        self._normalize_inlined_as_dict(slot_name="DefaultTransitionRef", slot_type=DefaultTransition, key_name="TargetTransitionOID", keyed=False)
+        if not isinstance(self.DefaultTransitionRef, list):
+            self.DefaultTransitionRef = [self.DefaultTransitionRef] if self.DefaultTransitionRef is not None else []
+        self.DefaultTransitionRef = [v if isinstance(v, DefaultTransition) else DefaultTransition(**as_dict(v)) for v in self.DefaultTransitionRef]
 
         super().__post_init__(**kwargs)
 
@@ -3341,15 +3975,17 @@ class Criterion(YAMLRoot):
     class_name: ClassVar[str] = "Criterion"
     class_model_uri: ClassVar[URIRef] = ODM.Criterion
 
-    OID: str = None
+    OID: Union[str, CriterionOID] = None
     Name: str = None
     ConditionOID: str = None
+    DescriptionRef: Optional[Union[dict, Description]] = None
+    CodingRef: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, CriterionOID):
+            self.OID = CriterionOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -3361,9 +3997,17 @@ class Criterion(YAMLRoot):
         if not isinstance(self.ConditionOID, str):
             self.ConditionOID = str(self.ConditionOID)
 
+        if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
+
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
+
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class EntryCriteria(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -3372,7 +4016,15 @@ class EntryCriteria(YAMLRoot):
     class_name: ClassVar[str] = "EntryCriteria"
     class_model_uri: ClassVar[URIRef] = ODM.EntryCriteria
 
+    CriterionRef: Optional[Union[Dict[Union[str, CriterionOID], Union[dict, Criterion]], List[Union[dict, Criterion]]]] = empty_dict()
 
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        self._normalize_inlined_as_list(slot_name="CriterionRef", slot_type=Criterion, key_name="OID", keyed=True)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
 class ExitCriteria(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -3380,6 +4032,13 @@ class ExitCriteria(YAMLRoot):
     class_class_curie: ClassVar[str] = "odm:ExitCriteria"
     class_name: ClassVar[str] = "ExitCriteria"
     class_model_uri: ClassVar[URIRef] = ODM.ExitCriteria
+
+    CriterionRef: Optional[Union[Dict[Union[str, CriterionOID], Union[dict, Criterion]], List[Union[dict, Criterion]]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        self._normalize_inlined_as_list(slot_name="CriterionRef", slot_type=Criterion, key_name="OID", keyed=True)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -3391,23 +4050,47 @@ class ExceptionEvent(YAMLRoot):
     class_name: ClassVar[str] = "ExceptionEvent"
     class_model_uri: ClassVar[URIRef] = ODM.ExceptionEvent
 
-    OID: str = None
+    OID: Union[str, ExceptionEventOID] = None
     Name: str = None
+    WorkflowRefRef: Union[dict, WorkflowRef] = None
+    StudyEventGroupRefRef: Union[Union[dict, StudyEventGroupRef], List[Union[dict, StudyEventGroupRef]]] = None
+    StudyEventRefRef: Union[Union[dict, StudyEventRef], List[Union[dict, StudyEventRef]]] = None
     ConditionOID: Optional[str] = None
+    DescriptionRef: Optional[Union[dict, Description]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, ExceptionEventOID):
+            self.OID = ExceptionEventOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
         if not isinstance(self.Name, str):
             self.Name = str(self.Name)
 
+        if self._is_empty(self.WorkflowRefRef):
+            self.MissingRequiredField("WorkflowRefRef")
+        if not isinstance(self.WorkflowRefRef, WorkflowRef):
+            self.WorkflowRefRef = WorkflowRef(**as_dict(self.WorkflowRefRef))
+
+        if self._is_empty(self.StudyEventGroupRefRef):
+            self.MissingRequiredField("StudyEventGroupRefRef")
+        if not isinstance(self.StudyEventGroupRefRef, list):
+            self.StudyEventGroupRefRef = [self.StudyEventGroupRefRef] if self.StudyEventGroupRefRef is not None else []
+        self.StudyEventGroupRefRef = [v if isinstance(v, StudyEventGroupRef) else StudyEventGroupRef(**as_dict(v)) for v in self.StudyEventGroupRefRef]
+
+        if self._is_empty(self.StudyEventRefRef):
+            self.MissingRequiredField("StudyEventRefRef")
+        if not isinstance(self.StudyEventRefRef, list):
+            self.StudyEventRefRef = [self.StudyEventRefRef] if self.StudyEventRefRef is not None else []
+        self.StudyEventRefRef = [v if isinstance(v, StudyEventRef) else StudyEventRef(**as_dict(v)) for v in self.StudyEventRefRef]
+
         if self.ConditionOID is not None and not isinstance(self.ConditionOID, str):
             self.ConditionOID = str(self.ConditionOID)
+
+        if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         super().__post_init__(**kwargs)
 
@@ -3422,22 +4105,22 @@ class AdminData(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ODM.AdminData
 
     StudyOID: Optional[str] = None
-    UserRef: Optional[Union[Union[dict, "User"], List[Union[dict, "User"]]]] = empty_list()
-    OrganizationRef: Optional[Union[Union[dict, "Organization"], List[Union[dict, "Organization"]]]] = empty_list()
-    LocationRef: Optional[Union[Union[dict, "Location"], List[Union[dict, "Location"]]]] = empty_list()
-    SignatureDefRef: Optional[Union[Union[dict, "SignatureDef"], List[Union[dict, "SignatureDef"]]]] = empty_list()
+    UserRefRef: Optional[Union[Dict[Union[str, UserOID], Union[dict, "User"]], List[Union[dict, "User"]]]] = empty_dict()
+    OrganizationRef: Optional[Union[Dict[Union[str, OrganizationOID], Union[dict, "Organization"]], List[Union[dict, "Organization"]]]] = empty_dict()
+    LocationRefRef: Optional[Union[Dict[Union[str, LocationOID], Union[dict, "Location"]], List[Union[dict, "Location"]]]] = empty_dict()
+    SignatureDefRef: Optional[Union[Dict[Union[str, SignatureDefOID], Union[dict, "SignatureDef"]], List[Union[dict, "SignatureDef"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.StudyOID is not None and not isinstance(self.StudyOID, str):
             self.StudyOID = str(self.StudyOID)
 
-        self._normalize_inlined_as_dict(slot_name="UserRef", slot_type=User, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="UserRefRef", slot_type=User, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="OrganizationRef", slot_type=Organization, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="OrganizationRef", slot_type=Organization, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="LocationRef", slot_type=Location, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="LocationRefRef", slot_type=Location, key_name="OID", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="SignatureDefRef", slot_type=SignatureDef, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="SignatureDefRef", slot_type=SignatureDef, key_name="OID", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -3451,8 +4134,8 @@ class User(YAMLRoot):
     class_name: ClassVar[str] = "User"
     class_model_uri: ClassVar[URIRef] = ODM.User
 
-    OID: str = None
-    UserType: Optional[Union[str, "UserType"]] = None
+    OID: Union[str, UserOID] = None
+    UserTypeRef: Optional[Union[str, "UserType"]] = None
     OrganizationOID: Optional[str] = None
     LocationOID: Optional[str] = None
     UserNameRef: Optional[Union[dict, "UserName"]] = None
@@ -3468,11 +4151,11 @@ class User(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, UserOID):
+            self.OID = UserOID(self.OID)
 
-        if self.UserType is not None and not isinstance(self.UserType, UserType):
-            self.UserType = UserType(self.UserType)
+        if self.UserTypeRef is not None and not isinstance(self.UserTypeRef, UserType):
+            self.UserTypeRef = UserType(self.UserTypeRef)
 
         if self.OrganizationOID is not None and not isinstance(self.OrganizationOID, str):
             self.OrganizationOID = str(self.OrganizationOID)
@@ -3679,7 +4362,7 @@ class Organization(YAMLRoot):
     class_name: ClassVar[str] = "Organization"
     class_model_uri: ClassVar[URIRef] = ODM.Organization
 
-    OID: str = None
+    OID: Union[str, OrganizationOID] = None
     Name: str = None
     Type: Union[str, "OrganizationType"] = None
     Role: Optional[str] = None
@@ -3692,8 +4375,8 @@ class Organization(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, OrganizationOID):
+            self.OID = OrganizationOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -3715,7 +4398,7 @@ class Organization(YAMLRoot):
             self.PartOfOrganizationOID = str(self.PartOfOrganizationOID)
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         if not isinstance(self.AddressRef, list):
             self.AddressRef = [self.AddressRef] if self.AddressRef is not None else []
@@ -3737,7 +4420,7 @@ class Location(YAMLRoot):
     class_name: ClassVar[str] = "Location"
     class_model_uri: ClassVar[URIRef] = ODM.Location
 
-    OID: str = None
+    OID: Union[str, LocationOID] = None
     Name: str = None
     MetaDataVersionRefRef: Union[Union[dict, "MetaDataVersionRef"], List[Union[dict, "MetaDataVersionRef"]]] = None
     Role: Optional[str] = None
@@ -3745,13 +4428,13 @@ class Location(YAMLRoot):
     DescriptionRef: Optional[Union[dict, Description]] = None
     AddressRef: Optional[Union[Union[dict, "Address"], List[Union[dict, "Address"]]]] = empty_list()
     TelecomRef: Optional[Union[Union[dict, "Telecom"], List[Union[dict, "Telecom"]]]] = empty_list()
-    QueryRef: Optional[Union[Union[dict, "Query"], List[Union[dict, "Query"]]]] = empty_list()
+    QueryRef: Optional[Union[Dict[Union[str, QueryOID], Union[dict, "Query"]], List[Union[dict, "Query"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, LocationOID):
+            self.OID = LocationOID(self.OID)
 
         if self._is_empty(self.Name):
             self.MissingRequiredField("Name")
@@ -3760,7 +4443,9 @@ class Location(YAMLRoot):
 
         if self._is_empty(self.MetaDataVersionRefRef):
             self.MissingRequiredField("MetaDataVersionRefRef")
-        self._normalize_inlined_as_dict(slot_name="MetaDataVersionRefRef", slot_type=MetaDataVersionRef, key_name="StudyOID", keyed=False)
+        if not isinstance(self.MetaDataVersionRefRef, list):
+            self.MetaDataVersionRefRef = [self.MetaDataVersionRefRef] if self.MetaDataVersionRefRef is not None else []
+        self.MetaDataVersionRefRef = [v if isinstance(v, MetaDataVersionRef) else MetaDataVersionRef(**as_dict(v)) for v in self.MetaDataVersionRefRef]
 
         if self.Role is not None and not isinstance(self.Role, str):
             self.Role = str(self.Role)
@@ -3769,7 +4454,7 @@ class Location(YAMLRoot):
             self.OrganizationOID = str(self.OrganizationOID)
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         if not isinstance(self.AddressRef, list):
             self.AddressRef = [self.AddressRef] if self.AddressRef is not None else []
@@ -3779,7 +4464,7 @@ class Location(YAMLRoot):
             self.TelecomRef = [self.TelecomRef] if self.TelecomRef is not None else []
         self.TelecomRef = [v if isinstance(v, Telecom) else Telecom(**as_dict(v)) for v in self.TelecomRef]
 
-        self._normalize_inlined_as_dict(slot_name="QueryRef", slot_type=Query, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="QueryRef", slot_type=Query, key_name="OID", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -4060,7 +4745,7 @@ class SignatureDef(YAMLRoot):
     class_name: ClassVar[str] = "SignatureDef"
     class_model_uri: ClassVar[URIRef] = ODM.SignatureDef
 
-    OID: str = None
+    OID: Union[str, SignatureDefOID] = None
     MeaningRef: Union[dict, "Meaning"] = None
     LegalReasonRef: Union[dict, "LegalReason"] = None
     Methodology: Optional[Union[str, "SignMethod"]] = None
@@ -4068,8 +4753,8 @@ class SignatureDef(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, SignatureDefOID):
+            self.OID = SignatureDefOID(self.OID)
 
         if self._is_empty(self.MeaningRef):
             self.MissingRequiredField("MeaningRef")
@@ -4142,6 +4827,10 @@ class ReferenceData(YAMLRoot):
 
     StudyOID: str = None
     MetaDataVersionOID: str = None
+    ItemGroupDataRef: Optional[Union[Union[dict, "ItemGroupData"], List[Union[dict, "ItemGroupData"]]]] = empty_list()
+    AuditRecordRef: Optional[Union[dict, "AuditRecord"]] = None
+    SignatureRefRef: Optional[Union[str, SignatureID]] = None
+    AnnotationRef: Optional[Union[Dict[Union[str, AnnotationID], Union[dict, "Annotation"]], List[Union[dict, "Annotation"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.StudyOID):
@@ -4153,6 +4842,18 @@ class ReferenceData(YAMLRoot):
             self.MissingRequiredField("MetaDataVersionOID")
         if not isinstance(self.MetaDataVersionOID, str):
             self.MetaDataVersionOID = str(self.MetaDataVersionOID)
+
+        if not isinstance(self.ItemGroupDataRef, list):
+            self.ItemGroupDataRef = [self.ItemGroupDataRef] if self.ItemGroupDataRef is not None else []
+        self.ItemGroupDataRef = [v if isinstance(v, ItemGroupData) else ItemGroupData(**as_dict(v)) for v in self.ItemGroupDataRef]
+
+        if self.AuditRecordRef is not None and not isinstance(self.AuditRecordRef, AuditRecord):
+            self.AuditRecordRef = AuditRecord(**as_dict(self.AuditRecordRef))
+
+        if self.SignatureRefRef is not None and not isinstance(self.SignatureRefRef, SignatureID):
+            self.SignatureRefRef = SignatureID(self.SignatureRefRef)
+
+        self._normalize_inlined_as_list(slot_name="AnnotationRef", slot_type=Annotation, key_name="ID", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -4170,7 +4871,10 @@ class ClinicalData(YAMLRoot):
     MetaDataVersionOID: str = None
     SubjectDataRef: Optional[Union[Union[dict, "SubjectData"], List[Union[dict, "SubjectData"]]]] = empty_list()
     ItemGroupDataRef: Optional[Union[Union[dict, "ItemGroupData"], List[Union[dict, "ItemGroupData"]]]] = empty_list()
-    QueryRef: Optional[Union[Union[dict, "Query"], List[Union[dict, "Query"]]]] = empty_list()
+    QueryRef: Optional[Union[Dict[Union[str, QueryOID], Union[dict, "Query"]], List[Union[dict, "Query"]]]] = empty_dict()
+    AuditRecordRef: Optional[Union[dict, "AuditRecord"]] = None
+    SignatureRefRef: Optional[Union[str, SignatureID]] = None
+    AnnotationRef: Optional[Union[Dict[Union[str, AnnotationID], Union[dict, "Annotation"]], List[Union[dict, "Annotation"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.StudyOID):
@@ -4183,11 +4887,23 @@ class ClinicalData(YAMLRoot):
         if not isinstance(self.MetaDataVersionOID, str):
             self.MetaDataVersionOID = str(self.MetaDataVersionOID)
 
-        self._normalize_inlined_as_dict(slot_name="SubjectDataRef", slot_type=SubjectData, key_name="SubjectKey", keyed=False)
+        if not isinstance(self.SubjectDataRef, list):
+            self.SubjectDataRef = [self.SubjectDataRef] if self.SubjectDataRef is not None else []
+        self.SubjectDataRef = [v if isinstance(v, SubjectData) else SubjectData(**as_dict(v)) for v in self.SubjectDataRef]
 
-        self._normalize_inlined_as_dict(slot_name="ItemGroupDataRef", slot_type=ItemGroupData, key_name="ItemGroupOID", keyed=False)
+        if not isinstance(self.ItemGroupDataRef, list):
+            self.ItemGroupDataRef = [self.ItemGroupDataRef] if self.ItemGroupDataRef is not None else []
+        self.ItemGroupDataRef = [v if isinstance(v, ItemGroupData) else ItemGroupData(**as_dict(v)) for v in self.ItemGroupDataRef]
 
-        self._normalize_inlined_as_dict(slot_name="QueryRef", slot_type=Query, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="QueryRef", slot_type=Query, key_name="OID", keyed=True)
+
+        if self.AuditRecordRef is not None and not isinstance(self.AuditRecordRef, AuditRecord):
+            self.AuditRecordRef = AuditRecord(**as_dict(self.AuditRecordRef))
+
+        if self.SignatureRefRef is not None and not isinstance(self.SignatureRefRef, SignatureID):
+            self.SignatureRefRef = SignatureID(self.SignatureRefRef)
+
+        self._normalize_inlined_as_list(slot_name="AnnotationRef", slot_type=Annotation, key_name="ID", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -4202,11 +4918,14 @@ class SubjectData(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ODM.SubjectData
 
     SubjectKey: str = None
-    TransactionType: Optional[Union[str, "TransactionType"]] = None
+    TransactionTypeRef: Optional[Union[str, "TransactionType"]] = None
     InvestigatorRefRef: Optional[Union[dict, "InvestigatorRef"]] = None
     SiteRefRef: Optional[Union[dict, "SiteRef"]] = None
     StudyEventDataRef: Optional[Union[Union[dict, "StudyEventData"], List[Union[dict, "StudyEventData"]]]] = empty_list()
-    QueryRef: Optional[Union[Union[dict, "Query"], List[Union[dict, "Query"]]]] = empty_list()
+    QueryRef: Optional[Union[Dict[Union[str, QueryOID], Union[dict, "Query"]], List[Union[dict, "Query"]]]] = empty_dict()
+    AuditRecordRef: Optional[Union[dict, "AuditRecord"]] = None
+    SignatureRefRef: Optional[Union[str, SignatureID]] = None
+    AnnotationRef: Optional[Union[Dict[Union[str, AnnotationID], Union[dict, "Annotation"]], List[Union[dict, "Annotation"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.SubjectKey):
@@ -4214,8 +4933,8 @@ class SubjectData(YAMLRoot):
         if not isinstance(self.SubjectKey, str):
             self.SubjectKey = str(self.SubjectKey)
 
-        if self.TransactionType is not None and not isinstance(self.TransactionType, TransactionType):
-            self.TransactionType = TransactionType(self.TransactionType)
+        if self.TransactionTypeRef is not None and not isinstance(self.TransactionTypeRef, TransactionType):
+            self.TransactionTypeRef = TransactionType(self.TransactionTypeRef)
 
         if self.InvestigatorRefRef is not None and not isinstance(self.InvestigatorRefRef, InvestigatorRef):
             self.InvestigatorRefRef = InvestigatorRef(**as_dict(self.InvestigatorRefRef))
@@ -4223,9 +4942,19 @@ class SubjectData(YAMLRoot):
         if self.SiteRefRef is not None and not isinstance(self.SiteRefRef, SiteRef):
             self.SiteRefRef = SiteRef(**as_dict(self.SiteRefRef))
 
-        self._normalize_inlined_as_dict(slot_name="StudyEventDataRef", slot_type=StudyEventData, key_name="StudyEventOID", keyed=False)
+        if not isinstance(self.StudyEventDataRef, list):
+            self.StudyEventDataRef = [self.StudyEventDataRef] if self.StudyEventDataRef is not None else []
+        self.StudyEventDataRef = [v if isinstance(v, StudyEventData) else StudyEventData(**as_dict(v)) for v in self.StudyEventDataRef]
 
-        self._normalize_inlined_as_dict(slot_name="QueryRef", slot_type=Query, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="QueryRef", slot_type=Query, key_name="OID", keyed=True)
+
+        if self.AuditRecordRef is not None and not isinstance(self.AuditRecordRef, AuditRecord):
+            self.AuditRecordRef = AuditRecord(**as_dict(self.AuditRecordRef))
+
+        if self.SignatureRefRef is not None and not isinstance(self.SignatureRefRef, SignatureID):
+            self.SignatureRefRef = SignatureID(self.SignatureRefRef)
+
+        self._normalize_inlined_as_list(slot_name="AnnotationRef", slot_type=Annotation, key_name="ID", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -4281,9 +5010,12 @@ class StudyEventData(YAMLRoot):
 
     StudyEventOID: str = None
     StudyEventRepeatKey: Optional[str] = None
-    TransactionType: Optional[Union[str, "TransactionType"]] = None
+    TransactionTypeRef: Optional[Union[str, "TransactionType"]] = None
     ItemGroupDataRef: Optional[Union[Union[dict, "ItemGroupData"], List[Union[dict, "ItemGroupData"]]]] = empty_list()
-    QueryRef: Optional[Union[Union[dict, "Query"], List[Union[dict, "Query"]]]] = empty_list()
+    QueryRef: Optional[Union[Dict[Union[str, QueryOID], Union[dict, "Query"]], List[Union[dict, "Query"]]]] = empty_dict()
+    AuditRecordRef: Optional[Union[dict, "AuditRecord"]] = None
+    SignatureRefRef: Optional[Union[str, SignatureID]] = None
+    AnnotationRef: Optional[Union[Dict[Union[str, AnnotationID], Union[dict, "Annotation"]], List[Union[dict, "Annotation"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.StudyEventOID):
@@ -4294,12 +5026,22 @@ class StudyEventData(YAMLRoot):
         if self.StudyEventRepeatKey is not None and not isinstance(self.StudyEventRepeatKey, str):
             self.StudyEventRepeatKey = str(self.StudyEventRepeatKey)
 
-        if self.TransactionType is not None and not isinstance(self.TransactionType, TransactionType):
-            self.TransactionType = TransactionType(self.TransactionType)
+        if self.TransactionTypeRef is not None and not isinstance(self.TransactionTypeRef, TransactionType):
+            self.TransactionTypeRef = TransactionType(self.TransactionTypeRef)
 
-        self._normalize_inlined_as_dict(slot_name="ItemGroupDataRef", slot_type=ItemGroupData, key_name="ItemGroupOID", keyed=False)
+        if not isinstance(self.ItemGroupDataRef, list):
+            self.ItemGroupDataRef = [self.ItemGroupDataRef] if self.ItemGroupDataRef is not None else []
+        self.ItemGroupDataRef = [v if isinstance(v, ItemGroupData) else ItemGroupData(**as_dict(v)) for v in self.ItemGroupDataRef]
 
-        self._normalize_inlined_as_dict(slot_name="QueryRef", slot_type=Query, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="QueryRef", slot_type=Query, key_name="OID", keyed=True)
+
+        if self.AuditRecordRef is not None and not isinstance(self.AuditRecordRef, AuditRecord):
+            self.AuditRecordRef = AuditRecord(**as_dict(self.AuditRecordRef))
+
+        if self.SignatureRefRef is not None and not isinstance(self.SignatureRefRef, SignatureID):
+            self.SignatureRefRef = SignatureID(self.SignatureRefRef)
+
+        self._normalize_inlined_as_list(slot_name="AnnotationRef", slot_type=Annotation, key_name="ID", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -4315,8 +5057,14 @@ class ItemGroupData(YAMLRoot):
 
     ItemGroupOID: str = None
     ItemGroupRepeatKey: Optional[str] = None
-    TransactionType: Optional[Union[str, "TransactionType"]] = None
+    TransactionTypeRef: Optional[Union[str, "TransactionType"]] = None
     ItemGroupDataSeq: Optional[int] = None
+    QueryRef: Optional[Union[Dict[Union[str, QueryOID], Union[dict, "Query"]], List[Union[dict, "Query"]]]] = empty_dict()
+    ItemGroupDataRef: Optional[Union[dict, "ItemGroupData"]] = None
+    ItemDataRef: Optional[Union[dict, "ItemData"]] = None
+    AuditRecordRef: Optional[Union[dict, "AuditRecord"]] = None
+    SignatureRefRef: Optional[Union[str, SignatureID]] = None
+    AnnotationRef: Optional[Union[Dict[Union[str, AnnotationID], Union[dict, "Annotation"]], List[Union[dict, "Annotation"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.ItemGroupOID):
@@ -4327,11 +5075,27 @@ class ItemGroupData(YAMLRoot):
         if self.ItemGroupRepeatKey is not None and not isinstance(self.ItemGroupRepeatKey, str):
             self.ItemGroupRepeatKey = str(self.ItemGroupRepeatKey)
 
-        if self.TransactionType is not None and not isinstance(self.TransactionType, TransactionType):
-            self.TransactionType = TransactionType(self.TransactionType)
+        if self.TransactionTypeRef is not None and not isinstance(self.TransactionTypeRef, TransactionType):
+            self.TransactionTypeRef = TransactionType(self.TransactionTypeRef)
 
         if self.ItemGroupDataSeq is not None and not isinstance(self.ItemGroupDataSeq, int):
             self.ItemGroupDataSeq = int(self.ItemGroupDataSeq)
+
+        self._normalize_inlined_as_list(slot_name="QueryRef", slot_type=Query, key_name="OID", keyed=True)
+
+        if self.ItemGroupDataRef is not None and not isinstance(self.ItemGroupDataRef, ItemGroupData):
+            self.ItemGroupDataRef = ItemGroupData(**as_dict(self.ItemGroupDataRef))
+
+        if self.ItemDataRef is not None and not isinstance(self.ItemDataRef, ItemData):
+            self.ItemDataRef = ItemData(**as_dict(self.ItemDataRef))
+
+        if self.AuditRecordRef is not None and not isinstance(self.AuditRecordRef, AuditRecord):
+            self.AuditRecordRef = AuditRecord(**as_dict(self.AuditRecordRef))
+
+        if self.SignatureRefRef is not None and not isinstance(self.SignatureRefRef, SignatureID):
+            self.SignatureRefRef = SignatureID(self.SignatureRefRef)
+
+        self._normalize_inlined_as_list(slot_name="AnnotationRef", slot_type=Annotation, key_name="ID", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -4346,10 +5110,13 @@ class ItemData(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ODM.ItemData
 
     ItemOID: str = None
-    TransactionType: Optional[Union[str, "TransactionType"]] = None
+    TransactionTypeRef: Optional[Union[str, "TransactionType"]] = None
     IsNull: Optional[Union[str, "YesOnly"]] = None
     ValueRef: Optional[Union[Union[dict, "Value"], List[Union[dict, "Value"]]]] = empty_list()
-    QueryRef: Optional[Union[Union[dict, "Query"], List[Union[dict, "Query"]]]] = empty_list()
+    QueryRef: Optional[Union[Dict[Union[str, QueryOID], Union[dict, "Query"]], List[Union[dict, "Query"]]]] = empty_dict()
+    AuditRecordRef: Optional[Union[dict, "AuditRecord"]] = None
+    SignatureRefRef: Optional[Union[str, SignatureID]] = None
+    AnnotationRef: Optional[Union[Dict[Union[str, AnnotationID], Union[dict, "Annotation"]], List[Union[dict, "Annotation"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.ItemOID):
@@ -4357,8 +5124,8 @@ class ItemData(YAMLRoot):
         if not isinstance(self.ItemOID, str):
             self.ItemOID = str(self.ItemOID)
 
-        if self.TransactionType is not None and not isinstance(self.TransactionType, TransactionType):
-            self.TransactionType = TransactionType(self.TransactionType)
+        if self.TransactionTypeRef is not None and not isinstance(self.TransactionTypeRef, TransactionType):
+            self.TransactionTypeRef = TransactionType(self.TransactionTypeRef)
 
         if self.IsNull is not None and not isinstance(self.IsNull, YesOnly):
             self.IsNull = YesOnly(self.IsNull)
@@ -4367,7 +5134,15 @@ class ItemData(YAMLRoot):
             self.ValueRef = [self.ValueRef] if self.ValueRef is not None else []
         self.ValueRef = [v if isinstance(v, Value) else Value(**as_dict(v)) for v in self.ValueRef]
 
-        self._normalize_inlined_as_dict(slot_name="QueryRef", slot_type=Query, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="QueryRef", slot_type=Query, key_name="OID", keyed=True)
+
+        if self.AuditRecordRef is not None and not isinstance(self.AuditRecordRef, AuditRecord):
+            self.AuditRecordRef = AuditRecord(**as_dict(self.AuditRecordRef))
+
+        if self.SignatureRefRef is not None and not isinstance(self.SignatureRefRef, SignatureID):
+            self.SignatureRefRef = SignatureID(self.SignatureRefRef)
+
+        self._normalize_inlined_as_list(slot_name="AnnotationRef", slot_type=Annotation, key_name="ID", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -4535,13 +5310,18 @@ class Signature(YAMLRoot):
     class_name: ClassVar[str] = "Signature"
     class_model_uri: ClassVar[URIRef] = ODM.Signature
 
+    ID: Union[str, SignatureID] = None
     UserRefRef: Union[dict, UserRef] = None
     LocationRefRef: Union[dict, LocationRef] = None
     SignatureRefRef: Union[dict, "SignatureRef"] = None
     DateTimeStampRef: Union[dict, DateTimeStamp] = None
-    ID: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.ID):
+            self.MissingRequiredField("ID")
+        if not isinstance(self.ID, SignatureID):
+            self.ID = SignatureID(self.ID)
+
         if self._is_empty(self.UserRefRef):
             self.MissingRequiredField("UserRefRef")
         if not isinstance(self.UserRefRef, UserRef):
@@ -4561,9 +5341,6 @@ class Signature(YAMLRoot):
             self.MissingRequiredField("DateTimeStampRef")
         if not isinstance(self.DateTimeStampRef, DateTimeStamp):
             self.DateTimeStampRef = DateTimeStamp(**as_dict(self.DateTimeStampRef))
-
-        if self.ID is not None and not isinstance(self.ID, str):
-            self.ID = str(self.ID)
 
         super().__post_init__(**kwargs)
 
@@ -4600,7 +5377,7 @@ class Association(YAMLRoot):
     StudyOID: str = None
     MetaDataVersionOID: str = None
     KeySetRef: Union[dict, "KeySet"] = None
-    AnnotationRef: Union[dict, "Annotation"] = None
+    AnnotationRef: Union[str, AnnotationID] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.StudyOID):
@@ -4620,8 +5397,11 @@ class Association(YAMLRoot):
 
         if self._is_empty(self.AnnotationRef):
             self.MissingRequiredField("AnnotationRef")
-        if not isinstance(self.AnnotationRef, Annotation):
-            self.AnnotationRef = Annotation(**as_dict(self.AnnotationRef))
+        if not isinstance(self.AnnotationRef, AnnotationID):
+            self.AnnotationRef = AnnotationID(self.AnnotationRef)
+
+        if self.KeySetRef is not None and not isinstance(self.KeySetRef, KeySet):
+            self.KeySetRef = KeySet(**as_dict(self.KeySetRef))
 
         super().__post_init__(**kwargs)
 
@@ -4683,31 +5463,37 @@ class Annotation(YAMLRoot):
     class_name: ClassVar[str] = "Annotation"
     class_model_uri: ClassVar[URIRef] = ODM.Annotation
 
+    ID: Union[str, AnnotationID] = None
     SeqNum: int = None
-    TransactionType: Optional[Union[str, "TransactionType"]] = None
-    ID: Optional[str] = None
+    TransactionTypeRef: Optional[Union[str, "TransactionType"]] = None
     CommentRef: Optional[Union[dict, "Comment"]] = None
     CodingRef: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
     FlagRef: Optional[Union[Union[dict, "Flag"], List[Union[dict, "Flag"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.ID):
+            self.MissingRequiredField("ID")
+        if not isinstance(self.ID, AnnotationID):
+            self.ID = AnnotationID(self.ID)
+
         if self._is_empty(self.SeqNum):
             self.MissingRequiredField("SeqNum")
         if not isinstance(self.SeqNum, int):
             self.SeqNum = int(self.SeqNum)
 
-        if self.TransactionType is not None and not isinstance(self.TransactionType, TransactionType):
-            self.TransactionType = TransactionType(self.TransactionType)
-
-        if self.ID is not None and not isinstance(self.ID, str):
-            self.ID = str(self.ID)
+        if self.TransactionTypeRef is not None and not isinstance(self.TransactionTypeRef, TransactionType):
+            self.TransactionTypeRef = TransactionType(self.TransactionTypeRef)
 
         if self.CommentRef is not None and not isinstance(self.CommentRef, Comment):
             self.CommentRef = Comment(**as_dict(self.CommentRef))
 
-        self._normalize_inlined_as_dict(slot_name="CodingRef", slot_type=Coding, key_name="Code", keyed=False)
+        if not isinstance(self.CodingRef, list):
+            self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
+        self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
 
-        self._normalize_inlined_as_dict(slot_name="FlagRef", slot_type=Flag, key_name="FlagValueRef", keyed=False)
+        if not isinstance(self.FlagRef, list):
+            self.FlagRef = [self.FlagRef] if self.FlagRef is not None else []
+        self.FlagRef = [v if isinstance(v, Flag) else Flag(**as_dict(v)) for v in self.FlagRef]
 
         super().__post_init__(**kwargs)
 
@@ -4721,9 +5507,16 @@ class Comment(YAMLRoot):
     class_name: ClassVar[str] = "Comment"
     class_model_uri: ClassVar[URIRef] = ODM.Comment
 
+    TranslatedTextRef: Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]] = None
     SponsorOrSite: Optional[Union[str, "CommentType"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.TranslatedTextRef):
+            self.MissingRequiredField("TranslatedTextRef")
+        if not isinstance(self.TranslatedTextRef, list):
+            self.TranslatedTextRef = [self.TranslatedTextRef] if self.TranslatedTextRef is not None else []
+        self.TranslatedTextRef = [v if isinstance(v, TranslatedText) else TranslatedText(**as_dict(v)) for v in self.TranslatedTextRef]
+
         if self.SponsorOrSite is not None and not isinstance(self.SponsorOrSite, CommentType):
             self.SponsorOrSite = CommentType(self.SponsorOrSite)
 
@@ -4811,24 +5604,23 @@ class Coding(YAMLRoot):
     class_name: ClassVar[str] = "Coding"
     class_model_uri: ClassVar[URIRef] = ODM.Coding
 
-    Code: str = None
     System: Union[str, URIorCURIE] = None
+    CodeRef: Optional[str] = None
     SystemName: Optional[str] = None
     SystemVersion: Optional[str] = None
     Label: Optional[str] = None
     href: Optional[Union[str, URIorCURIE]] = None
+    ref: Optional[Union[str, URIorCURIE]] = None
     CommentOID: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.Code):
-            self.MissingRequiredField("Code")
-        if not isinstance(self.Code, str):
-            self.Code = str(self.Code)
-
         if self._is_empty(self.System):
             self.MissingRequiredField("System")
         if not isinstance(self.System, URIorCURIE):
             self.System = URIorCURIE(self.System)
+
+        if self.CodeRef is not None and not isinstance(self.CodeRef, str):
+            self.CodeRef = str(self.CodeRef)
 
         if self.SystemName is not None and not isinstance(self.SystemName, str):
             self.SystemName = str(self.SystemName)
@@ -4841,6 +5633,9 @@ class Coding(YAMLRoot):
 
         if self.href is not None and not isinstance(self.href, URIorCURIE):
             self.href = URIorCURIE(self.href)
+
+        if self.ref is not None and not isinstance(self.ref, URIorCURIE):
+            self.ref = URIorCURIE(self.ref)
 
         if self.CommentOID is not None and not isinstance(self.CommentOID, str):
             self.CommentOID = str(self.CommentOID)
@@ -4857,7 +5652,7 @@ class Query(YAMLRoot):
     class_name: ClassVar[str] = "Query"
     class_model_uri: ClassVar[URIRef] = ODM.Query
 
-    OID: str = None
+    OID: Union[str, QueryOID] = None
     Source: Union[str, "QuerySourceType"] = None
     State: Union[str, "QueryStateType"] = None
     LastUpdateDatetime: Union[str, XSDDateTime] = None
@@ -4865,13 +5660,13 @@ class Query(YAMLRoot):
     Target: Optional[str] = None
     Type: Optional[Union[str, "QueryType"]] = None
     Name: Optional[str] = None
-    AuditRecordRef: Optional[Union[dict, AuditRecord]] = None
+    AuditRecordRef: Optional[Union[Union[dict, AuditRecord], List[Union[dict, AuditRecord]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.OID):
             self.MissingRequiredField("OID")
-        if not isinstance(self.OID, str):
-            self.OID = str(self.OID)
+        if not isinstance(self.OID, QueryOID):
+            self.OID = QueryOID(self.OID)
 
         if self._is_empty(self.Source):
             self.MissingRequiredField("Source")
@@ -4902,8 +5697,9 @@ class Query(YAMLRoot):
         if self.Name is not None and not isinstance(self.Name, str):
             self.Name = str(self.Name)
 
-        if self.AuditRecordRef is not None and not isinstance(self.AuditRecordRef, AuditRecord):
-            self.AuditRecordRef = AuditRecord(**as_dict(self.AuditRecordRef))
+        if not isinstance(self.AuditRecordRef, list):
+            self.AuditRecordRef = [self.AuditRecordRef] if self.AuditRecordRef is not None else []
+        self.AuditRecordRef = [v if isinstance(v, AuditRecord) else AuditRecord(**as_dict(v)) for v in self.AuditRecordRef]
 
         super().__post_init__(**kwargs)
 
@@ -4939,29 +5735,29 @@ class ODMFileMetadata(YAMLRoot):
     class_name: ClassVar[str] = "ODMFileMetadata"
     class_model_uri: ClassVar[URIRef] = ODM.ODMFileMetadata
 
-    FileType: Union[str, "FileType"] = None
+    FileTypeRef: Union[str, "FileType"] = None
     FileOID: str = None
     CreationDateTime: Union[str, XSDDateTime] = None
-    Granularity: Optional[Union[str, "Granularity"]] = None
-    Context: Optional[Union[str, "Context"]] = None
+    GranularityRef: Optional[Union[str, "Granularity"]] = None
+    ContextRef: Optional[Union[str, "Context"]] = None
     PriorFileOID: Optional[str] = None
     AsOfDateTime: Optional[Union[str, XSDDateTime]] = None
-    ODMVersion: Optional[str] = None
+    ODMVersionRef: Optional[str] = None
     Originator: Optional[str] = None
     SourceSystem: Optional[str] = None
     SourceSystemVersion: Optional[str] = None
     DescriptionRef: Optional[Union[dict, Description]] = None
-    StudyRef: Optional[Union[Union[dict, Study], List[Union[dict, Study]]]] = empty_list()
+    StudyRef: Optional[Union[Dict[Union[str, StudyOID], Union[dict, Study]], List[Union[dict, Study]]]] = empty_dict()
     AdminDataRef: Optional[Union[Union[dict, AdminData], List[Union[dict, AdminData]]]] = empty_list()
     ReferenceDataRef: Optional[Union[Union[dict, ReferenceData], List[Union[dict, ReferenceData]]]] = empty_list()
     ClinicalDataRef: Optional[Union[Union[dict, ClinicalData], List[Union[dict, ClinicalData]]]] = empty_list()
     AssociationRef: Optional[Union[Union[dict, Association], List[Union[dict, Association]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.FileType):
-            self.MissingRequiredField("FileType")
-        if not isinstance(self.FileType, FileType):
-            self.FileType = FileType(self.FileType)
+        if self._is_empty(self.FileTypeRef):
+            self.MissingRequiredField("FileTypeRef")
+        if not isinstance(self.FileTypeRef, FileType):
+            self.FileTypeRef = FileType(self.FileTypeRef)
 
         if self._is_empty(self.FileOID):
             self.MissingRequiredField("FileOID")
@@ -4973,11 +5769,11 @@ class ODMFileMetadata(YAMLRoot):
         if not isinstance(self.CreationDateTime, XSDDateTime):
             self.CreationDateTime = XSDDateTime(self.CreationDateTime)
 
-        if self.Granularity is not None and not isinstance(self.Granularity, Granularity):
-            self.Granularity = Granularity(self.Granularity)
+        if self.GranularityRef is not None and not isinstance(self.GranularityRef, Granularity):
+            self.GranularityRef = Granularity(self.GranularityRef)
 
-        if self.Context is not None and not isinstance(self.Context, Context):
-            self.Context = Context(self.Context)
+        if self.ContextRef is not None and not isinstance(self.ContextRef, Context):
+            self.ContextRef = Context(self.ContextRef)
 
         if self.PriorFileOID is not None and not isinstance(self.PriorFileOID, str):
             self.PriorFileOID = str(self.PriorFileOID)
@@ -4985,8 +5781,8 @@ class ODMFileMetadata(YAMLRoot):
         if self.AsOfDateTime is not None and not isinstance(self.AsOfDateTime, XSDDateTime):
             self.AsOfDateTime = XSDDateTime(self.AsOfDateTime)
 
-        if self.ODMVersion is not None and not isinstance(self.ODMVersion, str):
-            self.ODMVersion = str(self.ODMVersion)
+        if self.ODMVersionRef is not None and not isinstance(self.ODMVersionRef, str):
+            self.ODMVersionRef = str(self.ODMVersionRef)
 
         if self.Originator is not None and not isinstance(self.Originator, str):
             self.Originator = str(self.Originator)
@@ -4998,19 +5794,25 @@ class ODMFileMetadata(YAMLRoot):
             self.SourceSystemVersion = str(self.SourceSystemVersion)
 
         if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description()
+            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
-        self._normalize_inlined_as_dict(slot_name="StudyRef", slot_type=Study, key_name="OID", keyed=False)
+        self._normalize_inlined_as_list(slot_name="StudyRef", slot_type=Study, key_name="OID", keyed=True)
 
         if not isinstance(self.AdminDataRef, list):
             self.AdminDataRef = [self.AdminDataRef] if self.AdminDataRef is not None else []
         self.AdminDataRef = [v if isinstance(v, AdminData) else AdminData(**as_dict(v)) for v in self.AdminDataRef]
 
-        self._normalize_inlined_as_dict(slot_name="ReferenceDataRef", slot_type=ReferenceData, key_name="StudyOID", keyed=False)
+        if not isinstance(self.ReferenceDataRef, list):
+            self.ReferenceDataRef = [self.ReferenceDataRef] if self.ReferenceDataRef is not None else []
+        self.ReferenceDataRef = [v if isinstance(v, ReferenceData) else ReferenceData(**as_dict(v)) for v in self.ReferenceDataRef]
 
-        self._normalize_inlined_as_dict(slot_name="ClinicalDataRef", slot_type=ClinicalData, key_name="StudyOID", keyed=False)
+        if not isinstance(self.ClinicalDataRef, list):
+            self.ClinicalDataRef = [self.ClinicalDataRef] if self.ClinicalDataRef is not None else []
+        self.ClinicalDataRef = [v if isinstance(v, ClinicalData) else ClinicalData(**as_dict(v)) for v in self.ClinicalDataRef]
 
-        self._normalize_inlined_as_dict(slot_name="AssociationRef", slot_type=Association, key_name="StudyOID", keyed=False)
+        if not isinstance(self.AssociationRef, list):
+            self.AssociationRef = [self.AssociationRef] if self.AssociationRef is not None else []
+        self.AssociationRef = [v if isinstance(v, Association) else Association(**as_dict(v)) for v in self.AssociationRef]
 
         super().__post_init__(**kwargs)
 
@@ -5109,13 +5911,14 @@ class BranchingType(EnumDefinitionImpl):
         name="BranchingType",
     )
 
-class StudyObjectiveType(EnumDefinitionImpl):
+class StudyObjectiveLevel(EnumDefinitionImpl):
 
     Primary = PermissibleValue(text="Primary")
     Secondary = PermissibleValue(text="Secondary")
+    Exploratory = PermissibleValue(text="Exploratory")
 
     _defn = EnumDefinition(
-        name="StudyObjectiveType",
+        name="StudyObjectiveLevel",
     )
 
 class TrialPhaseTypeEnum(EnumDefinitionImpl):
@@ -5189,6 +5992,16 @@ class StudyEndPointType(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="StudyEndPointType",
+    )
+
+class StudyEndPointLevel(EnumDefinitionImpl):
+
+    Primary = PermissibleValue(text="Primary")
+    Secondary = PermissibleValue(text="Secondary")
+    Exploratory = PermissibleValue(text="Exploratory")
+
+    _defn = EnumDefinition(
+        name="StudyEndPointLevel",
     )
 
 class RelativeTimingConstraintType(EnumDefinitionImpl):
@@ -5397,6 +6210,31 @@ class QueryStateType(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="QueryStateType",
     )
+
+class DefCoreType(EnumDefinitionImpl):
+
+    Cond = PermissibleValue(text="Cond")
+    Exp = PermissibleValue(text="Exp")
+    Perm = PermissibleValue(text="Perm")
+    Req = PermissibleValue(text="Req")
+
+    _defn = EnumDefinition(
+        name="DefCoreType",
+    )
+
+class ODMCoreType(EnumDefinitionImpl):
+
+    HR = PermissibleValue(text="HR")
+    O = PermissibleValue(text="O")
+
+    _defn = EnumDefinition(
+        name="ODMCoreType",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "R/C",
+            PermissibleValue(text="R/C"))
 
 class OriginSource(EnumDefinitionImpl):
 
@@ -5707,251 +6545,344 @@ class ItemGroupSubClass(EnumDefinitionImpl):
 class slots:
     pass
 
-slots._language = Slot(uri=ODM._language, name="_language", curie=ODM.curie('_language'),
-                   model_uri=ODM._language, domain=None, range=Optional[str])
+slots.UsedMethod = Slot(uri=ODM.UsedMethod, name="UsedMethod", curie=ODM.curie('UsedMethod'),
+                   model_uri=ODM.UsedMethod, domain=None, range=Optional[Union[str, "YesOrNo"]])
 
-slots.Other = Slot(uri=ODM.Other, name="Other", curie=ODM.curie('Other'),
-                   model_uri=ODM.Other, domain=None, range=Optional[Union[str, "YesOnly"]])
-
-slots.Granularity = Slot(uri=ODM.Granularity, name="Granularity", curie=ODM.curie('Granularity'),
-                   model_uri=ODM.Granularity, domain=None, range=Optional[Union[str, "Granularity"]])
-
-slots.OrderNumber = Slot(uri=ODM.OrderNumber, name="OrderNumber", curie=ODM.curie('OrderNumber'),
-                   model_uri=ODM.OrderNumber, domain=None, range=Optional[int])
-
-slots.TargetTransitionOID = Slot(uri=ODM.TargetTransitionOID, name="TargetTransitionOID", curie=ODM.curie('TargetTransitionOID'),
-                   model_uri=ODM.TargetTransitionOID, domain=None, range=Optional[str])
-
-slots.PageRefs = Slot(uri=ODM.PageRefs, name="PageRefs", curie=ODM.curie('PageRefs'),
-                   model_uri=ODM.PageRefs, domain=None, range=Optional[str])
-
-slots.EffectiveDate = Slot(uri=ODM.EffectiveDate, name="EffectiveDate", curie=ODM.curie('EffectiveDate'),
-                   model_uri=ODM.EffectiveDate, domain=None, range=Optional[Union[str, XSDDate]])
-
-slots.StandardOID = Slot(uri=ODM.StandardOID, name="StandardOID", curie=ODM.curie('StandardOID'),
-                   model_uri=ODM.StandardOID, domain=None, range=Optional[str])
-
-slots.Dictionary = Slot(uri=ODM.Dictionary, name="Dictionary", curie=ODM.curie('Dictionary'),
-                   model_uri=ODM.Dictionary, domain=None, range=Optional[str])
-
-slots.Source = Slot(uri=ODM.Source, name="Source", curie=ODM.curie('Source'),
-                   model_uri=ODM.Source, domain=None, range=Optional[str])
-
-slots.CreationDateTime = Slot(uri=ODM.CreationDateTime, name="CreationDateTime", curie=ODM.curie('CreationDateTime'),
-                   model_uri=ODM.CreationDateTime, domain=None, range=Optional[Union[str, XSDDateTime]])
-
-slots.StructuralElementOID = Slot(uri=ODM.StructuralElementOID, name="StructuralElementOID", curie=ODM.curie('StructuralElementOID'),
-                   model_uri=ODM.StructuralElementOID, domain=None, range=Optional[str])
-
-slots.TargetOID = Slot(uri=ODM.TargetOID, name="TargetOID", curie=ODM.curie('TargetOID'),
-                   model_uri=ODM.TargetOID, domain=None, range=Optional[str])
-
-slots.TransitionOID = Slot(uri=ODM.TransitionOID, name="TransitionOID", curie=ODM.curie('TransitionOID'),
-                   model_uri=ODM.TransitionOID, domain=None, range=Optional[str])
-
-slots.SubjectKey = Slot(uri=ODM.SubjectKey, name="SubjectKey", curie=ODM.curie('SubjectKey'),
-                   model_uri=ODM.SubjectKey, domain=None, range=Optional[str])
-
-slots.Originator = Slot(uri=ODM.Originator, name="Originator", curie=ODM.curie('Originator'),
-                   model_uri=ODM.Originator, domain=None, range=Optional[str])
-
-slots.SuccessorOID = Slot(uri=ODM.SuccessorOID, name="SuccessorOID", curie=ODM.curie('SuccessorOID'),
-                   model_uri=ODM.SuccessorOID, domain=None, range=Optional[str])
-
-slots.IsReferenceData = Slot(uri=ODM.IsReferenceData, name="IsReferenceData", curie=ODM.curie('IsReferenceData'),
-                   model_uri=ODM.IsReferenceData, domain=None, range=Optional[Union[str, "YesOrNo"]])
-
-slots.Repeating = Slot(uri=ODM.Repeating, name="Repeating", curie=ODM.curie('Repeating'),
-                   model_uri=ODM.Repeating, domain=None, range=Optional[str])
-
-slots.Purpose = Slot(uri=ODM.Purpose, name="Purpose", curie=ODM.curie('Purpose'),
-                   model_uri=ODM.Purpose, domain=None, range=Optional[str])
-
-slots.UnitsItemOID = Slot(uri=ODM.UnitsItemOID, name="UnitsItemOID", curie=ODM.curie('UnitsItemOID'),
-                   model_uri=ODM.UnitsItemOID, domain=None, range=Optional[str])
-
-slots.Version = Slot(uri=ODM.Version, name="Version", curie=ODM.curie('Version'),
-                   model_uri=ODM.Version, domain=None, range=Optional[str])
-
-slots.ItemOID = Slot(uri=ODM.ItemOID, name="ItemOID", curie=ODM.curie('ItemOID'),
-                   model_uri=ODM.ItemOID, domain=None, range=Optional[str])
+slots.Label = Slot(uri=ODM.Label, name="Label", curie=ODM.curie('Label'),
+                   model_uri=ODM.Label, domain=None, range=Optional[str])
 
 slots.WhereClauseOID = Slot(uri=ODM.WhereClauseOID, name="WhereClauseOID", curie=ODM.curie('WhereClauseOID'),
                    model_uri=ODM.WhereClauseOID, domain=None, range=Optional[str])
 
-slots.MetaDataVersionOID = Slot(uri=ODM.MetaDataVersionOID, name="MetaDataVersionOID", curie=ODM.curie('MetaDataVersionOID'),
-                   model_uri=ODM.MetaDataVersionOID, domain=None, range=Optional[str])
-
-slots.Methodology = Slot(uri=ODM.Methodology, name="Methodology", curie=ODM.curie('Methodology'),
-                   model_uri=ODM.Methodology, domain=None, range=Optional[Union[str, "SignMethod"]])
-
-slots.StudyOID = Slot(uri=ODM.StudyOID, name="StudyOID", curie=ODM.curie('StudyOID'),
-                   model_uri=ODM.StudyOID, domain=None, range=Optional[str])
-
-slots.SeqNum = Slot(uri=ODM.SeqNum, name="SeqNum", curie=ODM.curie('SeqNum'),
-                   model_uri=ODM.SeqNum, domain=None, range=Optional[str])
-
-slots.DisplayFormat = Slot(uri=ODM.DisplayFormat, name="DisplayFormat", curie=ODM.curie('DisplayFormat'),
-                   model_uri=ODM.DisplayFormat, domain=None, range=Optional[str])
-
-slots.Category = Slot(uri=ODM.Category, name="Category", curie=ODM.curie('Category'),
-                   model_uri=ODM.Category, domain=None, range=Optional[str])
-
-slots.System = Slot(uri=ODM.System, name="System", curie=ODM.curie('System'),
-                   model_uri=ODM.System, domain=None, range=Optional[Union[str, URIorCURIE]])
-
-slots.IsNonStandard = Slot(uri=ODM.IsNonStandard, name="IsNonStandard", curie=ODM.curie('IsNonStandard'),
-                   model_uri=ODM.IsNonStandard, domain=None, range=Optional[Union[str, "YesOnly"]])
-
-slots.OrganizationOID = Slot(uri=ODM.OrganizationOID, name="OrganizationOID", curie=ODM.curie('OrganizationOID'),
-                   model_uri=ODM.OrganizationOID, domain=None, range=Optional[str])
-
-slots.ProtocolName = Slot(uri=ODM.ProtocolName, name="ProtocolName", curie=ODM.curie('ProtocolName'),
-                   model_uri=ODM.ProtocolName, domain=None, range=Optional[str])
-
-slots.Method = Slot(uri=ODM.Method, name="Method", curie=ODM.curie('Method'),
-                   model_uri=ODM.Method, domain=None, range=Optional[str])
-
-slots.ItemGroupDataSeq = Slot(uri=ODM.ItemGroupDataSeq, name="ItemGroupDataSeq", curie=ODM.curie('ItemGroupDataSeq'),
-                   model_uri=ODM.ItemGroupDataSeq, domain=None, range=Optional[int])
-
-slots.ValueListOID = Slot(uri=ODM.ValueListOID, name="ValueListOID", curie=ODM.curie('ValueListOID'),
-                   model_uri=ODM.ValueListOID, domain=None, range=Optional[str])
-
-slots.SoftHard = Slot(uri=ODM.SoftHard, name="SoftHard", curie=ODM.curie('SoftHard'),
-                   model_uri=ODM.SoftHard, domain=None, range=Optional[Union[str, "SoftOrHard"]])
-
-slots.PublishingSet = Slot(uri=ODM.PublishingSet, name="PublishingSet", curie=ODM.curie('PublishingSet'),
-                   model_uri=ODM.PublishingSet, domain=None, range=Optional[Union[str, "StandardPublishingSet"]])
-
-slots.TransactionType = Slot(uri=ODM.TransactionType, name="TransactionType", curie=ODM.curie('TransactionType'),
-                   model_uri=ODM.TransactionType, domain=None, range=Optional[Union[str, "TransactionType"]])
-
-slots.UserType = Slot(uri=ODM.UserType, name="UserType", curie=ODM.curie('UserType'),
-                   model_uri=ODM.UserType, domain=None, range=Optional[Union[str, "UserType"]])
-
-slots.PriorFileOID = Slot(uri=ODM.PriorFileOID, name="PriorFileOID", curie=ODM.curie('PriorFileOID'),
-                   model_uri=ODM.PriorFileOID, domain=None, range=Optional[str])
-
-slots.EndOID = Slot(uri=ODM.EndOID, name="EndOID", curie=ODM.curie('EndOID'),
-                   model_uri=ODM.EndOID, domain=None, range=Optional[str])
-
-slots.TimepointTarget = Slot(uri=ODM.TimepointTarget, name="TimepointTarget", curie=ODM.curie('TimepointTarget'),
-                   model_uri=ODM.TimepointTarget, domain=None, range=Optional[str])
-
-slots.WorkflowOID = Slot(uri=ODM.WorkflowOID, name="WorkflowOID", curie=ODM.curie('WorkflowOID'),
-                   model_uri=ODM.WorkflowOID, domain=None, range=Optional[str])
-
-slots.Type = Slot(uri=ODM.Type, name="Type", curie=ODM.curie('Type'),
-                   model_uri=ODM.Type, domain=None, range=Optional[str])
-
-slots.SourceSystem = Slot(uri=ODM.SourceSystem, name="SourceSystem", curie=ODM.curie('SourceSystem'),
-                   model_uri=ODM.SourceSystem, domain=None, range=Optional[str])
-
-slots.KeySequence = Slot(uri=ODM.KeySequence, name="KeySequence", curie=ODM.curie('KeySequence'),
-                   model_uri=ODM.KeySequence, domain=None, range=Optional[int])
-
-slots.Value = Slot(uri=ODM.Value, name="Value", curie=ODM.curie('Value'),
-                   model_uri=ODM.Value, domain=None, range=Optional[str])
-
-slots.IsNull = Slot(uri=ODM.IsNull, name="IsNull", curie=ODM.curie('IsNull'),
-                   model_uri=ODM.IsNull, domain=None, range=Optional[Union[str, "YesOnly"]])
-
-slots.UsedMethod = Slot(uri=ODM.UsedMethod, name="UsedMethod", curie=ODM.curie('UsedMethod'),
-                   model_uri=ODM.UsedMethod, domain=None, range=Optional[Union[str, "YesOrNo"]])
-
-slots.SponsorOrSite = Slot(uri=ODM.SponsorOrSite, name="SponsorOrSite", curie=ODM.curie('SponsorOrSite'),
-                   model_uri=ODM.SponsorOrSite, domain=None, range=Optional[Union[str, "CommentType"]])
-
-slots.DurationTarget = Slot(uri=ODM.DurationTarget, name="DurationTarget", curie=ODM.curie('DurationTarget'),
-                   model_uri=ODM.DurationTarget, domain=None, range=Optional[str])
-
-slots.ExtendedValue = Slot(uri=ODM.ExtendedValue, name="ExtendedValue", curie=ODM.curie('ExtendedValue'),
-                   model_uri=ODM.ExtendedValue, domain=None, range=Optional[Union[str, "YesOnly"]])
-
-slots.EndConditionOID = Slot(uri=ODM.EndConditionOID, name="EndConditionOID", curie=ODM.curie('EndConditionOID'),
-                   model_uri=ODM.EndConditionOID, domain=None, range=Optional[str])
-
-slots.SourceSystemVersion = Slot(uri=ODM.SourceSystemVersion, name="SourceSystemVersion", curie=ODM.curie('SourceSystemVersion'),
-                   model_uri=ODM.SourceSystemVersion, domain=None, range=Optional[str])
-
-slots.SystemName = Slot(uri=ODM.SystemName, name="SystemName", curie=ODM.curie('SystemName'),
-                   model_uri=ODM.SystemName, domain=None, range=Optional[str])
-
-slots.leafID = Slot(uri=ODM.leafID, name="leafID", curie=ODM.curie('leafID'),
-                   model_uri=ODM.leafID, domain=None, range=Optional[str])
-
-slots.ItemGroupRepeatKey = Slot(uri=ODM.ItemGroupRepeatKey, name="ItemGroupRepeatKey", curie=ODM.curie('ItemGroupRepeatKey'),
-                   model_uri=ODM.ItemGroupRepeatKey, domain=None, range=Optional[str])
-
-slots.LastUpdateDatetime = Slot(uri=ODM.LastUpdateDatetime, name="LastUpdateDatetime", curie=ODM.curie('LastUpdateDatetime'),
-                   model_uri=ODM.LastUpdateDatetime, domain=None, range=Optional[Union[str, XSDDateTime]])
-
-slots.ImageFileName = Slot(uri=ODM.ImageFileName, name="ImageFileName", curie=ODM.curie('ImageFileName'),
-                   model_uri=ODM.ImageFileName, domain=None, range=Optional[URIorCURIE])
-
 slots.ArchiveLocationID = Slot(uri=ODM.ArchiveLocationID, name="ArchiveLocationID", curie=ODM.curie('ArchiveLocationID'),
                    model_uri=ODM.ArchiveLocationID, domain=None, range=Optional[str])
 
-slots.LastPage = Slot(uri=ODM.LastPage, name="LastPage", curie=ODM.curie('LastPage'),
-                   model_uri=ODM.LastPage, domain=None, range=Optional[int])
+slots.TimepointPreWindow = Slot(uri=ODM.TimepointPreWindow, name="TimepointPreWindow", curie=ODM.curie('TimepointPreWindow'),
+                   model_uri=ODM.TimepointPreWindow, domain=None, range=Optional[str])
 
-slots.SystemVersion = Slot(uri=ODM.SystemVersion, name="SystemVersion", curie=ODM.curie('SystemVersion'),
-                   model_uri=ODM.SystemVersion, domain=None, range=Optional[str])
-
-slots.DurationPreWindow = Slot(uri=ODM.DurationPreWindow, name="DurationPreWindow", curie=ODM.curie('DurationPreWindow'),
-                   model_uri=ODM.DurationPreWindow, domain=None, range=Optional[str])
-
-slots.Domain = Slot(uri=ODM.Domain, name="Domain", curie=ODM.curie('Domain'),
-                   model_uri=ODM.Domain, domain=None, range=Optional[str])
-
-slots.TimepointRelativeTarget = Slot(uri=ODM.TimepointRelativeTarget, name="TimepointRelativeTarget", curie=ODM.curie('TimepointRelativeTarget'),
-                   model_uri=ODM.TimepointRelativeTarget, domain=None, range=Optional[str])
-
-slots.ShortName = Slot(uri=ODM.ShortName, name="ShortName", curie=ODM.curie('ShortName'),
-                   model_uri=ODM.ShortName, domain=None, range=Optional[str])
-
-slots.StudyInterventionOID = Slot(uri=ODM.StudyInterventionOID, name="StudyInterventionOID", curie=ODM.curie('StudyInterventionOID'),
-                   model_uri=ODM.StudyInterventionOID, domain=None, range=Optional[str])
-
-slots.Status = Slot(uri=ODM.Status, name="Status", curie=ODM.curie('Status'),
-                   model_uri=ODM.Status, domain=None, range=Optional[str])
-
-slots.Title = Slot(uri=ODM.Title, name="Title", curie=ODM.curie('Title'),
-                   model_uri=ODM.Title, domain=None, range=Optional[str])
-
-slots.Code = Slot(uri=ODM.Code, name="Code", curie=ODM.curie('Code'),
-                   model_uri=ODM.Code, domain=None, range=Optional[str])
-
-slots.Structure = Slot(uri=ODM.Structure, name="Structure", curie=ODM.curie('Structure'),
-                   model_uri=ODM.Structure, domain=None, range=Optional[str])
-
-slots.Context = Slot(uri=ODM.Context, name="Context", curie=ODM.curie('Context'),
-                   model_uri=ODM.Context, domain=None, range=Optional[str])
-
-slots.MethodOID = Slot(uri=ODM.MethodOID, name="MethodOID", curie=ODM.curie('MethodOID'),
-                   model_uri=ODM.MethodOID, domain=None, range=Optional[str])
-
-slots.Role = Slot(uri=ODM.Role, name="Role", curie=ODM.curie('Role'),
-                   model_uri=ODM.Role, domain=None, range=Optional[str])
-
-slots.EditPoint = Slot(uri=ODM.EditPoint, name="EditPoint", curie=ODM.curie('EditPoint'),
-                   model_uri=ODM.EditPoint, domain=None, range=Optional[Union[str, "EditPointType"]])
-
-slots.Mandatory = Slot(uri=ODM.Mandatory, name="Mandatory", curie=ODM.curie('Mandatory'),
-                   model_uri=ODM.Mandatory, domain=None, range=Optional[Union[str, "YesOrNo"]])
-
-slots.HasNoData = Slot(uri=ODM.HasNoData, name="HasNoData", curie=ODM.curie('HasNoData'),
-                   model_uri=ODM.HasNoData, domain=None, range=Optional[Union[str, "YesOnly"]])
+slots.ODMVersionRef = Slot(uri=ODM.ODMVersionRef, name="ODMVersionRef", curie=ODM.curie('ODMVersionRef'),
+                   model_uri=ODM.ODMVersionRef, domain=None, range=Optional[str])
 
 slots.FirstPage = Slot(uri=ODM.FirstPage, name="FirstPage", curie=ODM.curie('FirstPage'),
                    model_uri=ODM.FirstPage, domain=None, range=Optional[int])
 
-slots.MimeType = Slot(uri=ODM.MimeType, name="MimeType", curie=ODM.curie('MimeType'),
-                   model_uri=ODM.MimeType, domain=None, range=Optional[str])
+slots.StructuralElementOID = Slot(uri=ODM.StructuralElementOID, name="StructuralElementOID", curie=ODM.curie('StructuralElementOID'),
+                   model_uri=ODM.StructuralElementOID, domain=None, range=Optional[str])
+
+slots.ProtocolName = Slot(uri=ODM.ProtocolName, name="ProtocolName", curie=ODM.curie('ProtocolName'),
+                   model_uri=ODM.ProtocolName, domain=None, range=Optional[str])
+
+slots.VariableSet = Slot(uri=ODM.VariableSet, name="VariableSet", curie=ODM.curie('VariableSet'),
+                   model_uri=ODM.VariableSet, domain=None, range=Optional[str])
+
+slots.SponsorOrSite = Slot(uri=ODM.SponsorOrSite, name="SponsorOrSite", curie=ODM.curie('SponsorOrSite'),
+                   model_uri=ODM.SponsorOrSite, domain=None, range=Optional[Union[str, "CommentType"]])
+
+slots.Library = Slot(uri=ODM.Library, name="Library", curie=ODM.curie('Library'),
+                   model_uri=ODM.Library, domain=None, range=Optional[str])
+
+slots.LocationOID = Slot(uri=ODM.LocationOID, name="LocationOID", curie=ODM.curie('LocationOID'),
+                   model_uri=ODM.LocationOID, domain=None, range=Optional[str])
+
+slots.CreationDateTime = Slot(uri=ODM.CreationDateTime, name="CreationDateTime", curie=ODM.curie('CreationDateTime'),
+                   model_uri=ODM.CreationDateTime, domain=None, range=Optional[Union[str, XSDDateTime]])
+
+slots.DurationPreWindow = Slot(uri=ODM.DurationPreWindow, name="DurationPreWindow", curie=ODM.curie('DurationPreWindow'),
+                   model_uri=ODM.DurationPreWindow, domain=None, range=Optional[str])
+
+slots.Originator = Slot(uri=ODM.Originator, name="Originator", curie=ODM.curie('Originator'),
+                   model_uri=ODM.Originator, domain=None, range=Optional[str])
+
+slots.System = Slot(uri=ODM.System, name="System", curie=ODM.curie('System'),
+                   model_uri=ODM.System, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.MetaDataVersionOID = Slot(uri=ODM.MetaDataVersionOID, name="MetaDataVersionOID", curie=ODM.curie('MetaDataVersionOID'),
+                   model_uri=ODM.MetaDataVersionOID, domain=None, range=Optional[str])
+
+slots.Other = Slot(uri=ODM.Other, name="Other", curie=ODM.curie('Other'),
+                   model_uri=ODM.Other, domain=None, range=Optional[Union[str, "YesOnly"]])
+
+slots.ImageFileName = Slot(uri=ODM.ImageFileName, name="ImageFileName", curie=ODM.curie('ImageFileName'),
+                   model_uri=ODM.ImageFileName, domain=None, range=Optional[URIorCURIE])
+
+slots.CodeRef = Slot(uri=ODM.CodeRef, name="CodeRef", curie=ODM.curie('CodeRef'),
+                   model_uri=ODM.CodeRef, domain=None, range=Optional[Union[dict, Code]])
+
+slots.ItemGroupOID = Slot(uri=ODM.ItemGroupOID, name="ItemGroupOID", curie=ODM.curie('ItemGroupOID'),
+                   model_uri=ODM.ItemGroupOID, domain=None, range=Optional[str])
+
+slots.WorkflowOID = Slot(uri=ODM.WorkflowOID, name="WorkflowOID", curie=ODM.curie('WorkflowOID'),
+                   model_uri=ODM.WorkflowOID, domain=None, range=Optional[str])
+
+slots.Structure = Slot(uri=ODM.Structure, name="Structure", curie=ODM.curie('Structure'),
+                   model_uri=ODM.Structure, domain=None, range=Optional[str])
+
+slots.DataTypeRef = Slot(uri=ODM.DataTypeRef, name="DataTypeRef", curie=ODM.curie('DataTypeRef'),
+                   model_uri=ODM.DataTypeRef, domain=None, range=Optional[str])
+
+slots.PublishingSet = Slot(uri=ODM.PublishingSet, name="PublishingSet", curie=ODM.curie('PublishingSet'),
+                   model_uri=ODM.PublishingSet, domain=None, range=Optional[Union[str, "StandardPublishingSet"]])
+
+slots.Repeat = Slot(uri=ODM.Repeat, name="Repeat", curie=ODM.curie('Repeat'),
+                   model_uri=ODM.Repeat, domain=None, range=Optional[Union[str, "YesOnly"]])
+
+slots.UnitsItemOID = Slot(uri=ODM.UnitsItemOID, name="UnitsItemOID", curie=ODM.curie('UnitsItemOID'),
+                   model_uri=ODM.UnitsItemOID, domain=None, range=Optional[str])
+
+slots.StudyEventGroupOID = Slot(uri=ODM.StudyEventGroupOID, name="StudyEventGroupOID", curie=ODM.curie('StudyEventGroupOID'),
+                   model_uri=ODM.StudyEventGroupOID, domain=None, range=Optional[str])
+
+slots.TargetOID = Slot(uri=ODM.TargetOID, name="TargetOID", curie=ODM.curie('TargetOID'),
+                   model_uri=ODM.TargetOID, domain=None, range=Optional[str])
+
+slots.CollectionExceptionConditionOID = Slot(uri=ODM.CollectionExceptionConditionOID, name="CollectionExceptionConditionOID", curie=ODM.curie('CollectionExceptionConditionOID'),
+                   model_uri=ODM.CollectionExceptionConditionOID, domain=None, range=Optional[str])
+
+slots.href = Slot(uri=ODM.href, name="href", curie=ODM.curie('href'),
+                   model_uri=ODM.href, domain=None, range=Optional[str])
+
+slots.ref = Slot(uri=ODM.ref, name="ref", curie=ODM.curie('ref'),
+                   model_uri=ODM.ref, domain=None, range=Optional[str])
+
+slots.DisplayFormat = Slot(uri=ODM.DisplayFormat, name="DisplayFormat", curie=ODM.curie('DisplayFormat'),
+                   model_uri=ODM.DisplayFormat, domain=None, range=Optional[str])
+
+slots.TimepointRelativeTarget = Slot(uri=ODM.TimepointRelativeTarget, name="TimepointRelativeTarget", curie=ODM.curie('TimepointRelativeTarget'),
+                   model_uri=ODM.TimepointRelativeTarget, domain=None, range=Optional[str])
+
+slots.MethodOID = Slot(uri=ODM.MethodOID, name="MethodOID", curie=ODM.curie('MethodOID'),
+                   model_uri=ODM.MethodOID, domain=None, range=Optional[str])
+
+slots.PredecessorOID = Slot(uri=ODM.PredecessorOID, name="PredecessorOID", curie=ODM.curie('PredecessorOID'),
+                   model_uri=ODM.PredecessorOID, domain=None, range=Optional[str])
+
+slots.Path = Slot(uri=ODM.Path, name="Path", curie=ODM.curie('Path'),
+                   model_uri=ODM.Path, domain=None, range=Optional[str])
+
+slots.Attribute = Slot(uri=ODM.Attribute, name="Attribute", curie=ODM.curie('Attribute'),
+                   model_uri=ODM.Attribute, domain=None, range=Optional[str])
+
+slots.Dictionary = Slot(uri=ODM.Dictionary, name="Dictionary", curie=ODM.curie('Dictionary'),
+                   model_uri=ODM.Dictionary, domain=None, range=Optional[str])
+
+slots.StudyInterventionOID = Slot(uri=ODM.StudyInterventionOID, name="StudyInterventionOID", curie=ODM.curie('StudyInterventionOID'),
+                   model_uri=ODM.StudyInterventionOID, domain=None, range=Optional[str])
+
+slots.ExtendedValue = Slot(uri=ODM.ExtendedValue, name="ExtendedValue", curie=ODM.curie('ExtendedValue'),
+                   model_uri=ODM.ExtendedValue, domain=None, range=Optional[Union[str, "YesOnly"]])
+
+slots.UserTypeRef = Slot(uri=ODM.UserTypeRef, name="UserTypeRef", curie=ODM.curie('UserTypeRef'),
+                   model_uri=ODM.UserTypeRef, domain=None, range=Optional[Union[str, "UserType"]])
+
+slots.Purpose = Slot(uri=ODM.Purpose, name="Purpose", curie=ODM.curie('Purpose'),
+                   model_uri=ODM.Purpose, domain=None, range=Optional[str])
+
+slots.StandardOID = Slot(uri=ODM.StandardOID, name="StandardOID", curie=ODM.curie('StandardOID'),
+                   model_uri=ODM.StandardOID, domain=None, range=Optional[str])
+
+slots.DurationTarget = Slot(uri=ODM.DurationTarget, name="DurationTarget", curie=ODM.curie('DurationTarget'),
+                   model_uri=ODM.DurationTarget, domain=None, range=Optional[str])
+
+slots.PartOfOrganizationOID = Slot(uri=ODM.PartOfOrganizationOID, name="PartOfOrganizationOID", curie=ODM.curie('PartOfOrganizationOID'),
+                   model_uri=ODM.PartOfOrganizationOID, domain=None, range=Optional[str])
+
+slots.ValueRef = Slot(uri=ODM.ValueRef, name="ValueRef", curie=ODM.curie('ValueRef'),
+                   model_uri=ODM.ValueRef, domain=None, range=Optional[Union[dict, Value]])
+
+slots.TransactionTypeRef = Slot(uri=ODM.TransactionTypeRef, name="TransactionTypeRef", curie=ODM.curie('TransactionTypeRef'),
+                   model_uri=ODM.TransactionTypeRef, domain=None, range=Optional[Union[str, "TransactionType"]])
+
+slots.HasNoData = Slot(uri=ODM.HasNoData, name="HasNoData", curie=ODM.curie('HasNoData'),
+                   model_uri=ODM.HasNoData, domain=None, range=Optional[Union[str, "YesOnly"]])
+
+slots.SourceOID = Slot(uri=ODM.SourceOID, name="SourceOID", curie=ODM.curie('SourceOID'),
+                   model_uri=ODM.SourceOID, domain=None, range=Optional[str])
+
+slots.Title = Slot(uri=ODM.Title, name="Title", curie=ODM.curie('Title'),
+                   model_uri=ODM.Title, domain=None, range=Optional[str])
+
+slots.StudyEndPointOID = Slot(uri=ODM.StudyEndPointOID, name="StudyEndPointOID", curie=ODM.curie('StudyEndPointOID'),
+                   model_uri=ODM.StudyEndPointOID, domain=None, range=Optional[str])
+
+slots.ConditionOID = Slot(uri=ODM.ConditionOID, name="ConditionOID", curie=ODM.curie('ConditionOID'),
+                   model_uri=ODM.ConditionOID, domain=None, range=Optional[str])
+
+slots.StudyTargetPopulationOID = Slot(uri=ODM.StudyTargetPopulationOID, name="StudyTargetPopulationOID", curie=ODM.curie('StudyTargetPopulationOID'),
+                   model_uri=ODM.StudyTargetPopulationOID, domain=None, range=Optional[str])
+
+slots.ItemGroupRepeatKey = Slot(uri=ODM.ItemGroupRepeatKey, name="ItemGroupRepeatKey", curie=ODM.curie('ItemGroupRepeatKey'),
+                   model_uri=ODM.ItemGroupRepeatKey, domain=None, range=Optional[str])
+
+slots.CodeListOID = Slot(uri=ODM.CodeListOID, name="CodeListOID", curie=ODM.curie('CodeListOID'),
+                   model_uri=ODM.CodeListOID, domain=None, range=Optional[str])
+
+slots.TimepointTarget = Slot(uri=ODM.TimepointTarget, name="TimepointTarget", curie=ODM.curie('TimepointTarget'),
+                   model_uri=ODM.TimepointTarget, domain=None, range=Optional[str])
+
+slots.Altitude = Slot(uri=ODM.Altitude, name="Altitude", curie=ODM.curie('Altitude'),
+                   model_uri=ODM.Altitude, domain=None, range=Optional[Decimal])
+
+slots.SeqNum = Slot(uri=ODM.SeqNum, name="SeqNum", curie=ODM.curie('SeqNum'),
+                   model_uri=ODM.SeqNum, domain=None, range=Optional[int])
+
+slots.leafID = Slot(uri=ODM.leafID, name="leafID", curie=ODM.curie('leafID'),
+                   model_uri=ODM.leafID, domain=None, range=URIRef)
 
 slots.CodedValue = Slot(uri=ODM.CodedValue, name="CodedValue", curie=ODM.curie('CodedValue'),
                    model_uri=ODM.CodedValue, domain=None, range=Optional[str])
+
+slots.ValueListOID = Slot(uri=ODM.ValueListOID, name="ValueListOID", curie=ODM.curie('ValueListOID'),
+                   model_uri=ODM.ValueListOID, domain=None, range=Optional[str])
+
+slots.FileOID = Slot(uri=ODM.FileOID, name="FileOID", curie=ODM.curie('FileOID'),
+                   model_uri=ODM.FileOID, domain=None, range=Optional[str])
+
+slots.Status = Slot(uri=ODM.Status, name="Status", curie=ODM.curie('Status'),
+                   model_uri=ODM.Status, domain=None, range=Optional[str])
+
+slots.EndConditionOID = Slot(uri=ODM.EndConditionOID, name="EndConditionOID", curie=ODM.curie('EndConditionOID'),
+                   model_uri=ODM.EndConditionOID, domain=None, range=Optional[str])
+
+slots.LastUpdateDatetime = Slot(uri=ODM.LastUpdateDatetime, name="LastUpdateDatetime", curie=ODM.curie('LastUpdateDatetime'),
+                   model_uri=ODM.LastUpdateDatetime, domain=None, range=Optional[Union[str, XSDDateTime]])
+
+slots.Repeating = Slot(uri=ODM.Repeating, name="Repeating", curie=ODM.curie('Repeating'),
+                   model_uri=ODM.Repeating, domain=None, range=Optional[str])
+
+slots.GranularityRef = Slot(uri=ODM.GranularityRef, name="GranularityRef", curie=ODM.curie('GranularityRef'),
+                   model_uri=ODM.GranularityRef, domain=None, range=Optional[Union[str, "Granularity"]])
+
+slots.SourceSystemVersion = Slot(uri=ODM.SourceSystemVersion, name="SourceSystemVersion", curie=ODM.curie('SourceSystemVersion'),
+                   model_uri=ODM.SourceSystemVersion, domain=None, range=Optional[str])
+
+slots.TimepointPostWindow = Slot(uri=ODM.TimepointPostWindow, name="TimepointPostWindow", curie=ODM.curie('TimepointPostWindow'),
+                   model_uri=ODM.TimepointPostWindow, domain=None, range=Optional[str])
+
+slots._language = Slot(uri=ODM._language, name="_language", curie=ODM.curie('_language'),
+                   model_uri=ODM._language, domain=None, range=Optional[str])
+
+slots.StudyOID = Slot(uri=ODM.StudyOID, name="StudyOID", curie=ODM.curie('StudyOID'),
+                   model_uri=ODM.StudyOID, domain=None, range=Optional[str])
+
+slots.VersionName = Slot(uri=ODM.VersionName, name="VersionName", curie=ODM.curie('VersionName'),
+                   model_uri=ODM.VersionName, domain=None, range=Optional[str])
+
+slots.EpochOID = Slot(uri=ODM.EpochOID, name="EpochOID", curie=ODM.curie('EpochOID'),
+                   model_uri=ODM.EpochOID, domain=None, range=Optional[str])
+
+slots.TransitionOID = Slot(uri=ODM.TransitionOID, name="TransitionOID", curie=ODM.curie('TransitionOID'),
+                   model_uri=ODM.TransitionOID, domain=None, range=Optional[str])
+
+slots.Category = Slot(uri=ODM.Category, name="Category", curie=ODM.curie('Category'),
+                   model_uri=ODM.Category, domain=None, range=Optional[str])
+
+slots.ItemGroupDataSeq = Slot(uri=ODM.ItemGroupDataSeq, name="ItemGroupDataSeq", curie=ODM.curie('ItemGroupDataSeq'),
+                   model_uri=ODM.ItemGroupDataSeq, domain=None, range=Optional[int])
+
+slots.IsNonStandard = Slot(uri=ODM.IsNonStandard, name="IsNonStandard", curie=ODM.curie('IsNonStandard'),
+                   model_uri=ODM.IsNonStandard, domain=None, range=Optional[Union[str, "YesOnly"]])
+
+slots.Methodology = Slot(uri=ODM.Methodology, name="Methodology", curie=ODM.curie('Methodology'),
+                   model_uri=ODM.Methodology, domain=None, range=Optional[Union[str, "SignMethod"]])
+
+slots.LastPage = Slot(uri=ODM.LastPage, name="LastPage", curie=ODM.curie('LastPage'),
+                   model_uri=ODM.LastPage, domain=None, range=Optional[int])
+
+slots.type = Slot(uri=ODM.type, name="type", curie=ODM.curie('type'),
+                   model_uri=ODM.type, domain=None, range=Optional[str])
+
+slots.IsReferenceData = Slot(uri=ODM.IsReferenceData, name="IsReferenceData", curie=ODM.curie('IsReferenceData'),
+                   model_uri=ODM.IsReferenceData, domain=None, range=Optional[Union[str, "YesOrNo"]])
+
+slots.State = Slot(uri=ODM.State, name="State", curie=ODM.curie('State'),
+                   model_uri=ODM.State, domain=None, range=Optional[Union[str, "QueryStateType"]])
+
+slots.PreSpecifiedValue = Slot(uri=ODM.PreSpecifiedValue, name="PreSpecifiedValue", curie=ODM.curie('PreSpecifiedValue'),
+                   model_uri=ODM.PreSpecifiedValue, domain=None, range=Optional[str])
+
+slots.Latitude = Slot(uri=ODM.Latitude, name="Latitude", curie=ODM.curie('Latitude'),
+                   model_uri=ODM.Latitude, domain=None, range=Optional[Decimal])
+
+slots.ParentClass = Slot(uri=ODM.ParentClass, name="ParentClass", curie=ODM.curie('ParentClass'),
+                   model_uri=ODM.ParentClass, domain=None, range=Optional[str])
+
+slots.EffectiveDate = Slot(uri=ODM.EffectiveDate, name="EffectiveDate", curie=ODM.curie('EffectiveDate'),
+                   model_uri=ODM.EffectiveDate, domain=None, range=Optional[Union[str, XSDDate]])
+
+slots.MimeType = Slot(uri=ODM.MimeType, name="MimeType", curie=ODM.curie('MimeType'),
+                   model_uri=ODM.MimeType, domain=None, range=Optional[str])
+
+slots.Type = Slot(uri=ODM.Type, name="Type", curie=ODM.curie('Type'),
+                   model_uri=ODM.Type, domain=None, range=Optional[str])
+
+slots.Rank = Slot(uri=ODM.Rank, name="Rank", curie=ODM.curie('Rank'),
+                   model_uri=ODM.Rank, domain=None, range=Optional[Decimal])
+
+slots.VersionID = Slot(uri=ODM.VersionID, name="VersionID", curie=ODM.curie('VersionID'),
+                   model_uri=ODM.VersionID, domain=None, range=Optional[str])
+
+slots.DatasetName = Slot(uri=ODM.DatasetName, name="DatasetName", curie=ODM.curie('DatasetName'),
+                   model_uri=ODM.DatasetName, domain=None, range=Optional[str])
+
+slots.EditPoint = Slot(uri=ODM.EditPoint, name="EditPoint", curie=ODM.curie('EditPoint'),
+                   model_uri=ODM.EditPoint, domain=None, range=Optional[Union[str, "EditPointType"]])
+
+slots.Longitude = Slot(uri=ODM.Longitude, name="Longitude", curie=ODM.curie('Longitude'),
+                   model_uri=ODM.Longitude, domain=None, range=Optional[Decimal])
+
+slots.PageRefs = Slot(uri=ODM.PageRefs, name="PageRefs", curie=ODM.curie('PageRefs'),
+                   model_uri=ODM.PageRefs, domain=None, range=Optional[str])
+
+slots.Level = Slot(uri=ODM.Level, name="Level", curie=ODM.curie('Level'),
+                   model_uri=ODM.Level, domain=None, range=Optional[Union[str, "StudyEndPointLevel"]])
+
+slots.SuccessorOID = Slot(uri=ODM.SuccessorOID, name="SuccessorOID", curie=ODM.curie('SuccessorOID'),
+                   model_uri=ODM.SuccessorOID, domain=None, range=Optional[str])
+
+slots.SubjectKey = Slot(uri=ODM.SubjectKey, name="SubjectKey", curie=ODM.curie('SubjectKey'),
+                   model_uri=ODM.SubjectKey, domain=None, range=Optional[str])
+
+slots.KeySequence = Slot(uri=ODM.KeySequence, name="KeySequence", curie=ODM.curie('KeySequence'),
+                   model_uri=ODM.KeySequence, domain=None, range=Optional[int])
+
+slots.Length = Slot(uri=ODM.Length, name="Length", curie=ODM.curie('Length'),
+                   model_uri=ODM.Length, domain=None, range=Optional[int])
+
+slots.StartConditionOID = Slot(uri=ODM.StartConditionOID, name="StartConditionOID", curie=ODM.curie('StartConditionOID'),
+                   model_uri=ODM.StartConditionOID, domain=None, range=Optional[str])
+
+slots.DurationPostWindow = Slot(uri=ODM.DurationPostWindow, name="DurationPostWindow", curie=ODM.curie('DurationPostWindow'),
+                   model_uri=ODM.DurationPostWindow, domain=None, range=Optional[str])
+
+slots.Target = Slot(uri=ODM.Target, name="Target", curie=ODM.curie('Target'),
+                   model_uri=ODM.Target, domain=None, range=Optional[str])
+
+slots.UserOID = Slot(uri=ODM.UserOID, name="UserOID", curie=ODM.curie('UserOID'),
+                   model_uri=ODM.UserOID, domain=None, range=Optional[str])
+
+slots.StartOID = Slot(uri=ODM.StartOID, name="StartOID", curie=ODM.curie('StartOID'),
+                   model_uri=ODM.StartOID, domain=None, range=Optional[str])
+
+slots.SequenceNumber = Slot(uri=ODM.SequenceNumber, name="SequenceNumber", curie=ODM.curie('SequenceNumber'),
+                   model_uri=ODM.SequenceNumber, domain=None, range=Optional[int])
+
+slots.SoftHard = Slot(uri=ODM.SoftHard, name="SoftHard", curie=ODM.curie('SoftHard'),
+                   model_uri=ODM.SoftHard, domain=None, range=Optional[Union[str, "SoftOrHard"]])
+
+slots.EndOID = Slot(uri=ODM.EndOID, name="EndOID", curie=ODM.curie('EndOID'),
+                   model_uri=ODM.EndOID, domain=None, range=Optional[str])
+
+slots.TargetTransitionOID = Slot(uri=ODM.TargetTransitionOID, name="TargetTransitionOID", curie=ODM.curie('TargetTransitionOID'),
+                   model_uri=ODM.TargetTransitionOID, domain=None, range=Optional[str])
+
+slots.SystemName = Slot(uri=ODM.SystemName, name="SystemName", curie=ODM.curie('SystemName'),
+                   model_uri=ODM.SystemName, domain=None, range=Optional[str])
+
+slots.StudyEventRepeatKey = Slot(uri=ODM.StudyEventRepeatKey, name="StudyEventRepeatKey", curie=ODM.curie('StudyEventRepeatKey'),
+                   model_uri=ODM.StudyEventRepeatKey, domain=None, range=Optional[str])
+
+slots.IsNull = Slot(uri=ODM.IsNull, name="IsNull", curie=ODM.curie('IsNull'),
+                   model_uri=ODM.IsNull, domain=None, range=Optional[Union[str, "YesOnly"]])
 
 slots.SignatureOID = Slot(uri=ODM.SignatureOID, name="SignatureOID", curie=ODM.curie('SignatureOID'),
                    model_uri=ODM.SignatureOID, domain=None, range=Optional[str])
@@ -5959,170 +6890,101 @@ slots.SignatureOID = Slot(uri=ODM.SignatureOID, name="SignatureOID", curie=ODM.c
 slots.ArmOID = Slot(uri=ODM.ArmOID, name="ArmOID", curie=ODM.curie('ArmOID'),
                    model_uri=ODM.ArmOID, domain=None, range=Optional[str])
 
-slots.ODMVersion = Slot(uri=ODM.ODMVersion, name="ODMVersion", curie=ODM.curie('ODMVersion'),
-                   model_uri=ODM.ODMVersion, domain=None, range=Optional[str])
+slots.OrganizationOID = Slot(uri=ODM.OrganizationOID, name="OrganizationOID", curie=ODM.curie('OrganizationOID'),
+                   model_uri=ODM.OrganizationOID, domain=None, range=Optional[str])
 
-slots.Path = Slot(uri=ODM.Path, name="Path", curie=ODM.curie('Path'),
-                   model_uri=ODM.Path, domain=None, range=Optional[str])
+slots.Source = Slot(uri=ODM.Source, name="Source", curie=ODM.curie('Source'),
+                   model_uri=ODM.Source, domain=None, range=Optional[str])
 
-slots.TimepointPostWindow = Slot(uri=ODM.TimepointPostWindow, name="TimepointPostWindow", curie=ODM.curie('TimepointPostWindow'),
-                   model_uri=ODM.TimepointPostWindow, domain=None, range=Optional[str])
+slots.SystemVersion = Slot(uri=ODM.SystemVersion, name="SystemVersion", curie=ODM.curie('SystemVersion'),
+                   model_uri=ODM.SystemVersion, domain=None, range=Optional[str])
 
-slots.ref = Slot(uri=ODM.ref, name="ref", curie=ODM.curie('ref'),
-                   model_uri=ODM.ref, domain=None, range=Optional[str])
-
-slots.DataType = Slot(uri=ODM.DataType, name="DataType", curie=ODM.curie('DataType'),
-                   model_uri=ODM.DataType, domain=None, range=Optional[str])
-
-slots.RepeatingLimit = Slot(uri=ODM.RepeatingLimit, name="RepeatingLimit", curie=ODM.curie('RepeatingLimit'),
-                   model_uri=ODM.RepeatingLimit, domain=None, range=Optional[int])
-
-slots.Latitude = Slot(uri=ODM.Latitude, name="Latitude", curie=ODM.curie('Latitude'),
-                   model_uri=ODM.Latitude, domain=None, range=Optional[Decimal])
-
-slots.OID = Slot(uri=ODM.OID, name="OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.OID, domain=None, range=Optional[str])
-
-slots.CollectionExceptionConditionOID = Slot(uri=ODM.CollectionExceptionConditionOID, name="CollectionExceptionConditionOID", curie=ODM.curie('CollectionExceptionConditionOID'),
-                   model_uri=ODM.CollectionExceptionConditionOID, domain=None, range=Optional[str])
-
-slots.CommentOID = Slot(uri=ODM.CommentOID, name="CommentOID", curie=ODM.curie('CommentOID'),
-                   model_uri=ODM.CommentOID, domain=None, range=Optional[str])
-
-slots.StudyEndPointOID = Slot(uri=ODM.StudyEndPointOID, name="StudyEndPointOID", curie=ODM.curie('StudyEndPointOID'),
-                   model_uri=ODM.StudyEndPointOID, domain=None, range=Optional[str])
-
-slots.Definition = Slot(uri=ODM.Definition, name="Definition", curie=ODM.curie('Definition'),
-                   model_uri=ODM.Definition, domain=None, range=Optional[str])
-
-slots.ItemGroupOID = Slot(uri=ODM.ItemGroupOID, name="ItemGroupOID", curie=ODM.curie('ItemGroupOID'),
-                   model_uri=ODM.ItemGroupOID, domain=None, range=Optional[str])
-
-slots.StudyTargetPopulationOID = Slot(uri=ODM.StudyTargetPopulationOID, name="StudyTargetPopulationOID", curie=ODM.curie('StudyTargetPopulationOID'),
-                   model_uri=ODM.StudyTargetPopulationOID, domain=None, range=Optional[str])
-
-slots.CodeListOID = Slot(uri=ODM.CodeListOID, name="CodeListOID", curie=ODM.curie('CodeListOID'),
-                   model_uri=ODM.CodeListOID, domain=None, range=Optional[str])
-
-slots.StartOID = Slot(uri=ODM.StartOID, name="StartOID", curie=ODM.curie('StartOID'),
-                   model_uri=ODM.StartOID, domain=None, range=Optional[str])
-
-slots.UserOID = Slot(uri=ODM.UserOID, name="UserOID", curie=ODM.curie('UserOID'),
-                   model_uri=ODM.UserOID, domain=None, range=Optional[str])
-
-slots.Comparator = Slot(uri=ODM.Comparator, name="Comparator", curie=ODM.curie('Comparator'),
-                   model_uri=ODM.Comparator, domain=None, range=Optional[Union[str, "Comparator"]])
-
-slots.RoleCodeListOID = Slot(uri=ODM.RoleCodeListOID, name="RoleCodeListOID", curie=ODM.curie('RoleCodeListOID'),
-                   model_uri=ODM.RoleCodeListOID, domain=None, range=Optional[str])
-
-slots.Library = Slot(uri=ODM.Library, name="Library", curie=ODM.curie('Library'),
-                   model_uri=ODM.Library, domain=None, range=Optional[str])
-
-slots.href = Slot(uri=ODM.href, name="href", curie=ODM.curie('href'),
-                   model_uri=ODM.href, domain=None, range=Optional[str])
-
-slots.DurationPostWindow = Slot(uri=ODM.DurationPostWindow, name="DurationPostWindow", curie=ODM.curie('DurationPostWindow'),
-                   model_uri=ODM.DurationPostWindow, domain=None, range=Optional[str])
-
-slots.StudyEventRepeatKey = Slot(uri=ODM.StudyEventRepeatKey, name="StudyEventRepeatKey", curie=ODM.curie('StudyEventRepeatKey'),
-                   model_uri=ODM.StudyEventRepeatKey, domain=None, range=Optional[str])
-
-slots.Altitude = Slot(uri=ODM.Altitude, name="Altitude", curie=ODM.curie('Altitude'),
-                   model_uri=ODM.Altitude, domain=None, range=Optional[Decimal])
-
-slots.FileOID = Slot(uri=ODM.FileOID, name="FileOID", curie=ODM.curie('FileOID'),
-                   model_uri=ODM.FileOID, domain=None, range=Optional[str])
-
-slots.Repeat = Slot(uri=ODM.Repeat, name="Repeat", curie=ODM.curie('Repeat'),
-                   model_uri=ODM.Repeat, domain=None, range=Optional[Union[str, "YesOnly"]])
-
-slots.PartOfOrganizationOID = Slot(uri=ODM.PartOfOrganizationOID, name="PartOfOrganizationOID", curie=ODM.curie('PartOfOrganizationOID'),
-                   model_uri=ODM.PartOfOrganizationOID, domain=None, range=Optional[str])
-
-slots.State = Slot(uri=ODM.State, name="State", curie=ODM.curie('State'),
-                   model_uri=ODM.State, domain=None, range=Optional[Union[str, "QueryStateType"]])
-
-slots.Longitude = Slot(uri=ODM.Longitude, name="Longitude", curie=ODM.curie('Longitude'),
-                   model_uri=ODM.Longitude, domain=None, range=Optional[Decimal])
-
-slots.AsOfDateTime = Slot(uri=ODM.AsOfDateTime, name="AsOfDateTime", curie=ODM.curie('AsOfDateTime'),
-                   model_uri=ODM.AsOfDateTime, domain=None, range=Optional[Union[str, XSDDateTime]])
-
-slots.Attribute = Slot(uri=ODM.Attribute, name="Attribute", curie=ODM.curie('Attribute'),
-                   model_uri=ODM.Attribute, domain=None, range=Optional[str])
-
-slots.SourceOID = Slot(uri=ODM.SourceOID, name="SourceOID", curie=ODM.curie('SourceOID'),
-                   model_uri=ODM.SourceOID, domain=None, range=Optional[str])
-
-slots.LocationOID = Slot(uri=ODM.LocationOID, name="LocationOID", curie=ODM.curie('LocationOID'),
-                   model_uri=ODM.LocationOID, domain=None, range=Optional[str])
-
-slots.Label = Slot(uri=ODM.Label, name="Label", curie=ODM.curie('Label'),
-                   model_uri=ODM.Label, domain=None, range=Optional[str])
-
-slots.StudyEventGroupOID = Slot(uri=ODM.StudyEventGroupOID, name="StudyEventGroupOID", curie=ODM.curie('StudyEventGroupOID'),
-                   model_uri=ODM.StudyEventGroupOID, domain=None, range=Optional[str])
-
-slots.ID = Slot(uri=ODM.ID, name="ID", curie=ODM.curie('ID'),
-                   model_uri=ODM.ID, domain=None, range=Optional[str])
-
-slots.Length = Slot(uri=ODM.Length, name="Length", curie=ODM.curie('Length'),
-                   model_uri=ODM.Length, domain=None, range=Optional[int])
-
-slots.FileType = Slot(uri=ODM.FileType, name="FileType", curie=ODM.curie('FileType'),
-                   model_uri=ODM.FileType, domain=None, range=Optional[Union[str, "FileType"]])
-
-slots.type = Slot(uri=ODM.type, name="type", curie=ODM.curie('type'),
-                   model_uri=ODM.type, domain=None, range=Optional[str])
+slots.Core = Slot(uri=ODM.Core, name="Core", curie=ODM.curie('Core'),
+                   model_uri=ODM.Core, domain=None, range=Optional[str])
 
 slots.StudyEventOID = Slot(uri=ODM.StudyEventOID, name="StudyEventOID", curie=ODM.curie('StudyEventOID'),
                    model_uri=ODM.StudyEventOID, domain=None, range=Optional[str])
 
-slots.DatasetName = Slot(uri=ODM.DatasetName, name="DatasetName", curie=ODM.curie('DatasetName'),
-                   model_uri=ODM.DatasetName, domain=None, range=Optional[str])
+slots.CommentOID = Slot(uri=ODM.CommentOID, name="CommentOID", curie=ODM.curie('CommentOID'),
+                   model_uri=ODM.CommentOID, domain=None, range=Optional[str])
 
-slots.EpochOID = Slot(uri=ODM.EpochOID, name="EpochOID", curie=ODM.curie('EpochOID'),
-                   model_uri=ODM.EpochOID, domain=None, range=Optional[str])
+slots.PriorFileOID = Slot(uri=ODM.PriorFileOID, name="PriorFileOID", curie=ODM.curie('PriorFileOID'),
+                   model_uri=ODM.PriorFileOID, domain=None, range=Optional[str])
 
-slots.Target = Slot(uri=ODM.Target, name="Target", curie=ODM.curie('Target'),
-                   model_uri=ODM.Target, domain=None, range=Optional[str])
+slots.SourceSystem = Slot(uri=ODM.SourceSystem, name="SourceSystem", curie=ODM.curie('SourceSystem'),
+                   model_uri=ODM.SourceSystem, domain=None, range=Optional[str])
 
-slots.StartConditionOID = Slot(uri=ODM.StartConditionOID, name="StartConditionOID", curie=ODM.curie('StartConditionOID'),
-                   model_uri=ODM.StartConditionOID, domain=None, range=Optional[str])
+slots.Mandatory = Slot(uri=ODM.Mandatory, name="Mandatory", curie=ODM.curie('Mandatory'),
+                   model_uri=ODM.Mandatory, domain=None, range=Optional[Union[str, "YesOrNo"]])
 
-slots.ConditionOID = Slot(uri=ODM.ConditionOID, name="ConditionOID", curie=ODM.curie('ConditionOID'),
-                   model_uri=ODM.ConditionOID, domain=None, range=Optional[str])
+slots.OID = Slot(uri=ODM.OID, name="OID", curie=ODM.curie('OID'),
+                   model_uri=ODM.OID, domain=None, range=URIRef)
 
-slots.StudyName = Slot(uri=ODM.StudyName, name="StudyName", curie=ODM.curie('StudyName'),
-                   model_uri=ODM.StudyName, domain=None, range=Optional[str])
+slots.OrderNumber = Slot(uri=ODM.OrderNumber, name="OrderNumber", curie=ODM.curie('OrderNumber'),
+                   model_uri=ODM.OrderNumber, domain=None, range=Optional[int])
 
-slots.ParentClass = Slot(uri=ODM.ParentClass, name="ParentClass", curie=ODM.curie('ParentClass'),
-                   model_uri=ODM.ParentClass, domain=None, range=Optional[str])
+slots.RoleCodeListOID = Slot(uri=ODM.RoleCodeListOID, name="RoleCodeListOID", curie=ODM.curie('RoleCodeListOID'),
+                   model_uri=ODM.RoleCodeListOID, domain=None, range=Optional[str])
+
+slots.Role = Slot(uri=ODM.Role, name="Role", curie=ODM.curie('Role'),
+                   model_uri=ODM.Role, domain=None, range=Optional[str])
+
+slots.Version = Slot(uri=ODM.Version, name="Version", curie=ODM.curie('Version'),
+                   model_uri=ODM.Version, domain=None, range=Optional[str])
+
+slots.ContextRef = Slot(uri=ODM.ContextRef, name="ContextRef", curie=ODM.curie('ContextRef'),
+                   model_uri=ODM.ContextRef, domain=None, range=Optional[str])
+
+slots.RepeatingLimit = Slot(uri=ODM.RepeatingLimit, name="RepeatingLimit", curie=ODM.curie('RepeatingLimit'),
+                   model_uri=ODM.RepeatingLimit, domain=None, range=Optional[int])
+
+slots.ItemOID = Slot(uri=ODM.ItemOID, name="ItemOID", curie=ODM.curie('ItemOID'),
+                   model_uri=ODM.ItemOID, domain=None, range=Optional[str])
 
 slots.Name = Slot(uri=ODM.Name, name="Name", curie=ODM.curie('Name'),
                    model_uri=ODM.Name, domain=None, range=Optional[str])
 
-slots.Rank = Slot(uri=ODM.Rank, name="Rank", curie=ODM.curie('Rank'),
-                   model_uri=ODM.Rank, domain=None, range=Optional[Decimal])
+slots.Domain = Slot(uri=ODM.Domain, name="Domain", curie=ODM.curie('Domain'),
+                   model_uri=ODM.Domain, domain=None, range=Optional[str])
 
-slots.SequenceNumber = Slot(uri=ODM.SequenceNumber, name="SequenceNumber", curie=ODM.curie('SequenceNumber'),
-                   model_uri=ODM.SequenceNumber, domain=None, range=Optional[int])
-
-slots.TimepointPreWindow = Slot(uri=ODM.TimepointPreWindow, name="TimepointPreWindow", curie=ODM.curie('TimepointPreWindow'),
-                   model_uri=ODM.TimepointPreWindow, domain=None, range=Optional[str])
+slots.ComparatorRef = Slot(uri=ODM.ComparatorRef, name="ComparatorRef", curie=ODM.curie('ComparatorRef'),
+                   model_uri=ODM.ComparatorRef, domain=None, range=Optional[Union[str, "Comparator"]])
 
 slots.Term = Slot(uri=ODM.Term, name="Term", curie=ODM.curie('Term'),
                    model_uri=ODM.Term, domain=None, range=Optional[str])
 
-slots.PredecessorOID = Slot(uri=ODM.PredecessorOID, name="PredecessorOID", curie=ODM.curie('PredecessorOID'),
-                   model_uri=ODM.PredecessorOID, domain=None, range=Optional[str])
+slots.FileTypeRef = Slot(uri=ODM.FileTypeRef, name="FileTypeRef", curie=ODM.curie('FileTypeRef'),
+                   model_uri=ODM.FileTypeRef, domain=None, range=Optional[Union[str, "FileType"]])
+
+slots.ID = Slot(uri=ODM.ID, name="ID", curie=ODM.curie('ID'),
+                   model_uri=ODM.ID, domain=None, range=URIRef)
+
+slots.ShortName = Slot(uri=ODM.ShortName, name="ShortName", curie=ODM.curie('ShortName'),
+                   model_uri=ODM.ShortName, domain=None, range=Optional[str])
+
+slots.StudyName = Slot(uri=ODM.StudyName, name="StudyName", curie=ODM.curie('StudyName'),
+                   model_uri=ODM.StudyName, domain=None, range=Optional[str])
+
+slots.Method = Slot(uri=ODM.Method, name="Method", curie=ODM.curie('Method'),
+                   model_uri=ODM.Method, domain=None, range=Optional[str])
+
+slots.AsOfDateTime = Slot(uri=ODM.AsOfDateTime, name="AsOfDateTime", curie=ODM.curie('AsOfDateTime'),
+                   model_uri=ODM.AsOfDateTime, domain=None, range=Optional[Union[str, XSDDateTime]])
+
+slots.DefinitionRef = Slot(uri=ODM.DefinitionRef, name="DefinitionRef", curie=ODM.curie('DefinitionRef'),
+                   model_uri=ODM.DefinitionRef, domain=None, range=Optional[Union[dict, Definition]])
+
+slots.TranslatedTextRef = Slot(uri=ODM.TranslatedTextRef, name="TranslatedTextRef", curie=ODM.curie('TranslatedTextRef'),
+                   model_uri=ODM.TranslatedTextRef, domain=None, range=Optional[Union[dict, TranslatedText]])
+
+slots._content = Slot(uri=ODM._content, name="_content", curie=ODM.curie('_content'),
+                   model_uri=ODM._content, domain=None, range=Optional[str])
 
 slots.DescriptionRef = Slot(uri=ODM.DescriptionRef, name="DescriptionRef", curie=ODM.curie('DescriptionRef'),
                    model_uri=ODM.DescriptionRef, domain=None, range=Optional[Union[dict, Description]])
 
-slots.MetaDataVersionRef = Slot(uri=ODM.MetaDataVersionRef, name="MetaDataVersionRef", curie=ODM.curie('MetaDataVersionRef'),
-                   model_uri=ODM.MetaDataVersionRef, domain=None, range=Optional[Union[dict, MetaDataVersion]])
+slots.MetaDataVersionRefRef = Slot(uri=ODM.MetaDataVersionRefRef, name="MetaDataVersionRefRef", curie=ODM.curie('MetaDataVersionRefRef'),
+                   model_uri=ODM.MetaDataVersionRefRef, domain=None, range=Optional[Union[dict, MetaDataVersionRef]])
 
 slots.IncludeRef = Slot(uri=ODM.IncludeRef, name="IncludeRef", curie=ODM.curie('IncludeRef'),
                    model_uri=ODM.IncludeRef, domain=None, range=Optional[Union[dict, Include]])
@@ -6137,52 +6999,73 @@ slots.SupplementalDocRef = Slot(uri=ODM.SupplementalDocRef, name="SupplementalDo
                    model_uri=ODM.SupplementalDocRef, domain=None, range=Optional[Union[dict, SupplementalDoc]])
 
 slots.ValueListDefRef = Slot(uri=ODM.ValueListDefRef, name="ValueListDefRef", curie=ODM.curie('ValueListDefRef'),
-                   model_uri=ODM.ValueListDefRef, domain=None, range=Optional[Union[dict, ValueListDef]])
+                   model_uri=ODM.ValueListDefRef, domain=None, range=Optional[Union[str, ValueListDefOID]])
 
 slots.WhereClauseDefRef = Slot(uri=ODM.WhereClauseDefRef, name="WhereClauseDefRef", curie=ODM.curie('WhereClauseDefRef'),
-                   model_uri=ODM.WhereClauseDefRef, domain=None, range=Optional[Union[dict, WhereClauseDef]])
+                   model_uri=ODM.WhereClauseDefRef, domain=None, range=Optional[Union[str, WhereClauseDefOID]])
 
 slots.ProtocolRef = Slot(uri=ODM.ProtocolRef, name="ProtocolRef", curie=ODM.curie('ProtocolRef'),
                    model_uri=ODM.ProtocolRef, domain=None, range=Optional[Union[dict, Protocol]])
 
 slots.WorkflowDefRef = Slot(uri=ODM.WorkflowDefRef, name="WorkflowDefRef", curie=ODM.curie('WorkflowDefRef'),
-                   model_uri=ODM.WorkflowDefRef, domain=None, range=Optional[Union[dict, WorkflowDef]])
+                   model_uri=ODM.WorkflowDefRef, domain=None, range=Optional[Union[str, WorkflowDefOID]])
 
 slots.StudyEventGroupDefRef = Slot(uri=ODM.StudyEventGroupDefRef, name="StudyEventGroupDefRef", curie=ODM.curie('StudyEventGroupDefRef'),
-                   model_uri=ODM.StudyEventGroupDefRef, domain=None, range=Optional[Union[dict, StudyEventGroupDef]])
+                   model_uri=ODM.StudyEventGroupDefRef, domain=None, range=Optional[Union[str, StudyEventGroupDefOID]])
 
 slots.StudyEventDefRef = Slot(uri=ODM.StudyEventDefRef, name="StudyEventDefRef", curie=ODM.curie('StudyEventDefRef'),
-                   model_uri=ODM.StudyEventDefRef, domain=None, range=Optional[Union[dict, StudyEventDef]])
+                   model_uri=ODM.StudyEventDefRef, domain=None, range=Optional[Union[str, StudyEventDefOID]])
 
 slots.ItemGroupDefRef = Slot(uri=ODM.ItemGroupDefRef, name="ItemGroupDefRef", curie=ODM.curie('ItemGroupDefRef'),
-                   model_uri=ODM.ItemGroupDefRef, domain=None, range=Optional[Union[dict, ItemGroupDef]])
+                   model_uri=ODM.ItemGroupDefRef, domain=None, range=Optional[Union[str, ItemGroupDefOID]])
 
 slots.ItemDefRef = Slot(uri=ODM.ItemDefRef, name="ItemDefRef", curie=ODM.curie('ItemDefRef'),
-                   model_uri=ODM.ItemDefRef, domain=None, range=Optional[Union[dict, ItemDef]])
+                   model_uri=ODM.ItemDefRef, domain=None, range=Optional[Union[str, ItemDefOID]])
 
-slots.CodeListRef = Slot(uri=ODM.CodeListRef, name="CodeListRef", curie=ODM.curie('CodeListRef'),
-                   model_uri=ODM.CodeListRef, domain=None, range=Optional[Union[dict, CodeList]])
+slots.CodeListRefRef = Slot(uri=ODM.CodeListRefRef, name="CodeListRefRef", curie=ODM.curie('CodeListRefRef'),
+                   model_uri=ODM.CodeListRefRef, domain=None, range=Optional[Union[dict, CodeListRef]])
 
 slots.ConditionDefRef = Slot(uri=ODM.ConditionDefRef, name="ConditionDefRef", curie=ODM.curie('ConditionDefRef'),
-                   model_uri=ODM.ConditionDefRef, domain=None, range=Optional[Union[dict, ConditionDef]])
+                   model_uri=ODM.ConditionDefRef, domain=None, range=Optional[Union[str, ConditionDefOID]])
 
 slots.MethodDefRef = Slot(uri=ODM.MethodDefRef, name="MethodDefRef", curie=ODM.curie('MethodDefRef'),
-                   model_uri=ODM.MethodDefRef, domain=None, range=Optional[Union[dict, MethodDef]])
+                   model_uri=ODM.MethodDefRef, domain=None, range=Optional[Union[str, MethodDefOID]])
 
 slots.CommentDefRef = Slot(uri=ODM.CommentDefRef, name="CommentDefRef", curie=ODM.curie('CommentDefRef'),
-                   model_uri=ODM.CommentDefRef, domain=None, range=Optional[Union[dict, CommentDef]])
+                   model_uri=ODM.CommentDefRef, domain=None, range=Optional[Union[str, CommentDefOID]])
 
 slots.leafRef = Slot(uri=ODM.leafRef, name="leafRef", curie=ODM.curie('leafRef'),
-                   model_uri=ODM.leafRef, domain=None, range=Optional[Union[dict, Leaf]])
+                   model_uri=ODM.leafRef, domain=None, range=Optional[Union[str, LeafID]])
+
+slots.PDFPageRefRef = Slot(uri=ODM.PDFPageRefRef, name="PDFPageRefRef", curie=ODM.curie('PDFPageRefRef'),
+                   model_uri=ODM.PDFPageRefRef, domain=None, range=Optional[Union[dict, PDFPageRef]])
+
+slots.title = Slot(uri=ODM.title, name="title", curie=ODM.curie('title'),
+                   model_uri=ODM.title, domain=None, range=Optional[str])
+
+slots.StandardRef = Slot(uri=ODM.StandardRef, name="StandardRef", curie=ODM.curie('StandardRef'),
+                   model_uri=ODM.StandardRef, domain=None, range=Optional[Union[str, StandardOID]])
+
+slots.DocumentRefRef = Slot(uri=ODM.DocumentRefRef, name="DocumentRefRef", curie=ODM.curie('DocumentRefRef'),
+                   model_uri=ODM.DocumentRefRef, domain=None, range=Optional[Union[str, DocumentRefLeafID]])
 
 slots.ItemRefRef = Slot(uri=ODM.ItemRefRef, name="ItemRefRef", curie=ODM.curie('ItemRefRef'),
                    model_uri=ODM.ItemRefRef, domain=None, range=Optional[Union[dict, ItemRef]])
+
+slots.RangeCheckRef = Slot(uri=ODM.RangeCheckRef, name="RangeCheckRef", curie=ODM.curie('RangeCheckRef'),
+                   model_uri=ODM.RangeCheckRef, domain=None, range=Optional[Union[dict, RangeCheck]])
 
 slots.WorkflowRefRef = Slot(uri=ODM.WorkflowRefRef, name="WorkflowRefRef", curie=ODM.curie('WorkflowRefRef'),
                    model_uri=ODM.WorkflowRefRef, domain=None, range=Optional[Union[dict, WorkflowRef]])
 
 slots.CodingRef = Slot(uri=ODM.CodingRef, name="CodingRef", curie=ODM.curie('CodingRef'),
                    model_uri=ODM.CodingRef, domain=None, range=Optional[Union[dict, Coding]])
+
+slots.StudyEventGroupRefRef = Slot(uri=ODM.StudyEventGroupRefRef, name="StudyEventGroupRefRef", curie=ODM.curie('StudyEventGroupRefRef'),
+                   model_uri=ODM.StudyEventGroupRefRef, domain=None, range=Optional[Union[dict, StudyEventGroupRef]])
+
+slots.StudyEventRefRef = Slot(uri=ODM.StudyEventRefRef, name="StudyEventRefRef", curie=ODM.curie('StudyEventRefRef'),
+                   model_uri=ODM.StudyEventRefRef, domain=None, range=Optional[Union[dict, StudyEventRef]])
 
 slots.ItemGroupRefRef = Slot(uri=ODM.ItemGroupRefRef, name="ItemGroupRefRef", curie=ODM.curie('ItemGroupRefRef'),
                    model_uri=ODM.ItemGroupRefRef, domain=None, range=Optional[Union[dict, ItemGroupRef]])
@@ -6196,38 +7079,44 @@ slots.ClassRef = Slot(uri=ODM.ClassRef, name="ClassRef", curie=ODM.curie('ClassR
 slots.OriginRef = Slot(uri=ODM.OriginRef, name="OriginRef", curie=ODM.curie('OriginRef'),
                    model_uri=ODM.OriginRef, domain=None, range=Optional[Union[dict, Origin]])
 
+slots.SubClassRef = Slot(uri=ODM.SubClassRef, name="SubClassRef", curie=ODM.curie('SubClassRef'),
+                   model_uri=ODM.SubClassRef, domain=None, range=Optional[Union[dict, SubClass]])
+
 slots.WhereClauseRefRef = Slot(uri=ODM.WhereClauseRefRef, name="WhereClauseRefRef", curie=ODM.curie('WhereClauseRefRef'),
                    model_uri=ODM.WhereClauseRefRef, domain=None, range=Optional[Union[dict, WhereClauseRef]])
 
 slots.SourceItemsRef = Slot(uri=ODM.SourceItemsRef, name="SourceItemsRef", curie=ODM.curie('SourceItemsRef'),
                    model_uri=ODM.SourceItemsRef, domain=None, range=Optional[Union[dict, SourceItems]])
 
-slots.DocumentRefRef = Slot(uri=ODM.DocumentRefRef, name="DocumentRefRef", curie=ODM.curie('DocumentRefRef'),
-                   model_uri=ODM.DocumentRefRef, domain=None, range=Optional[Union[dict, DocumentRef]])
-
 slots.SourceItemRef = Slot(uri=ODM.SourceItemRef, name="SourceItemRef", curie=ODM.curie('SourceItemRef'),
-                   model_uri=ODM.SourceItemRef, domain=None, range=Optional[Union[dict, SourceItem]])
+                   model_uri=ODM.SourceItemRef, domain=None, range=Optional[Union[str, SourceItemLeafID]])
 
 slots.ResourceRef = Slot(uri=ODM.ResourceRef, name="ResourceRef", curie=ODM.curie('ResourceRef'),
                    model_uri=ODM.ResourceRef, domain=None, range=Optional[Union[dict, Resource]])
 
+slots.SelectionRef = Slot(uri=ODM.SelectionRef, name="SelectionRef", curie=ODM.curie('SelectionRef'),
+                   model_uri=ODM.SelectionRef, domain=None, range=Optional[Union[dict, Selection]])
+
 slots.QuestionRef = Slot(uri=ODM.QuestionRef, name="QuestionRef", curie=ODM.curie('QuestionRef'),
                    model_uri=ODM.QuestionRef, domain=None, range=Optional[Union[dict, Question]])
 
-slots.RangeCheckRef = Slot(uri=ODM.RangeCheckRef, name="RangeCheckRef", curie=ODM.curie('RangeCheckRef'),
-                   model_uri=ODM.RangeCheckRef, domain=None, range=Optional[Union[dict, RangeCheck]])
+slots.PromptRef = Slot(uri=ODM.PromptRef, name="PromptRef", curie=ODM.curie('PromptRef'),
+                   model_uri=ODM.PromptRef, domain=None, range=Optional[Union[dict, Prompt]])
 
-slots.CodeListRefRef = Slot(uri=ODM.CodeListRefRef, name="CodeListRefRef", curie=ODM.curie('CodeListRefRef'),
-                   model_uri=ODM.CodeListRefRef, domain=None, range=Optional[Union[dict, CodeListRef]])
+slots.CRFCompletionInstructionsRef = Slot(uri=ODM.CRFCompletionInstructionsRef, name="CRFCompletionInstructionsRef", curie=ODM.curie('CRFCompletionInstructionsRef'),
+                   model_uri=ODM.CRFCompletionInstructionsRef, domain=None, range=Optional[Union[dict, CRFCompletionInstructions]])
+
+slots.ImplementationNotesRef = Slot(uri=ODM.ImplementationNotesRef, name="ImplementationNotesRef", curie=ODM.curie('ImplementationNotesRef'),
+                   model_uri=ODM.ImplementationNotesRef, domain=None, range=Optional[Union[dict, ImplementationNotes]])
+
+slots.CDISCNotesRef = Slot(uri=ODM.CDISCNotesRef, name="CDISCNotesRef", curie=ODM.curie('CDISCNotesRef'),
+                   model_uri=ODM.CDISCNotesRef, domain=None, range=Optional[Union[dict, CDISCNotes]])
 
 slots.ValueListRefRef = Slot(uri=ODM.ValueListRefRef, name="ValueListRefRef", curie=ODM.curie('ValueListRefRef'),
                    model_uri=ODM.ValueListRefRef, domain=None, range=Optional[Union[dict, ValueListRef]])
 
-slots.ExternalCodeListRef = Slot(uri=ODM.ExternalCodeListRef, name="ExternalCodeListRef", curie=ODM.curie('ExternalCodeListRef'),
-                   model_uri=ODM.ExternalCodeListRef, domain=None, range=Optional[Union[dict, ExternalCodeList]])
-
-slots.DecodeRef = Slot(uri=ODM.DecodeRef, name="DecodeRef", curie=ODM.curie('DecodeRef'),
-                   model_uri=ODM.DecodeRef, domain=None, range=Optional[Union[dict, Decode]])
+slots.ErrorMessageRef = Slot(uri=ODM.ErrorMessageRef, name="ErrorMessageRef", curie=ODM.curie('ErrorMessageRef'),
+                   model_uri=ODM.ErrorMessageRef, domain=None, range=Optional[Union[dict, ErrorMessage]])
 
 slots.MethodSignatureRef = Slot(uri=ODM.MethodSignatureRef, name="MethodSignatureRef", curie=ODM.curie('MethodSignatureRef'),
                    model_uri=ODM.MethodSignatureRef, domain=None, range=Optional[Union[dict, MethodSignature]])
@@ -6235,11 +7124,23 @@ slots.MethodSignatureRef = Slot(uri=ODM.MethodSignatureRef, name="MethodSignatur
 slots.FormalExpressionRef = Slot(uri=ODM.FormalExpressionRef, name="FormalExpressionRef", curie=ODM.curie('FormalExpressionRef'),
                    model_uri=ODM.FormalExpressionRef, domain=None, range=Optional[Union[dict, FormalExpression]])
 
+slots.CheckValueRef = Slot(uri=ODM.CheckValueRef, name="CheckValueRef", curie=ODM.curie('CheckValueRef'),
+                   model_uri=ODM.CheckValueRef, domain=None, range=Optional[Union[dict, CheckValue]])
+
+slots.CodeListItemRef = Slot(uri=ODM.CodeListItemRef, name="CodeListItemRef", curie=ODM.curie('CodeListItemRef'),
+                   model_uri=ODM.CodeListItemRef, domain=None, range=Optional[Union[dict, CodeListItem]])
+
+slots.DecodeRef = Slot(uri=ODM.DecodeRef, name="DecodeRef", curie=ODM.curie('DecodeRef'),
+                   model_uri=ODM.DecodeRef, domain=None, range=Optional[Union[dict, Decode]])
+
 slots.ParameterRef = Slot(uri=ODM.ParameterRef, name="ParameterRef", curie=ODM.curie('ParameterRef'),
                    model_uri=ODM.ParameterRef, domain=None, range=Optional[Union[dict, Parameter]])
 
 slots.ReturnValueRef = Slot(uri=ODM.ReturnValueRef, name="ReturnValueRef", curie=ODM.curie('ReturnValueRef'),
                    model_uri=ODM.ReturnValueRef, domain=None, range=Optional[Union[dict, ReturnValue]])
+
+slots.ExternalCodeLibRef = Slot(uri=ODM.ExternalCodeLibRef, name="ExternalCodeLibRef", curie=ODM.curie('ExternalCodeLibRef'),
+                   model_uri=ODM.ExternalCodeLibRef, domain=None, range=Optional[Union[dict, ExternalCodeLib]])
 
 slots.StudySummaryRef = Slot(uri=ODM.StudySummaryRef, name="StudySummaryRef", curie=ODM.curie('StudySummaryRef'),
                    model_uri=ODM.StudySummaryRef, domain=None, range=Optional[Union[dict, StudySummary]])
@@ -6265,8 +7166,8 @@ slots.StudyObjectivesRef = Slot(uri=ODM.StudyObjectivesRef, name="StudyObjective
 slots.StudyEndPointsRef = Slot(uri=ODM.StudyEndPointsRef, name="StudyEndPointsRef", curie=ODM.curie('StudyEndPointsRef'),
                    model_uri=ODM.StudyEndPointsRef, domain=None, range=Optional[Union[dict, StudyEndPoints]])
 
-slots.StudyTargetPopulationRef = Slot(uri=ODM.StudyTargetPopulationRef, name="StudyTargetPopulationRef", curie=ODM.curie('StudyTargetPopulationRef'),
-                   model_uri=ODM.StudyTargetPopulationRef, domain=None, range=Optional[Union[dict, StudyTargetPopulation]])
+slots.StudyTargetPopulationRefRef = Slot(uri=ODM.StudyTargetPopulationRefRef, name="StudyTargetPopulationRefRef", curie=ODM.curie('StudyTargetPopulationRefRef'),
+                   model_uri=ODM.StudyTargetPopulationRefRef, domain=None, range=Optional[Union[dict, StudyTargetPopulationRef]])
 
 slots.StudyEstimandsRef = Slot(uri=ODM.StudyEstimandsRef, name="StudyEstimandsRef", curie=ODM.curie('StudyEstimandsRef'),
                    model_uri=ODM.StudyEstimandsRef, domain=None, range=Optional[Union[dict, StudyEstimands]])
@@ -6274,23 +7175,26 @@ slots.StudyEstimandsRef = Slot(uri=ODM.StudyEstimandsRef, name="StudyEstimandsRe
 slots.InclusionExclusionCriteriaRef = Slot(uri=ODM.InclusionExclusionCriteriaRef, name="InclusionExclusionCriteriaRef", curie=ODM.curie('InclusionExclusionCriteriaRef'),
                    model_uri=ODM.InclusionExclusionCriteriaRef, domain=None, range=Optional[Union[dict, InclusionExclusionCriteria]])
 
-slots.StudyEventGroupRefRef = Slot(uri=ODM.StudyEventGroupRefRef, name="StudyEventGroupRefRef", curie=ODM.curie('StudyEventGroupRefRef'),
-                   model_uri=ODM.StudyEventGroupRefRef, domain=None, range=Optional[Union[dict, StudyEventGroupRef]])
-
 slots.ArmRef = Slot(uri=ODM.ArmRef, name="ArmRef", curie=ODM.curie('ArmRef'),
-                   model_uri=ODM.ArmRef, domain=None, range=Optional[Union[dict, Arm]])
+                   model_uri=ODM.ArmRef, domain=None, range=Optional[Union[str, ArmOID]])
 
 slots.EpochRef = Slot(uri=ODM.EpochRef, name="EpochRef", curie=ODM.curie('EpochRef'),
-                   model_uri=ODM.EpochRef, domain=None, range=Optional[Union[dict, Epoch]])
+                   model_uri=ODM.EpochRef, domain=None, range=Optional[Union[str, EpochOID]])
+
+slots.StudyIndicationRef = Slot(uri=ODM.StudyIndicationRef, name="StudyIndicationRef", curie=ODM.curie('StudyIndicationRef'),
+                   model_uri=ODM.StudyIndicationRef, domain=None, range=Optional[Union[str, StudyIndicationOID]])
+
+slots.StudyInterventionRefRef = Slot(uri=ODM.StudyInterventionRefRef, name="StudyInterventionRefRef", curie=ODM.curie('StudyInterventionRefRef'),
+                   model_uri=ODM.StudyInterventionRefRef, domain=None, range=Optional[Union[dict, StudyInterventionRef]])
+
+slots.StudyObjectiveRef = Slot(uri=ODM.StudyObjectiveRef, name="StudyObjectiveRef", curie=ODM.curie('StudyObjectiveRef'),
+                   model_uri=ODM.StudyObjectiveRef, domain=None, range=Optional[Union[str, StudyObjectiveOID]])
 
 slots.StudyEndPointRefRef = Slot(uri=ODM.StudyEndPointRefRef, name="StudyEndPointRefRef", curie=ODM.curie('StudyEndPointRefRef'),
                    model_uri=ODM.StudyEndPointRefRef, domain=None, range=Optional[Union[dict, StudyEndPointRef]])
 
-slots.StudyTargetPopulationRefRef = Slot(uri=ODM.StudyTargetPopulationRefRef, name="StudyTargetPopulationRefRef", curie=ODM.curie('StudyTargetPopulationRefRef'),
-                   model_uri=ODM.StudyTargetPopulationRefRef, domain=None, range=Optional[Union[dict, StudyTargetPopulationRef]])
-
-slots.StudyInterventionRefRef = Slot(uri=ODM.StudyInterventionRefRef, name="StudyInterventionRefRef", curie=ODM.curie('StudyInterventionRefRef'),
-                   model_uri=ODM.StudyInterventionRefRef, domain=None, range=Optional[Union[dict, StudyInterventionRef]])
+slots.StudyEstimandRef = Slot(uri=ODM.StudyEstimandRef, name="StudyEstimandRef", curie=ODM.curie('StudyEstimandRef'),
+                   model_uri=ODM.StudyEstimandRef, domain=None, range=Optional[Union[str, StudyEstimandOID]])
 
 slots.IntercurrentEventRef = Slot(uri=ODM.IntercurrentEventRef, name="IntercurrentEventRef", curie=ODM.curie('IntercurrentEventRef'),
                    model_uri=ODM.IntercurrentEventRef, domain=None, range=Optional[Union[dict, IntercurrentEvent]])
@@ -6304,20 +7208,29 @@ slots.InclusionCriteriaRef = Slot(uri=ODM.InclusionCriteriaRef, name="InclusionC
 slots.ExclusionCriteriaRef = Slot(uri=ODM.ExclusionCriteriaRef, name="ExclusionCriteriaRef", curie=ODM.curie('ExclusionCriteriaRef'),
                    model_uri=ODM.ExclusionCriteriaRef, domain=None, range=Optional[Union[dict, ExclusionCriteria]])
 
+slots.CriterionRef = Slot(uri=ODM.CriterionRef, name="CriterionRef", curie=ODM.curie('CriterionRef'),
+                   model_uri=ODM.CriterionRef, domain=None, range=Optional[Union[str, CriterionOID]])
+
+slots.StudyParameterRef = Slot(uri=ODM.StudyParameterRef, name="StudyParameterRef", curie=ODM.curie('StudyParameterRef'),
+                   model_uri=ODM.StudyParameterRef, domain=None, range=Optional[Union[str, StudyParameterOID]])
+
 slots.ParameterValueRef = Slot(uri=ODM.ParameterValueRef, name="ParameterValueRef", curie=ODM.curie('ParameterValueRef'),
                    model_uri=ODM.ParameterValueRef, domain=None, range=Optional[Union[dict, ParameterValue]])
 
+slots.StudyTimingRef = Slot(uri=ODM.StudyTimingRef, name="StudyTimingRef", curie=ODM.curie('StudyTimingRef'),
+                   model_uri=ODM.StudyTimingRef, domain=None, range=Optional[Union[str, StudyTimingOID]])
+
 slots.AbsoluteTimingConstraintRef = Slot(uri=ODM.AbsoluteTimingConstraintRef, name="AbsoluteTimingConstraintRef", curie=ODM.curie('AbsoluteTimingConstraintRef'),
-                   model_uri=ODM.AbsoluteTimingConstraintRef, domain=None, range=Optional[Union[dict, AbsoluteTimingConstraint]])
+                   model_uri=ODM.AbsoluteTimingConstraintRef, domain=None, range=Optional[Union[str, AbsoluteTimingConstraintOID]])
 
 slots.RelativeTimingConstraintRef = Slot(uri=ODM.RelativeTimingConstraintRef, name="RelativeTimingConstraintRef", curie=ODM.curie('RelativeTimingConstraintRef'),
-                   model_uri=ODM.RelativeTimingConstraintRef, domain=None, range=Optional[Union[dict, RelativeTimingConstraint]])
+                   model_uri=ODM.RelativeTimingConstraintRef, domain=None, range=Optional[Union[str, RelativeTimingConstraintOID]])
 
 slots.TransitionTimingConstraintRef = Slot(uri=ODM.TransitionTimingConstraintRef, name="TransitionTimingConstraintRef", curie=ODM.curie('TransitionTimingConstraintRef'),
-                   model_uri=ODM.TransitionTimingConstraintRef, domain=None, range=Optional[Union[dict, TransitionTimingConstraint]])
+                   model_uri=ODM.TransitionTimingConstraintRef, domain=None, range=Optional[Union[str, TransitionTimingConstraintOID]])
 
 slots.DurationTimingConstraintRef = Slot(uri=ODM.DurationTimingConstraintRef, name="DurationTimingConstraintRef", curie=ODM.curie('DurationTimingConstraintRef'),
-                   model_uri=ODM.DurationTimingConstraintRef, domain=None, range=Optional[Union[dict, DurationTimingConstraint]])
+                   model_uri=ODM.DurationTimingConstraintRef, domain=None, range=Optional[Union[str, DurationTimingConstraintOID]])
 
 slots.WorkflowStartRef = Slot(uri=ODM.WorkflowStartRef, name="WorkflowStartRef", curie=ODM.curie('WorkflowStartRef'),
                    model_uri=ODM.WorkflowStartRef, domain=None, range=Optional[Union[dict, WorkflowStart]])
@@ -6325,23 +7238,29 @@ slots.WorkflowStartRef = Slot(uri=ODM.WorkflowStartRef, name="WorkflowStartRef",
 slots.WorkflowEndRef = Slot(uri=ODM.WorkflowEndRef, name="WorkflowEndRef", curie=ODM.curie('WorkflowEndRef'),
                    model_uri=ODM.WorkflowEndRef, domain=None, range=Optional[Union[dict, WorkflowEnd]])
 
+slots.TransitionRef = Slot(uri=ODM.TransitionRef, name="TransitionRef", curie=ODM.curie('TransitionRef'),
+                   model_uri=ODM.TransitionRef, domain=None, range=Optional[Union[str, TransitionOID]])
+
+slots.BranchingRef = Slot(uri=ODM.BranchingRef, name="BranchingRef", curie=ODM.curie('BranchingRef'),
+                   model_uri=ODM.BranchingRef, domain=None, range=Optional[Union[str, BranchingOID]])
+
 slots.TargetTransitionRef = Slot(uri=ODM.TargetTransitionRef, name="TargetTransitionRef", curie=ODM.curie('TargetTransitionRef'),
                    model_uri=ODM.TargetTransitionRef, domain=None, range=Optional[Union[dict, TargetTransition]])
 
 slots.DefaultTransitionRef = Slot(uri=ODM.DefaultTransitionRef, name="DefaultTransitionRef", curie=ODM.curie('DefaultTransitionRef'),
                    model_uri=ODM.DefaultTransitionRef, domain=None, range=Optional[Union[dict, DefaultTransition]])
 
-slots.UserRef = Slot(uri=ODM.UserRef, name="UserRef", curie=ODM.curie('UserRef'),
-                   model_uri=ODM.UserRef, domain=None, range=Optional[Union[dict, User]])
+slots.UserRefRef = Slot(uri=ODM.UserRefRef, name="UserRefRef", curie=ODM.curie('UserRefRef'),
+                   model_uri=ODM.UserRefRef, domain=None, range=Optional[Union[dict, UserRef]])
 
 slots.OrganizationRef = Slot(uri=ODM.OrganizationRef, name="OrganizationRef", curie=ODM.curie('OrganizationRef'),
-                   model_uri=ODM.OrganizationRef, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=ODM.OrganizationRef, domain=None, range=Optional[Union[str, OrganizationOID]])
 
-slots.LocationRef = Slot(uri=ODM.LocationRef, name="LocationRef", curie=ODM.curie('LocationRef'),
-                   model_uri=ODM.LocationRef, domain=None, range=Optional[Union[dict, Location]])
+slots.LocationRefRef = Slot(uri=ODM.LocationRefRef, name="LocationRefRef", curie=ODM.curie('LocationRefRef'),
+                   model_uri=ODM.LocationRefRef, domain=None, range=Optional[Union[dict, LocationRef]])
 
 slots.SignatureDefRef = Slot(uri=ODM.SignatureDefRef, name="SignatureDefRef", curie=ODM.curie('SignatureDefRef'),
-                   model_uri=ODM.SignatureDefRef, domain=None, range=Optional[Union[dict, SignatureDef]])
+                   model_uri=ODM.SignatureDefRef, domain=None, range=Optional[Union[str, SignatureDefOID]])
 
 slots.UserNameRef = Slot(uri=ODM.UserNameRef, name="UserNameRef", curie=ODM.curie('UserNameRef'),
                    model_uri=ODM.UserNameRef, domain=None, range=Optional[Union[dict, UserName]])
@@ -6370,11 +7289,8 @@ slots.AddressRef = Slot(uri=ODM.AddressRef, name="AddressRef", curie=ODM.curie('
 slots.TelecomRef = Slot(uri=ODM.TelecomRef, name="TelecomRef", curie=ODM.curie('TelecomRef'),
                    model_uri=ODM.TelecomRef, domain=None, range=Optional[Union[dict, Telecom]])
 
-slots.MetaDataVersionRefRef = Slot(uri=ODM.MetaDataVersionRefRef, name="MetaDataVersionRefRef", curie=ODM.curie('MetaDataVersionRefRef'),
-                   model_uri=ODM.MetaDataVersionRefRef, domain=None, range=Optional[Union[dict, MetaDataVersionRef]])
-
 slots.QueryRef = Slot(uri=ODM.QueryRef, name="QueryRef", curie=ODM.curie('QueryRef'),
-                   model_uri=ODM.QueryRef, domain=None, range=Optional[Union[dict, Query]])
+                   model_uri=ODM.QueryRef, domain=None, range=Optional[Union[str, QueryOID]])
 
 slots.StreetNameRef = Slot(uri=ODM.StreetNameRef, name="StreetNameRef", curie=ODM.curie('StreetNameRef'),
                    model_uri=ODM.StreetNameRef, domain=None, range=Optional[Union[dict, StreetName]])
@@ -6406,11 +7322,20 @@ slots.MeaningRef = Slot(uri=ODM.MeaningRef, name="MeaningRef", curie=ODM.curie('
 slots.LegalReasonRef = Slot(uri=ODM.LegalReasonRef, name="LegalReasonRef", curie=ODM.curie('LegalReasonRef'),
                    model_uri=ODM.LegalReasonRef, domain=None, range=Optional[Union[dict, LegalReason]])
 
-slots.SubjectDataRef = Slot(uri=ODM.SubjectDataRef, name="SubjectDataRef", curie=ODM.curie('SubjectDataRef'),
-                   model_uri=ODM.SubjectDataRef, domain=None, range=Optional[Union[dict, SubjectData]])
-
 slots.ItemGroupDataRef = Slot(uri=ODM.ItemGroupDataRef, name="ItemGroupDataRef", curie=ODM.curie('ItemGroupDataRef'),
                    model_uri=ODM.ItemGroupDataRef, domain=None, range=Optional[Union[dict, ItemGroupData]])
+
+slots.AuditRecordRef = Slot(uri=ODM.AuditRecordRef, name="AuditRecordRef", curie=ODM.curie('AuditRecordRef'),
+                   model_uri=ODM.AuditRecordRef, domain=None, range=Optional[Union[dict, AuditRecord]])
+
+slots.SignatureRefRef = Slot(uri=ODM.SignatureRefRef, name="SignatureRefRef", curie=ODM.curie('SignatureRefRef'),
+                   model_uri=ODM.SignatureRefRef, domain=None, range=Optional[Union[dict, SignatureRef]])
+
+slots.AnnotationRef = Slot(uri=ODM.AnnotationRef, name="AnnotationRef", curie=ODM.curie('AnnotationRef'),
+                   model_uri=ODM.AnnotationRef, domain=None, range=Optional[Union[str, AnnotationID]])
+
+slots.SubjectDataRef = Slot(uri=ODM.SubjectDataRef, name="SubjectDataRef", curie=ODM.curie('SubjectDataRef'),
+                   model_uri=ODM.SubjectDataRef, domain=None, range=Optional[Union[dict, SubjectData]])
 
 slots.InvestigatorRefRef = Slot(uri=ODM.InvestigatorRefRef, name="InvestigatorRefRef", curie=ODM.curie('InvestigatorRefRef'),
                    model_uri=ODM.InvestigatorRefRef, domain=None, range=Optional[Union[dict, InvestigatorRef]])
@@ -6421,14 +7346,8 @@ slots.SiteRefRef = Slot(uri=ODM.SiteRefRef, name="SiteRefRef", curie=ODM.curie('
 slots.StudyEventDataRef = Slot(uri=ODM.StudyEventDataRef, name="StudyEventDataRef", curie=ODM.curie('StudyEventDataRef'),
                    model_uri=ODM.StudyEventDataRef, domain=None, range=Optional[Union[dict, StudyEventData]])
 
-slots.ValueRef = Slot(uri=ODM.ValueRef, name="ValueRef", curie=ODM.curie('ValueRef'),
-                   model_uri=ODM.ValueRef, domain=None, range=Optional[Union[dict, Value]])
-
-slots.UserRefRef = Slot(uri=ODM.UserRefRef, name="UserRefRef", curie=ODM.curie('UserRefRef'),
-                   model_uri=ODM.UserRefRef, domain=None, range=Optional[Union[dict, UserRef]])
-
-slots.LocationRefRef = Slot(uri=ODM.LocationRefRef, name="LocationRefRef", curie=ODM.curie('LocationRefRef'),
-                   model_uri=ODM.LocationRefRef, domain=None, range=Optional[Union[dict, LocationRef]])
+slots.ItemDataRef = Slot(uri=ODM.ItemDataRef, name="ItemDataRef", curie=ODM.curie('ItemDataRef'),
+                   model_uri=ODM.ItemDataRef, domain=None, range=Optional[Union[dict, ItemData]])
 
 slots.DateTimeStampRef = Slot(uri=ODM.DateTimeStampRef, name="DateTimeStampRef", curie=ODM.curie('DateTimeStampRef'),
                    model_uri=ODM.DateTimeStampRef, domain=None, range=Optional[Union[dict, DateTimeStamp]])
@@ -6439,11 +7358,8 @@ slots.ReasonForChangeRef = Slot(uri=ODM.ReasonForChangeRef, name="ReasonForChang
 slots.SourceIDRef = Slot(uri=ODM.SourceIDRef, name="SourceIDRef", curie=ODM.curie('SourceIDRef'),
                    model_uri=ODM.SourceIDRef, domain=None, range=Optional[Union[dict, SourceID]])
 
-slots.SignatureRefRef = Slot(uri=ODM.SignatureRefRef, name="SignatureRefRef", curie=ODM.curie('SignatureRefRef'),
-                   model_uri=ODM.SignatureRefRef, domain=None, range=Optional[Union[dict, SignatureRef]])
-
 slots.StudyRef = Slot(uri=ODM.StudyRef, name="StudyRef", curie=ODM.curie('StudyRef'),
-                   model_uri=ODM.StudyRef, domain=None, range=Optional[Union[dict, Study]])
+                   model_uri=ODM.StudyRef, domain=None, range=Optional[Union[str, StudyOID]])
 
 slots.AdminDataRef = Slot(uri=ODM.AdminDataRef, name="AdminDataRef", curie=ODM.curie('AdminDataRef'),
                    model_uri=ODM.AdminDataRef, domain=None, range=Optional[Union[dict, AdminData]])
@@ -6460,9 +7376,6 @@ slots.AssociationRef = Slot(uri=ODM.AssociationRef, name="AssociationRef", curie
 slots.KeySetRef = Slot(uri=ODM.KeySetRef, name="KeySetRef", curie=ODM.curie('KeySetRef'),
                    model_uri=ODM.KeySetRef, domain=None, range=Optional[Union[dict, KeySet]])
 
-slots.AnnotationRef = Slot(uri=ODM.AnnotationRef, name="AnnotationRef", curie=ODM.curie('AnnotationRef'),
-                   model_uri=ODM.AnnotationRef, domain=None, range=Optional[Union[dict, Annotation]])
-
 slots.CommentRef = Slot(uri=ODM.CommentRef, name="CommentRef", curie=ODM.curie('CommentRef'),
                    model_uri=ODM.CommentRef, domain=None, range=Optional[Union[dict, Comment]])
 
@@ -6475,29 +7388,26 @@ slots.FlagValueRef = Slot(uri=ODM.FlagValueRef, name="FlagValueRef", curie=ODM.c
 slots.FlagTypeRef = Slot(uri=ODM.FlagTypeRef, name="FlagTypeRef", curie=ODM.curie('FlagTypeRef'),
                    model_uri=ODM.FlagTypeRef, domain=None, range=Optional[Union[dict, FlagType]])
 
-slots.AuditRecordRef = Slot(uri=ODM.AuditRecordRef, name="AuditRecordRef", curie=ODM.curie('AuditRecordRef'),
-                   model_uri=ODM.AuditRecordRef, domain=None, range=Optional[Union[dict, AuditRecord]])
-
-slots._content = Slot(uri=XHTML.div, name="_content", curie=XHTML.curie('div'),
-                   model_uri=ODM._content, domain=None, range=Optional[str])
-
 slots.range = Slot(uri=ODM.range, name="range", curie=ODM.curie('range'),
                    model_uri=ODM.range, domain=None, range=Optional[str])
 
-slots.Alias_Context = Slot(uri=ODM.Context, name="Alias_Context", curie=ODM.curie('Context'),
-                   model_uri=ODM.Alias_Context, domain=Alias, range=str)
+slots.Alias_ContextRef = Slot(uri=ODM.ContextRef, name="Alias_ContextRef", curie=ODM.curie('ContextRef'),
+                   model_uri=ODM.Alias_ContextRef, domain=Alias, range=str)
 
 slots.Alias_Name = Slot(uri=ODM.Name, name="Alias_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.Alias_Name, domain=Alias, range=str)
 
-slots.TranslatedText__language = Slot(uri=ODM._language, name="TranslatedText__language", curie=ODM.curie('_language'),
-                   model_uri=ODM.TranslatedText__language, domain=TranslatedText, range=Optional[str])
+slots.Description_TranslatedTextRef = Slot(uri=ODM.TranslatedTextRef, name="Description_TranslatedTextRef", curie=ODM.curie('TranslatedTextRef'),
+                   model_uri=ODM.Description_TranslatedTextRef, domain=Description, range=Union[Union[dict, "TranslatedText"], List[Union[dict, "TranslatedText"]]])
 
 slots.TranslatedText_type = Slot(uri=ODM.type, name="TranslatedText_type", curie=ODM.curie('type'),
                    model_uri=ODM.TranslatedText_type, domain=TranslatedText, range=str)
 
+slots.TranslatedText__content = Slot(uri=ODM._content, name="TranslatedText__content", curie=ODM.curie('_content'),
+                   model_uri=ODM.TranslatedText__content, domain=TranslatedText, range=Optional[str])
+
 slots.Study_OID = Slot(uri=ODM.OID, name="Study_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.Study_OID, domain=Study, range=str)
+                   model_uri=ODM.Study_OID, domain=Study, range=Union[str, StudyOID])
 
 slots.Study_StudyName = Slot(uri=ODM.StudyName, name="Study_StudyName", curie=ODM.curie('StudyName'),
                    model_uri=ODM.Study_StudyName, domain=Study, range=str)
@@ -6505,14 +7415,23 @@ slots.Study_StudyName = Slot(uri=ODM.StudyName, name="Study_StudyName", curie=OD
 slots.Study_ProtocolName = Slot(uri=ODM.ProtocolName, name="Study_ProtocolName", curie=ODM.curie('ProtocolName'),
                    model_uri=ODM.Study_ProtocolName, domain=Study, range=str)
 
+slots.Study_VersionID = Slot(uri=ODM.VersionID, name="Study_VersionID", curie=ODM.curie('VersionID'),
+                   model_uri=ODM.Study_VersionID, domain=Study, range=Optional[str])
+
+slots.Study_VersionName = Slot(uri=ODM.VersionName, name="Study_VersionName", curie=ODM.curie('VersionName'),
+                   model_uri=ODM.Study_VersionName, domain=Study, range=Optional[str])
+
+slots.Study_Status = Slot(uri=ODM.Status, name="Study_Status", curie=ODM.curie('Status'),
+                   model_uri=ODM.Study_Status, domain=Study, range=Optional[str])
+
 slots.Study_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="Study_DescriptionRef", curie=ODM.curie('DescriptionRef'),
                    model_uri=ODM.Study_DescriptionRef, domain=Study, range=Optional[Union[dict, Description]])
 
-slots.Study_MetaDataVersionRef = Slot(uri=ODM.MetaDataVersionRef, name="Study_MetaDataVersionRef", curie=ODM.curie('MetaDataVersionRef'),
-                   model_uri=ODM.Study_MetaDataVersionRef, domain=Study, range=Union[Union[dict, "MetaDataVersion"], List[Union[dict, "MetaDataVersion"]]])
+slots.Study_MetaDataVersionRefRef = Slot(uri=ODM.MetaDataVersionRefRef, name="Study_MetaDataVersionRefRef", curie=ODM.curie('MetaDataVersionRefRef'),
+                   model_uri=ODM.Study_MetaDataVersionRefRef, domain=Study, range=Union[Dict[Union[str, MetaDataVersionOID], Union[dict, "MetaDataVersion"]], List[Union[dict, "MetaDataVersion"]]])
 
 slots.MetaDataVersion_OID = Slot(uri=ODM.OID, name="MetaDataVersion_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.MetaDataVersion_OID, domain=MetaDataVersion, range=str)
+                   model_uri=ODM.MetaDataVersion_OID, domain=MetaDataVersion, range=Union[str, MetaDataVersionOID])
 
 slots.MetaDataVersion_Name = Slot(uri=ODM.Name, name="MetaDataVersion_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.MetaDataVersion_Name, domain=MetaDataVersion, range=str)
@@ -6536,46 +7455,49 @@ slots.MetaDataVersion_SupplementalDocRef = Slot(uri=ODM.SupplementalDocRef, name
                    model_uri=ODM.MetaDataVersion_SupplementalDocRef, domain=MetaDataVersion, range=Optional[Union[dict, "SupplementalDoc"]])
 
 slots.MetaDataVersion_ValueListDefRef = Slot(uri=ODM.ValueListDefRef, name="MetaDataVersion_ValueListDefRef", curie=ODM.curie('ValueListDefRef'),
-                   model_uri=ODM.MetaDataVersion_ValueListDefRef, domain=MetaDataVersion, range=Optional[Union[Union[dict, "ValueListDef"], List[Union[dict, "ValueListDef"]]]])
+                   model_uri=ODM.MetaDataVersion_ValueListDefRef, domain=MetaDataVersion, range=Optional[Union[Dict[Union[str, ValueListDefOID], Union[dict, "ValueListDef"]], List[Union[dict, "ValueListDef"]]]])
 
 slots.MetaDataVersion_WhereClauseDefRef = Slot(uri=ODM.WhereClauseDefRef, name="MetaDataVersion_WhereClauseDefRef", curie=ODM.curie('WhereClauseDefRef'),
-                   model_uri=ODM.MetaDataVersion_WhereClauseDefRef, domain=MetaDataVersion, range=Optional[Union[Union[dict, "WhereClauseDef"], List[Union[dict, "WhereClauseDef"]]]])
+                   model_uri=ODM.MetaDataVersion_WhereClauseDefRef, domain=MetaDataVersion, range=Optional[Union[Dict[Union[str, WhereClauseDefOID], Union[dict, "WhereClauseDef"]], List[Union[dict, "WhereClauseDef"]]]])
 
 slots.MetaDataVersion_ProtocolRef = Slot(uri=ODM.ProtocolRef, name="MetaDataVersion_ProtocolRef", curie=ODM.curie('ProtocolRef'),
                    model_uri=ODM.MetaDataVersion_ProtocolRef, domain=MetaDataVersion, range=Optional[Union[dict, "Protocol"]])
 
 slots.MetaDataVersion_WorkflowDefRef = Slot(uri=ODM.WorkflowDefRef, name="MetaDataVersion_WorkflowDefRef", curie=ODM.curie('WorkflowDefRef'),
-                   model_uri=ODM.MetaDataVersion_WorkflowDefRef, domain=MetaDataVersion, range=Optional[Union[Union[dict, "WorkflowDef"], List[Union[dict, "WorkflowDef"]]]])
+                   model_uri=ODM.MetaDataVersion_WorkflowDefRef, domain=MetaDataVersion, range=Optional[Union[Dict[Union[str, WorkflowDefOID], Union[dict, "WorkflowDef"]], List[Union[dict, "WorkflowDef"]]]])
 
 slots.MetaDataVersion_StudyEventGroupDefRef = Slot(uri=ODM.StudyEventGroupDefRef, name="MetaDataVersion_StudyEventGroupDefRef", curie=ODM.curie('StudyEventGroupDefRef'),
-                   model_uri=ODM.MetaDataVersion_StudyEventGroupDefRef, domain=MetaDataVersion, range=Optional[Union[Union[dict, "StudyEventGroupDef"], List[Union[dict, "StudyEventGroupDef"]]]])
+                   model_uri=ODM.MetaDataVersion_StudyEventGroupDefRef, domain=MetaDataVersion, range=Optional[Union[Dict[Union[str, StudyEventGroupDefOID], Union[dict, "StudyEventGroupDef"]], List[Union[dict, "StudyEventGroupDef"]]]])
 
 slots.MetaDataVersion_StudyEventDefRef = Slot(uri=ODM.StudyEventDefRef, name="MetaDataVersion_StudyEventDefRef", curie=ODM.curie('StudyEventDefRef'),
-                   model_uri=ODM.MetaDataVersion_StudyEventDefRef, domain=MetaDataVersion, range=Optional[Union[Union[dict, "StudyEventDef"], List[Union[dict, "StudyEventDef"]]]])
+                   model_uri=ODM.MetaDataVersion_StudyEventDefRef, domain=MetaDataVersion, range=Optional[Union[Dict[Union[str, StudyEventDefOID], Union[dict, "StudyEventDef"]], List[Union[dict, "StudyEventDef"]]]])
 
 slots.MetaDataVersion_ItemGroupDefRef = Slot(uri=ODM.ItemGroupDefRef, name="MetaDataVersion_ItemGroupDefRef", curie=ODM.curie('ItemGroupDefRef'),
-                   model_uri=ODM.MetaDataVersion_ItemGroupDefRef, domain=MetaDataVersion, range=Optional[Union[Union[dict, "ItemGroupDef"], List[Union[dict, "ItemGroupDef"]]]])
+                   model_uri=ODM.MetaDataVersion_ItemGroupDefRef, domain=MetaDataVersion, range=Optional[Union[Dict[Union[str, ItemGroupDefOID], Union[dict, "ItemGroupDef"]], List[Union[dict, "ItemGroupDef"]]]])
 
 slots.MetaDataVersion_ItemDefRef = Slot(uri=ODM.ItemDefRef, name="MetaDataVersion_ItemDefRef", curie=ODM.curie('ItemDefRef'),
-                   model_uri=ODM.MetaDataVersion_ItemDefRef, domain=MetaDataVersion, range=Optional[Union[Union[dict, "ItemDef"], List[Union[dict, "ItemDef"]]]])
+                   model_uri=ODM.MetaDataVersion_ItemDefRef, domain=MetaDataVersion, range=Optional[Union[Dict[Union[str, ItemDefOID], Union[dict, "ItemDef"]], List[Union[dict, "ItemDef"]]]])
 
-slots.MetaDataVersion_CodeListRef = Slot(uri=ODM.CodeListRef, name="MetaDataVersion_CodeListRef", curie=ODM.curie('CodeListRef'),
-                   model_uri=ODM.MetaDataVersion_CodeListRef, domain=MetaDataVersion, range=Optional[Union[Union[dict, "CodeList"], List[Union[dict, "CodeList"]]]])
+slots.MetaDataVersion_CodeListRefRef = Slot(uri=ODM.CodeListRefRef, name="MetaDataVersion_CodeListRefRef", curie=ODM.curie('CodeListRefRef'),
+                   model_uri=ODM.MetaDataVersion_CodeListRefRef, domain=MetaDataVersion, range=Optional[Union[Dict[Union[str, CodeListOID], Union[dict, "CodeList"]], List[Union[dict, "CodeList"]]]])
 
 slots.MetaDataVersion_ConditionDefRef = Slot(uri=ODM.ConditionDefRef, name="MetaDataVersion_ConditionDefRef", curie=ODM.curie('ConditionDefRef'),
-                   model_uri=ODM.MetaDataVersion_ConditionDefRef, domain=MetaDataVersion, range=Optional[Union[Union[dict, "ConditionDef"], List[Union[dict, "ConditionDef"]]]])
+                   model_uri=ODM.MetaDataVersion_ConditionDefRef, domain=MetaDataVersion, range=Optional[Union[Dict[Union[str, ConditionDefOID], Union[dict, "ConditionDef"]], List[Union[dict, "ConditionDef"]]]])
 
 slots.MetaDataVersion_MethodDefRef = Slot(uri=ODM.MethodDefRef, name="MetaDataVersion_MethodDefRef", curie=ODM.curie('MethodDefRef'),
-                   model_uri=ODM.MetaDataVersion_MethodDefRef, domain=MetaDataVersion, range=Optional[Union[Union[dict, "MethodDef"], List[Union[dict, "MethodDef"]]]])
+                   model_uri=ODM.MetaDataVersion_MethodDefRef, domain=MetaDataVersion, range=Optional[Union[Dict[Union[str, MethodDefOID], Union[dict, "MethodDef"]], List[Union[dict, "MethodDef"]]]])
 
 slots.MetaDataVersion_CommentDefRef = Slot(uri=ODM.CommentDefRef, name="MetaDataVersion_CommentDefRef", curie=ODM.curie('CommentDefRef'),
-                   model_uri=ODM.MetaDataVersion_CommentDefRef, domain=MetaDataVersion, range=Optional[Union[Union[dict, "CommentDef"], List[Union[dict, "CommentDef"]]]])
+                   model_uri=ODM.MetaDataVersion_CommentDefRef, domain=MetaDataVersion, range=Optional[Union[Dict[Union[str, CommentDefOID], Union[dict, "CommentDef"]], List[Union[dict, "CommentDef"]]]])
 
 slots.MetaDataVersion_leafRef = Slot(uri=ODM.leafRef, name="MetaDataVersion_leafRef", curie=ODM.curie('leafRef'),
-                   model_uri=ODM.MetaDataVersion_leafRef, domain=MetaDataVersion, range=Optional[Union[Union[dict, "Leaf"], List[Union[dict, "Leaf"]]]])
+                   model_uri=ODM.MetaDataVersion_leafRef, domain=MetaDataVersion, range=Optional[Union[Dict[Union[str, LeafID], Union[dict, "Leaf"]], List[Union[dict, "Leaf"]]]])
 
 slots.DocumentRef_leafID = Slot(uri=ODM.leafID, name="DocumentRef_leafID", curie=ODM.curie('leafID'),
-                   model_uri=ODM.DocumentRef_leafID, domain=DocumentRef, range=str)
+                   model_uri=ODM.DocumentRef_leafID, domain=DocumentRef, range=Union[str, DocumentRefLeafID])
+
+slots.DocumentRef_PDFPageRefRef = Slot(uri=ODM.PDFPageRefRef, name="DocumentRef_PDFPageRefRef", curie=ODM.curie('PDFPageRefRef'),
+                   model_uri=ODM.DocumentRef_PDFPageRefRef, domain=DocumentRef, range=Optional[Union[Union[dict, "PDFPageRef"], List[Union[dict, "PDFPageRef"]]]])
 
 slots.PDFPageRef_PageRefs = Slot(uri=ODM.PageRefs, name="PDFPageRef_PageRefs", curie=ODM.curie('PageRefs'),
                    model_uri=ODM.PDFPageRef_PageRefs, domain=PDFPageRef, range=Optional[str])
@@ -6593,10 +7515,13 @@ slots.PDFPageRef_Title = Slot(uri=ODM.Title, name="PDFPageRef_Title", curie=ODM.
                    model_uri=ODM.PDFPageRef_Title, domain=PDFPageRef, range=Optional[str])
 
 slots.leaf_ID = Slot(uri=ODM.ID, name="leaf_ID", curie=ODM.curie('ID'),
-                   model_uri=ODM.leaf_ID, domain=Leaf, range=str)
+                   model_uri=ODM.leaf_ID, domain=Leaf, range=Union[str, LeafID])
 
 slots.leaf_href = Slot(uri=ODM.href, name="leaf_href", curie=ODM.curie('href'),
                    model_uri=ODM.leaf_href, domain=Leaf, range=str)
+
+slots.leaf_title = Slot(uri=ODM.title, name="leaf_title", curie=ODM.curie('title'),
+                   model_uri=ODM.leaf_title, domain=Leaf, range=str)
 
 slots.Include_StudyOID = Slot(uri=ODM.StudyOID, name="Include_StudyOID", curie=ODM.curie('StudyOID'),
                    model_uri=ODM.Include_StudyOID, domain=Include, range=str)
@@ -6607,8 +7532,11 @@ slots.Include_MetaDataVersionOID = Slot(uri=ODM.MetaDataVersionOID, name="Includ
 slots.Include_href = Slot(uri=ODM.href, name="Include_href", curie=ODM.curie('href'),
                    model_uri=ODM.Include_href, domain=Include, range=Optional[Union[str, URIorCURIE]])
 
+slots.Standards_StandardRef = Slot(uri=ODM.StandardRef, name="Standards_StandardRef", curie=ODM.curie('StandardRef'),
+                   model_uri=ODM.Standards_StandardRef, domain=Standards, range=Union[Dict[Union[str, StandardOID], Union[dict, "Standard"]], List[Union[dict, "Standard"]]])
+
 slots.Standard_OID = Slot(uri=ODM.OID, name="Standard_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.Standard_OID, domain=Standard, range=str)
+                   model_uri=ODM.Standard_OID, domain=Standard, range=Union[str, StandardOID])
 
 slots.Standard_Name = Slot(uri=ODM.Name, name="Standard_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.Standard_Name, domain=Standard, range=Union[str, "StandardName"])
@@ -6628,8 +7556,14 @@ slots.Standard_Status = Slot(uri=ODM.Status, name="Standard_Status", curie=ODM.c
 slots.Standard_CommentOID = Slot(uri=ODM.CommentOID, name="Standard_CommentOID", curie=ODM.curie('CommentOID'),
                    model_uri=ODM.Standard_CommentOID, domain=Standard, range=Optional[str])
 
+slots.AnnotatedCRF_DocumentRefRef = Slot(uri=ODM.DocumentRefRef, name="AnnotatedCRF_DocumentRefRef", curie=ODM.curie('DocumentRefRef'),
+                   model_uri=ODM.AnnotatedCRF_DocumentRefRef, domain=AnnotatedCRF, range=Union[Dict[Union[str, DocumentRefLeafID], Union[dict, DocumentRef]], List[Union[dict, DocumentRef]]])
+
+slots.SupplementalDoc_DocumentRefRef = Slot(uri=ODM.DocumentRefRef, name="SupplementalDoc_DocumentRefRef", curie=ODM.curie('DocumentRefRef'),
+                   model_uri=ODM.SupplementalDoc_DocumentRefRef, domain=SupplementalDoc, range=Union[Dict[Union[str, DocumentRefLeafID], Union[dict, DocumentRef]], List[Union[dict, DocumentRef]]])
+
 slots.ValueListDef_OID = Slot(uri=ODM.OID, name="ValueListDef_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.ValueListDef_OID, domain=ValueListDef, range=str)
+                   model_uri=ODM.ValueListDef_OID, domain=ValueListDef, range=Union[str, ValueListDefOID])
 
 slots.ValueListDef_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="ValueListDef_DescriptionRef", curie=ODM.curie('DescriptionRef'),
                    model_uri=ODM.ValueListDef_DescriptionRef, domain=ValueListDef, range=Optional[Union[dict, Description]])
@@ -6641,10 +7575,13 @@ slots.WhereClauseRef_WhereClauseOID = Slot(uri=ODM.WhereClauseOID, name="WhereCl
                    model_uri=ODM.WhereClauseRef_WhereClauseOID, domain=WhereClauseRef, range=str)
 
 slots.WhereClauseDef_OID = Slot(uri=ODM.OID, name="WhereClauseDef_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.WhereClauseDef_OID, domain=WhereClauseDef, range=str)
+                   model_uri=ODM.WhereClauseDef_OID, domain=WhereClauseDef, range=Union[str, WhereClauseDefOID])
 
 slots.WhereClauseDef_CommentOID = Slot(uri=ODM.CommentOID, name="WhereClauseDef_CommentOID", curie=ODM.curie('CommentOID'),
                    model_uri=ODM.WhereClauseDef_CommentOID, domain=WhereClauseDef, range=Optional[str])
+
+slots.WhereClauseDef_RangeCheckRef = Slot(uri=ODM.RangeCheckRef, name="WhereClauseDef_RangeCheckRef", curie=ODM.curie('RangeCheckRef'),
+                   model_uri=ODM.WhereClauseDef_RangeCheckRef, domain=WhereClauseDef, range=Union[Union[dict, "RangeCheck"], List[Union[dict, "RangeCheck"]]])
 
 slots.StudyEventGroupRef_StudyEventGroupOID = Slot(uri=ODM.StudyEventGroupOID, name="StudyEventGroupRef_StudyEventGroupOID", curie=ODM.curie('StudyEventGroupOID'),
                    model_uri=ODM.StudyEventGroupRef_StudyEventGroupOID, domain=StudyEventGroupRef, range=str)
@@ -6658,8 +7595,11 @@ slots.StudyEventGroupRef_Mandatory = Slot(uri=ODM.Mandatory, name="StudyEventGro
 slots.StudyEventGroupRef_CollectionExceptionConditionOID = Slot(uri=ODM.CollectionExceptionConditionOID, name="StudyEventGroupRef_CollectionExceptionConditionOID", curie=ODM.curie('CollectionExceptionConditionOID'),
                    model_uri=ODM.StudyEventGroupRef_CollectionExceptionConditionOID, domain=StudyEventGroupRef, range=Optional[str])
 
+slots.StudyEventGroupRef_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="StudyEventGroupRef_DescriptionRef", curie=ODM.curie('DescriptionRef'),
+                   model_uri=ODM.StudyEventGroupRef_DescriptionRef, domain=StudyEventGroupRef, range=Optional[Union[dict, Description]])
+
 slots.StudyEventGroupDef_OID = Slot(uri=ODM.OID, name="StudyEventGroupDef_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.StudyEventGroupDef_OID, domain=StudyEventGroupDef, range=str)
+                   model_uri=ODM.StudyEventGroupDef_OID, domain=StudyEventGroupDef, range=Union[str, StudyEventGroupDefOID])
 
 slots.StudyEventGroupDef_Name = Slot(uri=ODM.Name, name="StudyEventGroupDef_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.StudyEventGroupDef_Name, domain=StudyEventGroupDef, range=str)
@@ -6682,6 +7622,12 @@ slots.StudyEventGroupDef_WorkflowRefRef = Slot(uri=ODM.WorkflowRefRef, name="Stu
 slots.StudyEventGroupDef_CodingRef = Slot(uri=ODM.CodingRef, name="StudyEventGroupDef_CodingRef", curie=ODM.curie('CodingRef'),
                    model_uri=ODM.StudyEventGroupDef_CodingRef, domain=StudyEventGroupDef, range=Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]])
 
+slots.StudyEventGroupDef_StudyEventGroupRefRef = Slot(uri=ODM.StudyEventGroupRefRef, name="StudyEventGroupDef_StudyEventGroupRefRef", curie=ODM.curie('StudyEventGroupRefRef'),
+                   model_uri=ODM.StudyEventGroupDef_StudyEventGroupRefRef, domain=StudyEventGroupDef, range=Optional[Union[dict, StudyEventGroupRef]])
+
+slots.StudyEventGroupDef_StudyEventRefRef = Slot(uri=ODM.StudyEventRefRef, name="StudyEventGroupDef_StudyEventRefRef", curie=ODM.curie('StudyEventRefRef'),
+                   model_uri=ODM.StudyEventGroupDef_StudyEventRefRef, domain=StudyEventGroupDef, range=Optional[Union[dict, "StudyEventRef"]])
+
 slots.StudyEventRef_StudyEventOID = Slot(uri=ODM.StudyEventOID, name="StudyEventRef_StudyEventOID", curie=ODM.curie('StudyEventOID'),
                    model_uri=ODM.StudyEventRef_StudyEventOID, domain=StudyEventRef, range=str)
 
@@ -6695,7 +7641,7 @@ slots.StudyEventRef_CollectionExceptionConditionOID = Slot(uri=ODM.CollectionExc
                    model_uri=ODM.StudyEventRef_CollectionExceptionConditionOID, domain=StudyEventRef, range=Optional[str])
 
 slots.StudyEventDef_OID = Slot(uri=ODM.OID, name="StudyEventDef_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.StudyEventDef_OID, domain=StudyEventDef, range=str)
+                   model_uri=ODM.StudyEventDef_OID, domain=StudyEventDef, range=Union[str, StudyEventDefOID])
 
 slots.StudyEventDef_Name = Slot(uri=ODM.Name, name="StudyEventDef_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.StudyEventDef_Name, domain=StudyEventDef, range=str)
@@ -6743,7 +7689,7 @@ slots.ItemGroupRef_CollectionExceptionConditionOID = Slot(uri=ODM.CollectionExce
                    model_uri=ODM.ItemGroupRef_CollectionExceptionConditionOID, domain=ItemGroupRef, range=Optional[str])
 
 slots.ItemGroupDef_OID = Slot(uri=ODM.OID, name="ItemGroupDef_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.ItemGroupDef_OID, domain=ItemGroupDef, range=str)
+                   model_uri=ODM.ItemGroupDef_OID, domain=ItemGroupDef, range=Union[str, ItemGroupDefOID])
 
 slots.ItemGroupDef_Name = Slot(uri=ODM.Name, name="ItemGroupDef_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.ItemGroupDef_Name, domain=ItemGroupDef, range=str)
@@ -6806,10 +7752,19 @@ slots.ItemGroupDef_AliasRef = Slot(uri=ODM.AliasRef, name="ItemGroupDef_AliasRef
                    model_uri=ODM.ItemGroupDef_AliasRef, domain=ItemGroupDef, range=Optional[Union[Union[dict, Alias], List[Union[dict, Alias]]]])
 
 slots.ItemGroupDef_leafRef = Slot(uri=ODM.leafRef, name="ItemGroupDef_leafRef", curie=ODM.curie('leafRef'),
-                   model_uri=ODM.ItemGroupDef_leafRef, domain=ItemGroupDef, range=Optional[Union[dict, Leaf]])
+                   model_uri=ODM.ItemGroupDef_leafRef, domain=ItemGroupDef, range=Optional[Union[str, LeafID]])
+
+slots.ItemGroupDef_ItemGroupRefRef = Slot(uri=ODM.ItemGroupRefRef, name="ItemGroupDef_ItemGroupRefRef", curie=ODM.curie('ItemGroupRefRef'),
+                   model_uri=ODM.ItemGroupDef_ItemGroupRefRef, domain=ItemGroupDef, range=Optional[Union[dict, ItemGroupRef]])
+
+slots.ItemGroupDef_ItemRefRef = Slot(uri=ODM.ItemRefRef, name="ItemGroupDef_ItemRefRef", curie=ODM.curie('ItemRefRef'),
+                   model_uri=ODM.ItemGroupDef_ItemRefRef, domain=ItemGroupDef, range=Optional[Union[dict, "ItemRef"]])
 
 slots.Class_Name = Slot(uri=ODM.Name, name="Class_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.Class_Name, domain=Class, range=Union[str, "ItemGroupClass"])
+
+slots.Class_SubClassRef = Slot(uri=ODM.SubClassRef, name="Class_SubClassRef", curie=ODM.curie('SubClassRef'),
+                   model_uri=ODM.Class_SubClassRef, domain=Class, range=Optional[Union[Union[dict, "SubClass"], List[Union[dict, "SubClass"]]]])
 
 slots.SubClass_Name = Slot(uri=ODM.Name, name="SubClass_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.SubClass_Name, domain=SubClass, range=Union[str, "ItemGroupSubClass"])
@@ -6847,6 +7802,12 @@ slots.ItemRef_Role = Slot(uri=ODM.Role, name="ItemRef_Role", curie=ODM.curie('Ro
 slots.ItemRef_RoleCodeListOID = Slot(uri=ODM.RoleCodeListOID, name="ItemRef_RoleCodeListOID", curie=ODM.curie('RoleCodeListOID'),
                    model_uri=ODM.ItemRef_RoleCodeListOID, domain=ItemRef, range=Optional[str])
 
+slots.ItemRef_Core = Slot(uri=ODM.Core, name="ItemRef_Core", curie=ODM.curie('Core'),
+                   model_uri=ODM.ItemRef_Core, domain=ItemRef, range=Optional[str])
+
+slots.ItemRef_PreSpecifiedValue = Slot(uri=ODM.PreSpecifiedValue, name="ItemRef_PreSpecifiedValue", curie=ODM.curie('PreSpecifiedValue'),
+                   model_uri=ODM.ItemRef_PreSpecifiedValue, domain=ItemRef, range=Optional[str])
+
 slots.ItemRef_OrderNumber = Slot(uri=ODM.OrderNumber, name="ItemRef_OrderNumber", curie=ODM.curie('OrderNumber'),
                    model_uri=ODM.ItemRef_OrderNumber, domain=ItemRef, range=Optional[int])
 
@@ -6878,10 +7839,10 @@ slots.Origin_CodingRef = Slot(uri=ODM.CodingRef, name="Origin_CodingRef", curie=
                    model_uri=ODM.Origin_CodingRef, domain=Origin, range=Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]])
 
 slots.Origin_DocumentRefRef = Slot(uri=ODM.DocumentRefRef, name="Origin_DocumentRefRef", curie=ODM.curie('DocumentRefRef'),
-                   model_uri=ODM.Origin_DocumentRefRef, domain=Origin, range=Optional[Union[Union[dict, DocumentRef], List[Union[dict, DocumentRef]]]])
+                   model_uri=ODM.Origin_DocumentRefRef, domain=Origin, range=Optional[Union[Dict[Union[str, DocumentRefLeafID], Union[dict, DocumentRef]], List[Union[dict, DocumentRef]]]])
 
 slots.SourceItems_SourceItemRef = Slot(uri=ODM.SourceItemRef, name="SourceItems_SourceItemRef", curie=ODM.curie('SourceItemRef'),
-                   model_uri=ODM.SourceItems_SourceItemRef, domain=SourceItems, range=Union[Union[dict, "SourceItem"], List[Union[dict, "SourceItem"]]])
+                   model_uri=ODM.SourceItems_SourceItemRef, domain=SourceItems, range=Union[Dict[Union[str, SourceItemLeafID], Union[dict, "SourceItem"]], List[Union[dict, "SourceItem"]]])
 
 slots.SourceItems_CodingRef = Slot(uri=ODM.CodingRef, name="SourceItems_CodingRef", curie=ODM.curie('CodingRef'),
                    model_uri=ODM.SourceItems_CodingRef, domain=SourceItems, range=Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]])
@@ -6899,7 +7860,7 @@ slots.SourceItem_StudyOID = Slot(uri=ODM.StudyOID, name="SourceItem_StudyOID", c
                    model_uri=ODM.SourceItem_StudyOID, domain=SourceItem, range=Optional[str])
 
 slots.SourceItem_leafID = Slot(uri=ODM.leafID, name="SourceItem_leafID", curie=ODM.curie('leafID'),
-                   model_uri=ODM.SourceItem_leafID, domain=SourceItem, range=Optional[str])
+                   model_uri=ODM.SourceItem_leafID, domain=SourceItem, range=Union[str, SourceItemLeafID])
 
 slots.SourceItem_Name = Slot(uri=ODM.Name, name="SourceItem_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.SourceItem_Name, domain=SourceItem, range=Optional[str])
@@ -6922,17 +7883,20 @@ slots.Resource_Attribute = Slot(uri=ODM.Attribute, name="Resource_Attribute", cu
 slots.Resource_Label = Slot(uri=ODM.Label, name="Resource_Label", curie=ODM.curie('Label'),
                    model_uri=ODM.Resource_Label, domain=Resource, range=Optional[str])
 
+slots.Resource_SelectionRef = Slot(uri=ODM.SelectionRef, name="Resource_SelectionRef", curie=ODM.curie('SelectionRef'),
+                   model_uri=ODM.Resource_SelectionRef, domain=Resource, range=Optional[Union[Union[dict, "Selection"], List[Union[dict, "Selection"]]]])
+
 slots.Selection_Path = Slot(uri=ODM.Path, name="Selection_Path", curie=ODM.curie('Path'),
                    model_uri=ODM.Selection_Path, domain=Selection, range=str)
 
 slots.ItemDef_OID = Slot(uri=ODM.OID, name="ItemDef_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.ItemDef_OID, domain=ItemDef, range=str)
+                   model_uri=ODM.ItemDef_OID, domain=ItemDef, range=Union[str, ItemDefOID])
 
 slots.ItemDef_Name = Slot(uri=ODM.Name, name="ItemDef_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.ItemDef_Name, domain=ItemDef, range=str)
 
-slots.ItemDef_DataType = Slot(uri=ODM.DataType, name="ItemDef_DataType", curie=ODM.curie('DataType'),
-                   model_uri=ODM.ItemDef_DataType, domain=ItemDef, range=Union[str, "DataType"])
+slots.ItemDef_DataTypeRef = Slot(uri=ODM.DataTypeRef, name="ItemDef_DataTypeRef", curie=ODM.curie('DataTypeRef'),
+                   model_uri=ODM.ItemDef_DataTypeRef, domain=ItemDef, range=Union[str, "DataType"])
 
 slots.ItemDef_Length = Slot(uri=ODM.Length, name="ItemDef_Length", curie=ODM.curie('Length'),
                    model_uri=ODM.ItemDef_Length, domain=ItemDef, range=Optional[int])
@@ -6940,14 +7904,32 @@ slots.ItemDef_Length = Slot(uri=ODM.Length, name="ItemDef_Length", curie=ODM.cur
 slots.ItemDef_DisplayFormat = Slot(uri=ODM.DisplayFormat, name="ItemDef_DisplayFormat", curie=ODM.curie('DisplayFormat'),
                    model_uri=ODM.ItemDef_DisplayFormat, domain=ItemDef, range=Optional[str])
 
+slots.ItemDef_VariableSet = Slot(uri=ODM.VariableSet, name="ItemDef_VariableSet", curie=ODM.curie('VariableSet'),
+                   model_uri=ODM.ItemDef_VariableSet, domain=ItemDef, range=Optional[str])
+
 slots.ItemDef_CommentOID = Slot(uri=ODM.CommentOID, name="ItemDef_CommentOID", curie=ODM.curie('CommentOID'),
                    model_uri=ODM.ItemDef_CommentOID, domain=ItemDef, range=Optional[str])
 
 slots.ItemDef_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="ItemDef_DescriptionRef", curie=ODM.curie('DescriptionRef'),
                    model_uri=ODM.ItemDef_DescriptionRef, domain=ItemDef, range=Optional[Union[dict, Description]])
 
+slots.ItemDef_DefinitionRef = Slot(uri=ODM.DefinitionRef, name="ItemDef_DefinitionRef", curie=ODM.curie('DefinitionRef'),
+                   model_uri=ODM.ItemDef_DefinitionRef, domain=ItemDef, range=Optional[Union[dict, "Definition"]])
+
 slots.ItemDef_QuestionRef = Slot(uri=ODM.QuestionRef, name="ItemDef_QuestionRef", curie=ODM.curie('QuestionRef'),
                    model_uri=ODM.ItemDef_QuestionRef, domain=ItemDef, range=Optional[Union[dict, "Question"]])
+
+slots.ItemDef_PromptRef = Slot(uri=ODM.PromptRef, name="ItemDef_PromptRef", curie=ODM.curie('PromptRef'),
+                   model_uri=ODM.ItemDef_PromptRef, domain=ItemDef, range=Optional[Union[dict, "Prompt"]])
+
+slots.ItemDef_CRFCompletionInstructionsRef = Slot(uri=ODM.CRFCompletionInstructionsRef, name="ItemDef_CRFCompletionInstructionsRef", curie=ODM.curie('CRFCompletionInstructionsRef'),
+                   model_uri=ODM.ItemDef_CRFCompletionInstructionsRef, domain=ItemDef, range=Optional[Union[dict, "CRFCompletionInstructions"]])
+
+slots.ItemDef_ImplementationNotesRef = Slot(uri=ODM.ImplementationNotesRef, name="ItemDef_ImplementationNotesRef", curie=ODM.curie('ImplementationNotesRef'),
+                   model_uri=ODM.ItemDef_ImplementationNotesRef, domain=ItemDef, range=Optional[Union[dict, "ImplementationNotes"]])
+
+slots.ItemDef_CDISCNotesRef = Slot(uri=ODM.CDISCNotesRef, name="ItemDef_CDISCNotesRef", curie=ODM.curie('CDISCNotesRef'),
+                   model_uri=ODM.ItemDef_CDISCNotesRef, domain=ItemDef, range=Optional[Union[dict, "CDISCNotes"]])
 
 slots.ItemDef_RangeCheckRef = Slot(uri=ODM.RangeCheckRef, name="ItemDef_RangeCheckRef", curie=ODM.curie('RangeCheckRef'),
                    model_uri=ODM.ItemDef_RangeCheckRef, domain=ItemDef, range=Optional[Union[Union[dict, "RangeCheck"], List[Union[dict, "RangeCheck"]]]])
@@ -6964,8 +7946,26 @@ slots.ItemDef_CodingRef = Slot(uri=ODM.CodingRef, name="ItemDef_CodingRef", curi
 slots.ItemDef_AliasRef = Slot(uri=ODM.AliasRef, name="ItemDef_AliasRef", curie=ODM.curie('AliasRef'),
                    model_uri=ODM.ItemDef_AliasRef, domain=ItemDef, range=Optional[Union[Union[dict, Alias], List[Union[dict, Alias]]]])
 
-slots.RangeCheck_Comparator = Slot(uri=ODM.Comparator, name="RangeCheck_Comparator", curie=ODM.curie('Comparator'),
-                   model_uri=ODM.RangeCheck_Comparator, domain=RangeCheck, range=Optional[Union[str, "Comparator"]])
+slots.Question_TranslatedTextRef = Slot(uri=ODM.TranslatedTextRef, name="Question_TranslatedTextRef", curie=ODM.curie('TranslatedTextRef'),
+                   model_uri=ODM.Question_TranslatedTextRef, domain=Question, range=Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]])
+
+slots.Definition_TranslatedTextRef = Slot(uri=ODM.TranslatedTextRef, name="Definition_TranslatedTextRef", curie=ODM.curie('TranslatedTextRef'),
+                   model_uri=ODM.Definition_TranslatedTextRef, domain=Definition, range=Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]])
+
+slots.Prompt_TranslatedTextRef = Slot(uri=ODM.TranslatedTextRef, name="Prompt_TranslatedTextRef", curie=ODM.curie('TranslatedTextRef'),
+                   model_uri=ODM.Prompt_TranslatedTextRef, domain=Prompt, range=Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]])
+
+slots.CRFCompletionInstructions_TranslatedTextRef = Slot(uri=ODM.TranslatedTextRef, name="CRFCompletionInstructions_TranslatedTextRef", curie=ODM.curie('TranslatedTextRef'),
+                   model_uri=ODM.CRFCompletionInstructions_TranslatedTextRef, domain=CRFCompletionInstructions, range=Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]])
+
+slots.ImplementationNotes_TranslatedTextRef = Slot(uri=ODM.TranslatedTextRef, name="ImplementationNotes_TranslatedTextRef", curie=ODM.curie('TranslatedTextRef'),
+                   model_uri=ODM.ImplementationNotes_TranslatedTextRef, domain=ImplementationNotes, range=Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]])
+
+slots.CDISCNotes_TranslatedTextRef = Slot(uri=ODM.TranslatedTextRef, name="CDISCNotes_TranslatedTextRef", curie=ODM.curie('TranslatedTextRef'),
+                   model_uri=ODM.CDISCNotes_TranslatedTextRef, domain=CDISCNotes, range=Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]])
+
+slots.RangeCheck_ComparatorRef = Slot(uri=ODM.ComparatorRef, name="RangeCheck_ComparatorRef", curie=ODM.curie('ComparatorRef'),
+                   model_uri=ODM.RangeCheck_ComparatorRef, domain=RangeCheck, range=Optional[Union[str, "Comparator"]])
 
 slots.RangeCheck_SoftHard = Slot(uri=ODM.SoftHard, name="RangeCheck_SoftHard", curie=ODM.curie('SoftHard'),
                    model_uri=ODM.RangeCheck_SoftHard, domain=RangeCheck, range=Optional[Union[str, "SoftOrHard"]])
@@ -6973,8 +7973,23 @@ slots.RangeCheck_SoftHard = Slot(uri=ODM.SoftHard, name="RangeCheck_SoftHard", c
 slots.RangeCheck_ItemOID = Slot(uri=ODM.ItemOID, name="RangeCheck_ItemOID", curie=ODM.curie('ItemOID'),
                    model_uri=ODM.RangeCheck_ItemOID, domain=RangeCheck, range=Optional[str])
 
+slots.RangeCheck_ErrorMessageRef = Slot(uri=ODM.ErrorMessageRef, name="RangeCheck_ErrorMessageRef", curie=ODM.curie('ErrorMessageRef'),
+                   model_uri=ODM.RangeCheck_ErrorMessageRef, domain=RangeCheck, range=Optional[Union[dict, "ErrorMessage"]])
+
+slots.RangeCheck_MethodSignatureRef = Slot(uri=ODM.MethodSignatureRef, name="RangeCheck_MethodSignatureRef", curie=ODM.curie('MethodSignatureRef'),
+                   model_uri=ODM.RangeCheck_MethodSignatureRef, domain=RangeCheck, range=Optional[Union[dict, "MethodSignature"]])
+
+slots.RangeCheck_FormalExpressionRef = Slot(uri=ODM.FormalExpressionRef, name="RangeCheck_FormalExpressionRef", curie=ODM.curie('FormalExpressionRef'),
+                   model_uri=ODM.RangeCheck_FormalExpressionRef, domain=RangeCheck, range=Optional[Union[Union[dict, "FormalExpression"], List[Union[dict, "FormalExpression"]]]])
+
+slots.RangeCheck_CheckValueRef = Slot(uri=ODM.CheckValueRef, name="RangeCheck_CheckValueRef", curie=ODM.curie('CheckValueRef'),
+                   model_uri=ODM.RangeCheck_CheckValueRef, domain=RangeCheck, range=Union[Union[dict, "CheckValue"], List[Union[dict, "CheckValue"]]])
+
 slots.CheckValue_range = Slot(uri=ODM.range, name="CheckValue_range", curie=ODM.curie('range'),
                    model_uri=ODM.CheckValue_range, domain=CheckValue, range=Optional[str])
+
+slots.ErrorMessage_TranslatedTextRef = Slot(uri=ODM.TranslatedTextRef, name="ErrorMessage_TranslatedTextRef", curie=ODM.curie('TranslatedTextRef'),
+                   model_uri=ODM.ErrorMessage_TranslatedTextRef, domain=ErrorMessage, range=Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]])
 
 slots.CodeListRef_CodeListOID = Slot(uri=ODM.CodeListOID, name="CodeListRef_CodeListOID", curie=ODM.curie('CodeListOID'),
                    model_uri=ODM.CodeListRef_CodeListOID, domain=CodeListRef, range=str)
@@ -6983,13 +7998,13 @@ slots.ValueListRef_ValueListOID = Slot(uri=ODM.ValueListOID, name="ValueListRef_
                    model_uri=ODM.ValueListRef_ValueListOID, domain=ValueListRef, range=str)
 
 slots.CodeList_OID = Slot(uri=ODM.OID, name="CodeList_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.CodeList_OID, domain=CodeList, range=str)
+                   model_uri=ODM.CodeList_OID, domain=CodeList, range=Union[str, CodeListOID])
 
 slots.CodeList_Name = Slot(uri=ODM.Name, name="CodeList_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.CodeList_Name, domain=CodeList, range=str)
 
-slots.CodeList_DataType = Slot(uri=ODM.DataType, name="CodeList_DataType", curie=ODM.curie('DataType'),
-                   model_uri=ODM.CodeList_DataType, domain=CodeList, range=Union[str, "CLDataType"])
+slots.CodeList_DataTypeRef = Slot(uri=ODM.DataTypeRef, name="CodeList_DataTypeRef", curie=ODM.curie('DataTypeRef'),
+                   model_uri=ODM.CodeList_DataTypeRef, domain=CodeList, range=Union[str, "CLDataType"])
 
 slots.CodeList_CommentOID = Slot(uri=ODM.CommentOID, name="CodeList_CommentOID", curie=ODM.curie('CommentOID'),
                    model_uri=ODM.CodeList_CommentOID, domain=CodeList, range=Optional[str])
@@ -7003,8 +8018,8 @@ slots.CodeList_IsNonStandard = Slot(uri=ODM.IsNonStandard, name="CodeList_IsNonS
 slots.CodeList_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="CodeList_DescriptionRef", curie=ODM.curie('DescriptionRef'),
                    model_uri=ODM.CodeList_DescriptionRef, domain=CodeList, range=Optional[Union[dict, Description]])
 
-slots.CodeList_ExternalCodeListRef = Slot(uri=ODM.ExternalCodeListRef, name="CodeList_ExternalCodeListRef", curie=ODM.curie('ExternalCodeListRef'),
-                   model_uri=ODM.CodeList_ExternalCodeListRef, domain=CodeList, range=Optional[Union[dict, "ExternalCodeList"]])
+slots.CodeList_CodeListItemRef = Slot(uri=ODM.CodeListItemRef, name="CodeList_CodeListItemRef", curie=ODM.curie('CodeListItemRef'),
+                   model_uri=ODM.CodeList_CodeListItemRef, domain=CodeList, range=Optional[Union[Union[dict, "CodeListItem"], List[Union[dict, "CodeListItem"]]]])
 
 slots.CodeList_CodingRef = Slot(uri=ODM.CodingRef, name="CodeList_CodingRef", curie=ODM.curie('CodingRef'),
                    model_uri=ODM.CodeList_CodingRef, domain=CodeList, range=Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]])
@@ -7034,7 +8049,7 @@ slots.CodeListItem_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="CodeListI
                    model_uri=ODM.CodeListItem_DescriptionRef, domain=CodeListItem, range=Optional[Union[dict, Description]])
 
 slots.CodeListItem_DecodeRef = Slot(uri=ODM.DecodeRef, name="CodeListItem_DecodeRef", curie=ODM.curie('DecodeRef'),
-                   model_uri=ODM.CodeListItem_DecodeRef, domain=CodeListItem, range=Union[dict, "Decode"])
+                   model_uri=ODM.CodeListItem_DecodeRef, domain=CodeListItem, range=Optional[Union[dict, "Decode"]])
 
 slots.CodeListItem_CodingRef = Slot(uri=ODM.CodingRef, name="CodeListItem_CodingRef", curie=ODM.curie('CodingRef'),
                    model_uri=ODM.CodeListItem_CodingRef, domain=CodeListItem, range=Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]])
@@ -7042,47 +8057,11 @@ slots.CodeListItem_CodingRef = Slot(uri=ODM.CodingRef, name="CodeListItem_Coding
 slots.CodeListItem_AliasRef = Slot(uri=ODM.AliasRef, name="CodeListItem_AliasRef", curie=ODM.curie('AliasRef'),
                    model_uri=ODM.CodeListItem_AliasRef, domain=CodeListItem, range=Optional[Union[Union[dict, Alias], List[Union[dict, Alias]]]])
 
-slots.EnumeratedItem_CodedValue = Slot(uri=ODM.CodedValue, name="EnumeratedItem_CodedValue", curie=ODM.curie('CodedValue'),
-                   model_uri=ODM.EnumeratedItem_CodedValue, domain=EnumeratedItem, range=str)
-
-slots.EnumeratedItem_Rank = Slot(uri=ODM.Rank, name="EnumeratedItem_Rank", curie=ODM.curie('Rank'),
-                   model_uri=ODM.EnumeratedItem_Rank, domain=EnumeratedItem, range=Optional[Decimal])
-
-slots.EnumeratedItem_Other = Slot(uri=ODM.Other, name="EnumeratedItem_Other", curie=ODM.curie('Other'),
-                   model_uri=ODM.EnumeratedItem_Other, domain=EnumeratedItem, range=Optional[Union[str, "YesOnly"]])
-
-slots.EnumeratedItem_OrderNumber = Slot(uri=ODM.OrderNumber, name="EnumeratedItem_OrderNumber", curie=ODM.curie('OrderNumber'),
-                   model_uri=ODM.EnumeratedItem_OrderNumber, domain=EnumeratedItem, range=Optional[int])
-
-slots.EnumeratedItem_ExtendedValue = Slot(uri=ODM.ExtendedValue, name="EnumeratedItem_ExtendedValue", curie=ODM.curie('ExtendedValue'),
-                   model_uri=ODM.EnumeratedItem_ExtendedValue, domain=EnumeratedItem, range=Optional[Union[str, "YesOnly"]])
-
-slots.EnumeratedItem_CommentOID = Slot(uri=ODM.CommentOID, name="EnumeratedItem_CommentOID", curie=ODM.curie('CommentOID'),
-                   model_uri=ODM.EnumeratedItem_CommentOID, domain=EnumeratedItem, range=Optional[str])
-
-slots.EnumeratedItem_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="EnumeratedItem_DescriptionRef", curie=ODM.curie('DescriptionRef'),
-                   model_uri=ODM.EnumeratedItem_DescriptionRef, domain=EnumeratedItem, range=Optional[Union[dict, Description]])
-
-slots.EnumeratedItem_CodingRef = Slot(uri=ODM.CodingRef, name="EnumeratedItem_CodingRef", curie=ODM.curie('CodingRef'),
-                   model_uri=ODM.EnumeratedItem_CodingRef, domain=EnumeratedItem, range=Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]])
-
-slots.EnumeratedItem_AliasRef = Slot(uri=ODM.AliasRef, name="EnumeratedItem_AliasRef", curie=ODM.curie('AliasRef'),
-                   model_uri=ODM.EnumeratedItem_AliasRef, domain=EnumeratedItem, range=Optional[Union[Union[dict, Alias], List[Union[dict, Alias]]]])
-
-slots.ExternalCodeList_Dictionary = Slot(uri=ODM.Dictionary, name="ExternalCodeList_Dictionary", curie=ODM.curie('Dictionary'),
-                   model_uri=ODM.ExternalCodeList_Dictionary, domain=ExternalCodeList, range=Optional[str])
-
-slots.ExternalCodeList_Version = Slot(uri=ODM.Version, name="ExternalCodeList_Version", curie=ODM.curie('Version'),
-                   model_uri=ODM.ExternalCodeList_Version, domain=ExternalCodeList, range=Optional[str])
-
-slots.ExternalCodeList_href = Slot(uri=ODM.href, name="ExternalCodeList_href", curie=ODM.curie('href'),
-                   model_uri=ODM.ExternalCodeList_href, domain=ExternalCodeList, range=Optional[Union[str, URIorCURIE]])
-
-slots.ExternalCodeList_ref = Slot(uri=ODM.ref, name="ExternalCodeList_ref", curie=ODM.curie('ref'),
-                   model_uri=ODM.ExternalCodeList_ref, domain=ExternalCodeList, range=Optional[str])
+slots.Decode_TranslatedTextRef = Slot(uri=ODM.TranslatedTextRef, name="Decode_TranslatedTextRef", curie=ODM.curie('TranslatedTextRef'),
+                   model_uri=ODM.Decode_TranslatedTextRef, domain=Decode, range=Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]])
 
 slots.MethodDef_OID = Slot(uri=ODM.OID, name="MethodDef_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.MethodDef_OID, domain=MethodDef, range=str)
+                   model_uri=ODM.MethodDef_OID, domain=MethodDef, range=Union[str, MethodDefOID])
 
 slots.MethodDef_Name = Slot(uri=ODM.Name, name="MethodDef_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.MethodDef_Name, domain=MethodDef, range=str)
@@ -7106,7 +8085,7 @@ slots.MethodDef_AliasRef = Slot(uri=ODM.AliasRef, name="MethodDef_AliasRef", cur
                    model_uri=ODM.MethodDef_AliasRef, domain=MethodDef, range=Optional[Union[Union[dict, Alias], List[Union[dict, Alias]]]])
 
 slots.MethodDef_DocumentRefRef = Slot(uri=ODM.DocumentRefRef, name="MethodDef_DocumentRefRef", curie=ODM.curie('DocumentRefRef'),
-                   model_uri=ODM.MethodDef_DocumentRefRef, domain=MethodDef, range=Optional[Union[Union[dict, DocumentRef], List[Union[dict, DocumentRef]]]])
+                   model_uri=ODM.MethodDef_DocumentRefRef, domain=MethodDef, range=Optional[Union[Dict[Union[str, DocumentRefLeafID], Union[dict, DocumentRef]], List[Union[dict, DocumentRef]]]])
 
 slots.MethodSignature_ParameterRef = Slot(uri=ODM.ParameterRef, name="MethodSignature_ParameterRef", curie=ODM.curie('ParameterRef'),
                    model_uri=ODM.MethodSignature_ParameterRef, domain=MethodSignature, range=Optional[Union[Union[dict, "Parameter"], List[Union[dict, "Parameter"]]]])
@@ -7117,11 +8096,11 @@ slots.MethodSignature_ReturnValueRef = Slot(uri=ODM.ReturnValueRef, name="Method
 slots.Parameter_Name = Slot(uri=ODM.Name, name="Parameter_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.Parameter_Name, domain=Parameter, range=str)
 
-slots.Parameter_DataType = Slot(uri=ODM.DataType, name="Parameter_DataType", curie=ODM.curie('DataType'),
-                   model_uri=ODM.Parameter_DataType, domain=Parameter, range=Union[str, "DataType"])
+slots.Parameter_DataTypeRef = Slot(uri=ODM.DataTypeRef, name="Parameter_DataTypeRef", curie=ODM.curie('DataTypeRef'),
+                   model_uri=ODM.Parameter_DataTypeRef, domain=Parameter, range=Union[str, "DataType"])
 
-slots.Parameter_Definition = Slot(uri=ODM.Definition, name="Parameter_Definition", curie=ODM.curie('Definition'),
-                   model_uri=ODM.Parameter_Definition, domain=Parameter, range=Optional[str])
+slots.Parameter_DefinitionRef = Slot(uri=ODM.DefinitionRef, name="Parameter_DefinitionRef", curie=ODM.curie('DefinitionRef'),
+                   model_uri=ODM.Parameter_DefinitionRef, domain=Parameter, range=Optional[str])
 
 slots.Parameter_OrderNumber = Slot(uri=ODM.OrderNumber, name="Parameter_OrderNumber", curie=ODM.curie('OrderNumber'),
                    model_uri=ODM.Parameter_OrderNumber, domain=Parameter, range=Optional[int])
@@ -7129,17 +8108,17 @@ slots.Parameter_OrderNumber = Slot(uri=ODM.OrderNumber, name="Parameter_OrderNum
 slots.ReturnValue_Name = Slot(uri=ODM.Name, name="ReturnValue_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.ReturnValue_Name, domain=ReturnValue, range=str)
 
-slots.ReturnValue_DataType = Slot(uri=ODM.DataType, name="ReturnValue_DataType", curie=ODM.curie('DataType'),
-                   model_uri=ODM.ReturnValue_DataType, domain=ReturnValue, range=Union[str, "DataType"])
+slots.ReturnValue_DataTypeRef = Slot(uri=ODM.DataTypeRef, name="ReturnValue_DataTypeRef", curie=ODM.curie('DataTypeRef'),
+                   model_uri=ODM.ReturnValue_DataTypeRef, domain=ReturnValue, range=Union[str, "DataType"])
 
-slots.ReturnValue_Definition = Slot(uri=ODM.Definition, name="ReturnValue_Definition", curie=ODM.curie('Definition'),
-                   model_uri=ODM.ReturnValue_Definition, domain=ReturnValue, range=Optional[str])
+slots.ReturnValue_DefinitionRef = Slot(uri=ODM.DefinitionRef, name="ReturnValue_DefinitionRef", curie=ODM.curie('DefinitionRef'),
+                   model_uri=ODM.ReturnValue_DefinitionRef, domain=ReturnValue, range=Optional[str])
 
 slots.ReturnValue_OrderNumber = Slot(uri=ODM.OrderNumber, name="ReturnValue_OrderNumber", curie=ODM.curie('OrderNumber'),
                    model_uri=ODM.ReturnValue_OrderNumber, domain=ReturnValue, range=Optional[int])
 
 slots.ConditionDef_OID = Slot(uri=ODM.OID, name="ConditionDef_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.ConditionDef_OID, domain=ConditionDef, range=str)
+                   model_uri=ODM.ConditionDef_OID, domain=ConditionDef, range=Union[str, ConditionDefOID])
 
 slots.ConditionDef_Name = Slot(uri=ODM.Name, name="ConditionDef_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.ConditionDef_Name, domain=ConditionDef, range=str)
@@ -7159,8 +8138,14 @@ slots.ConditionDef_FormalExpressionRef = Slot(uri=ODM.FormalExpressionRef, name=
 slots.ConditionDef_AliasRef = Slot(uri=ODM.AliasRef, name="ConditionDef_AliasRef", curie=ODM.curie('AliasRef'),
                    model_uri=ODM.ConditionDef_AliasRef, domain=ConditionDef, range=Optional[Union[Union[dict, Alias], List[Union[dict, Alias]]]])
 
-slots.FormalExpression_Context = Slot(uri=ODM.Context, name="FormalExpression_Context", curie=ODM.curie('Context'),
-                   model_uri=ODM.FormalExpression_Context, domain=FormalExpression, range=Optional[str])
+slots.FormalExpression_ContextRef = Slot(uri=ODM.ContextRef, name="FormalExpression_ContextRef", curie=ODM.curie('ContextRef'),
+                   model_uri=ODM.FormalExpression_ContextRef, domain=FormalExpression, range=Optional[str])
+
+slots.FormalExpression_CodeRef = Slot(uri=ODM.CodeRef, name="FormalExpression_CodeRef", curie=ODM.curie('CodeRef'),
+                   model_uri=ODM.FormalExpression_CodeRef, domain=FormalExpression, range=Union[dict, "Code"])
+
+slots.FormalExpression_ExternalCodeLibRef = Slot(uri=ODM.ExternalCodeLibRef, name="FormalExpression_ExternalCodeLibRef", curie=ODM.curie('ExternalCodeLibRef'),
+                   model_uri=ODM.FormalExpression_ExternalCodeLibRef, domain=FormalExpression, range=Union[dict, "ExternalCodeLib"])
 
 slots.Code_range = Slot(uri=ODM.range, name="Code_range", curie=ODM.curie('range'),
                    model_uri=ODM.Code_range, domain=Code, range=Optional[str])
@@ -7181,13 +8166,13 @@ slots.ExternalCodeLib_href = Slot(uri=ODM.href, name="ExternalCodeLib_href", cur
                    model_uri=ODM.ExternalCodeLib_href, domain=ExternalCodeLib, range=Optional[Union[str, URIorCURIE]])
 
 slots.CommentDef_OID = Slot(uri=ODM.OID, name="CommentDef_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.CommentDef_OID, domain=CommentDef, range=str)
+                   model_uri=ODM.CommentDef_OID, domain=CommentDef, range=Union[str, CommentDefOID])
 
 slots.CommentDef_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="CommentDef_DescriptionRef", curie=ODM.curie('DescriptionRef'),
                    model_uri=ODM.CommentDef_DescriptionRef, domain=CommentDef, range=Union[dict, Description])
 
 slots.CommentDef_DocumentRefRef = Slot(uri=ODM.DocumentRefRef, name="CommentDef_DocumentRefRef", curie=ODM.curie('DocumentRefRef'),
-                   model_uri=ODM.CommentDef_DocumentRefRef, domain=CommentDef, range=Optional[Union[Union[dict, DocumentRef], List[Union[dict, DocumentRef]]]])
+                   model_uri=ODM.CommentDef_DocumentRefRef, domain=CommentDef, range=Optional[Union[Dict[Union[str, DocumentRefLeafID], Union[dict, DocumentRef]], List[Union[dict, DocumentRef]]]])
 
 slots.Protocol_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="Protocol_DescriptionRef", curie=ODM.curie('DescriptionRef'),
                    model_uri=ODM.Protocol_DescriptionRef, domain=Protocol, range=Optional[Union[dict, Description]])
@@ -7216,8 +8201,8 @@ slots.Protocol_StudyObjectivesRef = Slot(uri=ODM.StudyObjectivesRef, name="Proto
 slots.Protocol_StudyEndPointsRef = Slot(uri=ODM.StudyEndPointsRef, name="Protocol_StudyEndPointsRef", curie=ODM.curie('StudyEndPointsRef'),
                    model_uri=ODM.Protocol_StudyEndPointsRef, domain=Protocol, range=Optional[Union[dict, "StudyEndPoints"]])
 
-slots.Protocol_StudyTargetPopulationRef = Slot(uri=ODM.StudyTargetPopulationRef, name="Protocol_StudyTargetPopulationRef", curie=ODM.curie('StudyTargetPopulationRef'),
-                   model_uri=ODM.Protocol_StudyTargetPopulationRef, domain=Protocol, range=Optional[Union[dict, "StudyTargetPopulation"]])
+slots.Protocol_StudyTargetPopulationRefRef = Slot(uri=ODM.StudyTargetPopulationRefRef, name="Protocol_StudyTargetPopulationRefRef", curie=ODM.curie('StudyTargetPopulationRefRef'),
+                   model_uri=ODM.Protocol_StudyTargetPopulationRefRef, domain=Protocol, range=Optional[Union[str, StudyTargetPopulationOID]])
 
 slots.Protocol_StudyEstimandsRef = Slot(uri=ODM.StudyEstimandsRef, name="Protocol_StudyEstimandsRef", curie=ODM.curie('StudyEstimandsRef'),
                    model_uri=ODM.Protocol_StudyEstimandsRef, domain=Protocol, range=Optional[Union[dict, "StudyEstimands"]])
@@ -7238,19 +8223,25 @@ slots.StudyStructure_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="StudySt
                    model_uri=ODM.StudyStructure_DescriptionRef, domain=StudyStructure, range=Optional[Union[dict, Description]])
 
 slots.StudyStructure_ArmRef = Slot(uri=ODM.ArmRef, name="StudyStructure_ArmRef", curie=ODM.curie('ArmRef'),
-                   model_uri=ODM.StudyStructure_ArmRef, domain=StudyStructure, range=Optional[Union[Union[dict, "Arm"], List[Union[dict, "Arm"]]]])
+                   model_uri=ODM.StudyStructure_ArmRef, domain=StudyStructure, range=Optional[Union[Dict[Union[str, ArmOID], Union[dict, "Arm"]], List[Union[dict, "Arm"]]]])
 
 slots.StudyStructure_EpochRef = Slot(uri=ODM.EpochRef, name="StudyStructure_EpochRef", curie=ODM.curie('EpochRef'),
-                   model_uri=ODM.StudyStructure_EpochRef, domain=StudyStructure, range=Optional[Union[Union[dict, "Epoch"], List[Union[dict, "Epoch"]]]])
+                   model_uri=ODM.StudyStructure_EpochRef, domain=StudyStructure, range=Optional[Union[Dict[Union[str, EpochOID], Union[dict, "Epoch"]], List[Union[dict, "Epoch"]]]])
 
 slots.StudyStructure_WorkflowRefRef = Slot(uri=ODM.WorkflowRefRef, name="StudyStructure_WorkflowRefRef", curie=ODM.curie('WorkflowRefRef'),
                    model_uri=ODM.StudyStructure_WorkflowRefRef, domain=StudyStructure, range=Optional[Union[dict, "WorkflowRef"]])
 
-slots.TrialPhase_Value = Slot(uri=ODM.Value, name="TrialPhase_Value", curie=ODM.curie('Value'),
-                   model_uri=ODM.TrialPhase_Value, domain=TrialPhase, range=str)
+slots.TrialPhase_ValueRef = Slot(uri=ODM.ValueRef, name="TrialPhase_ValueRef", curie=ODM.curie('ValueRef'),
+                   model_uri=ODM.TrialPhase_ValueRef, domain=TrialPhase, range=str)
+
+slots.TrialPhase_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="TrialPhase_DescriptionRef", curie=ODM.curie('DescriptionRef'),
+                   model_uri=ODM.TrialPhase_DescriptionRef, domain=TrialPhase, range=Optional[Union[dict, Description]])
+
+slots.StudyIndications_StudyIndicationRef = Slot(uri=ODM.StudyIndicationRef, name="StudyIndications_StudyIndicationRef", curie=ODM.curie('StudyIndicationRef'),
+                   model_uri=ODM.StudyIndications_StudyIndicationRef, domain=StudyIndications, range=Union[Dict[Union[str, StudyIndicationOID], Union[dict, "StudyIndication"]], List[Union[dict, "StudyIndication"]]])
 
 slots.StudyIndication_OID = Slot(uri=ODM.OID, name="StudyIndication_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.StudyIndication_OID, domain=StudyIndication, range=str)
+                   model_uri=ODM.StudyIndication_OID, domain=StudyIndication, range=Union[str, StudyIndicationOID])
 
 slots.StudyIndication_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="StudyIndication_DescriptionRef", curie=ODM.curie('DescriptionRef'),
                    model_uri=ODM.StudyIndication_DescriptionRef, domain=StudyIndication, range=Union[dict, Description])
@@ -7258,8 +8249,11 @@ slots.StudyIndication_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="StudyI
 slots.StudyIndication_CodingRef = Slot(uri=ODM.CodingRef, name="StudyIndication_CodingRef", curie=ODM.curie('CodingRef'),
                    model_uri=ODM.StudyIndication_CodingRef, domain=StudyIndication, range=Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]])
 
+slots.StudyInterventions_StudyInterventionRefRef = Slot(uri=ODM.StudyInterventionRefRef, name="StudyInterventions_StudyInterventionRefRef", curie=ODM.curie('StudyInterventionRefRef'),
+                   model_uri=ODM.StudyInterventions_StudyInterventionRefRef, domain=StudyInterventions, range=Union[Dict[Union[str, StudyInterventionOID], Union[dict, "StudyIntervention"]], List[Union[dict, "StudyIntervention"]]])
+
 slots.StudyIntervention_OID = Slot(uri=ODM.OID, name="StudyIntervention_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.StudyIntervention_OID, domain=StudyIntervention, range=str)
+                   model_uri=ODM.StudyIntervention_OID, domain=StudyIntervention, range=Union[str, StudyInterventionOID])
 
 slots.StudyIntervention_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="StudyIntervention_DescriptionRef", curie=ODM.curie('DescriptionRef'),
                    model_uri=ODM.StudyIntervention_DescriptionRef, domain=StudyIntervention, range=Union[dict, Description])
@@ -7267,17 +8261,20 @@ slots.StudyIntervention_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="Stud
 slots.StudyIntervention_CodingRef = Slot(uri=ODM.CodingRef, name="StudyIntervention_CodingRef", curie=ODM.curie('CodingRef'),
                    model_uri=ODM.StudyIntervention_CodingRef, domain=StudyIntervention, range=Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]])
 
+slots.StudyObjectives_StudyObjectiveRef = Slot(uri=ODM.StudyObjectiveRef, name="StudyObjectives_StudyObjectiveRef", curie=ODM.curie('StudyObjectiveRef'),
+                   model_uri=ODM.StudyObjectives_StudyObjectiveRef, domain=StudyObjectives, range=Union[Dict[Union[str, StudyObjectiveOID], Union[dict, "StudyObjective"]], List[Union[dict, "StudyObjective"]]])
+
 slots.StudyObjective_OID = Slot(uri=ODM.OID, name="StudyObjective_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.StudyObjective_OID, domain=StudyObjective, range=str)
+                   model_uri=ODM.StudyObjective_OID, domain=StudyObjective, range=Union[str, StudyObjectiveOID])
 
 slots.StudyObjective_Name = Slot(uri=ODM.Name, name="StudyObjective_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.StudyObjective_Name, domain=StudyObjective, range=str)
 
 slots.StudyObjective_Type = Slot(uri=ODM.Type, name="StudyObjective_Type", curie=ODM.curie('Type'),
-                   model_uri=ODM.StudyObjective_Type, domain=StudyObjective, range=Optional[Union[str, "StudyObjectiveType"]])
+                   model_uri=ODM.StudyObjective_Type, domain=StudyObjective, range=Optional[Union[str, "StudyObjectiveLevel"]])
 
 slots.StudyObjective_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="StudyObjective_DescriptionRef", curie=ODM.curie('DescriptionRef'),
-                   model_uri=ODM.StudyObjective_DescriptionRef, domain=StudyObjective, range=Union[dict, Description])
+                   model_uri=ODM.StudyObjective_DescriptionRef, domain=StudyObjective, range=Optional[Union[dict, Description]])
 
 slots.StudyObjective_StudyEndPointRefRef = Slot(uri=ODM.StudyEndPointRefRef, name="StudyObjective_StudyEndPointRefRef", curie=ODM.curie('StudyEndPointRefRef'),
                    model_uri=ODM.StudyObjective_StudyEndPointRefRef, domain=StudyObjective, range=Optional[Union[Union[dict, "StudyEndPointRef"], List[Union[dict, "StudyEndPointRef"]]]])
@@ -7288,14 +8285,20 @@ slots.StudyEndPointRef_StudyEndPointOID = Slot(uri=ODM.StudyEndPointOID, name="S
 slots.StudyEndPointRef_OrderNumber = Slot(uri=ODM.OrderNumber, name="StudyEndPointRef_OrderNumber", curie=ODM.curie('OrderNumber'),
                    model_uri=ODM.StudyEndPointRef_OrderNumber, domain=StudyEndPointRef, range=Optional[int])
 
+slots.StudyEndPoints_StudyEndPointRefRef = Slot(uri=ODM.StudyEndPointRefRef, name="StudyEndPoints_StudyEndPointRefRef", curie=ODM.curie('StudyEndPointRefRef'),
+                   model_uri=ODM.StudyEndPoints_StudyEndPointRefRef, domain=StudyEndPoints, range=Union[Dict[Union[str, StudyEndPointOID], Union[dict, "StudyEndPoint"]], List[Union[dict, "StudyEndPoint"]]])
+
 slots.StudyEndPoint_OID = Slot(uri=ODM.OID, name="StudyEndPoint_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.StudyEndPoint_OID, domain=StudyEndPoint, range=str)
+                   model_uri=ODM.StudyEndPoint_OID, domain=StudyEndPoint, range=Union[str, StudyEndPointOID])
 
 slots.StudyEndPoint_Name = Slot(uri=ODM.Name, name="StudyEndPoint_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.StudyEndPoint_Name, domain=StudyEndPoint, range=str)
 
 slots.StudyEndPoint_Type = Slot(uri=ODM.Type, name="StudyEndPoint_Type", curie=ODM.curie('Type'),
                    model_uri=ODM.StudyEndPoint_Type, domain=StudyEndPoint, range=Optional[Union[str, "StudyEndPointType"]])
+
+slots.StudyEndPoint_Level = Slot(uri=ODM.Level, name="StudyEndPoint_Level", curie=ODM.curie('Level'),
+                   model_uri=ODM.StudyEndPoint_Level, domain=StudyEndPoint, range=Optional[Union[str, "StudyEndPointLevel"]])
 
 slots.StudyEndPoint_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="StudyEndPoint_DescriptionRef", curie=ODM.curie('DescriptionRef'),
                    model_uri=ODM.StudyEndPoint_DescriptionRef, domain=StudyEndPoint, range=Union[dict, Description])
@@ -7304,7 +8307,7 @@ slots.StudyEndPoint_FormalExpressionRef = Slot(uri=ODM.FormalExpressionRef, name
                    model_uri=ODM.StudyEndPoint_FormalExpressionRef, domain=StudyEndPoint, range=Optional[Union[Union[dict, FormalExpression], List[Union[dict, FormalExpression]]]])
 
 slots.StudyTargetPopulation_OID = Slot(uri=ODM.OID, name="StudyTargetPopulation_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.StudyTargetPopulation_OID, domain=StudyTargetPopulation, range=str)
+                   model_uri=ODM.StudyTargetPopulation_OID, domain=StudyTargetPopulation, range=Union[str, StudyTargetPopulationOID])
 
 slots.StudyTargetPopulation_Name = Slot(uri=ODM.Name, name="StudyTargetPopulation_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.StudyTargetPopulation_Name, domain=StudyTargetPopulation, range=str)
@@ -7318,8 +8321,11 @@ slots.StudyTargetPopulation_CodingRef = Slot(uri=ODM.CodingRef, name="StudyTarge
 slots.StudyTargetPopulation_FormalExpressionRef = Slot(uri=ODM.FormalExpressionRef, name="StudyTargetPopulation_FormalExpressionRef", curie=ODM.curie('FormalExpressionRef'),
                    model_uri=ODM.StudyTargetPopulation_FormalExpressionRef, domain=StudyTargetPopulation, range=Optional[Union[Union[dict, FormalExpression], List[Union[dict, FormalExpression]]]])
 
+slots.StudyEstimands_StudyEstimandRef = Slot(uri=ODM.StudyEstimandRef, name="StudyEstimands_StudyEstimandRef", curie=ODM.curie('StudyEstimandRef'),
+                   model_uri=ODM.StudyEstimands_StudyEstimandRef, domain=StudyEstimands, range=Union[Dict[Union[str, StudyEstimandOID], Union[dict, "StudyEstimand"]], List[Union[dict, "StudyEstimand"]]])
+
 slots.StudyEstimand_OID = Slot(uri=ODM.OID, name="StudyEstimand_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.StudyEstimand_OID, domain=StudyEstimand, range=str)
+                   model_uri=ODM.StudyEstimand_OID, domain=StudyEstimand, range=Union[str, StudyEstimandOID])
 
 slots.StudyEstimand_Name = Slot(uri=ODM.Name, name="StudyEstimand_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.StudyEstimand_Name, domain=StudyEstimand, range=str)
@@ -7348,14 +8354,26 @@ slots.InclusionExclusionCriteria_InclusionCriteriaRef = Slot(uri=ODM.InclusionCr
 slots.InclusionExclusionCriteria_ExclusionCriteriaRef = Slot(uri=ODM.ExclusionCriteriaRef, name="InclusionExclusionCriteria_ExclusionCriteriaRef", curie=ODM.curie('ExclusionCriteriaRef'),
                    model_uri=ODM.InclusionExclusionCriteria_ExclusionCriteriaRef, domain=InclusionExclusionCriteria, range=Optional[Union[dict, "ExclusionCriteria"]])
 
+slots.InclusionCriteria_CriterionRef = Slot(uri=ODM.CriterionRef, name="InclusionCriteria_CriterionRef", curie=ODM.curie('CriterionRef'),
+                   model_uri=ODM.InclusionCriteria_CriterionRef, domain=InclusionCriteria, range=Union[Dict[Union[str, CriterionOID], Union[dict, "Criterion"]], List[Union[dict, "Criterion"]]])
+
+slots.ExclusionCriteria_CriterionRef = Slot(uri=ODM.CriterionRef, name="ExclusionCriteria_CriterionRef", curie=ODM.curie('CriterionRef'),
+                   model_uri=ODM.ExclusionCriteria_CriterionRef, domain=ExclusionCriteria, range=Union[Dict[Union[str, CriterionOID], Union[dict, "Criterion"]], List[Union[dict, "Criterion"]]])
+
 slots.StudyTargetPopulationRef_StudyTargetPopulationOID = Slot(uri=ODM.StudyTargetPopulationOID, name="StudyTargetPopulationRef_StudyTargetPopulationOID", curie=ODM.curie('StudyTargetPopulationOID'),
                    model_uri=ODM.StudyTargetPopulationRef_StudyTargetPopulationOID, domain=StudyTargetPopulationRef, range=str)
 
 slots.StudyInterventionRef_StudyInterventionOID = Slot(uri=ODM.StudyInterventionOID, name="StudyInterventionRef_StudyInterventionOID", curie=ODM.curie('StudyInterventionOID'),
                    model_uri=ODM.StudyInterventionRef_StudyInterventionOID, domain=StudyInterventionRef, range=str)
 
+slots.IntercurrentEvent_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="IntercurrentEvent_DescriptionRef", curie=ODM.curie('DescriptionRef'),
+                   model_uri=ODM.IntercurrentEvent_DescriptionRef, domain=IntercurrentEvent, range=Union[dict, Description])
+
+slots.SummaryMeasure_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="SummaryMeasure_DescriptionRef", curie=ODM.curie('DescriptionRef'),
+                   model_uri=ODM.SummaryMeasure_DescriptionRef, domain=SummaryMeasure, range=Union[dict, Description])
+
 slots.Arm_OID = Slot(uri=ODM.OID, name="Arm_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.Arm_OID, domain=Arm, range=str)
+                   model_uri=ODM.Arm_OID, domain=Arm, range=Union[str, ArmOID])
 
 slots.Arm_Name = Slot(uri=ODM.Name, name="Arm_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.Arm_Name, domain=Arm, range=str)
@@ -7367,7 +8385,7 @@ slots.Arm_WorkflowRefRef = Slot(uri=ODM.WorkflowRefRef, name="Arm_WorkflowRefRef
                    model_uri=ODM.Arm_WorkflowRefRef, domain=Arm, range=Optional[Union[dict, "WorkflowRef"]])
 
 slots.Epoch_OID = Slot(uri=ODM.OID, name="Epoch_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.Epoch_OID, domain=Epoch, range=str)
+                   model_uri=ODM.Epoch_OID, domain=Epoch, range=Union[str, EpochOID])
 
 slots.Epoch_Name = Slot(uri=ODM.Name, name="Epoch_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.Epoch_Name, domain=Epoch, range=str)
@@ -7375,11 +8393,17 @@ slots.Epoch_Name = Slot(uri=ODM.Name, name="Epoch_Name", curie=ODM.curie('Name')
 slots.Epoch_SequenceNumber = Slot(uri=ODM.SequenceNumber, name="Epoch_SequenceNumber", curie=ODM.curie('SequenceNumber'),
                    model_uri=ODM.Epoch_SequenceNumber, domain=Epoch, range=int)
 
+slots.Epoch_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="Epoch_DescriptionRef", curie=ODM.curie('DescriptionRef'),
+                   model_uri=ODM.Epoch_DescriptionRef, domain=Epoch, range=Optional[Union[dict, Description]])
+
 slots.WorkflowRef_WorkflowOID = Slot(uri=ODM.WorkflowOID, name="WorkflowRef_WorkflowOID", curie=ODM.curie('WorkflowOID'),
                    model_uri=ODM.WorkflowRef_WorkflowOID, domain=WorkflowRef, range=str)
 
+slots.StudySummary_StudyParameterRef = Slot(uri=ODM.StudyParameterRef, name="StudySummary_StudyParameterRef", curie=ODM.curie('StudyParameterRef'),
+                   model_uri=ODM.StudySummary_StudyParameterRef, domain=StudySummary, range=Union[Dict[Union[str, StudyParameterOID], Union[dict, "StudyParameter"]], List[Union[dict, "StudyParameter"]]])
+
 slots.StudyParameter_OID = Slot(uri=ODM.OID, name="StudyParameter_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.StudyParameter_OID, domain=StudyParameter, range=str)
+                   model_uri=ODM.StudyParameter_OID, domain=StudyParameter, range=Union[str, StudyParameterOID])
 
 slots.StudyParameter_Term = Slot(uri=ODM.Term, name="StudyParameter_Term", curie=ODM.curie('Term'),
                    model_uri=ODM.StudyParameter_Term, domain=StudyParameter, range=str)
@@ -7388,34 +8412,40 @@ slots.StudyParameter_ShortName = Slot(uri=ODM.ShortName, name="StudyParameter_Sh
                    model_uri=ODM.StudyParameter_ShortName, domain=StudyParameter, range=Optional[str])
 
 slots.StudyParameter_ParameterValueRef = Slot(uri=ODM.ParameterValueRef, name="StudyParameter_ParameterValueRef", curie=ODM.curie('ParameterValueRef'),
-                   model_uri=ODM.StudyParameter_ParameterValueRef, domain=StudyParameter, range=Union[Union[dict, "ParameterValue"], List[Union[dict, "ParameterValue"]]])
+                   model_uri=ODM.StudyParameter_ParameterValueRef, domain=StudyParameter, range=Union[dict, "ParameterValue"])
 
 slots.StudyParameter_CodingRef = Slot(uri=ODM.CodingRef, name="StudyParameter_CodingRef", curie=ODM.curie('CodingRef'),
                    model_uri=ODM.StudyParameter_CodingRef, domain=StudyParameter, range=Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]])
 
-slots.ParameterValue_Value = Slot(uri=ODM.Value, name="ParameterValue_Value", curie=ODM.curie('Value'),
-                   model_uri=ODM.ParameterValue_Value, domain=ParameterValue, range=str)
+slots.ParameterValue_ValueRef = Slot(uri=ODM.ValueRef, name="ParameterValue_ValueRef", curie=ODM.curie('ValueRef'),
+                   model_uri=ODM.ParameterValue_ValueRef, domain=ParameterValue, range=str)
+
+slots.ParameterValue_CodingRef = Slot(uri=ODM.CodingRef, name="ParameterValue_CodingRef", curie=ODM.curie('CodingRef'),
+                   model_uri=ODM.ParameterValue_CodingRef, domain=ParameterValue, range=Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]])
+
+slots.StudyTimings_StudyTimingRef = Slot(uri=ODM.StudyTimingRef, name="StudyTimings_StudyTimingRef", curie=ODM.curie('StudyTimingRef'),
+                   model_uri=ODM.StudyTimings_StudyTimingRef, domain=StudyTimings, range=Union[Dict[Union[str, StudyTimingOID], Union[dict, "StudyTiming"]], List[Union[dict, "StudyTiming"]]])
 
 slots.StudyTiming_OID = Slot(uri=ODM.OID, name="StudyTiming_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.StudyTiming_OID, domain=StudyTiming, range=str)
+                   model_uri=ODM.StudyTiming_OID, domain=StudyTiming, range=Union[str, StudyTimingOID])
 
 slots.StudyTiming_Name = Slot(uri=ODM.Name, name="StudyTiming_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.StudyTiming_Name, domain=StudyTiming, range=str)
 
 slots.StudyTiming_AbsoluteTimingConstraintRef = Slot(uri=ODM.AbsoluteTimingConstraintRef, name="StudyTiming_AbsoluteTimingConstraintRef", curie=ODM.curie('AbsoluteTimingConstraintRef'),
-                   model_uri=ODM.StudyTiming_AbsoluteTimingConstraintRef, domain=StudyTiming, range=Optional[Union[Union[dict, "AbsoluteTimingConstraint"], List[Union[dict, "AbsoluteTimingConstraint"]]]])
+                   model_uri=ODM.StudyTiming_AbsoluteTimingConstraintRef, domain=StudyTiming, range=Optional[Union[Dict[Union[str, AbsoluteTimingConstraintOID], Union[dict, "AbsoluteTimingConstraint"]], List[Union[dict, "AbsoluteTimingConstraint"]]]])
 
 slots.StudyTiming_RelativeTimingConstraintRef = Slot(uri=ODM.RelativeTimingConstraintRef, name="StudyTiming_RelativeTimingConstraintRef", curie=ODM.curie('RelativeTimingConstraintRef'),
-                   model_uri=ODM.StudyTiming_RelativeTimingConstraintRef, domain=StudyTiming, range=Optional[Union[Union[dict, "RelativeTimingConstraint"], List[Union[dict, "RelativeTimingConstraint"]]]])
+                   model_uri=ODM.StudyTiming_RelativeTimingConstraintRef, domain=StudyTiming, range=Optional[Union[Dict[Union[str, RelativeTimingConstraintOID], Union[dict, "RelativeTimingConstraint"]], List[Union[dict, "RelativeTimingConstraint"]]]])
 
 slots.StudyTiming_TransitionTimingConstraintRef = Slot(uri=ODM.TransitionTimingConstraintRef, name="StudyTiming_TransitionTimingConstraintRef", curie=ODM.curie('TransitionTimingConstraintRef'),
-                   model_uri=ODM.StudyTiming_TransitionTimingConstraintRef, domain=StudyTiming, range=Optional[Union[Union[dict, "TransitionTimingConstraint"], List[Union[dict, "TransitionTimingConstraint"]]]])
+                   model_uri=ODM.StudyTiming_TransitionTimingConstraintRef, domain=StudyTiming, range=Optional[Union[Dict[Union[str, TransitionTimingConstraintOID], Union[dict, "TransitionTimingConstraint"]], List[Union[dict, "TransitionTimingConstraint"]]]])
 
 slots.StudyTiming_DurationTimingConstraintRef = Slot(uri=ODM.DurationTimingConstraintRef, name="StudyTiming_DurationTimingConstraintRef", curie=ODM.curie('DurationTimingConstraintRef'),
-                   model_uri=ODM.StudyTiming_DurationTimingConstraintRef, domain=StudyTiming, range=Optional[Union[Union[dict, "DurationTimingConstraint"], List[Union[dict, "DurationTimingConstraint"]]]])
+                   model_uri=ODM.StudyTiming_DurationTimingConstraintRef, domain=StudyTiming, range=Optional[Union[Dict[Union[str, DurationTimingConstraintOID], Union[dict, "DurationTimingConstraint"]], List[Union[dict, "DurationTimingConstraint"]]]])
 
 slots.TransitionTimingConstraint_OID = Slot(uri=ODM.OID, name="TransitionTimingConstraint_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.TransitionTimingConstraint_OID, domain=TransitionTimingConstraint, range=str)
+                   model_uri=ODM.TransitionTimingConstraint_OID, domain=TransitionTimingConstraint, range=Union[str, TransitionTimingConstraintOID])
 
 slots.TransitionTimingConstraint_Name = Slot(uri=ODM.Name, name="TransitionTimingConstraint_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.TransitionTimingConstraint_Name, domain=TransitionTimingConstraint, range=str)
@@ -7438,8 +8468,11 @@ slots.TransitionTimingConstraint_TimepointPreWindow = Slot(uri=ODM.TimepointPreW
 slots.TransitionTimingConstraint_TimepointPostWindow = Slot(uri=ODM.TimepointPostWindow, name="TransitionTimingConstraint_TimepointPostWindow", curie=ODM.curie('TimepointPostWindow'),
                    model_uri=ODM.TransitionTimingConstraint_TimepointPostWindow, domain=TransitionTimingConstraint, range=Optional[str])
 
+slots.TransitionTimingConstraint_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="TransitionTimingConstraint_DescriptionRef", curie=ODM.curie('DescriptionRef'),
+                   model_uri=ODM.TransitionTimingConstraint_DescriptionRef, domain=TransitionTimingConstraint, range=Optional[Union[dict, Description]])
+
 slots.AbsoluteTimingConstraint_OID = Slot(uri=ODM.OID, name="AbsoluteTimingConstraint_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.AbsoluteTimingConstraint_OID, domain=AbsoluteTimingConstraint, range=str)
+                   model_uri=ODM.AbsoluteTimingConstraint_OID, domain=AbsoluteTimingConstraint, range=Union[str, AbsoluteTimingConstraintOID])
 
 slots.AbsoluteTimingConstraint_Name = Slot(uri=ODM.Name, name="AbsoluteTimingConstraint_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.AbsoluteTimingConstraint_Name, domain=AbsoluteTimingConstraint, range=str)
@@ -7459,8 +8492,11 @@ slots.AbsoluteTimingConstraint_TimepointPreWindow = Slot(uri=ODM.TimepointPreWin
 slots.AbsoluteTimingConstraint_TimepointPostWindow = Slot(uri=ODM.TimepointPostWindow, name="AbsoluteTimingConstraint_TimepointPostWindow", curie=ODM.curie('TimepointPostWindow'),
                    model_uri=ODM.AbsoluteTimingConstraint_TimepointPostWindow, domain=AbsoluteTimingConstraint, range=Optional[str])
 
+slots.AbsoluteTimingConstraint_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="AbsoluteTimingConstraint_DescriptionRef", curie=ODM.curie('DescriptionRef'),
+                   model_uri=ODM.AbsoluteTimingConstraint_DescriptionRef, domain=AbsoluteTimingConstraint, range=Optional[Union[dict, Description]])
+
 slots.RelativeTimingConstraint_OID = Slot(uri=ODM.OID, name="RelativeTimingConstraint_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.RelativeTimingConstraint_OID, domain=RelativeTimingConstraint, range=str)
+                   model_uri=ODM.RelativeTimingConstraint_OID, domain=RelativeTimingConstraint, range=Union[str, RelativeTimingConstraintOID])
 
 slots.RelativeTimingConstraint_Name = Slot(uri=ODM.Name, name="RelativeTimingConstraint_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.RelativeTimingConstraint_Name, domain=RelativeTimingConstraint, range=str)
@@ -7483,8 +8519,11 @@ slots.RelativeTimingConstraint_TimepointPreWindow = Slot(uri=ODM.TimepointPreWin
 slots.RelativeTimingConstraint_TimepointPostWindow = Slot(uri=ODM.TimepointPostWindow, name="RelativeTimingConstraint_TimepointPostWindow", curie=ODM.curie('TimepointPostWindow'),
                    model_uri=ODM.RelativeTimingConstraint_TimepointPostWindow, domain=RelativeTimingConstraint, range=Optional[str])
 
+slots.RelativeTimingConstraint_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="RelativeTimingConstraint_DescriptionRef", curie=ODM.curie('DescriptionRef'),
+                   model_uri=ODM.RelativeTimingConstraint_DescriptionRef, domain=RelativeTimingConstraint, range=Optional[Union[dict, Description]])
+
 slots.DurationTimingConstraint_OID = Slot(uri=ODM.OID, name="DurationTimingConstraint_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.DurationTimingConstraint_OID, domain=DurationTimingConstraint, range=str)
+                   model_uri=ODM.DurationTimingConstraint_OID, domain=DurationTimingConstraint, range=Union[str, DurationTimingConstraintOID])
 
 slots.DurationTimingConstraint_Name = Slot(uri=ODM.Name, name="DurationTimingConstraint_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.DurationTimingConstraint_Name, domain=DurationTimingConstraint, range=str)
@@ -7501,8 +8540,11 @@ slots.DurationTimingConstraint_DurationPreWindow = Slot(uri=ODM.DurationPreWindo
 slots.DurationTimingConstraint_DurationPostWindow = Slot(uri=ODM.DurationPostWindow, name="DurationTimingConstraint_DurationPostWindow", curie=ODM.curie('DurationPostWindow'),
                    model_uri=ODM.DurationTimingConstraint_DurationPostWindow, domain=DurationTimingConstraint, range=Optional[str])
 
+slots.DurationTimingConstraint_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="DurationTimingConstraint_DescriptionRef", curie=ODM.curie('DescriptionRef'),
+                   model_uri=ODM.DurationTimingConstraint_DescriptionRef, domain=DurationTimingConstraint, range=Optional[Union[dict, Description]])
+
 slots.WorkflowDef_OID = Slot(uri=ODM.OID, name="WorkflowDef_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.WorkflowDef_OID, domain=WorkflowDef, range=str)
+                   model_uri=ODM.WorkflowDef_OID, domain=WorkflowDef, range=Union[str, WorkflowDefOID])
 
 slots.WorkflowDef_Name = Slot(uri=ODM.Name, name="WorkflowDef_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.WorkflowDef_Name, domain=WorkflowDef, range=str)
@@ -7516,11 +8558,17 @@ slots.WorkflowDef_WorkflowStartRef = Slot(uri=ODM.WorkflowStartRef, name="Workfl
 slots.WorkflowDef_WorkflowEndRef = Slot(uri=ODM.WorkflowEndRef, name="WorkflowDef_WorkflowEndRef", curie=ODM.curie('WorkflowEndRef'),
                    model_uri=ODM.WorkflowDef_WorkflowEndRef, domain=WorkflowDef, range=Union[Union[dict, "WorkflowEnd"], List[Union[dict, "WorkflowEnd"]]])
 
+slots.WorkflowDef_TransitionRef = Slot(uri=ODM.TransitionRef, name="WorkflowDef_TransitionRef", curie=ODM.curie('TransitionRef'),
+                   model_uri=ODM.WorkflowDef_TransitionRef, domain=WorkflowDef, range=Optional[Union[str, TransitionOID]])
+
+slots.WorkflowDef_BranchingRef = Slot(uri=ODM.BranchingRef, name="WorkflowDef_BranchingRef", curie=ODM.curie('BranchingRef'),
+                   model_uri=ODM.WorkflowDef_BranchingRef, domain=WorkflowDef, range=Optional[Union[str, BranchingOID]])
+
 slots.WorkflowStart_StartOID = Slot(uri=ODM.StartOID, name="WorkflowStart_StartOID", curie=ODM.curie('StartOID'),
                    model_uri=ODM.WorkflowStart_StartOID, domain=WorkflowStart, range=str)
 
 slots.Transition_OID = Slot(uri=ODM.OID, name="Transition_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.Transition_OID, domain=Transition, range=str)
+                   model_uri=ODM.Transition_OID, domain=Transition, range=Union[str, TransitionOID])
 
 slots.Transition_Name = Slot(uri=ODM.Name, name="Transition_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.Transition_Name, domain=Transition, range=str)
@@ -7538,7 +8586,7 @@ slots.Transition_EndConditionOID = Slot(uri=ODM.EndConditionOID, name="Transitio
                    model_uri=ODM.Transition_EndConditionOID, domain=Transition, range=Optional[str])
 
 slots.Branching_OID = Slot(uri=ODM.OID, name="Branching_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.Branching_OID, domain=Branching, range=str)
+                   model_uri=ODM.Branching_OID, domain=Branching, range=Union[str, BranchingOID])
 
 slots.Branching_Name = Slot(uri=ODM.Name, name="Branching_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.Branching_Name, domain=Branching, range=str)
@@ -7564,11 +8612,11 @@ slots.DefaultTransition_TargetTransitionOID = Slot(uri=ODM.TargetTransitionOID, 
 slots.WorkflowEnd_EndOID = Slot(uri=ODM.EndOID, name="WorkflowEnd_EndOID", curie=ODM.curie('EndOID'),
                    model_uri=ODM.WorkflowEnd_EndOID, domain=WorkflowEnd, range=str)
 
-slots.WorkflowEnd__content = Slot(uri=XHTML.div, name="WorkflowEnd__content", curie=XHTML.curie('div'),
+slots.WorkflowEnd__content = Slot(uri=ODM._content, name="WorkflowEnd__content", curie=ODM.curie('_content'),
                    model_uri=ODM.WorkflowEnd__content, domain=WorkflowEnd, range=Optional[str])
 
 slots.Criterion_OID = Slot(uri=ODM.OID, name="Criterion_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.Criterion_OID, domain=Criterion, range=str)
+                   model_uri=ODM.Criterion_OID, domain=Criterion, range=Union[str, CriterionOID])
 
 slots.Criterion_Name = Slot(uri=ODM.Name, name="Criterion_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.Criterion_Name, domain=Criterion, range=str)
@@ -7576,8 +8624,20 @@ slots.Criterion_Name = Slot(uri=ODM.Name, name="Criterion_Name", curie=ODM.curie
 slots.Criterion_ConditionOID = Slot(uri=ODM.ConditionOID, name="Criterion_ConditionOID", curie=ODM.curie('ConditionOID'),
                    model_uri=ODM.Criterion_ConditionOID, domain=Criterion, range=str)
 
+slots.Criterion_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="Criterion_DescriptionRef", curie=ODM.curie('DescriptionRef'),
+                   model_uri=ODM.Criterion_DescriptionRef, domain=Criterion, range=Optional[Union[dict, Description]])
+
+slots.Criterion_CodingRef = Slot(uri=ODM.CodingRef, name="Criterion_CodingRef", curie=ODM.curie('CodingRef'),
+                   model_uri=ODM.Criterion_CodingRef, domain=Criterion, range=Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]])
+
+slots.EntryCriteria_CriterionRef = Slot(uri=ODM.CriterionRef, name="EntryCriteria_CriterionRef", curie=ODM.curie('CriterionRef'),
+                   model_uri=ODM.EntryCriteria_CriterionRef, domain=EntryCriteria, range=Optional[Union[Dict[Union[str, CriterionOID], Union[dict, Criterion]], List[Union[dict, Criterion]]]])
+
+slots.ExitCriteria_CriterionRef = Slot(uri=ODM.CriterionRef, name="ExitCriteria_CriterionRef", curie=ODM.curie('CriterionRef'),
+                   model_uri=ODM.ExitCriteria_CriterionRef, domain=ExitCriteria, range=Optional[Union[Dict[Union[str, CriterionOID], Union[dict, Criterion]], List[Union[dict, Criterion]]]])
+
 slots.ExceptionEvent_OID = Slot(uri=ODM.OID, name="ExceptionEvent_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.ExceptionEvent_OID, domain=ExceptionEvent, range=str)
+                   model_uri=ODM.ExceptionEvent_OID, domain=ExceptionEvent, range=Union[str, ExceptionEventOID])
 
 slots.ExceptionEvent_Name = Slot(uri=ODM.Name, name="ExceptionEvent_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.ExceptionEvent_Name, domain=ExceptionEvent, range=str)
@@ -7585,26 +8645,38 @@ slots.ExceptionEvent_Name = Slot(uri=ODM.Name, name="ExceptionEvent_Name", curie
 slots.ExceptionEvent_ConditionOID = Slot(uri=ODM.ConditionOID, name="ExceptionEvent_ConditionOID", curie=ODM.curie('ConditionOID'),
                    model_uri=ODM.ExceptionEvent_ConditionOID, domain=ExceptionEvent, range=Optional[str])
 
+slots.ExceptionEvent_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="ExceptionEvent_DescriptionRef", curie=ODM.curie('DescriptionRef'),
+                   model_uri=ODM.ExceptionEvent_DescriptionRef, domain=ExceptionEvent, range=Optional[Union[dict, Description]])
+
+slots.ExceptionEvent_WorkflowRefRef = Slot(uri=ODM.WorkflowRefRef, name="ExceptionEvent_WorkflowRefRef", curie=ODM.curie('WorkflowRefRef'),
+                   model_uri=ODM.ExceptionEvent_WorkflowRefRef, domain=ExceptionEvent, range=Union[dict, WorkflowRef])
+
+slots.ExceptionEvent_StudyEventGroupRefRef = Slot(uri=ODM.StudyEventGroupRefRef, name="ExceptionEvent_StudyEventGroupRefRef", curie=ODM.curie('StudyEventGroupRefRef'),
+                   model_uri=ODM.ExceptionEvent_StudyEventGroupRefRef, domain=ExceptionEvent, range=Union[Union[dict, StudyEventGroupRef], List[Union[dict, StudyEventGroupRef]]])
+
+slots.ExceptionEvent_StudyEventRefRef = Slot(uri=ODM.StudyEventRefRef, name="ExceptionEvent_StudyEventRefRef", curie=ODM.curie('StudyEventRefRef'),
+                   model_uri=ODM.ExceptionEvent_StudyEventRefRef, domain=ExceptionEvent, range=Union[Union[dict, StudyEventRef], List[Union[dict, StudyEventRef]]])
+
 slots.AdminData_StudyOID = Slot(uri=ODM.StudyOID, name="AdminData_StudyOID", curie=ODM.curie('StudyOID'),
                    model_uri=ODM.AdminData_StudyOID, domain=AdminData, range=Optional[str])
 
-slots.AdminData_UserRef = Slot(uri=ODM.UserRef, name="AdminData_UserRef", curie=ODM.curie('UserRef'),
-                   model_uri=ODM.AdminData_UserRef, domain=AdminData, range=Optional[Union[Union[dict, "User"], List[Union[dict, "User"]]]])
+slots.AdminData_UserRefRef = Slot(uri=ODM.UserRefRef, name="AdminData_UserRefRef", curie=ODM.curie('UserRefRef'),
+                   model_uri=ODM.AdminData_UserRefRef, domain=AdminData, range=Optional[Union[Dict[Union[str, UserOID], Union[dict, "User"]], List[Union[dict, "User"]]]])
 
 slots.AdminData_OrganizationRef = Slot(uri=ODM.OrganizationRef, name="AdminData_OrganizationRef", curie=ODM.curie('OrganizationRef'),
-                   model_uri=ODM.AdminData_OrganizationRef, domain=AdminData, range=Optional[Union[Union[dict, "Organization"], List[Union[dict, "Organization"]]]])
+                   model_uri=ODM.AdminData_OrganizationRef, domain=AdminData, range=Optional[Union[Dict[Union[str, OrganizationOID], Union[dict, "Organization"]], List[Union[dict, "Organization"]]]])
 
-slots.AdminData_LocationRef = Slot(uri=ODM.LocationRef, name="AdminData_LocationRef", curie=ODM.curie('LocationRef'),
-                   model_uri=ODM.AdminData_LocationRef, domain=AdminData, range=Optional[Union[Union[dict, "Location"], List[Union[dict, "Location"]]]])
+slots.AdminData_LocationRefRef = Slot(uri=ODM.LocationRefRef, name="AdminData_LocationRefRef", curie=ODM.curie('LocationRefRef'),
+                   model_uri=ODM.AdminData_LocationRefRef, domain=AdminData, range=Optional[Union[Dict[Union[str, LocationOID], Union[dict, "Location"]], List[Union[dict, "Location"]]]])
 
 slots.AdminData_SignatureDefRef = Slot(uri=ODM.SignatureDefRef, name="AdminData_SignatureDefRef", curie=ODM.curie('SignatureDefRef'),
-                   model_uri=ODM.AdminData_SignatureDefRef, domain=AdminData, range=Optional[Union[Union[dict, "SignatureDef"], List[Union[dict, "SignatureDef"]]]])
+                   model_uri=ODM.AdminData_SignatureDefRef, domain=AdminData, range=Optional[Union[Dict[Union[str, SignatureDefOID], Union[dict, "SignatureDef"]], List[Union[dict, "SignatureDef"]]]])
 
 slots.User_OID = Slot(uri=ODM.OID, name="User_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.User_OID, domain=User, range=str)
+                   model_uri=ODM.User_OID, domain=User, range=Union[str, UserOID])
 
-slots.User_UserType = Slot(uri=ODM.UserType, name="User_UserType", curie=ODM.curie('UserType'),
-                   model_uri=ODM.User_UserType, domain=User, range=Optional[Union[str, "UserType"]])
+slots.User_UserTypeRef = Slot(uri=ODM.UserTypeRef, name="User_UserTypeRef", curie=ODM.curie('UserTypeRef'),
+                   model_uri=ODM.User_UserTypeRef, domain=User, range=Optional[Union[str, "UserType"]])
 
 slots.User_OrganizationOID = Slot(uri=ODM.OrganizationOID, name="User_OrganizationOID", curie=ODM.curie('OrganizationOID'),
                    model_uri=ODM.User_OrganizationOID, domain=User, range=Optional[str])
@@ -7667,7 +8739,7 @@ slots.Image_MimeType = Slot(uri=ODM.MimeType, name="Image_MimeType", curie=ODM.c
                    model_uri=ODM.Image_MimeType, domain=Image, range=Optional[str])
 
 slots.Organization_OID = Slot(uri=ODM.OID, name="Organization_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.Organization_OID, domain=Organization, range=str)
+                   model_uri=ODM.Organization_OID, domain=Organization, range=Union[str, OrganizationOID])
 
 slots.Organization_Name = Slot(uri=ODM.Name, name="Organization_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.Organization_Name, domain=Organization, range=str)
@@ -7694,7 +8766,7 @@ slots.Organization_TelecomRef = Slot(uri=ODM.TelecomRef, name="Organization_Tele
                    model_uri=ODM.Organization_TelecomRef, domain=Organization, range=Optional[Union[Union[dict, "Telecom"], List[Union[dict, "Telecom"]]]])
 
 slots.Location_OID = Slot(uri=ODM.OID, name="Location_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.Location_OID, domain=Location, range=str)
+                   model_uri=ODM.Location_OID, domain=Location, range=Union[str, LocationOID])
 
 slots.Location_Name = Slot(uri=ODM.Name, name="Location_Name", curie=ODM.curie('Name'),
                    model_uri=ODM.Location_Name, domain=Location, range=str)
@@ -7718,7 +8790,7 @@ slots.Location_TelecomRef = Slot(uri=ODM.TelecomRef, name="Location_TelecomRef",
                    model_uri=ODM.Location_TelecomRef, domain=Location, range=Optional[Union[Union[dict, "Telecom"], List[Union[dict, "Telecom"]]]])
 
 slots.Location_QueryRef = Slot(uri=ODM.QueryRef, name="Location_QueryRef", curie=ODM.curie('QueryRef'),
-                   model_uri=ODM.Location_QueryRef, domain=Location, range=Optional[Union[Union[dict, "Query"], List[Union[dict, "Query"]]]])
+                   model_uri=ODM.Location_QueryRef, domain=Location, range=Optional[Union[Dict[Union[str, QueryOID], Union[dict, "Query"]], List[Union[dict, "Query"]]]])
 
 slots.Address_StreetNameRef = Slot(uri=ODM.StreetNameRef, name="Address_StreetNameRef", curie=ODM.curie('StreetNameRef'),
                    model_uri=ODM.Address_StreetNameRef, domain=Address, range=Optional[Union[dict, "StreetName"]])
@@ -7784,7 +8856,7 @@ slots.MetaDataVersionRef_EffectiveDate = Slot(uri=ODM.EffectiveDate, name="MetaD
                    model_uri=ODM.MetaDataVersionRef_EffectiveDate, domain=MetaDataVersionRef, range=Union[str, XSDDate])
 
 slots.SignatureDef_OID = Slot(uri=ODM.OID, name="SignatureDef_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.SignatureDef_OID, domain=SignatureDef, range=str)
+                   model_uri=ODM.SignatureDef_OID, domain=SignatureDef, range=Union[str, SignatureDefOID])
 
 slots.SignatureDef_Methodology = Slot(uri=ODM.Methodology, name="SignatureDef_Methodology", curie=ODM.curie('Methodology'),
                    model_uri=ODM.SignatureDef_Methodology, domain=SignatureDef, range=Optional[Union[str, "SignMethod"]])
@@ -7807,6 +8879,18 @@ slots.ReferenceData_StudyOID = Slot(uri=ODM.StudyOID, name="ReferenceData_StudyO
 slots.ReferenceData_MetaDataVersionOID = Slot(uri=ODM.MetaDataVersionOID, name="ReferenceData_MetaDataVersionOID", curie=ODM.curie('MetaDataVersionOID'),
                    model_uri=ODM.ReferenceData_MetaDataVersionOID, domain=ReferenceData, range=str)
 
+slots.ReferenceData_ItemGroupDataRef = Slot(uri=ODM.ItemGroupDataRef, name="ReferenceData_ItemGroupDataRef", curie=ODM.curie('ItemGroupDataRef'),
+                   model_uri=ODM.ReferenceData_ItemGroupDataRef, domain=ReferenceData, range=Optional[Union[Union[dict, "ItemGroupData"], List[Union[dict, "ItemGroupData"]]]])
+
+slots.ReferenceData_AuditRecordRef = Slot(uri=ODM.AuditRecordRef, name="ReferenceData_AuditRecordRef", curie=ODM.curie('AuditRecordRef'),
+                   model_uri=ODM.ReferenceData_AuditRecordRef, domain=ReferenceData, range=Optional[Union[dict, "AuditRecord"]])
+
+slots.ReferenceData_SignatureRefRef = Slot(uri=ODM.SignatureRefRef, name="ReferenceData_SignatureRefRef", curie=ODM.curie('SignatureRefRef'),
+                   model_uri=ODM.ReferenceData_SignatureRefRef, domain=ReferenceData, range=Optional[Union[str, SignatureID]])
+
+slots.ReferenceData_AnnotationRef = Slot(uri=ODM.AnnotationRef, name="ReferenceData_AnnotationRef", curie=ODM.curie('AnnotationRef'),
+                   model_uri=ODM.ReferenceData_AnnotationRef, domain=ReferenceData, range=Optional[Union[Dict[Union[str, AnnotationID], Union[dict, "Annotation"]], List[Union[dict, "Annotation"]]]])
+
 slots.ClinicalData_StudyOID = Slot(uri=ODM.StudyOID, name="ClinicalData_StudyOID", curie=ODM.curie('StudyOID'),
                    model_uri=ODM.ClinicalData_StudyOID, domain=ClinicalData, range=str)
 
@@ -7820,13 +8904,22 @@ slots.ClinicalData_ItemGroupDataRef = Slot(uri=ODM.ItemGroupDataRef, name="Clini
                    model_uri=ODM.ClinicalData_ItemGroupDataRef, domain=ClinicalData, range=Optional[Union[Union[dict, "ItemGroupData"], List[Union[dict, "ItemGroupData"]]]])
 
 slots.ClinicalData_QueryRef = Slot(uri=ODM.QueryRef, name="ClinicalData_QueryRef", curie=ODM.curie('QueryRef'),
-                   model_uri=ODM.ClinicalData_QueryRef, domain=ClinicalData, range=Optional[Union[Union[dict, "Query"], List[Union[dict, "Query"]]]])
+                   model_uri=ODM.ClinicalData_QueryRef, domain=ClinicalData, range=Optional[Union[Dict[Union[str, QueryOID], Union[dict, "Query"]], List[Union[dict, "Query"]]]])
+
+slots.ClinicalData_AuditRecordRef = Slot(uri=ODM.AuditRecordRef, name="ClinicalData_AuditRecordRef", curie=ODM.curie('AuditRecordRef'),
+                   model_uri=ODM.ClinicalData_AuditRecordRef, domain=ClinicalData, range=Optional[Union[dict, "AuditRecord"]])
+
+slots.ClinicalData_SignatureRefRef = Slot(uri=ODM.SignatureRefRef, name="ClinicalData_SignatureRefRef", curie=ODM.curie('SignatureRefRef'),
+                   model_uri=ODM.ClinicalData_SignatureRefRef, domain=ClinicalData, range=Optional[Union[str, SignatureID]])
+
+slots.ClinicalData_AnnotationRef = Slot(uri=ODM.AnnotationRef, name="ClinicalData_AnnotationRef", curie=ODM.curie('AnnotationRef'),
+                   model_uri=ODM.ClinicalData_AnnotationRef, domain=ClinicalData, range=Optional[Union[Dict[Union[str, AnnotationID], Union[dict, "Annotation"]], List[Union[dict, "Annotation"]]]])
 
 slots.SubjectData_SubjectKey = Slot(uri=ODM.SubjectKey, name="SubjectData_SubjectKey", curie=ODM.curie('SubjectKey'),
                    model_uri=ODM.SubjectData_SubjectKey, domain=SubjectData, range=str)
 
-slots.SubjectData_TransactionType = Slot(uri=ODM.TransactionType, name="SubjectData_TransactionType", curie=ODM.curie('TransactionType'),
-                   model_uri=ODM.SubjectData_TransactionType, domain=SubjectData, range=Optional[Union[str, "TransactionType"]])
+slots.SubjectData_TransactionTypeRef = Slot(uri=ODM.TransactionTypeRef, name="SubjectData_TransactionTypeRef", curie=ODM.curie('TransactionTypeRef'),
+                   model_uri=ODM.SubjectData_TransactionTypeRef, domain=SubjectData, range=Optional[Union[str, "TransactionType"]])
 
 slots.SubjectData_InvestigatorRefRef = Slot(uri=ODM.InvestigatorRefRef, name="SubjectData_InvestigatorRefRef", curie=ODM.curie('InvestigatorRefRef'),
                    model_uri=ODM.SubjectData_InvestigatorRefRef, domain=SubjectData, range=Optional[Union[dict, "InvestigatorRef"]])
@@ -7838,7 +8931,16 @@ slots.SubjectData_StudyEventDataRef = Slot(uri=ODM.StudyEventDataRef, name="Subj
                    model_uri=ODM.SubjectData_StudyEventDataRef, domain=SubjectData, range=Optional[Union[Union[dict, "StudyEventData"], List[Union[dict, "StudyEventData"]]]])
 
 slots.SubjectData_QueryRef = Slot(uri=ODM.QueryRef, name="SubjectData_QueryRef", curie=ODM.curie('QueryRef'),
-                   model_uri=ODM.SubjectData_QueryRef, domain=SubjectData, range=Optional[Union[Union[dict, "Query"], List[Union[dict, "Query"]]]])
+                   model_uri=ODM.SubjectData_QueryRef, domain=SubjectData, range=Optional[Union[Dict[Union[str, QueryOID], Union[dict, "Query"]], List[Union[dict, "Query"]]]])
+
+slots.SubjectData_AuditRecordRef = Slot(uri=ODM.AuditRecordRef, name="SubjectData_AuditRecordRef", curie=ODM.curie('AuditRecordRef'),
+                   model_uri=ODM.SubjectData_AuditRecordRef, domain=SubjectData, range=Optional[Union[dict, "AuditRecord"]])
+
+slots.SubjectData_SignatureRefRef = Slot(uri=ODM.SignatureRefRef, name="SubjectData_SignatureRefRef", curie=ODM.curie('SignatureRefRef'),
+                   model_uri=ODM.SubjectData_SignatureRefRef, domain=SubjectData, range=Optional[Union[str, SignatureID]])
+
+slots.SubjectData_AnnotationRef = Slot(uri=ODM.AnnotationRef, name="SubjectData_AnnotationRef", curie=ODM.curie('AnnotationRef'),
+                   model_uri=ODM.SubjectData_AnnotationRef, domain=SubjectData, range=Optional[Union[Dict[Union[str, AnnotationID], Union[dict, "Annotation"]], List[Union[dict, "Annotation"]]]])
 
 slots.SiteRef_LocationOID = Slot(uri=ODM.LocationOID, name="SiteRef_LocationOID", curie=ODM.curie('LocationOID'),
                    model_uri=ODM.SiteRef_LocationOID, domain=SiteRef, range=str)
@@ -7852,14 +8954,23 @@ slots.StudyEventData_StudyEventOID = Slot(uri=ODM.StudyEventOID, name="StudyEven
 slots.StudyEventData_StudyEventRepeatKey = Slot(uri=ODM.StudyEventRepeatKey, name="StudyEventData_StudyEventRepeatKey", curie=ODM.curie('StudyEventRepeatKey'),
                    model_uri=ODM.StudyEventData_StudyEventRepeatKey, domain=StudyEventData, range=Optional[str])
 
-slots.StudyEventData_TransactionType = Slot(uri=ODM.TransactionType, name="StudyEventData_TransactionType", curie=ODM.curie('TransactionType'),
-                   model_uri=ODM.StudyEventData_TransactionType, domain=StudyEventData, range=Optional[Union[str, "TransactionType"]])
+slots.StudyEventData_TransactionTypeRef = Slot(uri=ODM.TransactionTypeRef, name="StudyEventData_TransactionTypeRef", curie=ODM.curie('TransactionTypeRef'),
+                   model_uri=ODM.StudyEventData_TransactionTypeRef, domain=StudyEventData, range=Optional[Union[str, "TransactionType"]])
 
 slots.StudyEventData_ItemGroupDataRef = Slot(uri=ODM.ItemGroupDataRef, name="StudyEventData_ItemGroupDataRef", curie=ODM.curie('ItemGroupDataRef'),
                    model_uri=ODM.StudyEventData_ItemGroupDataRef, domain=StudyEventData, range=Optional[Union[Union[dict, "ItemGroupData"], List[Union[dict, "ItemGroupData"]]]])
 
 slots.StudyEventData_QueryRef = Slot(uri=ODM.QueryRef, name="StudyEventData_QueryRef", curie=ODM.curie('QueryRef'),
-                   model_uri=ODM.StudyEventData_QueryRef, domain=StudyEventData, range=Optional[Union[Union[dict, "Query"], List[Union[dict, "Query"]]]])
+                   model_uri=ODM.StudyEventData_QueryRef, domain=StudyEventData, range=Optional[Union[Dict[Union[str, QueryOID], Union[dict, "Query"]], List[Union[dict, "Query"]]]])
+
+slots.StudyEventData_AuditRecordRef = Slot(uri=ODM.AuditRecordRef, name="StudyEventData_AuditRecordRef", curie=ODM.curie('AuditRecordRef'),
+                   model_uri=ODM.StudyEventData_AuditRecordRef, domain=StudyEventData, range=Optional[Union[dict, "AuditRecord"]])
+
+slots.StudyEventData_SignatureRefRef = Slot(uri=ODM.SignatureRefRef, name="StudyEventData_SignatureRefRef", curie=ODM.curie('SignatureRefRef'),
+                   model_uri=ODM.StudyEventData_SignatureRefRef, domain=StudyEventData, range=Optional[Union[str, SignatureID]])
+
+slots.StudyEventData_AnnotationRef = Slot(uri=ODM.AnnotationRef, name="StudyEventData_AnnotationRef", curie=ODM.curie('AnnotationRef'),
+                   model_uri=ODM.StudyEventData_AnnotationRef, domain=StudyEventData, range=Optional[Union[Dict[Union[str, AnnotationID], Union[dict, "Annotation"]], List[Union[dict, "Annotation"]]]])
 
 slots.ItemGroupData_ItemGroupOID = Slot(uri=ODM.ItemGroupOID, name="ItemGroupData_ItemGroupOID", curie=ODM.curie('ItemGroupOID'),
                    model_uri=ODM.ItemGroupData_ItemGroupOID, domain=ItemGroupData, range=str)
@@ -7867,17 +8978,35 @@ slots.ItemGroupData_ItemGroupOID = Slot(uri=ODM.ItemGroupOID, name="ItemGroupDat
 slots.ItemGroupData_ItemGroupRepeatKey = Slot(uri=ODM.ItemGroupRepeatKey, name="ItemGroupData_ItemGroupRepeatKey", curie=ODM.curie('ItemGroupRepeatKey'),
                    model_uri=ODM.ItemGroupData_ItemGroupRepeatKey, domain=ItemGroupData, range=Optional[str])
 
-slots.ItemGroupData_TransactionType = Slot(uri=ODM.TransactionType, name="ItemGroupData_TransactionType", curie=ODM.curie('TransactionType'),
-                   model_uri=ODM.ItemGroupData_TransactionType, domain=ItemGroupData, range=Optional[Union[str, "TransactionType"]])
+slots.ItemGroupData_TransactionTypeRef = Slot(uri=ODM.TransactionTypeRef, name="ItemGroupData_TransactionTypeRef", curie=ODM.curie('TransactionTypeRef'),
+                   model_uri=ODM.ItemGroupData_TransactionTypeRef, domain=ItemGroupData, range=Optional[Union[str, "TransactionType"]])
 
 slots.ItemGroupData_ItemGroupDataSeq = Slot(uri=ODM.ItemGroupDataSeq, name="ItemGroupData_ItemGroupDataSeq", curie=ODM.curie('ItemGroupDataSeq'),
                    model_uri=ODM.ItemGroupData_ItemGroupDataSeq, domain=ItemGroupData, range=Optional[int])
 
+slots.ItemGroupData_QueryRef = Slot(uri=ODM.QueryRef, name="ItemGroupData_QueryRef", curie=ODM.curie('QueryRef'),
+                   model_uri=ODM.ItemGroupData_QueryRef, domain=ItemGroupData, range=Optional[Union[Dict[Union[str, QueryOID], Union[dict, "Query"]], List[Union[dict, "Query"]]]])
+
+slots.ItemGroupData_ItemGroupDataRef = Slot(uri=ODM.ItemGroupDataRef, name="ItemGroupData_ItemGroupDataRef", curie=ODM.curie('ItemGroupDataRef'),
+                   model_uri=ODM.ItemGroupData_ItemGroupDataRef, domain=ItemGroupData, range=Optional[Union[dict, "ItemGroupData"]])
+
+slots.ItemGroupData_ItemDataRef = Slot(uri=ODM.ItemDataRef, name="ItemGroupData_ItemDataRef", curie=ODM.curie('ItemDataRef'),
+                   model_uri=ODM.ItemGroupData_ItemDataRef, domain=ItemGroupData, range=Optional[Union[dict, "ItemData"]])
+
+slots.ItemGroupData_AuditRecordRef = Slot(uri=ODM.AuditRecordRef, name="ItemGroupData_AuditRecordRef", curie=ODM.curie('AuditRecordRef'),
+                   model_uri=ODM.ItemGroupData_AuditRecordRef, domain=ItemGroupData, range=Optional[Union[dict, "AuditRecord"]])
+
+slots.ItemGroupData_SignatureRefRef = Slot(uri=ODM.SignatureRefRef, name="ItemGroupData_SignatureRefRef", curie=ODM.curie('SignatureRefRef'),
+                   model_uri=ODM.ItemGroupData_SignatureRefRef, domain=ItemGroupData, range=Optional[Union[str, SignatureID]])
+
+slots.ItemGroupData_AnnotationRef = Slot(uri=ODM.AnnotationRef, name="ItemGroupData_AnnotationRef", curie=ODM.curie('AnnotationRef'),
+                   model_uri=ODM.ItemGroupData_AnnotationRef, domain=ItemGroupData, range=Optional[Union[Dict[Union[str, AnnotationID], Union[dict, "Annotation"]], List[Union[dict, "Annotation"]]]])
+
 slots.ItemData_ItemOID = Slot(uri=ODM.ItemOID, name="ItemData_ItemOID", curie=ODM.curie('ItemOID'),
                    model_uri=ODM.ItemData_ItemOID, domain=ItemData, range=str)
 
-slots.ItemData_TransactionType = Slot(uri=ODM.TransactionType, name="ItemData_TransactionType", curie=ODM.curie('TransactionType'),
-                   model_uri=ODM.ItemData_TransactionType, domain=ItemData, range=Optional[Union[str, "TransactionType"]])
+slots.ItemData_TransactionTypeRef = Slot(uri=ODM.TransactionTypeRef, name="ItemData_TransactionTypeRef", curie=ODM.curie('TransactionTypeRef'),
+                   model_uri=ODM.ItemData_TransactionTypeRef, domain=ItemData, range=Optional[Union[str, "TransactionType"]])
 
 slots.ItemData_IsNull = Slot(uri=ODM.IsNull, name="ItemData_IsNull", curie=ODM.curie('IsNull'),
                    model_uri=ODM.ItemData_IsNull, domain=ItemData, range=Optional[Union[str, "YesOnly"]])
@@ -7886,7 +9015,16 @@ slots.ItemData_ValueRef = Slot(uri=ODM.ValueRef, name="ItemData_ValueRef", curie
                    model_uri=ODM.ItemData_ValueRef, domain=ItemData, range=Optional[Union[Union[dict, "Value"], List[Union[dict, "Value"]]]])
 
 slots.ItemData_QueryRef = Slot(uri=ODM.QueryRef, name="ItemData_QueryRef", curie=ODM.curie('QueryRef'),
-                   model_uri=ODM.ItemData_QueryRef, domain=ItemData, range=Optional[Union[Union[dict, "Query"], List[Union[dict, "Query"]]]])
+                   model_uri=ODM.ItemData_QueryRef, domain=ItemData, range=Optional[Union[Dict[Union[str, QueryOID], Union[dict, "Query"]], List[Union[dict, "Query"]]]])
+
+slots.ItemData_AuditRecordRef = Slot(uri=ODM.AuditRecordRef, name="ItemData_AuditRecordRef", curie=ODM.curie('AuditRecordRef'),
+                   model_uri=ODM.ItemData_AuditRecordRef, domain=ItemData, range=Optional[Union[dict, "AuditRecord"]])
+
+slots.ItemData_SignatureRefRef = Slot(uri=ODM.SignatureRefRef, name="ItemData_SignatureRefRef", curie=ODM.curie('SignatureRefRef'),
+                   model_uri=ODM.ItemData_SignatureRefRef, domain=ItemData, range=Optional[Union[str, SignatureID]])
+
+slots.ItemData_AnnotationRef = Slot(uri=ODM.AnnotationRef, name="ItemData_AnnotationRef", curie=ODM.curie('AnnotationRef'),
+                   model_uri=ODM.ItemData_AnnotationRef, domain=ItemData, range=Optional[Union[Dict[Union[str, AnnotationID], Union[dict, "Annotation"]], List[Union[dict, "Annotation"]]]])
 
 slots.AuditRecord_EditPoint = Slot(uri=ODM.EditPoint, name="AuditRecord_EditPoint", curie=ODM.curie('EditPoint'),
                    model_uri=ODM.AuditRecord_EditPoint, domain=AuditRecord, range=Optional[Union[str, "EditPointType"]])
@@ -7925,7 +9063,7 @@ slots.SourceID_range = Slot(uri=ODM.range, name="SourceID_range", curie=ODM.curi
                    model_uri=ODM.SourceID_range, domain=SourceID, range=Optional[str])
 
 slots.Signature_ID = Slot(uri=ODM.ID, name="Signature_ID", curie=ODM.curie('ID'),
-                   model_uri=ODM.Signature_ID, domain=Signature, range=Optional[str])
+                   model_uri=ODM.Signature_ID, domain=Signature, range=Union[str, SignatureID])
 
 slots.Signature_UserRefRef = Slot(uri=ODM.UserRefRef, name="Signature_UserRefRef", curie=ODM.curie('UserRefRef'),
                    model_uri=ODM.Signature_UserRefRef, domain=Signature, range=Union[dict, UserRef])
@@ -7952,7 +9090,7 @@ slots.Association_KeySetRef = Slot(uri=ODM.KeySetRef, name="Association_KeySetRe
                    model_uri=ODM.Association_KeySetRef, domain=Association, range=Union[dict, "KeySet"])
 
 slots.Association_AnnotationRef = Slot(uri=ODM.AnnotationRef, name="Association_AnnotationRef", curie=ODM.curie('AnnotationRef'),
-                   model_uri=ODM.Association_AnnotationRef, domain=Association, range=Union[dict, "Annotation"])
+                   model_uri=ODM.Association_AnnotationRef, domain=Association, range=Union[str, AnnotationID])
 
 slots.KeySet_StudyOID = Slot(uri=ODM.StudyOID, name="KeySet_StudyOID", curie=ODM.curie('StudyOID'),
                    model_uri=ODM.KeySet_StudyOID, domain=KeySet, range=str)
@@ -7981,11 +9119,11 @@ slots.KeySet_ItemOID = Slot(uri=ODM.ItemOID, name="KeySet_ItemOID", curie=ODM.cu
 slots.Annotation_SeqNum = Slot(uri=ODM.SeqNum, name="Annotation_SeqNum", curie=ODM.curie('SeqNum'),
                    model_uri=ODM.Annotation_SeqNum, domain=Annotation, range=int)
 
-slots.Annotation_TransactionType = Slot(uri=ODM.TransactionType, name="Annotation_TransactionType", curie=ODM.curie('TransactionType'),
-                   model_uri=ODM.Annotation_TransactionType, domain=Annotation, range=Optional[Union[str, "TransactionType"]])
+slots.Annotation_TransactionTypeRef = Slot(uri=ODM.TransactionTypeRef, name="Annotation_TransactionTypeRef", curie=ODM.curie('TransactionTypeRef'),
+                   model_uri=ODM.Annotation_TransactionTypeRef, domain=Annotation, range=Optional[Union[str, "TransactionType"]])
 
 slots.Annotation_ID = Slot(uri=ODM.ID, name="Annotation_ID", curie=ODM.curie('ID'),
-                   model_uri=ODM.Annotation_ID, domain=Annotation, range=Optional[str])
+                   model_uri=ODM.Annotation_ID, domain=Annotation, range=Union[str, AnnotationID])
 
 slots.Annotation_CommentRef = Slot(uri=ODM.CommentRef, name="Annotation_CommentRef", curie=ODM.curie('CommentRef'),
                    model_uri=ODM.Annotation_CommentRef, domain=Annotation, range=Optional[Union[dict, "Comment"]])
@@ -7999,6 +9137,9 @@ slots.Annotation_FlagRef = Slot(uri=ODM.FlagRef, name="Annotation_FlagRef", curi
 slots.Comment_SponsorOrSite = Slot(uri=ODM.SponsorOrSite, name="Comment_SponsorOrSite", curie=ODM.curie('SponsorOrSite'),
                    model_uri=ODM.Comment_SponsorOrSite, domain=Comment, range=Optional[Union[str, "CommentType"]])
 
+slots.Comment_TranslatedTextRef = Slot(uri=ODM.TranslatedTextRef, name="Comment_TranslatedTextRef", curie=ODM.curie('TranslatedTextRef'),
+                   model_uri=ODM.Comment_TranslatedTextRef, domain=Comment, range=Union[Union[dict, TranslatedText], List[Union[dict, TranslatedText]]])
+
 slots.Flag_FlagValueRef = Slot(uri=ODM.FlagValueRef, name="Flag_FlagValueRef", curie=ODM.curie('FlagValueRef'),
                    model_uri=ODM.Flag_FlagValueRef, domain=Flag, range=Union[dict, "FlagValue"])
 
@@ -8008,17 +9149,17 @@ slots.Flag_FlagTypeRef = Slot(uri=ODM.FlagTypeRef, name="Flag_FlagTypeRef", curi
 slots.FlagValue_CodeListOID = Slot(uri=ODM.CodeListOID, name="FlagValue_CodeListOID", curie=ODM.curie('CodeListOID'),
                    model_uri=ODM.FlagValue_CodeListOID, domain=FlagValue, range=str)
 
-slots.FlagValue__content = Slot(uri=XHTML.div, name="FlagValue__content", curie=XHTML.curie('div'),
+slots.FlagValue__content = Slot(uri=ODM._content, name="FlagValue__content", curie=ODM.curie('_content'),
                    model_uri=ODM.FlagValue__content, domain=FlagValue, range=Optional[str])
 
 slots.FlagType_CodeListOID = Slot(uri=ODM.CodeListOID, name="FlagType_CodeListOID", curie=ODM.curie('CodeListOID'),
                    model_uri=ODM.FlagType_CodeListOID, domain=FlagType, range=str)
 
-slots.FlagType__content = Slot(uri=XHTML.div, name="FlagType__content", curie=XHTML.curie('div'),
+slots.FlagType__content = Slot(uri=ODM._content, name="FlagType__content", curie=ODM.curie('_content'),
                    model_uri=ODM.FlagType__content, domain=FlagType, range=Optional[str])
 
-slots.Coding_Code = Slot(uri=ODM.Code, name="Coding_Code", curie=ODM.curie('Code'),
-                   model_uri=ODM.Coding_Code, domain=Coding, range=str)
+slots.Coding_CodeRef = Slot(uri=ODM.CodeRef, name="Coding_CodeRef", curie=ODM.curie('CodeRef'),
+                   model_uri=ODM.Coding_CodeRef, domain=Coding, range=Optional[str])
 
 slots.Coding_System = Slot(uri=ODM.System, name="Coding_System", curie=ODM.curie('System'),
                    model_uri=ODM.Coding_System, domain=Coding, range=Union[str, URIorCURIE])
@@ -8035,11 +9176,14 @@ slots.Coding_Label = Slot(uri=ODM.Label, name="Coding_Label", curie=ODM.curie('L
 slots.Coding_href = Slot(uri=ODM.href, name="Coding_href", curie=ODM.curie('href'),
                    model_uri=ODM.Coding_href, domain=Coding, range=Optional[Union[str, URIorCURIE]])
 
+slots.Coding_ref = Slot(uri=ODM.ref, name="Coding_ref", curie=ODM.curie('ref'),
+                   model_uri=ODM.Coding_ref, domain=Coding, range=Optional[Union[str, URIorCURIE]])
+
 slots.Coding_CommentOID = Slot(uri=ODM.CommentOID, name="Coding_CommentOID", curie=ODM.curie('CommentOID'),
                    model_uri=ODM.Coding_CommentOID, domain=Coding, range=Optional[str])
 
 slots.Query_OID = Slot(uri=ODM.OID, name="Query_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.Query_OID, domain=Query, range=str)
+                   model_uri=ODM.Query_OID, domain=Query, range=Union[str, QueryOID])
 
 slots.Query_Source = Slot(uri=ODM.Source, name="Query_Source", curie=ODM.curie('Source'),
                    model_uri=ODM.Query_Source, domain=Query, range=Union[str, "QuerySourceType"])
@@ -8063,22 +9207,22 @@ slots.Query_ValueRef = Slot(uri=ODM.ValueRef, name="Query_ValueRef", curie=ODM.c
                    model_uri=ODM.Query_ValueRef, domain=Query, range=Union[dict, "Value"])
 
 slots.Query_AuditRecordRef = Slot(uri=ODM.AuditRecordRef, name="Query_AuditRecordRef", curie=ODM.curie('AuditRecordRef'),
-                   model_uri=ODM.Query_AuditRecordRef, domain=Query, range=Optional[Union[dict, AuditRecord]])
+                   model_uri=ODM.Query_AuditRecordRef, domain=Query, range=Optional[Union[Union[dict, AuditRecord], List[Union[dict, AuditRecord]]]])
 
 slots.Value_SeqNum = Slot(uri=ODM.SeqNum, name="Value_SeqNum", curie=ODM.curie('SeqNum'),
                    model_uri=ODM.Value_SeqNum, domain=Value, range=Optional[int])
 
-slots.Value__content = Slot(uri=XHTML.div, name="Value__content", curie=XHTML.curie('div'),
+slots.Value__content = Slot(uri=ODM._content, name="Value__content", curie=ODM.curie('_content'),
                    model_uri=ODM.Value__content, domain=Value, range=Optional[str])
 
-slots.ODMFileMetadata_FileType = Slot(uri=ODM.FileType, name="ODMFileMetadata_FileType", curie=ODM.curie('FileType'),
-                   model_uri=ODM.ODMFileMetadata_FileType, domain=ODMFileMetadata, range=Union[str, "FileType"])
+slots.ODMFileMetadata_FileTypeRef = Slot(uri=ODM.FileTypeRef, name="ODMFileMetadata_FileTypeRef", curie=ODM.curie('FileTypeRef'),
+                   model_uri=ODM.ODMFileMetadata_FileTypeRef, domain=ODMFileMetadata, range=Union[str, "FileType"])
 
-slots.ODMFileMetadata_Granularity = Slot(uri=ODM.Granularity, name="ODMFileMetadata_Granularity", curie=ODM.curie('Granularity'),
-                   model_uri=ODM.ODMFileMetadata_Granularity, domain=ODMFileMetadata, range=Optional[Union[str, "Granularity"]])
+slots.ODMFileMetadata_GranularityRef = Slot(uri=ODM.GranularityRef, name="ODMFileMetadata_GranularityRef", curie=ODM.curie('GranularityRef'),
+                   model_uri=ODM.ODMFileMetadata_GranularityRef, domain=ODMFileMetadata, range=Optional[Union[str, "Granularity"]])
 
-slots.ODMFileMetadata_Context = Slot(uri=ODM.Context, name="ODMFileMetadata_Context", curie=ODM.curie('Context'),
-                   model_uri=ODM.ODMFileMetadata_Context, domain=ODMFileMetadata, range=Optional[Union[str, "Context"]])
+slots.ODMFileMetadata_ContextRef = Slot(uri=ODM.ContextRef, name="ODMFileMetadata_ContextRef", curie=ODM.curie('ContextRef'),
+                   model_uri=ODM.ODMFileMetadata_ContextRef, domain=ODMFileMetadata, range=Optional[Union[str, "Context"]])
 
 slots.ODMFileMetadata_FileOID = Slot(uri=ODM.FileOID, name="ODMFileMetadata_FileOID", curie=ODM.curie('FileOID'),
                    model_uri=ODM.ODMFileMetadata_FileOID, domain=ODMFileMetadata, range=str)
@@ -8092,8 +9236,8 @@ slots.ODMFileMetadata_PriorFileOID = Slot(uri=ODM.PriorFileOID, name="ODMFileMet
 slots.ODMFileMetadata_AsOfDateTime = Slot(uri=ODM.AsOfDateTime, name="ODMFileMetadata_AsOfDateTime", curie=ODM.curie('AsOfDateTime'),
                    model_uri=ODM.ODMFileMetadata_AsOfDateTime, domain=ODMFileMetadata, range=Optional[Union[str, XSDDateTime]])
 
-slots.ODMFileMetadata_ODMVersion = Slot(uri=ODM.ODMVersion, name="ODMFileMetadata_ODMVersion", curie=ODM.curie('ODMVersion'),
-                   model_uri=ODM.ODMFileMetadata_ODMVersion, domain=ODMFileMetadata, range=Optional[str])
+slots.ODMFileMetadata_ODMVersionRef = Slot(uri=ODM.ODMVersionRef, name="ODMFileMetadata_ODMVersionRef", curie=ODM.curie('ODMVersionRef'),
+                   model_uri=ODM.ODMFileMetadata_ODMVersionRef, domain=ODMFileMetadata, range=Optional[str])
 
 slots.ODMFileMetadata_Originator = Slot(uri=ODM.Originator, name="ODMFileMetadata_Originator", curie=ODM.curie('Originator'),
                    model_uri=ODM.ODMFileMetadata_Originator, domain=ODMFileMetadata, range=Optional[str])
@@ -8108,7 +9252,7 @@ slots.ODMFileMetadata_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="ODMFil
                    model_uri=ODM.ODMFileMetadata_DescriptionRef, domain=ODMFileMetadata, range=Optional[Union[dict, Description]])
 
 slots.ODMFileMetadata_StudyRef = Slot(uri=ODM.StudyRef, name="ODMFileMetadata_StudyRef", curie=ODM.curie('StudyRef'),
-                   model_uri=ODM.ODMFileMetadata_StudyRef, domain=ODMFileMetadata, range=Optional[Union[Union[dict, Study], List[Union[dict, Study]]]])
+                   model_uri=ODM.ODMFileMetadata_StudyRef, domain=ODMFileMetadata, range=Optional[Union[Dict[Union[str, StudyOID], Union[dict, Study]], List[Union[dict, Study]]]])
 
 slots.ODMFileMetadata_AdminDataRef = Slot(uri=ODM.AdminDataRef, name="ODMFileMetadata_AdminDataRef", curie=ODM.curie('AdminDataRef'),
                    model_uri=ODM.ODMFileMetadata_AdminDataRef, domain=ODMFileMetadata, range=Optional[Union[Union[dict, AdminData], List[Union[dict, AdminData]]]])

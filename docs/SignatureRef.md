@@ -41,6 +41,10 @@ URI: [odm:SignatureRef](http://www.cdisc.org/ns/odm/v2.0/SignatureRef)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/SignatureRef](https://wiki.cdisc.org/display/ODM2/SignatureRef)
+
 ## Identifier and Mapping Information
 
 
@@ -79,6 +83,8 @@ URI: [odm:SignatureRef](http://www.cdisc.org/ns/odm/v2.0/SignatureRef)
 ```yaml
 name: SignatureRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SignatureRef
 slots:
 - SignatureOID
 slot_usage:
@@ -99,6 +105,8 @@ class_uri: odm:SignatureRef
 ```yaml
 name: SignatureRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SignatureRef
 slot_usage:
   SignatureOID:
     name: SignatureOID

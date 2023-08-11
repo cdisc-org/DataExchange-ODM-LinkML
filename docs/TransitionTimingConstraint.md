@@ -69,6 +69,10 @@ URI: [odm:TransitionTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/Transitio
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/TransitionTimingConstraint](https://wiki.cdisc.org/display/ODM2/TransitionTimingConstraint)
+
 ## Identifier and Mapping Information
 
 
@@ -107,6 +111,8 @@ URI: [odm:TransitionTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/Transitio
 ```yaml
 name: TransitionTimingConstraint
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/TransitionTimingConstraint
 slots:
 - OID
 - Name
@@ -121,9 +127,18 @@ slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -144,32 +159,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -187,17 +202,8 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   TransitionOID:
@@ -209,17 +215,20 @@ slot_usage:
   MethodOID:
     name: MethodOID
     domain_of:
-    - TransitionTimingConstraint
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
+    - TransitionTimingConstraint
     range: oidref
-    required: false
   Type:
     name: Type
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -227,12 +236,7 @@ slot_usage:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: RelativeTimingConstraintType
-    required: false
   TimepointTarget:
     name: TimepointTarget
     domain_of:
@@ -247,7 +251,6 @@ slot_usage:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-    required: false
   TimepointPostWindow:
     name: TimepointPostWindow
     domain_of:
@@ -255,14 +258,22 @@ slot_usage:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -285,21 +296,9 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:TransitionTimingConstraint
 
@@ -312,13 +311,24 @@ class_uri: odm:TransitionTimingConstraint
 ```yaml
 name: TransitionTimingConstraint
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/TransitionTimingConstraint
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -339,32 +349,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -382,17 +392,8 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   TransitionOID:
@@ -404,17 +405,20 @@ slot_usage:
   MethodOID:
     name: MethodOID
     domain_of:
-    - TransitionTimingConstraint
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
+    - TransitionTimingConstraint
     range: oidref
-    required: false
   Type:
     name: Type
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -422,12 +426,7 @@ slot_usage:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: RelativeTimingConstraintType
-    required: false
   TimepointTarget:
     name: TimepointTarget
     domain_of:
@@ -442,7 +441,6 @@ slot_usage:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-    required: false
   TimepointPostWindow:
     name: TimepointPostWindow
     domain_of:
@@ -450,14 +448,22 @@ slot_usage:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -480,21 +486,9 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 attributes:
   OID:
@@ -502,12 +496,22 @@ attributes:
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: OID
     owner: TransitionTimingConstraint
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -528,20 +532,11 @@ attributes:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
@@ -552,13 +547,22 @@ attributes:
     alias: Name
     owner: TransitionTimingConstraint
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -576,17 +580,8 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   TransitionOID:
@@ -606,11 +601,10 @@ attributes:
     alias: MethodOID
     owner: TransitionTimingConstraint
     domain_of:
-    - TransitionTimingConstraint
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
+    - TransitionTimingConstraint
     range: oidref
-    required: false
   Type:
     name: Type
     description: Type of page for page references indicated in the PageRefs attribute.
@@ -620,8 +614,12 @@ attributes:
     owner: TransitionTimingConstraint
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -629,12 +627,7 @@ attributes:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: RelativeTimingConstraintType
-    required: false
   TimepointTarget:
     name: TimepointTarget
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -657,7 +650,6 @@ attributes:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-    required: false
   TimepointPostWindow:
     name: TimepointPostWindow
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -669,7 +661,6 @@ attributes:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-    required: false
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -677,10 +668,19 @@ attributes:
     alias: DescriptionRef
     owner: TransitionTimingConstraint
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -703,21 +703,9 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:TransitionTimingConstraint
 

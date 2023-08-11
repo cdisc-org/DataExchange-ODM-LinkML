@@ -39,9 +39,9 @@ URI: [DataType](DataType)
 
 | Name | Description |
 | ---  | --- |
-| [DataType](DataType.md) |  |
-| [DataType](DataType.md) |  |
-| [DataType](DataType.md) |  |
+| [DataTypeRef](DataTypeRef.md) |  |
+| [DataTypeRef](DataTypeRef.md) |  |
+| [DataTypeRef](DataTypeRef.md) |  |
 
 
 
@@ -56,12 +56,20 @@ URI: [DataType](DataType)
 
 
 
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+
 
 ## LinkML Source
 
 <details>
 ```yaml
 name: DataType
+from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:
   integer:

@@ -26,24 +26,6 @@ URI: [ItemGroupDefGroup](ItemGroupDefGroup)
 
 | Class | Description |
 | --- | --- |
-| [ItemGroupRef](ItemGroupRef.md) |  |
-| [ItemRef](ItemRef.md) |  |
-
-
-### ItemGroupRef
-
-None
-
-| Name | Cardinality and Range  | Description  |
-| ---  | ---  | --- |
-
-
-### ItemRef
-
-None
-
-| Name | Cardinality and Range  | Description  |
-| ---  | ---  | --- |
 
 
 

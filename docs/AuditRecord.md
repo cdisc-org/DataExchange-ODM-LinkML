@@ -66,12 +66,22 @@ URI: [odm:AuditRecord](http://www.cdisc.org/ns/odm/v2.0/AuditRecord)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [ReferenceData](ReferenceData.md) | [AuditRecordRef](AuditRecordRef.md) | range | [AuditRecord](AuditRecord.md) |
+| [ClinicalData](ClinicalData.md) | [AuditRecordRef](AuditRecordRef.md) | range | [AuditRecord](AuditRecord.md) |
+| [SubjectData](SubjectData.md) | [AuditRecordRef](AuditRecordRef.md) | range | [AuditRecord](AuditRecord.md) |
+| [StudyEventData](StudyEventData.md) | [AuditRecordRef](AuditRecordRef.md) | range | [AuditRecord](AuditRecord.md) |
+| [ItemGroupData](ItemGroupData.md) | [AuditRecordRef](AuditRecordRef.md) | range | [AuditRecord](AuditRecord.md) |
+| [ItemData](ItemData.md) | [AuditRecordRef](AuditRecordRef.md) | range | [AuditRecord](AuditRecord.md) |
 | [Query](Query.md) | [AuditRecordRef](AuditRecordRef.md) | range | [AuditRecord](AuditRecord.md) |
 
 
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/AuditRecord](https://wiki.cdisc.org/display/ODM2/AuditRecord)
 
 ## Identifier and Mapping Information
 
@@ -110,9 +120,9 @@ URI: [odm:AuditRecord](http://www.cdisc.org/ns/odm/v2.0/AuditRecord)
 <details>
 ```yaml
 name: AuditRecord
-in_subset:
-- AuditRecordSignatureNotationGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/AuditRecord
 slots:
 - EditPoint
 - UsedMethod
@@ -127,16 +137,15 @@ slot_usage:
     domain_of:
     - AuditRecord
     range: EditPointType
-    required: false
   UsedMethod:
     name: UsedMethod
     domain_of:
     - AuditRecord
     range: YesOrNo
-    required: false
   UserRefRef:
     name: UserRefRef
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
@@ -146,6 +155,7 @@ slot_usage:
   LocationRefRef:
     name: LocationRefRef
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
@@ -166,16 +176,12 @@ slot_usage:
     domain_of:
     - AuditRecord
     range: ReasonForChange
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   SourceIDRef:
     name: SourceIDRef
     domain_of:
     - AuditRecord
     range: SourceID
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:AuditRecord
 
@@ -187,25 +193,24 @@ class_uri: odm:AuditRecord
 <details>
 ```yaml
 name: AuditRecord
-in_subset:
-- AuditRecordSignatureNotationGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/AuditRecord
 slot_usage:
   EditPoint:
     name: EditPoint
     domain_of:
     - AuditRecord
     range: EditPointType
-    required: false
   UsedMethod:
     name: UsedMethod
     domain_of:
     - AuditRecord
     range: YesOrNo
-    required: false
   UserRefRef:
     name: UserRefRef
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
@@ -215,6 +220,7 @@ slot_usage:
   LocationRefRef:
     name: LocationRefRef
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
@@ -235,16 +241,12 @@ slot_usage:
     domain_of:
     - AuditRecord
     range: ReasonForChange
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   SourceIDRef:
     name: SourceIDRef
     domain_of:
     - AuditRecord
     range: SourceID
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 attributes:
   EditPoint:
@@ -256,7 +258,6 @@ attributes:
     domain_of:
     - AuditRecord
     range: EditPointType
-    required: false
   UsedMethod:
     name: UsedMethod
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -266,7 +267,6 @@ attributes:
     domain_of:
     - AuditRecord
     range: YesOrNo
-    required: false
   UserRefRef:
     name: UserRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -274,6 +274,7 @@ attributes:
     alias: UserRefRef
     owner: AuditRecord
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
@@ -287,6 +288,7 @@ attributes:
     alias: LocationRefRef
     owner: AuditRecord
     domain_of:
+    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
@@ -315,8 +317,6 @@ attributes:
     domain_of:
     - AuditRecord
     range: ReasonForChange
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   SourceIDRef:
     name: SourceIDRef
@@ -327,8 +327,6 @@ attributes:
     domain_of:
     - AuditRecord
     range: SourceID
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:AuditRecord
 

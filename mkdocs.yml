@@ -1,8 +1,8 @@
 # gen-doc ODM.yaml --directory ./docs2 --hierarchical-class-view 
 
 site_name: DataExchange-ODM-LinkML
-site_url: https://cdisc-org.github.io/DataExchange-ODM-Linkml
-repo_url: https://github.com/cdisc-org/DataExchange-ODM-LinkML
+site_url: https://cdisc-org.github.io/DataExchange-ODM-LinkML
+repo_url: https://github.com/cdisc-org/DataExchange-ODM-Linkml
 
 site_dir: '../cdisc-org.github.io'
 docs_dir: './docs'

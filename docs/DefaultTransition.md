@@ -41,6 +41,10 @@ URI: [odm:DefaultTransition](http://www.cdisc.org/ns/odm/v2.0/DefaultTransition)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/DefaultTransition](https://wiki.cdisc.org/display/ODM2/DefaultTransition)
+
 ## Identifier and Mapping Information
 
 
@@ -79,6 +83,8 @@ URI: [odm:DefaultTransition](http://www.cdisc.org/ns/odm/v2.0/DefaultTransition)
 ```yaml
 name: DefaultTransition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/DefaultTransition
 slots:
 - TargetTransitionOID
 slot_usage:
@@ -100,6 +106,8 @@ class_uri: odm:DefaultTransition
 ```yaml
 name: DefaultTransition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/DefaultTransition
 slot_usage:
   TargetTransitionOID:
     name: TargetTransitionOID

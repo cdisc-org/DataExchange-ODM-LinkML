@@ -42,6 +42,10 @@ URI: [odm:DateTimeStamp](http://www.cdisc.org/ns/odm/v2.0/DateTimeStamp)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/DateTimeStamp](https://wiki.cdisc.org/display/ODM2/DateTimeStamp)
+
 ## Identifier and Mapping Information
 
 
@@ -80,6 +84,8 @@ URI: [odm:DateTimeStamp](http://www.cdisc.org/ns/odm/v2.0/DateTimeStamp)
 ```yaml
 name: DateTimeStamp
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/DateTimeStamp
 slots:
 - _content
 slot_usage:
@@ -98,6 +104,8 @@ class_uri: odm:DateTimeStamp
 ```yaml
 name: DateTimeStamp
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/DateTimeStamp
 slot_usage:
   range:
     name: range
@@ -111,6 +119,7 @@ attributes:
   alias: _content
   owner: DateTimeStamp
   domain_of:
+  - TranslatedText
   - CheckValue
   - Code
   - WorkflowEnd
@@ -135,8 +144,8 @@ attributes:
   - FlagValue
   - FlagType
   - Value
-  - TranslatedText
   range: _contentType
+  inlined: true
 class_uri: odm:DateTimeStamp
 
 ```

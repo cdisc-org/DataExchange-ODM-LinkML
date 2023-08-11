@@ -43,6 +43,10 @@ URI: [odm:Standards](http://www.cdisc.org/ns/odm/v2.0/Standards)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Standards](https://wiki.cdisc.org/display/ODM2/Standards)
+
 ## Identifier and Mapping Information
 
 
@@ -81,6 +85,8 @@ URI: [odm:Standards](http://www.cdisc.org/ns/odm/v2.0/Standards)
 ```yaml
 name: Standards
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Standards
 slots:
 - StandardRef
 slot_usage:
@@ -88,11 +94,12 @@ slot_usage:
     name: StandardRef
     description: Definition of a standard referenced in the Define-XML document.
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - Standards
     range: Standard
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:Standards
 
@@ -105,16 +112,19 @@ class_uri: odm:Standards
 ```yaml
 name: Standards
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Standards
 slot_usage:
   StandardRef:
     name: StandardRef
     description: Definition of a standard referenced in the Define-XML document.
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - Standards
     range: Standard
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   StandardRef:
@@ -123,13 +133,14 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
     alias: StandardRef
     owner: Standards
     domain_of:
     - Standards
     range: Standard
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:Standards
 

@@ -7,6 +7,7 @@ type AbsoluteTimingConstraint
     timepointTarget: String!
     timepointPreWindow: DurationDatetime
     timepointPostWindow: DurationDatetime
+    descriptionRef: Description
   }
 
 type Address
@@ -24,27 +25,28 @@ type Address
 type AdminData
   {
     studyOID: Oidref
-    userRef: [User]
+    userRefRef: [User]
     organizationRef: [Organization]
-    locationRef: [Location]
+    locationRefRef: [Location]
     signatureDefRef: [SignatureDef]
   }
 
 type Alias
   {
-    context: Text!
+    contextRef: Text!
     name: Text!
   }
 
 type AnnotatedCRF
   {
+    documentRefRef: [DocumentRef]!
   }
 
 type Annotation
   {
-    seqNum: Integer!
-    transactionType: TransactionType
-    iD: Oid
+    seqNum: PositiveInteger!
+    transactionTypeRef: TransactionType
+    iD: Oid!
     commentRef: Comment
     codingRef: [Coding]
     flagRef: [Flag]
@@ -86,21 +88,27 @@ type Branching
     defaultTransitionRef: [DefaultTransition]
   }
 
+type CDISCNotes
+  {
+    translatedTextRef: [TranslatedText]!
+  }
+
 type CheckValue
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
 type City
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
 type Class
   {
     name: ItemGroupClass!
+    subClassRef: [SubClass]
   }
 
 type ClinicalData
@@ -110,11 +118,14 @@ type ClinicalData
     subjectDataRef: [SubjectData]
     itemGroupDataRef: [ItemGroupData]
     queryRef: [Query]
+    auditRecordRef: AuditRecord
+    signatureRefRef: Signature
+    annotationRef: [Annotation]
   }
 
 type Code
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
@@ -122,12 +133,12 @@ type CodeList
   {
     oID: Oid!
     name: Name!
-    dataType: CLDataType!
+    dataTypeRef: CLDataType!
     commentOID: Oidref
     standardOID: Oidref
     isNonStandard: YesOnly
     descriptionRef: Description
-    externalCodeListRef: ExternalCodeList
+    codeListItemRef: [CodeListItem]
     codingRef: [Coding]
     aliasRef: [Alias]
   }
@@ -137,11 +148,11 @@ type CodeListItem
     codedValue: Value!
     rank: Decimal
     other: YesOnly
-    orderNumber: Integer
+    orderNumber: PositiveInteger
     extendedValue: YesOnly
     commentOID: Oidref
     descriptionRef: Description
-    decodeRef: Decode!
+    decodeRef: Decode
     codingRef: [Coding]
     aliasRef: [Alias]
   }
@@ -153,18 +164,20 @@ type CodeListRef
 
 type Coding
   {
-    code: Text!
+    codeRef: Text
     system: Uriorcurie!
     systemName: Text
     systemVersion: Text
     label: Text
     href: Uriorcurie
+    ref: Uriorcurie
     commentOID: Text
   }
 
 type Comment
   {
     sponsorOrSite: CommentType
+    translatedTextRef: [TranslatedText]!
   }
 
 type CommentDef
@@ -187,8 +200,13 @@ type ConditionDef
 
 type Country
   {
-    content: Text
+    content: ContentType
     range: String
+  }
+
+type CRFCompletionInstructions
+  {
+    translatedTextRef: [TranslatedText]!
   }
 
 type Criterion
@@ -196,16 +214,19 @@ type Criterion
     oID: Oid!
     name: Name!
     conditionOID: Oidref!
+    descriptionRef: Description
+    codingRef: [Coding]
   }
 
 type DateTimeStamp
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
 type Decode
   {
+    translatedTextRef: [TranslatedText]!
   }
 
 type DefaultTransition
@@ -213,13 +234,20 @@ type DefaultTransition
     targetTransitionOID: Oidref!
   }
 
+type Definition
+  {
+    translatedTextRef: [TranslatedText]!
+  }
+
 type Description
   {
+    translatedTextRef: [TranslatedText]!
   }
 
 type DocumentRef
   {
     leafID: Oid!
+    pDFPageRefRef: [PDFPageRef]
   }
 
 type DurationTimingConstraint
@@ -230,23 +258,12 @@ type DurationTimingConstraint
     durationTarget: DurationDatetime!
     durationPreWindow: DurationDatetime
     durationPostWindow: DurationDatetime
+    descriptionRef: Description
   }
 
 type EntryCriteria
   {
-  }
-
-type EnumeratedItem
-  {
-    codedValue: Value!
-    rank: Decimal
-    other: YesOnly
-    orderNumber: Integer
-    extendedValue: YesOnly
-    commentOID: Oidref
-    descriptionRef: Description
-    codingRef: [Coding]
-    aliasRef: [Alias]
+    criterionRef: [Criterion]
   }
 
 type Epoch
@@ -254,10 +271,12 @@ type Epoch
     oID: Oid!
     name: Name!
     sequenceNumber: PositiveInteger!
+    descriptionRef: Description
   }
 
 type ErrorMessage
   {
+    translatedTextRef: [TranslatedText]!
   }
 
 type ExceptionEvent
@@ -265,14 +284,20 @@ type ExceptionEvent
     oID: Oid!
     name: Name!
     conditionOID: Oidref
+    descriptionRef: Description
+    workflowRefRef: WorkflowRef!
+    studyEventGroupRefRef: [StudyEventGroupRef]!
+    studyEventRefRef: [StudyEventRef]!
   }
 
 type ExclusionCriteria
   {
+    criterionRef: [Criterion]!
   }
 
 type ExitCriteria
   {
+    criterionRef: [Criterion]
   }
 
 type ExternalCodeLib
@@ -284,17 +309,9 @@ type ExternalCodeLib
     href: Uriorcurie
   }
 
-type ExternalCodeList
-  {
-    dictionary: DictionaryNameType
-    version: Text
-    href: Uriorcurie
-    ref: Text
-  }
-
 type FamilyName
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
@@ -318,12 +335,14 @@ type FlagValue
 
 type FormalExpression
   {
-    context: Text
+    contextRef: Text
+    codeRef: Code!
+    externalCodeLibRef: ExternalCodeLib!
   }
 
 type FullName
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
@@ -336,13 +355,13 @@ type GeoPosition
 
 type GivenName
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
 type HouseNumber
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
@@ -351,6 +370,11 @@ type Image
     imageFileName: FileName
     href: Text
     mimeType: Text
+  }
+
+type ImplementationNotes
+  {
+    translatedTextRef: [TranslatedText]!
   }
 
 type Include
@@ -362,6 +386,7 @@ type Include
 
 type InclusionCriteria
   {
+    criterionRef: [Criterion]!
   }
 
 type InclusionExclusionCriteria
@@ -372,6 +397,7 @@ type InclusionExclusionCriteria
 
 type IntercurrentEvent
   {
+    descriptionRef: Description!
   }
 
 type InvestigatorRef
@@ -382,22 +408,31 @@ type InvestigatorRef
 type ItemData
   {
     itemOID: Oidref!
-    transactionType: TransactionType
+    transactionTypeRef: TransactionType
     isNull: YesOnly
     valueRef: [Value]
     queryRef: [Query]
+    auditRecordRef: AuditRecord
+    signatureRefRef: Signature
+    annotationRef: [Annotation]
   }
 
 type ItemDef
   {
     oID: Oid!
     name: Name!
-    dataType: DataType!
+    dataTypeRef: DataType!
     length: PositiveInteger
     displayFormat: Text
+    variableSet: Text
     commentOID: Oidref
     descriptionRef: Description
+    definitionRef: Definition
     questionRef: Question
+    promptRef: Prompt
+    cRFCompletionInstructionsRef: CRFCompletionInstructions
+    implementationNotesRef: ImplementationNotes
+    cDISCNotesRef: CDISCNotes
     rangeCheckRef: [RangeCheck]
     codeListRefRef: CodeListRef
     valueListRefRef: ValueListRef
@@ -409,8 +444,14 @@ type ItemGroupData
   {
     itemGroupOID: Oidref!
     itemGroupRepeatKey: RepeatKey
-    transactionType: TransactionType
-    itemGroupDataSeq: Integer
+    transactionTypeRef: TransactionType
+    itemGroupDataSeq: PositiveInteger
+    queryRef: [Query]
+    itemGroupDataRef: ItemGroupData
+    itemDataRef: ItemData
+    auditRecordRef: AuditRecord
+    signatureRefRef: Signature
+    annotationRef: [Annotation]
   }
 
 type ItemGroupDef
@@ -437,13 +478,15 @@ type ItemGroupDef
     originRef: [Origin]
     aliasRef: [Alias]
     leafRef: Leaf
+    itemGroupRefRef: ItemGroupRef
+    itemRefRef: ItemRef
   }
 
 type ItemGroupRef
   {
     itemGroupOID: Oidref!
     methodOID: Oidref
-    orderNumber: Integer
+    orderNumber: PositiveInteger
     mandatory: YesOrNo!
     collectionExceptionConditionOID: Oidref
   }
@@ -451,7 +494,7 @@ type ItemGroupRef
 type ItemRef
   {
     itemOID: Oidref!
-    keySequence: Integer
+    keySequence: PositiveInteger
     isNonStandard: YesOnly
     hasNoData: YesOnly
     methodOID: Oidref
@@ -460,7 +503,9 @@ type ItemRef
     other: YesOnly
     role: Text
     roleCodeListOID: Oidref
-    orderNumber: Integer
+    core: CoreType
+    preSpecifiedValue: Text
+    orderNumber: PositiveInteger
     mandatory: YesOrNo!
     collectionExceptionConditionOID: Oidref
     originRef: [Origin]
@@ -483,11 +528,12 @@ type Leaf
   {
     iD: Oid!
     href: String!
+    title: String!
   }
 
 type LegalReason
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
@@ -511,7 +557,7 @@ type LocationRef
 
 type Meaning
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
@@ -533,7 +579,7 @@ type MetaDataVersion
     studyEventDefRef: [StudyEventDef]
     itemGroupDefRef: [ItemGroupDef]
     itemDefRef: [ItemDef]
-    codeListRef: [CodeList]
+    codeListRefRef: [CodeList]
     conditionDefRef: [ConditionDef]
     methodDefRef: [MethodDef]
     commentDefRef: [CommentDef]
@@ -568,14 +614,14 @@ type MethodSignature
 
 type ODMFileMetadata
   {
-    fileType: FileType!
-    granularity: Granularity
-    context: Context
+    fileTypeRef: FileType!
+    granularityRef: Granularity
+    contextRef: Context
     fileOID: Oid!
     creationDateTime: Datetime!
     priorFileOID: Oidref
     asOfDateTime: Datetime
-    oDMVersion: ODMVersion
+    oDMVersionRef: ODMVersion
     originator: Text
     sourceSystem: Text
     sourceSystemVersion: Text
@@ -612,42 +658,48 @@ type Origin
 
 type OtherText
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
 type Parameter
   {
     name: Name!
-    dataType: DataType!
-    definition: Text
-    orderNumber: Integer
+    dataTypeRef: DataType!
+    definitionRef: Text
+    orderNumber: PositiveInteger
   }
 
 type ParameterValue
   {
-    value: Text!
+    valueRef: Text!
+    codingRef: [Coding]
   }
 
 type PDFPageRef
   {
     pageRefs: Text
-    firstPage: Integer
-    lastPage: Integer
+    firstPage: PositiveInteger
+    lastPage: PositiveInteger
     type: PDFPageType!
     title: Text
   }
 
 type PostalCode
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
 type Prefix
   {
-    content: Text
+    content: ContentType
     range: String
+  }
+
+type Prompt
+  {
+    translatedTextRef: [TranslatedText]!
   }
 
 type Protocol
@@ -661,7 +713,7 @@ type Protocol
     studyInterventionsRef: StudyInterventions
     studyObjectivesRef: StudyObjectives
     studyEndPointsRef: StudyEndPoints
-    studyTargetPopulationRef: StudyTargetPopulation
+    studyTargetPopulationRefRef: StudyTargetPopulation
     studyEstimandsRef: StudyEstimands
     inclusionExclusionCriteriaRef: InclusionExclusionCriteria
     studyEventGroupRefRef: [StudyEventGroupRef]
@@ -679,23 +731,28 @@ type Query
     lastUpdateDatetime: Datetime!
     name: Name
     valueRef: Value!
-    auditRecordRef: AuditRecord
+    auditRecordRef: [AuditRecord]
   }
 
 type Question
   {
+    translatedTextRef: [TranslatedText]!
   }
 
 type RangeCheck
   {
-    comparator: Comparator
+    comparatorRef: Comparator
     softHard: SoftOrHard
     itemOID: Oidref
+    errorMessageRef: ErrorMessage
+    methodSignatureRef: MethodSignature
+    formalExpressionRef: [FormalExpression]
+    checkValueRef: [CheckValue]!
   }
 
 type ReasonForChange
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
@@ -703,6 +760,10 @@ type ReferenceData
   {
     studyOID: Oidref!
     metaDataVersionOID: Oidref!
+    itemGroupDataRef: [ItemGroupData]
+    auditRecordRef: AuditRecord
+    signatureRefRef: Signature
+    annotationRef: [Annotation]
   }
 
 type RelativeTimingConstraint
@@ -715,6 +776,7 @@ type RelativeTimingConstraint
     timepointRelativeTarget: DurationDatetime!
     timepointPreWindow: DurationDatetime
     timepointPostWindow: DurationDatetime
+    descriptionRef: Description
   }
 
 type Resource
@@ -723,14 +785,15 @@ type Resource
     name: Name!
     attribute: Text
     label: Text
+    selectionRef: [Selection]
   }
 
 type ReturnValue
   {
     name: Name!
-    dataType: DataType!
-    definition: Text
-    orderNumber: Integer
+    dataTypeRef: DataType!
+    definitionRef: Text
+    orderNumber: PositiveInteger
   }
 
 type Selection
@@ -740,7 +803,7 @@ type Selection
 
 type Signature
   {
-    iD: Oid
+    iD: Oid!
     userRefRef: UserRef!
     locationRefRef: LocationRef!
     signatureRefRef: SignatureRef!
@@ -767,7 +830,7 @@ type SiteRef
 
 type SourceID
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
@@ -777,7 +840,7 @@ type SourceItem
     itemGroupOID: Oidref
     metaDataVersionOID: Oidref
     studyOID: Oidref
-    leafID: Oidref
+    leafID: Oidref!
     name: Name
     resourceRef: [Resource]!
     codingRef: [Coding]
@@ -802,17 +865,18 @@ type Standard
 
 type Standards
   {
+    standardRef: [Standard]!
   }
 
 type StateProv
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
 type StreetName
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
@@ -821,8 +885,11 @@ type Study
     oID: Oid!
     studyName: Name!
     protocolName: Name!
+    versionID: Name
+    versionName: Name
+    status: Name
     descriptionRef: Description
-    metaDataVersionRef: [MetaDataVersion]!
+    metaDataVersionRefRef: [MetaDataVersion]!
   }
 
 type StudyEndPoint
@@ -830,6 +897,7 @@ type StudyEndPoint
     oID: Oid!
     name: Name!
     type: StudyEndPointType
+    level: StudyEndPointLevel
     descriptionRef: Description!
     formalExpressionRef: [FormalExpression]
   }
@@ -837,11 +905,12 @@ type StudyEndPoint
 type StudyEndPointRef
   {
     studyEndPointOID: Oidref!
-    orderNumber: Integer
+    orderNumber: PositiveInteger
   }
 
 type StudyEndPoints
   {
+    studyEndPointRefRef: [StudyEndPoint]!
   }
 
 type StudyEstimand
@@ -858,15 +927,19 @@ type StudyEstimand
 
 type StudyEstimands
   {
+    studyEstimandRef: [StudyEstimand]!
   }
 
 type StudyEventData
   {
     studyEventOID: Oidref!
     studyEventRepeatKey: RepeatKey
-    transactionType: TransactionType
+    transactionTypeRef: TransactionType
     itemGroupDataRef: [ItemGroupData]
     queryRef: [Query]
+    auditRecordRef: AuditRecord
+    signatureRefRef: Signature
+    annotationRef: [Annotation]
   }
 
 type StudyEventDef
@@ -894,20 +967,23 @@ type StudyEventGroupDef
     descriptionRef: Description
     workflowRefRef: WorkflowRef
     codingRef: [Coding]
+    studyEventGroupRefRef: StudyEventGroupRef
+    studyEventRefRef: StudyEventRef
   }
 
 type StudyEventGroupRef
   {
     studyEventGroupOID: Oidref!
-    orderNumber: Integer
+    orderNumber: PositiveInteger
     mandatory: YesOrNo!
     collectionExceptionConditionOID: Oidref
+    descriptionRef: Description
   }
 
 type StudyEventRef
   {
     studyEventOID: Oidref!
-    orderNumber: Integer
+    orderNumber: PositiveInteger
     mandatory: YesOrNo!
     collectionExceptionConditionOID: Oidref
   }
@@ -921,6 +997,7 @@ type StudyIndication
 
 type StudyIndications
   {
+    studyIndicationRef: [StudyIndication]!
   }
 
 type StudyIntervention
@@ -932,24 +1009,26 @@ type StudyIntervention
 
 type StudyInterventionRef
   {
-    studyInterventionOID: String!
+    studyInterventionOID: Oidref!
   }
 
 type StudyInterventions
   {
+    studyInterventionRefRef: [StudyIntervention]!
   }
 
 type StudyObjective
   {
     oID: Oid!
     name: Name!
-    type: StudyObjectiveType
-    descriptionRef: Description!
+    type: StudyObjectiveLevel
+    descriptionRef: Description
     studyEndPointRefRef: [StudyEndPointRef]
   }
 
 type StudyObjectives
   {
+    studyObjectiveRef: [StudyObjective]!
   }
 
 type StudyParameter
@@ -957,7 +1036,7 @@ type StudyParameter
     oID: Oid!
     term: Name!
     shortName: Name
-    parameterValueRef: [ParameterValue]!
+    parameterValueRef: ParameterValue!
     codingRef: [Coding]
   }
 
@@ -971,6 +1050,7 @@ type StudyStructure
 
 type StudySummary
   {
+    studyParameterRef: [StudyParameter]!
   }
 
 type StudyTargetPopulation
@@ -999,6 +1079,7 @@ type StudyTiming
 
 type StudyTimings
   {
+    studyTimingRef: [StudyTiming]!
   }
 
 type SubClass
@@ -1010,25 +1091,30 @@ type SubClass
 type SubjectData
   {
     subjectKey: SubjectKey!
-    transactionType: TransactionType
+    transactionTypeRef: TransactionType
     investigatorRefRef: InvestigatorRef
     siteRefRef: SiteRef
     studyEventDataRef: [StudyEventData]
     queryRef: [Query]
+    auditRecordRef: AuditRecord
+    signatureRefRef: Signature
+    annotationRef: [Annotation]
   }
 
 type Suffix
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
 type SummaryMeasure
   {
+    descriptionRef: Description!
   }
 
 type SupplementalDoc
   {
+    documentRefRef: [DocumentRef]!
   }
 
 type TargetTransition
@@ -1061,23 +1147,26 @@ type TransitionTimingConstraint
     timepointTarget: DurationDatetime!
     timepointPreWindow: DurationDatetime
     timepointPostWindow: DurationDatetime
+    descriptionRef: Description
   }
 
 type TranslatedText
   {
     language: LanguageType
     type: Text!
+    content: ContentType
   }
 
 type TrialPhase
   {
-    value: TrialPhaseType!
+    valueRef: TrialPhaseType!
+    descriptionRef: Description
   }
 
 type User
   {
     oID: Oid!
-    userType: UserType
+    userTypeRef: UserType
     organizationOID: Oidref
     locationOID: Oidref
     userNameRef: UserName
@@ -1093,7 +1182,7 @@ type User
 
 type UserName
   {
-    content: Text
+    content: ContentType
     range: String
   }
 
@@ -1124,6 +1213,7 @@ type WhereClauseDef
   {
     oID: Oid!
     commentOID: Oidref
+    rangeCheckRef: [RangeCheck]!
   }
 
 type WhereClauseRef
@@ -1138,6 +1228,8 @@ type WorkflowDef
     descriptionRef: Description
     workflowStartRef: WorkflowStart!
     workflowEndRef: [WorkflowEnd]!
+    transitionRef: Transition
+    branchingRef: Branching
   }
 
 type WorkflowEnd

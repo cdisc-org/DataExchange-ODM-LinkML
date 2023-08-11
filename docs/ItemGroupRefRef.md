@@ -14,6 +14,7 @@ URI: [odm:ItemGroupRefRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRefRef)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [StudyEventDef](StudyEventDef.md) |  |  yes  |
+[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
 
 
 
@@ -55,6 +56,7 @@ rank: 1000
 alias: ItemGroupRefRef
 domain_of:
 - StudyEventDef
+- ItemGroupDef
 range: ItemGroupRef
 
 ```

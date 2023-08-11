@@ -9,15 +9,6 @@ URI: [odm:Dictionary](http://www.cdisc.org/ns/odm/v2.0/Dictionary)
 
 
 
-## Applicable Classes
-
-| Name | Description | Modifies Slot |
-| --- | --- | --- |
-[ExternalCodeList](ExternalCodeList.md) |  |  yes  |
-
-
-
-
 
 
 
@@ -53,8 +44,6 @@ name: Dictionary
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Dictionary
-domain_of:
-- ExternalCodeList
 range: DictionaryNameType
 
 ```

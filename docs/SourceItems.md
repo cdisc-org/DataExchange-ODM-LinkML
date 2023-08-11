@@ -48,6 +48,10 @@ URI: [odm:SourceItems](http://www.cdisc.org/ns/odm/v2.0/SourceItems)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/SourceItems](https://wiki.cdisc.org/display/ODM2/SourceItems)
+
 ## Identifier and Mapping Information
 
 
@@ -86,6 +90,8 @@ URI: [odm:SourceItems](http://www.cdisc.org/ns/odm/v2.0/SourceItems)
 ```yaml
 name: SourceItems
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SourceItems
 slots:
 - SourceItemRef
 - CodingRef
@@ -97,30 +103,32 @@ slot_usage:
     - SourceItems
     range: SourceItem
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:SourceItems
 
 ```
@@ -132,6 +140,8 @@ class_uri: odm:SourceItems
 ```yaml
 name: SourceItems
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SourceItems
 slot_usage:
   SourceItemRef:
     name: SourceItemRef
@@ -140,30 +150,32 @@ slot_usage:
     - SourceItems
     range: SourceItem
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   SourceItemRef:
     name: SourceItemRef
@@ -176,6 +188,8 @@ attributes:
     - SourceItems
     range: SourceItem
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -186,24 +200,24 @@ attributes:
     owner: SourceItems
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:SourceItems
 
 ```

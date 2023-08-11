@@ -9,7 +9,7 @@ URI: [odm:Alias](http://www.cdisc.org/ns/odm/v2.0/Alias)
 ```mermaid
  classDiagram
     class Alias
-      Alias : Context
+      Alias : ContextRef
         
       Alias : Name
         
@@ -26,7 +26,7 @@ URI: [odm:Alias](http://www.cdisc.org/ns/odm/v2.0/Alias)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Context](Context.md) | 1..1 <br/> [Text](Text.md) |  | direct |
+| [ContextRef](ContextRef.md) | 1..1 <br/> [Text](Text.md) |  | direct |
 | [Name](Name.md) | 1..1 <br/> [Text](Text.md) | General observation Sub Class | direct |
 
 
@@ -37,20 +37,23 @@ URI: [odm:Alias](http://www.cdisc.org/ns/odm/v2.0/Alias)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Protocol](Protocol.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
 | [StudyEventDef](StudyEventDef.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
 | [ItemGroupDef](ItemGroupDef.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
 | [ItemDef](ItemDef.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
 | [CodeList](CodeList.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
-| [ConditionDef](ConditionDef.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
-| [MethodDef](MethodDef.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
 | [CodeListItem](CodeListItem.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
-| [EnumeratedItem](EnumeratedItem.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
+| [MethodDef](MethodDef.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
+| [ConditionDef](ConditionDef.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
+| [Protocol](Protocol.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
 
 
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Alias](https://wiki.cdisc.org/display/ODM2/Alias)
 
 ## Identifier and Mapping Information
 
@@ -90,28 +93,39 @@ URI: [odm:Alias](http://www.cdisc.org/ns/odm/v2.0/Alias)
 ```yaml
 name: Alias
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Alias
 slots:
-- Context
+- ContextRef
 - Name
 slot_usage:
-  Context:
-    name: Context
+  ContextRef:
+    name: ContextRef
     domain_of:
-    - FormalExpression
     - Alias
+    - FormalExpression
     - ODMFileMetadata
     range: text
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -129,25 +143,11 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: text
     required: true
 class_uri: odm:Alias
-unique_keys:
-  UC-P-1:
-    unique_key_name: UC-P-1
-    unique_key_slots:
-    - Context
 
 ```
 </details>
@@ -158,25 +158,36 @@ unique_keys:
 ```yaml
 name: Alias
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Alias
 slot_usage:
-  Context:
-    name: Context
+  ContextRef:
+    name: ContextRef
     domain_of:
-    - FormalExpression
     - Alias
+    - FormalExpression
     - ODMFileMetadata
     range: text
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -194,29 +205,20 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: text
     required: true
 attributes:
-  Context:
-    name: Context
+  ContextRef:
+    name: ContextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Context
+    alias: ContextRef
     owner: Alias
     domain_of:
-    - FormalExpression
     - Alias
+    - FormalExpression
     - ODMFileMetadata
     range: text
     required: true
@@ -228,13 +230,22 @@ attributes:
     alias: Name
     owner: Alias
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -252,25 +263,11 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: text
     required: true
 class_uri: odm:Alias
-unique_keys:
-  UC-P-1:
-    unique_key_name: UC-P-1
-    unique_key_slots:
-    - Context
 
 ```
 </details>

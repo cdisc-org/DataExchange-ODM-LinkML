@@ -31,14 +31,18 @@ URI: [odm:Telecom](http://www.cdisc.org/ns/odm/v2.0/Telecom)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Organization](Organization.md) | [TelecomRef](TelecomRef.md) | range | [Telecom](Telecom.md) |
 | [User](User.md) | [TelecomRef](TelecomRef.md) | range | [Telecom](Telecom.md) |
+| [Organization](Organization.md) | [TelecomRef](TelecomRef.md) | range | [Telecom](Telecom.md) |
 | [Location](Location.md) | [TelecomRef](TelecomRef.md) | range | [Telecom](Telecom.md) |
 
 
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Telecom](https://wiki.cdisc.org/display/ODM2/Telecom)
 
 ## Identifier and Mapping Information
 
@@ -78,6 +82,8 @@ URI: [odm:Telecom](http://www.cdisc.org/ns/odm/v2.0/Telecom)
 ```yaml
 name: Telecom
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Telecom
 class_uri: odm:Telecom
 
 ```
@@ -89,6 +95,8 @@ class_uri: odm:Telecom
 ```yaml
 name: Telecom
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Telecom
 class_uri: odm:Telecom
 
 ```

@@ -41,6 +41,10 @@ URI: [odm:UserName](http://www.cdisc.org/ns/odm/v2.0/UserName)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/UserName](https://wiki.cdisc.org/display/ODM2/UserName)
+
 ## Identifier and Mapping Information
 
 
@@ -79,6 +83,8 @@ URI: [odm:UserName](http://www.cdisc.org/ns/odm/v2.0/UserName)
 ```yaml
 name: UserName
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/UserName
 slots:
 - _content
 slot_usage:
@@ -97,6 +103,8 @@ class_uri: odm:UserName
 ```yaml
 name: UserName
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/UserName
 slot_usage:
   range:
     name: range
@@ -110,6 +118,7 @@ attributes:
   alias: _content
   owner: UserName
   domain_of:
+  - TranslatedText
   - CheckValue
   - Code
   - WorkflowEnd
@@ -134,8 +143,8 @@ attributes:
   - FlagValue
   - FlagType
   - Value
-  - TranslatedText
   range: _contentType
+  inlined: true
 class_uri: odm:UserName
 
 ```

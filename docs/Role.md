@@ -13,8 +13,8 @@ URI: [odm:Role](http://www.cdisc.org/ns/odm/v2.0/Role)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Organization](Organization.md) |  |  yes  |
 [ItemRef](ItemRef.md) |  |  yes  |
+[Organization](Organization.md) |  |  yes  |
 [Location](Location.md) |  |  yes  |
 
 
@@ -56,8 +56,8 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Role
 domain_of:
-- Organization
 - ItemRef
+- Organization
 - Location
 range: text
 

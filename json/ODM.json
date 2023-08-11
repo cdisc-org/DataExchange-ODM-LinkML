@@ -539,7 +539,7 @@
       }
     },
     {
-      "name": "StudyObjectiveType",
+      "name": "StudyObjectiveLevel",
       "xs:restriction": {
         "base": "xs:string",
         "xs:enumeration": [
@@ -548,6 +548,9 @@
           },
           {
             "value": "Secondary"
+          },
+          {
+            "value": "Exploratory"
           }
         ]
       }
@@ -556,7 +559,7 @@
       "name": "TrialPhaseType",
       "xs:annotation": {
         "xs:documentation": [
-          "A terminology codelist relevant to the phase, or stage, of the clinical trial."
+          "A terminology codelist relevant to the phase, or stage, of the\n                clinical trial."
         ],
         "xs:appinfo": [
           {
@@ -797,6 +800,23 @@
           },
           {
             "value": "Composite"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StudyEndPointLevel",
+      "xs:restriction": {
+        "base": "xs:string",
+        "xs:enumeration": [
+          {
+            "value": "Primary"
+          },
+          {
+            "value": "Secondary"
+          },
+          {
+            "value": "Exploratory"
           }
         ]
       }
@@ -1183,6 +1203,65 @@
       }
     },
     {
+      "name": "DefCoreType",
+      "xs:restriction": {
+        "base": "xs:string",
+        "xs:enumeration": [
+          {
+            "value": "Cond"
+          },
+          {
+            "value": "Exp"
+          },
+          {
+            "value": "Perm"
+          },
+          {
+            "value": "Req"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ODMCoreType",
+      "xs:restriction": {
+        "base": "xs:string",
+        "xs:enumeration": [
+          {
+            "value": "HR"
+          },
+          {
+            "value": "O"
+          },
+          {
+            "value": "R/C"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CoreType",
+      "xs:annotation": {
+        "xs:documentation": [
+          "Core."
+        ]
+      },
+      "xs:union": {
+        "xs:simpleType": [
+          {
+            "xs:restriction": {
+              "base": "DefCoreType"
+            }
+          },
+          {
+            "xs:restriction": {
+              "base": "ODMCoreType"
+            }
+          }
+        ]
+      }
+    },
+    {
       "name": "OriginSource",
       "xs:restriction": {
         "base": "xs:string",
@@ -1389,7 +1468,7 @@
       "name": "StandardName",
       "xs:annotation": {
         "xs:documentation": [
-          "Terminology relevant to the name of the standard described in the Define-XML\n                document."
+          "Terminology relevant to the name of the standard described in the\n                Define-XML document."
         ],
         "xs:appinfo": [
           {
@@ -1709,7 +1788,7 @@
       "name": "StandardType",
       "xs:annotation": {
         "xs:documentation": [
-          "Terminology relevant to the classification of the standard described in the\n                Define-XML document."
+          "Terminology relevant to the classification of the standard described\n                in the Define-XML document."
         ],
         "xs:appinfo": [
           {
@@ -1762,7 +1841,7 @@
       "name": "DictionaryNameType",
       "xs:annotation": {
         "xs:documentation": [
-          "A name given to a reference source that lists words and gives their meaning.\n                (NCI)"
+          "A name given to a reference source that lists words and gives their\n                meaning. (NCI)"
         ],
         "xs:appinfo": [
           {
@@ -1779,7 +1858,7 @@
         "xs:simpleType": [
           {
             "xs:restriction": {
-              "base": "odm:text",
+              "base": "xs:string",
               "xs:enumeration": [
                 {
                   "value": "CDISC CT",
@@ -2385,6 +2464,21 @@
           "name": "ProtocolName",
           "type": "name",
           "use": "required"
+        },
+        {
+          "name": "VersionID",
+          "type": "name",
+          "use": "optional"
+        },
+        {
+          "name": "VersionName",
+          "type": "name",
+          "use": "optional"
+        },
+        {
+          "name": "Status",
+          "type": "name",
+          "use": "optional"
         }
       ]
     },
@@ -2563,7 +2657,7 @@
         },
         {
           "name": "FirstPage",
-          "type": "integer",
+          "type": "positiveInteger",
           "use": "optional",
           "xs:annotation": {
             "xs:documentation": [
@@ -2573,7 +2667,7 @@
         },
         {
           "name": "LastPage",
-          "type": "integer",
+          "type": "positiveInteger",
           "use": "optional",
           "xs:annotation": {
             "xs:documentation": [
@@ -2637,7 +2731,7 @@
         },
         {
           "name": "OrderNumber",
-          "type": "integer",
+          "type": "positiveInteger",
           "use": "optional"
         },
         {
@@ -2872,7 +2966,7 @@
         },
         {
           "name": "KeySequence",
-          "type": "integer",
+          "type": "positiveInteger",
           "use": "optional"
         },
         {
@@ -2913,6 +3007,16 @@
         {
           "name": "RoleCodeListOID",
           "type": "oidref",
+          "use": "optional"
+        },
+        {
+          "name": "Core",
+          "type": "CoreType",
+          "use": "optional"
+        },
+        {
+          "name": "PreSpecifiedValue",
+          "type": "text",
           "use": "optional"
         }
       ]
@@ -3049,6 +3153,11 @@
           "use": "optional"
         },
         {
+          "name": "VariableSet",
+          "type": "text",
+          "use": "optional"
+        },
+        {
           "name": "CommentOID",
           "type": "oidref",
           "use": "optional"
@@ -3150,7 +3259,7 @@
         },
         {
           "name": "OrderNumber",
-          "type": "integer",
+          "type": "positiveInteger",
           "use": "optional"
         },
         {
@@ -3200,7 +3309,7 @@
       "xs:attribute": [
         {
           "name": "OrderNumber",
-          "type": "integer",
+          "type": "positiveInteger",
           "use": "optional"
         },
         {
@@ -3225,21 +3334,6 @@
         },
         {
           "name": "Version",
-          "type": "text",
-          "use": "optional"
-        }
-      ]
-    },
-    {
-      "name": "ExternalCodeListAttributeDefinition",
-      "xs:attribute": [
-        {
-          "name": "href",
-          "type": "xs:anyURI",
-          "use": "optional"
-        },
-        {
-          "name": "ref",
           "type": "text",
           "use": "optional"
         }
@@ -3290,7 +3384,7 @@
         },
         {
           "name": "OrderNumber",
-          "type": "integer",
+          "type": "positiveInteger",
           "use": "optional"
         }
       ]
@@ -3315,7 +3409,7 @@
         },
         {
           "name": "OrderNumber",
-          "type": "integer",
+          "type": "positiveInteger",
           "use": "optional"
         }
       ]
@@ -3440,7 +3534,7 @@
         },
         {
           "name": "Type",
-          "type": "StudyObjectiveType",
+          "type": "StudyObjectiveLevel",
           "use": "optional"
         }
       ]
@@ -3455,7 +3549,7 @@
         },
         {
           "name": "OrderNumber",
-          "type": "integer",
+          "type": "positiveInteger",
           "use": "optional"
         }
       ]
@@ -3476,6 +3570,11 @@
         {
           "name": "Type",
           "type": "StudyEndPointType",
+          "use": "optional"
+        },
+        {
+          "name": "Level",
+          "type": "StudyEndPointLevel",
           "use": "optional"
         }
       ]
@@ -3525,6 +3624,7 @@
       "xs:attribute": [
         {
           "name": "StudyInterventionOID",
+          "type": "oidref",
           "use": "required"
         }
       ]
@@ -4225,7 +4325,7 @@
         },
         {
           "name": "ItemGroupDataSeq",
-          "type": "integer",
+          "type": "positiveInteger",
           "use": "optional"
         }
       ]
@@ -4446,7 +4546,7 @@
       "xs:attribute": [
         {
           "name": "SeqNum",
-          "type": "integer",
+          "type": "positiveInteger",
           "use": "required"
         },
         {
@@ -4497,7 +4597,7 @@
         {
           "name": "Code",
           "type": "text",
-          "use": "required"
+          "use": "optional"
         },
         {
           "name": "System",
@@ -4521,6 +4621,11 @@
         },
         {
           "name": "href",
+          "type": "xs:anyURI",
+          "use": "optional"
+        },
+        {
+          "name": "ref",
           "type": "xs:anyURI",
           "use": "optional"
         },
@@ -4891,13 +4996,25 @@
       "name": "ValueListRefAttributeExtension"
     },
     {
-      "name": "ExternalCodeListAttributeExtension"
-    },
-    {
       "name": "ItemDefAttributeExtension"
     },
     {
       "name": "QuestionAttributeExtension"
+    },
+    {
+      "name": "DefinitionAttributeExtension"
+    },
+    {
+      "name": "PromptAttributeExtension"
+    },
+    {
+      "name": "CRFCompletionInstructionsAttributeExtension"
+    },
+    {
+      "name": "ImplementationNotesAttributeExtension"
+    },
+    {
+      "name": "CDISCNotesAttributeExtension"
     },
     {
       "name": "RangeCheckAttributeExtension"
@@ -4913,9 +5030,6 @@
     },
     {
       "name": "DecodeAttributeExtension"
-    },
-    {
-      "name": "EnumeratedItemAttributeExtension"
     },
     {
       "name": "ExternalCodeLibAttributeExtension"
@@ -5058,7 +5172,7 @@
             "nillable": false
           },
           {
-            "ref": "Branching ",
+            "ref": "Branching",
             "minOccurs": 0,
             "maxOccurs": 1,
             "nillable": false
@@ -5452,6 +5566,26 @@
       "xs:sequence": null
     },
     {
+      "name": "DefinitionElementExtension",
+      "xs:sequence": null
+    },
+    {
+      "name": "PromptElementExtension",
+      "xs:sequence": null
+    },
+    {
+      "name": "CRFCompletionInstructionsElementExtension",
+      "xs:sequence": null
+    },
+    {
+      "name": "ImplementationNotesElementExtension",
+      "xs:sequence": null
+    },
+    {
+      "name": "CDISCNotesElementExtension",
+      "xs:sequence": null
+    },
+    {
       "name": "RangeCheckElementExtension",
       "xs:sequence": null
     },
@@ -5477,10 +5611,6 @@
     },
     {
       "name": "DecodeElementExtension",
-      "xs:sequence": null
-    },
-    {
-      "name": "ExternalCodeListElementExtension",
       "xs:sequence": null
     },
     {
@@ -5573,10 +5703,6 @@
     },
     {
       "name": "ConditionDefElementExtension",
-      "xs:sequence": null
-    },
-    {
-      "name": "EnumeratedItemElementExtension",
       "xs:sequence": null
     },
     {
@@ -6717,7 +6843,37 @@
             "nillable": false
           },
           {
+            "ref": "Definition",
+            "minOccurs": 0,
+            "maxOccurs": 1,
+            "nillable": false
+          },
+          {
             "ref": "Question",
+            "minOccurs": 0,
+            "maxOccurs": 1,
+            "nillable": false
+          },
+          {
+            "ref": "Prompt",
+            "minOccurs": 0,
+            "maxOccurs": 1,
+            "nillable": false
+          },
+          {
+            "ref": "CRFCompletionInstructions",
+            "minOccurs": 0,
+            "maxOccurs": 1,
+            "nillable": false
+          },
+          {
+            "ref": "ImplementationNotes",
+            "minOccurs": 0,
+            "maxOccurs": 1,
+            "nillable": false
+          },
+          {
+            "ref": "CDISCNotes",
             "minOccurs": 0,
             "maxOccurs": 1,
             "nillable": false
@@ -6790,6 +6946,131 @@
       "xs:attributeGroup": [
         {
           "ref": "QuestionAttributeExtension"
+        }
+      ]
+    },
+    {
+      "name": "ODMcomplexTypeDefinition-Definition",
+      "abstract": false,
+      "mixed": false,
+      "xs:sequence": {
+        "maxOccurs": 1,
+        "minOccurs": 1,
+        "xs:element": {
+          "ref": "TranslatedText",
+          "maxOccurs": "unbounded",
+          "minOccurs": 1,
+          "nillable": false
+        },
+        "xs:group": {
+          "ref": "DefinitionElementExtension",
+          "minOccurs": 0,
+          "maxOccurs": "unbounded"
+        }
+      },
+      "xs:attributeGroup": [
+        {
+          "ref": "DefinitionAttributeExtension"
+        }
+      ]
+    },
+    {
+      "name": "ODMcomplexTypeDefinition-Prompt",
+      "abstract": false,
+      "mixed": false,
+      "xs:sequence": {
+        "maxOccurs": 1,
+        "minOccurs": 1,
+        "xs:element": {
+          "ref": "TranslatedText",
+          "maxOccurs": "unbounded",
+          "minOccurs": 1,
+          "nillable": false
+        },
+        "xs:group": {
+          "ref": "PromptElementExtension",
+          "minOccurs": 0,
+          "maxOccurs": "unbounded"
+        }
+      },
+      "xs:attributeGroup": [
+        {
+          "ref": "PromptAttributeExtension"
+        }
+      ]
+    },
+    {
+      "name": "ODMcomplexTypeDefinition-CRFCompletionInstructions",
+      "abstract": false,
+      "mixed": false,
+      "xs:sequence": {
+        "maxOccurs": 1,
+        "minOccurs": 1,
+        "xs:element": {
+          "ref": "TranslatedText",
+          "maxOccurs": "unbounded",
+          "minOccurs": 1,
+          "nillable": false
+        },
+        "xs:group": {
+          "ref": "CRFCompletionInstructionsElementExtension",
+          "minOccurs": 0,
+          "maxOccurs": "unbounded"
+        }
+      },
+      "xs:attributeGroup": [
+        {
+          "ref": "CRFCompletionInstructionsAttributeExtension"
+        }
+      ]
+    },
+    {
+      "name": "ODMcomplexTypeDefinition-ImplementationNotes",
+      "abstract": false,
+      "mixed": false,
+      "xs:sequence": {
+        "maxOccurs": 1,
+        "minOccurs": 1,
+        "xs:element": {
+          "ref": "TranslatedText",
+          "maxOccurs": "unbounded",
+          "minOccurs": 1,
+          "nillable": false
+        },
+        "xs:group": {
+          "ref": "ImplementationNotesElementExtension",
+          "minOccurs": 0,
+          "maxOccurs": "unbounded"
+        }
+      },
+      "xs:attributeGroup": [
+        {
+          "ref": "ImplementationNotesAttributeExtension"
+        }
+      ]
+    },
+    {
+      "name": "ODMcomplexTypeDefinition-CDISCNotes",
+      "abstract": false,
+      "mixed": false,
+      "xs:sequence": {
+        "maxOccurs": 1,
+        "minOccurs": 1,
+        "xs:element": {
+          "ref": "TranslatedText",
+          "maxOccurs": "unbounded",
+          "minOccurs": 1,
+          "nillable": false
+        },
+        "xs:group": {
+          "ref": "CDISCNotesElementExtension",
+          "minOccurs": 0,
+          "maxOccurs": "unbounded"
+        }
+      },
+      "xs:attributeGroup": [
+        {
+          "ref": "CDISCNotesAttributeExtension"
         }
       ]
     },
@@ -6948,9 +7229,9 @@
             "nillable": false
           },
           {
-            "ref": "ExternalCodeList",
+            "ref": "CodeListItem",
             "minOccurs": 0,
-            "maxOccurs": 1,
+            "maxOccurs": "unbounded",
             "nillable": false
           },
           {
@@ -6966,24 +7247,6 @@
             "nillable": false
           }
         ],
-        "xs:choice": {
-          "maxOccurs": 1,
-          "minOccurs": 1,
-          "xs:element": [
-            {
-              "ref": "CodeListItem",
-              "minOccurs": 0,
-              "maxOccurs": "unbounded",
-              "nillable": false
-            },
-            {
-              "ref": "EnumeratedItem",
-              "minOccurs": 0,
-              "maxOccurs": "unbounded",
-              "nillable": false
-            }
-          ]
-        },
         "xs:group": {
           "ref": "CodeListElementExtension",
           "minOccurs": 0,
@@ -6996,31 +7259,6 @@
         },
         {
           "ref": "CodeListAttributeExtension"
-        }
-      ]
-    },
-    {
-      "name": "ODMcomplexTypeDefinition-ExternalCodeList",
-      "abstract": false,
-      "mixed": false,
-      "xs:sequence": {
-        "maxOccurs": 1,
-        "minOccurs": 1,
-        "xs:group": {
-          "ref": "ExternalCodeListElementExtension",
-          "minOccurs": 0,
-          "maxOccurs": "unbounded"
-        }
-      },
-      "xs:attributeGroup": [
-        {
-          "ref": "ExternalSharedAttributeDefinition"
-        },
-        {
-          "ref": "ExternalCodeListAttributeDefinition"
-        },
-        {
-          "ref": "ExternalCodeListAttributeExtension"
         }
       ]
     },
@@ -7040,8 +7278,8 @@
           },
           {
             "ref": "Decode",
+            "minOccurs": 0,
             "maxOccurs": 1,
-            "minOccurs": 1,
             "nillable": false
           },
           {
@@ -7094,48 +7332,6 @@
       "xs:attributeGroup": [
         {
           "ref": "DecodeAttributeExtension"
-        }
-      ]
-    },
-    {
-      "name": "ODMcomplexTypeDefinition-EnumeratedItem",
-      "abstract": false,
-      "mixed": false,
-      "xs:sequence": {
-        "maxOccurs": 1,
-        "minOccurs": 1,
-        "xs:element": [
-          {
-            "ref": "Description",
-            "minOccurs": 0,
-            "maxOccurs": 1,
-            "nillable": false
-          },
-          {
-            "ref": "Coding",
-            "minOccurs": 0,
-            "maxOccurs": "unbounded",
-            "nillable": false
-          },
-          {
-            "ref": "Alias",
-            "minOccurs": 0,
-            "maxOccurs": "unbounded",
-            "nillable": false
-          }
-        ],
-        "xs:group": {
-          "ref": "EnumeratedItemElementExtension",
-          "minOccurs": 0,
-          "maxOccurs": "unbounded"
-        }
-      },
-      "xs:attributeGroup": [
-        {
-          "ref": "CodeListItemAttributeDefinition"
-        },
-        {
-          "ref": "EnumeratedItemAttributeExtension"
         }
       ]
     },
@@ -7778,7 +7974,7 @@
         "xs:element": [
           {
             "ref": "Description",
-            "minOccurs": 1,
+            "minOccurs": 0,
             "maxOccurs": 1,
             "nillable": false
           },
@@ -8089,12 +8285,20 @@
       "xs:sequence": {
         "maxOccurs": 1,
         "minOccurs": 1,
-        "xs:element": {
-          "ref": "Description",
-          "minOccurs": 0,
-          "maxOccurs": 1,
-          "nillable": false
-        },
+        "xs:element": [
+          {
+            "ref": "Description",
+            "minOccurs": 0,
+            "maxOccurs": 1,
+            "nillable": false
+          },
+          {
+            "ref": "Coding",
+            "minOccurs": 0,
+            "maxOccurs": "unbounded",
+            "nillable": false
+          }
+        ],
         "xs:group": {
           "ref": "CriterionElementExtension",
           "minOccurs": 0,
@@ -8297,8 +8501,8 @@
         "xs:element": [
           {
             "ref": "ParameterValue",
-            "maxOccurs": "unbounded",
             "minOccurs": 1,
+            "maxOccurs": 1,
             "nillable": false
           },
           {
@@ -10280,7 +10484,7 @@
           {
             "ref": "AuditRecord",
             "minOccurs": 0,
-            "maxOccurs": 1,
+            "maxOccurs": "unbounded",
             "nillable": false
           }
         ],
@@ -10779,6 +10983,106 @@
       }
     },
     {
+      "name": "Definition",
+      "type": "ODMcomplexTypeDefinition-Definition",
+      "abstract": false,
+      "nillable": false,
+      "xs:unique": {
+        "name": "UC-DEF-1",
+        "xs:selector": {
+          "xpath": "odm:TranslatedText"
+        },
+        "xs:field": [
+          {
+            "xpath": "@type"
+          },
+          {
+            "xpath": "@xml:lang"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Prompt",
+      "type": "ODMcomplexTypeDefinition-Prompt",
+      "abstract": false,
+      "nillable": false,
+      "xs:unique": {
+        "name": "UC-PR-1",
+        "xs:selector": {
+          "xpath": "odm:TranslatedText"
+        },
+        "xs:field": [
+          {
+            "xpath": "@type"
+          },
+          {
+            "xpath": "@xml:lang"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CRFCompletionInstructions",
+      "type": "ODMcomplexTypeDefinition-CRFCompletionInstructions",
+      "abstract": false,
+      "nillable": false,
+      "xs:unique": {
+        "name": "UC-CRFCI-1",
+        "xs:selector": {
+          "xpath": "odm:TranslatedText"
+        },
+        "xs:field": [
+          {
+            "xpath": "@type"
+          },
+          {
+            "xpath": "@xml:lang"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ImplementationNotes",
+      "type": "ODMcomplexTypeDefinition-ImplementationNotes",
+      "abstract": false,
+      "nillable": false,
+      "xs:unique": {
+        "name": "UC-IMPLN-1",
+        "xs:selector": {
+          "xpath": "odm:TranslatedText"
+        },
+        "xs:field": [
+          {
+            "xpath": "@type"
+          },
+          {
+            "xpath": "@xml:lang"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CDISCNotes",
+      "type": "ODMcomplexTypeDefinition-CDISCNotes",
+      "abstract": false,
+      "nillable": false,
+      "xs:unique": {
+        "name": "UC-CDISCN-1",
+        "xs:selector": {
+          "xpath": "odm:TranslatedText"
+        },
+        "xs:field": [
+          {
+            "xpath": "@type"
+          },
+          {
+            "xpath": "@xml:lang"
+          }
+        ]
+      }
+    },
+    {
       "name": "RangeCheck",
       "type": "ODMcomplexTypeDefinition-RangeCheck",
       "abstract": false,
@@ -10851,28 +11155,6 @@
           ]
         },
         {
-          "name": "UC-CL-3",
-          "xs:selector": {
-            "xpath": "odm:EnumeratedItem"
-          },
-          "xs:field": [
-            {
-              "xpath": "@CodedValue"
-            }
-          ]
-        },
-        {
-          "name": "UC-CL-4",
-          "xs:selector": {
-            "xpath": "odm:EnumeratedItem"
-          },
-          "xs:field": [
-            {
-              "xpath": "@OrderNumber"
-            }
-          ]
-        },
-        {
           "name": "UC-CL-5",
           "xs:selector": {
             "xpath": "odm:Alias"
@@ -10921,29 +11203,6 @@
           }
         ]
       }
-    },
-    {
-      "name": "EnumeratedItem",
-      "type": "ODMcomplexTypeDefinition-EnumeratedItem",
-      "abstract": false,
-      "nillable": false,
-      "xs:unique": {
-        "name": "UC-ENU-1",
-        "xs:selector": {
-          "xpath": "odm:Alias"
-        },
-        "xs:field": [
-          {
-            "xpath": "@Context"
-          }
-        ]
-      }
-    },
-    {
-      "name": "ExternalCodeList",
-      "type": "ODMcomplexTypeDefinition-ExternalCodeList",
-      "abstract": false,
-      "nillable": false
     },
     {
       "name": "MethodDef",

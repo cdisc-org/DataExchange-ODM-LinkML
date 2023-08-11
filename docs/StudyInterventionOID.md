@@ -23,7 +23,7 @@ URI: [odm:StudyInterventionOID](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 
 ## Properties
 
-* Range: [String](String.md)
+* Range: [Oidref](Oidref.md)
 
 
 
@@ -55,7 +55,7 @@ rank: 1000
 alias: StudyInterventionOID
 domain_of:
 - StudyInterventionRef
-range: string
+range: oidref
 
 ```
 </details>

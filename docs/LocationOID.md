@@ -13,10 +13,10 @@ URI: [odm:LocationOID](http://www.cdisc.org/ns/odm/v2.0/LocationOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[User](User.md) |  |  yes  |
 [Organization](Organization.md) |  |  yes  |
 [SiteRef](SiteRef.md) |  |  yes  |
 [LocationRef](LocationRef.md) |  |  yes  |
-[User](User.md) |  |  yes  |
 
 
 
@@ -57,10 +57,10 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: LocationOID
 domain_of:
+- User
 - Organization
 - SiteRef
 - LocationRef
-- User
 range: oidref
 
 ```

@@ -26,15 +26,6 @@ URI: [WorkflowTransitionGroupDefinition](WorkflowTransitionGroupDefinition)
 
 | Class | Description |
 | --- | --- |
-| [Transition](Transition.md) |  |
-
-
-### Transition
-
-None
-
-| Name | Cardinality and Range  | Description  |
-| ---  | ---  | --- |
 
 
 

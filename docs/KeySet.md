@@ -62,6 +62,10 @@ URI: [odm:KeySet](http://www.cdisc.org/ns/odm/v2.0/KeySet)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/KeySet](https://wiki.cdisc.org/display/ODM2/KeySet)
+
 ## Identifier and Mapping Information
 
 
@@ -100,6 +104,8 @@ URI: [odm:KeySet](http://www.cdisc.org/ns/odm/v2.0/KeySet)
 ```yaml
 name: KeySet
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/KeySet
 slots:
 - StudyOID
 - SubjectKey
@@ -129,7 +135,6 @@ slot_usage:
     - SubjectData
     - KeySet
     range: subjectKey
-    required: false
   MetaDataVersionOID:
     name: MetaDataVersionOID
     domain_of:
@@ -141,7 +146,6 @@ slot_usage:
     - Association
     - KeySet
     range: oidref
-    required: false
   StudyEventOID:
     name: StudyEventOID
     domain_of:
@@ -150,40 +154,35 @@ slot_usage:
     - StudyEventData
     - KeySet
     range: oidref
-    required: false
   StudyEventRepeatKey:
     name: StudyEventRepeatKey
     domain_of:
     - StudyEventData
     - KeySet
     range: repeatKey
-    required: false
   ItemGroupOID:
     name: ItemGroupOID
     domain_of:
+    - ItemGroupRef
     - SourceItem
     - ItemGroupData
     - KeySet
-    - ItemGroupRef
     range: oidref
-    required: false
   ItemGroupRepeatKey:
     name: ItemGroupRepeatKey
     domain_of:
     - ItemGroupData
     - KeySet
     range: repeatKey
-    required: false
   ItemOID:
     name: ItemOID
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
-    required: false
 class_uri: odm:KeySet
 
 ```
@@ -195,6 +194,8 @@ class_uri: odm:KeySet
 ```yaml
 name: KeySet
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/KeySet
 slot_usage:
   StudyOID:
     name: StudyOID
@@ -215,7 +216,6 @@ slot_usage:
     - SubjectData
     - KeySet
     range: subjectKey
-    required: false
   MetaDataVersionOID:
     name: MetaDataVersionOID
     domain_of:
@@ -227,7 +227,6 @@ slot_usage:
     - Association
     - KeySet
     range: oidref
-    required: false
   StudyEventOID:
     name: StudyEventOID
     domain_of:
@@ -236,40 +235,35 @@ slot_usage:
     - StudyEventData
     - KeySet
     range: oidref
-    required: false
   StudyEventRepeatKey:
     name: StudyEventRepeatKey
     domain_of:
     - StudyEventData
     - KeySet
     range: repeatKey
-    required: false
   ItemGroupOID:
     name: ItemGroupOID
     domain_of:
+    - ItemGroupRef
     - SourceItem
     - ItemGroupData
     - KeySet
-    - ItemGroupRef
     range: oidref
-    required: false
   ItemGroupRepeatKey:
     name: ItemGroupRepeatKey
     domain_of:
     - ItemGroupData
     - KeySet
     range: repeatKey
-    required: false
   ItemOID:
     name: ItemOID
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
-    required: false
 attributes:
   StudyOID:
     name: StudyOID
@@ -298,7 +292,6 @@ attributes:
     - SubjectData
     - KeySet
     range: subjectKey
-    required: false
   MetaDataVersionOID:
     name: MetaDataVersionOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -314,7 +307,6 @@ attributes:
     - Association
     - KeySet
     range: oidref
-    required: false
   StudyEventOID:
     name: StudyEventOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -327,7 +319,6 @@ attributes:
     - StudyEventData
     - KeySet
     range: oidref
-    required: false
   StudyEventRepeatKey:
     name: StudyEventRepeatKey
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -338,7 +329,6 @@ attributes:
     - StudyEventData
     - KeySet
     range: repeatKey
-    required: false
   ItemGroupOID:
     name: ItemGroupOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -346,12 +336,11 @@ attributes:
     alias: ItemGroupOID
     owner: KeySet
     domain_of:
+    - ItemGroupRef
     - SourceItem
     - ItemGroupData
     - KeySet
-    - ItemGroupRef
     range: oidref
-    required: false
   ItemGroupRepeatKey:
     name: ItemGroupRepeatKey
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -362,7 +351,6 @@ attributes:
     - ItemGroupData
     - KeySet
     range: repeatKey
-    required: false
   ItemOID:
     name: ItemOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -370,13 +358,12 @@ attributes:
     alias: ItemOID
     owner: KeySet
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
-    required: false
 class_uri: odm:KeySet
 
 ```

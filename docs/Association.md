@@ -37,6 +37,7 @@ URI: [odm:Association](http://www.cdisc.org/ns/odm/v2.0/Association)
 | [StudyOID](StudyOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
 | [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
 | [KeySetRef](KeySetRef.md) | 1..1 <br/> [KeySet](KeySet.md) |  | direct |
+| [KeySetRef](KeySetRef.md) | 1..1 <br/> [KeySet](KeySet.md) |  | direct |
 | [AnnotationRef](AnnotationRef.md) | 1..1 <br/> [Annotation](Annotation.md) |  | direct |
 
 
@@ -53,6 +54,10 @@ URI: [odm:Association](http://www.cdisc.org/ns/odm/v2.0/Association)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Association](https://wiki.cdisc.org/display/ODM2/Association)
 
 ## Identifier and Mapping Information
 
@@ -92,9 +97,12 @@ URI: [odm:Association](http://www.cdisc.org/ns/odm/v2.0/Association)
 ```yaml
 name: Association
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Association
 slots:
 - StudyOID
 - MetaDataVersionOID
+- KeySetRef
 - KeySetRef
 - AnnotationRef
 slot_usage:
@@ -134,6 +142,12 @@ slot_usage:
   AnnotationRef:
     name: AnnotationRef
     domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
     - Association
     range: Annotation
     required: true
@@ -150,6 +164,8 @@ class_uri: odm:Association
 ```yaml
 name: Association
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Association
 slot_usage:
   StudyOID:
     name: StudyOID
@@ -187,6 +203,12 @@ slot_usage:
   AnnotationRef:
     name: AnnotationRef
     domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
     - Association
     range: Annotation
     required: true
@@ -245,6 +267,12 @@ attributes:
     alias: AnnotationRef
     owner: Association
     domain_of:
+    - ReferenceData
+    - ClinicalData
+    - SubjectData
+    - StudyEventData
+    - ItemGroupData
+    - ItemData
     - Association
     range: Annotation
     required: true

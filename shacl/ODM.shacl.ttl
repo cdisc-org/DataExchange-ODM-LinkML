@@ -1,8 +1,255 @@
 @prefix odm: <http://www.cdisc.org/ns/odm/v2.0/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix xhtml: <http://www.w3.org/1999/xhtml> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+odm:EntryCriteria a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:Criterion ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:CriterionRef ] ;
+    sh:targetClass odm:EntryCriteria .
+
+odm:ExceptionEvent a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:WorkflowRef ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:WorkflowRefRef ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:class odm:StudyEventGroupRef ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path odm:StudyEventGroupRefRef ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ],
+        [ sh:class odm:StudyEventRef ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:StudyEventRefRef ],
+        [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:ConditionOID ] ;
+    sh:targetClass odm:ExceptionEvent .
+
+odm:ExitCriteria a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:Criterion ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:CriterionRef ] ;
+    sh:targetClass odm:ExitCriteria .
+
+odm:ODM a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:in ( "Archive" "Exchange" "Submission" ) ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:ContextRef ],
+        [ sh:class odm:ReferenceData ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 14 ;
+            sh:path odm:ReferenceDataRef ],
+        [ sh:in ( "All" "Metadata" "AdminData" "ReferenceData" "AllClinicalData" "SingleSite" "SingleSubject" ) ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:GranularityRef ],
+        [ sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path odm:SourceSystemVersion ],
+        [ sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path odm:Originator ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 11 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:class odm:Association ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 16 ;
+            sh:path odm:AssociationRef ],
+        [ sh:in ( "Snapshot" "Transactional" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:FileTypeRef ],
+        [ sh:class odm:Study ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path odm:StudyRef ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path odm:FileOID ],
+        [ sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path odm:ODMVersionRef ],
+        [ sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path odm:SourceSystem ],
+        [ sh:class odm:ClinicalData ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 15 ;
+            sh:path odm:ClinicalDataRef ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 4 ;
+            sh:path odm:CreationDateTime ],
+        [ sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path odm:PriorFileOID ],
+        [ sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path odm:AsOfDateTime ],
+        [ sh:class odm:AdminData ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 13 ;
+            sh:path odm:AdminDataRef ] ;
+    sh:targetClass odm:ODM .
+
+odm:AbsoluteTimingConstraint a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:StudyEventGroupOID ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path odm:TimepointPreWindow ],
+        [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:StudyEventOID ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 4 ;
+            sh:path odm:TimepointTarget ],
+        [ sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path odm:TimepointPostWindow ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ] ;
+    sh:targetClass odm:AbsoluteTimingConstraint .
+
+odm:AdminData a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path odm:StudyOID ],
+        [ sh:class odm:Location ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path odm:LocationRefRef ],
+        [ sh:class odm:Organization ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path odm:OrganizationRef ],
+        [ sh:class odm:SignatureDef ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path odm:SignatureDefRef ],
+        [ sh:class odm:User ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path odm:UserRefRef ] ;
+    sh:targetClass odm:AdminData .
+
+odm:AnnotatedCRF a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An Annotated Case Report Form (CRF) is a Portable File Format (PDF) document that provides the mapping of data collection fields to the variables or discrete variable values contained within the datasets." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:DocumentRef ;
+            sh:description "Links to a def:leaf element with the location of the document." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:DocumentRefRef ] ;
+    sh:targetClass odm:AnnotatedCRF .
+
+odm:Arm a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:class odm:WorkflowRef ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:WorkflowRefRef ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ] ;
+    sh:targetClass odm:Arm .
+
+odm:Association a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:MetaDataVersionOID ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:StudyOID ],
+        [ sh:class odm:KeySet ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path odm:KeySetRef ],
+        [ sh:class odm:Annotation ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path odm:AnnotationRef ] ;
+    sh:targetClass odm:Association .
 
 odm:Branching a sh:NodeShape ;
     sh:closed true ;
@@ -16,11 +263,6 @@ odm:Branching a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
             sh:path odm:DefaultTransitionRef ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
         [ sh:class odm:TargetTransition ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNode ;
@@ -31,8 +273,33 @@ odm:Branching a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 2 ;
-            sh:path odm:Type ] ;
+            sh:path odm:Type ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ] ;
     sh:targetClass odm:Branching .
+
+odm:CDISCNotes a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:TranslatedText ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path odm:TranslatedTextRef ] ;
+    sh:targetClass odm:CDISCNotes .
+
+odm:CRFCompletionInstructions a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:TranslatedText ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path odm:TranslatedTextRef ] ;
+    sh:targetClass odm:CRFCompletionInstructions .
 
 odm:CheckValue a sh:NodeShape ;
     sh:closed true ;
@@ -40,837 +307,8 @@ odm:CheckValue a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:CheckValue .
-
-odm:CodeListItem a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:in [ rdf:rest () ] ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:ExtendedValue ],
-        [ sh:class odm:Decode ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path odm:DecodeRef ],
-        [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
-                The Comment would define any join assumptions.""" ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path odm:CommentOID ],
-        [ sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:OrderNumber ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:CodedValue ],
-        [ sh:class odm:Alias ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 9 ;
-            sh:path odm:AliasRef ],
-        [ sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Rank ],
-        [ sh:class odm:Coding ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 8 ;
-            sh:path odm:CodingRef ],
-        [ sh:in [ rdf:rest () ] ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:Other ] ;
-    sh:targetClass odm:CodeListItem .
-
-odm:Criterion a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path odm:ConditionOID ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ] ;
-    sh:targetClass odm:Criterion .
-
-odm:EntryCriteria a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass odm:EntryCriteria .
-
-odm:EnumeratedItem a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:CodedValue ],
-        [ sh:in [ rdf:rest () ] ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:Other ],
-        [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
-                The Comment would define any join assumptions.""" ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path odm:CommentOID ],
-        [ sh:class odm:Coding ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path odm:CodingRef ],
-        [ sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Rank ],
-        [ sh:class odm:Alias ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 8 ;
-            sh:path odm:AliasRef ],
-        [ sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:OrderNumber ],
-        [ sh:in [ rdf:rest () ] ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:ExtendedValue ] ;
-    sh:targetClass odm:EnumeratedItem .
-
-odm:ErrorMessage a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass odm:ErrorMessage .
-
-odm:ExceptionEvent a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
-        [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:ConditionOID ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ] ;
-    sh:targetClass odm:ExceptionEvent .
-
-odm:ExitCriteria a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass odm:ExitCriteria .
-
-odm:ExternalCodeLib a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:Library ],
-        [ sh:description "Version of Standard." ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:Version ],
-        [ sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:ref ],
-        [ sh:description "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file." ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:href ],
-        [ sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Method ] ;
-    sh:targetClass odm:ExternalCodeLib .
-
-odm:ItemData a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:ItemOID ],
-        [ sh:in [ rdf:rest () ] ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:IsNull ],
-        [ sh:class odm:Value ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:ValueRef ],
-        [ sh:class odm:Query ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:QueryRef ],
-        [ sh:in ( "Insert" "Update" "Remove" "Upsert" "Context" ) ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:TransactionType ] ;
-    sh:targetClass odm:ItemData .
-
-odm:ODM a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:order 7 ;
-            sh:path odm:ODMVersion ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 4 ;
-            sh:path odm:CreationDateTime ],
-        [ sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path odm:PriorFileOID ],
-        [ sh:class odm:Association ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 16 ;
-            sh:path odm:AssociationRef ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 3 ;
-            sh:path odm:FileOID ],
-        [ sh:in ( "Archive" "Exchange" "Submission" ) ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:Context ],
-        [ sh:maxCount 1 ;
-            sh:order 8 ;
-            sh:path odm:Originator ],
-        [ sh:maxCount 1 ;
-            sh:order 9 ;
-            sh:path odm:SourceSystem ],
-        [ sh:class odm:AdminData ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 13 ;
-            sh:path odm:AdminDataRef ],
-        [ sh:class odm:Study ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 12 ;
-            sh:path odm:StudyRef ],
-        [ sh:class odm:ReferenceData ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 14 ;
-            sh:path odm:ReferenceDataRef ],
-        [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 11 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:in ( "All" "Metadata" "AdminData" "ReferenceData" "AllClinicalData" "SingleSite" "SingleSubject" ) ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Granularity ],
-        [ sh:in ( "Snapshot" "Transactional" ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:FileType ],
-        [ sh:class odm:ClinicalData ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 15 ;
-            sh:path odm:ClinicalDataRef ],
-        [ sh:maxCount 1 ;
-            sh:order 10 ;
-            sh:path odm:SourceSystemVersion ],
-        [ sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path odm:AsOfDateTime ] ;
-    sh:targetClass odm:ODM .
-
-odm:PDFPageRef a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "This element is the container for CRF page references." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "List of PDF pages separated by a space." ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path odm:PageRefs ],
-        [ sh:description "Text with the label for the document reference." ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:Title ],
-        [ sh:description "First page in a range of pages." ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:FirstPage ],
-        [ sh:description "Last page in a range of pages." ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:LastPage ],
-        [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
-            sh:in ( "NamedDestination" "PhysicalRef" ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 3 ;
-            sh:path odm:Type ] ;
-    sh:targetClass odm:PDFPageRef .
-
-odm:Selection a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:Path ] ;
-    sh:targetClass odm:Selection .
-
-odm:Signature a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:LocationRef ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:LocationRefRef ],
-        [ sh:class odm:SignatureRef ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:SignatureRefRef ],
-        [ sh:description "Unique identifier for the leaf that is referenced." ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path odm:ID ],
-        [ sh:class odm:DateTimeStamp ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:DateTimeStampRef ],
-        [ sh:class odm:UserRef ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path odm:UserRefRef ] ;
-    sh:targetClass odm:Signature .
-
-odm:Standard a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Version of Standard." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 4 ;
-            sh:path odm:Version ],
-        [ sh:description "General observation Sub Class." ;
-            sh:in ( <nci:ExtCodeID:C170552> <nci:ExtCodeID:C163415> <nci:ExtCodeID:C170455> <nci:ExtCodeID:C170553> <nci:ExtCodeID:C170554> <nci:ExtCodeID:C170456> <nci:ExtCodeID:C181230> <nci:ExtCodeID:C170556> ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
-        [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
-                The Comment would define any join assumptions.""" ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path odm:CommentOID ],
-        [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
-            sh:in ( <nci:ExtCodeID:C163415> <nci:ExtCodeID:C170454> ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path odm:Type ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:description "Status of Standard." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 5 ;
-            sh:path odm:Status ],
-        [ sh:description "Set of published files of Standard when Type=\"CT\" (e.g. SDTM, ADaM, SEND, CDASH, COA)." ;
-            sh:in ( <nci:ExtCodeID:C180548> <nci:ExtCodeID:C180549> <nci:ExtCodeID:C180550> <nci:ExtCodeID:C180551> <nci:ExtCodeID:C180552> ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:PublishingSet ] ;
-    sh:targetClass odm:Standard .
-
-odm:StudyEndPoint a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
-            sh:in ( "Simple" "Humane" "Surrogate" "Composite" ) ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:Type ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:class odm:FormalExpression ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:FormalExpressionRef ],
-        [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ] ;
-    sh:targetClass odm:StudyEndPoint .
-
-odm:StudyEstimand a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:IntercurrentEvent ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:IntercurrentEventRef ],
-        [ sh:class odm:StudyTargetPopulationRef ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:StudyTargetPopulationRefRef ],
-        [ sh:class odm:SummaryMeasure ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path odm:SummaryMeasureRef ],
-        [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:class odm:StudyEndPointRef ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path odm:StudyEndPointRefRef ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
-        [ sh:class odm:StudyInterventionRef ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:StudyInterventionRefRef ] ;
-    sh:targetClass odm:StudyEstimand .
-
-odm:StudyEventRef a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:in ( "Yes" "No" ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path odm:Mandatory ],
-        [ sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:CollectionExceptionConditionOID ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:StudyEventOID ],
-        [ sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:OrderNumber ] ;
-    sh:targetClass odm:StudyEventRef .
-
-odm:StudyIndication a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:class odm:Coding ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:CodingRef ] ;
-    sh:targetClass odm:StudyIndication .
-
-odm:StudyIntervention a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:class odm:Coding ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:CodingRef ] ;
-    sh:targetClass odm:StudyIntervention .
-
-odm:StudyObjective a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:StudyEndPointRef ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:StudyEndPointRefRef ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
-        [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
-            sh:in ( "Primary" "Secondary" ) ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:Type ] ;
-    sh:targetClass odm:StudyObjective .
-
-odm:StudyParameter a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:ShortName ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Term ],
-        [ sh:class odm:ParameterValue ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:ParameterValueRef ],
-        [ sh:class odm:Coding ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:CodingRef ] ;
-    sh:targetClass odm:StudyParameter .
-
-odm:StudyTiming a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:class odm:DurationTimingConstraint ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path odm:DurationTimingConstraintRef ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
-        [ sh:class odm:RelativeTimingConstraint ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:RelativeTimingConstraintRef ],
-        [ sh:class odm:TransitionTimingConstraint ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:TransitionTimingConstraintRef ],
-        [ sh:class odm:AbsoluteTimingConstraint ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:AbsoluteTimingConstraintRef ] ;
-    sh:targetClass odm:StudyTiming .
-
-odm:SubClass a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "This element contains SubClass definitions." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "General observation Sub Class." ;
-            sh:in ( <nci:ExtCodeID:C176265> <nci:ExtCodeID:C177920> <nci:ExtCodeID:C172452> <nci:ExtCodeID:C165637> ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:Name ],
-        [ sh:description "Parent class of the Sub Class" ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:ParentClass ] ;
-    sh:targetClass odm:SubClass .
-
-odm:Transition a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 3 ;
-            sh:path odm:TargetOID ],
-        [ sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path odm:EndConditionOID ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path odm:SourceOID ],
-        [ sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:StartConditionOID ] ;
-    sh:targetClass odm:Transition .
-
-odm:TranslatedText a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:type ],
-        [ sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path odm:_language ] ;
-    sh:targetClass odm:TranslatedText .
-
-odm:AbsoluteTimingConstraint a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:StudyEventOID ],
-        [ sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path odm:TimepointPreWindow ],
-        [ sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path odm:TimepointPostWindow ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 4 ;
-            sh:path odm:TimepointTarget ],
-        [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:StudyEventGroupOID ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ] ;
-    sh:targetClass odm:AbsoluteTimingConstraint .
-
-odm:AdminData a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path odm:StudyOID ],
-        [ sh:class odm:SignatureDef ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:SignatureDefRef ],
-        [ sh:class odm:User ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path odm:UserRef ],
-        [ sh:class odm:Location ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:LocationRef ],
-        [ sh:class odm:Organization ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:OrganizationRef ] ;
-    sh:targetClass odm:AdminData .
-
-odm:AnnotatedCRF a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "An Annotated Case Report Form (CRF) is a Portable File Format (PDF) document that provides the mapping of data collection fields to the variables or discrete variable values contained within the datasets." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass odm:AnnotatedCRF .
-
-odm:Annotation a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:Coding ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:CodingRef ],
-        [ sh:class odm:Comment ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:CommentRef ],
-        [ sh:class odm:Flag ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path odm:FlagRef ],
-        [ sh:in ( "Insert" "Update" "Remove" "Upsert" "Context" ) ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:TransactionType ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:SeqNum ],
-        [ sh:description "Unique identifier for the leaf that is referenced." ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:ID ] ;
-    sh:targetClass odm:Annotation .
-
-odm:Arm a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:class odm:WorkflowRef ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:WorkflowRefRef ] ;
-    sh:targetClass odm:Arm .
-
-odm:Association a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:KeySet ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:KeySetRef ],
-        [ sh:class odm:Annotation ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:AnnotationRef ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:MetaDataVersionOID ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:StudyOID ] ;
-    sh:targetClass odm:Association .
-
-odm:AuditRecord a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:DateTimeStamp ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:DateTimeStampRef ],
-        [ sh:in ( "Monitoring" "DataManagement" "DBAudit" ) ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path odm:EditPoint ],
-        [ sh:class odm:ReasonForChange ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path odm:ReasonForChangeRef ],
-        [ sh:class odm:LocationRef ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:LocationRefRef ],
-        [ sh:class odm:UserRef ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:UserRefRef ],
-        [ sh:in ( "Yes" "No" ) ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:UsedMethod ],
-        [ sh:class odm:SourceID ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:SourceIDRef ] ;
-    sh:targetClass odm:AuditRecord .
 
 odm:City a sh:NodeShape ;
     sh:closed true ;
@@ -878,7 +316,7 @@ odm:City a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:City .
 
 odm:Class a sh:NodeShape ;
@@ -889,32 +327,50 @@ odm:Class a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
-            sh:path odm:Name ] ;
+            sh:path odm:Name ],
+        [ sh:class odm:SubClass ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path odm:SubClassRef ] ;
     sh:targetClass odm:Class .
 
 odm:ClinicalData a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:SubjectData ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:SubjectDataRef ],
-        [ sh:class odm:Query ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:QueryRef ],
+    sh:property [ sh:class odm:Signature ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path odm:SignatureRefRef ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:StudyOID ],
+            sh:order 1 ;
+            sh:path odm:MetaDataVersionOID ],
+        [ sh:class odm:Annotation ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path odm:AnnotationRef ],
         [ sh:class odm:ItemGroupData ;
             sh:nodeKind sh:BlankNode ;
             sh:order 3 ;
             sh:path odm:ItemGroupDataRef ],
+        [ sh:class odm:AuditRecord ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path odm:AuditRecordRef ],
+        [ sh:class odm:Query ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path odm:QueryRef ],
+        [ sh:class odm:SubjectData ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path odm:SubjectDataRef ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:MetaDataVersionOID ] ;
+            sh:order 0 ;
+            sh:path odm:StudyOID ] ;
     sh:targetClass odm:ClinicalData .
 
 odm:Code a sh:NodeShape ;
@@ -923,49 +379,48 @@ odm:Code a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:Code .
 
 odm:CodeList a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:ExternalCodeList ;
+    sh:property [ sh:in [ rdf:rest () ] ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path odm:ExternalCodeListRef ],
+            sh:order 5 ;
+            sh:path odm:IsNonStandard ],
         [ sh:class odm:Alias ;
             sh:nodeKind sh:BlankNode ;
             sh:order 9 ;
             sh:path odm:AliasRef ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:class odm:Coding ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path odm:CodingRef ],
         [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
                 The Comment would define any join assumptions.""" ;
             sh:maxCount 1 ;
             sh:order 3 ;
             sh:path odm:CommentOID ],
-        [ sh:class odm:Coding ;
+        [ sh:class odm:CodeListItem ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 8 ;
-            sh:path odm:CodingRef ],
+            sh:order 7 ;
+            sh:path odm:CodeListItemRef ],
+        [ sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path odm:StandardOID ],
         [ sh:description """The DataType attribute specifies how the corresponding value
                     elements are to be interpreted for comparison and storage.""" ;
             sh:in ( "integer" "decimal" "text" "string" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 2 ;
-            sh:path odm:DataType ],
-        [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:in [ rdf:rest () ] ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path odm:IsNonStandard ],
-        [ sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:StandardOID ],
+            sh:path odm:DataTypeRef ],
         [ sh:description "General observation Sub Class." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -978,52 +433,121 @@ odm:CodeList a sh:NodeShape ;
             sh:path odm:OID ] ;
     sh:targetClass odm:CodeList .
 
+odm:CodeListItem a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:OrderNumber ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:CodedValue ],
+        [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Rank ],
+        [ sh:class odm:Alias ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path odm:AliasRef ],
+        [ sh:class odm:Coding ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path odm:CodingRef ],
+        [ sh:in [ rdf:rest () ] ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path odm:ExtendedValue ],
+        [ sh:class odm:Decode ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path odm:DecodeRef ],
+        [ sh:in [ rdf:rest () ] ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:Other ],
+        [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
+                The Comment would define any join assumptions.""" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path odm:CommentOID ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:DescriptionRef ] ;
+    sh:targetClass odm:CodeListItem .
+
+odm:CodeListRef a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:CodeListOID ] ;
+    sh:targetClass odm:CodeListRef .
+
 odm:Comment a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:in ( "Sponsor" "Site" ) ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path odm:SponsorOrSite ] ;
+            sh:path odm:SponsorOrSite ],
+        [ sh:class odm:TranslatedText ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path odm:TranslatedTextRef ] ;
     sh:targetClass odm:Comment .
 
 odm:CommentDef a sh:NodeShape ;
     sh:closed true ;
     sh:description "The Comment element allows referencing short comments self-contained in the XML document or long comments normally included in external documents. For comments included in external documents, the reference could include specific pages of a document where the comments are included." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Unique identifier of the version within the XML document." ;
+    sh:property [ sh:class odm:Description ;
+            sh:description "Text of the comment." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:OID ],
         [ sh:class odm:DocumentRef ;
             sh:description "The DocumentRef element is a container for page references in a PDF file." ;
-            sh:nodeKind sh:BlankNode ;
+            sh:nodeKind sh:IRI ;
             sh:order 2 ;
-            sh:path odm:DocumentRefRef ],
-        [ sh:class odm:Description ;
-            sh:description "Text of the comment." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path odm:DescriptionRef ] ;
+            sh:path odm:DocumentRefRef ] ;
     sh:targetClass odm:CommentDef .
 
 odm:ConditionDef a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:class odm:MethodSignature ;
+    sh:property [ sh:class odm:MethodSignature ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
             sh:path odm:MethodSignatureRef ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:class odm:Alias ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:AliasRef ],
+        [ sh:class odm:FormalExpression ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path odm:FormalExpressionRef ],
         [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
                 The Comment would define any join assumptions.""" ;
             sh:maxCount 1 ;
@@ -1034,20 +558,11 @@ odm:ConditionDef a sh:NodeShape ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path odm:Name ],
-        [ sh:class odm:FormalExpression ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path odm:FormalExpressionRef ],
-        [ sh:class odm:Alias ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:AliasRef ],
-        [ sh:class odm:Description ;
+        [ sh:description "Unique identifier of the version within the XML document." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:DescriptionRef ] ;
+            sh:order 0 ;
+            sh:path odm:OID ] ;
     sh:targetClass odm:ConditionDef .
 
 odm:Country a sh:NodeShape ;
@@ -1056,12 +571,17 @@ odm:Country a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:Country .
 
 odm:Decode a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:TranslatedText ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path odm:TranslatedTextRef ] ;
     sh:targetClass odm:Decode .
 
 odm:DefaultTransition a sh:NodeShape ;
@@ -1073,33 +593,48 @@ odm:DefaultTransition a sh:NodeShape ;
             sh:path odm:TargetTransitionOID ] ;
     sh:targetClass odm:DefaultTransition .
 
+odm:Definition a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:TranslatedText ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path odm:TranslatedTextRef ] ;
+    sh:targetClass odm:Definition .
+
 odm:DurationTimingConstraint a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
-        [ sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:DurationPreWindow ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 3 ;
-            sh:path odm:DurationTarget ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
+    sh:property [ sh:description "Unique identifier of the version within the XML document." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:OID ],
         [ sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path odm:DurationPostWindow ],
+        [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 2 ;
             sh:path odm:StructuralElementOID ],
         [ sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path odm:DurationPostWindow ] ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path odm:DurationTarget ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path odm:DurationPreWindow ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ] ;
     sh:targetClass odm:DurationTimingConstraint .
 
 odm:Epoch a sh:NodeShape ;
@@ -1109,41 +644,65 @@ odm:Epoch a sh:NodeShape ;
             sh:minCount 1 ;
             sh:order 2 ;
             sh:path odm:SequenceNumber ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ],
         [ sh:description "General observation Sub Class." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path odm:Name ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
+        [ sh:class odm:Description ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ] ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:DescriptionRef ] ;
     sh:targetClass odm:Epoch .
+
+odm:ErrorMessage a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:TranslatedText ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path odm:TranslatedTextRef ] ;
+    sh:targetClass odm:ErrorMessage .
 
 odm:ExclusionCriteria a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:Criterion ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:CriterionRef ] ;
     sh:targetClass odm:ExclusionCriteria .
 
-odm:ExternalCodeList a sh:NodeShape ;
+odm:ExternalCodeLib a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path odm:Dictionary ],
+    sh:property [ sh:description "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path odm:href ],
         [ sh:maxCount 1 ;
             sh:order 3 ;
             sh:path odm:ref ],
-        [ sh:description "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file." ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:href ],
+        [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Method ],
         [ sh:description "Version of Standard." ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Version ] ;
-    sh:targetClass odm:ExternalCodeList .
+            sh:order 2 ;
+            sh:path odm:Version ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:Library ] ;
+    sh:targetClass odm:ExternalCodeLib .
 
 odm:FamilyName a sh:NodeShape ;
     sh:closed true ;
@@ -1151,23 +710,23 @@ odm:FamilyName a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:FamilyName .
 
 odm:Flag a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:FlagType ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path odm:FlagTypeRef ],
-        [ sh:class odm:FlagValue ;
+    sh:property [ sh:class odm:FlagValue ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
-            sh:path odm:FlagValueRef ] ;
+            sh:path odm:FlagValueRef ],
+        [ sh:class odm:FlagType ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path odm:FlagTypeRef ] ;
     sh:targetClass odm:Flag .
 
 odm:FlagType a sh:NodeShape ;
@@ -1176,7 +735,7 @@ odm:FlagType a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 1 ;
-            sh:path xhtml:div ],
+            sh:path odm:_content ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
@@ -1189,7 +748,7 @@ odm:FlagValue a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 1 ;
-            sh:path xhtml:div ],
+            sh:path odm:_content ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
@@ -1202,21 +761,21 @@ odm:FullName a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:FullName .
 
 odm:GeoPosition a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Latitude ],
+        [ sh:maxCount 1 ;
             sh:order 2 ;
             sh:path odm:Altitude ],
         [ sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path odm:Longitude ],
-        [ sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Latitude ] ;
+            sh:path odm:Longitude ] ;
     sh:targetClass odm:GeoPosition .
 
 odm:GivenName a sh:NodeShape ;
@@ -1225,7 +784,7 @@ odm:GivenName a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:GivenName .
 
 odm:HouseNumber a sh:NodeShape ;
@@ -1234,44 +793,59 @@ odm:HouseNumber a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:HouseNumber .
 
 odm:Image a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:MimeType ],
-        [ sh:maxCount 1 ;
             sh:order 0 ;
             sh:path odm:ImageFileName ],
         [ sh:description "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file." ;
             sh:maxCount 1 ;
             sh:order 1 ;
-            sh:path odm:href ] ;
+            sh:path odm:href ],
+        [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:MimeType ] ;
     sh:targetClass odm:Image .
+
+odm:ImplementationNotes a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:TranslatedText ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path odm:TranslatedTextRef ] ;
+    sh:targetClass odm:ImplementationNotes .
 
 odm:Include a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:StudyOID ],
+    sh:property [ sh:description "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file." ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:href ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path odm:MetaDataVersionOID ],
-        [ sh:description "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file." ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:href ] ;
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:StudyOID ] ;
     sh:targetClass odm:Include .
 
 odm:InclusionCriteria a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:Criterion ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:CriterionRef ] ;
     sh:targetClass odm:InclusionCriteria .
 
 odm:InclusionExclusionCriteria a sh:NodeShape ;
@@ -1292,6 +866,12 @@ odm:InclusionExclusionCriteria a sh:NodeShape ;
 odm:IntercurrentEvent a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path odm:DescriptionRef ] ;
     sh:targetClass odm:IntercurrentEvent .
 
 odm:InvestigatorRef a sh:NodeShape ;
@@ -1303,82 +883,219 @@ odm:InvestigatorRef a sh:NodeShape ;
             sh:path odm:UserOID ] ;
     sh:targetClass odm:InvestigatorRef .
 
+odm:ItemData a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:Query ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path odm:QueryRef ],
+        [ sh:in ( "Insert" "Update" "Remove" "Upsert" "Context" ) ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:TransactionTypeRef ],
+        [ sh:in [ rdf:rest () ] ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:IsNull ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:ItemOID ],
+        [ sh:class odm:Value ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:ValueRef ],
+        [ sh:class odm:Signature ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path odm:SignatureRefRef ],
+        [ sh:class odm:AuditRecord ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path odm:AuditRecordRef ],
+        [ sh:class odm:Annotation ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path odm:AnnotationRef ] ;
+    sh:targetClass odm:ItemData .
+
 odm:ItemDef a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
                 The Comment would define any join assumptions.""" ;
             sh:maxCount 1 ;
-            sh:order 5 ;
+            sh:order 6 ;
             sh:path odm:CommentOID ],
+        [ sh:class odm:Question ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path odm:QuestionRef ],
+        [ sh:class odm:ValueListRef ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 16 ;
+            sh:path odm:ValueListRefRef ],
+        [ sh:class odm:ImplementationNotes ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 12 ;
+            sh:path odm:ImplementationNotesRef ],
+        [ sh:class odm:CDISCNotes ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 13 ;
+            sh:path odm:CDISCNotesRef ],
+        [ sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path odm:DisplayFormat ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path odm:DescriptionRef ],
         [ sh:description "General observation Sub Class." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path odm:Name ],
-        [ sh:description """The DataType attribute specifies how the corresponding value
-                    elements are to be interpreted for comparison and storage.""" ;
-            sh:in ( "integer" "decimal" "float" "double" "date" "datetime" "time" "text" "string" "URI" "boolean" "hexBinary" "base64Binary" "hexFloat" "base64Float" "partialDate" "partialTime" "partialDatetime" "durationDatetime" "intervalDatetime" "incompleteDatetime" "incompleteDate" "incompleteTime" ) ;
+        [ sh:description "Unique identifier of the version within the XML document." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path odm:DataType ],
-        [ sh:class odm:Description ;
+            sh:order 0 ;
+            sh:path odm:OID ],
+        [ sh:class odm:RangeCheck ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 14 ;
+            sh:path odm:RangeCheckRef ],
+        [ sh:class odm:CRFCompletionInstructions ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:class odm:CodeListRef ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 9 ;
-            sh:path odm:CodeListRefRef ],
-        [ sh:class odm:Question ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path odm:QuestionRef ],
-        [ sh:class odm:ValueListRef ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 10 ;
-            sh:path odm:ValueListRefRef ],
-        [ sh:class odm:Alias ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 12 ;
-            sh:path odm:AliasRef ],
+            sh:order 11 ;
+            sh:path odm:CRFCompletionInstructionsRef ],
         [ sh:description """The Length attribute is optional when DataType is text, string,
                     integer, or float; and should not be used for the other
                     datatypes.""" ;
             sh:maxCount 1 ;
             sh:order 3 ;
             sh:path odm:Length ],
+        [ sh:class odm:Alias ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 18 ;
+            sh:path odm:AliasRef ],
+        [ sh:class odm:Definition ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path odm:DefinitionRef ],
+        [ sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path odm:VariableSet ],
+        [ sh:class odm:Coding ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 17 ;
+            sh:path odm:CodingRef ],
+        [ sh:description """The DataType attribute specifies how the corresponding value
+                    elements are to be interpreted for comparison and storage.""" ;
+            sh:in ( "integer" "decimal" "float" "double" "date" "datetime" "time" "text" "string" "URI" "boolean" "hexBinary" "base64Binary" "hexFloat" "base64Float" "partialDate" "partialTime" "partialDatetime" "durationDatetime" "intervalDatetime" "incompleteDatetime" "incompleteDate" "incompleteTime" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path odm:DataTypeRef ],
+        [ sh:class odm:Prompt ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 10 ;
+            sh:path odm:PromptRef ],
+        [ sh:class odm:CodeListRef ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 15 ;
+            sh:path odm:CodeListRefRef ] ;
+    sh:targetClass odm:ItemDef .
+
+odm:ItemGroupDef a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:in [ rdf:rest () ] ;
+            sh:maxCount 1 ;
+            sh:order 13 ;
+            sh:path odm:HasNoData ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 15 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:class odm:ItemRef ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 23 ;
+            sh:path odm:ItemRefRef ],
+        [ sh:in [ rdf:rest () ] ;
+            sh:maxCount 1 ;
+            sh:order 12 ;
+            sh:path odm:IsNonStandard ],
+        [ sh:class odm:WorkflowRef ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 18 ;
+            sh:path odm:WorkflowRefRef ],
+        [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 9 ;
+            sh:path odm:Type ],
+        [ sh:class odm:Coding ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 17 ;
+            sh:path odm:CodingRef ],
+        [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:RepeatingLimit ],
+        [ sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path odm:Purpose ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path odm:ArchiveLocationID ],
+        [ sh:class odm:Origin ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 19 ;
+            sh:path odm:OriginRef ],
+        [ sh:class odm:leaf ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 21 ;
+            sh:path odm:leafRef ],
+        [ sh:class odm:Class ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 16 ;
+            sh:path odm:ClassRef ],
+        [ sh:in ( "Yes" "No" ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path odm:IsReferenceData ],
+        [ sh:maxCount 1 ;
+            sh:order 11 ;
+            sh:path odm:StandardOID ],
         [ sh:description "Unique identifier of the version within the XML document." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:OID ],
         [ sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:DisplayFormat ],
-        [ sh:class odm:RangeCheck ;
-            sh:nodeKind sh:BlankNode ;
             sh:order 8 ;
-            sh:path odm:RangeCheckRef ],
-        [ sh:class odm:Coding ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 11 ;
-            sh:path odm:CodingRef ] ;
-    sh:targetClass odm:ItemDef .
-
-odm:ItemGroupDef a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
-                The Comment would define any join assumptions.""" ;
-            sh:maxCount 1 ;
-            sh:order 14 ;
-            sh:path odm:CommentOID ],
+            sh:path odm:Domain ],
         [ sh:in ( "No" "Simple" "Dynamic" "Static" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -1387,195 +1104,53 @@ odm:ItemGroupDef a sh:NodeShape ;
         [ sh:maxCount 1 ;
             sh:order 7 ;
             sh:path odm:DatasetName ],
-        [ sh:maxCount 1 ;
-            sh:order 11 ;
-            sh:path odm:StandardOID ],
-        [ sh:class odm:WorkflowRef ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 18 ;
-            sh:path odm:WorkflowRefRef ],
-        [ sh:in [ rdf:rest () ] ;
-            sh:maxCount 1 ;
-            sh:order 12 ;
-            sh:path odm:IsNonStandard ],
-        [ sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path odm:ArchiveLocationID ],
-        [ sh:maxCount 1 ;
-            sh:order 8 ;
-            sh:path odm:Domain ],
-        [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 15 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 9 ;
-            sh:path odm:Type ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
-        [ sh:class odm:Origin ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 19 ;
-            sh:path odm:OriginRef ],
         [ sh:class odm:Alias ;
             sh:nodeKind sh:BlankNode ;
             sh:order 20 ;
             sh:path odm:AliasRef ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path odm:Structure ],
-        [ sh:maxCount 1 ;
-            sh:order 10 ;
-            sh:path odm:Purpose ],
-        [ sh:class odm:Coding ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 17 ;
-            sh:path odm:CodingRef ],
-        [ sh:class odm:leaf ;
+        [ sh:class odm:ItemGroupRef ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 21 ;
-            sh:path odm:leafRef ],
-        [ sh:in ( "Yes" "No" ) ;
+            sh:order 22 ;
+            sh:path odm:ItemGroupRefRef ],
+        [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
+                The Comment would define any join assumptions.""" ;
             sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:IsReferenceData ],
-        [ sh:in [ rdf:rest () ] ;
-            sh:maxCount 1 ;
-            sh:order 13 ;
-            sh:path odm:HasNoData ],
-        [ sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:RepeatingLimit ],
-        [ sh:class odm:Class ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 16 ;
-            sh:path odm:ClassRef ] ;
-    sh:targetClass odm:ItemGroupDef .
-
-odm:ItemGroupRef a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:in ( "Yes" "No" ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 3 ;
-            sh:path odm:Mandatory ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:ItemGroupOID ],
-        [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:OrderNumber ],
-        [ sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:CollectionExceptionConditionOID ],
-        [ sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:MethodOID ] ;
-    sh:targetClass odm:ItemGroupRef .
-
-odm:ItemRef a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:Origin ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 13 ;
-            sh:path odm:OriginRef ],
-        [ sh:in [ rdf:rest () ] ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path odm:Repeat ],
-        [ sh:maxCount 1 ;
-            sh:order 10 ;
-            sh:path odm:OrderNumber ],
-        [ sh:in [ rdf:rest () ] ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:HasNoData ],
-        [ sh:class odm:WhereClauseRef ;
-            sh:nodeKind sh:BlankNode ;
             sh:order 14 ;
-            sh:path odm:WhereClauseRefRef ],
-        [ sh:maxCount 1 ;
-            sh:order 8 ;
-            sh:path odm:Role ],
-        [ sh:in ( "Yes" "No" ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 11 ;
-            sh:path odm:Mandatory ],
-        [ sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:KeySequence ],
-        [ sh:in [ rdf:rest () ] ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:IsNonStandard ],
-        [ sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:MethodOID ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:ItemOID ],
-        [ sh:maxCount 1 ;
-            sh:order 9 ;
-            sh:path odm:RoleCodeListOID ],
+            sh:path odm:CommentOID ],
         [ sh:maxCount 1 ;
             sh:order 5 ;
-            sh:path odm:UnitsItemOID ],
-        [ sh:maxCount 1 ;
-            sh:order 12 ;
-            sh:path odm:CollectionExceptionConditionOID ],
-        [ sh:in [ rdf:rest () ] ;
-            sh:maxCount 1 ;
-            sh:order 7 ;
-            sh:path odm:Other ] ;
-    sh:targetClass odm:ItemRef .
+            sh:path odm:Structure ] ;
+    sh:targetClass odm:ItemGroupDef .
 
 odm:KeySet a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:maxCount 1 ;
-            sh:order 7 ;
-            sh:path odm:ItemOID ],
+            sh:order 4 ;
+            sh:path odm:StudyEventRepeatKey ],
         [ sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:StudyEventOID ],
+            sh:order 1 ;
+            sh:path odm:SubjectKey ],
+        [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:MetaDataVersionOID ],
+        [ sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path odm:ItemGroupOID ],
         [ sh:maxCount 1 ;
             sh:order 6 ;
             sh:path odm:ItemGroupRepeatKey ],
+        [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:StudyEventOID ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:StudyOID ],
         [ sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:StudyEventRepeatKey ],
-        [ sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path odm:ItemGroupOID ],
-        [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:MetaDataVersionOID ],
-        [ sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:SubjectKey ] ;
+            sh:order 7 ;
+            sh:path odm:ItemOID ] ;
     sh:targetClass odm:KeySet .
 
 odm:LegalReason a sh:NodeShape ;
@@ -1584,50 +1159,50 @@ odm:LegalReason a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:LegalReason .
 
 odm:Location a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:OrganizationOID ],
+    sh:property [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:class odm:Telecom ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path odm:TelecomRef ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:DescriptionRef ],
         [ sh:description "Unique identifier of the version within the XML document." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:OID ],
         [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:Role ],
-        [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
+            sh:order 3 ;
+            sh:path odm:OrganizationOID ],
         [ sh:class odm:Query ;
-            sh:nodeKind sh:BlankNode ;
+            sh:nodeKind sh:IRI ;
             sh:order 8 ;
             sh:path odm:QueryRef ],
         [ sh:class odm:Address ;
             sh:nodeKind sh:BlankNode ;
             sh:order 6 ;
             sh:path odm:AddressRef ],
+        [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:Role ],
         [ sh:class odm:MetaDataVersionRef ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 5 ;
-            sh:path odm:MetaDataVersionRefRef ],
-        [ sh:class odm:Telecom ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path odm:TelecomRef ] ;
+            sh:path odm:MetaDataVersionRefRef ] ;
     sh:targetClass odm:Location .
 
 odm:Meaning a sh:NodeShape ;
@@ -1636,65 +1211,74 @@ odm:Meaning a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:Meaning .
 
 odm:MetaDataVersion a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:Description ;
+    sh:property [ sh:class odm:SupplementalDoc ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:class odm:Include ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:IncludeRef ],
-        [ sh:class odm:AnnotatedCRF ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:AnnotatedCRFRef ],
-        [ sh:class odm:MethodDef ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 18 ;
-            sh:path odm:MethodDefRef ],
+            sh:order 7 ;
+            sh:path odm:SupplementalDocRef ],
         [ sh:class odm:CommentDef ;
-            sh:nodeKind sh:BlankNode ;
+            sh:nodeKind sh:IRI ;
             sh:order 19 ;
             sh:path odm:CommentDefRef ],
-        [ sh:class odm:CodeList ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 16 ;
-            sh:path odm:CodeListRef ],
-        [ sh:class odm:StudyEventDef ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 13 ;
-            sh:path odm:StudyEventDefRef ],
-        [ sh:class odm:WorkflowDef ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 11 ;
-            sh:path odm:WorkflowDefRef ],
         [ sh:description "Unique identifier of the version within the XML document." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:OID ],
-        [ sh:class odm:ItemDef ;
+        [ sh:class odm:CodeList ;
+            sh:nodeKind sh:IRI ;
+            sh:order 16 ;
+            sh:path odm:CodeListRefRef ],
+        [ sh:class odm:Include ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 15 ;
-            sh:path odm:ItemDefRef ],
+            sh:order 4 ;
+            sh:path odm:IncludeRef ],
         [ sh:description "General observation Sub Class." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path odm:Name ],
-        [ sh:class odm:leaf ;
+        [ sh:class odm:WorkflowDef ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path odm:WorkflowDefRef ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 20 ;
-            sh:path odm:leafRef ],
+            sh:order 3 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:class odm:ValueListDef ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path odm:ValueListDefRef ],
+        [ sh:class odm:ItemDef ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path odm:ItemDefRef ],
+        [ sh:class odm:MethodDef ;
+            sh:nodeKind sh:IRI ;
+            sh:order 18 ;
+            sh:path odm:MethodDefRef ],
+        [ sh:class odm:ConditionDef ;
+            sh:nodeKind sh:IRI ;
+            sh:order 17 ;
+            sh:path odm:ConditionDefRef ],
+        [ sh:class odm:Protocol ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 10 ;
+            sh:path odm:ProtocolRef ],
+        [ sh:class odm:StudyEventDef ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path odm:StudyEventDefRef ],
         [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
                 The Comment would define any join assumptions.""" ;
             sh:maxCount 1 ;
@@ -1706,54 +1290,76 @@ odm:MetaDataVersion a sh:NodeShape ;
             sh:order 5 ;
             sh:path odm:StandardsRef ],
         [ sh:class odm:WhereClauseDef ;
-            sh:nodeKind sh:BlankNode ;
+            sh:nodeKind sh:IRI ;
             sh:order 9 ;
             sh:path odm:WhereClauseDefRef ],
-        [ sh:class odm:ConditionDef ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 17 ;
-            sh:path odm:ConditionDefRef ],
-        [ sh:class odm:Protocol ;
+        [ sh:class odm:leaf ;
+            sh:nodeKind sh:IRI ;
+            sh:order 20 ;
+            sh:path odm:leafRef ],
+        [ sh:class odm:AnnotatedCRF ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 10 ;
-            sh:path odm:ProtocolRef ],
-        [ sh:class odm:ValueListDef ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 8 ;
-            sh:path odm:ValueListDefRef ],
-        [ sh:class odm:SupplementalDoc ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path odm:SupplementalDocRef ],
+            sh:order 6 ;
+            sh:path odm:AnnotatedCRFRef ],
         [ sh:class odm:ItemGroupDef ;
-            sh:nodeKind sh:BlankNode ;
+            sh:nodeKind sh:IRI ;
             sh:order 14 ;
             sh:path odm:ItemGroupDefRef ],
         [ sh:class odm:StudyEventGroupDef ;
-            sh:nodeKind sh:BlankNode ;
+            sh:nodeKind sh:IRI ;
             sh:order 12 ;
             sh:path odm:StudyEventGroupDefRef ] ;
     sh:targetClass odm:MetaDataVersion .
 
+odm:MetaDataVersionRef a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:StudyOID ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path odm:EffectiveDate ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:MetaDataVersionOID ] ;
+    sh:targetClass odm:MetaDataVersionRef .
+
 odm:MethodDef a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
+    sh:property [ sh:class odm:DocumentRef ;
+            sh:description "The DocumentRef element is a container for page references in a PDF file." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path odm:DocumentRefRef ],
         [ sh:class odm:Alias ;
             sh:nodeKind sh:BlankNode ;
             sh:order 7 ;
             sh:path odm:AliasRef ],
+        [ sh:class odm:FormalExpression ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:FormalExpressionRef ],
         [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
             sh:in ( "Computation" "Imputation" "Preload" "Transpose" ) ;
             sh:maxCount 1 ;
             sh:order 2 ;
             sh:path odm:Type ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ],
         [ sh:class odm:MethodSignature ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -1766,20 +1372,6 @@ odm:MethodDef a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
             sh:path odm:DescriptionRef ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:class odm:DocumentRef ;
-            sh:description "The DocumentRef element is a container for page references in a PDF file." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 8 ;
-            sh:path odm:DocumentRefRef ],
-        [ sh:class odm:FormalExpression ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:FormalExpressionRef ],
         [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
                 The Comment would define any join assumptions.""" ;
             sh:maxCount 1 ;
@@ -1790,17 +1382,15 @@ odm:MethodDef a sh:NodeShape ;
 odm:Organization a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:Description ;
-            sh:maxCount 1 ;
+    sh:property [ sh:class odm:Telecom ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path odm:PartOfOrganizationOID ],
-        [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:Role ],
+            sh:order 8 ;
+            sh:path odm:TelecomRef ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ],
         [ sh:maxCount 1 ;
             sh:order 4 ;
             sh:path odm:LocationOID ],
@@ -1808,26 +1398,28 @@ odm:Organization a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 7 ;
             sh:path odm:AddressRef ],
-        [ sh:class odm:Telecom ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 8 ;
-            sh:path odm:TelecomRef ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path odm:PartOfOrganizationOID ],
         [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
             sh:in ( "Sponsor" "Site" "CRO" "Lab" "Other" "TechnologyProvider" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 3 ;
             sh:path odm:Type ],
-        [ sh:description "General observation Sub Class." ;
+        [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:Role ],
+        [ sh:class odm:Description ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ] ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:DescriptionRef ] ;
     sh:targetClass odm:Organization .
 
 odm:OtherText a sh:NodeShape ;
@@ -1836,39 +1428,71 @@ odm:OtherText a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:OtherText .
+
+odm:PDFPageRef a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "This element is the container for CRF page references." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
+            sh:in ( "NamedDestination" "PhysicalRef" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path odm:Type ],
+        [ sh:description "List of PDF pages separated by a space." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path odm:PageRefs ],
+        [ sh:description "Last page in a range of pages." ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:LastPage ],
+        [ sh:description "First page in a range of pages." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:FirstPage ],
+        [ sh:description "Text with the label for the document reference." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path odm:Title ] ;
+    sh:targetClass odm:PDFPageRef .
 
 odm:Parameter a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description """The DataType attribute specifies how the corresponding value
+    sh:property [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:DefinitionRef ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:Name ],
+        [ sh:description """The DataType attribute specifies how the corresponding value
                     elements are to be interpreted for comparison and storage.""" ;
             sh:in ( "integer" "decimal" "float" "double" "date" "datetime" "time" "text" "string" "URI" "boolean" "hexBinary" "base64Binary" "hexFloat" "base64Float" "partialDate" "partialTime" "partialDatetime" "durationDatetime" "intervalDatetime" "incompleteDatetime" "incompleteDate" "incompleteTime" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
-            sh:path odm:DataType ],
-        [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:Definition ],
+            sh:path odm:DataTypeRef ],
         [ sh:maxCount 1 ;
             sh:order 3 ;
-            sh:path odm:OrderNumber ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:Name ] ;
+            sh:path odm:OrderNumber ] ;
     sh:targetClass odm:Parameter .
 
 odm:ParameterValue a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
+    sh:property [ sh:class odm:Coding ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path odm:CodingRef ],
+        [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
-            sh:path odm:Value ] ;
+            sh:path odm:ValueRef ] ;
     sh:targetClass odm:ParameterValue .
 
 odm:PostalCode a sh:NodeShape ;
@@ -1877,7 +1501,7 @@ odm:PostalCode a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:PostalCode .
 
 odm:Prefix a sh:NodeShape ;
@@ -1886,46 +1510,66 @@ odm:Prefix a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:Prefix .
+
+odm:Prompt a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:TranslatedText ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path odm:TranslatedTextRef ] ;
+    sh:targetClass odm:Prompt .
 
 odm:Protocol a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:StudyInterventions ;
+    sh:property [ sh:class odm:StudyStructure ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:StudyInterventionsRef ],
-        [ sh:class odm:WorkflowRef ;
+            sh:order 2 ;
+            sh:path odm:StudyStructureRef ],
+        [ sh:class odm:StudySummary ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 13 ;
-            sh:path odm:WorkflowRefRef ],
-        [ sh:class odm:StudyEventGroupRef ;
+            sh:order 1 ;
+            sh:path odm:StudySummaryRef ],
+        [ sh:class odm:StudyEndPoints ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 12 ;
-            sh:path odm:StudyEventGroupRefRef ],
+            sh:order 8 ;
+            sh:path odm:StudyEndPointsRef ],
         [ sh:class odm:StudyObjectives ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 7 ;
             sh:path odm:StudyObjectivesRef ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:class odm:StudyTimings ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:StudyTimingsRef ],
+        [ sh:class odm:Alias ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 14 ;
+            sh:path odm:AliasRef ],
+        [ sh:class odm:StudyInterventions ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:StudyInterventionsRef ],
         [ sh:class odm:StudyTargetPopulation ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
+            sh:nodeKind sh:IRI ;
             sh:order 9 ;
-            sh:path odm:StudyTargetPopulationRef ],
-        [ sh:class odm:StudyIndications ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path odm:StudyIndicationsRef ],
-        [ sh:class odm:TrialPhase ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:TrialPhaseRef ],
+            sh:path odm:StudyTargetPopulationRefRef ],
         [ sh:class odm:InclusionExclusionCriteria ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
@@ -1936,57 +1580,36 @@ odm:Protocol a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 10 ;
             sh:path odm:StudyEstimandsRef ],
-        [ sh:class odm:StudyEndPoints ;
+        [ sh:class odm:TrialPhase ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 8 ;
-            sh:path odm:StudyEndPointsRef ],
-        [ sh:class odm:StudySummary ;
+            sh:order 3 ;
+            sh:path odm:TrialPhaseRef ],
+        [ sh:class odm:WorkflowRef ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path odm:StudySummaryRef ],
-        [ sh:class odm:Description ;
+            sh:order 13 ;
+            sh:path odm:WorkflowRefRef ],
+        [ sh:class odm:StudyIndications ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 0 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:class odm:StudyStructure ;
-            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path odm:StudyIndicationsRef ],
+        [ sh:class odm:StudyEventGroupRef ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:StudyStructureRef ],
-        [ sh:class odm:StudyTimings ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:StudyTimingsRef ],
-        [ sh:class odm:Alias ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 14 ;
-            sh:path odm:AliasRef ] ;
+            sh:order 12 ;
+            sh:path odm:StudyEventGroupRefRef ] ;
     sh:targetClass odm:Protocol .
 
 odm:Question a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass odm:Question .
-
-odm:RangeCheck a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:ItemOID ],
-        [ sh:in ( "Soft" "Hard" ) ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:SoftHard ],
-        [ sh:in ( "LT" "LE" "GT" "GE" "EQ" "NE" "IN" "NOTIN" ) ;
-            sh:maxCount 1 ;
+    sh:property [ sh:class odm:TranslatedText ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
-            sh:path odm:Comparator ] ;
-    sh:targetClass odm:RangeCheck .
+            sh:path odm:TranslatedTextRef ] ;
+    sh:targetClass odm:Question .
 
 odm:ReasonForChange a sh:NodeShape ;
     sh:closed true ;
@@ -1994,29 +1617,54 @@ odm:ReasonForChange a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:ReasonForChange .
 
 odm:ReferenceData a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
+    sh:property [ sh:class odm:Signature ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path odm:SignatureRefRef ],
+        [ sh:class odm:AuditRecord ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:AuditRecordRef ],
+        [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:StudyOID ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
-            sh:path odm:MetaDataVersionOID ] ;
+            sh:path odm:MetaDataVersionOID ],
+        [ sh:class odm:ItemGroupData ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path odm:ItemGroupDataRef ],
+        [ sh:class odm:Annotation ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path odm:AnnotationRef ] ;
     sh:targetClass odm:ReferenceData .
 
 odm:RelativeTimingConstraint a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 5 ;
-            sh:path odm:TimepointRelativeTarget ],
+            sh:order 6 ;
+            sh:path odm:TimepointPreWindow ],
+        [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
+            sh:in ( "StartToStart" "StartToFinish" "FinishToStart" "FinishToFinish" ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path odm:Type ],
+        [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:PredecessorOID ],
         [ sh:maxCount 1 ;
             sh:order 3 ;
             sh:path odm:SuccessorOID ],
@@ -2025,38 +1673,32 @@ odm:RelativeTimingConstraint a sh:NodeShape ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path odm:Name ],
+        [ sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path odm:TimepointPostWindow ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 5 ;
+            sh:path odm:TimepointRelativeTarget ],
         [ sh:description "Unique identifier of the version within the XML document." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path odm:TimepointPreWindow ],
-        [ sh:maxCount 1 ;
-            sh:order 7 ;
-            sh:path odm:TimepointPostWindow ],
-        [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:PredecessorOID ],
-        [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
-            sh:in ( "StartToStart" "StartToFinish" "FinishToStart" "FinishToFinish" ) ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:Type ] ;
+            sh:path odm:OID ] ;
     sh:targetClass odm:RelativeTimingConstraint .
 
 odm:Resource a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
-        [ sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:Label ],
+    sh:property [ sh:class odm:Selection ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:SelectionRef ],
         [ sh:maxCount 1 ;
             sh:order 2 ;
             sh:path odm:Attribute ],
@@ -2064,7 +1706,15 @@ odm:Resource a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
-            sh:path odm:Type ] ;
+            sh:path odm:Type ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:Label ] ;
     sh:targetClass odm:Resource .
 
 odm:ReturnValue a sh:NodeShape ;
@@ -2072,7 +1722,7 @@ odm:ReturnValue a sh:NodeShape ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:maxCount 1 ;
             sh:order 2 ;
-            sh:path odm:Definition ],
+            sh:path odm:DefinitionRef ],
         [ sh:description "General observation Sub Class." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -2087,18 +1737,27 @@ odm:ReturnValue a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
-            sh:path odm:DataType ] ;
+            sh:path odm:DataTypeRef ] ;
     sh:targetClass odm:ReturnValue .
+
+odm:Selection a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:Path ] ;
+    sh:targetClass odm:Selection .
 
 odm:SignatureDef a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:Meaning ;
+    sh:property [ sh:class odm:LegalReason ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:MeaningRef ],
+            sh:order 3 ;
+            sh:path odm:LegalReasonRef ],
         [ sh:in ( "Digital" "Electronic" ) ;
             sh:maxCount 1 ;
             sh:order 1 ;
@@ -2108,12 +1767,12 @@ odm:SignatureDef a sh:NodeShape ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:OID ],
-        [ sh:class odm:LegalReason ;
+        [ sh:class odm:Meaning ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:LegalReasonRef ] ;
+            sh:order 2 ;
+            sh:path odm:MeaningRef ] ;
     sh:targetClass odm:SignatureDef .
 
 odm:SignatureRef a sh:NodeShape ;
@@ -2140,60 +1799,109 @@ odm:SourceID a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:SourceID .
 
 odm:SourceItem a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "General observation Sub Class." ;
+    sh:property [ sh:description "Unique identifier for the leaf element with the document location." ;
             sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path odm:Name ],
+            sh:minCount 1 ;
+            sh:order 4 ;
+            sh:path odm:leafID ],
         [ sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:ItemGroupOID ],
+            sh:order 0 ;
+            sh:path odm:ItemOID ],
         [ sh:class odm:Resource ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 6 ;
             sh:path odm:ResourceRef ],
         [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:ItemGroupOID ],
+        [ sh:maxCount 1 ;
             sh:order 3 ;
             sh:path odm:StudyOID ],
-        [ sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path odm:ItemOID ],
-        [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:MetaDataVersionOID ],
         [ sh:class odm:Coding ;
             sh:nodeKind sh:BlankNode ;
             sh:order 7 ;
             sh:path odm:CodingRef ],
-        [ sh:description "Unique identifier for the leaf element with the document location." ;
+        [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:MetaDataVersionOID ],
+        [ sh:description "General observation Sub Class." ;
             sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:leafID ] ;
+            sh:order 5 ;
+            sh:path odm:Name ] ;
     sh:targetClass odm:SourceItem .
 
 odm:SourceItems a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:Coding ;
+    sh:property [ sh:class odm:SourceItem ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:SourceItemRef ],
+        [ sh:class odm:Coding ;
             sh:nodeKind sh:BlankNode ;
             sh:order 1 ;
-            sh:path odm:CodingRef ],
-        [ sh:class odm:SourceItem ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 0 ;
-            sh:path odm:SourceItemRef ] ;
+            sh:path odm:CodingRef ] ;
     sh:targetClass odm:SourceItems .
+
+odm:Standard a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ],
+        [ sh:description "General observation Sub Class." ;
+            sh:in ( <nci:ExtCodeID:C170552> <nci:ExtCodeID:C163415> <nci:ExtCodeID:C170455> <nci:ExtCodeID:C170553> <nci:ExtCodeID:C170554> <nci:ExtCodeID:C170456> <nci:ExtCodeID:C181230> <nci:ExtCodeID:C170556> ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:description "Version of Standard." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 4 ;
+            sh:path odm:Version ],
+        [ sh:description "Set of published files of Standard when Type=\"CT\" (e.g. SDTM, ADaM, SEND, CDASH, COA)." ;
+            sh:in ( <nci:ExtCodeID:C180548> <nci:ExtCodeID:C180549> <nci:ExtCodeID:C180550> <nci:ExtCodeID:C180551> <nci:ExtCodeID:C180552> ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:PublishingSet ],
+        [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
+                The Comment would define any join assumptions.""" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path odm:CommentOID ],
+        [ sh:description "Status of Standard." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 5 ;
+            sh:path odm:Status ],
+        [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
+            sh:in ( <nci:ExtCodeID:C163415> <nci:ExtCodeID:C170454> ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path odm:Type ] ;
+    sh:targetClass odm:Standard .
 
 odm:Standards a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:Standard ;
+            sh:description "Definition of a standard referenced in the Define-XML document." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:StandardRef ] ;
     sh:targetClass odm:Standards .
 
 odm:StateProv a sh:NodeShape ;
@@ -2202,7 +1910,7 @@ odm:StateProv a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:StateProv .
 
 odm:StreetName a sh:NodeShape ;
@@ -2211,18 +1919,13 @@ odm:StreetName a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:StreetName .
 
 odm:Study a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:maxCount 1 ;
+    sh:property [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 2 ;
             sh:path odm:ProtocolName ],
@@ -2231,25 +1934,128 @@ odm:Study a sh:NodeShape ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:OID ],
+        [ sh:class odm:MetaDataVersion ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path odm:MetaDataVersionRefRef ],
+        [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:VersionID ],
+        [ sh:description "Status of Standard." ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path odm:Status ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path odm:VersionName ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
-            sh:path odm:StudyName ],
-        [ sh:class odm:MetaDataVersion ;
+            sh:path odm:StudyName ] ;
+    sh:targetClass odm:Study .
+
+odm:StudyEndPoint a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
+            sh:in ( "Simple" "Humane" "Surrogate" "Composite" ) ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:Type ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
-            sh:path odm:MetaDataVersionRef ] ;
-    sh:targetClass odm:Study .
+            sh:path odm:DescriptionRef ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ],
+        [ sh:in ( "Primary" "Secondary" "Exploratory" ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:Level ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:class odm:FormalExpression ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path odm:FormalExpressionRef ] ;
+    sh:targetClass odm:StudyEndPoint .
 
 odm:StudyEndPoints a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:StudyEndPoint ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:StudyEndPointRefRef ] ;
     sh:targetClass odm:StudyEndPoints .
+
+odm:StudyEstimand a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:StudyTargetPopulationRef ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:StudyTargetPopulationRefRef ],
+        [ sh:class odm:SummaryMeasure ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path odm:SummaryMeasureRef ],
+        [ sh:class odm:IntercurrentEvent ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:IntercurrentEventRef ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:class odm:StudyInterventionRef ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:StudyInterventionRefRef ],
+        [ sh:class odm:StudyEndPointRef ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path odm:StudyEndPointRefRef ] ;
+    sh:targetClass odm:StudyEstimand .
 
 odm:StudyEstimands a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:StudyEstimand ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:StudyEstimandRef ] ;
     sh:targetClass odm:StudyEstimands .
 
 odm:StudyEventData a sh:NodeShape ;
@@ -2259,24 +2065,144 @@ odm:StudyEventData a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 3 ;
             sh:path odm:ItemGroupDataRef ],
-        [ sh:class odm:Query ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:QueryRef ],
-        [ sh:in ( "Insert" "Update" "Remove" "Upsert" "Context" ) ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:TransactionType ],
-        [ sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:StudyEventRepeatKey ],
+        [ sh:class odm:Annotation ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path odm:AnnotationRef ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
-            sh:path odm:StudyEventOID ] ;
+            sh:path odm:StudyEventOID ],
+        [ sh:class odm:Signature ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path odm:SignatureRefRef ],
+        [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:StudyEventRepeatKey ],
+        [ sh:in ( "Insert" "Update" "Remove" "Upsert" "Context" ) ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:TransactionTypeRef ],
+        [ sh:class odm:AuditRecord ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path odm:AuditRecordRef ],
+        [ sh:class odm:Query ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path odm:QueryRef ] ;
     sh:targetClass odm:StudyEventData .
 
 odm:StudyEventDef a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
+            sh:in ( "Scheduled" "Unscheduled" "Common" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path odm:Type ],
+        [ sh:class odm:WorkflowRef ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path odm:WorkflowRefRef ],
+        [ sh:class odm:ItemGroupRef ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path odm:ItemGroupRefRef ],
+        [ sh:class odm:Coding ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path odm:CodingRef ],
+        [ sh:in ( "Yes" "No" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path odm:Repeating ],
+        [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
+                The Comment would define any join assumptions.""" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path odm:CommentOID ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:class odm:Alias ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 10 ;
+            sh:path odm:AliasRef ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path odm:Category ] ;
+    sh:targetClass odm:StudyEventDef .
+
+odm:StudyEventGroupDef a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:Coding ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path odm:CodingRef ],
+        [ sh:class odm:StudyEventRef ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path odm:StudyEventRefRef ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ],
+        [ sh:class odm:WorkflowRef ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:WorkflowRefRef ],
+        [ sh:class odm:StudyEventGroupRef ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path odm:StudyEventGroupRefRef ],
+        [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
+                The Comment would define any join assumptions.""" ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path odm:CommentOID ],
+        [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:EpochOID ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:ArmOID ] ;
+    sh:targetClass odm:StudyEventGroupDef .
+
+odm:StudyIndication a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:description "Unique identifier of the version within the XML document." ;
@@ -2284,118 +2210,47 @@ odm:StudyEventDef a sh:NodeShape ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:OID ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
-        [ sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:Category ],
-        [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
-                The Comment would define any join assumptions.""" ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path odm:CommentOID ],
-        [ sh:class odm:Alias ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 10 ;
-            sh:path odm:AliasRef ],
-        [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:DescriptionRef ],
         [ sh:class odm:Coding ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 9 ;
-            sh:path odm:CodingRef ],
-        [ sh:class odm:ItemGroupRef ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path odm:ItemGroupRefRef ],
-        [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
-            sh:in ( "Scheduled" "Unscheduled" "Common" ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 3 ;
-            sh:path odm:Type ],
-        [ sh:in ( "Yes" "No" ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:order 2 ;
-            sh:path odm:Repeating ],
-        [ sh:class odm:WorkflowRef ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 8 ;
-            sh:path odm:WorkflowRefRef ] ;
-    sh:targetClass odm:StudyEventDef .
-
-odm:StudyEventGroupDef a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
-                The Comment would define any join assumptions.""" ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path odm:CommentOID ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ],
-        [ sh:class odm:WorkflowRef ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:WorkflowRefRef ],
-        [ sh:class odm:Coding ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
             sh:path odm:CodingRef ],
         [ sh:class odm:Description ;
             sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path odm:DescriptionRef ],
-        [ sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:EpochOID ],
-        [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:ArmOID ] ;
-    sh:targetClass odm:StudyEventGroupDef .
-
-odm:StudyEventGroupRef a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:StudyEventGroupOID ],
-        [ sh:maxCount 1 ;
             sh:order 1 ;
-            sh:path odm:OrderNumber ],
-        [ sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:CollectionExceptionConditionOID ],
-        [ sh:in ( "Yes" "No" ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path odm:Mandatory ] ;
-    sh:targetClass odm:StudyEventGroupRef .
+            sh:path odm:DescriptionRef ] ;
+    sh:targetClass odm:StudyIndication .
 
 odm:StudyIndications a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:StudyIndication ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:StudyIndicationRef ] ;
     sh:targetClass odm:StudyIndications .
+
+odm:StudyIntervention a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ],
+        [ sh:class odm:Coding ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path odm:CodingRef ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path odm:DescriptionRef ] ;
+    sh:targetClass odm:StudyIntervention .
 
 odm:StudyInterventionRef a sh:NodeShape ;
     sh:closed true ;
@@ -2409,29 +2264,95 @@ odm:StudyInterventionRef a sh:NodeShape ;
 odm:StudyInterventions a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:StudyIntervention ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:StudyInterventionRefRef ] ;
     sh:targetClass odm:StudyInterventions .
+
+odm:StudyObjective a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ],
+        [ sh:class odm:StudyEndPointRef ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:StudyEndPointRefRef ],
+        [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
+            sh:in ( "Primary" "Secondary" "Exploratory" ) ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:Type ] ;
+    sh:targetClass odm:StudyObjective .
 
 odm:StudyObjectives a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:StudyObjective ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:StudyObjectiveRef ] ;
     sh:targetClass odm:StudyObjectives .
+
+odm:StudyParameter a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Term ],
+        [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:ShortName ],
+        [ sh:class odm:ParameterValue ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:ParameterValueRef ],
+        [ sh:class odm:Coding ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:CodingRef ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ] ;
+    sh:targetClass odm:StudyParameter .
 
 odm:StudyStructure a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:class odm:Arm ;
-            sh:nodeKind sh:BlankNode ;
+            sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path odm:ArmRef ],
+        [ sh:class odm:Epoch ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path odm:EpochRef ],
         [ sh:class odm:WorkflowRef ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 3 ;
             sh:path odm:WorkflowRefRef ],
-        [ sh:class odm:Epoch ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:EpochRef ],
         [ sh:class odm:Description ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
@@ -2442,12 +2363,26 @@ odm:StudyStructure a sh:NodeShape ;
 odm:StudySummary a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:StudyParameter ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:StudyParameterRef ] ;
     sh:targetClass odm:StudySummary .
 
 odm:StudyTargetPopulation a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:Coding ;
+    sh:property [ sh:class odm:FormalExpression ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:FormalExpressionRef ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:class odm:Coding ;
             sh:nodeKind sh:BlankNode ;
             sh:order 3 ;
             sh:path odm:CodingRef ],
@@ -2457,56 +2392,122 @@ odm:StudyTargetPopulation a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
             sh:path odm:DescriptionRef ],
-        [ sh:class odm:FormalExpression ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:FormalExpressionRef ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ] ;
+    sh:targetClass odm:StudyTargetPopulation .
+
+odm:StudyTargetPopulationRef a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:StudyTargetPopulationOID ] ;
+    sh:targetClass odm:StudyTargetPopulationRef .
+
+odm:StudyTiming a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:class odm:RelativeTimingConstraint ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path odm:RelativeTimingConstraintRef ],
         [ sh:description "Unique identifier of the version within the XML document." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:OID ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:Name ] ;
-    sh:targetClass odm:StudyTargetPopulation .
+        [ sh:class odm:TransitionTimingConstraint ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path odm:TransitionTimingConstraintRef ],
+        [ sh:class odm:AbsoluteTimingConstraint ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path odm:AbsoluteTimingConstraintRef ],
+        [ sh:class odm:DurationTimingConstraint ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path odm:DurationTimingConstraintRef ] ;
+    sh:targetClass odm:StudyTiming .
 
 odm:StudyTimings a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:StudyTiming ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:StudyTimingRef ] ;
     sh:targetClass odm:StudyTimings .
+
+odm:SubClass a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "This element contains SubClass definitions." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "General observation Sub Class." ;
+            sh:in ( <nci:ExtCodeID:C176265> <nci:ExtCodeID:C177920> <nci:ExtCodeID:C172452> <nci:ExtCodeID:C165637> ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:Name ],
+        [ sh:description "Parent class of the Sub Class" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:ParentClass ] ;
+    sh:targetClass odm:SubClass .
 
 odm:SubjectData a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:InvestigatorRef ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:InvestigatorRefRef ],
+    sh:property [ sh:class odm:Query ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path odm:QueryRef ],
         [ sh:class odm:SiteRef ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 3 ;
             sh:path odm:SiteRefRef ],
-        [ sh:class odm:Query ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path odm:QueryRef ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:SubjectKey ],
-        [ sh:in ( "Insert" "Update" "Remove" "Upsert" "Context" ) ;
+        [ sh:class odm:AuditRecord ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:TransactionType ],
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:AuditRecordRef ],
+        [ sh:class odm:InvestigatorRef ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path odm:InvestigatorRefRef ],
         [ sh:class odm:StudyEventData ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
-            sh:path odm:StudyEventDataRef ] ;
+            sh:path odm:StudyEventDataRef ],
+        [ sh:class odm:Annotation ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path odm:AnnotationRef ],
+        [ sh:in ( "Insert" "Update" "Remove" "Upsert" "Context" ) ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:TransactionTypeRef ],
+        [ sh:class odm:Signature ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path odm:SignatureRefRef ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:SubjectKey ] ;
     sh:targetClass odm:SubjectData .
 
 odm:Suffix a sh:NodeShape ;
@@ -2515,18 +2516,30 @@ odm:Suffix a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:Suffix .
 
 odm:SummaryMeasure a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path odm:DescriptionRef ] ;
     sh:targetClass odm:SummaryMeasure .
 
 odm:SupplementalDoc a sh:NodeShape ;
     sh:closed true ;
     sh:description "Supplemental data definitions" ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:DocumentRef ;
+            sh:description "Links to a leaf element with the location of the document." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path odm:DocumentRefRef ] ;
     sh:targetClass odm:SupplementalDoc .
 
 odm:TargetTransition a sh:NodeShape ;
@@ -2541,26 +2554,48 @@ odm:TargetTransition a sh:NodeShape ;
             sh:path odm:TargetTransitionOID ] ;
     sh:targetClass odm:TargetTransition .
 
-odm:TransitionTimingConstraint a sh:NodeShape ;
+odm:Transition a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
+    sh:property [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path odm:TransitionOID ],
-        [ sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:MethodOID ],
+            sh:order 0 ;
+            sh:path odm:OID ],
         [ sh:description "General observation Sub Class." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path odm:Name ],
-        [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
-            sh:in ( "StartToStart" "StartToFinish" "FinishToStart" "FinishToFinish" ) ;
-            sh:maxCount 1 ;
+        [ sh:maxCount 1 ;
             sh:order 4 ;
-            sh:path odm:Type ],
+            sh:path odm:StartConditionOID ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path odm:TargetOID ],
+        [ sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path odm:EndConditionOID ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path odm:SourceOID ] ;
+    sh:targetClass odm:Transition .
+
+odm:TransitionTimingConstraint a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 5 ;
@@ -2568,11 +2603,23 @@ odm:TransitionTimingConstraint a sh:NodeShape ;
         [ sh:maxCount 1 ;
             sh:order 6 ;
             sh:path odm:TimepointPreWindow ],
+        [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:MethodOID ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path odm:TransitionOID ],
         [ sh:description "Unique identifier of the version within the XML document." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:OID ],
+        [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
+            sh:in ( "StartToStart" "StartToFinish" "FinishToStart" "FinishToFinish" ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path odm:Type ],
         [ sh:maxCount 1 ;
             sh:order 7 ;
             sh:path odm:TimepointPostWindow ] ;
@@ -2584,70 +2631,75 @@ odm:TrialPhase a sh:NodeShape ;
     sh:property [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
-            sh:path odm:Value ] ;
+            sh:path odm:ValueRef ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path odm:DescriptionRef ] ;
     sh:targetClass odm:TrialPhase .
 
 odm:User a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:Telecom ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 12 ;
-            sh:path odm:TelecomRef ],
-        [ sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:LocationOID ],
-        [ sh:class odm:Suffix ;
+    sh:property [ sh:class odm:FamilyName ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:SuffixRef ],
+            sh:order 9 ;
+            sh:path odm:FamilyNameRef ],
         [ sh:description "Unique identifier of the version within the XML document." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:OID ],
-        [ sh:class odm:Prefix ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path odm:PrefixRef ],
-        [ sh:class odm:Address ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 11 ;
-            sh:path odm:AddressRef ],
-        [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:OrganizationOID ],
-        [ sh:class odm:Image ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 10 ;
-            sh:path odm:ImageRef ],
-        [ sh:class odm:FullName ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path odm:FullNameRef ],
-        [ sh:class odm:FamilyName ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 9 ;
-            sh:path odm:FamilyNameRef ],
-        [ sh:class odm:UserName ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:UserNameRef ],
         [ sh:class odm:GivenName ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 8 ;
             sh:path odm:GivenNameRef ],
+        [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:OrganizationOID ],
+        [ sh:class odm:Telecom ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 12 ;
+            sh:path odm:TelecomRef ],
+        [ sh:class odm:Suffix ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:SuffixRef ],
+        [ sh:class odm:FullName ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path odm:FullNameRef ],
+        [ sh:class odm:Prefix ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path odm:PrefixRef ],
         [ sh:in ( "Sponsor" "Investigator" "Lab" "Other" "Subject" "Monitor" "Data analyst" "Care provider" "Assessor" ) ;
             sh:maxCount 1 ;
             sh:order 1 ;
-            sh:path odm:UserType ] ;
+            sh:path odm:UserTypeRef ],
+        [ sh:class odm:Image ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 10 ;
+            sh:path odm:ImageRef ],
+        [ sh:class odm:Address ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 11 ;
+            sh:path odm:AddressRef ],
+        [ sh:class odm:UserName ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:UserNameRef ],
+        [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:LocationOID ] ;
     sh:targetClass odm:User .
 
 odm:UserName a sh:NodeShape ;
@@ -2656,7 +2708,7 @@ odm:UserName a sh:NodeShape ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:UserName .
 
 odm:ValueListDef a sh:NodeShape ;
@@ -2667,18 +2719,18 @@ odm:ValueListDef a sh:NodeShape ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:OID ],
-        [ sh:class odm:Description ;
-            sh:description "Description of the value list." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path odm:DescriptionRef ],
         [ sh:class odm:ItemRef ;
             sh:description "The ItemRef element contains the reference to the value attributes definitions." ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
-            sh:path odm:ItemRefRef ] ;
+            sh:path odm:ItemRefRef ],
+        [ sh:class odm:Description ;
+            sh:description "Description of the value list." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path odm:DescriptionRef ] ;
     sh:targetClass odm:ValueListDef .
 
 odm:ValueListRef a sh:NodeShape ;
@@ -2693,16 +2745,22 @@ odm:ValueListRef a sh:NodeShape ;
 odm:WhereClauseDef a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Unique identifier of the version within the XML document." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:OID ],
-        [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
+    sh:property [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
                 The Comment would define any join assumptions.""" ;
             sh:maxCount 1 ;
             sh:order 1 ;
-            sh:path odm:CommentOID ] ;
+            sh:path odm:CommentOID ],
+        [ sh:class odm:RangeCheck ;
+            sh:description "A WhereClause element defines a condition by using one or more RangeCheck elements." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path odm:RangeCheckRef ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ] ;
     sh:targetClass odm:WhereClauseDef .
 
 odm:WhereClauseRef a sh:NodeShape ;
@@ -2717,27 +2775,37 @@ odm:WhereClauseRef a sh:NodeShape ;
 odm:WorkflowDef a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:WorkflowStart ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:WorkflowStartRef ],
-        [ sh:description "Unique identifier of the version within the XML document." ;
+    sh:property [ sh:description "Unique identifier of the version within the XML document." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:OID ],
-        [ sh:class odm:WorkflowEnd ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:WorkflowEndRef ],
         [ sh:description "General observation Sub Class." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path odm:Name ],
+        [ sh:class odm:Transition ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path odm:TransitionRef ],
+        [ sh:class odm:Branching ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path odm:BranchingRef ],
+        [ sh:class odm:WorkflowStart ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:WorkflowStartRef ],
+        [ sh:class odm:WorkflowEnd ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:WorkflowEndRef ],
         [ sh:class odm:Description ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
@@ -2748,14 +2816,14 @@ odm:WorkflowDef a sh:NodeShape ;
 odm:WorkflowEnd a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:EndOID ],
-        [ sh:description "multi-line text content from between XML tags" ;
+    sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 1 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:EndOID ] ;
     sh:targetClass odm:WorkflowEnd .
 
 odm:WorkflowStart a sh:NodeShape ;
@@ -2767,92 +2835,130 @@ odm:WorkflowStart a sh:NodeShape ;
             sh:path odm:StartOID ] ;
     sh:targetClass odm:WorkflowStart .
 
-odm:CodeListRef a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:CodeListOID ] ;
-    sh:targetClass odm:CodeListRef .
-
 odm:DateTimeStamp a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:DateTimeStamp .
 
-odm:ItemGroupData a sh:NodeShape ;
+odm:ItemGroupRef a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path odm:ItemGroupRepeatKey ],
+            sh:order 4 ;
+            sh:path odm:CollectionExceptionConditionOID ],
         [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:OrderNumber ],
+        [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:MethodOID ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:ItemGroupOID ],
+        [ sh:in ( "Yes" "No" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:order 3 ;
-            sh:path odm:ItemGroupDataSeq ],
-        [ sh:in ( "Insert" "Update" "Remove" "Upsert" "Context" ) ;
+            sh:path odm:Mandatory ] ;
+    sh:targetClass odm:ItemGroupRef .
+
+odm:ItemRef a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 14 ;
+            sh:path odm:CollectionExceptionConditionOID ],
+        [ sh:in [ rdf:rest () ] ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:HasNoData ],
+        [ sh:maxCount 1 ;
+            sh:order 12 ;
+            sh:path odm:OrderNumber ],
+        [ sh:in ( "Yes" "No" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 13 ;
+            sh:path odm:Mandatory ],
+        [ sh:class odm:Origin ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 15 ;
+            sh:path odm:OriginRef ],
+        [ sh:in [ rdf:rest () ] ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path odm:Repeat ],
+        [ sh:class odm:WhereClauseRef ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 16 ;
+            sh:path odm:WhereClauseRefRef ],
+        [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:KeySequence ],
+        [ sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path odm:Core ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:ItemOID ],
+        [ sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path odm:UnitsItemOID ],
+        [ sh:maxCount 1 ;
+            sh:order 11 ;
+            sh:path odm:PreSpecifiedValue ],
+        [ sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path odm:Role ],
+        [ sh:in [ rdf:rest () ] ;
             sh:maxCount 1 ;
             sh:order 2 ;
-            sh:path odm:TransactionType ],
+            sh:path odm:IsNonStandard ],
         [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:ItemGroupOID ] ;
-    sh:targetClass odm:ItemGroupData .
+            sh:order 4 ;
+            sh:path odm:MethodOID ],
+        [ sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path odm:RoleCodeListOID ],
+        [ sh:in [ rdf:rest () ] ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path odm:Other ] ;
+    sh:targetClass odm:ItemRef .
 
-odm:MetaDataVersionRef a sh:NodeShape ;
+odm:LocationRef a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path odm:EffectiveDate ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:order 0 ;
-            sh:path odm:StudyOID ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:MetaDataVersionOID ] ;
-    sh:targetClass odm:MetaDataVersionRef .
-
-odm:MethodSignature a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:Parameter ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 0 ;
-            sh:path odm:ParameterRef ],
-        [ sh:class odm:ReturnValue ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path odm:ReturnValueRef ] ;
-    sh:targetClass odm:MethodSignature .
+            sh:path odm:LocationOID ] ;
+    sh:targetClass odm:LocationRef .
 
 odm:Origin a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
-            sh:in ( <nci:ExtCodeID:C170547> <nci:ExtCodeID:C170548> <nci:ExtCodeID:C170549> "EHR" <nci:ExtCodeID:C126101> <nci:ExtCodeID:C17649> <nci:ExtCodeID:C170550> <nci:ExtCodeID:C170551> ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:Type ],
-        [ sh:class odm:Description ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path odm:DescriptionRef ],
+    sh:property [ sh:class odm:DocumentRef ;
+            sh:description "The DocumentRef element is a container for page references in a PDF file." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path odm:DocumentRefRef ],
         [ sh:class odm:SourceItems ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 3 ;
             sh:path odm:SourceItemsRef ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path odm:DescriptionRef ],
         [ sh:in ( <nci:ExtCodeID:C25936> <nci:ExtCodeID:C70793> <nci:ExtCodeID:C41189> <nci:ExtCodeID:C68608> ) ;
             sh:maxCount 1 ;
             sh:order 1 ;
@@ -2861,12 +2967,48 @@ odm:Origin a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
             sh:path odm:CodingRef ],
-        [ sh:class odm:DocumentRef ;
-            sh:description "The DocumentRef element is a container for page references in a PDF file." ;
+        [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
+            sh:in ( <nci:ExtCodeID:C170547> <nci:ExtCodeID:C170548> <nci:ExtCodeID:C170549> "EHR" <nci:ExtCodeID:C126101> <nci:ExtCodeID:C17649> <nci:ExtCodeID:C170550> <nci:ExtCodeID:C170551> ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:Type ] ;
+    sh:targetClass odm:Origin .
+
+odm:RangeCheck a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:MethodSignature ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:MethodSignatureRef ],
+        [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:ItemOID ],
+        [ sh:class odm:FormalExpression ;
             sh:nodeKind sh:BlankNode ;
             sh:order 5 ;
-            sh:path odm:DocumentRefRef ] ;
-    sh:targetClass odm:Origin .
+            sh:path odm:FormalExpressionRef ],
+        [ sh:in ( "LT" "LE" "GT" "GE" "EQ" "NE" "IN" "NOTIN" ) ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path odm:ComparatorRef ],
+        [ sh:in ( "Soft" "Hard" ) ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:SoftHard ],
+        [ sh:class odm:ErrorMessage ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:ErrorMessageRef ],
+        [ sh:class odm:CheckValue ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:CheckValueRef ] ;
+    sh:targetClass odm:RangeCheck .
 
 odm:StudyEndPointRef a sh:NodeShape ;
     sh:closed true ;
@@ -2880,100 +3022,25 @@ odm:StudyEndPointRef a sh:NodeShape ;
             sh:path odm:StudyEndPointOID ] ;
     sh:targetClass odm:StudyEndPointRef .
 
-odm:StudyTargetPopulationRef a sh:NodeShape ;
+odm:StudyEventRef a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:StudyTargetPopulationOID ] ;
-    sh:targetClass odm:StudyTargetPopulationRef .
-
-odm:leaf a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "Contains the XLink information referenced by DocumentRef or ArchiveLocationID" ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Unique identifier for the leaf that is referenced." ;
+    sh:property [ sh:in ( "Yes" "No" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:ID ],
-        [ sh:description "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path odm:href ] ;
-    sh:targetClass odm:leaf .
-
-odm:Address a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class odm:StateProv ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path odm:StateProvRef ],
-        [ sh:class odm:StreetName ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 0 ;
-            sh:path odm:StreetNameRef ],
-        [ sh:class odm:City ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
-            sh:path odm:CityRef ],
-        [ sh:class odm:OtherText ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path odm:OtherTextRef ],
-        [ sh:class odm:Country ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path odm:CountryRef ],
-        [ sh:class odm:GeoPosition ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path odm:GeoPositionRef ],
-        [ sh:class odm:PostalCode ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path odm:PostalCodeRef ],
-        [ sh:class odm:HouseNumber ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
+            sh:path odm:Mandatory ],
+        [ sh:maxCount 1 ;
             sh:order 1 ;
-            sh:path odm:HouseNumberRef ] ;
-    sh:targetClass odm:Address .
-
-odm:DocumentRef a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "Links to a leaf element with the location of the document." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Unique identifier for the leaf element with the document location." ;
-            sh:maxCount 1 ;
+            sh:path odm:OrderNumber ],
+        [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:CollectionExceptionConditionOID ],
+        [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
-            sh:path odm:leafID ] ;
-    sh:targetClass odm:DocumentRef .
-
-odm:LocationRef a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:LocationOID ] ;
-    sh:targetClass odm:LocationRef .
-
-odm:Telecom a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass odm:Telecom .
+            sh:path odm:StudyEventOID ] ;
+    sh:targetClass odm:StudyEventRef .
 
 odm:UserRef a sh:NodeShape ;
     sh:closed true ;
@@ -2984,14 +3051,6 @@ odm:UserRef a sh:NodeShape ;
             sh:path odm:UserOID ] ;
     sh:targetClass odm:UserRef .
 
-odm:FormalExpression a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path odm:Context ] ;
-    sh:targetClass odm:FormalExpression .
-
 odm:Value a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
@@ -3001,55 +3060,380 @@ odm:Value a sh:NodeShape ;
         [ sh:description "multi-line text content from between XML tags" ;
             sh:maxCount 1 ;
             sh:order 1 ;
-            sh:path xhtml:div ] ;
+            sh:path odm:_content ] ;
     sh:targetClass odm:Value .
+
+odm:leaf a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Contains the XLink information referenced by DocumentRef or ArchiveLocationID" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Unique identifier for the leaf that is referenced." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:ID ],
+        [ sh:description "Text with the label for the document or dataset." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path odm:title ],
+        [ sh:description "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:href ] ;
+    sh:targetClass odm:leaf .
+
+odm:Address a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:GeoPosition ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:GeoPositionRef ],
+        [ sh:class odm:OtherText ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path odm:OtherTextRef ],
+        [ sh:class odm:StateProv ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:StateProvRef ],
+        [ sh:class odm:PostalCode ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path odm:PostalCodeRef ],
+        [ sh:class odm:HouseNumber ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path odm:HouseNumberRef ],
+        [ sh:class odm:Country ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:CountryRef ],
+        [ sh:class odm:City ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path odm:CityRef ],
+        [ sh:class odm:StreetName ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path odm:StreetNameRef ] ;
+    sh:targetClass odm:Address .
+
+odm:MethodSignature a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:ReturnValue ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path odm:ReturnValueRef ],
+        [ sh:class odm:Parameter ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path odm:ParameterRef ] ;
+    sh:targetClass odm:MethodSignature .
+
+odm:StudyEventGroupRef a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:OrderNumber ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:StudyEventGroupOID ],
+        [ sh:in ( "Yes" "No" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path odm:Mandatory ],
+        [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:CollectionExceptionConditionOID ] ;
+    sh:targetClass odm:StudyEventGroupRef .
+
+odm:Telecom a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass odm:Telecom .
+
+odm:Criterion a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path odm:Name ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path odm:ConditionOID ],
+        [ sh:class odm:Description ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:DescriptionRef ],
+        [ sh:class odm:Coding ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:CodingRef ],
+        [ sh:description "Unique identifier of the version within the XML document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:OID ] ;
+    sh:targetClass odm:Criterion .
+
+odm:ItemGroupData a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:Annotation ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path odm:AnnotationRef ],
+        [ sh:class odm:Signature ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path odm:SignatureRefRef ],
+        [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:ItemGroupRepeatKey ],
+        [ sh:class odm:ItemGroupData ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path odm:ItemGroupDataRef ],
+        [ sh:in ( "Insert" "Update" "Remove" "Upsert" "Context" ) ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:TransactionTypeRef ],
+        [ sh:class odm:AuditRecord ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path odm:AuditRecordRef ],
+        [ sh:class odm:Query ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path odm:QueryRef ],
+        [ sh:class odm:ItemData ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:ItemDataRef ],
+        [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:ItemGroupDataSeq ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:ItemGroupOID ] ;
+    sh:targetClass odm:ItemGroupData .
+
+odm:DocumentRef a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Links to a leaf element with the location of the document." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Unique identifier for the leaf element with the document location." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:leafID ],
+        [ sh:class odm:PDFPageRef ;
+            sh:description "The PDFPageRef element is a container for page references in a PDF file." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path odm:PDFPageRefRef ] ;
+    sh:targetClass odm:DocumentRef .
+
+odm:FormalExpression a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:Code ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path odm:CodeRef ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path odm:ContextRef ],
+        [ sh:class odm:ExternalCodeLib ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path odm:ExternalCodeLibRef ] ;
+    sh:targetClass odm:FormalExpression .
 
 odm:Query a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
-            sh:in ( "Manual" "System" ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:Type ],
-        [ sh:class odm:AuditRecord ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 8 ;
-            sh:path odm:AuditRecordRef ],
-        [ sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path odm:Target ],
-        [ sh:maxCount 1 ;
+    sh:property [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 5 ;
             sh:path odm:LastUpdateDatetime ],
+        [ sh:in ( "Candidate" "Open" "Answered" "Closed" "Cancelled" "Resolved" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 4 ;
+            sh:path odm:State ],
+        [ sh:class odm:AuditRecord ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path odm:AuditRecordRef ],
         [ sh:class odm:Value ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 7 ;
             sh:path odm:ValueRef ],
+        [ sh:description "Type of page for page references indicated in the PageRefs attribute." ;
+            sh:in ( "Manual" "System" ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:Type ],
+        [ sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:Target ],
+        [ sh:description "General observation Sub Class." ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path odm:Name ],
         [ sh:description "Unique identifier of the version within the XML document." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path odm:OID ],
-        [ sh:in ( "Candidate" "Open" "Answered" "Closed" "Cancelled" "Resolved" ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 4 ;
-            sh:path odm:State ],
-        [ sh:description "General observation Sub Class." ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path odm:Name ],
         [ sh:in ( "System" "Data Management" "Site Monitor" "Coding System" "Safety Reviewer" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path odm:Source ] ;
     sh:targetClass odm:Query .
+
+odm:Signature a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:LocationRef ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path odm:LocationRefRef ],
+        [ sh:description "Unique identifier for the leaf that is referenced." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:ID ],
+        [ sh:class odm:UserRef ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path odm:UserRefRef ],
+        [ sh:class odm:SignatureRef ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:SignatureRefRef ],
+        [ sh:class odm:DateTimeStamp ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:DateTimeStampRef ] ;
+    sh:targetClass odm:Signature .
+
+odm:Annotation a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Unique identifier for the leaf that is referenced." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path odm:ID ],
+        [ sh:class odm:Coding ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:CodingRef ],
+        [ sh:in ( "Insert" "Update" "Remove" "Upsert" "Context" ) ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:TransactionTypeRef ],
+        [ sh:class odm:Flag ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path odm:FlagRef ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:SeqNum ],
+        [ sh:class odm:Comment ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:CommentRef ] ;
+    sh:targetClass odm:Annotation .
+
+odm:AuditRecord a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:ReasonForChange ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path odm:ReasonForChangeRef ],
+        [ sh:in ( "Yes" "No" ) ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path odm:UsedMethod ],
+        [ sh:in ( "Monitoring" "DataManagement" "DBAudit" ) ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path odm:EditPoint ],
+        [ sh:class odm:LocationRef ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path odm:LocationRefRef ],
+        [ sh:class odm:SourceID ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path odm:SourceIDRef ],
+        [ sh:class odm:DateTimeStamp ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path odm:DateTimeStampRef ],
+        [ sh:class odm:UserRef ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path odm:UserRefRef ] ;
+    sh:targetClass odm:AuditRecord .
 
 odm:WorkflowRef a sh:NodeShape ;
     sh:closed true ;
@@ -3063,50 +3447,74 @@ odm:WorkflowRef a sh:NodeShape ;
 odm:Alias a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "General observation Sub Class." ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path odm:ContextRef ],
+        [ sh:description "General observation Sub Class." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
-            sh:path odm:Name ],
+            sh:path odm:Name ] ;
+    sh:targetClass odm:Alias .
+
+odm:TranslatedText a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "language context for internationalisation and localisation" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path odm:_language ],
+        [ sh:description "multi-line text content from between XML tags" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path odm:_content ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:Context ] ;
-    sh:targetClass odm:Alias .
+            sh:order 1 ;
+            sh:path odm:type ] ;
+    sh:targetClass odm:TranslatedText .
 
 odm:Coding a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path odm:SystemVersion ],
+            sh:order 6 ;
+            sh:path odm:ref ],
         [ sh:description """The Comment identifier that this value refers to. Needed when the WhereClause references Items across different domains.
                 The Comment would define any join assumptions.""" ;
             sh:maxCount 1 ;
-            sh:order 6 ;
+            sh:order 7 ;
             sh:path odm:CommentOID ],
-        [ sh:description "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file." ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path odm:href ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path odm:CodeRef ],
+        [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path odm:SystemVersion ],
         [ sh:maxCount 1 ;
             sh:order 4 ;
             sh:path odm:Label ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path odm:Code ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path odm:System ],
         [ sh:maxCount 1 ;
             sh:order 2 ;
-            sh:path odm:SystemName ] ;
+            sh:path odm:SystemName ],
+        [ sh:description "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file." ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path odm:href ] ;
     sh:targetClass odm:Coding .
 
 odm:Description a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class odm:TranslatedText ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path odm:TranslatedTextRef ] ;
     sh:targetClass odm:Description .
 

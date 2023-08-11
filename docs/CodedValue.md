@@ -14,7 +14,6 @@ URI: [odm:CodedValue](http://www.cdisc.org/ns/odm/v2.0/CodedValue)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [CodeListItem](CodeListItem.md) |  |  yes  |
-[EnumeratedItem](EnumeratedItem.md) |  |  yes  |
 
 
 
@@ -56,7 +55,6 @@ rank: 1000
 alias: CodedValue
 domain_of:
 - CodeListItem
-- EnumeratedItem
 range: value
 
 ```

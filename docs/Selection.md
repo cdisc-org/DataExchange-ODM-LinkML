@@ -41,6 +41,10 @@ URI: [odm:Selection](http://www.cdisc.org/ns/odm/v2.0/Selection)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Selection](https://wiki.cdisc.org/display/ODM2/Selection)
+
 ## Identifier and Mapping Information
 
 
@@ -79,6 +83,8 @@ URI: [odm:Selection](http://www.cdisc.org/ns/odm/v2.0/Selection)
 ```yaml
 name: Selection
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Selection
 slots:
 - Path
 slot_usage:
@@ -99,6 +105,8 @@ class_uri: odm:Selection
 ```yaml
 name: Selection
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Selection
 slot_usage:
   Path:
     name: Path

@@ -14,8 +14,8 @@ URI: [odm:IsNonStandard](http://www.cdisc.org/ns/odm/v2.0/IsNonStandard)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [ItemGroupDef](ItemGroupDef.md) |  |  yes  |
-[CodeList](CodeList.md) |  |  yes  |
 [ItemRef](ItemRef.md) |  |  yes  |
+[CodeList](CodeList.md) |  |  yes  |
 
 
 
@@ -57,8 +57,8 @@ rank: 1000
 alias: IsNonStandard
 domain_of:
 - ItemGroupDef
-- CodeList
 - ItemRef
+- CodeList
 range: YesOnly
 
 ```

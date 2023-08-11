@@ -41,6 +41,10 @@ URI: [odm:InvestigatorRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRef)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/InvestigatorRef](https://wiki.cdisc.org/display/ODM2/InvestigatorRef)
+
 ## Identifier and Mapping Information
 
 
@@ -79,6 +83,8 @@ URI: [odm:InvestigatorRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRef)
 ```yaml
 name: InvestigatorRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/InvestigatorRef
 slots:
 - UserOID
 slot_usage:
@@ -100,6 +106,8 @@ class_uri: odm:InvestigatorRef
 ```yaml
 name: InvestigatorRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/InvestigatorRef
 slot_usage:
   UserOID:
     name: UserOID

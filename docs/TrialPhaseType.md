@@ -3,7 +3,9 @@
 
 
 
-_A terminology codelist relevant to the phase, or stage, of the clinical trial._
+_A terminology codelist relevant to the phase, or stage, of the_
+
+_                clinical trial._
 
 
 

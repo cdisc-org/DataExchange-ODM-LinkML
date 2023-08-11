@@ -44,6 +44,10 @@ URI: [odm:WorkflowEnd](http://www.cdisc.org/ns/odm/v2.0/WorkflowEnd)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/WorkflowEnd](https://wiki.cdisc.org/display/ODM2/WorkflowEnd)
+
 ## Identifier and Mapping Information
 
 
@@ -82,6 +86,8 @@ URI: [odm:WorkflowEnd](http://www.cdisc.org/ns/odm/v2.0/WorkflowEnd)
 ```yaml
 name: WorkflowEnd
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/WorkflowEnd
 slots:
 - EndOID
 - _content
@@ -95,6 +101,7 @@ slot_usage:
   _content:
     name: _content
     domain_of:
+    - TranslatedText
     - CheckValue
     - Code
     - WorkflowEnd
@@ -119,7 +126,6 @@ slot_usage:
     - FlagValue
     - FlagType
     - Value
-    - TranslatedText
     range: text
 class_uri: odm:WorkflowEnd
 
@@ -132,6 +138,8 @@ class_uri: odm:WorkflowEnd
 ```yaml
 name: WorkflowEnd
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/WorkflowEnd
 slot_usage:
   EndOID:
     name: EndOID
@@ -142,6 +150,7 @@ slot_usage:
   _content:
     name: _content
     domain_of:
+    - TranslatedText
     - CheckValue
     - Code
     - WorkflowEnd
@@ -166,7 +175,6 @@ slot_usage:
     - FlagValue
     - FlagType
     - Value
-    - TranslatedText
     range: text
 attributes:
   EndOID:
@@ -187,6 +195,7 @@ attributes:
     alias: _content
     owner: WorkflowEnd
     domain_of:
+    - TranslatedText
     - CheckValue
     - Code
     - WorkflowEnd
@@ -211,8 +220,8 @@ attributes:
     - FlagValue
     - FlagType
     - Value
-    - TranslatedText
     range: text
+    inlined: true
 class_uri: odm:WorkflowEnd
 
 ```

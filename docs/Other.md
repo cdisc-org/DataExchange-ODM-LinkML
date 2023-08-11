@@ -15,7 +15,6 @@ URI: [odm:Other](http://www.cdisc.org/ns/odm/v2.0/Other)
 | --- | --- | --- |
 [ItemRef](ItemRef.md) |  |  yes  |
 [CodeListItem](CodeListItem.md) |  |  yes  |
-[EnumeratedItem](EnumeratedItem.md) |  |  yes  |
 
 
 
@@ -58,7 +57,6 @@ alias: Other
 domain_of:
 - ItemRef
 - CodeListItem
-- EnumeratedItem
 range: YesOnly
 
 ```

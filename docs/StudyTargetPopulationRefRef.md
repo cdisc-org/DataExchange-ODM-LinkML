@@ -13,6 +13,7 @@ URI: [odm:StudyTargetPopulationRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyTar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[Protocol](Protocol.md) |  |  yes  |
 [StudyEstimand](StudyEstimand.md) |  |  yes  |
 
 
@@ -54,6 +55,7 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: StudyTargetPopulationRefRef
 domain_of:
+- Protocol
 - StudyEstimand
 range: StudyTargetPopulationRef
 

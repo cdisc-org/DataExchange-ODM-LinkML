@@ -14,6 +14,7 @@ URI: [odm:StudyEndPointRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointRef
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [StudyObjective](StudyObjective.md) |  |  yes  |
+[StudyEndPoints](StudyEndPoints.md) |  |  yes  |
 [StudyEstimand](StudyEstimand.md) |  |  yes  |
 
 
@@ -56,6 +57,7 @@ rank: 1000
 alias: StudyEndPointRefRef
 domain_of:
 - StudyObjective
+- StudyEndPoints
 - StudyEstimand
 range: StudyEndPointRef
 

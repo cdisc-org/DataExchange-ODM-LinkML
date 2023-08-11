@@ -18,9 +18,8 @@ URI: [odm:Version](http://www.cdisc.org/ns/odm/v2.0/Version)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ExternalCodeList](ExternalCodeList.md) |  |  yes  |
-[ExternalCodeLib](ExternalCodeLib.md) |  |  yes  |
 [Standard](Standard.md) |  |  yes  |
+[ExternalCodeLib](ExternalCodeLib.md) |  |  yes  |
 
 
 
@@ -62,9 +61,8 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Version
 domain_of:
-- ExternalCodeList
-- ExternalCodeLib
 - Standard
+- ExternalCodeLib
 range: text
 
 ```

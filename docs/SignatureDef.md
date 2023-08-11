@@ -56,6 +56,10 @@ URI: [odm:SignatureDef](http://www.cdisc.org/ns/odm/v2.0/SignatureDef)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/SignatureDef](https://wiki.cdisc.org/display/ODM2/SignatureDef)
+
 ## Identifier and Mapping Information
 
 
@@ -94,6 +98,8 @@ URI: [odm:SignatureDef](http://www.cdisc.org/ns/odm/v2.0/SignatureDef)
 ```yaml
 name: SignatureDef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SignatureDef
 slots:
 - OID
 - Methodology
@@ -103,9 +109,18 @@ slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -126,20 +141,11 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Methodology:
@@ -147,7 +153,6 @@ slot_usage:
     domain_of:
     - SignatureDef
     range: SignMethod
-    required: false
   MeaningRef:
     name: MeaningRef
     domain_of:
@@ -165,11 +170,6 @@ slot_usage:
     minimum_cardinality: 1
     maximum_cardinality: 1
 class_uri: odm:SignatureDef
-unique_keys:
-  UC-AD-3:
-    unique_key_name: UC-AD-3
-    unique_key_slots:
-    - OID
 
 ```
 </details>
@@ -180,13 +180,24 @@ unique_keys:
 ```yaml
 name: SignatureDef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SignatureDef
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -207,20 +218,11 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Methodology:
@@ -228,7 +230,6 @@ slot_usage:
     domain_of:
     - SignatureDef
     range: SignMethod
-    required: false
   MeaningRef:
     name: MeaningRef
     domain_of:
@@ -251,12 +252,22 @@ attributes:
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: OID
     owner: SignatureDef
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -277,20 +288,11 @@ attributes:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Methodology:
@@ -302,7 +304,6 @@ attributes:
     domain_of:
     - SignatureDef
     range: SignMethod
-    required: false
   MeaningRef:
     name: MeaningRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -328,11 +329,6 @@ attributes:
     minimum_cardinality: 1
     maximum_cardinality: 1
 class_uri: odm:SignatureDef
-unique_keys:
-  UC-AD-3:
-    unique_key_name: UC-AD-3
-    unique_key_slots:
-    - OID
 
 ```
 </details>

@@ -1,29 +1,34 @@
-# Slot: LocationRef
+# Class: LocationRef
+
+
 
 URI: [odm:LocationRef](http://www.cdisc.org/ns/odm/v2.0/LocationRef)
+
+
+
+```mermaid
+ classDiagram
+    class LocationRef
+      LocationRef : LocationOID
+        
+      
+```
+
 
 
 
 <!-- no inheritance hierarchy -->
 
 
+## Slots
 
-
-## Applicable Classes
-
-| Name | Description | Modifies Slot |
-| --- | --- | --- |
-[AdminData](AdminData.md) |  |  yes  |
-
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [LocationOID](LocationOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
 
 
 
 
-
-
-## Properties
-
-* Range: [Location](Location.md)
 
 ## Usages
 
@@ -36,6 +41,10 @@ URI: [odm:LocationRef](http://www.cdisc.org/ns/odm/v2.0/LocationRef)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/LocationRef](https://wiki.cdisc.org/display/ODM2/LocationRef)
 
 ## Identifier and Mapping Information
 
@@ -53,17 +62,80 @@ URI: [odm:LocationRef](http://www.cdisc.org/ns/odm/v2.0/LocationRef)
 
 
 
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | odm:LocationRef |
+| native | odm:LocationRef |
+
+
+
+
+
 ## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
 
 <details>
 ```yaml
 name: LocationRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
-rank: 1000
-alias: LocationRef
-domain_of:
-- AdminData
-range: Location
+see_also:
+- https://wiki.cdisc.org/display/ODM2/LocationRef
+slots:
+- LocationOID
+slot_usage:
+  LocationOID:
+    name: LocationOID
+    domain_of:
+    - User
+    - Organization
+    - SiteRef
+    - LocationRef
+    range: oidref
+    required: true
+class_uri: odm:LocationRef
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: LocationRef
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/LocationRef
+slot_usage:
+  LocationOID:
+    name: LocationOID
+    domain_of:
+    - User
+    - Organization
+    - SiteRef
+    - LocationRef
+    range: oidref
+    required: true
+attributes:
+  LocationOID:
+    name: LocationOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: LocationOID
+    owner: LocationRef
+    domain_of:
+    - User
+    - Organization
+    - SiteRef
+    - LocationRef
+    range: oidref
+    required: true
+class_uri: odm:LocationRef
 
 ```
 </details>

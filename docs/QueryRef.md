@@ -13,12 +13,12 @@ URI: [odm:QueryRef](http://www.cdisc.org/ns/odm/v2.0/QueryRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[Location](Location.md) |  |  yes  |
 [ClinicalData](ClinicalData.md) |  |  yes  |
 [SubjectData](SubjectData.md) |  |  yes  |
 [StudyEventData](StudyEventData.md) |  |  yes  |
 [ItemGroupData](ItemGroupData.md) |  |  yes  |
 [ItemData](ItemData.md) |  |  yes  |
-[Location](Location.md) |  |  yes  |
 
 
 
@@ -59,12 +59,12 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: QueryRef
 domain_of:
+- Location
 - ClinicalData
 - SubjectData
 - StudyEventData
 - ItemGroupData
 - ItemData
-- Location
 range: Query
 
 ```

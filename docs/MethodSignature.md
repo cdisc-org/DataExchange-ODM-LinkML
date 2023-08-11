@@ -41,13 +41,18 @@ URI: [odm:MethodSignature](http://www.cdisc.org/ns/odm/v2.0/MethodSignature)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ConditionDef](ConditionDef.md) | [MethodSignatureRef](MethodSignatureRef.md) | range | [MethodSignature](MethodSignature.md) |
+| [RangeCheck](RangeCheck.md) | [MethodSignatureRef](MethodSignatureRef.md) | range | [MethodSignature](MethodSignature.md) |
 | [MethodDef](MethodDef.md) | [MethodSignatureRef](MethodSignatureRef.md) | range | [MethodSignature](MethodSignature.md) |
+| [ConditionDef](ConditionDef.md) | [MethodSignatureRef](MethodSignatureRef.md) | range | [MethodSignature](MethodSignature.md) |
 
 
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/MethodSignature](https://wiki.cdisc.org/display/ODM2/MethodSignature)
 
 ## Identifier and Mapping Information
 
@@ -87,6 +92,8 @@ URI: [odm:MethodSignature](http://www.cdisc.org/ns/odm/v2.0/MethodSignature)
 ```yaml
 name: MethodSignature
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/MethodSignature
 slots:
 - ParameterRef
 - ReturnValueRef
@@ -97,16 +104,16 @@ slot_usage:
     domain_of:
     - MethodSignature
     range: Parameter
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ReturnValueRef:
     name: ReturnValueRef
     multivalued: true
     domain_of:
     - MethodSignature
     range: ReturnValue
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:MethodSignature
 
 ```
@@ -118,6 +125,8 @@ class_uri: odm:MethodSignature
 ```yaml
 name: MethodSignature
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/MethodSignature
 slot_usage:
   ParameterRef:
     name: ParameterRef
@@ -125,16 +134,16 @@ slot_usage:
     domain_of:
     - MethodSignature
     range: Parameter
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ReturnValueRef:
     name: ReturnValueRef
     multivalued: true
     domain_of:
     - MethodSignature
     range: ReturnValue
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   ParameterRef:
     name: ParameterRef
@@ -146,8 +155,8 @@ attributes:
     domain_of:
     - MethodSignature
     range: Parameter
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ReturnValueRef:
     name: ReturnValueRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -158,8 +167,8 @@ attributes:
     domain_of:
     - MethodSignature
     range: ReturnValue
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:MethodSignature
 
 ```

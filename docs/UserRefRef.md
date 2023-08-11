@@ -13,6 +13,7 @@ URI: [odm:UserRefRef](http://www.cdisc.org/ns/odm/v2.0/UserRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[AdminData](AdminData.md) |  |  yes  |
 [AuditRecord](AuditRecord.md) |  |  yes  |
 [Signature](Signature.md) |  |  yes  |
 
@@ -55,6 +56,7 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: UserRefRef
 domain_of:
+- AdminData
 - AuditRecord
 - Signature
 range: UserRef

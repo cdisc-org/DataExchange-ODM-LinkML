@@ -24,8 +24,8 @@ URI: [Comparator](Comparator)
 
 | Name | Description |
 | ---  | --- |
-| [Comparator](Comparator.md) |  |
-| [Comparator](Comparator.md) |  |
+| [ComparatorRef](ComparatorRef.md) |  |
+| [ComparatorRef](ComparatorRef.md) |  |
 
 
 
@@ -40,12 +40,20 @@ URI: [Comparator](Comparator)
 
 
 
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+
 
 ## LinkML Source
 
 <details>
 ```yaml
 name: Comparator
+from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:
   LT:

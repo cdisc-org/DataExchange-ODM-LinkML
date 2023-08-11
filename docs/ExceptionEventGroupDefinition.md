@@ -26,15 +26,6 @@ URI: [ExceptionEventGroupDefinition](ExceptionEventGroupDefinition)
 
 | Class | Description |
 | --- | --- |
-| [WorkflowRef](WorkflowRef.md) |  |
-
-
-### WorkflowRef
-
-None
-
-| Name | Cardinality and Range  | Description  |
-| ---  | ---  | --- |
 
 
 

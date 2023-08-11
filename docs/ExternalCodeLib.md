@@ -42,9 +42,20 @@ URI: [odm:ExternalCodeLib](http://www.cdisc.org/ns/odm/v2.0/ExternalCodeLib)
 
 
 
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [FormalExpression](FormalExpression.md) | [ExternalCodeLibRef](ExternalCodeLibRef.md) | range | [ExternalCodeLib](ExternalCodeLib.md) |
 
 
 
+
+
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/ExternalCodeLib](https://wiki.cdisc.org/display/ODM2/ExternalCodeLib)
 
 ## Identifier and Mapping Information
 
@@ -84,6 +95,8 @@ URI: [odm:ExternalCodeLib](http://www.cdisc.org/ns/odm/v2.0/ExternalCodeLib)
 ```yaml
 name: ExternalCodeLib
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ExternalCodeLib
 slots:
 - Library
 - Method
@@ -102,33 +115,27 @@ slot_usage:
     domain_of:
     - ExternalCodeLib
     range: name
-    required: false
   Version:
     name: Version
     domain_of:
-    - ExternalCodeList
-    - ExternalCodeLib
     - Standard
+    - ExternalCodeLib
     range: text
-    required: false
   ref:
     name: ref
     domain_of:
-    - ExternalCodeList
     - ExternalCodeLib
+    - Coding
     range: text
-    required: false
   href:
     name: href
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding
     range: uriorcurie
-    required: false
 class_uri: odm:ExternalCodeLib
 
 ```
@@ -140,6 +147,8 @@ class_uri: odm:ExternalCodeLib
 ```yaml
 name: ExternalCodeLib
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ExternalCodeLib
 slot_usage:
   Library:
     name: Library
@@ -152,33 +161,27 @@ slot_usage:
     domain_of:
     - ExternalCodeLib
     range: name
-    required: false
   Version:
     name: Version
     domain_of:
-    - ExternalCodeList
-    - ExternalCodeLib
     - Standard
+    - ExternalCodeLib
     range: text
-    required: false
   ref:
     name: ref
     domain_of:
-    - ExternalCodeList
     - ExternalCodeLib
+    - Coding
     range: text
-    required: false
   href:
     name: href
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding
     range: uriorcurie
-    required: false
 attributes:
   Library:
     name: Library
@@ -199,7 +202,6 @@ attributes:
     domain_of:
     - ExternalCodeLib
     range: name
-    required: false
   Version:
     name: Version
     description: Version of Standard.
@@ -208,11 +210,9 @@ attributes:
     alias: Version
     owner: ExternalCodeLib
     domain_of:
-    - ExternalCodeList
-    - ExternalCodeLib
     - Standard
+    - ExternalCodeLib
     range: text
-    required: false
   ref:
     name: ref
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -220,10 +220,9 @@ attributes:
     alias: ref
     owner: ExternalCodeLib
     domain_of:
-    - ExternalCodeList
     - ExternalCodeLib
+    - Coding
     range: text
-    required: false
   href:
     name: href
     description: URL that can be used to identify the location of a document or dataset
@@ -235,12 +234,10 @@ attributes:
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding
     range: uriorcurie
-    required: false
 class_uri: odm:ExternalCodeLib
 
 ```

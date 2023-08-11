@@ -41,6 +41,10 @@ URI: [odm:SiteRef](http://www.cdisc.org/ns/odm/v2.0/SiteRef)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/SiteRef](https://wiki.cdisc.org/display/ODM2/SiteRef)
+
 ## Identifier and Mapping Information
 
 
@@ -79,16 +83,18 @@ URI: [odm:SiteRef](http://www.cdisc.org/ns/odm/v2.0/SiteRef)
 ```yaml
 name: SiteRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SiteRef
 slots:
 - LocationOID
 slot_usage:
   LocationOID:
     name: LocationOID
     domain_of:
+    - User
     - Organization
     - SiteRef
     - LocationRef
-    - User
     range: oidref
     required: true
 class_uri: odm:SiteRef
@@ -102,14 +108,16 @@ class_uri: odm:SiteRef
 ```yaml
 name: SiteRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SiteRef
 slot_usage:
   LocationOID:
     name: LocationOID
     domain_of:
+    - User
     - Organization
     - SiteRef
     - LocationRef
-    - User
     range: oidref
     required: true
 attributes:
@@ -120,10 +128,10 @@ attributes:
     alias: LocationOID
     owner: SiteRef
     domain_of:
+    - User
     - Organization
     - SiteRef
     - LocationRef
-    - User
     range: oidref
     required: true
 class_uri: odm:SiteRef

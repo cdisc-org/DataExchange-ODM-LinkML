@@ -7,6 +7,7 @@ message AbsoluteTimingConstraint
   string timepointTarget = 0
   durationDatetime timepointPreWindow = 0
   durationDatetime timepointPostWindow = 0
+  description descriptionRef = 0
  }
 message Address
  {
@@ -22,20 +23,25 @@ message Address
 message AdminData
  {
   oidref studyOID = 0
- repeated  user userRef = 0
+ repeated  user userRefRef = 0
  repeated  organization organizationRef = 0
- repeated  location locationRef = 0
+ repeated  location locationRefRef = 0
  repeated  signatureDef signatureDefRef = 0
  }
 message Alias
  {
-  text context = 0
+  text contextRef = 0
   text name = 0
+ }
+// An Annotated Case Report Form (CRF) is a Portable File Format (PDF) document that provides the mapping of data collection fields to the variables or discrete variable values contained within the datasets.
+message AnnotatedCRF
+ {
+ repeated  documentRef documentRefRef = 0
  }
 message Annotation
  {
-  integer seqNum = 0
-  transactionType transactionType = 0
+  positiveInteger seqNum = 0
+  transactionType transactionTypeRef = 0
   oid iD = 0
   comment commentRef = 0
  repeated  coding codingRef = 0
@@ -73,19 +79,24 @@ message Branching
  repeated  targetTransition targetTransitionRef = 0
  repeated  defaultTransition defaultTransitionRef = 0
  }
+message CDISCNotes
+ {
+ repeated  translatedText translatedTextRef = 0
+ }
 message CheckValue
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message City
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message Class
  {
   itemGroupClass name = 0
+ repeated  subClass subClassRef = 0
  }
 message ClinicalData
  {
@@ -94,22 +105,25 @@ message ClinicalData
  repeated  subjectData subjectDataRef = 0
  repeated  itemGroupData itemGroupDataRef = 0
  repeated  query queryRef = 0
+  auditRecord auditRecordRef = 0
+  signature signatureRefRef = 0
+ repeated  annotation annotationRef = 0
  }
 message Code
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message CodeList
  {
   oid oID = 0
   name name = 0
-  cLDataType dataType = 0
+  cLDataType dataTypeRef = 0
   oidref commentOID = 0
   oidref standardOID = 0
   yesOnly isNonStandard = 0
   description descriptionRef = 0
-  externalCodeList externalCodeListRef = 0
+ repeated  codeListItem codeListItemRef = 0
  repeated  coding codingRef = 0
  repeated  alias aliasRef = 0
  }
@@ -118,7 +132,7 @@ message CodeListItem
   value codedValue = 0
   decimal rank = 0
   yesOnly other = 0
-  integer orderNumber = 0
+  positiveInteger orderNumber = 0
   yesOnly extendedValue = 0
   oidref commentOID = 0
   description descriptionRef = 0
@@ -132,17 +146,19 @@ message CodeListRef
  }
 message Coding
  {
-  text code = 0
+  text codeRef = 0
   uriorcurie system = 0
   text systemName = 0
   text systemVersion = 0
   text label = 0
   uriorcurie href = 0
+  uriorcurie ref = 0
   text commentOID = 0
  }
 message Comment
  {
   commentType sponsorOrSite = 0
+ repeated  translatedText translatedTextRef = 0
  }
 // The Comment element allows referencing short comments self-contained in the XML document or long comments normally included in external documents. For comments included in external documents, the reference could include specific pages of a document where the comments are included.
 message CommentDef
@@ -163,28 +179,47 @@ message ConditionDef
  }
 message Country
  {
-  text content = 0
+  contentType content = 0
   string range = 0
+ }
+message CRFCompletionInstructions
+ {
+ repeated  translatedText translatedTextRef = 0
  }
 message Criterion
  {
   oid oID = 0
   name name = 0
   oidref conditionOID = 0
+  description descriptionRef = 0
+ repeated  coding codingRef = 0
  }
 message DateTimeStamp
  {
-  text content = 0
+  contentType content = 0
   string range = 0
+ }
+message Decode
+ {
+ repeated  translatedText translatedTextRef = 0
  }
 message DefaultTransition
  {
   oidref targetTransitionOID = 0
  }
+message Definition
+ {
+ repeated  translatedText translatedTextRef = 0
+ }
+message Description
+ {
+ repeated  translatedText translatedTextRef = 0
+ }
 // Links to a leaf element with the location of the document.
 message DocumentRef
  {
   oid leafID = 0
+ repeated  pDFPageRef pDFPageRefRef = 0
  }
 message DurationTimingConstraint
  {
@@ -194,30 +229,40 @@ message DurationTimingConstraint
   durationDatetime durationTarget = 0
   durationDatetime durationPreWindow = 0
   durationDatetime durationPostWindow = 0
- }
-message EnumeratedItem
- {
-  value codedValue = 0
-  decimal rank = 0
-  yesOnly other = 0
-  integer orderNumber = 0
-  yesOnly extendedValue = 0
-  oidref commentOID = 0
   description descriptionRef = 0
- repeated  coding codingRef = 0
- repeated  alias aliasRef = 0
+ }
+message EntryCriteria
+ {
+ repeated  criterion criterionRef = 0
  }
 message Epoch
  {
   oid oID = 0
   name name = 0
   positiveInteger sequenceNumber = 0
+  description descriptionRef = 0
+ }
+message ErrorMessage
+ {
+ repeated  translatedText translatedTextRef = 0
  }
 message ExceptionEvent
  {
   oid oID = 0
   name name = 0
   oidref conditionOID = 0
+  description descriptionRef = 0
+  workflowRef workflowRefRef = 0
+ repeated  studyEventGroupRef studyEventGroupRefRef = 0
+ repeated  studyEventRef studyEventRefRef = 0
+ }
+message ExclusionCriteria
+ {
+ repeated  criterion criterionRef = 0
+ }
+message ExitCriteria
+ {
+ repeated  criterion criterionRef = 0
  }
 message ExternalCodeLib
  {
@@ -227,16 +272,9 @@ message ExternalCodeLib
   text ref = 0
   uriorcurie href = 0
  }
-message ExternalCodeList
- {
-  dictionaryNameType dictionary = 0
-  text version = 0
-  uriorcurie href = 0
-  text ref = 0
- }
 message FamilyName
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message Flag
@@ -256,11 +294,13 @@ message FlagValue
  }
 message FormalExpression
  {
-  text context = 0
+  text contextRef = 0
+  code codeRef = 0
+  externalCodeLib externalCodeLibRef = 0
  }
 message FullName
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message GeoPosition
@@ -271,12 +311,12 @@ message GeoPosition
  }
 message GivenName
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message HouseNumber
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message Image
@@ -285,16 +325,28 @@ message Image
   text href = 0
   text mimeType = 0
  }
+message ImplementationNotes
+ {
+ repeated  translatedText translatedTextRef = 0
+ }
 message Include
  {
   oidref studyOID = 0
   oidref metaDataVersionOID = 0
   uriorcurie href = 0
  }
+message InclusionCriteria
+ {
+ repeated  criterion criterionRef = 0
+ }
 message InclusionExclusionCriteria
  {
   inclusionCriteria inclusionCriteriaRef = 0
   exclusionCriteria exclusionCriteriaRef = 0
+ }
+message IntercurrentEvent
+ {
+  description descriptionRef = 0
  }
 message InvestigatorRef
  {
@@ -303,21 +355,30 @@ message InvestigatorRef
 message ItemData
  {
   oidref itemOID = 0
-  transactionType transactionType = 0
+  transactionType transactionTypeRef = 0
   yesOnly isNull = 0
  repeated  value valueRef = 0
  repeated  query queryRef = 0
+  auditRecord auditRecordRef = 0
+  signature signatureRefRef = 0
+ repeated  annotation annotationRef = 0
  }
 message ItemDef
  {
   oid oID = 0
   name name = 0
-  dataType dataType = 0
+  dataType dataTypeRef = 0
   positiveInteger length = 0
   text displayFormat = 0
+  text variableSet = 0
   oidref commentOID = 0
   description descriptionRef = 0
+  definition definitionRef = 0
   question questionRef = 0
+  prompt promptRef = 0
+  cRFCompletionInstructions cRFCompletionInstructionsRef = 0
+  implementationNotes implementationNotesRef = 0
+  cDISCNotes cDISCNotesRef = 0
  repeated  rangeCheck rangeCheckRef = 0
   codeListRef codeListRefRef = 0
   valueListRef valueListRefRef = 0
@@ -328,8 +389,14 @@ message ItemGroupData
  {
   oidref itemGroupOID = 0
   repeatKey itemGroupRepeatKey = 0
-  transactionType transactionType = 0
-  integer itemGroupDataSeq = 0
+  transactionType transactionTypeRef = 0
+  positiveInteger itemGroupDataSeq = 0
+ repeated  query queryRef = 0
+  itemGroupData itemGroupDataRef = 0
+  itemData itemDataRef = 0
+  auditRecord auditRecordRef = 0
+  signature signatureRefRef = 0
+ repeated  annotation annotationRef = 0
  }
 message ItemGroupDef
  {
@@ -355,19 +422,21 @@ message ItemGroupDef
  repeated  origin originRef = 0
  repeated  alias aliasRef = 0
   leaf leafRef = 0
+  itemGroupRef itemGroupRefRef = 0
+  itemRef itemRefRef = 0
  }
 message ItemGroupRef
  {
   oidref itemGroupOID = 0
   oidref methodOID = 0
-  integer orderNumber = 0
+  positiveInteger orderNumber = 0
   yesOrNo mandatory = 0
   oidref collectionExceptionConditionOID = 0
  }
 message ItemRef
  {
   oidref itemOID = 0
-  integer keySequence = 0
+  positiveInteger keySequence = 0
   yesOnly isNonStandard = 0
   yesOnly hasNoData = 0
   oidref methodOID = 0
@@ -376,7 +445,9 @@ message ItemRef
   yesOnly other = 0
   text role = 0
   oidref roleCodeListOID = 0
-  integer orderNumber = 0
+  coreType core = 0
+  text preSpecifiedValue = 0
+  positiveInteger orderNumber = 0
   yesOrNo mandatory = 0
   oidref collectionExceptionConditionOID = 0
  repeated  origin originRef = 0
@@ -398,10 +469,11 @@ message Leaf
  {
   oid iD = 0
   string href = 0
+  string title = 0
  }
 message LegalReason
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message Location
@@ -422,7 +494,7 @@ message LocationRef
  }
 message Meaning
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message MetaDataVersion
@@ -443,7 +515,7 @@ message MetaDataVersion
  repeated  studyEventDef studyEventDefRef = 0
  repeated  itemGroupDef itemGroupDefRef = 0
  repeated  itemDef itemDefRef = 0
- repeated  codeList codeListRef = 0
+ repeated  codeList codeListRefRef = 0
  repeated  conditionDef conditionDefRef = 0
  repeated  methodDef methodDefRef = 0
  repeated  commentDef commentDefRef = 0
@@ -474,14 +546,14 @@ message MethodSignature
  }
 message ODMFileMetadata
  {
-  fileType fileType = 0
-  granularity granularity = 0
-  context context = 0
+  fileType fileTypeRef = 0
+  granularity granularityRef = 0
+  context contextRef = 0
   oid fileOID = 0
   datetime creationDateTime = 0
   oidref priorFileOID = 0
   datetime asOfDateTime = 0
-  oDMVersion oDMVersion = 0
+  oDMVersion oDMVersionRef = 0
   text originator = 0
   text sourceSystem = 0
   text sourceSystemVersion = 0
@@ -515,38 +587,43 @@ message Origin
  }
 message OtherText
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message Parameter
  {
   name name = 0
-  dataType dataType = 0
-  text definition = 0
-  integer orderNumber = 0
+  dataType dataTypeRef = 0
+  text definitionRef = 0
+  positiveInteger orderNumber = 0
  }
 message ParameterValue
  {
-  text value = 0
+  text valueRef = 0
+ repeated  coding codingRef = 0
  }
 // This element is the container for CRF page references.
 message PDFPageRef
  {
   text pageRefs = 0
-  integer firstPage = 0
-  integer lastPage = 0
+  positiveInteger firstPage = 0
+  positiveInteger lastPage = 0
   pDFPageType type = 0
   text title = 0
  }
 message PostalCode
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message Prefix
  {
-  text content = 0
+  contentType content = 0
   string range = 0
+ }
+message Prompt
+ {
+ repeated  translatedText translatedTextRef = 0
  }
 message Protocol
  {
@@ -559,7 +636,7 @@ message Protocol
   studyInterventions studyInterventionsRef = 0
   studyObjectives studyObjectivesRef = 0
   studyEndPoints studyEndPointsRef = 0
-  studyTargetPopulation studyTargetPopulationRef = 0
+  studyTargetPopulation studyTargetPopulationRefRef = 0
   studyEstimands studyEstimandsRef = 0
   inclusionExclusionCriteria inclusionExclusionCriteriaRef = 0
  repeated  studyEventGroupRef studyEventGroupRefRef = 0
@@ -576,23 +653,35 @@ message Query
   datetime lastUpdateDatetime = 0
   name name = 0
   value valueRef = 0
-  auditRecord auditRecordRef = 0
+ repeated  auditRecord auditRecordRef = 0
+ }
+message Question
+ {
+ repeated  translatedText translatedTextRef = 0
  }
 message RangeCheck
  {
-  comparator comparator = 0
+  comparator comparatorRef = 0
   softOrHard softHard = 0
   oidref itemOID = 0
+  errorMessage errorMessageRef = 0
+  methodSignature methodSignatureRef = 0
+ repeated  formalExpression formalExpressionRef = 0
+ repeated  checkValue checkValueRef = 0
  }
 message ReasonForChange
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message ReferenceData
  {
   oidref studyOID = 0
   oidref metaDataVersionOID = 0
+ repeated  itemGroupData itemGroupDataRef = 0
+  auditRecord auditRecordRef = 0
+  signature signatureRefRef = 0
+ repeated  annotation annotationRef = 0
  }
 message RelativeTimingConstraint
  {
@@ -604,6 +693,7 @@ message RelativeTimingConstraint
   durationDatetime timepointRelativeTarget = 0
   durationDatetime timepointPreWindow = 0
   durationDatetime timepointPostWindow = 0
+  description descriptionRef = 0
  }
 message Resource
  {
@@ -611,13 +701,14 @@ message Resource
   name name = 0
   text attribute = 0
   text label = 0
+ repeated  selection selectionRef = 0
  }
 message ReturnValue
  {
   name name = 0
-  dataType dataType = 0
-  text definition = 0
-  integer orderNumber = 0
+  dataType dataTypeRef = 0
+  text definitionRef = 0
+  positiveInteger orderNumber = 0
  }
 message Selection
  {
@@ -648,7 +739,7 @@ message SiteRef
  }
 message SourceID
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message SourceItem
@@ -677,14 +768,18 @@ message Standard
   standardStatus status = 0
   oidref commentOID = 0
  }
+message Standards
+ {
+ repeated  standard standardRef = 0
+ }
 message StateProv
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message StreetName
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message Study
@@ -692,21 +787,29 @@ message Study
   oid oID = 0
   name studyName = 0
   name protocolName = 0
+  name versionID = 0
+  name versionName = 0
+  name status = 0
   description descriptionRef = 0
- repeated  metaDataVersion metaDataVersionRef = 0
+ repeated  metaDataVersion metaDataVersionRefRef = 0
  }
 message StudyEndPoint
  {
   oid oID = 0
   name name = 0
   studyEndPointType type = 0
+  studyEndPointLevel level = 0
   description descriptionRef = 0
  repeated  formalExpression formalExpressionRef = 0
  }
 message StudyEndPointRef
  {
   oidref studyEndPointOID = 0
-  integer orderNumber = 0
+  positiveInteger orderNumber = 0
+ }
+message StudyEndPoints
+ {
+ repeated  studyEndPoint studyEndPointRefRef = 0
  }
 message StudyEstimand
  {
@@ -719,13 +822,20 @@ message StudyEstimand
  repeated  intercurrentEvent intercurrentEventRef = 0
   summaryMeasure summaryMeasureRef = 0
  }
+message StudyEstimands
+ {
+ repeated  studyEstimand studyEstimandRef = 0
+ }
 message StudyEventData
  {
   oidref studyEventOID = 0
   repeatKey studyEventRepeatKey = 0
-  transactionType transactionType = 0
+  transactionType transactionTypeRef = 0
  repeated  itemGroupData itemGroupDataRef = 0
  repeated  query queryRef = 0
+  auditRecord auditRecordRef = 0
+  signature signatureRefRef = 0
+ repeated  annotation annotationRef = 0
  }
 message StudyEventDef
  {
@@ -751,18 +861,21 @@ message StudyEventGroupDef
   description descriptionRef = 0
   workflowRef workflowRefRef = 0
  repeated  coding codingRef = 0
+  studyEventGroupRef studyEventGroupRefRef = 0
+  studyEventRef studyEventRefRef = 0
  }
 message StudyEventGroupRef
  {
   oidref studyEventGroupOID = 0
-  integer orderNumber = 0
+  positiveInteger orderNumber = 0
   yesOrNo mandatory = 0
   oidref collectionExceptionConditionOID = 0
+  description descriptionRef = 0
  }
 message StudyEventRef
  {
   oidref studyEventOID = 0
-  integer orderNumber = 0
+  positiveInteger orderNumber = 0
   yesOrNo mandatory = 0
   oidref collectionExceptionConditionOID = 0
  }
@@ -772,6 +885,10 @@ message StudyIndication
   description descriptionRef = 0
  repeated  coding codingRef = 0
  }
+message StudyIndications
+ {
+ repeated  studyIndication studyIndicationRef = 0
+ }
 message StudyIntervention
  {
   oid oID = 0
@@ -780,22 +897,30 @@ message StudyIntervention
  }
 message StudyInterventionRef
  {
-  string studyInterventionOID = 0
+  oidref studyInterventionOID = 0
+ }
+message StudyInterventions
+ {
+ repeated  studyIntervention studyInterventionRefRef = 0
  }
 message StudyObjective
  {
   oid oID = 0
   name name = 0
-  studyObjectiveType type = 0
+  studyObjectiveLevel type = 0
   description descriptionRef = 0
  repeated  studyEndPointRef studyEndPointRefRef = 0
+ }
+message StudyObjectives
+ {
+ repeated  studyObjective studyObjectiveRef = 0
  }
 message StudyParameter
  {
   oid oID = 0
   name term = 0
   name shortName = 0
- repeated  parameterValue parameterValueRef = 0
+  parameterValue parameterValueRef = 0
  repeated  coding codingRef = 0
  }
 message StudyStructure
@@ -804,6 +929,10 @@ message StudyStructure
  repeated  arm armRef = 0
  repeated  epoch epochRef = 0
   workflowRef workflowRefRef = 0
+ }
+message StudySummary
+ {
+ repeated  studyParameter studyParameterRef = 0
  }
 message StudyTargetPopulation
  {
@@ -826,6 +955,10 @@ message StudyTiming
  repeated  transitionTimingConstraint transitionTimingConstraintRef = 0
  repeated  durationTimingConstraint durationTimingConstraintRef = 0
  }
+message StudyTimings
+ {
+ repeated  studyTiming studyTimingRef = 0
+ }
 // This element contains SubClass definitions.
 message SubClass
  {
@@ -835,16 +968,28 @@ message SubClass
 message SubjectData
  {
   subjectKey subjectKey = 0
-  transactionType transactionType = 0
+  transactionType transactionTypeRef = 0
   investigatorRef investigatorRefRef = 0
   siteRef siteRefRef = 0
  repeated  studyEventData studyEventDataRef = 0
  repeated  query queryRef = 0
+  auditRecord auditRecordRef = 0
+  signature signatureRefRef = 0
+ repeated  annotation annotationRef = 0
  }
 message Suffix
  {
-  text content = 0
+  contentType content = 0
   string range = 0
+ }
+message SummaryMeasure
+ {
+  description descriptionRef = 0
+ }
+// Supplemental data definitions
+message SupplementalDoc
+ {
+ repeated  documentRef documentRefRef = 0
  }
 message TargetTransition
  {
@@ -870,20 +1015,23 @@ message TransitionTimingConstraint
   durationDatetime timepointTarget = 0
   durationDatetime timepointPreWindow = 0
   durationDatetime timepointPostWindow = 0
+  description descriptionRef = 0
  }
 message TranslatedText
  {
   languageType language = 0
   text type = 0
+  contentType content = 0
  }
 message TrialPhase
  {
-  trialPhaseType value = 0
+  trialPhaseType valueRef = 0
+  description descriptionRef = 0
  }
 message User
  {
   oid oID = 0
-  userType userType = 0
+  userType userTypeRef = 0
   oidref organizationOID = 0
   oidref locationOID = 0
   userName userNameRef = 0
@@ -898,7 +1046,7 @@ message User
  }
 message UserName
  {
-  text content = 0
+  contentType content = 0
   string range = 0
  }
 message UserRef
@@ -924,6 +1072,7 @@ message WhereClauseDef
  {
   oid oID = 0
   oidref commentOID = 0
+ repeated  rangeCheck rangeCheckRef = 0
  }
 message WhereClauseRef
  {
@@ -936,6 +1085,8 @@ message WorkflowDef
   description descriptionRef = 0
   workflowStart workflowStartRef = 0
  repeated  workflowEnd workflowEndRef = 0
+  transition transitionRef = 0
+  branching branchingRef = 0
  }
 message WorkflowEnd
  {

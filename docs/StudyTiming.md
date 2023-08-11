@@ -64,6 +64,10 @@ URI: [odm:StudyTiming](http://www.cdisc.org/ns/odm/v2.0/StudyTiming)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/StudyTiming](https://wiki.cdisc.org/display/ODM2/StudyTiming)
+
 ## Identifier and Mapping Information
 
 
@@ -102,6 +106,8 @@ URI: [odm:StudyTiming](http://www.cdisc.org/ns/odm/v2.0/StudyTiming)
 ```yaml
 name: StudyTiming
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyTiming
 slots:
 - OID
 - Name
@@ -113,9 +119,18 @@ slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -136,32 +151,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -179,17 +194,8 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   AbsoluteTimingConstraintRef:
@@ -198,32 +204,32 @@ slot_usage:
     domain_of:
     - StudyTiming
     range: AbsoluteTimingConstraint
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   RelativeTimingConstraintRef:
     name: RelativeTimingConstraintRef
     multivalued: true
     domain_of:
     - StudyTiming
     range: RelativeTimingConstraint
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   TransitionTimingConstraintRef:
     name: TransitionTimingConstraintRef
     multivalued: true
     domain_of:
     - StudyTiming
     range: TransitionTimingConstraint
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   DurationTimingConstraintRef:
     name: DurationTimingConstraintRef
     multivalued: true
     domain_of:
     - StudyTiming
     range: DurationTimingConstraint
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:StudyTiming
 
 ```
@@ -235,13 +241,24 @@ class_uri: odm:StudyTiming
 ```yaml
 name: StudyTiming
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyTiming
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -262,32 +279,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -305,17 +322,8 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   AbsoluteTimingConstraintRef:
@@ -324,44 +332,54 @@ slot_usage:
     domain_of:
     - StudyTiming
     range: AbsoluteTimingConstraint
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   RelativeTimingConstraintRef:
     name: RelativeTimingConstraintRef
     multivalued: true
     domain_of:
     - StudyTiming
     range: RelativeTimingConstraint
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   TransitionTimingConstraintRef:
     name: TransitionTimingConstraintRef
     multivalued: true
     domain_of:
     - StudyTiming
     range: TransitionTimingConstraint
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   DurationTimingConstraintRef:
     name: DurationTimingConstraintRef
     multivalued: true
     domain_of:
     - StudyTiming
     range: DurationTimingConstraint
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   OID:
     name: OID
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: OID
     owner: StudyTiming
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -382,20 +400,11 @@ attributes:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
@@ -406,13 +415,22 @@ attributes:
     alias: Name
     owner: StudyTiming
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -430,17 +448,8 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   AbsoluteTimingConstraintRef:
@@ -453,8 +462,8 @@ attributes:
     domain_of:
     - StudyTiming
     range: AbsoluteTimingConstraint
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   RelativeTimingConstraintRef:
     name: RelativeTimingConstraintRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -465,8 +474,8 @@ attributes:
     domain_of:
     - StudyTiming
     range: RelativeTimingConstraint
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   TransitionTimingConstraintRef:
     name: TransitionTimingConstraintRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -477,8 +486,8 @@ attributes:
     domain_of:
     - StudyTiming
     range: TransitionTimingConstraint
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   DurationTimingConstraintRef:
     name: DurationTimingConstraintRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -489,8 +498,8 @@ attributes:
     domain_of:
     - StudyTiming
     range: DurationTimingConstraint
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:StudyTiming
 
 ```

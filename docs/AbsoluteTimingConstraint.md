@@ -64,6 +64,10 @@ URI: [odm:AbsoluteTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/AbsoluteTim
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/AbsoluteTimingConstraint](https://wiki.cdisc.org/display/ODM2/AbsoluteTimingConstraint)
+
 ## Identifier and Mapping Information
 
 
@@ -102,6 +106,8 @@ URI: [odm:AbsoluteTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/AbsoluteTim
 ```yaml
 name: AbsoluteTimingConstraint
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/AbsoluteTimingConstraint
 slots:
 - OID
 - Name
@@ -115,9 +121,18 @@ slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -138,32 +153,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -181,17 +196,8 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   StudyEventGroupOID:
@@ -200,7 +206,6 @@ slot_usage:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
     range: oidref
-    required: false
   StudyEventOID:
     name: StudyEventOID
     domain_of:
@@ -209,7 +214,6 @@ slot_usage:
     - StudyEventData
     - KeySet
     range: oidref
-    required: false
   TimepointTarget:
     name: TimepointTarget
     domain_of:
@@ -230,7 +234,6 @@ slot_usage:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-    required: false
   TimepointPostWindow:
     name: TimepointPostWindow
     domain_of:
@@ -238,14 +241,22 @@ slot_usage:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -268,21 +279,9 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:AbsoluteTimingConstraint
 
@@ -295,13 +294,24 @@ class_uri: odm:AbsoluteTimingConstraint
 ```yaml
 name: AbsoluteTimingConstraint
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/AbsoluteTimingConstraint
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -322,32 +332,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -365,17 +375,8 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   StudyEventGroupOID:
@@ -384,7 +385,6 @@ slot_usage:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
     range: oidref
-    required: false
   StudyEventOID:
     name: StudyEventOID
     domain_of:
@@ -393,7 +393,6 @@ slot_usage:
     - StudyEventData
     - KeySet
     range: oidref
-    required: false
   TimepointTarget:
     name: TimepointTarget
     domain_of:
@@ -414,7 +413,6 @@ slot_usage:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-    required: false
   TimepointPostWindow:
     name: TimepointPostWindow
     domain_of:
@@ -422,14 +420,22 @@ slot_usage:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -452,21 +458,9 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 attributes:
   OID:
@@ -474,12 +468,22 @@ attributes:
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: OID
     owner: AbsoluteTimingConstraint
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -500,20 +504,11 @@ attributes:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
@@ -524,13 +519,22 @@ attributes:
     alias: Name
     owner: AbsoluteTimingConstraint
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -548,17 +552,8 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   StudyEventGroupOID:
@@ -571,7 +566,6 @@ attributes:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
     range: oidref
-    required: false
   StudyEventOID:
     name: StudyEventOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -584,7 +578,6 @@ attributes:
     - StudyEventData
     - KeySet
     range: oidref
-    required: false
   TimepointTarget:
     name: TimepointTarget
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -614,7 +607,6 @@ attributes:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-    required: false
   TimepointPostWindow:
     name: TimepointPostWindow
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -626,7 +618,6 @@ attributes:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-    required: false
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -634,10 +625,19 @@ attributes:
     alias: DescriptionRef
     owner: AbsoluteTimingConstraint
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -660,21 +660,9 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:AbsoluteTimingConstraint
 

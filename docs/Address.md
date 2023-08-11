@@ -71,14 +71,18 @@ URI: [odm:Address](http://www.cdisc.org/ns/odm/v2.0/Address)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Organization](Organization.md) | [AddressRef](AddressRef.md) | range | [Address](Address.md) |
 | [User](User.md) | [AddressRef](AddressRef.md) | range | [Address](Address.md) |
+| [Organization](Organization.md) | [AddressRef](AddressRef.md) | range | [Address](Address.md) |
 | [Location](Location.md) | [AddressRef](AddressRef.md) | range | [Address](Address.md) |
 
 
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Address](https://wiki.cdisc.org/display/ODM2/Address)
 
 ## Identifier and Mapping Information
 
@@ -118,6 +122,8 @@ URI: [odm:Address](http://www.cdisc.org/ns/odm/v2.0/Address)
 ```yaml
 name: Address
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Address
 slots:
 - StreetNameRef
 - HouseNumberRef
@@ -133,64 +139,48 @@ slot_usage:
     domain_of:
     - Address
     range: StreetName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   HouseNumberRef:
     name: HouseNumberRef
     domain_of:
     - Address
     range: HouseNumber
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CityRef:
     name: CityRef
     domain_of:
     - Address
     range: City
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StateProvRef:
     name: StateProvRef
     domain_of:
     - Address
     range: StateProv
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CountryRef:
     name: CountryRef
     domain_of:
     - Address
     range: Country
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   PostalCodeRef:
     name: PostalCodeRef
     domain_of:
     - Address
     range: PostalCode
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   GeoPositionRef:
     name: GeoPositionRef
     domain_of:
     - Address
     range: GeoPosition
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   OtherTextRef:
     name: OtherTextRef
     domain_of:
     - Address
     range: OtherText
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:Address
 
@@ -203,70 +193,56 @@ class_uri: odm:Address
 ```yaml
 name: Address
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Address
 slot_usage:
   StreetNameRef:
     name: StreetNameRef
     domain_of:
     - Address
     range: StreetName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   HouseNumberRef:
     name: HouseNumberRef
     domain_of:
     - Address
     range: HouseNumber
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CityRef:
     name: CityRef
     domain_of:
     - Address
     range: City
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StateProvRef:
     name: StateProvRef
     domain_of:
     - Address
     range: StateProv
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CountryRef:
     name: CountryRef
     domain_of:
     - Address
     range: Country
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   PostalCodeRef:
     name: PostalCodeRef
     domain_of:
     - Address
     range: PostalCode
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   GeoPositionRef:
     name: GeoPositionRef
     domain_of:
     - Address
     range: GeoPosition
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   OtherTextRef:
     name: OtherTextRef
     domain_of:
     - Address
     range: OtherText
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 attributes:
   StreetNameRef:
@@ -278,8 +254,6 @@ attributes:
     domain_of:
     - Address
     range: StreetName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   HouseNumberRef:
     name: HouseNumberRef
@@ -290,8 +264,6 @@ attributes:
     domain_of:
     - Address
     range: HouseNumber
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CityRef:
     name: CityRef
@@ -302,8 +274,6 @@ attributes:
     domain_of:
     - Address
     range: City
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StateProvRef:
     name: StateProvRef
@@ -314,8 +284,6 @@ attributes:
     domain_of:
     - Address
     range: StateProv
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CountryRef:
     name: CountryRef
@@ -326,8 +294,6 @@ attributes:
     domain_of:
     - Address
     range: Country
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   PostalCodeRef:
     name: PostalCodeRef
@@ -338,8 +304,6 @@ attributes:
     domain_of:
     - Address
     range: PostalCode
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   GeoPositionRef:
     name: GeoPositionRef
@@ -350,8 +314,6 @@ attributes:
     domain_of:
     - Address
     range: GeoPosition
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   OtherTextRef:
     name: OtherTextRef
@@ -362,8 +324,6 @@ attributes:
     domain_of:
     - Address
     range: OtherText
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:Address
 

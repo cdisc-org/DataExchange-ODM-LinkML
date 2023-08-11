@@ -41,6 +41,10 @@ URI: [odm:SourceID](http://www.cdisc.org/ns/odm/v2.0/SourceID)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/SourceID](https://wiki.cdisc.org/display/ODM2/SourceID)
+
 ## Identifier and Mapping Information
 
 
@@ -79,6 +83,8 @@ URI: [odm:SourceID](http://www.cdisc.org/ns/odm/v2.0/SourceID)
 ```yaml
 name: SourceID
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SourceID
 slots:
 - _content
 slot_usage:
@@ -97,6 +103,8 @@ class_uri: odm:SourceID
 ```yaml
 name: SourceID
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SourceID
 slot_usage:
   range:
     name: range
@@ -110,6 +118,7 @@ attributes:
   alias: _content
   owner: SourceID
   domain_of:
+  - TranslatedText
   - CheckValue
   - Code
   - WorkflowEnd
@@ -134,8 +143,8 @@ attributes:
   - FlagValue
   - FlagType
   - Value
-  - TranslatedText
   range: _contentType
+  inlined: true
 class_uri: odm:SourceID
 
 ```

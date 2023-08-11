@@ -32,6 +32,8 @@ URI: [odm:ID](http://www.cdisc.org/ns/odm/v2.0/ID)
 
 * Range: [Oid](Oid.md)
 
+* Required: True
+
 
 
 
@@ -60,12 +62,14 @@ name: ID
 description: Unique identifier for the leaf that is referenced.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: true
 alias: ID
 domain_of:
 - leaf
 - Signature
 - Annotation
 range: oid
+required: true
 
 ```
 </details>

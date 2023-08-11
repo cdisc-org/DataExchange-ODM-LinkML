@@ -1,6 +1,6 @@
-# Slot: ExternalCodeListRef
+# Slot: ODMVersionRef
 
-URI: [odm:ExternalCodeListRef](http://www.cdisc.org/ns/odm/v2.0/ExternalCodeListRef)
+URI: [odm:ODMVersionRef](http://www.cdisc.org/ns/odm/v2.0/ODMVersionRef)
 
 
 
@@ -13,7 +13,7 @@ URI: [odm:ExternalCodeListRef](http://www.cdisc.org/ns/odm/v2.0/ExternalCodeList
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[CodeList](CodeList.md) |  |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) |  |  yes  |
 
 
 
@@ -23,7 +23,7 @@ URI: [odm:ExternalCodeListRef](http://www.cdisc.org/ns/odm/v2.0/ExternalCodeList
 
 ## Properties
 
-* Range: [ExternalCodeList](ExternalCodeList.md)
+* Range: [ODMVersion](ODMVersion.md)
 
 
 
@@ -49,13 +49,13 @@ URI: [odm:ExternalCodeListRef](http://www.cdisc.org/ns/odm/v2.0/ExternalCodeList
 
 <details>
 ```yaml
-name: ExternalCodeListRef
+name: ODMVersionRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-alias: ExternalCodeListRef
+alias: ODMVersionRef
 domain_of:
-- CodeList
-range: ExternalCodeList
+- ODMFileMetadata
+range: ODMVersion
 
 ```
 </details>

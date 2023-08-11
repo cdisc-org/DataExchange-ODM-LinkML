@@ -46,7 +46,7 @@ URI: [odm:SourceItem](http://www.cdisc.org/ns/odm/v2.0/SourceItem)
 | [ItemGroupOID](ItemGroupOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
 | [MetaDataVersionOID](MetaDataVersionOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
 | [StudyOID](StudyOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [leafID](leafID.md) | 0..1 <br/> [Oidref](Oidref.md) | Unique identifier for the leaf element with the document location | direct |
+| [leafID](leafID.md) | 1..1 <br/> [Oidref](Oidref.md) | Unique identifier for the leaf element with the document location | direct |
 | [Name](Name.md) | 0..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
 | [ResourceRef](ResourceRef.md) | 1..* <br/> [Resource](Resource.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
@@ -65,6 +65,10 @@ URI: [odm:SourceItem](http://www.cdisc.org/ns/odm/v2.0/SourceItem)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/SourceItem](https://wiki.cdisc.org/display/ODM2/SourceItem)
 
 ## Identifier and Mapping Information
 
@@ -104,6 +108,8 @@ URI: [odm:SourceItem](http://www.cdisc.org/ns/odm/v2.0/SourceItem)
 ```yaml
 name: SourceItem
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SourceItem
 slots:
 - ItemOID
 - ItemGroupOID
@@ -117,22 +123,20 @@ slot_usage:
   ItemOID:
     name: ItemOID
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
-    required: false
   ItemGroupOID:
     name: ItemGroupOID
     domain_of:
+    - ItemGroupRef
     - SourceItem
     - ItemGroupData
     - KeySet
-    - ItemGroupRef
     range: oidref
-    required: false
   MetaDataVersionOID:
     name: MetaDataVersionOID
     domain_of:
@@ -144,7 +148,6 @@ slot_usage:
     - Association
     - KeySet
     range: oidref
-    required: false
   StudyOID:
     name: StudyOID
     domain_of:
@@ -157,24 +160,31 @@ slot_usage:
     - Association
     - KeySet
     range: oidref
-    required: false
   leafID:
     name: leafID
     domain_of:
-    - SourceItem
     - DocumentRef
+    - SourceItem
     range: oidref
-    required: false
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -192,19 +202,9 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
-    required: false
   ResourceRef:
     name: ResourceRef
     multivalued: true
@@ -212,30 +212,32 @@ slot_usage:
     - SourceItem
     range: Resource
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:SourceItem
 
 ```
@@ -247,26 +249,26 @@ class_uri: odm:SourceItem
 ```yaml
 name: SourceItem
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SourceItem
 slot_usage:
   ItemOID:
     name: ItemOID
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
-    required: false
   ItemGroupOID:
     name: ItemGroupOID
     domain_of:
+    - ItemGroupRef
     - SourceItem
     - ItemGroupData
     - KeySet
-    - ItemGroupRef
     range: oidref
-    required: false
   MetaDataVersionOID:
     name: MetaDataVersionOID
     domain_of:
@@ -278,7 +280,6 @@ slot_usage:
     - Association
     - KeySet
     range: oidref
-    required: false
   StudyOID:
     name: StudyOID
     domain_of:
@@ -291,24 +292,31 @@ slot_usage:
     - Association
     - KeySet
     range: oidref
-    required: false
   leafID:
     name: leafID
     domain_of:
-    - SourceItem
     - DocumentRef
+    - SourceItem
     range: oidref
-    required: false
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -326,19 +334,9 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
-    required: false
   ResourceRef:
     name: ResourceRef
     multivalued: true
@@ -346,30 +344,32 @@ slot_usage:
     - SourceItem
     range: Resource
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   ItemOID:
     name: ItemOID
@@ -378,13 +378,12 @@ attributes:
     alias: ItemOID
     owner: SourceItem
     domain_of:
+    - ItemRef
     - SourceItem
     - RangeCheck
     - ItemData
     - KeySet
-    - ItemRef
     range: oidref
-    required: false
   ItemGroupOID:
     name: ItemGroupOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -392,12 +391,11 @@ attributes:
     alias: ItemGroupOID
     owner: SourceItem
     domain_of:
+    - ItemGroupRef
     - SourceItem
     - ItemGroupData
     - KeySet
-    - ItemGroupRef
     range: oidref
-    required: false
   MetaDataVersionOID:
     name: MetaDataVersionOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -413,7 +411,6 @@ attributes:
     - Association
     - KeySet
     range: oidref
-    required: false
   StudyOID:
     name: StudyOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -430,19 +427,19 @@ attributes:
     - Association
     - KeySet
     range: oidref
-    required: false
   leafID:
     name: leafID
     description: Unique identifier for the leaf element with the document location.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: leafID
     owner: SourceItem
     domain_of:
-    - SourceItem
     - DocumentRef
+    - SourceItem
     range: oidref
-    required: false
+    required: true
   Name:
     name: Name
     description: General observation Sub Class.
@@ -451,13 +448,22 @@ attributes:
     alias: Name
     owner: SourceItem
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -475,19 +481,9 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
-    required: false
   ResourceRef:
     name: ResourceRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -499,6 +495,8 @@ attributes:
     - SourceItem
     range: Resource
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -509,24 +507,24 @@ attributes:
     owner: SourceItem
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:SourceItem
 
 ```

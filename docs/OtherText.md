@@ -41,6 +41,10 @@ URI: [odm:OtherText](http://www.cdisc.org/ns/odm/v2.0/OtherText)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/OtherText](https://wiki.cdisc.org/display/ODM2/OtherText)
+
 ## Identifier and Mapping Information
 
 
@@ -79,6 +83,8 @@ URI: [odm:OtherText](http://www.cdisc.org/ns/odm/v2.0/OtherText)
 ```yaml
 name: OtherText
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/OtherText
 slots:
 - _content
 slot_usage:
@@ -97,6 +103,8 @@ class_uri: odm:OtherText
 ```yaml
 name: OtherText
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/OtherText
 slot_usage:
   range:
     name: range
@@ -110,6 +118,7 @@ attributes:
   alias: _content
   owner: OtherText
   domain_of:
+  - TranslatedText
   - CheckValue
   - Code
   - WorkflowEnd
@@ -134,8 +143,8 @@ attributes:
   - FlagValue
   - FlagType
   - Value
-  - TranslatedText
   range: _contentType
+  inlined: true
 class_uri: odm:OtherText
 
 ```

@@ -13,7 +13,9 @@ URI: [odm:StudyEventGroupRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGrou
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[StudyEventGroupDef](StudyEventGroupDef.md) |  |  yes  |
 [Protocol](Protocol.md) |  |  yes  |
+[ExceptionEvent](ExceptionEvent.md) |  |  yes  |
 
 
 
@@ -54,7 +56,9 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: StudyEventGroupRefRef
 domain_of:
+- StudyEventGroupDef
 - Protocol
+- ExceptionEvent
 range: StudyEventGroupRef
 
 ```

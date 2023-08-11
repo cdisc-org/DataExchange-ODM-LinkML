@@ -41,6 +41,10 @@ URI: [odm:Country](http://www.cdisc.org/ns/odm/v2.0/Country)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Country](https://wiki.cdisc.org/display/ODM2/Country)
+
 ## Identifier and Mapping Information
 
 
@@ -79,6 +83,8 @@ URI: [odm:Country](http://www.cdisc.org/ns/odm/v2.0/Country)
 ```yaml
 name: Country
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Country
 slots:
 - _content
 slot_usage:
@@ -97,6 +103,8 @@ class_uri: odm:Country
 ```yaml
 name: Country
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Country
 slot_usage:
   range:
     name: range
@@ -110,6 +118,7 @@ attributes:
   alias: _content
   owner: Country
   domain_of:
+  - TranslatedText
   - CheckValue
   - Code
   - WorkflowEnd
@@ -134,8 +143,8 @@ attributes:
   - FlagValue
   - FlagType
   - Value
-  - TranslatedText
   range: _contentType
+  inlined: true
 class_uri: odm:Country
 
 ```

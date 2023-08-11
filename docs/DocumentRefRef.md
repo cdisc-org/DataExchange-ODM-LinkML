@@ -21,8 +21,8 @@ URI: [odm:DocumentRefRef](http://www.cdisc.org/ns/odm/v2.0/DocumentRefRef)
 [AnnotatedCRF](AnnotatedCRF.md) | An Annotated Case Report Form (CRF) is a Portable File Format (PDF) document ... |  yes  |
 [SupplementalDoc](SupplementalDoc.md) | Supplemental data definitions |  yes  |
 [Origin](Origin.md) |  |  yes  |
-[CommentDef](CommentDef.md) | The Comment element allows referencing short comments self-contained in the X... |  yes  |
 [MethodDef](MethodDef.md) |  |  yes  |
+[CommentDef](CommentDef.md) | The Comment element allows referencing short comments self-contained in the X... |  yes  |
 
 
 
@@ -67,8 +67,8 @@ domain_of:
 - AnnotatedCRF
 - SupplementalDoc
 - Origin
-- CommentDef
 - MethodDef
+- CommentDef
 range: DocumentRef
 
 ```

@@ -52,7 +52,6 @@ URI: [odm:StudyRef](http://www.cdisc.org/ns/odm/v2.0/StudyRef)
 name: StudyRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-list_elements_unique: true
 alias: StudyRef
 domain_of:
 - ODMFileMetadata

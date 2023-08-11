@@ -43,6 +43,10 @@ URI: [odm:Decode](http://www.cdisc.org/ns/odm/v2.0/Decode)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Decode](https://wiki.cdisc.org/display/ODM2/Decode)
+
 ## Identifier and Mapping Information
 
 
@@ -81,21 +85,29 @@ URI: [odm:Decode](http://www.cdisc.org/ns/odm/v2.0/Decode)
 ```yaml
 name: Decode
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Decode
 slots:
 - TranslatedTextRef
 slot_usage:
   TranslatedTextRef:
     name: TranslatedTextRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:Decode
 
@@ -108,19 +120,27 @@ class_uri: odm:Decode
 ```yaml
 name: Decode
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Decode
 slot_usage:
   TranslatedTextRef:
     name: TranslatedTextRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   TranslatedTextRef:
@@ -128,17 +148,23 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
     alias: TranslatedTextRef
     owner: Decode
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:Decode
 

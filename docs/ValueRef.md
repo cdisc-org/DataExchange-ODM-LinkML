@@ -13,6 +13,8 @@ URI: [odm:ValueRef](http://www.cdisc.org/ns/odm/v2.0/ValueRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[TrialPhase](TrialPhase.md) |  |  yes  |
+[ParameterValue](ParameterValue.md) |  |  yes  |
 [ItemData](ItemData.md) |  |  yes  |
 [Query](Query.md) |  |  yes  |
 
@@ -55,6 +57,8 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ValueRef
 domain_of:
+- TrialPhase
+- ParameterValue
 - ItemData
 - Query
 range: Value

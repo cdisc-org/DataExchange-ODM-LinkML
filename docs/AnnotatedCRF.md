@@ -48,6 +48,10 @@ URI: [odm:AnnotatedCRF](http://www.cdisc.org/ns/odm/v2.0/AnnotatedCRF)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/AnnotatedCRF](https://wiki.cdisc.org/display/ODM2/AnnotatedCRF)
+
 ## Identifier and Mapping Information
 
 
@@ -89,6 +93,8 @@ description: An Annotated Case Report Form (CRF) is a Portable File Format (PDF)
   that provides the mapping of data collection fields to the variables or discrete
   variable values contained within the datasets.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/AnnotatedCRF
 slots:
 - DocumentRefRef
 slot_usage:
@@ -96,15 +102,16 @@ slot_usage:
     name: DocumentRefRef
     description: Links to a def:leaf element with the location of the document.
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - AnnotatedCRF
     - SupplementalDoc
     - Origin
-    - CommentDef
     - MethodDef
+    - CommentDef
     range: DocumentRef
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:AnnotatedCRF
 
@@ -120,20 +127,23 @@ description: An Annotated Case Report Form (CRF) is a Portable File Format (PDF)
   that provides the mapping of data collection fields to the variables or discrete
   variable values contained within the datasets.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/AnnotatedCRF
 slot_usage:
   DocumentRefRef:
     name: DocumentRefRef
     description: Links to a def:leaf element with the location of the document.
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - AnnotatedCRF
     - SupplementalDoc
     - Origin
-    - CommentDef
     - MethodDef
+    - CommentDef
     range: DocumentRef
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   DocumentRefRef:
@@ -142,17 +152,18 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
     alias: DocumentRefRef
     owner: AnnotatedCRF
     domain_of:
     - AnnotatedCRF
     - SupplementalDoc
     - Origin
-    - CommentDef
     - MethodDef
+    - CommentDef
     range: DocumentRef
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:AnnotatedCRF
 

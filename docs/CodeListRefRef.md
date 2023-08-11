@@ -13,6 +13,7 @@ URI: [odm:CodeListRefRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[MetaDataVersion](MetaDataVersion.md) |  |  yes  |
 [ItemDef](ItemDef.md) |  |  yes  |
 
 
@@ -54,6 +55,7 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: CodeListRefRef
 domain_of:
+- MetaDataVersion
 - ItemDef
 range: CodeListRef
 

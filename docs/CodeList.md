@@ -13,23 +13,23 @@ URI: [odm:CodeList](http://www.cdisc.org/ns/odm/v2.0/CodeList)
         
           CodeList --|> Alias : AliasRef
         
+      CodeList : CodeListItemRef
+        
+          CodeList --|> CodeListItem : CodeListItemRef
+        
       CodeList : CodingRef
         
           CodeList --|> Coding : CodingRef
         
       CodeList : CommentOID
         
-      CodeList : DataType
+      CodeList : DataTypeRef
         
-          CodeList --|> CLDataType : DataType
+          CodeList --|> CLDataType : DataTypeRef
         
       CodeList : DescriptionRef
         
           CodeList --|> Description : DescriptionRef
-        
-      CodeList : ExternalCodeListRef
-        
-          CodeList --|> ExternalCodeList : ExternalCodeListRef
         
       CodeList : IsNonStandard
         
@@ -56,12 +56,12 @@ URI: [odm:CodeList](http://www.cdisc.org/ns/odm/v2.0/CodeList)
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
 | [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [DataType](DataType.md) | 1..1 <br/> [CLDataType](CLDataType.md) | The DataType attribute specifies how the corresponding value | direct |
+| [DataTypeRef](DataTypeRef.md) | 1..1 <br/> [CLDataType](CLDataType.md) | The DataType attribute specifies how the corresponding value | direct |
 | [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | The Comment identifier that this value refers to | direct |
 | [StandardOID](StandardOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
 | [IsNonStandard](IsNonStandard.md) | 0..1 <br/> [YesOnly](YesOnly.md) |  | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [ExternalCodeListRef](ExternalCodeListRef.md) | 0..1 <br/> [ExternalCodeList](ExternalCodeList.md) |  | direct |
+| [CodeListItemRef](CodeListItemRef.md) | 0..* <br/> [CodeListItem](CodeListItem.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
 | [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) |  | direct |
 
@@ -73,12 +73,16 @@ URI: [odm:CodeList](http://www.cdisc.org/ns/odm/v2.0/CodeList)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [MetaDataVersion](MetaDataVersion.md) | [CodeListRef](CodeListRef.md) | range | [CodeList](CodeList.md) |
+| [MetaDataVersion](MetaDataVersion.md) | [CodeListRefRef](CodeListRefRef.md) | range | [CodeList](CodeList.md) |
 
 
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/CodeList](https://wiki.cdisc.org/display/ODM2/CodeList)
 
 ## Identifier and Mapping Information
 
@@ -118,24 +122,35 @@ URI: [odm:CodeList](http://www.cdisc.org/ns/odm/v2.0/CodeList)
 ```yaml
 name: CodeList
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/CodeList
 slots:
 - OID
 - Name
-- DataType
+- DataTypeRef
 - CommentOID
 - StandardOID
 - IsNonStandard
 - DescriptionRef
-- ExternalCodeListRef
+- CodeListItemRef
 - CodingRef
 - AliasRef
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -156,32 +171,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -199,68 +214,64 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
-  DataType:
-    name: DataType
+  DataTypeRef:
+    name: DataTypeRef
     domain_of:
-    - Parameter
-    - ReturnValue
     - ItemDef
     - CodeList
+    - Parameter
+    - ReturnValue
     range: CLDataType
     required: true
   CommentOID:
     name: CommentOID
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   StandardOID:
     name: StandardOID
     domain_of:
     - ItemGroupDef
     - CodeList
     range: oidref
-    required: false
   IsNonStandard:
     name: IsNonStandard
     domain_of:
     - ItemGroupDef
-    - CodeList
     - ItemRef
+    - CodeList
     range: YesOnly
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -283,76 +294,57 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
-  ExternalCodeListRef:
-    name: ExternalCodeListRef
+  CodeListItemRef:
+    name: CodeListItemRef
+    multivalued: true
     domain_of:
     - CodeList
-    range: ExternalCodeList
-    required: false
-    minimum_cardinality: 0
-    maximum_cardinality: 1
+    range: CodeListItem
+    inlined: true
+    inlined_as_list: true
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AliasRef:
     name: AliasRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:CodeList
-unique_keys:
-  UC-MDV-5:
-    unique_key_name: UC-MDV-5
-    unique_key_slots:
-    - OID
 
 ```
 </details>
@@ -363,13 +355,24 @@ unique_keys:
 ```yaml
 name: CodeList
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/CodeList
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -390,32 +393,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -433,68 +436,64 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
-  DataType:
-    name: DataType
+  DataTypeRef:
+    name: DataTypeRef
     domain_of:
-    - Parameter
-    - ReturnValue
     - ItemDef
     - CodeList
+    - Parameter
+    - ReturnValue
     range: CLDataType
     required: true
   CommentOID:
     name: CommentOID
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   StandardOID:
     name: StandardOID
     domain_of:
     - ItemGroupDef
     - CodeList
     range: oidref
-    required: false
   IsNonStandard:
     name: IsNonStandard
     domain_of:
     - ItemGroupDef
-    - CodeList
     - ItemRef
+    - CodeList
     range: YesOnly
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -517,82 +516,78 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
-  ExternalCodeListRef:
-    name: ExternalCodeListRef
+  CodeListItemRef:
+    name: CodeListItemRef
+    multivalued: true
     domain_of:
     - CodeList
-    range: ExternalCodeList
-    required: false
-    minimum_cardinality: 0
-    maximum_cardinality: 1
+    range: CodeListItem
+    inlined: true
+    inlined_as_list: true
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AliasRef:
     name: AliasRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   OID:
     name: OID
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: OID
     owner: CodeList
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -613,20 +608,11 @@ attributes:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
@@ -637,13 +623,22 @@ attributes:
     alias: Name
     owner: CodeList
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -661,32 +656,23 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
-  DataType:
-    name: DataType
+  DataTypeRef:
+    name: DataTypeRef
     description: "The DataType attribute specifies how the corresponding value\n \
       \                   elements are to be interpreted for comparison and storage."
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: DataType
+    alias: DataTypeRef
     owner: CodeList
     domain_of:
-    - Parameter
-    - ReturnValue
     - ItemDef
     - CodeList
+    - Parameter
+    - ReturnValue
     range: CLDataType
     required: true
   CommentOID:
@@ -699,21 +685,19 @@ attributes:
     alias: CommentOID
     owner: CodeList
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   StandardOID:
     name: StandardOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -724,7 +708,6 @@ attributes:
     - ItemGroupDef
     - CodeList
     range: oidref
-    required: false
   IsNonStandard:
     name: IsNonStandard
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -733,10 +716,9 @@ attributes:
     owner: CodeList
     domain_of:
     - ItemGroupDef
-    - CodeList
     - ItemRef
+    - CodeList
     range: YesOnly
-    required: false
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -744,10 +726,19 @@ attributes:
     alias: DescriptionRef
     owner: CodeList
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -770,34 +761,22 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
-  ExternalCodeListRef:
-    name: ExternalCodeListRef
+  CodeListItemRef:
+    name: CodeListItemRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ExternalCodeListRef
+    multivalued: true
+    alias: CodeListItemRef
     owner: CodeList
     domain_of:
     - CodeList
-    range: ExternalCodeList
-    required: false
-    minimum_cardinality: 0
-    maximum_cardinality: 1
+    range: CodeListItem
+    inlined: true
+    inlined_as_list: true
   CodingRef:
     name: CodingRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -807,51 +786,44 @@ attributes:
     owner: CodeList
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AliasRef:
     name: AliasRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
     alias: AliasRef
     owner: CodeList
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:CodeList
-unique_keys:
-  UC-MDV-5:
-    unique_key_name: UC-MDV-5
-    unique_key_slots:
-    - OID
 
 ```
 </details>

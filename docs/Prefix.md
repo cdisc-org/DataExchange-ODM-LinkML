@@ -41,6 +41,10 @@ URI: [odm:Prefix](http://www.cdisc.org/ns/odm/v2.0/Prefix)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Prefix](https://wiki.cdisc.org/display/ODM2/Prefix)
+
 ## Identifier and Mapping Information
 
 
@@ -79,6 +83,8 @@ URI: [odm:Prefix](http://www.cdisc.org/ns/odm/v2.0/Prefix)
 ```yaml
 name: Prefix
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Prefix
 slots:
 - _content
 slot_usage:
@@ -97,6 +103,8 @@ class_uri: odm:Prefix
 ```yaml
 name: Prefix
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Prefix
 slot_usage:
   range:
     name: range
@@ -110,6 +118,7 @@ attributes:
   alias: _content
   owner: Prefix
   domain_of:
+  - TranslatedText
   - CheckValue
   - Code
   - WorkflowEnd
@@ -134,8 +143,8 @@ attributes:
   - FlagValue
   - FlagType
   - Value
-  - TranslatedText
   range: _contentType
+  inlined: true
 class_uri: odm:Prefix
 
 ```

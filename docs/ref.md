@@ -13,8 +13,8 @@ URI: [odm:ref](http://www.cdisc.org/ns/odm/v2.0/ref)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ExternalCodeList](ExternalCodeList.md) |  |  yes  |
 [ExternalCodeLib](ExternalCodeLib.md) |  |  yes  |
+[Coding](Coding.md) |  |  yes  |
 
 
 
@@ -24,7 +24,7 @@ URI: [odm:ref](http://www.cdisc.org/ns/odm/v2.0/ref)
 
 ## Properties
 
-* Range: [Text](Text.md)
+* Range: [String](String.md)
 
 
 
@@ -55,9 +55,12 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ref
 domain_of:
-- ExternalCodeList
 - ExternalCodeLib
-range: text
+- Coding
+range: string
+any_of:
+- range: text
+- range: uriorcurie
 
 ```
 </details>

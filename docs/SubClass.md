@@ -51,6 +51,10 @@ URI: [odm:SubClass](http://www.cdisc.org/ns/odm/v2.0/SubClass)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/SubClass](https://wiki.cdisc.org/display/ODM2/SubClass)
+
 ## Identifier and Mapping Information
 
 
@@ -90,6 +94,8 @@ URI: [odm:SubClass](http://www.cdisc.org/ns/odm/v2.0/SubClass)
 name: SubClass
 description: This element contains SubClass definitions.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SubClass
 slots:
 - Name
 - ParentClass
@@ -97,13 +103,22 @@ slot_usage:
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -121,17 +136,8 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: ItemGroupSubClass
     required: true
   ParentClass:
@@ -139,7 +145,6 @@ slot_usage:
     domain_of:
     - SubClass
     range: ItemGroupClassSubClass
-    required: false
 class_uri: odm:SubClass
 
 ```
@@ -152,17 +157,28 @@ class_uri: odm:SubClass
 name: SubClass
 description: This element contains SubClass definitions.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/SubClass
 slot_usage:
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -180,17 +196,8 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: ItemGroupSubClass
     required: true
   ParentClass:
@@ -198,7 +205,6 @@ slot_usage:
     domain_of:
     - SubClass
     range: ItemGroupClassSubClass
-    required: false
 attributes:
   Name:
     name: Name
@@ -208,13 +214,22 @@ attributes:
     alias: Name
     owner: SubClass
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -232,17 +247,8 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: ItemGroupSubClass
     required: true
   ParentClass:
@@ -255,7 +261,6 @@ attributes:
     domain_of:
     - SubClass
     range: ItemGroupClassSubClass
-    required: false
 class_uri: odm:SubClass
 
 ```

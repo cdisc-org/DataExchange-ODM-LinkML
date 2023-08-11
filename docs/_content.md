@@ -18,6 +18,7 @@ URI: [odm:_content](http://www.cdisc.org/ns/odm/v2.0/_content)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[TranslatedText](TranslatedText.md) |  |  yes  |
 [CheckValue](CheckValue.md) |  |  no  |
 [Code](Code.md) |  |  no  |
 [WorkflowEnd](WorkflowEnd.md) |  |  yes  |
@@ -42,7 +43,6 @@ URI: [odm:_content](http://www.cdisc.org/ns/odm/v2.0/_content)
 [FlagValue](FlagValue.md) |  |  yes  |
 [FlagType](FlagType.md) |  |  yes  |
 [Value](Value.md) |  |  yes  |
-[TranslatedText](TranslatedText.md) |  |  yes  |
 
 
 
@@ -84,6 +84,7 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: _content
 domain_of:
+- TranslatedText
 - CheckValue
 - Code
 - WorkflowEnd
@@ -108,8 +109,8 @@ domain_of:
 - FlagValue
 - FlagType
 - Value
-- TranslatedText
 range: _contentType
+inlined: true
 
 ```
 </details>

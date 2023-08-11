@@ -23,9 +23,9 @@ URI: [odm:ODM](http://www.cdisc.org/ns/odm/v2.0/ODM)
         
           ODMFileMetadata --|> ClinicalData : ClinicalDataRef
         
-      ODMFileMetadata : Context
+      ODMFileMetadata : ContextRef
         
-          ODMFileMetadata --|> Context : Context
+          ODMFileMetadata --|> Context : ContextRef
         
       ODMFileMetadata : CreationDateTime
         
@@ -35,15 +35,15 @@ URI: [odm:ODM](http://www.cdisc.org/ns/odm/v2.0/ODM)
         
       ODMFileMetadata : FileOID
         
-      ODMFileMetadata : FileType
+      ODMFileMetadata : FileTypeRef
         
-          ODMFileMetadata --|> FileType : FileType
+          ODMFileMetadata --|> FileType : FileTypeRef
         
-      ODMFileMetadata : Granularity
+      ODMFileMetadata : GranularityRef
         
-          ODMFileMetadata --|> Granularity : Granularity
+          ODMFileMetadata --|> Granularity : GranularityRef
         
-      ODMFileMetadata : ODMVersion
+      ODMFileMetadata : ODMVersionRef
         
       ODMFileMetadata : Originator
         
@@ -74,14 +74,14 @@ URI: [odm:ODM](http://www.cdisc.org/ns/odm/v2.0/ODM)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [FileType](FileType.md) | 1..1 <br/> [FileType](FileType.md) |  | direct |
-| [Granularity](Granularity.md) | 0..1 <br/> [Granularity](Granularity.md) |  | direct |
-| [Context](Context.md) | 0..1 <br/> [Context](Context.md) |  | direct |
+| [FileTypeRef](FileTypeRef.md) | 1..1 <br/> [FileType](FileType.md) |  | direct |
+| [GranularityRef](GranularityRef.md) | 0..1 <br/> [Granularity](Granularity.md) |  | direct |
+| [ContextRef](ContextRef.md) | 0..1 <br/> [Context](Context.md) |  | direct |
 | [FileOID](FileOID.md) | 1..1 <br/> [Oid](Oid.md) |  | direct |
 | [CreationDateTime](CreationDateTime.md) | 1..1 <br/> [Datetime](Datetime.md) |  | direct |
 | [PriorFileOID](PriorFileOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
 | [AsOfDateTime](AsOfDateTime.md) | 0..1 <br/> [Datetime](Datetime.md) |  | direct |
-| [ODMVersion](ODMVersion.md) | 0..1 <br/> [ODMVersion](ODMVersion.md) |  | direct |
+| [ODMVersionRef](ODMVersionRef.md) | 0..1 <br/> [ODMVersion](ODMVersion.md) |  | direct |
 | [Originator](Originator.md) | 0..1 <br/> [Text](Text.md) |  | direct |
 | [SourceSystem](SourceSystem.md) | 0..1 <br/> [Text](Text.md) |  | direct |
 | [SourceSystemVersion](SourceSystemVersion.md) | 0..1 <br/> [Text](Text.md) |  | direct |
@@ -99,6 +99,10 @@ URI: [odm:ODM](http://www.cdisc.org/ns/odm/v2.0/ODM)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/ODM](https://wiki.cdisc.org/display/ODM2/ODM)
 
 ## Identifier and Mapping Information
 
@@ -138,15 +142,17 @@ URI: [odm:ODM](http://www.cdisc.org/ns/odm/v2.0/ODM)
 ```yaml
 name: ODMFileMetadata
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ODM
 slots:
-- FileType
-- Granularity
-- Context
+- FileTypeRef
+- GranularityRef
+- ContextRef
 - FileOID
 - CreationDateTime
 - PriorFileOID
 - AsOfDateTime
-- ODMVersion
+- ODMVersionRef
 - Originator
 - SourceSystem
 - SourceSystemVersion
@@ -157,26 +163,24 @@ slots:
 - ClinicalDataRef
 - AssociationRef
 slot_usage:
-  FileType:
-    name: FileType
+  FileTypeRef:
+    name: FileTypeRef
     domain_of:
     - ODMFileMetadata
     range: FileType
     required: true
-  Granularity:
-    name: Granularity
+  GranularityRef:
+    name: GranularityRef
     domain_of:
     - ODMFileMetadata
     range: Granularity
-    required: false
-  Context:
-    name: Context
+  ContextRef:
+    name: ContextRef
     domain_of:
-    - FormalExpression
     - Alias
+    - FormalExpression
     - ODMFileMetadata
     range: Context
-    required: false
   FileOID:
     name: FileOID
     domain_of:
@@ -194,44 +198,47 @@ slot_usage:
     domain_of:
     - ODMFileMetadata
     range: oidref
-    required: false
   AsOfDateTime:
     name: AsOfDateTime
     domain_of:
     - ODMFileMetadata
     range: datetime
-    required: false
-  ODMVersion:
-    name: ODMVersion
+  ODMVersionRef:
+    name: ODMVersionRef
     domain_of:
     - ODMFileMetadata
     range: ODMVersion
-    required: false
   Originator:
     name: Originator
     domain_of:
     - ODMFileMetadata
     range: text
-    required: false
   SourceSystem:
     name: SourceSystem
     domain_of:
     - ODMFileMetadata
     range: text
-    required: false
   SourceSystemVersion:
     name: SourceSystemVersion
     domain_of:
     - ODMFileMetadata
     range: text
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -254,63 +261,50 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyRef:
     name: StudyRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - ODMFileMetadata
     range: Study
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AdminDataRef:
     name: AdminDataRef
     multivalued: true
     domain_of:
     - ODMFileMetadata
     range: AdminData
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ReferenceDataRef:
     name: ReferenceDataRef
     multivalued: true
     domain_of:
     - ODMFileMetadata
     range: ReferenceData
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ClinicalDataRef:
     name: ClinicalDataRef
     multivalued: true
     domain_of:
     - ODMFileMetadata
     range: ClinicalData
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AssociationRef:
     name: AssociationRef
     multivalued: true
     domain_of:
     - ODMFileMetadata
     range: Association
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:ODM
 
 ```
@@ -322,27 +316,27 @@ class_uri: odm:ODM
 ```yaml
 name: ODMFileMetadata
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ODM
 slot_usage:
-  FileType:
-    name: FileType
+  FileTypeRef:
+    name: FileTypeRef
     domain_of:
     - ODMFileMetadata
     range: FileType
     required: true
-  Granularity:
-    name: Granularity
+  GranularityRef:
+    name: GranularityRef
     domain_of:
     - ODMFileMetadata
     range: Granularity
-    required: false
-  Context:
-    name: Context
+  ContextRef:
+    name: ContextRef
     domain_of:
-    - FormalExpression
     - Alias
+    - FormalExpression
     - ODMFileMetadata
     range: Context
-    required: false
   FileOID:
     name: FileOID
     domain_of:
@@ -360,44 +354,47 @@ slot_usage:
     domain_of:
     - ODMFileMetadata
     range: oidref
-    required: false
   AsOfDateTime:
     name: AsOfDateTime
     domain_of:
     - ODMFileMetadata
     range: datetime
-    required: false
-  ODMVersion:
-    name: ODMVersion
+  ODMVersionRef:
+    name: ODMVersionRef
     domain_of:
     - ODMFileMetadata
     range: ODMVersion
-    required: false
   Originator:
     name: Originator
     domain_of:
     - ODMFileMetadata
     range: text
-    required: false
   SourceSystem:
     name: SourceSystem
     domain_of:
     - ODMFileMetadata
     range: text
-    required: false
   SourceSystemVersion:
     name: SourceSystemVersion
     domain_of:
     - ODMFileMetadata
     range: text
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -420,96 +417,81 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyRef:
     name: StudyRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - ODMFileMetadata
     range: Study
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AdminDataRef:
     name: AdminDataRef
     multivalued: true
     domain_of:
     - ODMFileMetadata
     range: AdminData
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ReferenceDataRef:
     name: ReferenceDataRef
     multivalued: true
     domain_of:
     - ODMFileMetadata
     range: ReferenceData
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ClinicalDataRef:
     name: ClinicalDataRef
     multivalued: true
     domain_of:
     - ODMFileMetadata
     range: ClinicalData
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AssociationRef:
     name: AssociationRef
     multivalued: true
     domain_of:
     - ODMFileMetadata
     range: Association
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
-  FileType:
-    name: FileType
+  FileTypeRef:
+    name: FileTypeRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: FileType
+    alias: FileTypeRef
     owner: ODMFileMetadata
     domain_of:
     - ODMFileMetadata
     range: FileType
     required: true
-  Granularity:
-    name: Granularity
+  GranularityRef:
+    name: GranularityRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Granularity
+    alias: GranularityRef
     owner: ODMFileMetadata
     domain_of:
     - ODMFileMetadata
     range: Granularity
-    required: false
-  Context:
-    name: Context
+  ContextRef:
+    name: ContextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Context
+    alias: ContextRef
     owner: ODMFileMetadata
     domain_of:
-    - FormalExpression
     - Alias
+    - FormalExpression
     - ODMFileMetadata
     range: Context
-    required: false
   FileOID:
     name: FileOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -539,7 +521,6 @@ attributes:
     domain_of:
     - ODMFileMetadata
     range: oidref
-    required: false
   AsOfDateTime:
     name: AsOfDateTime
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -549,17 +530,15 @@ attributes:
     domain_of:
     - ODMFileMetadata
     range: datetime
-    required: false
-  ODMVersion:
-    name: ODMVersion
+  ODMVersionRef:
+    name: ODMVersionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ODMVersion
+    alias: ODMVersionRef
     owner: ODMFileMetadata
     domain_of:
     - ODMFileMetadata
     range: ODMVersion
-    required: false
   Originator:
     name: Originator
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -569,7 +548,6 @@ attributes:
     domain_of:
     - ODMFileMetadata
     range: text
-    required: false
   SourceSystem:
     name: SourceSystem
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -579,7 +557,6 @@ attributes:
     domain_of:
     - ODMFileMetadata
     range: text
-    required: false
   SourceSystemVersion:
     name: SourceSystemVersion
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -589,7 +566,6 @@ attributes:
     domain_of:
     - ODMFileMetadata
     range: text
-    required: false
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -597,10 +573,19 @@ attributes:
     alias: DescriptionRef
     owner: ODMFileMetadata
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -623,35 +608,22 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyRef:
     name: StudyRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
     alias: StudyRef
     owner: ODMFileMetadata
     domain_of:
     - ODMFileMetadata
     range: Study
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AdminDataRef:
     name: AdminDataRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -662,8 +634,8 @@ attributes:
     domain_of:
     - ODMFileMetadata
     range: AdminData
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ReferenceDataRef:
     name: ReferenceDataRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -674,8 +646,8 @@ attributes:
     domain_of:
     - ODMFileMetadata
     range: ReferenceData
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ClinicalDataRef:
     name: ClinicalDataRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -686,8 +658,8 @@ attributes:
     domain_of:
     - ODMFileMetadata
     range: ClinicalData
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AssociationRef:
     name: AssociationRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -698,8 +670,8 @@ attributes:
     domain_of:
     - ODMFileMetadata
     range: Association
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:ODM
 
 ```

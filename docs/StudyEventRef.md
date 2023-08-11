@@ -33,7 +33,7 @@ URI: [odm:StudyEventRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventRef)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyEventOID](StudyEventOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [Integer](Integer.md) |  | direct |
+| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) |  | direct |
 | [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) |  | direct |
 | [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
 
@@ -41,9 +41,21 @@ URI: [odm:StudyEventRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventRef)
 
 
 
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [StudyEventGroupDef](StudyEventGroupDef.md) | [StudyEventRefRef](StudyEventRefRef.md) | range | [StudyEventRef](StudyEventRef.md) |
+| [ExceptionEvent](ExceptionEvent.md) | [StudyEventRefRef](StudyEventRefRef.md) | range | [StudyEventRef](StudyEventRef.md) |
 
 
 
+
+
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/StudyEventRef](https://wiki.cdisc.org/display/ODM2/StudyEventRef)
 
 ## Identifier and Mapping Information
 
@@ -82,9 +94,9 @@ URI: [odm:StudyEventRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventRef)
 <details>
 ```yaml
 name: StudyEventRef
-in_subset:
-- StudyEventDefGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyEventRef
 slots:
 - StudyEventOID
 - OrderNumber
@@ -105,22 +117,20 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   Mandatory:
     name: Mandatory
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: YesOrNo
     required: true
   CollectionExceptionConditionOID:
@@ -128,10 +138,9 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: oidref
-    required: false
 class_uri: odm:StudyEventRef
 
 ```
@@ -142,9 +151,9 @@ class_uri: odm:StudyEventRef
 <details>
 ```yaml
 name: StudyEventRef
-in_subset:
-- StudyEventDefGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyEventRef
 slot_usage:
   StudyEventOID:
     name: StudyEventOID
@@ -160,22 +169,20 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   Mandatory:
     name: Mandatory
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: YesOrNo
     required: true
   CollectionExceptionConditionOID:
@@ -183,10 +190,9 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: oidref
-    required: false
 attributes:
   StudyEventOID:
     name: StudyEventOID
@@ -210,15 +216,13 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
     - Parameter
     - ReturnValue
     - StudyEndPointRef
-    - ItemRef
-    - ItemGroupRef
-    - CodeListItem
-    - EnumeratedItem
-    range: integer
-    required: false
+    range: positiveInteger
   Mandatory:
     name: Mandatory
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -228,8 +232,8 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: YesOrNo
     required: true
   CollectionExceptionConditionOID:
@@ -241,10 +245,9 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
-    - ItemRef
     - ItemGroupRef
+    - ItemRef
     range: oidref
-    required: false
 class_uri: odm:StudyEventRef
 
 ```

@@ -44,6 +44,10 @@ URI: [odm:FlagType](http://www.cdisc.org/ns/odm/v2.0/FlagType)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/FlagType](https://wiki.cdisc.org/display/ODM2/FlagType)
+
 ## Identifier and Mapping Information
 
 
@@ -82,6 +86,8 @@ URI: [odm:FlagType](http://www.cdisc.org/ns/odm/v2.0/FlagType)
 ```yaml
 name: FlagType
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/FlagType
 slots:
 - CodeListOID
 - _content
@@ -97,6 +103,7 @@ slot_usage:
   _content:
     name: _content
     domain_of:
+    - TranslatedText
     - CheckValue
     - Code
     - WorkflowEnd
@@ -121,7 +128,6 @@ slot_usage:
     - FlagValue
     - FlagType
     - Value
-    - TranslatedText
     range: name
 class_uri: odm:FlagType
 
@@ -134,6 +140,8 @@ class_uri: odm:FlagType
 ```yaml
 name: FlagType
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/FlagType
 slot_usage:
   CodeListOID:
     name: CodeListOID
@@ -146,6 +154,7 @@ slot_usage:
   _content:
     name: _content
     domain_of:
+    - TranslatedText
     - CheckValue
     - Code
     - WorkflowEnd
@@ -170,7 +179,6 @@ slot_usage:
     - FlagValue
     - FlagType
     - Value
-    - TranslatedText
     range: name
 attributes:
   CodeListOID:
@@ -193,6 +201,7 @@ attributes:
     alias: _content
     owner: FlagType
     domain_of:
+    - TranslatedText
     - CheckValue
     - Code
     - WorkflowEnd
@@ -217,8 +226,8 @@ attributes:
     - FlagValue
     - FlagType
     - Value
-    - TranslatedText
     range: name
+    inlined: true
 class_uri: odm:FlagType
 
 ```

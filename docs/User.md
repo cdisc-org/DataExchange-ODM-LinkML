@@ -51,9 +51,9 @@ URI: [odm:User](http://www.cdisc.org/ns/odm/v2.0/User)
         
           User --|> UserName : UserNameRef
         
-      User : UserType
+      User : UserTypeRef
         
-          User --|> UserType : UserType
+          User --|> UserType : UserTypeRef
         
       
 ```
@@ -69,7 +69,7 @@ URI: [odm:User](http://www.cdisc.org/ns/odm/v2.0/User)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [UserType](UserType.md) | 0..1 <br/> [UserType](UserType.md) |  | direct |
+| [UserTypeRef](UserTypeRef.md) | 0..1 <br/> [UserType](UserType.md) |  | direct |
 | [OrganizationOID](OrganizationOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
 | [LocationOID](LocationOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
 | [UserNameRef](UserNameRef.md) | 0..1 <br/> [UserName](UserName.md) |  | direct |
@@ -90,12 +90,16 @@ URI: [odm:User](http://www.cdisc.org/ns/odm/v2.0/User)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdminData](AdminData.md) | [UserRef](UserRef.md) | range | [User](User.md) |
+| [AdminData](AdminData.md) | [UserRefRef](UserRefRef.md) | range | [User](User.md) |
 
 
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/User](https://wiki.cdisc.org/display/ODM2/User)
 
 ## Identifier and Mapping Information
 
@@ -135,9 +139,11 @@ URI: [odm:User](http://www.cdisc.org/ns/odm/v2.0/User)
 ```yaml
 name: User
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/User
 slots:
 - OID
-- UserType
+- UserTypeRef
 - OrganizationOID
 - LocationOID
 - UserNameRef
@@ -153,9 +159,18 @@ slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -176,126 +191,95 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
-  UserType:
-    name: UserType
+  UserTypeRef:
+    name: UserTypeRef
     domain_of:
     - User
     range: UserType
-    required: false
   OrganizationOID:
     name: OrganizationOID
     domain_of:
     - User
     - Location
     range: oidref
-    required: false
   LocationOID:
     name: LocationOID
     domain_of:
+    - User
     - Organization
     - SiteRef
     - LocationRef
-    - User
     range: oidref
-    required: false
   UserNameRef:
     name: UserNameRef
     domain_of:
     - User
     range: UserName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   PrefixRef:
     name: PrefixRef
     domain_of:
     - User
     range: Prefix
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   SuffixRef:
     name: SuffixRef
     domain_of:
     - User
     range: Suffix
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   FullNameRef:
     name: FullNameRef
     domain_of:
     - User
     range: FullName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   GivenNameRef:
     name: GivenNameRef
     domain_of:
     - User
     range: GivenName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   FamilyNameRef:
     name: FamilyNameRef
     domain_of:
     - User
     range: FamilyName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ImageRef:
     name: ImageRef
     domain_of:
     - User
     range: Image
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   AddressRef:
     name: AddressRef
     multivalued: true
     domain_of:
-    - Organization
     - User
+    - Organization
     - Location
     range: Address
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   TelecomRef:
     name: TelecomRef
     multivalued: true
     domain_of:
-    - Organization
     - User
+    - Organization
     - Location
     range: Telecom
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:User
-unique_keys:
-  UC-AD-1:
-    unique_key_name: UC-AD-1
-    unique_key_slots:
-    - OID
 
 ```
 </details>
@@ -306,13 +290,24 @@ unique_keys:
 ```yaml
 name: User
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/User
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -333,132 +328,116 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
-  UserType:
-    name: UserType
+  UserTypeRef:
+    name: UserTypeRef
     domain_of:
     - User
     range: UserType
-    required: false
   OrganizationOID:
     name: OrganizationOID
     domain_of:
     - User
     - Location
     range: oidref
-    required: false
   LocationOID:
     name: LocationOID
     domain_of:
+    - User
     - Organization
     - SiteRef
     - LocationRef
-    - User
     range: oidref
-    required: false
   UserNameRef:
     name: UserNameRef
     domain_of:
     - User
     range: UserName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   PrefixRef:
     name: PrefixRef
     domain_of:
     - User
     range: Prefix
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   SuffixRef:
     name: SuffixRef
     domain_of:
     - User
     range: Suffix
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   FullNameRef:
     name: FullNameRef
     domain_of:
     - User
     range: FullName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   GivenNameRef:
     name: GivenNameRef
     domain_of:
     - User
     range: GivenName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   FamilyNameRef:
     name: FamilyNameRef
     domain_of:
     - User
     range: FamilyName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ImageRef:
     name: ImageRef
     domain_of:
     - User
     range: Image
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   AddressRef:
     name: AddressRef
     multivalued: true
     domain_of:
-    - Organization
     - User
+    - Organization
     - Location
     range: Address
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   TelecomRef:
     name: TelecomRef
     multivalued: true
     domain_of:
-    - Organization
     - User
+    - Organization
     - Location
     range: Telecom
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   OID:
     name: OID
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: OID
     owner: User
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -479,32 +458,22 @@ attributes:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
-  UserType:
-    name: UserType
+  UserTypeRef:
+    name: UserTypeRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: UserType
+    alias: UserTypeRef
     owner: User
     domain_of:
     - User
     range: UserType
-    required: false
   OrganizationOID:
     name: OrganizationOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -515,7 +484,6 @@ attributes:
     - User
     - Location
     range: oidref
-    required: false
   LocationOID:
     name: LocationOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -523,12 +491,11 @@ attributes:
     alias: LocationOID
     owner: User
     domain_of:
+    - User
     - Organization
     - SiteRef
     - LocationRef
-    - User
     range: oidref
-    required: false
   UserNameRef:
     name: UserNameRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -538,8 +505,6 @@ attributes:
     domain_of:
     - User
     range: UserName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   PrefixRef:
     name: PrefixRef
@@ -550,8 +515,6 @@ attributes:
     domain_of:
     - User
     range: Prefix
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   SuffixRef:
     name: SuffixRef
@@ -562,8 +525,6 @@ attributes:
     domain_of:
     - User
     range: Suffix
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   FullNameRef:
     name: FullNameRef
@@ -574,8 +535,6 @@ attributes:
     domain_of:
     - User
     range: FullName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   GivenNameRef:
     name: GivenNameRef
@@ -586,8 +545,6 @@ attributes:
     domain_of:
     - User
     range: GivenName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   FamilyNameRef:
     name: FamilyNameRef
@@ -598,8 +555,6 @@ attributes:
     domain_of:
     - User
     range: FamilyName
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ImageRef:
     name: ImageRef
@@ -610,8 +565,6 @@ attributes:
     domain_of:
     - User
     range: Image
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   AddressRef:
     name: AddressRef
@@ -621,12 +574,12 @@ attributes:
     alias: AddressRef
     owner: User
     domain_of:
-    - Organization
     - User
+    - Organization
     - Location
     range: Address
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   TelecomRef:
     name: TelecomRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -635,18 +588,13 @@ attributes:
     alias: TelecomRef
     owner: User
     domain_of:
-    - Organization
     - User
+    - Organization
     - Location
     range: Telecom
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:User
-unique_keys:
-  UC-AD-1:
-    unique_key_name: UC-AD-1
-    unique_key_slots:
-    - OID
 
 ```
 </details>

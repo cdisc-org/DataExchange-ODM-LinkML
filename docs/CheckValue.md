@@ -30,9 +30,20 @@ URI: [odm:CheckValue](http://www.cdisc.org/ns/odm/v2.0/CheckValue)
 
 
 
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [RangeCheck](RangeCheck.md) | [CheckValueRef](CheckValueRef.md) | range | [CheckValue](CheckValue.md) |
 
 
 
+
+
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/CheckValue](https://wiki.cdisc.org/display/ODM2/CheckValue)
 
 ## Identifier and Mapping Information
 
@@ -72,6 +83,8 @@ URI: [odm:CheckValue](http://www.cdisc.org/ns/odm/v2.0/CheckValue)
 ```yaml
 name: CheckValue
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/CheckValue
 slots:
 - _content
 slot_usage:
@@ -90,6 +103,8 @@ class_uri: odm:CheckValue
 ```yaml
 name: CheckValue
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/CheckValue
 slot_usage:
   range:
     name: range
@@ -103,6 +118,7 @@ attributes:
   alias: _content
   owner: CheckValue
   domain_of:
+  - TranslatedText
   - CheckValue
   - Code
   - WorkflowEnd
@@ -127,8 +143,8 @@ attributes:
   - FlagValue
   - FlagType
   - Value
-  - TranslatedText
   range: _contentType
+  inlined: true
 class_uri: odm:CheckValue
 
 ```

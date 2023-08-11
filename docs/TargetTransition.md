@@ -44,6 +44,10 @@ URI: [odm:TargetTransition](http://www.cdisc.org/ns/odm/v2.0/TargetTransition)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/TargetTransition](https://wiki.cdisc.org/display/ODM2/TargetTransition)
+
 ## Identifier and Mapping Information
 
 
@@ -82,6 +86,8 @@ URI: [odm:TargetTransition](http://www.cdisc.org/ns/odm/v2.0/TargetTransition)
 ```yaml
 name: TargetTransition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/TargetTransition
 slots:
 - TargetTransitionOID
 - ConditionOID
@@ -100,7 +106,6 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     range: oidref
-    required: false
 class_uri: odm:TargetTransition
 
 ```
@@ -112,6 +117,8 @@ class_uri: odm:TargetTransition
 ```yaml
 name: TargetTransition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/TargetTransition
 slot_usage:
   TargetTransitionOID:
     name: TargetTransitionOID
@@ -127,7 +134,6 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     range: oidref
-    required: false
 attributes:
   TargetTransitionOID:
     name: TargetTransitionOID
@@ -151,7 +157,6 @@ attributes:
     - Criterion
     - ExceptionEvent
     range: oidref
-    required: false
 class_uri: odm:TargetTransition
 
 ```

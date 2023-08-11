@@ -1,29 +1,34 @@
-# Slot: StudyInterventionRef
+# Class: StudyInterventionRef
+
+
 
 URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventionRef)
+
+
+
+```mermaid
+ classDiagram
+    class StudyInterventionRef
+      StudyInterventionRef : StudyInterventionOID
+        
+      
+```
+
 
 
 
 <!-- no inheritance hierarchy -->
 
 
+## Slots
 
-
-## Applicable Classes
-
-| Name | Description | Modifies Slot |
-| --- | --- | --- |
-[StudyInterventions](StudyInterventions.md) |  |  yes  |
-
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [StudyInterventionOID](StudyInterventionOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
 
 
 
 
-
-
-## Properties
-
-* Range: [StudyIntervention](StudyIntervention.md)
 
 ## Usages
 
@@ -35,6 +40,10 @@ URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/StudyInterventionRef](https://wiki.cdisc.org/display/ODM2/StudyInterventionRef)
 
 ## Identifier and Mapping Information
 
@@ -52,17 +61,71 @@ URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 
 
 
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | odm:StudyInterventionRef |
+| native | odm:StudyInterventionRef |
+
+
+
+
+
 ## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
 
 <details>
 ```yaml
 name: StudyInterventionRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
-rank: 1000
-alias: StudyInterventionRef
-domain_of:
-- StudyInterventions
-range: StudyIntervention
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyInterventionRef
+slots:
+- StudyInterventionOID
+slot_usage:
+  StudyInterventionOID:
+    name: StudyInterventionOID
+    domain_of:
+    - StudyInterventionRef
+    range: oidref
+    required: true
+class_uri: odm:StudyInterventionRef
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: StudyInterventionRef
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyInterventionRef
+slot_usage:
+  StudyInterventionOID:
+    name: StudyInterventionOID
+    domain_of:
+    - StudyInterventionRef
+    range: oidref
+    required: true
+attributes:
+  StudyInterventionOID:
+    name: StudyInterventionOID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: StudyInterventionOID
+    owner: StudyInterventionRef
+    domain_of:
+    - StudyInterventionRef
+    range: oidref
+    required: true
+class_uri: odm:StudyInterventionRef
 
 ```
 </details>

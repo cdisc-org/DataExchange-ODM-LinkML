@@ -13,15 +13,21 @@ URI: [odm:Study](http://www.cdisc.org/ns/odm/v2.0/Study)
         
           Study --|> Description : DescriptionRef
         
-      Study : MetaDataVersionRef
+      Study : MetaDataVersionRefRef
         
-          Study --|> MetaDataVersion : MetaDataVersionRef
+          Study --|> MetaDataVersion : MetaDataVersionRefRef
         
       Study : OID
         
       Study : ProtocolName
         
+      Study : Status
+        
       Study : StudyName
+        
+      Study : VersionID
+        
+      Study : VersionName
         
       
 ```
@@ -39,8 +45,11 @@ URI: [odm:Study](http://www.cdisc.org/ns/odm/v2.0/Study)
 | [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
 | [StudyName](StudyName.md) | 1..1 <br/> [Name](Name.md) |  | direct |
 | [ProtocolName](ProtocolName.md) | 1..1 <br/> [Name](Name.md) |  | direct |
+| [VersionID](VersionID.md) | 0..1 <br/> [Name](Name.md) |  | direct |
+| [VersionName](VersionName.md) | 0..1 <br/> [Name](Name.md) |  | direct |
+| [Status](Status.md) | 0..1 <br/> [Name](Name.md) | Status of Standard | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [MetaDataVersionRef](MetaDataVersionRef.md) | 1..* <br/> [MetaDataVersion](MetaDataVersion.md) |  | direct |
+| [MetaDataVersionRefRef](MetaDataVersionRefRef.md) | 1..* <br/> [MetaDataVersion](MetaDataVersion.md) |  | direct |
 
 
 
@@ -56,6 +65,10 @@ URI: [odm:Study](http://www.cdisc.org/ns/odm/v2.0/Study)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Study](https://wiki.cdisc.org/display/ODM2/Study)
 
 ## Identifier and Mapping Information
 
@@ -95,19 +108,33 @@ URI: [odm:Study](http://www.cdisc.org/ns/odm/v2.0/Study)
 ```yaml
 name: Study
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Study
 slots:
 - OID
 - StudyName
 - ProtocolName
+- VersionID
+- VersionName
+- Status
 - DescriptionRef
-- MetaDataVersionRef
+- MetaDataVersionRefRef
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -128,20 +155,11 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   StudyName:
@@ -156,13 +174,38 @@ slot_usage:
     - Study
     range: name
     required: true
+  VersionID:
+    name: VersionID
+    domain_of:
+    - Study
+    range: name
+  VersionName:
+    name: VersionName
+    domain_of:
+    - Study
+    range: name
+  Status:
+    name: Status
+    domain_of:
+    - Study
+    - Standard
+    range: name
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -185,37 +228,22 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
-  MetaDataVersionRef:
-    name: MetaDataVersionRef
+  MetaDataVersionRefRef:
+    name: MetaDataVersionRefRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - Study
+    - Location
     range: MetaDataVersion
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:Study
-unique_keys:
-  UC-O-1:
-    unique_key_name: UC-O-1
-    unique_key_slots:
-    - OID
 
 ```
 </details>
@@ -226,13 +254,24 @@ unique_keys:
 ```yaml
 name: Study
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Study
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -253,20 +292,11 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   StudyName:
@@ -281,13 +311,38 @@ slot_usage:
     - Study
     range: name
     required: true
+  VersionID:
+    name: VersionID
+    domain_of:
+    - Study
+    range: name
+  VersionName:
+    name: VersionName
+    domain_of:
+    - Study
+    range: name
+  Status:
+    name: Status
+    domain_of:
+    - Study
+    - Standard
+    range: name
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -310,30 +365,20 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
-  MetaDataVersionRef:
-    name: MetaDataVersionRef
+  MetaDataVersionRefRef:
+    name: MetaDataVersionRefRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - Study
+    - Location
     range: MetaDataVersion
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   OID:
@@ -341,12 +386,22 @@ attributes:
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: OID
     owner: Study
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -367,20 +422,11 @@ attributes:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   StudyName:
@@ -403,6 +449,35 @@ attributes:
     - Study
     range: name
     required: true
+  VersionID:
+    name: VersionID
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: VersionID
+    owner: Study
+    domain_of:
+    - Study
+    range: name
+  VersionName:
+    name: VersionName
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: VersionName
+    owner: Study
+    domain_of:
+    - Study
+    range: name
+  Status:
+    name: Status
+    description: Status of Standard.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: Status
+    owner: Study
+    domain_of:
+    - Study
+    - Standard
+    range: name
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -410,10 +485,19 @@ attributes:
     alias: DescriptionRef
     owner: Study
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -436,41 +520,26 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
-  MetaDataVersionRef:
-    name: MetaDataVersionRef
+  MetaDataVersionRefRef:
+    name: MetaDataVersionRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
-    alias: MetaDataVersionRef
+    alias: MetaDataVersionRefRef
     owner: Study
     domain_of:
     - Study
+    - Location
     range: MetaDataVersion
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:Study
-unique_keys:
-  UC-O-1:
-    unique_key_name: UC-O-1
-    unique_key_slots:
-    - OID
 
 ```
 </details>

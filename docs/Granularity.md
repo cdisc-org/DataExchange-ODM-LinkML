@@ -23,8 +23,8 @@ URI: [Granularity](Granularity)
 
 | Name | Description |
 | ---  | --- |
-| [Granularity](Granularity.md) |  |
-| [Granularity](Granularity.md) |  |
+| [GranularityRef](GranularityRef.md) |  |
+| [GranularityRef](GranularityRef.md) |  |
 
 
 
@@ -39,12 +39,20 @@ URI: [Granularity](Granularity)
 
 
 
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+
 
 ## LinkML Source
 
 <details>
 ```yaml
 name: Granularity
+from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:
   All:

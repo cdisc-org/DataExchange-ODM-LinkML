@@ -19,7 +19,7 @@ URI: [Context](Context)
 
 | Name | Description |
 | ---  | --- |
-| [Context](Context.md) |  |
+| [ContextRef](ContextRef.md) |  |
 
 
 
@@ -34,12 +34,20 @@ URI: [Context](Context)
 
 
 
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+
 
 ## LinkML Source
 
 <details>
 ```yaml
 name: Context
+from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:
   Archive:

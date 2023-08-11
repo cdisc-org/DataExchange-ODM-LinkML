@@ -13,9 +13,9 @@ URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
         
           MetaDataVersion --|> AnnotatedCRF : AnnotatedCRFRef
         
-      MetaDataVersion : CodeListRef
+      MetaDataVersion : CodeListRefRef
         
-          MetaDataVersion --|> CodeList : CodeListRef
+          MetaDataVersion --|> CodeList : CodeListRefRef
         
       MetaDataVersion : CommentDefRef
         
@@ -116,7 +116,7 @@ URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
 | [StudyEventDefRef](StudyEventDefRef.md) | 0..* <br/> [StudyEventDef](StudyEventDef.md) |  | direct |
 | [ItemGroupDefRef](ItemGroupDefRef.md) | 0..* <br/> [ItemGroupDef](ItemGroupDef.md) |  | direct |
 | [ItemDefRef](ItemDefRef.md) | 0..* <br/> [ItemDef](ItemDef.md) |  | direct |
-| [CodeListRef](CodeListRef.md) | 0..* <br/> [CodeList](CodeList.md) |  | direct |
+| [CodeListRefRef](CodeListRefRef.md) | 0..* <br/> [CodeList](CodeList.md) |  | direct |
 | [ConditionDefRef](ConditionDefRef.md) | 0..* <br/> [ConditionDef](ConditionDef.md) |  | direct |
 | [MethodDefRef](MethodDefRef.md) | 0..* <br/> [MethodDef](MethodDef.md) |  | direct |
 | [CommentDefRef](CommentDefRef.md) | 0..* <br/> [CommentDef](CommentDef.md) |  | direct |
@@ -130,12 +130,16 @@ URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Study](Study.md) | [MetaDataVersionRef](MetaDataVersionRef.md) | range | [MetaDataVersion](MetaDataVersion.md) |
+| [Study](Study.md) | [MetaDataVersionRefRef](MetaDataVersionRefRef.md) | range | [MetaDataVersion](MetaDataVersion.md) |
 
 
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/MetaDataVersion](https://wiki.cdisc.org/display/ODM2/MetaDataVersion)
 
 ## Identifier and Mapping Information
 
@@ -175,6 +179,8 @@ URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
 ```yaml
 name: MetaDataVersion
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/MetaDataVersion
 slots:
 - OID
 - Name
@@ -192,7 +198,7 @@ slots:
 - StudyEventDefRef
 - ItemGroupDefRef
 - ItemDefRef
-- CodeListRef
+- CodeListRefRef
 - ConditionDefRef
 - MethodDefRef
 - CommentDefRef
@@ -201,9 +207,18 @@ slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -224,32 +239,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -267,44 +282,42 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   CommentOID:
     name: CommentOID
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -327,53 +340,33 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   IncludeRef:
     name: IncludeRef
     domain_of:
     - MetaDataVersion
     range: Include
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StandardsRef:
     name: StandardsRef
     domain_of:
     - MetaDataVersion
     range: Standards
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   AnnotatedCRFRef:
     name: AnnotatedCRFRef
     domain_of:
     - MetaDataVersion
     range: AnnotatedCRF
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   SupplementalDocRef:
     name: SupplementalDocRef
     domain_of:
     - MetaDataVersion
     range: SupplementalDoc
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ValueListDefRef:
     name: ValueListDefRef
@@ -381,23 +374,21 @@ slot_usage:
     domain_of:
     - MetaDataVersion
     range: ValueListDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WhereClauseDefRef:
     name: WhereClauseDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: WhereClauseDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ProtocolRef:
     name: ProtocolRef
     domain_of:
     - MetaDataVersion
     range: Protocol
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   WorkflowDefRef:
     name: WorkflowDefRef
@@ -405,72 +396,73 @@ slot_usage:
     domain_of:
     - MetaDataVersion
     range: WorkflowDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   StudyEventGroupDefRef:
     name: StudyEventGroupDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: StudyEventGroupDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   StudyEventDefRef:
     name: StudyEventDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: StudyEventDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ItemGroupDefRef:
     name: ItemGroupDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: ItemGroupDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ItemDefRef:
     name: ItemDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: ItemDef
-    required: false
-    minimum_cardinality: 0
-  CodeListRef:
-    name: CodeListRef
+    inlined: true
+    inlined_as_list: true
+  CodeListRefRef:
+    name: CodeListRefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
+    - ItemDef
     range: CodeList
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ConditionDefRef:
     name: ConditionDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: ConditionDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   MethodDefRef:
     name: MethodDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: MethodDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   CommentDefRef:
     name: CommentDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: CommentDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   leafRef:
     name: leafRef
     multivalued: true
@@ -478,14 +470,9 @@ slot_usage:
     - MetaDataVersion
     - ItemGroupDef
     range: leaf
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:MetaDataVersion
-unique_keys:
-  UC-S-2:
-    unique_key_name: UC-S-2
-    unique_key_slots:
-    - OID
 
 ```
 </details>
@@ -496,13 +483,24 @@ unique_keys:
 ```yaml
 name: MetaDataVersion
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/MetaDataVersion
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -523,32 +521,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -566,44 +564,42 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   CommentOID:
     name: CommentOID
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -626,53 +622,33 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   IncludeRef:
     name: IncludeRef
     domain_of:
     - MetaDataVersion
     range: Include
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StandardsRef:
     name: StandardsRef
     domain_of:
     - MetaDataVersion
     range: Standards
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   AnnotatedCRFRef:
     name: AnnotatedCRFRef
     domain_of:
     - MetaDataVersion
     range: AnnotatedCRF
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   SupplementalDocRef:
     name: SupplementalDocRef
     domain_of:
     - MetaDataVersion
     range: SupplementalDoc
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ValueListDefRef:
     name: ValueListDefRef
@@ -680,23 +656,21 @@ slot_usage:
     domain_of:
     - MetaDataVersion
     range: ValueListDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WhereClauseDefRef:
     name: WhereClauseDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: WhereClauseDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ProtocolRef:
     name: ProtocolRef
     domain_of:
     - MetaDataVersion
     range: Protocol
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   WorkflowDefRef:
     name: WorkflowDefRef
@@ -704,72 +678,73 @@ slot_usage:
     domain_of:
     - MetaDataVersion
     range: WorkflowDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   StudyEventGroupDefRef:
     name: StudyEventGroupDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: StudyEventGroupDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   StudyEventDefRef:
     name: StudyEventDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: StudyEventDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ItemGroupDefRef:
     name: ItemGroupDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: ItemGroupDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ItemDefRef:
     name: ItemDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: ItemDef
-    required: false
-    minimum_cardinality: 0
-  CodeListRef:
-    name: CodeListRef
+    inlined: true
+    inlined_as_list: true
+  CodeListRefRef:
+    name: CodeListRefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
+    - ItemDef
     range: CodeList
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ConditionDefRef:
     name: ConditionDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: ConditionDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   MethodDefRef:
     name: MethodDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: MethodDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   CommentDefRef:
     name: CommentDefRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: CommentDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   leafRef:
     name: leafRef
     multivalued: true
@@ -777,20 +752,30 @@ slot_usage:
     - MetaDataVersion
     - ItemGroupDef
     range: leaf
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   OID:
     name: OID
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: OID
     owner: MetaDataVersion
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -811,20 +796,11 @@ attributes:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
@@ -835,13 +811,22 @@ attributes:
     alias: Name
     owner: MetaDataVersion
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -859,17 +844,8 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   CommentOID:
@@ -882,21 +858,19 @@ attributes:
     alias: CommentOID
     owner: MetaDataVersion
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -904,10 +878,19 @@ attributes:
     alias: DescriptionRef
     owner: MetaDataVersion
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -930,21 +913,9 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   IncludeRef:
     name: IncludeRef
@@ -955,8 +926,6 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: Include
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StandardsRef:
     name: StandardsRef
@@ -967,8 +936,6 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: Standards
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   AnnotatedCRFRef:
     name: AnnotatedCRFRef
@@ -979,8 +946,6 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: AnnotatedCRF
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   SupplementalDocRef:
     name: SupplementalDocRef
@@ -991,8 +956,6 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: SupplementalDoc
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ValueListDefRef:
     name: ValueListDefRef
@@ -1004,8 +967,8 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: ValueListDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WhereClauseDefRef:
     name: WhereClauseDefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1016,8 +979,8 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: WhereClauseDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ProtocolRef:
     name: ProtocolRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1027,8 +990,6 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: Protocol
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   WorkflowDefRef:
     name: WorkflowDefRef
@@ -1040,8 +1001,8 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: WorkflowDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   StudyEventGroupDefRef:
     name: StudyEventGroupDefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1052,8 +1013,8 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: StudyEventGroupDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   StudyEventDefRef:
     name: StudyEventDefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1064,8 +1025,8 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: StudyEventDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ItemGroupDefRef:
     name: ItemGroupDefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1076,8 +1037,8 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: ItemGroupDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ItemDefRef:
     name: ItemDefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1088,20 +1049,21 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: ItemDef
-    required: false
-    minimum_cardinality: 0
-  CodeListRef:
-    name: CodeListRef
+    inlined: true
+    inlined_as_list: true
+  CodeListRefRef:
+    name: CodeListRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    alias: CodeListRef
+    alias: CodeListRefRef
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
+    - ItemDef
     range: CodeList
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   ConditionDefRef:
     name: ConditionDefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1112,8 +1074,8 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: ConditionDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   MethodDefRef:
     name: MethodDefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1124,8 +1086,8 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: MethodDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   CommentDefRef:
     name: CommentDefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1136,8 +1098,8 @@ attributes:
     domain_of:
     - MetaDataVersion
     range: CommentDef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   leafRef:
     name: leafRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1149,14 +1111,9 @@ attributes:
     - MetaDataVersion
     - ItemGroupDef
     range: leaf
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:MetaDataVersion
-unique_keys:
-  UC-S-2:
-    unique_key_name: UC-S-2
-    unique_key_slots:
-    - OID
 
 ```
 </details>

@@ -58,6 +58,10 @@ URI: [odm:StudyStructure](http://www.cdisc.org/ns/odm/v2.0/StudyStructure)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/StudyStructure](https://wiki.cdisc.org/display/ODM2/StudyStructure)
+
 ## Identifier and Mapping Information
 
 
@@ -96,6 +100,8 @@ URI: [odm:StudyStructure](http://www.cdisc.org/ns/odm/v2.0/StudyStructure)
 ```yaml
 name: StudyStructure
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyStructure
 slots:
 - DescriptionRef
 - ArmRef
@@ -105,10 +111,19 @@ slot_usage:
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -131,21 +146,9 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ArmRef:
     name: ArmRef
@@ -153,28 +156,27 @@ slot_usage:
     domain_of:
     - StudyStructure
     range: Arm
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   EpochRef:
     name: EpochRef
     multivalued: true
     domain_of:
     - StudyStructure
     range: Epoch
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WorkflowRefRef:
     name: WorkflowRefRef
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Protocol
     - StudyStructure
     - Arm
-    - StudyEventDef
-    - ItemGroupDef
+    - ExceptionEvent
     range: WorkflowRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:StudyStructure
 
@@ -187,14 +189,25 @@ class_uri: odm:StudyStructure
 ```yaml
 name: StudyStructure
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyStructure
 slot_usage:
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -217,21 +230,9 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ArmRef:
     name: ArmRef
@@ -239,28 +240,27 @@ slot_usage:
     domain_of:
     - StudyStructure
     range: Arm
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   EpochRef:
     name: EpochRef
     multivalued: true
     domain_of:
     - StudyStructure
     range: Epoch
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WorkflowRefRef:
     name: WorkflowRefRef
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Protocol
     - StudyStructure
     - Arm
-    - StudyEventDef
-    - ItemGroupDef
+    - ExceptionEvent
     range: WorkflowRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 attributes:
   DescriptionRef:
@@ -270,10 +270,19 @@ attributes:
     alias: DescriptionRef
     owner: StudyStructure
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -296,21 +305,9 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ArmRef:
     name: ArmRef
@@ -322,8 +319,8 @@ attributes:
     domain_of:
     - StudyStructure
     range: Arm
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   EpochRef:
     name: EpochRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -334,8 +331,8 @@ attributes:
     domain_of:
     - StudyStructure
     range: Epoch
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WorkflowRefRef:
     name: WorkflowRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -344,14 +341,13 @@ attributes:
     owner: StudyStructure
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Protocol
     - StudyStructure
     - Arm
-    - StudyEventDef
-    - ItemGroupDef
+    - ExceptionEvent
     range: WorkflowRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:StudyStructure
 

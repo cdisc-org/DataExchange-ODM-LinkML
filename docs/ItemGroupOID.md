@@ -13,10 +13,10 @@ URI: [odm:ItemGroupOID](http://www.cdisc.org/ns/odm/v2.0/ItemGroupOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[ItemGroupRef](ItemGroupRef.md) |  |  yes  |
 [SourceItem](SourceItem.md) |  |  yes  |
 [ItemGroupData](ItemGroupData.md) |  |  yes  |
 [KeySet](KeySet.md) |  |  yes  |
-[ItemGroupRef](ItemGroupRef.md) |  |  yes  |
 
 
 
@@ -57,10 +57,10 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ItemGroupOID
 domain_of:
+- ItemGroupRef
 - SourceItem
 - ItemGroupData
 - KeySet
-- ItemGroupRef
 range: oidref
 
 ```

@@ -45,6 +45,14 @@ URI: [odm:ItemGroupDef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDef)
         
           ItemGroupDef --|> YesOrNo : IsReferenceData
         
+      ItemGroupDef : ItemGroupRefRef
+        
+          ItemGroupDef --|> ItemGroupRef : ItemGroupRefRef
+        
+      ItemGroupDef : ItemRefRef
+        
+          ItemGroupDef --|> ItemRef : ItemRefRef
+        
       ItemGroupDef : leafRef
         
           ItemGroupDef --|> leaf : leafRef
@@ -110,6 +118,8 @@ URI: [odm:ItemGroupDef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDef)
 | [OriginRef](OriginRef.md) | 0..* <br/> [Origin](Origin.md) |  | direct |
 | [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) |  | direct |
 | [leafRef](leafRef.md) | 0..1 <br/> [Leaf](Leaf.md) |  | direct |
+| [ItemGroupRefRef](ItemGroupRefRef.md) | 0..1 <br/> [ItemGroupRef](ItemGroupRef.md) |  | direct |
+| [ItemRefRef](ItemRefRef.md) | 0..1 <br/> [ItemRef](ItemRef.md) |  | direct |
 
 
 
@@ -125,6 +135,10 @@ URI: [odm:ItemGroupDef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDef)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/ItemGroupDef](https://wiki.cdisc.org/display/ODM2/ItemGroupDef)
 
 ## Identifier and Mapping Information
 
@@ -164,6 +178,8 @@ URI: [odm:ItemGroupDef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDef)
 ```yaml
 name: ItemGroupDef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ItemGroupDef
 slots:
 - OID
 - Name
@@ -187,13 +203,24 @@ slots:
 - OriginRef
 - AliasRef
 - leafRef
+- ItemGroupRefRef
+- ItemRefRef
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -214,32 +241,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -257,17 +284,8 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   Repeating:
@@ -282,43 +300,41 @@ slot_usage:
     domain_of:
     - ItemGroupDef
     range: positiveInteger
-    required: false
   IsReferenceData:
     name: IsReferenceData
     domain_of:
     - ItemGroupDef
     range: YesOrNo
-    required: false
   Structure:
     name: Structure
     domain_of:
     - ItemGroupDef
     range: text
-    required: false
   ArchiveLocationID:
     name: ArchiveLocationID
     domain_of:
     - ItemGroupDef
     range: oidref
-    required: false
   DatasetName:
     name: DatasetName
     domain_of:
     - ItemGroupDef
     range: name
-    required: false
   Domain:
     name: Domain
     domain_of:
     - ItemGroupDef
     range: text
-    required: false
   Type:
     name: Type
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -326,10 +342,6 @@ slot_usage:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: ItemGroupTypeType
     required: true
   Purpose:
@@ -337,54 +349,57 @@ slot_usage:
     domain_of:
     - ItemGroupDef
     range: text
-    required: false
   StandardOID:
     name: StandardOID
     domain_of:
     - ItemGroupDef
     - CodeList
     range: oidref
-    required: false
   IsNonStandard:
     name: IsNonStandard
     domain_of:
     - ItemGroupDef
-    - CodeList
     - ItemRef
+    - CodeList
     range: YesOnly
-    required: false
   HasNoData:
     name: HasNoData
     domain_of:
     - ItemGroupDef
     - ItemRef
     range: YesOnly
-    required: false
   CommentOID:
     name: CommentOID
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -407,65 +422,50 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ClassRef:
     name: ClassRef
     domain_of:
     - ItemGroupDef
     range: Class
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WorkflowRefRef:
     name: WorkflowRefRef
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Protocol
     - StudyStructure
     - Arm
-    - StudyEventDef
-    - ItemGroupDef
+    - ExceptionEvent
     range: WorkflowRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   OriginRef:
     name: OriginRef
@@ -474,40 +474,45 @@ slot_usage:
     - ItemGroupDef
     - ItemRef
     range: Origin
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AliasRef:
     name: AliasRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   leafRef:
     name: leafRef
     domain_of:
     - MetaDataVersion
     - ItemGroupDef
     range: leaf
-    required: false
-    minimum_cardinality: 0
+    maximum_cardinality: 1
+  ItemGroupRefRef:
+    name: ItemGroupRefRef
+    domain_of:
+    - StudyEventDef
+    - ItemGroupDef
+    range: ItemGroupRef
+    maximum_cardinality: 1
+  ItemRefRef:
+    name: ItemRefRef
+    domain_of:
+    - ValueListDef
+    - ItemGroupDef
+    range: ItemRef
     maximum_cardinality: 1
 class_uri: odm:ItemGroupDef
-unique_keys:
-  UC-MDV-3:
-    unique_key_name: UC-MDV-3
-    unique_key_slots:
-    - OID
 
 ```
 </details>
@@ -518,13 +523,24 @@ unique_keys:
 ```yaml
 name: ItemGroupDef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/ItemGroupDef
 slot_usage:
   OID:
     name: OID
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -545,32 +561,32 @@ slot_usage:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -588,17 +604,8 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   Repeating:
@@ -613,43 +620,41 @@ slot_usage:
     domain_of:
     - ItemGroupDef
     range: positiveInteger
-    required: false
   IsReferenceData:
     name: IsReferenceData
     domain_of:
     - ItemGroupDef
     range: YesOrNo
-    required: false
   Structure:
     name: Structure
     domain_of:
     - ItemGroupDef
     range: text
-    required: false
   ArchiveLocationID:
     name: ArchiveLocationID
     domain_of:
     - ItemGroupDef
     range: oidref
-    required: false
   DatasetName:
     name: DatasetName
     domain_of:
     - ItemGroupDef
     range: name
-    required: false
   Domain:
     name: Domain
     domain_of:
     - ItemGroupDef
     range: text
-    required: false
   Type:
     name: Type
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -657,10 +662,6 @@ slot_usage:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: ItemGroupTypeType
     required: true
   Purpose:
@@ -668,54 +669,57 @@ slot_usage:
     domain_of:
     - ItemGroupDef
     range: text
-    required: false
   StandardOID:
     name: StandardOID
     domain_of:
     - ItemGroupDef
     - CodeList
     range: oidref
-    required: false
   IsNonStandard:
     name: IsNonStandard
     domain_of:
     - ItemGroupDef
-    - CodeList
     - ItemRef
+    - CodeList
     range: YesOnly
-    required: false
   HasNoData:
     name: HasNoData
     domain_of:
     - ItemGroupDef
     - ItemRef
     range: YesOnly
-    required: false
   CommentOID:
     name: CommentOID
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -738,65 +742,50 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ClassRef:
     name: ClassRef
     domain_of:
     - ItemGroupDef
     range: Class
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WorkflowRefRef:
     name: WorkflowRefRef
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Protocol
     - StudyStructure
     - Arm
-    - StudyEventDef
-    - ItemGroupDef
+    - ExceptionEvent
     range: WorkflowRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   OriginRef:
     name: OriginRef
@@ -805,33 +794,43 @@ slot_usage:
     - ItemGroupDef
     - ItemRef
     range: Origin
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AliasRef:
     name: AliasRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   leafRef:
     name: leafRef
     domain_of:
     - MetaDataVersion
     - ItemGroupDef
     range: leaf
-    required: false
-    minimum_cardinality: 0
+    maximum_cardinality: 1
+  ItemGroupRefRef:
+    name: ItemGroupRefRef
+    domain_of:
+    - StudyEventDef
+    - ItemGroupDef
+    range: ItemGroupRef
+    maximum_cardinality: 1
+  ItemRefRef:
+    name: ItemRefRef
+    domain_of:
+    - ValueListDef
+    - ItemGroupDef
+    range: ItemRef
     maximum_cardinality: 1
 attributes:
   OID:
@@ -839,12 +838,22 @@ attributes:
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: OID
     owner: ItemGroupDef
     domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
     - ValueListDef
     - WhereClauseDef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - StudyIndication
     - StudyIntervention
@@ -865,20 +874,11 @@ attributes:
     - Branching
     - Criterion
     - ExceptionEvent
-    - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - User
+    - Organization
     - Location
     - SignatureDef
-    - Study
+    - Query
     range: oid
     required: true
   Name:
@@ -889,13 +889,22 @@ attributes:
     alias: Name
     owner: ItemGroupDef
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -913,17 +922,8 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   Repeating:
@@ -946,7 +946,6 @@ attributes:
     domain_of:
     - ItemGroupDef
     range: positiveInteger
-    required: false
   IsReferenceData:
     name: IsReferenceData
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -956,7 +955,6 @@ attributes:
     domain_of:
     - ItemGroupDef
     range: YesOrNo
-    required: false
   Structure:
     name: Structure
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -966,7 +964,6 @@ attributes:
     domain_of:
     - ItemGroupDef
     range: text
-    required: false
   ArchiveLocationID:
     name: ArchiveLocationID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -976,7 +973,6 @@ attributes:
     domain_of:
     - ItemGroupDef
     range: oidref
-    required: false
   DatasetName:
     name: DatasetName
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -986,7 +982,6 @@ attributes:
     domain_of:
     - ItemGroupDef
     range: name
-    required: false
   Domain:
     name: Domain
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -996,7 +991,6 @@ attributes:
     domain_of:
     - ItemGroupDef
     range: text
-    required: false
   Type:
     name: Type
     description: Type of page for page references indicated in the PageRefs attribute.
@@ -1006,8 +1000,12 @@ attributes:
     owner: ItemGroupDef
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -1015,10 +1013,6 @@ attributes:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: ItemGroupTypeType
     required: true
   Purpose:
@@ -1030,7 +1024,6 @@ attributes:
     domain_of:
     - ItemGroupDef
     range: text
-    required: false
   StandardOID:
     name: StandardOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1041,7 +1034,6 @@ attributes:
     - ItemGroupDef
     - CodeList
     range: oidref
-    required: false
   IsNonStandard:
     name: IsNonStandard
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1050,10 +1042,9 @@ attributes:
     owner: ItemGroupDef
     domain_of:
     - ItemGroupDef
-    - CodeList
     - ItemRef
+    - CodeList
     range: YesOnly
-    required: false
   HasNoData:
     name: HasNoData
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1064,7 +1055,6 @@ attributes:
     - ItemGroupDef
     - ItemRef
     range: YesOnly
-    required: false
   CommentOID:
     name: CommentOID
     description: "The Comment identifier that this value refers to. Needed when the\
@@ -1075,21 +1065,19 @@ attributes:
     alias: CommentOID
     owner: ItemGroupDef
     domain_of:
+    - MetaDataVersion
+    - Standard
     - WhereClauseDef
     - StudyEventGroupDef
-    - Coding
-    - MetaDataVersion
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Coding
     range: oidref
-    required: false
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1097,10 +1085,19 @@ attributes:
     alias: DescriptionRef
     owner: ItemGroupDef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -1123,21 +1120,9 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   ClassRef:
     name: ClassRef
@@ -1148,8 +1133,6 @@ attributes:
     domain_of:
     - ItemGroupDef
     range: Class
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -1160,24 +1143,24 @@ attributes:
     owner: ItemGroupDef
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WorkflowRefRef:
     name: WorkflowRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1186,14 +1169,13 @@ attributes:
     owner: ItemGroupDef
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Protocol
     - StudyStructure
     - Arm
-    - StudyEventDef
-    - ItemGroupDef
+    - ExceptionEvent
     range: WorkflowRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   OriginRef:
     name: OriginRef
@@ -1206,29 +1188,27 @@ attributes:
     - ItemGroupDef
     - ItemRef
     range: Origin
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   AliasRef:
     name: AliasRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
     alias: AliasRef
     owner: ItemGroupDef
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   leafRef:
     name: leafRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1239,15 +1219,30 @@ attributes:
     - MetaDataVersion
     - ItemGroupDef
     range: leaf
-    required: false
-    minimum_cardinality: 0
+    maximum_cardinality: 1
+  ItemGroupRefRef:
+    name: ItemGroupRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: ItemGroupRefRef
+    owner: ItemGroupDef
+    domain_of:
+    - StudyEventDef
+    - ItemGroupDef
+    range: ItemGroupRef
+    maximum_cardinality: 1
+  ItemRefRef:
+    name: ItemRefRef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: ItemRefRef
+    owner: ItemGroupDef
+    domain_of:
+    - ValueListDef
+    - ItemGroupDef
+    range: ItemRef
     maximum_cardinality: 1
 class_uri: odm:ItemGroupDef
-unique_keys:
-  UC-MDV-3:
-    unique_key_name: UC-MDV-3
-    unique_key_slots:
-    - OID
 
 ```
 </details>

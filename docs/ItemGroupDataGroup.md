@@ -26,24 +26,6 @@ URI: [ItemGroupDataGroup](ItemGroupDataGroup)
 
 | Class | Description |
 | --- | --- |
-| [ItemData](ItemData.md) |  |
-| [ItemGroupData](ItemGroupData.md) |  |
-
-
-### ItemData
-
-None
-
-| Name | Cardinality and Range  | Description  |
-| ---  | ---  | --- |
-
-
-### ItemGroupData
-
-None
-
-| Name | Cardinality and Range  | Description  |
-| ---  | ---  | --- |
 
 
 

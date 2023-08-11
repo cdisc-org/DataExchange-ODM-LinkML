@@ -14,21 +14,21 @@ URI: [odm:CodingRef](http://www.cdisc.org/ns/odm/v2.0/CodingRef)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [StudyEventGroupDef](StudyEventGroupDef.md) |  |  yes  |
+[StudyEventDef](StudyEventDef.md) |  |  yes  |
+[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
 [Origin](Origin.md) |  |  yes  |
 [SourceItems](SourceItems.md) |  |  yes  |
 [SourceItem](SourceItem.md) |  |  yes  |
+[ItemDef](ItemDef.md) |  |  yes  |
+[CodeList](CodeList.md) |  |  yes  |
+[CodeListItem](CodeListItem.md) |  |  yes  |
 [StudyIndication](StudyIndication.md) |  |  yes  |
 [StudyIntervention](StudyIntervention.md) |  |  yes  |
 [StudyTargetPopulation](StudyTargetPopulation.md) |  |  yes  |
 [StudyParameter](StudyParameter.md) |  |  yes  |
 [ParameterValue](ParameterValue.md) |  |  yes  |
+[Criterion](Criterion.md) |  |  yes  |
 [Annotation](Annotation.md) |  |  yes  |
-[StudyEventDef](StudyEventDef.md) |  |  yes  |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
-[ItemDef](ItemDef.md) |  |  yes  |
-[CodeList](CodeList.md) |  |  yes  |
-[CodeListItem](CodeListItem.md) |  |  yes  |
-[EnumeratedItem](EnumeratedItem.md) |  |  yes  |
 
 
 
@@ -70,21 +70,21 @@ rank: 1000
 alias: CodingRef
 domain_of:
 - StudyEventGroupDef
+- StudyEventDef
+- ItemGroupDef
 - Origin
 - SourceItems
 - SourceItem
+- ItemDef
+- CodeList
+- CodeListItem
 - StudyIndication
 - StudyIntervention
 - StudyTargetPopulation
 - StudyParameter
 - ParameterValue
+- Criterion
 - Annotation
-- StudyEventDef
-- ItemGroupDef
-- ItemDef
-- CodeList
-- CodeListItem
-- EnumeratedItem
 range: Coding
 
 ```

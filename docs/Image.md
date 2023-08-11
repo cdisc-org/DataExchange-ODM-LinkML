@@ -47,6 +47,10 @@ URI: [odm:Image](http://www.cdisc.org/ns/odm/v2.0/Image)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Image](https://wiki.cdisc.org/display/ODM2/Image)
+
 ## Identifier and Mapping Information
 
 
@@ -85,6 +89,8 @@ URI: [odm:Image](http://www.cdisc.org/ns/odm/v2.0/Image)
 ```yaml
 name: Image
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Image
 slots:
 - ImageFileName
 - href
@@ -95,24 +101,20 @@ slot_usage:
     domain_of:
     - Image
     range: fileName
-    required: false
   href:
     name: href
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding
     range: text
-    required: false
   MimeType:
     name: MimeType
     domain_of:
     - Image
     range: text
-    required: false
 class_uri: odm:Image
 
 ```
@@ -124,30 +126,28 @@ class_uri: odm:Image
 ```yaml
 name: Image
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Image
 slot_usage:
   ImageFileName:
     name: ImageFileName
     domain_of:
     - Image
     range: fileName
-    required: false
   href:
     name: href
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding
     range: text
-    required: false
   MimeType:
     name: MimeType
     domain_of:
     - Image
     range: text
-    required: false
 attributes:
   ImageFileName:
     name: ImageFileName
@@ -158,7 +158,6 @@ attributes:
     domain_of:
     - Image
     range: fileName
-    required: false
   href:
     name: href
     description: URL that can be used to identify the location of a document or dataset
@@ -170,12 +169,10 @@ attributes:
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding
     range: text
-    required: false
   MimeType:
     name: MimeType
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -185,7 +182,6 @@ attributes:
     domain_of:
     - Image
     range: text
-    required: false
 class_uri: odm:Image
 
 ```

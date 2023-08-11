@@ -25,9 +25,9 @@ URI: [odm:Annotation](http://www.cdisc.org/ns/odm/v2.0/Annotation)
         
       Annotation : SeqNum
         
-      Annotation : TransactionType
+      Annotation : TransactionTypeRef
         
-          Annotation --|> TransactionType : TransactionType
+          Annotation --|> TransactionType : TransactionTypeRef
         
       
 ```
@@ -42,9 +42,9 @@ URI: [odm:Annotation](http://www.cdisc.org/ns/odm/v2.0/Annotation)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SeqNum](SeqNum.md) | 1..1 <br/> [Integer](Integer.md) |  | direct |
-| [TransactionType](TransactionType.md) | 0..1 <br/> [TransactionType](TransactionType.md) |  | direct |
-| [ID](ID.md) | 0..1 <br/> [Oid](Oid.md) | Unique identifier for the leaf that is referenced | direct |
+| [SeqNum](SeqNum.md) | 1..1 <br/> [PositiveInteger](PositiveInteger.md) |  | direct |
+| [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) |  | direct |
+| [ID](ID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the leaf that is referenced | direct |
 | [CommentRef](CommentRef.md) | 0..1 <br/> [Comment](Comment.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
 | [FlagRef](FlagRef.md) | 0..* <br/> [Flag](Flag.md) |  | direct |
@@ -57,12 +57,22 @@ URI: [odm:Annotation](http://www.cdisc.org/ns/odm/v2.0/Annotation)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [ReferenceData](ReferenceData.md) | [AnnotationRef](AnnotationRef.md) | range | [Annotation](Annotation.md) |
+| [ClinicalData](ClinicalData.md) | [AnnotationRef](AnnotationRef.md) | range | [Annotation](Annotation.md) |
+| [SubjectData](SubjectData.md) | [AnnotationRef](AnnotationRef.md) | range | [Annotation](Annotation.md) |
+| [StudyEventData](StudyEventData.md) | [AnnotationRef](AnnotationRef.md) | range | [Annotation](Annotation.md) |
+| [ItemGroupData](ItemGroupData.md) | [AnnotationRef](AnnotationRef.md) | range | [Annotation](Annotation.md) |
+| [ItemData](ItemData.md) | [AnnotationRef](AnnotationRef.md) | range | [Annotation](Annotation.md) |
 | [Association](Association.md) | [AnnotationRef](AnnotationRef.md) | range | [Annotation](Annotation.md) |
 
 
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Annotation](https://wiki.cdisc.org/display/ODM2/Annotation)
 
 ## Identifier and Mapping Information
 
@@ -101,12 +111,12 @@ URI: [odm:Annotation](http://www.cdisc.org/ns/odm/v2.0/Annotation)
 <details>
 ```yaml
 name: Annotation
-in_subset:
-- AuditRecordSignatureNotationGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Annotation
 slots:
 - SeqNum
-- TransactionType
+- TransactionTypeRef
 - ID
 - CommentRef
 - CodingRef
@@ -117,10 +127,10 @@ slot_usage:
     domain_of:
     - Annotation
     - Value
-    range: integer
+    range: positiveInteger
     required: true
-  TransactionType:
-    name: TransactionType
+  TransactionTypeRef:
+    name: TransactionTypeRef
     domain_of:
     - SubjectData
     - StudyEventData
@@ -128,7 +138,6 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-    required: false
   ID:
     name: ID
     domain_of:
@@ -136,46 +145,43 @@ slot_usage:
     - Signature
     - Annotation
     range: oid
-    required: false
   CommentRef:
     name: CommentRef
     domain_of:
     - Annotation
     range: Comment
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   FlagRef:
     name: FlagRef
     multivalued: true
     domain_of:
     - Annotation
     range: Flag
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Annotation
 
 ```
@@ -186,19 +192,19 @@ class_uri: odm:Annotation
 <details>
 ```yaml
 name: Annotation
-in_subset:
-- AuditRecordSignatureNotationGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Annotation
 slot_usage:
   SeqNum:
     name: SeqNum
     domain_of:
     - Annotation
     - Value
-    range: integer
+    range: positiveInteger
     required: true
-  TransactionType:
-    name: TransactionType
+  TransactionTypeRef:
+    name: TransactionTypeRef
     domain_of:
     - SubjectData
     - StudyEventData
@@ -206,7 +212,6 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-    required: false
   ID:
     name: ID
     domain_of:
@@ -214,46 +219,43 @@ slot_usage:
     - Signature
     - Annotation
     range: oid
-    required: false
   CommentRef:
     name: CommentRef
     domain_of:
     - Annotation
     range: Comment
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   FlagRef:
     name: FlagRef
     multivalued: true
     domain_of:
     - Annotation
     range: Flag
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   SeqNum:
     name: SeqNum
@@ -264,13 +266,13 @@ attributes:
     domain_of:
     - Annotation
     - Value
-    range: integer
+    range: positiveInteger
     required: true
-  TransactionType:
-    name: TransactionType
+  TransactionTypeRef:
+    name: TransactionTypeRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TransactionType
+    alias: TransactionTypeRef
     owner: Annotation
     domain_of:
     - SubjectData
@@ -279,12 +281,12 @@ attributes:
     - ItemData
     - Annotation
     range: TransactionType
-    required: false
   ID:
     name: ID
     description: Unique identifier for the leaf that is referenced.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: ID
     owner: Annotation
     domain_of:
@@ -292,7 +294,7 @@ attributes:
     - Signature
     - Annotation
     range: oid
-    required: false
+    required: true
   CommentRef:
     name: CommentRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -302,8 +304,6 @@ attributes:
     domain_of:
     - Annotation
     range: Comment
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -314,24 +314,24 @@ attributes:
     owner: Annotation
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - SourceItems
     - SourceItem
+    - ItemDef
+    - CodeList
+    - CodeListItem
     - StudyIndication
     - StudyIntervention
     - StudyTargetPopulation
     - StudyParameter
     - ParameterValue
+    - Criterion
     - Annotation
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - EnumeratedItem
     range: Coding
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   FlagRef:
     name: FlagRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -342,8 +342,8 @@ attributes:
     domain_of:
     - Annotation
     range: Flag
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Annotation
 
 ```

@@ -20,19 +20,18 @@ URI: [odm:CommentOID](http://www.cdisc.org/ns/odm/v2.0/CommentOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[MetaDataVersion](MetaDataVersion.md) |  |  yes  |
+[Standard](Standard.md) |  |  yes  |
 [WhereClauseDef](WhereClauseDef.md) |  |  yes  |
 [StudyEventGroupDef](StudyEventGroupDef.md) |  |  yes  |
-[Coding](Coding.md) |  |  yes  |
-[MetaDataVersion](MetaDataVersion.md) |  |  yes  |
 [StudyEventDef](StudyEventDef.md) |  |  yes  |
 [ItemGroupDef](ItemGroupDef.md) |  |  yes  |
 [ItemDef](ItemDef.md) |  |  yes  |
 [CodeList](CodeList.md) |  |  yes  |
-[ConditionDef](ConditionDef.md) |  |  yes  |
-[MethodDef](MethodDef.md) |  |  yes  |
-[Standard](Standard.md) |  |  yes  |
 [CodeListItem](CodeListItem.md) |  |  yes  |
-[EnumeratedItem](EnumeratedItem.md) |  |  yes  |
+[MethodDef](MethodDef.md) |  |  yes  |
+[ConditionDef](ConditionDef.md) |  |  yes  |
+[Coding](Coding.md) |  |  yes  |
 
 
 
@@ -76,19 +75,18 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: CommentOID
 domain_of:
+- MetaDataVersion
+- Standard
 - WhereClauseDef
 - StudyEventGroupDef
-- Coding
-- MetaDataVersion
 - StudyEventDef
 - ItemGroupDef
 - ItemDef
 - CodeList
-- ConditionDef
-- MethodDef
-- Standard
 - CodeListItem
-- EnumeratedItem
+- MethodDef
+- ConditionDef
+- Coding
 range: string
 any_of:
 - range: oidref

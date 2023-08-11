@@ -43,6 +43,10 @@ URI: [odm:Question](http://www.cdisc.org/ns/odm/v2.0/Question)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Question](https://wiki.cdisc.org/display/ODM2/Question)
+
 ## Identifier and Mapping Information
 
 
@@ -81,21 +85,29 @@ URI: [odm:Question](http://www.cdisc.org/ns/odm/v2.0/Question)
 ```yaml
 name: Question
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Question
 slots:
 - TranslatedTextRef
 slot_usage:
   TranslatedTextRef:
     name: TranslatedTextRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:Question
 
@@ -108,19 +120,27 @@ class_uri: odm:Question
 ```yaml
 name: Question
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Question
 slot_usage:
   TranslatedTextRef:
     name: TranslatedTextRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   TranslatedTextRef:
@@ -128,17 +148,23 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
     alias: TranslatedTextRef
     owner: Question
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:Question
 

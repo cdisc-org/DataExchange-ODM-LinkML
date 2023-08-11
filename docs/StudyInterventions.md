@@ -9,9 +9,9 @@ URI: [odm:StudyInterventions](http://www.cdisc.org/ns/odm/v2.0/StudyIntervention
 ```mermaid
  classDiagram
     class StudyInterventions
-      StudyInterventions : StudyInterventionRef
+      StudyInterventions : StudyInterventionRefRef
         
-          StudyInterventions --|> StudyIntervention : StudyInterventionRef
+          StudyInterventions --|> StudyIntervention : StudyInterventionRefRef
         
       
 ```
@@ -26,7 +26,7 @@ URI: [odm:StudyInterventions](http://www.cdisc.org/ns/odm/v2.0/StudyIntervention
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyInterventionRef](StudyInterventionRef.md) | 1..* <br/> [StudyIntervention](StudyIntervention.md) |  | direct |
+| [StudyInterventionRefRef](StudyInterventionRefRef.md) | 1..* <br/> [StudyIntervention](StudyIntervention.md) |  | direct |
 
 
 
@@ -42,6 +42,10 @@ URI: [odm:StudyInterventions](http://www.cdisc.org/ns/odm/v2.0/StudyIntervention
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/StudyInterventions](https://wiki.cdisc.org/display/ODM2/StudyInterventions)
 
 ## Identifier and Mapping Information
 
@@ -81,16 +85,21 @@ URI: [odm:StudyInterventions](http://www.cdisc.org/ns/odm/v2.0/StudyIntervention
 ```yaml
 name: StudyInterventions
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyInterventions
 slots:
-- StudyInterventionRef
+- StudyInterventionRefRef
 slot_usage:
-  StudyInterventionRef:
-    name: StudyInterventionRef
+  StudyInterventionRefRef:
+    name: StudyInterventionRefRef
     multivalued: true
     domain_of:
     - StudyInterventions
+    - StudyEstimand
     range: StudyIntervention
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudyInterventions
 
@@ -103,27 +112,35 @@ class_uri: odm:StudyInterventions
 ```yaml
 name: StudyInterventions
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyInterventions
 slot_usage:
-  StudyInterventionRef:
-    name: StudyInterventionRef
+  StudyInterventionRefRef:
+    name: StudyInterventionRefRef
     multivalued: true
     domain_of:
     - StudyInterventions
+    - StudyEstimand
     range: StudyIntervention
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
-  StudyInterventionRef:
-    name: StudyInterventionRef
+  StudyInterventionRefRef:
+    name: StudyInterventionRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    alias: StudyInterventionRef
+    alias: StudyInterventionRefRef
     owner: StudyInterventions
     domain_of:
     - StudyInterventions
+    - StudyEstimand
     range: StudyIntervention
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudyInterventions
 

@@ -47,6 +47,10 @@ URI: [odm:GeoPosition](http://www.cdisc.org/ns/odm/v2.0/GeoPosition)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/GeoPosition](https://wiki.cdisc.org/display/ODM2/GeoPosition)
+
 ## Identifier and Mapping Information
 
 
@@ -85,6 +89,8 @@ URI: [odm:GeoPosition](http://www.cdisc.org/ns/odm/v2.0/GeoPosition)
 ```yaml
 name: GeoPosition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/GeoPosition
 slots:
 - Longitude
 - Latitude
@@ -95,19 +101,16 @@ slot_usage:
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
   Latitude:
     name: Latitude
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
   Altitude:
     name: Altitude
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
 class_uri: odm:GeoPosition
 
 ```
@@ -119,25 +122,24 @@ class_uri: odm:GeoPosition
 ```yaml
 name: GeoPosition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/GeoPosition
 slot_usage:
   Longitude:
     name: Longitude
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
   Latitude:
     name: Latitude
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
   Altitude:
     name: Altitude
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
 attributes:
   Longitude:
     name: Longitude
@@ -148,7 +150,6 @@ attributes:
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
   Latitude:
     name: Latitude
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -158,7 +159,6 @@ attributes:
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
   Altitude:
     name: Altitude
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -168,7 +168,6 @@ attributes:
     domain_of:
     - GeoPosition
     range: decimal
-    required: false
 class_uri: odm:GeoPosition
 
 ```

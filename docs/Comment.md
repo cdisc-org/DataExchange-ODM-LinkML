@@ -48,6 +48,10 @@ URI: [odm:Comment](http://www.cdisc.org/ns/odm/v2.0/Comment)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Comment](https://wiki.cdisc.org/display/ODM2/Comment)
+
 ## Identifier and Mapping Information
 
 
@@ -86,6 +90,8 @@ URI: [odm:Comment](http://www.cdisc.org/ns/odm/v2.0/Comment)
 ```yaml
 name: Comment
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Comment
 slots:
 - SponsorOrSite
 - TranslatedTextRef
@@ -95,18 +101,24 @@ slot_usage:
     domain_of:
     - Comment
     range: CommentType
-    required: false
   TranslatedTextRef:
     name: TranslatedTextRef
     multivalued: true
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:Comment
 
@@ -119,24 +131,32 @@ class_uri: odm:Comment
 ```yaml
 name: Comment
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Comment
 slot_usage:
   SponsorOrSite:
     name: SponsorOrSite
     domain_of:
     - Comment
     range: CommentType
-    required: false
   TranslatedTextRef:
     name: TranslatedTextRef
     multivalued: true
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   SponsorOrSite:
@@ -148,7 +168,6 @@ attributes:
     domain_of:
     - Comment
     range: CommentType
-    required: false
   TranslatedTextRef:
     name: TranslatedTextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -159,11 +178,18 @@ attributes:
     domain_of:
     - Description
     - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
     - ErrorMessage
     - Decode
     - Comment
     range: TranslatedText
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:Comment
 

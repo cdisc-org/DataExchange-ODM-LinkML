@@ -43,6 +43,10 @@ URI: [odm:StudyEstimands](http://www.cdisc.org/ns/odm/v2.0/StudyEstimands)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/StudyEstimands](https://wiki.cdisc.org/display/ODM2/StudyEstimands)
+
 ## Identifier and Mapping Information
 
 
@@ -81,6 +85,8 @@ URI: [odm:StudyEstimands](http://www.cdisc.org/ns/odm/v2.0/StudyEstimands)
 ```yaml
 name: StudyEstimands
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyEstimands
 slots:
 - StudyEstimandRef
 slot_usage:
@@ -91,6 +97,8 @@ slot_usage:
     - StudyEstimands
     range: StudyEstimand
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudyEstimands
 
@@ -103,6 +111,8 @@ class_uri: odm:StudyEstimands
 ```yaml
 name: StudyEstimands
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyEstimands
 slot_usage:
   StudyEstimandRef:
     name: StudyEstimandRef
@@ -111,6 +121,8 @@ slot_usage:
     - StudyEstimands
     range: StudyEstimand
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   StudyEstimandRef:
@@ -124,6 +136,8 @@ attributes:
     - StudyEstimands
     range: StudyEstimand
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudyEstimands
 

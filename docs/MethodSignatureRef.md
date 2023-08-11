@@ -13,8 +13,9 @@ URI: [odm:MethodSignatureRef](http://www.cdisc.org/ns/odm/v2.0/MethodSignatureRe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ConditionDef](ConditionDef.md) |  |  yes  |
+[RangeCheck](RangeCheck.md) |  |  yes  |
 [MethodDef](MethodDef.md) |  |  yes  |
+[ConditionDef](ConditionDef.md) |  |  yes  |
 
 
 
@@ -55,8 +56,9 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: MethodSignatureRef
 domain_of:
-- ConditionDef
+- RangeCheck
 - MethodDef
+- ConditionDef
 range: MethodSignature
 
 ```

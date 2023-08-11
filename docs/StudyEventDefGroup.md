@@ -26,24 +26,6 @@ URI: [StudyEventDefGroup](StudyEventDefGroup)
 
 | Class | Description |
 | --- | --- |
-| [StudyEventGroupRef](StudyEventGroupRef.md) |  |
-| [StudyEventRef](StudyEventRef.md) |  |
-
-
-### StudyEventGroupRef
-
-None
-
-| Name | Cardinality and Range  | Description  |
-| ---  | ---  | --- |
-
-
-### StudyEventRef
-
-None
-
-| Name | Cardinality and Range  | Description  |
-| ---  | ---  | --- |
 
 
 

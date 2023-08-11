@@ -15,8 +15,8 @@ URI: [odm:CollectionExceptionConditionOID](http://www.cdisc.org/ns/odm/v2.0/Coll
 | --- | --- | --- |
 [StudyEventGroupRef](StudyEventGroupRef.md) |  |  yes  |
 [StudyEventRef](StudyEventRef.md) |  |  yes  |
-[ItemRef](ItemRef.md) |  |  yes  |
 [ItemGroupRef](ItemGroupRef.md) |  |  yes  |
+[ItemRef](ItemRef.md) |  |  yes  |
 
 
 
@@ -59,8 +59,8 @@ alias: CollectionExceptionConditionOID
 domain_of:
 - StudyEventGroupRef
 - StudyEventRef
-- ItemRef
 - ItemGroupRef
+- ItemRef
 range: oidref
 
 ```

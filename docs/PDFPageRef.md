@@ -40,8 +40,8 @@ URI: [odm:PDFPageRef](http://www.cdisc.org/ns/odm/v2.0/PDFPageRef)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [PageRefs](PageRefs.md) | 0..1 <br/> [Text](Text.md) | List of PDF pages separated by a space | direct |
-| [FirstPage](FirstPage.md) | 0..1 <br/> [Integer](Integer.md) | First page in a range of pages | direct |
-| [LastPage](LastPage.md) | 0..1 <br/> [Integer](Integer.md) | Last page in a range of pages | direct |
+| [FirstPage](FirstPage.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | First page in a range of pages | direct |
+| [LastPage](LastPage.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Last page in a range of pages | direct |
 | [Type](Type.md) | 1..1 <br/> [PDFPageType](PDFPageType.md) | Type of page for page references indicated in the PageRefs attribute | direct |
 | [Title](Title.md) | 0..1 <br/> [Text](Text.md) | Text with the label for the document reference | direct |
 
@@ -59,6 +59,10 @@ URI: [odm:PDFPageRef](http://www.cdisc.org/ns/odm/v2.0/PDFPageRef)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/PDFPageRef](https://wiki.cdisc.org/display/ODM2/PDFPageRef)
 
 ## Identifier and Mapping Information
 
@@ -99,6 +103,8 @@ URI: [odm:PDFPageRef](http://www.cdisc.org/ns/odm/v2.0/PDFPageRef)
 name: PDFPageRef
 description: This element is the container for CRF page references.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/PDFPageRef
 slots:
 - PageRefs
 - FirstPage
@@ -111,25 +117,26 @@ slot_usage:
     domain_of:
     - PDFPageRef
     range: text
-    required: false
   FirstPage:
     name: FirstPage
     domain_of:
     - PDFPageRef
-    range: integer
-    required: false
+    range: positiveInteger
   LastPage:
     name: LastPage
     domain_of:
     - PDFPageRef
-    range: integer
-    required: false
+    range: positiveInteger
   Type:
     name: Type
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -137,10 +144,6 @@ slot_usage:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: PDFPageType
     required: true
   Title:
@@ -148,7 +151,6 @@ slot_usage:
     domain_of:
     - PDFPageRef
     range: text
-    required: false
 class_uri: odm:PDFPageRef
 
 ```
@@ -161,31 +163,34 @@ class_uri: odm:PDFPageRef
 name: PDFPageRef
 description: This element is the container for CRF page references.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/PDFPageRef
 slot_usage:
   PageRefs:
     name: PageRefs
     domain_of:
     - PDFPageRef
     range: text
-    required: false
   FirstPage:
     name: FirstPage
     domain_of:
     - PDFPageRef
-    range: integer
-    required: false
+    range: positiveInteger
   LastPage:
     name: LastPage
     domain_of:
     - PDFPageRef
-    range: integer
-    required: false
+    range: positiveInteger
   Type:
     name: Type
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -193,10 +198,6 @@ slot_usage:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: PDFPageType
     required: true
   Title:
@@ -204,7 +205,6 @@ slot_usage:
     domain_of:
     - PDFPageRef
     range: text
-    required: false
 attributes:
   PageRefs:
     name: PageRefs
@@ -216,7 +216,6 @@ attributes:
     domain_of:
     - PDFPageRef
     range: text
-    required: false
   FirstPage:
     name: FirstPage
     description: First page in a range of pages.
@@ -226,8 +225,7 @@ attributes:
     owner: PDFPageRef
     domain_of:
     - PDFPageRef
-    range: integer
-    required: false
+    range: positiveInteger
   LastPage:
     name: LastPage
     description: Last page in a range of pages.
@@ -237,8 +235,7 @@ attributes:
     owner: PDFPageRef
     domain_of:
     - PDFPageRef
-    range: integer
-    required: false
+    range: positiveInteger
   Type:
     name: Type
     description: Type of page for page references indicated in the PageRefs attribute.
@@ -248,8 +245,12 @@ attributes:
     owner: PDFPageRef
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -257,10 +258,6 @@ attributes:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: PDFPageType
     required: true
   Title:
@@ -273,7 +270,6 @@ attributes:
     domain_of:
     - PDFPageRef
     range: text
-    required: false
 class_uri: odm:PDFPageRef
 
 ```

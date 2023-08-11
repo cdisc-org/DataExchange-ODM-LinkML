@@ -53,6 +53,10 @@ URI: [odm:leaf](http://www.cdisc.org/ns/odm/v2.0/leaf)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/leaf](https://wiki.cdisc.org/display/ODM2/leaf)
+
 ## Identifier and Mapping Information
 
 
@@ -92,6 +96,8 @@ URI: [odm:leaf](http://www.cdisc.org/ns/odm/v2.0/leaf)
 name: leaf
 description: Contains the XLink information referenced by DocumentRef or ArchiveLocationID
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/leaf
 slots:
 - ID
 - href
@@ -110,7 +116,6 @@ slot_usage:
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding
@@ -135,6 +140,8 @@ class_uri: odm:leaf
 name: leaf
 description: Contains the XLink information referenced by DocumentRef or ArchiveLocationID
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/leaf
 slot_usage:
   ID:
     name: ID
@@ -149,7 +156,6 @@ slot_usage:
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding
@@ -168,6 +174,7 @@ attributes:
     description: Unique identifier for the leaf that is referenced.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: ID
     owner: leaf
     domain_of:
@@ -187,7 +194,6 @@ attributes:
     domain_of:
     - leaf
     - Include
-    - ExternalCodeList
     - ExternalCodeLib
     - Image
     - Coding

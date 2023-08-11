@@ -55,6 +55,10 @@ URI: [odm:Resource](http://www.cdisc.org/ns/odm/v2.0/Resource)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Resource](https://wiki.cdisc.org/display/ODM2/Resource)
+
 ## Identifier and Mapping Information
 
 
@@ -93,6 +97,8 @@ URI: [odm:Resource](http://www.cdisc.org/ns/odm/v2.0/Resource)
 ```yaml
 name: Resource
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Resource
 slots:
 - Type
 - Name
@@ -104,8 +110,12 @@ slot_usage:
     name: Type
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -113,22 +123,27 @@ slot_usage:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: text
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -146,17 +161,8 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   Attribute:
@@ -164,22 +170,20 @@ slot_usage:
     domain_of:
     - Resource
     range: text
-    required: false
   Label:
     name: Label
     domain_of:
     - Resource
     - Coding
     range: text
-    required: false
   SelectionRef:
     name: SelectionRef
     multivalued: true
     domain_of:
     - Resource
     range: Selection
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Resource
 
 ```
@@ -191,13 +195,19 @@ class_uri: odm:Resource
 ```yaml
 name: Resource
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Resource
 slot_usage:
   Type:
     name: Type
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -205,22 +215,27 @@ slot_usage:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: text
     required: true
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -238,17 +253,8 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   Attribute:
@@ -256,22 +262,20 @@ slot_usage:
     domain_of:
     - Resource
     range: text
-    required: false
   Label:
     name: Label
     domain_of:
     - Resource
     - Coding
     range: text
-    required: false
   SelectionRef:
     name: SelectionRef
     multivalued: true
     domain_of:
     - Resource
     range: Selection
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   Type:
     name: Type
@@ -282,8 +286,12 @@ attributes:
     owner: Resource
     domain_of:
     - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
     - Resource
+    - MethodDef
     - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
@@ -291,10 +299,6 @@ attributes:
     - Branching
     - Organization
     - Query
-    - StudyEventDef
-    - ItemGroupDef
-    - MethodDef
-    - Standard
     range: text
     required: true
   Name:
@@ -305,13 +309,22 @@ attributes:
     alias: Name
     owner: Resource
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -329,17 +342,8 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: name
     required: true
   Attribute:
@@ -351,7 +355,6 @@ attributes:
     domain_of:
     - Resource
     range: text
-    required: false
   Label:
     name: Label
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -362,7 +365,6 @@ attributes:
     - Resource
     - Coding
     range: text
-    required: false
   SelectionRef:
     name: SelectionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -373,8 +375,8 @@ attributes:
     domain_of:
     - Resource
     range: Selection
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Resource
 
 ```

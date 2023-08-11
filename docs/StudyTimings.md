@@ -43,6 +43,10 @@ URI: [odm:StudyTimings](http://www.cdisc.org/ns/odm/v2.0/StudyTimings)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/StudyTimings](https://wiki.cdisc.org/display/ODM2/StudyTimings)
+
 ## Identifier and Mapping Information
 
 
@@ -81,6 +85,8 @@ URI: [odm:StudyTimings](http://www.cdisc.org/ns/odm/v2.0/StudyTimings)
 ```yaml
 name: StudyTimings
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyTimings
 slots:
 - StudyTimingRef
 slot_usage:
@@ -91,6 +97,8 @@ slot_usage:
     - StudyTimings
     range: StudyTiming
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudyTimings
 
@@ -103,6 +111,8 @@ class_uri: odm:StudyTimings
 ```yaml
 name: StudyTimings
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyTimings
 slot_usage:
   StudyTimingRef:
     name: StudyTimingRef
@@ -111,6 +121,8 @@ slot_usage:
     - StudyTimings
     range: StudyTiming
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   StudyTimingRef:
@@ -124,6 +136,8 @@ attributes:
     - StudyTimings
     range: StudyTiming
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudyTimings
 

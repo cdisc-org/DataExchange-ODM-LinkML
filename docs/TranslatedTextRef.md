@@ -15,6 +15,11 @@ URI: [odm:TranslatedTextRef](http://www.cdisc.org/ns/odm/v2.0/TranslatedTextRef)
 | --- | --- | --- |
 [Description](Description.md) |  |  yes  |
 [Question](Question.md) |  |  yes  |
+[Definition](Definition.md) |  |  yes  |
+[Prompt](Prompt.md) |  |  yes  |
+[CRFCompletionInstructions](CRFCompletionInstructions.md) |  |  yes  |
+[ImplementationNotes](ImplementationNotes.md) |  |  yes  |
+[CDISCNotes](CDISCNotes.md) |  |  yes  |
 [ErrorMessage](ErrorMessage.md) |  |  yes  |
 [Decode](Decode.md) |  |  yes  |
 [Comment](Comment.md) |  |  yes  |
@@ -60,6 +65,11 @@ alias: TranslatedTextRef
 domain_of:
 - Description
 - Question
+- Definition
+- Prompt
+- CRFCompletionInstructions
+- ImplementationNotes
+- CDISCNotes
 - ErrorMessage
 - Decode
 - Comment

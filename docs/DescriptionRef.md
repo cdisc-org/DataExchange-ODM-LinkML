@@ -13,10 +13,19 @@ URI: [odm:DescriptionRef](http://www.cdisc.org/ns/odm/v2.0/DescriptionRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[Study](Study.md) |  |  yes  |
+[MetaDataVersion](MetaDataVersion.md) |  |  yes  |
 [ValueListDef](ValueListDef.md) |  |  yes  |
 [StudyEventGroupRef](StudyEventGroupRef.md) |  |  yes  |
 [StudyEventGroupDef](StudyEventGroupDef.md) |  |  yes  |
+[StudyEventDef](StudyEventDef.md) |  |  yes  |
+[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
 [Origin](Origin.md) |  |  yes  |
+[ItemDef](ItemDef.md) |  |  yes  |
+[CodeList](CodeList.md) |  |  yes  |
+[CodeListItem](CodeListItem.md) |  |  yes  |
+[MethodDef](MethodDef.md) |  |  yes  |
+[ConditionDef](ConditionDef.md) |  |  yes  |
 [CommentDef](CommentDef.md) | The Comment element allows referencing short comments self-contained in the X... |  yes  |
 [Protocol](Protocol.md) |  |  yes  |
 [StudyStructure](StudyStructure.md) |  |  yes  |
@@ -39,17 +48,7 @@ URI: [odm:DescriptionRef](http://www.cdisc.org/ns/odm/v2.0/DescriptionRef)
 [Criterion](Criterion.md) |  |  yes  |
 [ExceptionEvent](ExceptionEvent.md) |  |  yes  |
 [Organization](Organization.md) |  |  yes  |
-[MetaDataVersion](MetaDataVersion.md) |  |  yes  |
-[StudyEventDef](StudyEventDef.md) |  |  yes  |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
-[ItemDef](ItemDef.md) |  |  yes  |
-[CodeList](CodeList.md) |  |  yes  |
-[ConditionDef](ConditionDef.md) |  |  yes  |
-[MethodDef](MethodDef.md) |  |  yes  |
-[CodeListItem](CodeListItem.md) |  |  yes  |
-[EnumeratedItem](EnumeratedItem.md) |  |  yes  |
 [Location](Location.md) |  |  yes  |
-[Study](Study.md) |  |  yes  |
 [ODMFileMetadata](ODMFileMetadata.md) |  |  yes  |
 
 
@@ -91,10 +90,19 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: DescriptionRef
 domain_of:
+- Study
+- MetaDataVersion
 - ValueListDef
 - StudyEventGroupRef
 - StudyEventGroupDef
+- StudyEventDef
+- ItemGroupDef
 - Origin
+- ItemDef
+- CodeList
+- CodeListItem
+- MethodDef
+- ConditionDef
 - CommentDef
 - Protocol
 - StudyStructure
@@ -117,17 +125,7 @@ domain_of:
 - Criterion
 - ExceptionEvent
 - Organization
-- MetaDataVersion
-- StudyEventDef
-- ItemGroupDef
-- ItemDef
-- CodeList
-- ConditionDef
-- MethodDef
-- CodeListItem
-- EnumeratedItem
 - Location
-- Study
 - ODMFileMetadata
 range: Description
 

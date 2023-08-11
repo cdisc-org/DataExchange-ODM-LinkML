@@ -24,7 +24,7 @@ URI: [odm:SeqNum](http://www.cdisc.org/ns/odm/v2.0/SeqNum)
 
 ## Properties
 
-* Range: [String](String.md)
+* Range: [PositiveInteger](PositiveInteger.md)
 
 
 
@@ -57,10 +57,7 @@ alias: SeqNum
 domain_of:
 - Annotation
 - Value
-range: string
-any_of:
-- range: integer
-- range: positiveInteger
+range: positiveInteger
 
 ```
 </details>

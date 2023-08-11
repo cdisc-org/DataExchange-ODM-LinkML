@@ -43,6 +43,10 @@ URI: [odm:StudyObjectives](http://www.cdisc.org/ns/odm/v2.0/StudyObjectives)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/StudyObjectives](https://wiki.cdisc.org/display/ODM2/StudyObjectives)
+
 ## Identifier and Mapping Information
 
 
@@ -81,6 +85,8 @@ URI: [odm:StudyObjectives](http://www.cdisc.org/ns/odm/v2.0/StudyObjectives)
 ```yaml
 name: StudyObjectives
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyObjectives
 slots:
 - StudyObjectiveRef
 slot_usage:
@@ -91,6 +97,8 @@ slot_usage:
     - StudyObjectives
     range: StudyObjective
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudyObjectives
 
@@ -103,6 +111,8 @@ class_uri: odm:StudyObjectives
 ```yaml
 name: StudyObjectives
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyObjectives
 slot_usage:
   StudyObjectiveRef:
     name: StudyObjectiveRef
@@ -111,6 +121,8 @@ slot_usage:
     - StudyObjectives
     range: StudyObjective
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   StudyObjectiveRef:
@@ -124,6 +136,8 @@ attributes:
     - StudyObjectives
     range: StudyObjective
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudyObjectives
 

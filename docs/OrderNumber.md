@@ -15,13 +15,12 @@ URI: [odm:OrderNumber](http://www.cdisc.org/ns/odm/v2.0/OrderNumber)
 | --- | --- | --- |
 [StudyEventGroupRef](StudyEventGroupRef.md) |  |  yes  |
 [StudyEventRef](StudyEventRef.md) |  |  yes  |
+[ItemGroupRef](ItemGroupRef.md) |  |  yes  |
+[ItemRef](ItemRef.md) |  |  yes  |
+[CodeListItem](CodeListItem.md) |  |  yes  |
 [Parameter](Parameter.md) |  |  yes  |
 [ReturnValue](ReturnValue.md) |  |  yes  |
 [StudyEndPointRef](StudyEndPointRef.md) |  |  yes  |
-[ItemRef](ItemRef.md) |  |  yes  |
-[ItemGroupRef](ItemGroupRef.md) |  |  yes  |
-[CodeListItem](CodeListItem.md) |  |  yes  |
-[EnumeratedItem](EnumeratedItem.md) |  |  yes  |
 
 
 
@@ -31,7 +30,7 @@ URI: [odm:OrderNumber](http://www.cdisc.org/ns/odm/v2.0/OrderNumber)
 
 ## Properties
 
-* Range: [Integer](Integer.md)
+* Range: [PositiveInteger](PositiveInteger.md)
 
 
 
@@ -64,14 +63,13 @@ alias: OrderNumber
 domain_of:
 - StudyEventGroupRef
 - StudyEventRef
+- ItemGroupRef
+- ItemRef
+- CodeListItem
 - Parameter
 - ReturnValue
 - StudyEndPointRef
-- ItemRef
-- ItemGroupRef
-- CodeListItem
-- EnumeratedItem
-range: integer
+range: positiveInteger
 
 ```
 </details>

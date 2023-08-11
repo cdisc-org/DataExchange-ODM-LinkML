@@ -20,7 +20,6 @@ URI: [odm:href](http://www.cdisc.org/ns/odm/v2.0/href)
 | --- | --- | --- |
 [Leaf](Leaf.md) | Contains the XLink information referenced by DocumentRef or ArchiveLocationID |  yes  |
 [Include](Include.md) |  |  yes  |
-[ExternalCodeList](ExternalCodeList.md) |  |  yes  |
 [ExternalCodeLib](ExternalCodeLib.md) |  |  yes  |
 [Image](Image.md) |  |  yes  |
 [Coding](Coding.md) |  |  yes  |
@@ -68,7 +67,6 @@ alias: href
 domain_of:
 - leaf
 - Include
-- ExternalCodeList
 - ExternalCodeLib
 - Image
 - Coding

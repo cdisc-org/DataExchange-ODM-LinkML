@@ -1,10 +1,5 @@
 # Slot: ItemRefRef
 
-
-_The ItemRef element contains the reference to the value attributes definitions._
-
-
-
 URI: [odm:ItemRefRef](http://www.cdisc.org/ns/odm/v2.0/ItemRefRef)
 
 
@@ -19,6 +14,7 @@ URI: [odm:ItemRefRef](http://www.cdisc.org/ns/odm/v2.0/ItemRefRef)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [ValueListDef](ValueListDef.md) |  |  yes  |
+[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
 
 
 
@@ -55,13 +51,12 @@ URI: [odm:ItemRefRef](http://www.cdisc.org/ns/odm/v2.0/ItemRefRef)
 <details>
 ```yaml
 name: ItemRefRef
-description: The ItemRef element contains the reference to the value attributes definitions.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-list_elements_unique: true
 alias: ItemRefRef
 domain_of:
 - ValueListDef
+- ItemGroupDef
 range: ItemRef
 
 ```

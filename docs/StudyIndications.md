@@ -43,6 +43,10 @@ URI: [odm:StudyIndications](http://www.cdisc.org/ns/odm/v2.0/StudyIndications)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/StudyIndications](https://wiki.cdisc.org/display/ODM2/StudyIndications)
+
 ## Identifier and Mapping Information
 
 
@@ -81,6 +85,8 @@ URI: [odm:StudyIndications](http://www.cdisc.org/ns/odm/v2.0/StudyIndications)
 ```yaml
 name: StudyIndications
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyIndications
 slots:
 - StudyIndicationRef
 slot_usage:
@@ -91,6 +97,8 @@ slot_usage:
     - StudyIndications
     range: StudyIndication
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudyIndications
 
@@ -103,6 +111,8 @@ class_uri: odm:StudyIndications
 ```yaml
 name: StudyIndications
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/StudyIndications
 slot_usage:
   StudyIndicationRef:
     name: StudyIndicationRef
@@ -111,6 +121,8 @@ slot_usage:
     - StudyIndications
     range: StudyIndication
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 attributes:
   StudyIndicationRef:
@@ -124,6 +136,8 @@ attributes:
     - StudyIndications
     range: StudyIndication
     required: true
+    inlined: true
+    inlined_as_list: true
     minimum_cardinality: 1
 class_uri: odm:StudyIndications
 

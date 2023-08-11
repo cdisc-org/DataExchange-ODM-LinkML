@@ -53,9 +53,9 @@ URI: [odm:Protocol](http://www.cdisc.org/ns/odm/v2.0/Protocol)
         
           Protocol --|> StudySummary : StudySummaryRef
         
-      Protocol : StudyTargetPopulationRef
+      Protocol : StudyTargetPopulationRefRef
         
-          Protocol --|> StudyTargetPopulation : StudyTargetPopulationRef
+          Protocol --|> StudyTargetPopulation : StudyTargetPopulationRefRef
         
       Protocol : StudyTimingsRef
         
@@ -91,7 +91,7 @@ URI: [odm:Protocol](http://www.cdisc.org/ns/odm/v2.0/Protocol)
 | [StudyInterventionsRef](StudyInterventionsRef.md) | 0..1 <br/> [StudyInterventions](StudyInterventions.md) |  | direct |
 | [StudyObjectivesRef](StudyObjectivesRef.md) | 0..1 <br/> [StudyObjectives](StudyObjectives.md) |  | direct |
 | [StudyEndPointsRef](StudyEndPointsRef.md) | 0..1 <br/> [StudyEndPoints](StudyEndPoints.md) |  | direct |
-| [StudyTargetPopulationRef](StudyTargetPopulationRef.md) | 0..1 <br/> [StudyTargetPopulation](StudyTargetPopulation.md) |  | direct |
+| [StudyTargetPopulationRefRef](StudyTargetPopulationRefRef.md) | 0..1 <br/> [StudyTargetPopulation](StudyTargetPopulation.md) |  | direct |
 | [StudyEstimandsRef](StudyEstimandsRef.md) | 0..1 <br/> [StudyEstimands](StudyEstimands.md) |  | direct |
 | [InclusionExclusionCriteriaRef](InclusionExclusionCriteriaRef.md) | 0..1 <br/> [InclusionExclusionCriteria](InclusionExclusionCriteria.md) |  | direct |
 | [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | 0..* <br/> [StudyEventGroupRef](StudyEventGroupRef.md) |  | direct |
@@ -112,6 +112,10 @@ URI: [odm:Protocol](http://www.cdisc.org/ns/odm/v2.0/Protocol)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Protocol](https://wiki.cdisc.org/display/ODM2/Protocol)
 
 ## Identifier and Mapping Information
 
@@ -151,6 +155,8 @@ URI: [odm:Protocol](http://www.cdisc.org/ns/odm/v2.0/Protocol)
 ```yaml
 name: Protocol
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Protocol
 slots:
 - DescriptionRef
 - StudySummaryRef
@@ -161,7 +167,7 @@ slots:
 - StudyInterventionsRef
 - StudyObjectivesRef
 - StudyEndPointsRef
-- StudyTargetPopulationRef
+- StudyTargetPopulationRefRef
 - StudyEstimandsRef
 - InclusionExclusionCriteriaRef
 - StudyEventGroupRefRef
@@ -171,10 +177,19 @@ slot_usage:
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -197,148 +212,114 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudySummaryRef:
     name: StudySummaryRef
     domain_of:
     - Protocol
     range: StudySummary
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyStructureRef:
     name: StudyStructureRef
     domain_of:
     - Protocol
     range: StudyStructure
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   TrialPhaseRef:
     name: TrialPhaseRef
     domain_of:
     - Protocol
     range: TrialPhase
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyTimingsRef:
     name: StudyTimingsRef
     domain_of:
     - Protocol
     range: StudyTimings
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyIndicationsRef:
     name: StudyIndicationsRef
     domain_of:
     - Protocol
     range: StudyIndications
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyInterventionsRef:
     name: StudyInterventionsRef
     domain_of:
     - Protocol
     range: StudyInterventions
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyObjectivesRef:
     name: StudyObjectivesRef
     domain_of:
     - Protocol
     range: StudyObjectives
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyEndPointsRef:
     name: StudyEndPointsRef
     domain_of:
     - Protocol
     range: StudyEndPoints
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
-  StudyTargetPopulationRef:
-    name: StudyTargetPopulationRef
+  StudyTargetPopulationRefRef:
+    name: StudyTargetPopulationRefRef
     domain_of:
     - Protocol
+    - StudyEstimand
     range: StudyTargetPopulation
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyEstimandsRef:
     name: StudyEstimandsRef
     domain_of:
     - Protocol
     range: StudyEstimands
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   InclusionExclusionCriteriaRef:
     name: InclusionExclusionCriteriaRef
     domain_of:
     - Protocol
     range: InclusionExclusionCriteria
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyEventGroupRefRef:
     name: StudyEventGroupRefRef
     multivalued: true
     domain_of:
+    - StudyEventGroupDef
     - Protocol
+    - ExceptionEvent
     range: StudyEventGroupRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WorkflowRefRef:
     name: WorkflowRefRef
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Protocol
     - StudyStructure
     - Arm
-    - StudyEventDef
-    - ItemGroupDef
+    - ExceptionEvent
     range: WorkflowRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   AliasRef:
     name: AliasRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Protocol
 
 ```
@@ -350,14 +331,25 @@ class_uri: odm:Protocol
 ```yaml
 name: Protocol
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Protocol
 slot_usage:
   DescriptionRef:
     name: DescriptionRef
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -380,148 +372,114 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudySummaryRef:
     name: StudySummaryRef
     domain_of:
     - Protocol
     range: StudySummary
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyStructureRef:
     name: StudyStructureRef
     domain_of:
     - Protocol
     range: StudyStructure
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   TrialPhaseRef:
     name: TrialPhaseRef
     domain_of:
     - Protocol
     range: TrialPhase
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyTimingsRef:
     name: StudyTimingsRef
     domain_of:
     - Protocol
     range: StudyTimings
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyIndicationsRef:
     name: StudyIndicationsRef
     domain_of:
     - Protocol
     range: StudyIndications
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyInterventionsRef:
     name: StudyInterventionsRef
     domain_of:
     - Protocol
     range: StudyInterventions
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyObjectivesRef:
     name: StudyObjectivesRef
     domain_of:
     - Protocol
     range: StudyObjectives
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyEndPointsRef:
     name: StudyEndPointsRef
     domain_of:
     - Protocol
     range: StudyEndPoints
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
-  StudyTargetPopulationRef:
-    name: StudyTargetPopulationRef
+  StudyTargetPopulationRefRef:
+    name: StudyTargetPopulationRefRef
     domain_of:
     - Protocol
+    - StudyEstimand
     range: StudyTargetPopulation
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyEstimandsRef:
     name: StudyEstimandsRef
     domain_of:
     - Protocol
     range: StudyEstimands
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   InclusionExclusionCriteriaRef:
     name: InclusionExclusionCriteriaRef
     domain_of:
     - Protocol
     range: InclusionExclusionCriteria
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyEventGroupRefRef:
     name: StudyEventGroupRefRef
     multivalued: true
     domain_of:
+    - StudyEventGroupDef
     - Protocol
+    - ExceptionEvent
     range: StudyEventGroupRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WorkflowRefRef:
     name: WorkflowRefRef
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Protocol
     - StudyStructure
     - Arm
-    - StudyEventDef
-    - ItemGroupDef
+    - ExceptionEvent
     range: WorkflowRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   AliasRef:
     name: AliasRef
     multivalued: true
-    list_elements_unique: true
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   DescriptionRef:
     name: DescriptionRef
@@ -530,10 +488,19 @@ attributes:
     alias: DescriptionRef
     owner: Protocol
     domain_of:
+    - Study
+    - MetaDataVersion
     - ValueListDef
     - StudyEventGroupRef
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
     - CommentDef
     - Protocol
     - StudyStructure
@@ -556,21 +523,9 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - CodeListItem
-    - EnumeratedItem
     - Location
-    - Study
     - ODMFileMetadata
     range: Description
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudySummaryRef:
     name: StudySummaryRef
@@ -581,8 +536,6 @@ attributes:
     domain_of:
     - Protocol
     range: StudySummary
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyStructureRef:
     name: StudyStructureRef
@@ -593,8 +546,6 @@ attributes:
     domain_of:
     - Protocol
     range: StudyStructure
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   TrialPhaseRef:
     name: TrialPhaseRef
@@ -605,8 +556,6 @@ attributes:
     domain_of:
     - Protocol
     range: TrialPhase
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyTimingsRef:
     name: StudyTimingsRef
@@ -617,8 +566,6 @@ attributes:
     domain_of:
     - Protocol
     range: StudyTimings
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyIndicationsRef:
     name: StudyIndicationsRef
@@ -629,8 +576,6 @@ attributes:
     domain_of:
     - Protocol
     range: StudyIndications
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyInterventionsRef:
     name: StudyInterventionsRef
@@ -641,8 +586,6 @@ attributes:
     domain_of:
     - Protocol
     range: StudyInterventions
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyObjectivesRef:
     name: StudyObjectivesRef
@@ -653,8 +596,6 @@ attributes:
     domain_of:
     - Protocol
     range: StudyObjectives
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyEndPointsRef:
     name: StudyEndPointsRef
@@ -665,20 +606,17 @@ attributes:
     domain_of:
     - Protocol
     range: StudyEndPoints
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
-  StudyTargetPopulationRef:
-    name: StudyTargetPopulationRef
+  StudyTargetPopulationRefRef:
+    name: StudyTargetPopulationRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyTargetPopulationRef
+    alias: StudyTargetPopulationRefRef
     owner: Protocol
     domain_of:
     - Protocol
+    - StudyEstimand
     range: StudyTargetPopulation
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyEstimandsRef:
     name: StudyEstimandsRef
@@ -689,8 +627,6 @@ attributes:
     domain_of:
     - Protocol
     range: StudyEstimands
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   InclusionExclusionCriteriaRef:
     name: InclusionExclusionCriteriaRef
@@ -701,8 +637,6 @@ attributes:
     domain_of:
     - Protocol
     range: InclusionExclusionCriteria
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   StudyEventGroupRefRef:
     name: StudyEventGroupRefRef
@@ -712,10 +646,12 @@ attributes:
     alias: StudyEventGroupRefRef
     owner: Protocol
     domain_of:
+    - StudyEventGroupDef
     - Protocol
+    - ExceptionEvent
     range: StudyEventGroupRef
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
   WorkflowRefRef:
     name: WorkflowRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -724,36 +660,33 @@ attributes:
     owner: Protocol
     domain_of:
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Protocol
     - StudyStructure
     - Arm
-    - StudyEventDef
-    - ItemGroupDef
+    - ExceptionEvent
     range: WorkflowRef
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
   AliasRef:
     name: AliasRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    list_elements_unique: true
     alias: AliasRef
     owner: Protocol
     domain_of:
-    - Protocol
     - StudyEventDef
     - ItemGroupDef
     - ItemDef
     - CodeList
-    - ConditionDef
-    - MethodDef
     - CodeListItem
-    - EnumeratedItem
+    - MethodDef
+    - ConditionDef
+    - Protocol
     range: Alias
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Protocol
 
 ```

@@ -48,6 +48,10 @@ URI: [odm:Class](http://www.cdisc.org/ns/odm/v2.0/Class)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Class](https://wiki.cdisc.org/display/ODM2/Class)
+
 ## Identifier and Mapping Information
 
 
@@ -86,6 +90,8 @@ URI: [odm:Class](http://www.cdisc.org/ns/odm/v2.0/Class)
 ```yaml
 name: Class
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Class
 slots:
 - Name
 - SubClassRef
@@ -93,13 +99,22 @@ slot_usage:
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -117,17 +132,8 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: ItemGroupClass
     required: true
   SubClassRef:
@@ -136,8 +142,8 @@ slot_usage:
     domain_of:
     - Class
     range: SubClass
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Class
 
 ```
@@ -149,17 +155,28 @@ class_uri: odm:Class
 ```yaml
 name: Class
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Class
 slot_usage:
   Name:
     name: Name
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -177,17 +194,8 @@ slot_usage:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: ItemGroupClass
     required: true
   SubClassRef:
@@ -196,8 +204,8 @@ slot_usage:
     domain_of:
     - Class
     range: SubClass
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 attributes:
   Name:
     name: Name
@@ -207,13 +215,22 @@ attributes:
     alias: Name
     owner: Class
     domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
     - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
     - Class
     - SubClass
     - SourceItem
     - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
     - Parameter
     - ReturnValue
+    - ConditionDef
     - StudyObjective
     - StudyEndPoint
     - StudyTargetPopulation
@@ -231,17 +248,8 @@ attributes:
     - Criterion
     - ExceptionEvent
     - Organization
-    - Query
-    - MetaDataVersion
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - ConditionDef
-    - MethodDef
-    - Standard
-    - Alias
     - Location
+    - Query
     range: ItemGroupClass
     required: true
   SubClassRef:
@@ -254,8 +262,8 @@ attributes:
     domain_of:
     - Class
     range: SubClass
-    required: false
-    minimum_cardinality: 0
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:Class
 
 ```

@@ -48,6 +48,10 @@ URI: [odm:Flag](http://www.cdisc.org/ns/odm/v2.0/Flag)
 
 
 
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Flag](https://wiki.cdisc.org/display/ODM2/Flag)
+
 ## Identifier and Mapping Information
 
 
@@ -86,6 +90,8 @@ URI: [odm:Flag](http://www.cdisc.org/ns/odm/v2.0/Flag)
 ```yaml
 name: Flag
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Flag
 slots:
 - FlagValueRef
 - FlagTypeRef
@@ -103,8 +109,6 @@ slot_usage:
     domain_of:
     - Flag
     range: FlagType
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:Flag
 
@@ -117,6 +121,8 @@ class_uri: odm:Flag
 ```yaml
 name: Flag
 from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/ODM2/Flag
 slot_usage:
   FlagValueRef:
     name: FlagValueRef
@@ -131,8 +137,6 @@ slot_usage:
     domain_of:
     - Flag
     range: FlagType
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 attributes:
   FlagValueRef:
@@ -156,8 +160,6 @@ attributes:
     domain_of:
     - Flag
     range: FlagType
-    required: false
-    minimum_cardinality: 0
     maximum_cardinality: 1
 class_uri: odm:Flag
 

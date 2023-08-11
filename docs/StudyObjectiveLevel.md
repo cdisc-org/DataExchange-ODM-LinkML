@@ -1,8 +1,8 @@
-# Enum: StudyObjectiveType
+# Enum: StudyObjectiveLevel
 
 
 
-URI: [StudyObjectiveType](StudyObjectiveType)
+URI: [StudyObjectiveLevel](StudyObjectiveLevel)
 
 ## Permissible Values
 
@@ -10,6 +10,7 @@ URI: [StudyObjectiveType](StudyObjectiveType)
 | --- | --- | --- |
 | Primary | None |  |
 | Secondary | None |  |
+| Exploratory | None |  |
 
 
 
@@ -45,16 +46,19 @@ URI: [StudyObjectiveType](StudyObjectiveType)
 
 <details>
 ```yaml
-name: StudyObjectiveType
+name: StudyObjectiveLevel
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:
   Primary:
     text: Primary
-    is_a: StudyObjectiveType
+    is_a: StudyObjectiveLevel
   Secondary:
     text: Secondary
-    is_a: StudyObjectiveType
+    is_a: StudyObjectiveLevel
+  Exploratory:
+    text: Exploratory
+    is_a: StudyObjectiveLevel
 
 ```
 </details>
