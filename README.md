@@ -92,7 +92,7 @@ Can then create JSON-LD @context knowing both input (ODM as JSON) and output (OD
 
 
 ## Breakdown of XML schema structure as JSON
-After creating a flattening the .xsd schema files into a single schema, ODMv2 can be read in and explored as a Python dictionary via the `xmlschema` package (dicts are almost identical to JSON)
+After flattening the .xsd schema files into a single schema, ODMv2 can be read in and explored as a Python dictionary via the `xmlschema` package (dicts are almost identical to JSON)
 
     xs:simpletype has many elements (78) | value (non-object) types
         { name of type, 
@@ -124,7 +124,7 @@ After creating a flattening the .xsd schema files into a single schema, ODMv2 ca
 
 * `xs:simpleType` is a primitive type or simple slot type
 
-* `xs:attributeGroup` contain slots, referenced by a class at attributeGroup level. It lists someObjectDefinition with someObjectExtension to group them, bringing in any implementer-specific extensions to the model. Extensions could be ignored, as they are empty in the 'standard' schema (until there is demand from implementers who also use .xsd files)
+* `xs:attributeGroup` contain slots, referenced by a class at attributeGroup level. It lists someObjectDefinition with someObjectExtension to group them, bringing in any implementer-specific extensions to the model
 
 Each `xs:attributeGroup` member looks like this i.e. the same slot can have a different label annotated from the point of view of its context
 
@@ -140,7 +140,6 @@ Each `xs:attributeGroup` member looks like this i.e. the same slot can have a di
         }
 
 * `xs:sequence` contains both self cardinality and relationships/cardinality to other classes
-    * `xs:group` is ignored at first
     * `xs:element` is list of relationships `ref` and their cardinalities `minOccurs` (int | 'unbounded'), `maxOccurs`, `nillable`
         * `mixed` is only applied to TranslatedText since there is content between the XML tags. In non-XML/HTML representations this would be given a key such as `"content"` or `"TranslatedText"`. Flickr use `"_content"` in their style guide to avoid collisions. Because `TranslatedText` is the only example of this in ODMv2 we give the content the attribute `TranslatedText`
         * `abstract` is false in all cases - there are no purely abstract classes to handle
@@ -169,15 +168,13 @@ Each `xs:attributeGroup` member looks like this i.e. the same slot can have a di
 
 * `xs:union: { memberTypes: [] } ` replaces `xs:restriction` when the type combines multiple other types
 
-* `type` can take either a `xs:simpleType` or `xs:complexType`
-
 * `ref` references a named definition or class, e.g. in a relationship cardinality constraint
 
 * `xs:simpleContent` contains `xs:extension` or restrictions on a text-only complextype; or on a simple type with only _content slot if it contains neither attributes nor elements.
 
 * `xs:extension` consists of `base` and `xs:attributeGroup:[{ref}]` referencing the extension object
 
-* `xs:complexContent` allows multiple attribute groups to be 
+* `xs:complexContent` allows multiple attribute groups to be defined within the same class 
 Only `Subclass` and `PDFPageRef` use this
 
 * `odm:Alias` is an exact mapping to NCIT concept (more exact mappings can be added)
