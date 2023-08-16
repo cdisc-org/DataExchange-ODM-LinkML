@@ -355,7 +355,7 @@ class ODMLinkMLTransformer():
         return groups_found
     
 
-    def map_reference(self, element, unique_list=None) -> dict:
+    def map_reference(self, element, unique_list = None, min_occurs = None, max_occurs = None) -> dict:
         if not element:
             return None
         range = self.map_type(element.get('ref'))
@@ -364,8 +364,8 @@ class ODMLinkMLTransformer():
         if name in self.class_names:
             name += REFERENCE_SUFFIX
             self.print_debug('reference name changed to', name)
-        min_occurs = element.get('minOccurs')
-        max_occurs = element.get('maxOccurs')
+        min_occurs = min(min_occurs or 0, element.get('minOccurs', 0))
+        max_occurs = max_occurs or element.get('maxOccurs')
         documentation = element.get('xs:annotation', {}).get('xs:documentation',[])
         return {
             'name': self.hardcoded_name(name),
@@ -508,12 +508,15 @@ class ODMLinkMLTransformer():
             self.schema.add_class(klass)
 
 
-    def add_class_slot(self, element, unique_list = None):
+    def add_class_slot(self, element, unique_list = None, min_occurs = None, max_occurs = None):
         if type(element) is not dict:
             self.print_debug('element passed to add_class_slot was not dict type')
             return None
         else:
-            mapped = self.map_reference(element, unique_list = None)
+            mapped = self.map_reference(element, 
+                                        unique_list = None,
+                                        min_occurs = min_occurs,
+                                        max_occurs = max_occurs)
         if not mapped:
             return None
         ref_name = mapped.get('name')
@@ -586,7 +589,10 @@ class ODMLinkMLTransformer():
             if not subset:
                 continue
             for ref in subset:
-                mapped = self.add_class_slot(ref, selector_list)
+                mapped = self.add_class_slot(ref, 
+                                             selector_list,
+                                             min_occurs = group.get('minOccurs'),
+                                             max_occurs = group.get('maxOccurs'))
                 if mapped:
                     ref_name = mapped.pop('name')
                     slot_usage[ref_name] = mapped
