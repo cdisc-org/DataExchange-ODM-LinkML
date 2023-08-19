@@ -2,6 +2,7 @@ import xmlschema
 import json
 import os
 import re
+import scraper
 from lxml import etree
 
 def xsd2json(schema_path, debug=False):

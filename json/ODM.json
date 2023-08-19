@@ -2426,7 +2426,7 @@
           "use": "optional"
         },
         {
-          "name": "type",
+          "name": "Type",
           "type": "text",
           "use": "required"
         }
@@ -2631,12 +2631,12 @@
       "name": "DocumentRefAttributeDefinition",
       "xs:attribute": [
         {
-          "name": "leafID",
+          "name": "LeafID",
           "type": "xs:IDREF",
           "use": "required",
           "xs:annotation": {
             "xs:documentation": [
-              "Unique identifier for the leaf element with the document location."
+              "Unique identifier for the Leaf element with the document location."
             ]
           }
         }
@@ -2698,7 +2698,7 @@
       ]
     },
     {
-      "name": "leafAttributeDefinition",
+      "name": "LeafAttributeDefinition",
       "xs:attribute": [
         {
           "name": "ID",
@@ -4795,7 +4795,7 @@
       "name": "DocumentRefAttributeExtension"
     },
     {
-      "name": "leafAttributeExtension"
+      "name": "LeafAttributeExtension"
     },
     {
       "name": "PDFPageRefAttributeExtension"
@@ -5282,7 +5282,7 @@
       "xs:sequence": null
     },
     {
-      "name": "leafElementExtension",
+      "name": "LeafElementExtension",
       "xs:sequence": null
     },
     {
@@ -5964,7 +5964,7 @@
             "nillable": false
           },
           {
-            "ref": "leaf",
+            "ref": "Leaf",
             "minOccurs": 0,
             "maxOccurs": "unbounded",
             "nillable": false
@@ -6042,7 +6042,7 @@
       }
     },
     {
-      "name": "ODMcomplexTypeDefinition-leaf",
+      "name": "ODMcomplexTypeDefinition-Leaf",
       "abstract": false,
       "mixed": false,
       "xs:annotation": {
@@ -6054,7 +6054,7 @@
         "maxOccurs": 1,
         "minOccurs": 1,
         "xs:element": {
-          "name": "title",
+          "name": "Title",
           "minOccurs": 1,
           "maxOccurs": 1,
           "nillable": false,
@@ -6065,17 +6065,17 @@
           }
         },
         "xs:group": {
-          "ref": "leafElementExtension",
+          "ref": "LeafElementExtension",
           "minOccurs": 0,
           "maxOccurs": 1
         }
       },
       "xs:attributeGroup": [
         {
-          "ref": "leafAttributeDefinition"
+          "ref": "LeafAttributeDefinition"
         },
         {
-          "ref": "leafAttributeExtension"
+          "ref": "LeafAttributeExtension"
         }
       ]
     },
@@ -6540,7 +6540,7 @@
             "nillable": false
           },
           {
-            "ref": "leaf",
+            "ref": "Leaf",
             "minOccurs": 0,
             "maxOccurs": 1,
             "nillable": false
@@ -10541,7 +10541,7 @@
         },
         "xs:field": [
           {
-            "xpath": "@type"
+            "xpath": "@Type"
           },
           {
             "xpath": "@xml:lang"
@@ -10670,8 +10670,8 @@
       "nillable": false
     },
     {
-      "name": "leaf",
-      "type": "ODMcomplexTypeDefinition-leaf",
+      "name": "Leaf",
+      "type": "ODMcomplexTypeDefinition-Leaf",
       "abstract": false,
       "nillable": false
     },
@@ -10716,7 +10716,7 @@
         },
         "xs:field": [
           {
-            "xpath": "@leafID"
+            "xpath": "@LeafID"
           }
         ]
       }
@@ -10733,7 +10733,7 @@
         },
         "xs:field": [
           {
-            "xpath": "@leafID"
+            "xpath": "@LeafID"
           }
         ]
       }
@@ -10974,7 +10974,7 @@
         },
         "xs:field": [
           {
-            "xpath": "@type"
+            "xpath": "@Type"
           },
           {
             "xpath": "@xml:lang"
@@ -10994,7 +10994,7 @@
         },
         "xs:field": [
           {
-            "xpath": "@type"
+            "xpath": "@Type"
           },
           {
             "xpath": "@xml:lang"
@@ -11014,7 +11014,7 @@
         },
         "xs:field": [
           {
-            "xpath": "@type"
+            "xpath": "@Type"
           },
           {
             "xpath": "@xml:lang"
@@ -11034,7 +11034,7 @@
         },
         "xs:field": [
           {
-            "xpath": "@type"
+            "xpath": "@Type"
           },
           {
             "xpath": "@xml:lang"
@@ -11054,7 +11054,7 @@
         },
         "xs:field": [
           {
-            "xpath": "@type"
+            "xpath": "@Type"
           },
           {
             "xpath": "@xml:lang"
@@ -11074,7 +11074,7 @@
         },
         "xs:field": [
           {
-            "xpath": "@type"
+            "xpath": "@Type"
           },
           {
             "xpath": "@xml:lang"
@@ -11106,7 +11106,7 @@
         },
         "xs:field": [
           {
-            "xpath": "@type"
+            "xpath": "@Type"
           },
           {
             "xpath": "@xml:lang"
@@ -11196,7 +11196,7 @@
         },
         "xs:field": [
           {
-            "xpath": "@type"
+            "xpath": "@Type"
           },
           {
             "xpath": "@xml:lang"

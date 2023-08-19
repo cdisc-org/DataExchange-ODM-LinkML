@@ -107,6 +107,19 @@ class ODMLinkMLTransformer():
             return ref + REFERENCE_SUFFIX
         else:
             return ref
+        
+    @staticmethod
+    def hardcoded_range(range) -> str:
+        type_map = {
+            'href': 'uriorcurie',
+            LANGUAGE_KEY: LANGUAGE_KEY + TYPE_SUFFIX,
+            CONTENT_KEY: CONTENT_KEY + TYPE_SUFFIX
+        }
+        if range in type_map.keys():
+            range = type_map[range]
+            return range
+        else:
+            return None 
 
     @staticmethod
     def map_base(type) -> str:
@@ -136,7 +149,7 @@ class ODMLinkMLTransformer():
             return type
         else:
             return 'str'
-
+        
     @staticmethod
     def map_type(ref) -> str:
         # Remove prefixes for LinkML type references
@@ -151,9 +164,7 @@ class ODMLinkMLTransformer():
             'xs:IDREF': 'oid',
             'xlink:href': 'href',
             'xml:lang': LANGUAGE_KEY,
-            'xhtml:div': CONTENT_KEY,
-            LANGUAGE_KEY: LANGUAGE_KEY + TYPE_SUFFIX,
-            CONTENT_KEY: CONTENT_KEY + TYPE_SUFFIX
+            'xhtml:div': CONTENT_KEY
         }
         if ref in type_map.keys():
             return type_map[ref]
@@ -369,7 +380,7 @@ class ODMLinkMLTransformer():
         documentation = element.get('xs:annotation', {}).get('xs:documentation',[])
         return {
             'name': self.hardcoded_name(name),
-            'range': self.map_type(range),
+            'range': self.hardcoded_range(range) or range,
             'required': True if (int(min_occurs) and int(min_occurs) > 0) else None,
             'multivalued': True if max_occurs == 'unbounded' else None,
             'inlined': True if max_occurs == 'unbounded' else None,
@@ -398,7 +409,7 @@ class ODMLinkMLTransformer():
             attrib_name = self.hardcoded_name(attrib_name)
             required = True if (attrib.get('use') == 'required') else None
             this_slot_usage = {'required': required}
-            range = self.map_type(attrib.get('type'))
+            range = self.map_type(attrib.get('type')) or self.hardcoded_range(attrib_name)
             simpleType = attrib.get('xs:simpleType')
             if not range and not simpleType:
                 print('no type/s provided for', attrib_name, 'in', group_name)
@@ -524,7 +535,7 @@ class ODMLinkMLTransformer():
         if ref_name:
             this_slot = SlotDefinition(ref_name)
             this_slot['range'] = range
-            this_slot['identifier'] = self.is_identifier(ref_name)
+            this_slot['identifier'] = bool(self.is_identifier(ref_name))
             this_slot['description'] = mapped.get('description')
             this_slot['name'] = ref_name
             if ref_name not in self.slot_names:
