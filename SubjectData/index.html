@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-subjectdata">Class: SubjectData</h1>
+<p><em>Clinical data for a single subject.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/SubjectData">odm:SubjectData</a></p>
 <div class="mermaid"> classDiagram
     class SubjectData
@@ -256,13 +257,13 @@
 <tr>
 <td><a href="../SubjectKey/">SubjectKey</a></td>
 <td>1..1 <br/> <a href="../SubjectKey/">SubjectKey</a></td>
-<td></td>
+<td>Unique identifier for the Subject</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../TransactionTypeRef/">TransactionTypeRef</a></td>
 <td>0..1 <br/> <a href="../TransactionType/">TransactionType</a></td>
-<td></td>
+<td>Identifies the transaction type when /ODM/@FileType is Transactional and ther...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -303,7 +304,7 @@
 </tr>
 <tr>
 <td><a href="../AnnotationRef/">AnnotationRef</a></td>
-<td>0..* <br/> <a href="../Annotation/">Annotation</a></td>
+<td>0..1 <br/> <a href="../Annotation/">Annotation</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -361,6 +362,7 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: SubjectData
+description: Clinical data for a single subject.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SubjectData
@@ -377,6 +379,14 @@ slots:
 slot_usage:
   SubjectKey:
     name: SubjectKey
+    description: Unique identifier for the Subject.
+    comments:
+    - 'Required
+
+      range:subjectKey
+
+      For CDISC SDTM regulatory submission, the SubjectKey value should be the SDTM
+      SUBJID variable value.'
     domain_of:
     - SubjectData
     - KeySet
@@ -384,6 +394,16 @@ slot_usage:
     required: true
   TransactionTypeRef:
     name: TransactionTypeRef
+    description: Identifies the transaction type when /ODM/@FileType is Transactional
+      and there is no child element.
+    comments:
+    - 'Conditional Required when contained within an ODM Transactional file and the
+      SubjectData element has no child element content.
+
+      enum values:(Insert | Update | Remove | Upsert | Context)
+
+      When importing data from an ODM Snapshot file, the TransactionType attribute
+      must not affect the processing of the SubjectData element.'
     domain_of:
     - SubjectData
     - StudyEventData
@@ -450,7 +470,6 @@ slot_usage:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
-    multivalued: true
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -460,8 +479,7 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 class_uri: odm:SubjectData
 
 </code></pre>
@@ -469,12 +487,21 @@ class_uri: odm:SubjectData
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: SubjectData
+description: Clinical data for a single subject.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SubjectData
 slot_usage:
   SubjectKey:
     name: SubjectKey
+    description: Unique identifier for the Subject.
+    comments:
+    - 'Required
+
+      range:subjectKey
+
+      For CDISC SDTM regulatory submission, the SubjectKey value should be the SDTM
+      SUBJID variable value.'
     domain_of:
     - SubjectData
     - KeySet
@@ -482,6 +509,16 @@ slot_usage:
     required: true
   TransactionTypeRef:
     name: TransactionTypeRef
+    description: Identifies the transaction type when /ODM/@FileType is Transactional
+      and there is no child element.
+    comments:
+    - 'Conditional Required when contained within an ODM Transactional file and the
+      SubjectData element has no child element content.
+
+      enum values:(Insert | Update | Remove | Upsert | Context)
+
+      When importing data from an ODM Snapshot file, the TransactionType attribute
+      must not affect the processing of the SubjectData element.'
     domain_of:
     - SubjectData
     - StudyEventData
@@ -548,7 +585,6 @@ slot_usage:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
-    multivalued: true
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -558,11 +594,18 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 attributes:
   SubjectKey:
     name: SubjectKey
+    description: Unique identifier for the Subject.
+    comments:
+    - 'Required
+
+      range:subjectKey
+
+      For CDISC SDTM regulatory submission, the SubjectKey value should be the SDTM
+      SUBJID variable value.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SubjectKey
@@ -574,6 +617,16 @@ attributes:
     required: true
   TransactionTypeRef:
     name: TransactionTypeRef
+    description: Identifies the transaction type when /ODM/@FileType is Transactional
+      and there is no child element.
+    comments:
+    - 'Conditional Required when contained within an ODM Transactional file and the
+      SubjectData element has no child element content.
+
+      enum values:(Insert | Update | Remove | Upsert | Context)
+
+      When importing data from an ODM Snapshot file, the TransactionType attribute
+      must not affect the processing of the SubjectData element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TransactionTypeRef
@@ -589,6 +642,7 @@ attributes:
     name: InvestigatorRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: InvestigatorRefRef
     owner: SubjectData
     domain_of:
@@ -599,6 +653,7 @@ attributes:
     name: SiteRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: SiteRefRef
     owner: SubjectData
     domain_of:
@@ -610,6 +665,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyEventDataRef
     owner: SubjectData
     domain_of:
@@ -622,6 +678,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: QueryRef
     owner: SubjectData
     domain_of:
@@ -638,6 +695,7 @@ attributes:
     name: AuditRecordRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: AuditRecordRef
     owner: SubjectData
     domain_of:
@@ -654,6 +712,7 @@ attributes:
     name: SignatureRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: SignatureRefRef
     owner: SubjectData
     domain_of:
@@ -670,7 +729,7 @@ attributes:
     name: AnnotationRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    multivalued: true
+    identifier: false
     alias: AnnotationRef
     owner: SubjectData
     domain_of:
@@ -682,8 +741,7 @@ attributes:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 class_uri: odm:SubjectData
 
 </code></pre>

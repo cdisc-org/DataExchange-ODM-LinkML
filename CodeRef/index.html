@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-coderef">Slot: CodeRef</h1>
+<p><em>A string pattern that identifies a concept as defined by the code system.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/CodeRef">odm:CodeRef</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,12 +328,12 @@
 <tbody>
 <tr>
 <td><a href="../FormalExpression/">FormalExpression</a></td>
-<td></td>
+<td>A FormalExpression used within a ConditionDef or a RangeCheck must evaluate t...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Coding/">Coding</a></td>
-<td></td>
+<td>Coding references a symbol from a defined code system</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -350,8 +351,10 @@
 <details>
 
 <pre><code class="language-yaml">name: CodeRef
+description: A string pattern that identifies a concept as defined by the code system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: CodeRef
 domain_of:
 - FormalExpression

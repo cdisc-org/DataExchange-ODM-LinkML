@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-origin">Class: Origin</h1>
+<p><em>Origin defines the source metadata, where applicable, for ODM ItemRefs or ItemGroupRefs. Origin as a child element replaces the Origin attribute in ODM v1.3 that exists for the ItemDef and ItemGroupDef elements.The Origin element is based on the def:Origin element in Define-XML v2.1 with the Trace-XML v1.0 extension. Element NameOriginParent ElementsItemGroupDef, ItemRefElement XPath(s)/ODM/Study/MetaDataVersion/ValueListDef/ItemRef/Origin/ODM/Study/MetaDataVersion/ItemGroupDef/Origin/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef/OriginElement Textual ValueNoneAttributesType, SourceChild Elements(Description?, SourceItems?, Coding<em>, DocumentRef</em>)The SourceItems element contains SourceItem child elements that reference the source variables, if any, for a given ItemRef. SourceItem elements provide machine-readable traceability and identify specific arguments for a MethodDef, specially when used with an Origin with Type="Derived".Usage/Business Rules</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Origin">odm:Origin</a></p>
 <div class="mermaid"> classDiagram
     class Origin
@@ -246,13 +247,13 @@
 <tr>
 <td><a href="../Type/">Type</a></td>
 <td>1..1 <br/> <a href="../OriginType/">OriginType</a></td>
-<td>Type of page for page references indicated in the PageRefs attribute</td>
+<td>Identifies how the clinical data values were obtained</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Source/">Source</a></td>
 <td>0..1 <br/> <a href="../OriginSource/">OriginSource</a></td>
-<td></td>
+<td>I ndicates the party responsible for the data's origin type</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -339,6 +340,16 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Origin
+description: Origin defines the source metadata, where applicable, for ODM ItemRefs
+  or ItemGroupRefs. Origin as a child element replaces the Origin attribute in ODM
+  v1.3 that exists for the ItemDef and ItemGroupDef elements.The Origin element is
+  based on the def:Origin element in Define-XML v2.1 with the Trace-XML v1.0 extension.
+  Element NameOriginParent ElementsItemGroupDef, ItemRefElement XPath(s)/ODM/Study/MetaDataVersion/ValueListDef/ItemRef/Origin/ODM/Study/MetaDataVersion/ItemGroupDef/Origin/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef/OriginElement
+  Textual ValueNoneAttributesType, SourceChild Elements(Description?, SourceItems?,
+  Coding*, DocumentRef*)The SourceItems element contains SourceItem child elements
+  that reference the source variables, if any, for a given ItemRef. SourceItem elements
+  provide machine-readable traceability and identify specific arguments for a MethodDef,
+  specially when used with an Origin with Type="Derived".Usage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Origin
@@ -352,7 +363,18 @@ slots:
 slot_usage:
   Type:
     name: Type
+    description: Identifies how the clinical data values were obtained.
+    comments:
+    - 'Required
+
+      range:text
+
+      The list of allowable Origin/@Type attribute values is provided as non-extensible
+      codelists in the CDISC Controlled Terminology, Define-XML package. * Users are
+      encouraged to refer to the most recent version of the CDISC Controlled Terminology
+      ( https://www.cdisc.org/standards/terminology/controlled-terminology ).'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -360,7 +382,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -371,6 +392,16 @@ slot_usage:
     required: true
   Source:
     name: Source
+    description: I ndicates the party responsible for the data's origin type.
+    comments:
+    - 'Optional
+
+      range:text
+
+      The list of allowable Origin/@Source attribute values is provided in the CDISC
+      Controlled Terminology, Define-XML package. * Users are encouraged to refer
+      to the most recent version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ).'
     domain_of:
     - Origin
     - Query
@@ -465,13 +496,34 @@ class_uri: odm:Origin
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Origin
+description: Origin defines the source metadata, where applicable, for ODM ItemRefs
+  or ItemGroupRefs. Origin as a child element replaces the Origin attribute in ODM
+  v1.3 that exists for the ItemDef and ItemGroupDef elements.The Origin element is
+  based on the def:Origin element in Define-XML v2.1 with the Trace-XML v1.0 extension.
+  Element NameOriginParent ElementsItemGroupDef, ItemRefElement XPath(s)/ODM/Study/MetaDataVersion/ValueListDef/ItemRef/Origin/ODM/Study/MetaDataVersion/ItemGroupDef/Origin/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef/OriginElement
+  Textual ValueNoneAttributesType, SourceChild Elements(Description?, SourceItems?,
+  Coding*, DocumentRef*)The SourceItems element contains SourceItem child elements
+  that reference the source variables, if any, for a given ItemRef. SourceItem elements
+  provide machine-readable traceability and identify specific arguments for a MethodDef,
+  specially when used with an Origin with Type="Derived".Usage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Origin
 slot_usage:
   Type:
     name: Type
+    description: Identifies how the clinical data values were obtained.
+    comments:
+    - 'Required
+
+      range:text
+
+      The list of allowable Origin/@Type attribute values is provided as non-extensible
+      codelists in the CDISC Controlled Terminology, Define-XML package. * Users are
+      encouraged to refer to the most recent version of the CDISC Controlled Terminology
+      ( https://www.cdisc.org/standards/terminology/controlled-terminology ).'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -479,7 +531,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -490,6 +541,16 @@ slot_usage:
     required: true
   Source:
     name: Source
+    description: I ndicates the party responsible for the data's origin type.
+    comments:
+    - 'Optional
+
+      range:text
+
+      The list of allowable Origin/@Source attribute values is provided in the CDISC
+      Controlled Terminology, Define-XML package. * Users are encouraged to refer
+      to the most recent version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ).'
     domain_of:
     - Origin
     - Query
@@ -580,12 +641,22 @@ slot_usage:
 attributes:
   Type:
     name: Type
-    description: Type of page for page references indicated in the PageRefs attribute.
+    description: Identifies how the clinical data values were obtained.
+    comments:
+    - 'Required
+
+      range:text
+
+      The list of allowable Origin/@Type attribute values is provided as non-extensible
+      codelists in the CDISC Controlled Terminology, Define-XML package. * Users are
+      encouraged to refer to the most recent version of the CDISC Controlled Terminology
+      ( https://www.cdisc.org/standards/terminology/controlled-terminology ).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Type
     owner: Origin
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -593,7 +664,6 @@ attributes:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -604,6 +674,16 @@ attributes:
     required: true
   Source:
     name: Source
+    description: I ndicates the party responsible for the data's origin type.
+    comments:
+    - 'Optional
+
+      range:text
+
+      The list of allowable Origin/@Source attribute values is provided in the CDISC
+      Controlled Terminology, Define-XML package. * Users are encouraged to refer
+      to the most recent version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Source
@@ -616,6 +696,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: Origin
     domain_of:
@@ -662,6 +743,7 @@ attributes:
     name: SourceItemsRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: SourceItemsRef
     owner: Origin
     domain_of:
@@ -673,6 +755,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: Origin
     domain_of:
@@ -702,6 +785,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: DocumentRefRef
     owner: Origin
     domain_of:

@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-itemoid">Slot: ItemOID</h1>
+<p><em>Reference to the ItemDef .</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ItemOID">odm:ItemOID</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,34 +328,34 @@
 <tbody>
 <tr>
 <td><a href="../ItemRef/">ItemRef</a></td>
-<td></td>
+<td>A reference to an ItemDef as it occurs within a specific ItemGroupDef</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../SourceItem/">SourceItem</a></td>
-<td></td>
+<td>Provides the information needed to identify the source metadata</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../RangeCheck/">RangeCheck</a></td>
-<td></td>
+<td>A RangeCheck defines a constraint on the value of the enclosing item</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ItemData/">ItemData</a></td>
-<td></td>
+<td>The ItemData element is used for transmission of the clinical data for an ite...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../KeySet/">KeySet</a></td>
-<td></td>
+<td>A KeySet references a single entity (e</td>
 <td>yes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Oidref/">Oidref</a></li>
+<li>Range: <a href="Oidref.md">Oidref</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -365,6 +366,7 @@
 <details>
 
 <pre><code class="language-yaml">name: ItemOID
+description: Reference to the ItemDef .
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ItemOID

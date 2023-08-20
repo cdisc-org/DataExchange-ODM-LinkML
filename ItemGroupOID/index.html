@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-itemgroupoid">Slot: ItemGroupOID</h1>
+<p><em>Reference to the ItemGroupDef .</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ItemGroupOID">odm:ItemGroupOID</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,29 +328,29 @@
 <tbody>
 <tr>
 <td><a href="../ItemGroupRef/">ItemGroupRef</a></td>
-<td></td>
+<td>ItemGroupRef references an ItemGroupDef as it occurs within a specific StudyE...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../SourceItem/">SourceItem</a></td>
-<td></td>
+<td>Provides the information needed to identify the source metadata</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ItemGroupData/">ItemGroupData</a></td>
-<td></td>
+<td>Clinical data corresponding to an ItemGroupRef defined in the active MetaData...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../KeySet/">KeySet</a></td>
-<td></td>
+<td>A KeySet references a single entity (e</td>
 <td>yes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Oidref/">Oidref</a></li>
+<li>Range: <a href="Oidref.md">Oidref</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -360,6 +361,7 @@
 <details>
 
 <pre><code class="language-yaml">name: ItemGroupOID
+description: Reference to the ItemGroupDef .
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ItemGroupOID

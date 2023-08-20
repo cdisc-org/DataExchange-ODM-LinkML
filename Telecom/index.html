@@ -202,9 +202,16 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-telecom">Class: Telecom</h1>
+<p><em>The telecommunication contacts points of a user, a location, or an organization. The Type attribute designates the type of contact.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Telecom">odm:Telecom</a></p>
 <div class="mermaid"> classDiagram
     class Telecom
+      Telecom : TelecomType
+
+          Telecom --|&gt; TelecomTypeType : TelecomType
+
+      Telecom : ValueRef
+
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -220,10 +227,16 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../TelecomType/">TelecomType</a></td>
+<td>1..1 <br/> <a href="../TelecomTypeType/">TelecomTypeType</a></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../ValueRef/">ValueRef</a></td>
+<td>1..1 <br/> <a href="Text.md">Text</a></td>
+<td>Human-readable designation of the trial phase</td>
+<td>direct</td>
 </tr>
 </tbody>
 </table>
@@ -291,9 +304,41 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Telecom
+description: The telecommunication contacts points of a user, a location, or an organization.
+  The Type attribute designates the type of contact.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Telecom
+slots:
+- TelecomType
+- ValueRef
+slot_usage:
+  TelecomType:
+    name: TelecomType
+    comments:
+    - 'Required
+
+      enum values:(Email | Pager | Phone | Fax | SMS | URL | Other)
+
+      Values are aligned with FHIR ContactPoint/System data element.'
+    domain_of:
+    - Telecom
+    range: TelecomTypeType
+    required: true
+  ValueRef:
+    name: ValueRef
+    comments:
+    - 'Required
+
+      range:text'
+    domain_of:
+    - TrialPhase
+    - ParameterValue
+    - Telecom
+    - ItemData
+    - Query
+    range: text
+    required: true
 class_uri: odm:Telecom
 
 </code></pre>
@@ -301,9 +346,75 @@ class_uri: odm:Telecom
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Telecom
+description: The telecommunication contacts points of a user, a location, or an organization.
+  The Type attribute designates the type of contact.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Telecom
+slot_usage:
+  TelecomType:
+    name: TelecomType
+    comments:
+    - 'Required
+
+      enum values:(Email | Pager | Phone | Fax | SMS | URL | Other)
+
+      Values are aligned with FHIR ContactPoint/System data element.'
+    domain_of:
+    - Telecom
+    range: TelecomTypeType
+    required: true
+  ValueRef:
+    name: ValueRef
+    comments:
+    - 'Required
+
+      range:text'
+    domain_of:
+    - TrialPhase
+    - ParameterValue
+    - Telecom
+    - ItemData
+    - Query
+    range: text
+    required: true
+attributes:
+  TelecomType:
+    name: TelecomType
+    comments:
+    - 'Required
+
+      enum values:(Email | Pager | Phone | Fax | SMS | URL | Other)
+
+      Values are aligned with FHIR ContactPoint/System data element.'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: TelecomType
+    owner: Telecom
+    domain_of:
+    - Telecom
+    range: TelecomTypeType
+    required: true
+  ValueRef:
+    name: ValueRef
+    description: Human-readable designation of the trial phase.
+    comments:
+    - 'Required
+
+      range:text'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    identifier: false
+    alias: ValueRef
+    owner: Telecom
+    domain_of:
+    - TrialPhase
+    - ParameterValue
+    - Telecom
+    - ItemData
+    - Query
+    range: text
+    required: true
 class_uri: odm:Telecom
 
 </code></pre>

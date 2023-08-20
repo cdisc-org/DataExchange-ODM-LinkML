@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-parameter">Class: Parameter</h1>
+<p><em>The Parameter element represents a method parameter used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Parameter">odm:Parameter</a></p>
 <div class="mermaid"> classDiagram
     class Parameter
@@ -232,25 +233,25 @@
 <tr>
 <td><a href="../Name/">Name</a></td>
 <td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td>General observation Sub Class</td>
+<td>The parameter name - typically the name of an ItemDef referenced in the ItemG...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DataTypeRef/">DataTypeRef</a></td>
 <td>1..1 <br/> <a href="../DataType/">DataType</a></td>
-<td>The DataType attribute specifies how the corresponding value</td>
+<td>Parameter datatype</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DefinitionRef/">DefinitionRef</a></td>
-<td>0..1 <br/> <a href="../Text/">Text</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>A free-text definition of the parameter</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../OrderNumber/">OrderNumber</a></td>
-<td>0..1 <br/> <a href="../PositiveInteger/">PositiveInteger</a></td>
-<td></td>
+<td>0..1 <br/> <a href="PositiveInteger.md">PositiveInteger</a></td>
+<td>Position of the Parameter in the MethodSignature</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -307,6 +308,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Parameter
+description: The Parameter element represents a method parameter used as part of a
+  MethodSignature in MethodDef, ConditionDef, or RangeCheck.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Parameter
@@ -318,6 +321,12 @@ slots:
 slot_usage:
   Name:
     name: Name
+    description: The parameter name - typically the name of an ItemDef referenced
+      in the ItemGroupDef.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -358,6 +367,14 @@ slot_usage:
     required: true
   DataTypeRef:
     name: DataTypeRef
+    description: Parameter datatype.
+    comments:
+    - 'Required
+
+      enum values:(text | integer | decimal | float | double | date | time | datetime
+      | string | boolean | double | hexBinary | base64Binary | hexFloat | base64Float
+      | partialDate | partialTime | partialDatetime | durationDatetime | intervalDatetime
+      | incompleteDatetime | incompleteDate | incompleteTime | URI )'
     domain_of:
     - ItemDef
     - CodeList
@@ -367,6 +384,11 @@ slot_usage:
     required: true
   DefinitionRef:
     name: DefinitionRef
+    description: A free-text definition of the parameter
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ItemDef
     - Parameter
@@ -374,6 +396,11 @@ slot_usage:
     range: text
   OrderNumber:
     name: OrderNumber
+    description: Position of the Parameter in the MethodSignature
+    comments:
+    - 'Optional
+
+      range:positiveInteger'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -391,12 +418,20 @@ class_uri: odm:Parameter
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Parameter
+description: The Parameter element represents a method parameter used as part of a
+  MethodSignature in MethodDef, ConditionDef, or RangeCheck.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Parameter
 slot_usage:
   Name:
     name: Name
+    description: The parameter name - typically the name of an ItemDef referenced
+      in the ItemGroupDef.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -437,6 +472,14 @@ slot_usage:
     required: true
   DataTypeRef:
     name: DataTypeRef
+    description: Parameter datatype.
+    comments:
+    - 'Required
+
+      enum values:(text | integer | decimal | float | double | date | time | datetime
+      | string | boolean | double | hexBinary | base64Binary | hexFloat | base64Float
+      | partialDate | partialTime | partialDatetime | durationDatetime | intervalDatetime
+      | incompleteDatetime | incompleteDate | incompleteTime | URI )'
     domain_of:
     - ItemDef
     - CodeList
@@ -446,6 +489,11 @@ slot_usage:
     required: true
   DefinitionRef:
     name: DefinitionRef
+    description: A free-text definition of the parameter
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ItemDef
     - Parameter
@@ -453,6 +501,11 @@ slot_usage:
     range: text
   OrderNumber:
     name: OrderNumber
+    description: Position of the Parameter in the MethodSignature
+    comments:
+    - 'Optional
+
+      range:positiveInteger'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -466,7 +519,12 @@ slot_usage:
 attributes:
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: The parameter name - typically the name of an ItemDef referenced
+      in the ItemGroupDef.
+    comments:
+    - 'Required
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -511,8 +569,14 @@ attributes:
     required: true
   DataTypeRef:
     name: DataTypeRef
-    description: "The DataType attribute specifies how the corresponding value\n \
-      \                   elements are to be interpreted for comparison and storage."
+    description: Parameter datatype.
+    comments:
+    - 'Required
+
+      enum values:(text | integer | decimal | float | double | date | time | datetime
+      | string | boolean | double | hexBinary | base64Binary | hexFloat | base64Float
+      | partialDate | partialTime | partialDatetime | durationDatetime | intervalDatetime
+      | incompleteDatetime | incompleteDate | incompleteTime | URI )'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: DataTypeRef
@@ -526,8 +590,14 @@ attributes:
     required: true
   DefinitionRef:
     name: DefinitionRef
+    description: A free-text definition of the parameter
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DefinitionRef
     owner: Parameter
     domain_of:
@@ -537,6 +607,11 @@ attributes:
     range: text
   OrderNumber:
     name: OrderNumber
+    description: Position of the Parameter in the MethodSignature
+    comments:
+    - 'Optional
+
+      range:positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: OrderNumber

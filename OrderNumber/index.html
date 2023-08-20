@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-ordernumber">Slot: OrderNumber</h1>
+<p><em>Indicates the order in which this StudyEventGroup appears in Metadata displays or data entry applications.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/OrderNumber">odm:OrderNumber</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,49 +328,49 @@
 <tbody>
 <tr>
 <td><a href="../StudyEventGroupRef/">StudyEventGroupRef</a></td>
-<td></td>
+<td>This element references a StudyEventGroupDef as it occurs within a specific v...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../StudyEventRef/">StudyEventRef</a></td>
-<td></td>
+<td>This element references a StudyEventDef as it occurs within a specific versio...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ItemGroupRef/">ItemGroupRef</a></td>
-<td></td>
+<td>ItemGroupRef references an ItemGroupDef as it occurs within a specific StudyE...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ItemRef/">ItemRef</a></td>
-<td></td>
+<td>A reference to an ItemDef as it occurs within a specific ItemGroupDef</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../CodeListItem/">CodeListItem</a></td>
-<td></td>
+<td>Defines an individual member value of a codelist</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Parameter/">Parameter</a></td>
-<td></td>
+<td>The Parameter element represents a method parameter used as part of a MethodS...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ReturnValue/">ReturnValue</a></td>
-<td></td>
+<td>The ReturnValue element represents a return value used as part of a MethodSig...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../StudyEndPointRef/">StudyEndPointRef</a></td>
-<td></td>
+<td>Go to start of metadata</td>
 <td>yes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../PositiveInteger/">PositiveInteger</a></li>
+<li>Range: <a href="PositiveInteger.md">PositiveInteger</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -380,6 +381,8 @@
 <details>
 
 <pre><code class="language-yaml">name: OrderNumber
+description: Indicates the order in which this StudyEventGroup appears in Metadata
+  displays or data entry applications.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: OrderNumber

@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-user">Class: User</h1>
+<p><em>Information about a specific user of a clinical data collection or data management system.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/User">odm:User</a></p>
 <div class="mermaid"> classDiagram
     class User
@@ -267,26 +268,26 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="../Oid/">Oid</a></td>
-<td>Unique identifier of the version within the XML document</td>
+<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
+<td>Business Rules</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../UserTypeRef/">UserTypeRef</a></td>
 <td>0..1 <br/> <a href="../UserType/">UserType</a></td>
-<td></td>
+<td>User's role in the study</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../OrganizationOID/">OrganizationOID</a></td>
-<td>0..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to an Organization elment</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../LocationOID/">LocationOID</a></td>
-<td>0..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to a Location element</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -397,6 +398,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: User
+description: Information about a specific user of a clinical data collection or data
+  management system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/User
@@ -417,6 +420,14 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Business Rules
+    comments:
+    - 'Required
+
+      range:oid
+
+      For each UserRef/@UserOID value in an AuditRecord or Signature element in the
+      Clinical Data there must be a User element with a matching OID attribute.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -459,17 +470,43 @@ slot_usage:
     required: true
   UserTypeRef:
     name: UserTypeRef
+    description: User's role in the study.
+    comments:
+    - 'Optional
+
+      enum values:(Sponsor | Investigator | Subject | Monitor | Data analyst | Care
+      provider | Assessor | Lab | Other)
+
+      A user can be a member of more than one organization, work or enter data at
+      different locations. For studies that include patient reported outcomes, the
+      user may be a study subject and/or their care-giver.'
     domain_of:
     - User
     range: UserType
   OrganizationOID:
     name: OrganizationOID
+    description: Reference to an Organization elment.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID attribute for an OrganizationDef element within this AdminData
+      element.'
     domain_of:
     - User
     - Location
     range: oidref
   LocationOID:
     name: LocationOID
+    description: Reference to a Location element.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID attribute for an OrganizationDef element within this AdminData
+      element.'
     domain_of:
     - User
     - Organization
@@ -545,12 +582,22 @@ class_uri: odm:User
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: User
+description: Information about a specific user of a clinical data collection or data
+  management system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/User
 slot_usage:
   OID:
     name: OID
+    description: Business Rules
+    comments:
+    - 'Required
+
+      range:oid
+
+      For each UserRef/@UserOID value in an AuditRecord or Signature element in the
+      Clinical Data there must be a User element with a matching OID attribute.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -593,17 +640,43 @@ slot_usage:
     required: true
   UserTypeRef:
     name: UserTypeRef
+    description: User's role in the study.
+    comments:
+    - 'Optional
+
+      enum values:(Sponsor | Investigator | Subject | Monitor | Data analyst | Care
+      provider | Assessor | Lab | Other)
+
+      A user can be a member of more than one organization, work or enter data at
+      different locations. For studies that include patient reported outcomes, the
+      user may be a study subject and/or their care-giver.'
     domain_of:
     - User
     range: UserType
   OrganizationOID:
     name: OrganizationOID
+    description: Reference to an Organization elment.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID attribute for an OrganizationDef element within this AdminData
+      element.'
     domain_of:
     - User
     - Location
     range: oidref
   LocationOID:
     name: LocationOID
+    description: Reference to a Location element.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID attribute for an OrganizationDef element within this AdminData
+      element.'
     domain_of:
     - User
     - Organization
@@ -675,7 +748,14 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Business Rules
+    comments:
+    - 'Required
+
+      range:oid
+
+      For each UserRef/@UserOID value in an AuditRecord or Signature element in the
+      Clinical Data there must be a User element with a matching OID attribute.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -723,6 +803,16 @@ attributes:
     required: true
   UserTypeRef:
     name: UserTypeRef
+    description: User's role in the study.
+    comments:
+    - 'Optional
+
+      enum values:(Sponsor | Investigator | Subject | Monitor | Data analyst | Care
+      provider | Assessor | Lab | Other)
+
+      A user can be a member of more than one organization, work or enter data at
+      different locations. For studies that include patient reported outcomes, the
+      user may be a study subject and/or their care-giver.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: UserTypeRef
@@ -732,6 +822,14 @@ attributes:
     range: UserType
   OrganizationOID:
     name: OrganizationOID
+    description: Reference to an Organization elment.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID attribute for an OrganizationDef element within this AdminData
+      element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: OrganizationOID
@@ -742,6 +840,14 @@ attributes:
     range: oidref
   LocationOID:
     name: LocationOID
+    description: Reference to a Location element.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID attribute for an OrganizationDef element within this AdminData
+      element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: LocationOID
@@ -756,6 +862,7 @@ attributes:
     name: UserNameRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: UserNameRef
     owner: User
     domain_of:
@@ -766,6 +873,7 @@ attributes:
     name: PrefixRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: PrefixRef
     owner: User
     domain_of:
@@ -776,6 +884,7 @@ attributes:
     name: SuffixRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: SuffixRef
     owner: User
     domain_of:
@@ -786,6 +895,7 @@ attributes:
     name: FullNameRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: FullNameRef
     owner: User
     domain_of:
@@ -796,6 +906,7 @@ attributes:
     name: GivenNameRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: GivenNameRef
     owner: User
     domain_of:
@@ -806,6 +917,7 @@ attributes:
     name: FamilyNameRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: FamilyNameRef
     owner: User
     domain_of:
@@ -816,6 +928,7 @@ attributes:
     name: ImageRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: ImageRef
     owner: User
     domain_of:
@@ -827,6 +940,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: AddressRef
     owner: User
     domain_of:
@@ -841,6 +955,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TelecomRef
     owner: User
     domain_of:

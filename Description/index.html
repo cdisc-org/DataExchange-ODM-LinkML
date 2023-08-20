@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-description">Class: Description</h1>
+<p><em>A free-text description of the containing metadata component, unless restricted by Business Rules.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Description">odm:Description</a></p>
 <div class="mermaid"> classDiagram
     class Description
@@ -225,7 +226,7 @@
 <tbody>
 <tr>
 <td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
-<td>1..* <br/> <a href="../TranslatedText/">TranslatedText</a></td>
+<td>0..* <br/> <a href="../TranslatedText/">TranslatedText</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -499,6 +500,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Description
+description: A free-text description of the containing metadata component, unless
+  restricted by Business Rules.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Description
@@ -520,10 +523,8 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Description
 
 </code></pre>
@@ -531,6 +532,8 @@ class_uri: odm:Description
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Description
+description: A free-text description of the containing metadata component, unless
+  restricted by Business Rules.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Description
@@ -550,16 +553,15 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   TranslatedTextRef:
     name: TranslatedTextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TranslatedTextRef
     owner: Description
     domain_of:
@@ -574,10 +576,8 @@ attributes:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Description
 
 </code></pre>

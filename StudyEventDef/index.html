@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-studyeventdef">Class: StudyEventDef</h1>
+<p><em>StudyEventDef represents the definition of an activity in a study where data is collected. For example, a study event may represent a set of item groups that represent data collection instruments to be completed for a subject during a visit in a study. The visit occurs as part of a study workflow, and the workflow is referenced in the study event.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/StudyEventDef">odm:StudyEventDef</a></p>
 <div class="mermaid"> classDiagram
     class StudyEventDef
@@ -257,38 +258,38 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="../Oid/">Oid</a></td>
-<td>Unique identifier of the version within the XML document</td>
+<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
+<td>Unique identifier for the StudyEventDef element</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
 <td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td>General observation Sub Class</td>
+<td>Human readable-name for the study event</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Repeating/">Repeating</a></td>
 <td>1..1 <br/> <a href="../YesOrNo/">YesOrNo</a></td>
-<td></td>
+<td>The Repeating flag indicates when this type of study event can occur repeated...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Type/">Type</a></td>
 <td>1..1 <br/> <a href="../EventType/">EventType</a></td>
-<td>Type of page for page references indicated in the PageRefs attribute</td>
+<td>Specifies the StudyEvent Type</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Category/">Category</a></td>
-<td>0..1 <br/> <a href="../Text/">Text</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>The Category attribute is typically used to indicate the study phase appropri...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CommentOID/">CommentOID</a></td>
-<td>0..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td>The Comment identifier that this value refers to</td>
+<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to a sponsor comment or external document relevant to this StudyEve...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -375,6 +376,11 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: StudyEventDef
+description: StudyEventDef represents the definition of an activity in a study where
+  data is collected. For example, a study event may represent a set of item groups
+  that represent data collection instruments to be completed for a subject during
+  a visit in a study. The visit occurs as part of a study workflow, and the workflow
+  is referenced in the study event.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventDef
@@ -393,6 +399,13 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the StudyEventDef element.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute value must be unique within the Study/MetaDataVersion.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -435,6 +448,14 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable-name for the study event.
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name attribute must be unique within StudyEventGroupDef and StudyEventDef
+      elements within a Study/MetadataVersion.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -475,6 +496,13 @@ slot_usage:
     required: true
   Repeating:
     name: Repeating
+    description: The Repeating flag indicates when this type of study event can occur
+      repeatedly within any given subject. When Repeating is "Yes" multiple instances
+      of StudyEventData for this StudyEventDef may be collected for a study subject.
+    comments:
+    - 'Required
+
+      range:(Yes,No)'
     domain_of:
     - StudyEventDef
     - ItemGroupDef
@@ -482,7 +510,18 @@ slot_usage:
     required: true
   Type:
     name: Type
+    description: 'Specifies the StudyEvent Type. The study protocol document usually
+      specifies the planned set of study subject encounters, as follows: Scheduled
+      - StudyEvent is a planned study event Unscheduled - Unplanned study event (for
+      example an unexpected adverse event that occurs between planned visits. Common
+      - A set of study activities that occur for as part of all subject encounters
+      within a study.'
+    comments:
+    - 'Required
+
+      range:(Scheduled,Unscheduled,Common)'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -490,7 +529,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -501,11 +539,24 @@ slot_usage:
     required: true
   Category:
     name: Category
+    description: The Category attribute is typically used to indicate the study phase
+      appropriate to this type of study event. Examples might include screening, pretreatment,
+      treatment, and follow-up.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - StudyEventDef
     range: text
   CommentOID:
     name: CommentOID
+    description: Reference to a sponsor comment or external document relevant to this
+      StudyEvent definition.
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -628,12 +679,24 @@ class_uri: odm:StudyEventDef
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: StudyEventDef
+description: StudyEventDef represents the definition of an activity in a study where
+  data is collected. For example, a study event may represent a set of item groups
+  that represent data collection instruments to be completed for a subject during
+  a visit in a study. The visit occurs as part of a study workflow, and the workflow
+  is referenced in the study event.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventDef
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the StudyEventDef element.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute value must be unique within the Study/MetaDataVersion.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -676,6 +739,14 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable-name for the study event.
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name attribute must be unique within StudyEventGroupDef and StudyEventDef
+      elements within a Study/MetadataVersion.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -716,6 +787,13 @@ slot_usage:
     required: true
   Repeating:
     name: Repeating
+    description: The Repeating flag indicates when this type of study event can occur
+      repeatedly within any given subject. When Repeating is "Yes" multiple instances
+      of StudyEventData for this StudyEventDef may be collected for a study subject.
+    comments:
+    - 'Required
+
+      range:(Yes,No)'
     domain_of:
     - StudyEventDef
     - ItemGroupDef
@@ -723,7 +801,18 @@ slot_usage:
     required: true
   Type:
     name: Type
+    description: 'Specifies the StudyEvent Type. The study protocol document usually
+      specifies the planned set of study subject encounters, as follows: Scheduled
+      - StudyEvent is a planned study event Unscheduled - Unplanned study event (for
+      example an unexpected adverse event that occurs between planned visits. Common
+      - A set of study activities that occur for as part of all subject encounters
+      within a study.'
+    comments:
+    - 'Required
+
+      range:(Scheduled,Unscheduled,Common)'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -731,7 +820,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -742,11 +830,24 @@ slot_usage:
     required: true
   Category:
     name: Category
+    description: The Category attribute is typically used to indicate the study phase
+      appropriate to this type of study event. Examples might include screening, pretreatment,
+      treatment, and follow-up.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - StudyEventDef
     range: text
   CommentOID:
     name: CommentOID
+    description: Reference to a sponsor comment or external document relevant to this
+      StudyEvent definition.
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -865,7 +966,13 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for the StudyEventDef element.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute value must be unique within the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -913,7 +1020,14 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Human readable-name for the study event.
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name attribute must be unique within StudyEventGroupDef and StudyEventDef
+      elements within a Study/MetadataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -958,6 +1072,13 @@ attributes:
     required: true
   Repeating:
     name: Repeating
+    description: The Repeating flag indicates when this type of study event can occur
+      repeatedly within any given subject. When Repeating is "Yes" multiple instances
+      of StudyEventData for this StudyEventDef may be collected for a study subject.
+    comments:
+    - 'Required
+
+      range:(Yes,No)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Repeating
@@ -969,12 +1090,22 @@ attributes:
     required: true
   Type:
     name: Type
-    description: Type of page for page references indicated in the PageRefs attribute.
+    description: 'Specifies the StudyEvent Type. The study protocol document usually
+      specifies the planned set of study subject encounters, as follows: Scheduled
+      - StudyEvent is a planned study event Unscheduled - Unplanned study event (for
+      example an unexpected adverse event that occurs between planned visits. Common
+      - A set of study activities that occur for as part of all subject encounters
+      within a study.'
+    comments:
+    - 'Required
+
+      range:(Scheduled,Unscheduled,Common)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Type
     owner: StudyEventDef
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -982,7 +1113,6 @@ attributes:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -993,6 +1123,13 @@ attributes:
     required: true
   Category:
     name: Category
+    description: The Category attribute is typically used to indicate the study phase
+      appropriate to this type of study event. Examples might include screening, pretreatment,
+      treatment, and follow-up.
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Category
@@ -1002,9 +1139,12 @@ attributes:
     range: text
   CommentOID:
     name: CommentOID
-    description: "The Comment identifier that this value refers to. Needed when the\
-      \ WhereClause references Items across different domains.\n                The\
-      \ Comment would define any join assumptions."
+    description: Reference to a sponsor comment or external document relevant to this
+      StudyEvent definition.
+    comments:
+    - 'Optional
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CommentOID
@@ -1027,6 +1167,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: StudyEventDef
     domain_of:
@@ -1074,6 +1215,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ItemGroupRefRef
     owner: StudyEventDef
     domain_of:
@@ -1086,6 +1228,7 @@ attributes:
     name: WorkflowRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: WorkflowRefRef
     owner: StudyEventDef
     domain_of:
@@ -1103,6 +1246,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: StudyEventDef
     domain_of:
@@ -1130,6 +1274,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: AliasRef
     owner: StudyEventDef
     domain_of:

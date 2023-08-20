@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-role">Slot: Role</h1>
+<p><em>The Role for the referenced ItemDef. The Role attribute provides a single role name describing the use of this data item. If the Role is defined by a standard terminology, RoleCodeListOID may be used to reference a CodeList that defines the full set roles from which the Role attribute value is to be taken.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Role">odm:Role</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,24 +328,24 @@
 <tbody>
 <tr>
 <td><a href="../ItemRef/">ItemRef</a></td>
-<td></td>
+<td>A reference to an ItemDef as it occurs within a specific ItemGroupDef</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Organization/">Organization</a></td>
-<td></td>
+<td>An organization can reference a parent organization</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Location/">Location</a></td>
-<td></td>
+<td>A physical location associated with data collection and/or treatment of subje...</td>
 <td>yes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Text/">Text</a></li>
+<li>Range: <a href="Text.md">Text</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -355,6 +356,10 @@
 <details>
 
 <pre><code class="language-yaml">name: Role
+description: The Role for the referenced ItemDef. The Role attribute provides a single
+  role name describing the use of this data item. If the Role is defined by a standard
+  terminology, RoleCodeListOID may be used to reference a CodeList that defines the
+  full set roles from which the Role attribute value is to be taken.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Role

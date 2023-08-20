@@ -197,6 +197,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-exceptionevent">Class: ExceptionEvent</h1>
+<p><em>An ExceptionEvent describes an event that occurs suddenly in a study and that was not planned as part of the normal workflow of the study. Examples are adverse events, death of a subject not caused by an adverse event, etc.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ExceptionEvent">odm:ExceptionEvent</a></p>
 <div class="mermaid"> classDiagram
     class ExceptionEvent
@@ -238,7 +239,7 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="../Oid/">Oid</a></td>
+<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
 <td>Unique identifier of the version within the XML document</td>
 <td>direct</td>
 </tr>
@@ -250,8 +251,8 @@
 </tr>
 <tr>
 <td><a href="../ConditionOID/">ConditionOID</a></td>
-<td>0..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to a ConditionDef defining the condition under which the transition...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -268,13 +269,13 @@
 </tr>
 <tr>
 <td><a href="../StudyEventGroupRefRef/">StudyEventGroupRefRef</a></td>
-<td>1..* <br/> <a href="../StudyEventGroupRef/">StudyEventGroupRef</a></td>
+<td>1..1 <br/> <a href="../StudyEventGroupRef/">StudyEventGroupRef</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../StudyEventRefRef/">StudyEventRefRef</a></td>
-<td>1..* <br/> <a href="../StudyEventRef/">StudyEventRef</a></td>
+<td>1..1 <br/> <a href="../StudyEventRef/">StudyEventRef</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -313,6 +314,9 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ExceptionEvent
+description: An ExceptionEvent describes an event that occurs suddenly in a study
+  and that was not planned as part of the normal workflow of the study. Examples are
+  adverse events, death of a subject not caused by an adverse event, etc.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ExceptionEvent
@@ -472,27 +476,23 @@ slot_usage:
     maximum_cardinality: 1
   StudyEventGroupRefRef:
     name: StudyEventGroupRefRef
-    multivalued: true
     domain_of:
     - StudyEventGroupDef
     - Protocol
     - ExceptionEvent
     range: StudyEventGroupRef
     required: true
-    inlined: true
-    inlined_as_list: true
     minimum_cardinality: 1
+    maximum_cardinality: 1
   StudyEventRefRef:
     name: StudyEventRefRef
-    multivalued: true
     domain_of:
     - StudyEventGroupDef
     - ExceptionEvent
     range: StudyEventRef
     required: true
-    inlined: true
-    inlined_as_list: true
     minimum_cardinality: 1
+    maximum_cardinality: 1
 class_uri: odm:ExceptionEvent
 
 </code></pre>
@@ -500,6 +500,9 @@ class_uri: odm:ExceptionEvent
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ExceptionEvent
+description: An ExceptionEvent describes an event that occurs suddenly in a study
+  and that was not planned as part of the normal workflow of the study. Examples are
+  adverse events, death of a subject not caused by an adverse event, etc.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ExceptionEvent
@@ -651,27 +654,23 @@ slot_usage:
     maximum_cardinality: 1
   StudyEventGroupRefRef:
     name: StudyEventGroupRefRef
-    multivalued: true
     domain_of:
     - StudyEventGroupDef
     - Protocol
     - ExceptionEvent
     range: StudyEventGroupRef
     required: true
-    inlined: true
-    inlined_as_list: true
     minimum_cardinality: 1
+    maximum_cardinality: 1
   StudyEventRefRef:
     name: StudyEventRefRef
-    multivalued: true
     domain_of:
     - StudyEventGroupDef
     - ExceptionEvent
     range: StudyEventRef
     required: true
-    inlined: true
-    inlined_as_list: true
     minimum_cardinality: 1
+    maximum_cardinality: 1
 attributes:
   OID:
     name: OID
@@ -768,6 +767,8 @@ attributes:
     required: true
   ConditionOID:
     name: ConditionOID
+    description: Reference to a ConditionDef defining the condition under which the
+      transition must be executed
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ConditionOID
@@ -781,6 +782,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: ExceptionEvent
     domain_of:
@@ -827,6 +829,7 @@ attributes:
     name: WorkflowRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: WorkflowRefRef
     owner: ExceptionEvent
     domain_of:
@@ -845,7 +848,7 @@ attributes:
     name: StudyEventGroupRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    multivalued: true
+    identifier: false
     alias: StudyEventGroupRefRef
     owner: ExceptionEvent
     domain_of:
@@ -854,14 +857,13 @@ attributes:
     - ExceptionEvent
     range: StudyEventGroupRef
     required: true
-    inlined: true
-    inlined_as_list: true
     minimum_cardinality: 1
+    maximum_cardinality: 1
   StudyEventRefRef:
     name: StudyEventRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    multivalued: true
+    identifier: false
     alias: StudyEventRefRef
     owner: ExceptionEvent
     domain_of:
@@ -869,9 +871,8 @@ attributes:
     - ExceptionEvent
     range: StudyEventRef
     required: true
-    inlined: true
-    inlined_as_list: true
     minimum_cardinality: 1
+    maximum_cardinality: 1
 class_uri: odm:ExceptionEvent
 
 </code></pre>

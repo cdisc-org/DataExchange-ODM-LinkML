@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-standard">Class: Standard</h1>
+<p><em>The Standard element describes each standard used within the MetaDataVersion element.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Standard">odm:Standard</a></p>
 <div class="mermaid"> classDiagram
     class Standard
@@ -241,44 +242,44 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="../Oid/">Oid</a></td>
-<td>Unique identifier of the version within the XML document</td>
+<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
+<td>Unique identifier for the standard</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
 <td>1..1 <br/> <a href="../StandardName/">StandardName</a></td>
-<td>General observation Sub Class</td>
+<td>Name of the external standard to which the data conforms</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Type/">Type</a></td>
 <td>1..1 <br/> <a href="../StandardType/">StandardType</a></td>
-<td>Type of page for page references indicated in the PageRefs attribute</td>
+<td>The type of standard</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../PublishingSet/">PublishingSet</a></td>
 <td>0..1 <br/> <a href="../StandardPublishingSet/">StandardPublishingSet</a></td>
-<td>Set of published files of Standard when Type="CT" (e</td>
+<td>The name of the publishing set that contains the published standard</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Version/">Version</a></td>
-<td>1..1 <br/> <a href="../Text/">Text</a></td>
-<td>Version of Standard</td>
+<td>1..1 <br/> <a href="Text.md">Text</a></td>
+<td>Version of the external standard to which the data conforms</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Status/">Status</a></td>
 <td>1..1 <br/> <a href="../StandardStatus/">StandardStatus</a></td>
-<td>Status of Standard</td>
+<td>Publishing status of the standard</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CommentOID/">CommentOID</a></td>
-<td>0..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td>The Comment identifier that this value refers to</td>
+<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to the unique ID of a CommentDef element that contains the comment ...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -335,6 +336,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Standard
+description: The Standard element describes each standard used within the MetaDataVersion
+  element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Standard
@@ -349,6 +352,11 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the standard.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -391,6 +399,17 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Name of the external standard to which the data conforms.
+    comments:
+    - 'Required
+
+      enum values:t ext
+
+      The list of values is conditional to each value of the Standard/@Type attribute.
+      The list of allowable values for each Standard/@Type value is provided by an
+      extensible codelist in the CDISC Controlled Terminology. Users are encouraged
+      to refer to the most recent version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ).'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -431,7 +450,18 @@ slot_usage:
     required: true
   Type:
     name: Type
+    description: 'The type of standard. '
+    comments:
+    - 'Required
+
+      enum values:t ext
+
+      The list of allowable values is provided by a codelist in the CDISC Controlled
+      Terminology and is extensible. Users are encouraged to refer to the most recent
+      version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ).'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -439,7 +469,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -450,11 +479,29 @@ slot_usage:
     required: true
   PublishingSet:
     name: PublishingSet
+    description: The name of the publishing set that contains the published standard.
+    comments:
+    - 'Conditional Required when Type="CT" Not applicable for other standard types
+
+      enum values:t ext
+
+      The list of allowable values is provided by a codelist in the CDISC Controlled
+      Terminology and is extensible. Users are encouraged to refer to the most recent
+      version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ).'
     domain_of:
     - Standard
     range: StandardPublishingSet
   Version:
     name: Version
+    description: Version of the external standard to which the data conforms.
+    comments:
+    - 'Required
+
+      enum values:t ext
+
+      The version identifier must match the version identifier used in the standard
+      publication.'
     domain_of:
     - Standard
     - ExternalCodeLib
@@ -462,6 +509,17 @@ slot_usage:
     required: true
   Status:
     name: Status
+    description: Publishing status of the standard.
+    comments:
+    - 'Optional
+
+      enum values:t ext
+
+      The list of allowable values is provided by a codelist in the CDISC Controlled
+      Terminology and is not extensible. Users are encouraged to refer to the most
+      recent version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ). If no value is provided, the assumption is that the publishing status is
+      Final.'
     domain_of:
     - Study
     - Standard
@@ -469,6 +527,15 @@ slot_usage:
     required: true
   CommentOID:
     name: CommentOID
+    description: 'Reference to the unique ID of a CommentDef element that contains
+      the comment for the Standard element Business Rule: Must match the OID of a
+      CommentDef in the same MetaDataVersion'
+    comments:
+    - 'Optional
+
+      enum values:t ext
+
+      Must match the OID of a CommentDef in the same MetaDataVersion'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -490,12 +557,19 @@ class_uri: odm:Standard
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Standard
+description: The Standard element describes each standard used within the MetaDataVersion
+  element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Standard
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the standard.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -538,6 +612,17 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Name of the external standard to which the data conforms.
+    comments:
+    - 'Required
+
+      enum values:t ext
+
+      The list of values is conditional to each value of the Standard/@Type attribute.
+      The list of allowable values for each Standard/@Type value is provided by an
+      extensible codelist in the CDISC Controlled Terminology. Users are encouraged
+      to refer to the most recent version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ).'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -578,7 +663,18 @@ slot_usage:
     required: true
   Type:
     name: Type
+    description: 'The type of standard. '
+    comments:
+    - 'Required
+
+      enum values:t ext
+
+      The list of allowable values is provided by a codelist in the CDISC Controlled
+      Terminology and is extensible. Users are encouraged to refer to the most recent
+      version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ).'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -586,7 +682,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -597,11 +692,29 @@ slot_usage:
     required: true
   PublishingSet:
     name: PublishingSet
+    description: The name of the publishing set that contains the published standard.
+    comments:
+    - 'Conditional Required when Type="CT" Not applicable for other standard types
+
+      enum values:t ext
+
+      The list of allowable values is provided by a codelist in the CDISC Controlled
+      Terminology and is extensible. Users are encouraged to refer to the most recent
+      version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ).'
     domain_of:
     - Standard
     range: StandardPublishingSet
   Version:
     name: Version
+    description: Version of the external standard to which the data conforms.
+    comments:
+    - 'Required
+
+      enum values:t ext
+
+      The version identifier must match the version identifier used in the standard
+      publication.'
     domain_of:
     - Standard
     - ExternalCodeLib
@@ -609,6 +722,17 @@ slot_usage:
     required: true
   Status:
     name: Status
+    description: Publishing status of the standard.
+    comments:
+    - 'Optional
+
+      enum values:t ext
+
+      The list of allowable values is provided by a codelist in the CDISC Controlled
+      Terminology and is not extensible. Users are encouraged to refer to the most
+      recent version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ). If no value is provided, the assumption is that the publishing status is
+      Final.'
     domain_of:
     - Study
     - Standard
@@ -616,6 +740,15 @@ slot_usage:
     required: true
   CommentOID:
     name: CommentOID
+    description: 'Reference to the unique ID of a CommentDef element that contains
+      the comment for the Standard element Business Rule: Must match the OID of a
+      CommentDef in the same MetaDataVersion'
+    comments:
+    - 'Optional
+
+      enum values:t ext
+
+      Must match the OID of a CommentDef in the same MetaDataVersion'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -633,7 +766,11 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for the standard.
+    comments:
+    - 'Required
+
+      range:oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -681,7 +818,17 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Name of the external standard to which the data conforms.
+    comments:
+    - 'Required
+
+      enum values:t ext
+
+      The list of values is conditional to each value of the Standard/@Type attribute.
+      The list of allowable values for each Standard/@Type value is provided by an
+      extensible codelist in the CDISC Controlled Terminology. Users are encouraged
+      to refer to the most recent version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -726,12 +873,22 @@ attributes:
     required: true
   Type:
     name: Type
-    description: Type of page for page references indicated in the PageRefs attribute.
+    description: 'The type of standard. '
+    comments:
+    - 'Required
+
+      enum values:t ext
+
+      The list of allowable values is provided by a codelist in the CDISC Controlled
+      Terminology and is extensible. Users are encouraged to refer to the most recent
+      version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Type
     owner: Standard
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -739,7 +896,6 @@ attributes:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -750,8 +906,16 @@ attributes:
     required: true
   PublishingSet:
     name: PublishingSet
-    description: Set of published files of Standard when Type="CT" (e.g. SDTM, ADaM,
-      SEND, CDASH, COA).
+    description: The name of the publishing set that contains the published standard.
+    comments:
+    - 'Conditional Required when Type="CT" Not applicable for other standard types
+
+      enum values:t ext
+
+      The list of allowable values is provided by a codelist in the CDISC Controlled
+      Terminology and is extensible. Users are encouraged to refer to the most recent
+      version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: PublishingSet
@@ -761,7 +925,14 @@ attributes:
     range: StandardPublishingSet
   Version:
     name: Version
-    description: Version of Standard.
+    description: Version of the external standard to which the data conforms.
+    comments:
+    - 'Required
+
+      enum values:t ext
+
+      The version identifier must match the version identifier used in the standard
+      publication.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Version
@@ -773,7 +944,17 @@ attributes:
     required: true
   Status:
     name: Status
-    description: Status of Standard.
+    description: Publishing status of the standard.
+    comments:
+    - 'Optional
+
+      enum values:t ext
+
+      The list of allowable values is provided by a codelist in the CDISC Controlled
+      Terminology and is not extensible. Users are encouraged to refer to the most
+      recent version of the CDISC Controlled Terminology ( https://www.cdisc.org/standards/terminology/controlled-terminology
+      ). If no value is provided, the assumption is that the publishing status is
+      Final.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Status
@@ -785,9 +966,15 @@ attributes:
     required: true
   CommentOID:
     name: CommentOID
-    description: "The Comment identifier that this value refers to. Needed when the\
-      \ WhereClause references Items across different domains.\n                The\
-      \ Comment would define any join assumptions."
+    description: 'Reference to the unique ID of a CommentDef element that contains
+      the comment for the Standard element Business Rule: Must match the OID of a
+      CommentDef in the same MetaDataVersion'
+    comments:
+    - 'Optional
+
+      enum values:t ext
+
+      Must match the OID of a CommentDef in the same MetaDataVersion'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CommentOID

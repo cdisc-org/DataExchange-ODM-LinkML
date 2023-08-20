@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-studyeventoid">Slot: StudyEventOID</h1>
+<p><em>Reference to the StudyEventDef .</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/StudyEventOID">odm:StudyEventOID</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,29 +328,29 @@
 <tbody>
 <tr>
 <td><a href="../StudyEventRef/">StudyEventRef</a></td>
-<td></td>
+<td>This element references a StudyEventDef as it occurs within a specific versio...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../AbsoluteTimingConstraint/">AbsoluteTimingConstraint</a></td>
-<td></td>
+<td>The element AbsoluteTimingConstraint is used to specify when an activity, rep...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../StudyEventData/">StudyEventData</a></td>
-<td></td>
+<td>Clinical data for a study event (visit)</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../KeySet/">KeySet</a></td>
-<td></td>
+<td>A KeySet references a single entity (e</td>
 <td>yes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Oidref/">Oidref</a></li>
+<li>Range: <a href="Oidref.md">Oidref</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -360,6 +361,7 @@
 <details>
 
 <pre><code class="language-yaml">name: StudyEventOID
+description: Reference to the StudyEventDef .
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: StudyEventOID

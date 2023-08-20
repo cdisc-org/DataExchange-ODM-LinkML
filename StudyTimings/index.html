@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-studytimings">Class: StudyTimings</h1>
+<p><em>The StudyTimings element is a container element for individual StudyTiming elements.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/StudyTimings">odm:StudyTimings</a></p>
 <div class="mermaid"> classDiagram
     class StudyTimings
@@ -225,7 +226,7 @@
 <tbody>
 <tr>
 <td><a href="../StudyTimingRef/">StudyTimingRef</a></td>
-<td>1..* <br/> <a href="../StudyTiming/">StudyTiming</a></td>
+<td>0..* <br/> <a href="../StudyTiming/">StudyTiming</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -283,6 +284,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: StudyTimings
+description: The StudyTimings element is a container element for individual StudyTiming
+  elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTimings
@@ -295,10 +298,8 @@ slot_usage:
     domain_of:
     - StudyTimings
     range: StudyTiming
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyTimings
 
 </code></pre>
@@ -306,6 +307,8 @@ class_uri: odm:StudyTimings
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: StudyTimings
+description: The StudyTimings element is a container element for individual StudyTiming
+  elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTimings
@@ -316,25 +319,22 @@ slot_usage:
     domain_of:
     - StudyTimings
     range: StudyTiming
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   StudyTimingRef:
     name: StudyTimingRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyTimingRef
     owner: StudyTimings
     domain_of:
     - StudyTimings
     range: StudyTiming
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyTimings
 
 </code></pre>

@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-country">Class: Country</h1>
+<p><em>The country name part of a user's postal address. For CDISC SDTM or trial registry applications, this must be represented by an ISO 3166 3-letter or US-GENC country code (e.g., FRA for France, JPN for Japan).</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Country">odm:Country</a></p>
 <div class="mermaid"> classDiagram
     class Country
@@ -223,7 +224,7 @@
 <tbody>
 <tr>
 <td><a href="../_content/">_content</a></td>
-<td>0..1 <br/> <a href="../ContentType/">ContentType</a></td>
+<td>0..1 <br/> <a href="ContentType.md">ContentType</a></td>
 <td>multi-line text content from between XML tags</td>
 <td>direct</td>
 </tr>
@@ -281,6 +282,9 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Country
+description: The country name part of a user's postal address. For CDISC SDTM or trial
+  registry applications, this must be represented by an ISO 3166 3-letter or US-GENC
+  country code (e.g., FRA for France, JPN for Japan).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Country
@@ -298,6 +302,9 @@ class_uri: odm:Country
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Country
+description: The country name part of a user's postal address. For CDISC SDTM or trial
+  registry applications, this must be represented by an ISO 3166 3-letter or US-GENC
+  country code (e.g., FRA for France, JPN for Japan).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Country

@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-itemdef">Class: ItemDef</h1>
+<p><em>An ItemDef describes a type of item that can occur within a study. Item properties include name, datatype, range, or codelist restrictions, and several other properties.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ItemDef">odm:ItemDef</a></p>
 <div class="mermaid"> classDiagram
     class ItemDef
@@ -285,44 +286,44 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="../Oid/">Oid</a></td>
-<td>Unique identifier of the version within the XML document</td>
+<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
+<td>Unique identifier for the ItemDef element</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
 <td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td>General observation Sub Class</td>
+<td>Human readable name for the ItemDef</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DataTypeRef/">DataTypeRef</a></td>
 <td>1..1 <br/> <a href="../DataType/">DataType</a></td>
-<td>The DataType attribute specifies how the corresponding value</td>
+<td>Specification of the allowable values and the intended use of the correspondi...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Length/">Length</a></td>
-<td>0..1 <br/> <a href="../PositiveInteger/">PositiveInteger</a></td>
-<td>The Length attribute is optional when DataType is text, string,</td>
+<td>0..1 <br/> <a href="PositiveInteger.md">PositiveInteger</a></td>
+<td>Specifies the number of characters allowed for the ItemData/Value when it is ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DisplayFormat/">DisplayFormat</a></td>
-<td>0..1 <br/> <a href="../Text/">Text</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>Display format supports data visualization of numeric float and date values</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../VariableSet/">VariableSet</a></td>
-<td>0..1 <br/> <a href="../Text/">Text</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>ADaM variable set, e</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CommentOID/">CommentOID</a></td>
-<td>0..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td>The Comment identifier that this value refers to</td>
+<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to a CommentDef with sponsor provided information related to this I...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -334,7 +335,7 @@
 <tr>
 <td><a href="../DefinitionRef/">DefinitionRef</a></td>
 <td>0..1 <br/> <a href="../Definition/">Definition</a></td>
-<td></td>
+<td>A free-text definition of the parameter</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -451,6 +452,9 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ItemDef
+description: An ItemDef describes a type of item that can occur within a study. Item
+  properties include name, datatype, range, or codelist restrictions, and several
+  other properties.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemDef
@@ -477,6 +481,11 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the ItemDef element.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -519,6 +528,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable name for the ItemDef.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -559,6 +573,15 @@ slot_usage:
     required: true
   DataTypeRef:
     name: DataTypeRef
+    description: Specification of the allowable values and the intended use of the
+      corresponding value elements.
+    comments:
+    - 'Required
+
+      enum values:(text | integer | decimal | float | double | date | time | datetime
+      | string | boolean | double | hexBinary | base64Binary | hexFloat | base64Float
+      | partialDate | partialTime | partialDatetime | durationDatetime | intervalDatetime
+      | incompleteDatetime | incompleteDate | incompleteTime | URI )'
     domain_of:
     - ItemDef
     - CodeList
@@ -568,21 +591,44 @@ slot_usage:
     required: true
   Length:
     name: Length
+    description: Specifies the number of characters allowed for the ItemData/Value
+      when it is represented as a text.
+    comments:
+    - 'Optional
+
+      range:positiveInteger'
     domain_of:
     - ItemDef
     range: positiveInteger
   DisplayFormat:
     name: DisplayFormat
+    description: 'Display format supports data visualization of numeric float and
+      date values. '
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ItemDef
     range: text
   VariableSet:
     name: VariableSet
+    description: ADaM variable set, e.g. Dose, Analysis Parameter, Treatment Timing.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ItemDef
     range: text
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef with sponsor provided information related
+      to this ItemDef,
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -744,12 +790,20 @@ class_uri: odm:ItemDef
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ItemDef
+description: An ItemDef describes a type of item that can occur within a study. Item
+  properties include name, datatype, range, or codelist restrictions, and several
+  other properties.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemDef
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the ItemDef element.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -792,6 +846,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable name for the ItemDef.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -832,6 +891,15 @@ slot_usage:
     required: true
   DataTypeRef:
     name: DataTypeRef
+    description: Specification of the allowable values and the intended use of the
+      corresponding value elements.
+    comments:
+    - 'Required
+
+      enum values:(text | integer | decimal | float | double | date | time | datetime
+      | string | boolean | double | hexBinary | base64Binary | hexFloat | base64Float
+      | partialDate | partialTime | partialDatetime | durationDatetime | intervalDatetime
+      | incompleteDatetime | incompleteDate | incompleteTime | URI )'
     domain_of:
     - ItemDef
     - CodeList
@@ -841,21 +909,44 @@ slot_usage:
     required: true
   Length:
     name: Length
+    description: Specifies the number of characters allowed for the ItemData/Value
+      when it is represented as a text.
+    comments:
+    - 'Optional
+
+      range:positiveInteger'
     domain_of:
     - ItemDef
     range: positiveInteger
   DisplayFormat:
     name: DisplayFormat
+    description: 'Display format supports data visualization of numeric float and
+      date values. '
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ItemDef
     range: text
   VariableSet:
     name: VariableSet
+    description: ADaM variable set, e.g. Dose, Analysis Parameter, Treatment Timing.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ItemDef
     range: text
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef with sponsor provided information related
+      to this ItemDef,
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -1013,7 +1104,11 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for the ItemDef element.
+    comments:
+    - 'Required
+
+      range:oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -1061,7 +1156,11 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Human readable name for the ItemDef.
+    comments:
+    - 'Required
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -1106,8 +1205,15 @@ attributes:
     required: true
   DataTypeRef:
     name: DataTypeRef
-    description: "The DataType attribute specifies how the corresponding value\n \
-      \                   elements are to be interpreted for comparison and storage."
+    description: Specification of the allowable values and the intended use of the
+      corresponding value elements.
+    comments:
+    - 'Required
+
+      enum values:(text | integer | decimal | float | double | date | time | datetime
+      | string | boolean | double | hexBinary | base64Binary | hexFloat | base64Float
+      | partialDate | partialTime | partialDatetime | durationDatetime | intervalDatetime
+      | incompleteDatetime | incompleteDate | incompleteTime | URI )'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: DataTypeRef
@@ -1121,9 +1227,12 @@ attributes:
     required: true
   Length:
     name: Length
-    description: "The Length attribute is optional when DataType is text, string,\n\
-      \                    integer, or float; and should not be used for the other\n\
-      \                    datatypes."
+    description: Specifies the number of characters allowed for the ItemData/Value
+      when it is represented as a text.
+    comments:
+    - 'Optional
+
+      range:positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Length
@@ -1133,6 +1242,12 @@ attributes:
     range: positiveInteger
   DisplayFormat:
     name: DisplayFormat
+    description: 'Display format supports data visualization of numeric float and
+      date values. '
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: DisplayFormat
@@ -1142,6 +1257,11 @@ attributes:
     range: text
   VariableSet:
     name: VariableSet
+    description: ADaM variable set, e.g. Dose, Analysis Parameter, Treatment Timing.
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: VariableSet
@@ -1151,9 +1271,12 @@ attributes:
     range: text
   CommentOID:
     name: CommentOID
-    description: "The Comment identifier that this value refers to. Needed when the\
-      \ WhereClause references Items across different domains.\n                The\
-      \ Comment would define any join assumptions."
+    description: Reference to a CommentDef with sponsor provided information related
+      to this ItemDef,
+    comments:
+    - 'Optional
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CommentOID
@@ -1176,6 +1299,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: ItemDef
     domain_of:
@@ -1220,8 +1344,10 @@ attributes:
     maximum_cardinality: 1
   DefinitionRef:
     name: DefinitionRef
+    description: A free-text definition of the parameter
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DefinitionRef
     owner: ItemDef
     domain_of:
@@ -1234,6 +1360,7 @@ attributes:
     name: QuestionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: QuestionRef
     owner: ItemDef
     domain_of:
@@ -1244,6 +1371,7 @@ attributes:
     name: PromptRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: PromptRef
     owner: ItemDef
     domain_of:
@@ -1254,6 +1382,7 @@ attributes:
     name: CRFCompletionInstructionsRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: CRFCompletionInstructionsRef
     owner: ItemDef
     domain_of:
@@ -1264,6 +1393,7 @@ attributes:
     name: ImplementationNotesRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: ImplementationNotesRef
     owner: ItemDef
     domain_of:
@@ -1274,6 +1404,7 @@ attributes:
     name: CDISCNotesRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: CDISCNotesRef
     owner: ItemDef
     domain_of:
@@ -1285,6 +1416,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: RangeCheckRef
     owner: ItemDef
     domain_of:
@@ -1297,6 +1429,7 @@ attributes:
     name: CodeListRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: CodeListRefRef
     owner: ItemDef
     domain_of:
@@ -1308,6 +1441,7 @@ attributes:
     name: ValueListRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: ValueListRefRef
     owner: ItemDef
     domain_of:
@@ -1319,6 +1453,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: ItemDef
     domain_of:
@@ -1346,6 +1481,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: AliasRef
     owner: ItemDef
     domain_of:

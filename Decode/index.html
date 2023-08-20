@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-decode">Class: Decode</h1>
+<p><em>The displayed value relating to the CodeListItem/@CodedValue. This is often a label corresponding to a short name or alpha-numeric code. The actual Decode text is provided in a TranslatedText element so that it can be provided in different languages on a case report form or tabular data summary.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Decode">odm:Decode</a></p>
 <div class="mermaid"> classDiagram
     class Decode
@@ -225,7 +226,7 @@
 <tbody>
 <tr>
 <td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
-<td>1..* <br/> <a href="../TranslatedText/">TranslatedText</a></td>
+<td>0..* <br/> <a href="../TranslatedText/">TranslatedText</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -283,6 +284,10 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Decode
+description: The displayed value relating to the CodeListItem/@CodedValue. This is
+  often a label corresponding to a short name or alpha-numeric code. The actual Decode
+  text is provided in a TranslatedText element so that it can be provided in different
+  languages on a case report form or tabular data summary.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Decode
@@ -304,10 +309,8 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Decode
 
 </code></pre>
@@ -315,6 +318,10 @@ class_uri: odm:Decode
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Decode
+description: The displayed value relating to the CodeListItem/@CodedValue. This is
+  often a label corresponding to a short name or alpha-numeric code. The actual Decode
+  text is provided in a TranslatedText element so that it can be provided in different
+  languages on a case report form or tabular data summary.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Decode
@@ -334,16 +341,15 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   TranslatedTextRef:
     name: TranslatedTextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TranslatedTextRef
     owner: Decode
     domain_of:
@@ -358,10 +364,8 @@ attributes:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Decode
 
 </code></pre>

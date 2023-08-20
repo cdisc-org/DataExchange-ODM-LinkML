@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-studyindications">Class: StudyIndications</h1>
+<p><em>StudyIndications is a container element for individual StudyIndication elements.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/StudyIndications">odm:StudyIndications</a></p>
 <div class="mermaid"> classDiagram
     class StudyIndications
@@ -225,7 +226,7 @@
 <tbody>
 <tr>
 <td><a href="../StudyIndicationRef/">StudyIndicationRef</a></td>
-<td>1..* <br/> <a href="../StudyIndication/">StudyIndication</a></td>
+<td>0..* <br/> <a href="../StudyIndication/">StudyIndication</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -283,6 +284,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: StudyIndications
+description: StudyIndications is a container element for individual StudyIndication
+  elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyIndications
@@ -295,10 +298,8 @@ slot_usage:
     domain_of:
     - StudyIndications
     range: StudyIndication
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyIndications
 
 </code></pre>
@@ -306,6 +307,8 @@ class_uri: odm:StudyIndications
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: StudyIndications
+description: StudyIndications is a container element for individual StudyIndication
+  elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyIndications
@@ -316,25 +319,22 @@ slot_usage:
     domain_of:
     - StudyIndications
     range: StudyIndication
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   StudyIndicationRef:
     name: StudyIndicationRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyIndicationRef
     owner: StudyIndications
     domain_of:
     - StudyIndications
     range: StudyIndication
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyIndications
 
 </code></pre>

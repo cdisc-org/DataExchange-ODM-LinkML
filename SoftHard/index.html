@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-softhard">Slot: SoftHard</h1>
+<p><em>Type of range check. Soft indicates that a warning occurs when the RangeCheck fails. Hard indicates that an error occurs when the RangeCheck fails.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/SoftHard">odm:SoftHard</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,7 +328,7 @@
 <tbody>
 <tr>
 <td><a href="../RangeCheck/">RangeCheck</a></td>
-<td></td>
+<td>A RangeCheck defines a constraint on the value of the enclosing item</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -345,6 +346,8 @@
 <details>
 
 <pre><code class="language-yaml">name: SoftHard
+description: Type of range check. Soft indicates that a warning occurs when the RangeCheck
+  fails. Hard indicates that an error occurs when the RangeCheck fails.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SoftHard

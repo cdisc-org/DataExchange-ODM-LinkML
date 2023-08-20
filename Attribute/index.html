@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-attribute">Slot: Attribute</h1>
+<p><em>Field provided by the Name attribute where the data or information can be obtained. Examples are "valueQuantity.value" or "valueQuantity.unit" for the case of an HL7-FHIR "Observation", "Repeating" for the case of an ODM ItemGroupDef element, "unit" for the case of an HL7-CDA doseQuantity, "Code" or "Name" for the case of field 5 (which is composite) of an HL7-v2 OBX message. The Name and Attribute attributes are meant to provide traceability documentation.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Attribute">odm:Attribute</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,14 +328,14 @@
 <tbody>
 <tr>
 <td><a href="../Resource/">Resource</a></td>
-<td></td>
+<td>Describes an external resource used as the source for the parent ItemGroup or...</td>
 <td>yes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Text/">Text</a></li>
+<li>Range: <a href="Text.md">Text</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -345,6 +346,12 @@
 <details>
 
 <pre><code class="language-yaml">name: Attribute
+description: Field provided by the Name attribute where the data or information can
+  be obtained. Examples are &quot;valueQuantity.value&quot; or &quot;valueQuantity.unit&quot; for the
+  case of an HL7-FHIR &quot;Observation&quot;, &quot;Repeating&quot; for the case of an ODM ItemGroupDef
+  element, &quot;unit&quot; for the case of an HL7-CDA doseQuantity, &quot;Code&quot; or &quot;Name&quot; for the
+  case of field 5 (which is composite) of an HL7-v2 OBX message. The Name and Attribute
+  attributes are meant to provide traceability documentation.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Attribute

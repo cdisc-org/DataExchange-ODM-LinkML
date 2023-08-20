@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-code">Class: Code</h1>
+<p><em>Contains the source code that represents a FormalExpression in a given Context. The source code must be executable, and the MethodSignature defines the input parameters and return values for the code.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Code">odm:Code</a></p>
 <div class="mermaid"> classDiagram
     class Code
@@ -223,7 +224,7 @@
 <tbody>
 <tr>
 <td><a href="../_content/">_content</a></td>
-<td>0..1 <br/> <a href="../ContentType/">ContentType</a></td>
+<td>0..1 <br/> <a href="ContentType.md">ContentType</a></td>
 <td>multi-line text content from between XML tags</td>
 <td>direct</td>
 </tr>
@@ -281,6 +282,9 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Code
+description: Contains the source code that represents a FormalExpression in a given
+  Context. The source code must be executable, and the MethodSignature defines the
+  input parameters and return values for the code.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Code
@@ -298,6 +302,9 @@ class_uri: odm:Code
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Code
+description: Contains the source code that represents a FormalExpression in a given
+  Context. The source code must be executable, and the MethodSignature defines the
+  input parameters and return values for the code.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Code

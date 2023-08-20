@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-fullname">Class: FullName</h1>
+<p><em>The user's full formal name. May be a combination of Prefix, GivenName, FamilyName &amp; Suffix. Intended to be used for display.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/FullName">odm:FullName</a></p>
 <div class="mermaid"> classDiagram
     class FullName
@@ -223,7 +224,7 @@
 <tbody>
 <tr>
 <td><a href="../_content/">_content</a></td>
-<td>0..1 <br/> <a href="../ContentType/">ContentType</a></td>
+<td>0..1 <br/> <a href="ContentType.md">ContentType</a></td>
 <td>multi-line text content from between XML tags</td>
 <td>direct</td>
 </tr>
@@ -281,6 +282,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: FullName
+description: The user's full formal name. May be a combination of Prefix, GivenName,
+  FamilyName &amp; Suffix. Intended to be used for display.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/FullName
@@ -298,6 +301,8 @@ class_uri: odm:FullName
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: FullName
+description: The user's full formal name. May be a combination of Prefix, GivenName,
+  FamilyName &amp; Suffix. Intended to be used for display.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/FullName

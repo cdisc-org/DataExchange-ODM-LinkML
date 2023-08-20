@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-itemref">Class: ItemRef</h1>
+<p><em>A reference to an ItemDef as it occurs within a specific ItemGroupDef. The list of ItemRefs identifies the types of items that are allowed to occur within this type of item group.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ItemRef">odm:ItemRef</a></p>
 <div class="mermaid"> classDiagram
     class ItemRef
@@ -269,92 +270,92 @@
 <tbody>
 <tr>
 <td><a href="../ItemOID/">ItemOID</a></td>
-<td>1..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to the ItemDef</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../KeySequence/">KeySequence</a></td>
-<td>0..1 <br/> <a href="../PositiveInteger/">PositiveInteger</a></td>
-<td></td>
+<td>0..1 <br/> <a href="PositiveInteger.md">PositiveInteger</a></td>
+<td>Indicates that this item is a key for the enclosing element</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../IsNonStandard/">IsNonStandard</a></td>
 <td>0..1 <br/> <a href="../YesOnly/">YesOnly</a></td>
-<td></td>
+<td>A non-standard variable is one that is not defined in the SDTMIG or the under...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../HasNoData/">HasNoData</a></td>
 <td>0..1 <br/> <a href="../YesOnly/">YesOnly</a></td>
-<td></td>
+<td>Used to indicate that an ItemRef that represent a dataset's variable has no d...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../MethodOID/">MethodOID</a></td>
-<td>0..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to a MethodDef used to derive the value of this item</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../UnitsItemOID/">UnitsItemOID</a></td>
-<td>0..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to a sibling ItemRef element that represents the unit specification...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Repeat/">Repeat</a></td>
 <td>0..1 <br/> <a href="../YesOnly/">YesOnly</a></td>
-<td></td>
+<td>Indicates that the item serves as the item over which repeats are to be perfo...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Other/">Other</a></td>
 <td>0..1 <br/> <a href="../YesOnly/">YesOnly</a></td>
-<td></td>
+<td>Flag to indicate that the Item represents "other" content added to an ItemGro...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Role/">Role</a></td>
-<td>0..1 <br/> <a href="../Text/">Text</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>The Role for the referenced ItemDef</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../RoleCodeListOID/">RoleCodeListOID</a></td>
-<td>0..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to a CodeList that defines the allowable values of Role for the Stu...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Core/">Core</a></td>
 <td>0..1 <br/> <a href="../CoreType/">CoreType</a></td>
-<td></td>
+<td>CDASH, ADaM, SDTM, and SEND Core designations</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../PreSpecifiedValue/">PreSpecifiedValue</a></td>
-<td>0..1 <br/> <a href="../Text/">Text</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>Prefill value or a default value for a field that is automatically populated</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../OrderNumber/">OrderNumber</a></td>
-<td>0..1 <br/> <a href="../PositiveInteger/">PositiveInteger</a></td>
-<td></td>
+<td>0..1 <br/> <a href="PositiveInteger.md">PositiveInteger</a></td>
+<td>Indicates the order in which this ItemRef appears in Metadata displays or dat...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Mandatory/">Mandatory</a></td>
 <td>1..1 <br/> <a href="../YesOrNo/">YesOrNo</a></td>
-<td></td>
+<td>Indicator of whether this ItemGroup must appear in the study clinical data fo...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CollectionExceptionConditionOID/">CollectionExceptionConditionOID</a></td>
-<td>0..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to a ConditionDef that defines the circumstances under which collec...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -429,6 +430,9 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ItemRef
+description: A reference to an ItemDef as it occurs within a specific ItemGroupDef.
+  The list of ItemRefs identifies the types of items that are allowed to occur within
+  this type of item group.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemRef
@@ -453,6 +457,15 @@ slots:
 slot_usage:
   ItemOID:
     name: ItemOID
+    description: Reference to the ItemDef .
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID attribute for an ItemDef in the Study/MetaDataVersion. The
+      ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate ItemOID
+      values.'
     domain_of:
     - ItemRef
     - SourceItem
@@ -463,11 +476,30 @@ slot_usage:
     required: true
   KeySequence:
     name: KeySequence
+    description: Indicates that this item is a key for the enclosing element. It also
+      provides an ordering for the keys.
+    comments:
+    - 'Optional
+
+      range:positiveInteger
+
+      The ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate
+      KeySequence values.'
     domain_of:
     - ItemRef
     range: positiveInteger
   IsNonStandard:
     name: IsNonStandard
+    description: A non-standard variable is one that is not defined in the SDTMIG
+      or the underlying SDTM model of a standard referenced within the ODM document.
+      Permitted for any ItemRef that represents a non-standard variable in an SDTM
+      or SEND dataset when the ODM Context attribute value is "Other" Is not used
+      with an ItemRef that represents a value level metadata for an SDTMIG SUPPQUAL
+      dataset Has no meaning for ADaM, so shall not be used for ADaM variables
+    comments:
+    - 'Optional
+
+      range:(Yes)'
     domain_of:
     - ItemGroupDef
     - ItemRef
@@ -475,12 +507,29 @@ slot_usage:
     range: YesOnly
   HasNoData:
     name: HasNoData
+    description: 'Used to indicate that an ItemRef that represent a dataset''s variable
+      has no data. Note that variables refer to both standard and non-standard/ supplemental
+      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef). '
+    comments:
+    - 'Conditional
+
+      range:(Yes)
+
+      A comment must be included to explain why no data is present for dataset''s
+      variables that were planned for use in the study.'
     domain_of:
     - ItemGroupDef
     - ItemRef
     range: YesOnly
   MethodOID:
     name: MethodOID
+    description: Reference to a MethodDef used to derive the value of this item.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The MethodOID value must match the OID attribute for a MethodDef in this Study/MetaDataVersion.'
     domain_of:
     - ItemGroupRef
     - ItemRef
@@ -488,22 +537,59 @@ slot_usage:
     range: oidref
   UnitsItemOID:
     name: UnitsItemOID
+    description: Reference to a sibling ItemRef element that represents the unit specification
+      for this ItemRef (defines the associated units variable).
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The sibling ItemRef element will have ItemOID=UnitsItemOID and the UnitsItemOID
+      value must match the OID attribute for the ItemDef that defines the units for
+      this Item.'
     domain_of:
     - ItemRef
     range: oidref
   Repeat:
     name: Repeat
+    description: Indicates that the item serves as the item over which repeats are
+      to be performed.
+    comments:
+    - 'Optional
+
+      range:(Yes)
+
+      The corresponding ItemDef must have an associated CodeList containing the items
+      over which the repeat is to be performed. There may only be one ItemRef within
+      the ItemGroupDef with Repeat="Yes".'
     domain_of:
     - ItemRef
     range: YesOnly
   Other:
     name: Other
+    description: Flag to indicate that the Item represents "other" content added to
+      an ItemGroup.
+    comments:
+    - 'Optional
+
+      range:(Yes)'
     domain_of:
     - ItemRef
     - CodeListItem
     range: YesOnly
   Role:
     name: Role
+    description: The Role for the referenced ItemDef. The Role attribute provides
+      a single role name describing the use of this data item. If the Role is defined
+      by a standard terminology, RoleCodeListOID may be used to reference a CodeList
+      that defines the full set roles from which the Role attribute value is to be
+      taken.
+    comments:
+    - 'Optional
+
+      range:text
+
+      This attribute must not be present unless the Role attribute is defined. '
     domain_of:
     - ItemRef
     - Organization
@@ -511,21 +597,56 @@ slot_usage:
     range: text
   RoleCodeListOID:
     name: RoleCodeListOID
+    description: Reference to a CodeList that defines the allowable values of Role
+      for the Study.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The RoleCodelistOID must match the OID attribute for a CodeList within the Study/MetaDataVersion.
+      If Role is defined, RoleCodeListOID is still optional.'
     domain_of:
     - ItemRef
     range: oidref
   Core:
     name: Core
+    description: 'CDASH, ADaM, SDTM, and SEND Core designations. '
+    comments:
+    - 'Optional
+
+      enum values:(HR | O | R/C | Cond | Exp | Perm | Req)
+
+      Reference the appropriate specifications for complete requirements. Example:
+      CDASH: "HR", "R/C", "O"; SDTM: "Req", "Exp", "Perm".'
     domain_of:
     - ItemRef
     range: CoreType
   PreSpecifiedValue:
     name: PreSpecifiedValue
+    description: Prefill value or a default value for a field that is automatically
+      populated.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ItemRef
     range: text
   OrderNumber:
     name: OrderNumber
+    description: Indicates the order in which this ItemRef appears in Metadata displays
+      or data entry applications. The OrderNumbers provide an ordering on the Items
+      (within a containing element) for use whenever a list of Items is presented
+      to a user. They do not imply anything about event scheduling, time ordering,
+      or data correctness.
+    comments:
+    - 'Optional
+
+      range:positiveInteger
+
+      The ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate
+      OrderNumber values.'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -538,6 +659,18 @@ slot_usage:
     range: positiveInteger
   Mandatory:
     name: Mandatory
+    description: Indicator of whether this ItemGroup must appear in the study clinical
+      data for each subject per the study protocol. The Mandatory flag indicates that
+      the clinical data for an instance of the containing element would be incomplete
+      without an instance of this type of item. ODM clinical data files that are incomplete
+      in this sense may be considered incomplete for study review and analysis purposes.
+    comments:
+    - 'Required
+
+      enum values:(Yes | No)
+
+      When the value is "Yes", the data for each subject in the study must include
+      an ItemData element with this ItemOID.'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -547,6 +680,15 @@ slot_usage:
     required: true
   CollectionExceptionConditionOID:
     name: CollectionExceptionConditionOID
+    description: 'Reference to a ConditionDef that defines the circumstances under
+      which collection of the Item may be omitted. '
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The CollectionExceptionConditionOID value must match the OID attribute for a
+      ConditionDef in this Study/MetaDataVersion.'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -577,12 +719,24 @@ class_uri: odm:ItemRef
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ItemRef
+description: A reference to an ItemDef as it occurs within a specific ItemGroupDef.
+  The list of ItemRefs identifies the types of items that are allowed to occur within
+  this type of item group.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemRef
 slot_usage:
   ItemOID:
     name: ItemOID
+    description: Reference to the ItemDef .
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID attribute for an ItemDef in the Study/MetaDataVersion. The
+      ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate ItemOID
+      values.'
     domain_of:
     - ItemRef
     - SourceItem
@@ -593,11 +747,30 @@ slot_usage:
     required: true
   KeySequence:
     name: KeySequence
+    description: Indicates that this item is a key for the enclosing element. It also
+      provides an ordering for the keys.
+    comments:
+    - 'Optional
+
+      range:positiveInteger
+
+      The ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate
+      KeySequence values.'
     domain_of:
     - ItemRef
     range: positiveInteger
   IsNonStandard:
     name: IsNonStandard
+    description: A non-standard variable is one that is not defined in the SDTMIG
+      or the underlying SDTM model of a standard referenced within the ODM document.
+      Permitted for any ItemRef that represents a non-standard variable in an SDTM
+      or SEND dataset when the ODM Context attribute value is "Other" Is not used
+      with an ItemRef that represents a value level metadata for an SDTMIG SUPPQUAL
+      dataset Has no meaning for ADaM, so shall not be used for ADaM variables
+    comments:
+    - 'Optional
+
+      range:(Yes)'
     domain_of:
     - ItemGroupDef
     - ItemRef
@@ -605,12 +778,29 @@ slot_usage:
     range: YesOnly
   HasNoData:
     name: HasNoData
+    description: 'Used to indicate that an ItemRef that represent a dataset''s variable
+      has no data. Note that variables refer to both standard and non-standard/ supplemental
+      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef). '
+    comments:
+    - 'Conditional
+
+      range:(Yes)
+
+      A comment must be included to explain why no data is present for dataset''s
+      variables that were planned for use in the study.'
     domain_of:
     - ItemGroupDef
     - ItemRef
     range: YesOnly
   MethodOID:
     name: MethodOID
+    description: Reference to a MethodDef used to derive the value of this item.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The MethodOID value must match the OID attribute for a MethodDef in this Study/MetaDataVersion.'
     domain_of:
     - ItemGroupRef
     - ItemRef
@@ -618,22 +808,59 @@ slot_usage:
     range: oidref
   UnitsItemOID:
     name: UnitsItemOID
+    description: Reference to a sibling ItemRef element that represents the unit specification
+      for this ItemRef (defines the associated units variable).
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The sibling ItemRef element will have ItemOID=UnitsItemOID and the UnitsItemOID
+      value must match the OID attribute for the ItemDef that defines the units for
+      this Item.'
     domain_of:
     - ItemRef
     range: oidref
   Repeat:
     name: Repeat
+    description: Indicates that the item serves as the item over which repeats are
+      to be performed.
+    comments:
+    - 'Optional
+
+      range:(Yes)
+
+      The corresponding ItemDef must have an associated CodeList containing the items
+      over which the repeat is to be performed. There may only be one ItemRef within
+      the ItemGroupDef with Repeat="Yes".'
     domain_of:
     - ItemRef
     range: YesOnly
   Other:
     name: Other
+    description: Flag to indicate that the Item represents "other" content added to
+      an ItemGroup.
+    comments:
+    - 'Optional
+
+      range:(Yes)'
     domain_of:
     - ItemRef
     - CodeListItem
     range: YesOnly
   Role:
     name: Role
+    description: The Role for the referenced ItemDef. The Role attribute provides
+      a single role name describing the use of this data item. If the Role is defined
+      by a standard terminology, RoleCodeListOID may be used to reference a CodeList
+      that defines the full set roles from which the Role attribute value is to be
+      taken.
+    comments:
+    - 'Optional
+
+      range:text
+
+      This attribute must not be present unless the Role attribute is defined. '
     domain_of:
     - ItemRef
     - Organization
@@ -641,21 +868,56 @@ slot_usage:
     range: text
   RoleCodeListOID:
     name: RoleCodeListOID
+    description: Reference to a CodeList that defines the allowable values of Role
+      for the Study.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The RoleCodelistOID must match the OID attribute for a CodeList within the Study/MetaDataVersion.
+      If Role is defined, RoleCodeListOID is still optional.'
     domain_of:
     - ItemRef
     range: oidref
   Core:
     name: Core
+    description: 'CDASH, ADaM, SDTM, and SEND Core designations. '
+    comments:
+    - 'Optional
+
+      enum values:(HR | O | R/C | Cond | Exp | Perm | Req)
+
+      Reference the appropriate specifications for complete requirements. Example:
+      CDASH: "HR", "R/C", "O"; SDTM: "Req", "Exp", "Perm".'
     domain_of:
     - ItemRef
     range: CoreType
   PreSpecifiedValue:
     name: PreSpecifiedValue
+    description: Prefill value or a default value for a field that is automatically
+      populated.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ItemRef
     range: text
   OrderNumber:
     name: OrderNumber
+    description: Indicates the order in which this ItemRef appears in Metadata displays
+      or data entry applications. The OrderNumbers provide an ordering on the Items
+      (within a containing element) for use whenever a list of Items is presented
+      to a user. They do not imply anything about event scheduling, time ordering,
+      or data correctness.
+    comments:
+    - 'Optional
+
+      range:positiveInteger
+
+      The ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate
+      OrderNumber values.'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -668,6 +930,18 @@ slot_usage:
     range: positiveInteger
   Mandatory:
     name: Mandatory
+    description: Indicator of whether this ItemGroup must appear in the study clinical
+      data for each subject per the study protocol. The Mandatory flag indicates that
+      the clinical data for an instance of the containing element would be incomplete
+      without an instance of this type of item. ODM clinical data files that are incomplete
+      in this sense may be considered incomplete for study review and analysis purposes.
+    comments:
+    - 'Required
+
+      enum values:(Yes | No)
+
+      When the value is "Yes", the data for each subject in the study must include
+      an ItemData element with this ItemOID.'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -677,6 +951,15 @@ slot_usage:
     required: true
   CollectionExceptionConditionOID:
     name: CollectionExceptionConditionOID
+    description: 'Reference to a ConditionDef that defines the circumstances under
+      which collection of the Item may be omitted. '
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The CollectionExceptionConditionOID value must match the OID attribute for a
+      ConditionDef in this Study/MetaDataVersion.'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -703,6 +986,15 @@ slot_usage:
 attributes:
   ItemOID:
     name: ItemOID
+    description: Reference to the ItemDef .
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID attribute for an ItemDef in the Study/MetaDataVersion. The
+      ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate ItemOID
+      values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ItemOID
@@ -717,6 +1009,15 @@ attributes:
     required: true
   KeySequence:
     name: KeySequence
+    description: Indicates that this item is a key for the enclosing element. It also
+      provides an ordering for the keys.
+    comments:
+    - 'Optional
+
+      range:positiveInteger
+
+      The ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate
+      KeySequence values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: KeySequence
@@ -726,6 +1027,16 @@ attributes:
     range: positiveInteger
   IsNonStandard:
     name: IsNonStandard
+    description: A non-standard variable is one that is not defined in the SDTMIG
+      or the underlying SDTM model of a standard referenced within the ODM document.
+      Permitted for any ItemRef that represents a non-standard variable in an SDTM
+      or SEND dataset when the ODM Context attribute value is "Other" Is not used
+      with an ItemRef that represents a value level metadata for an SDTMIG SUPPQUAL
+      dataset Has no meaning for ADaM, so shall not be used for ADaM variables
+    comments:
+    - 'Optional
+
+      range:(Yes)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: IsNonStandard
@@ -737,6 +1048,16 @@ attributes:
     range: YesOnly
   HasNoData:
     name: HasNoData
+    description: 'Used to indicate that an ItemRef that represent a dataset''s variable
+      has no data. Note that variables refer to both standard and non-standard/ supplemental
+      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef). '
+    comments:
+    - 'Conditional
+
+      range:(Yes)
+
+      A comment must be included to explain why no data is present for dataset''s
+      variables that were planned for use in the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: HasNoData
@@ -747,6 +1068,13 @@ attributes:
     range: YesOnly
   MethodOID:
     name: MethodOID
+    description: Reference to a MethodDef used to derive the value of this item.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The MethodOID value must match the OID attribute for a MethodDef in this Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: MethodOID
@@ -758,6 +1086,16 @@ attributes:
     range: oidref
   UnitsItemOID:
     name: UnitsItemOID
+    description: Reference to a sibling ItemRef element that represents the unit specification
+      for this ItemRef (defines the associated units variable).
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The sibling ItemRef element will have ItemOID=UnitsItemOID and the UnitsItemOID
+      value must match the OID attribute for the ItemDef that defines the units for
+      this Item.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: UnitsItemOID
@@ -767,6 +1105,16 @@ attributes:
     range: oidref
   Repeat:
     name: Repeat
+    description: Indicates that the item serves as the item over which repeats are
+      to be performed.
+    comments:
+    - 'Optional
+
+      range:(Yes)
+
+      The corresponding ItemDef must have an associated CodeList containing the items
+      over which the repeat is to be performed. There may only be one ItemRef within
+      the ItemGroupDef with Repeat="Yes".'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Repeat
@@ -776,6 +1124,12 @@ attributes:
     range: YesOnly
   Other:
     name: Other
+    description: Flag to indicate that the Item represents "other" content added to
+      an ItemGroup.
+    comments:
+    - 'Optional
+
+      range:(Yes)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Other
@@ -786,6 +1140,17 @@ attributes:
     range: YesOnly
   Role:
     name: Role
+    description: The Role for the referenced ItemDef. The Role attribute provides
+      a single role name describing the use of this data item. If the Role is defined
+      by a standard terminology, RoleCodeListOID may be used to reference a CodeList
+      that defines the full set roles from which the Role attribute value is to be
+      taken.
+    comments:
+    - 'Optional
+
+      range:text
+
+      This attribute must not be present unless the Role attribute is defined. '
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Role
@@ -797,6 +1162,15 @@ attributes:
     range: text
   RoleCodeListOID:
     name: RoleCodeListOID
+    description: Reference to a CodeList that defines the allowable values of Role
+      for the Study.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The RoleCodelistOID must match the OID attribute for a CodeList within the Study/MetaDataVersion.
+      If Role is defined, RoleCodeListOID is still optional.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: RoleCodeListOID
@@ -806,6 +1180,14 @@ attributes:
     range: oidref
   Core:
     name: Core
+    description: 'CDASH, ADaM, SDTM, and SEND Core designations. '
+    comments:
+    - 'Optional
+
+      enum values:(HR | O | R/C | Cond | Exp | Perm | Req)
+
+      Reference the appropriate specifications for complete requirements. Example:
+      CDASH: "HR", "R/C", "O"; SDTM: "Req", "Exp", "Perm".'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Core
@@ -815,6 +1197,12 @@ attributes:
     range: CoreType
   PreSpecifiedValue:
     name: PreSpecifiedValue
+    description: Prefill value or a default value for a field that is automatically
+      populated.
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: PreSpecifiedValue
@@ -824,6 +1212,18 @@ attributes:
     range: text
   OrderNumber:
     name: OrderNumber
+    description: Indicates the order in which this ItemRef appears in Metadata displays
+      or data entry applications. The OrderNumbers provide an ordering on the Items
+      (within a containing element) for use whenever a list of Items is presented
+      to a user. They do not imply anything about event scheduling, time ordering,
+      or data correctness.
+    comments:
+    - 'Optional
+
+      range:positiveInteger
+
+      The ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate
+      OrderNumber values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: OrderNumber
@@ -840,6 +1240,18 @@ attributes:
     range: positiveInteger
   Mandatory:
     name: Mandatory
+    description: Indicator of whether this ItemGroup must appear in the study clinical
+      data for each subject per the study protocol. The Mandatory flag indicates that
+      the clinical data for an instance of the containing element would be incomplete
+      without an instance of this type of item. ODM clinical data files that are incomplete
+      in this sense may be considered incomplete for study review and analysis purposes.
+    comments:
+    - 'Required
+
+      enum values:(Yes | No)
+
+      When the value is "Yes", the data for each subject in the study must include
+      an ItemData element with this ItemOID.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Mandatory
@@ -853,6 +1265,15 @@ attributes:
     required: true
   CollectionExceptionConditionOID:
     name: CollectionExceptionConditionOID
+    description: 'Reference to a ConditionDef that defines the circumstances under
+      which collection of the Item may be omitted. '
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The CollectionExceptionConditionOID value must match the OID attribute for a
+      ConditionDef in this Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CollectionExceptionConditionOID
@@ -868,6 +1289,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: OriginRef
     owner: ItemRef
     domain_of:
@@ -881,6 +1303,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: WhereClauseRefRef
     owner: ItemRef
     domain_of:

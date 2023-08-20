@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-workflowstart">Class: WorkflowStart</h1>
+<p><em>WorkflowStart references a structural element that begins the automated workflow.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/WorkflowStart">odm:WorkflowStart</a></p>
 <div class="mermaid"> classDiagram
     class WorkflowStart
@@ -223,8 +224,8 @@
 <tbody>
 <tr>
 <td><a href="../StartOID/">StartOID</a></td>
-<td>1..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to the definition of the structural element that starts the workflo...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -281,6 +282,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: WorkflowStart
+description: WorkflowStart references a structural element that begins the automated
+  workflow.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowStart
@@ -289,6 +292,17 @@ slots:
 slot_usage:
   StartOID:
     name: StartOID
+    description: Reference to the definition of the structural element that starts
+      the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or
+      ItemDef element.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The StartOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
+      ItemGroupDef or ItemDef child element of the MetaDataVersion parent element
+      of the WorkflowDef .'
     domain_of:
     - WorkflowStart
     range: oidref
@@ -300,12 +314,25 @@ class_uri: odm:WorkflowStart
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: WorkflowStart
+description: WorkflowStart references a structural element that begins the automated
+  workflow.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowStart
 slot_usage:
   StartOID:
     name: StartOID
+    description: Reference to the definition of the structural element that starts
+      the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or
+      ItemDef element.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The StartOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
+      ItemGroupDef or ItemDef child element of the MetaDataVersion parent element
+      of the WorkflowDef .'
     domain_of:
     - WorkflowStart
     range: oidref
@@ -313,6 +340,17 @@ slot_usage:
 attributes:
   StartOID:
     name: StartOID
+    description: Reference to the definition of the structural element that starts
+      the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or
+      ItemDef element.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The StartOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
+      ItemGroupDef or ItemDef child element of the MetaDataVersion parent element
+      of the WorkflowDef .'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StartOID

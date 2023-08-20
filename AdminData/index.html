@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-admindata">Class: AdminData</h1>
+<p><em>Administrative information about users, locations, organizations, and electronic signatures.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/AdminData">odm:AdminData</a></p>
 <div class="mermaid"> classDiagram
     class AdminData
@@ -239,8 +240,8 @@
 <tbody>
 <tr>
 <td><a href="../StudyOID/">StudyOID</a></td>
-<td>0..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to a Study</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -321,6 +322,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: AdminData
+description: Administrative information about users, locations, organizations, and
+  electronic signatures.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AdminData
@@ -333,6 +336,13 @@ slots:
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: Reference to a Study .
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID for a /ODM/Study element. '
     domain_of:
     - Include
     - SourceItem
@@ -386,12 +396,21 @@ class_uri: odm:AdminData
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: AdminData
+description: Administrative information about users, locations, organizations, and
+  electronic signatures.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AdminData
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: Reference to a Study .
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID for a /ODM/Study element. '
     domain_of:
     - Include
     - SourceItem
@@ -441,6 +460,13 @@ slot_usage:
 attributes:
   StudyOID:
     name: StudyOID
+    description: Reference to a Study .
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID for a /ODM/Study element. '
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyOID
@@ -460,6 +486,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: UserRefRef
     owner: AdminData
     domain_of:
@@ -474,6 +501,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: OrganizationRef
     owner: AdminData
     domain_of:
@@ -486,6 +514,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: LocationRefRef
     owner: AdminData
     domain_of:
@@ -500,6 +529,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: SignatureDefRef
     owner: AdminData
     domain_of:

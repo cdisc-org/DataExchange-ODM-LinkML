@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-studyendpoints">Class: StudyEndPoints</h1>
+<p><em>Go to start of metadata</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/StudyEndPoints">odm:StudyEndPoints</a></p>
 <div class="mermaid"> classDiagram
     class StudyEndPoints
@@ -225,7 +226,7 @@
 <tbody>
 <tr>
 <td><a href="../StudyEndPointRefRef/">StudyEndPointRefRef</a></td>
-<td>1..* <br/> <a href="../StudyEndPoint/">StudyEndPoint</a></td>
+<td>0..* <br/> <a href="../StudyEndPoint/">StudyEndPoint</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -283,6 +284,7 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: StudyEndPoints
+description: Go to start of metadata
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPoints
@@ -297,10 +299,8 @@ slot_usage:
     - StudyEndPoints
     - StudyEstimand
     range: StudyEndPoint
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyEndPoints
 
 </code></pre>
@@ -308,6 +308,7 @@ class_uri: odm:StudyEndPoints
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: StudyEndPoints
+description: Go to start of metadata
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPoints
@@ -320,16 +321,15 @@ slot_usage:
     - StudyEndPoints
     - StudyEstimand
     range: StudyEndPoint
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   StudyEndPointRefRef:
     name: StudyEndPointRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyEndPointRefRef
     owner: StudyEndPoints
     domain_of:
@@ -337,10 +337,8 @@ attributes:
     - StudyEndPoints
     - StudyEstimand
     range: StudyEndPoint
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyEndPoints
 
 </code></pre>

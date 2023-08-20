@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-workflowref">Class: WorkflowRef</h1>
+<p><em>The WorkflowRef references a workflow definition</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/WorkflowRef">odm:WorkflowRef</a></p>
 <div class="mermaid"> classDiagram
     class WorkflowRef
@@ -223,8 +224,8 @@
 <tbody>
 <tr>
 <td><a href="../WorkflowOID/">WorkflowOID</a></td>
-<td>1..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to a WorfkflowDef</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -317,6 +318,7 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: WorkflowRef
+description: The WorkflowRef references a workflow definition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowRef
@@ -325,6 +327,13 @@ slots:
 slot_usage:
   WorkflowOID:
     name: WorkflowOID
+    description: Reference to a WorfkflowDef
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a WorkflowDef child element of this MetaDataVersion.'
     domain_of:
     - WorkflowRef
     range: oidref
@@ -336,12 +345,20 @@ class_uri: odm:WorkflowRef
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: WorkflowRef
+description: The WorkflowRef references a workflow definition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowRef
 slot_usage:
   WorkflowOID:
     name: WorkflowOID
+    description: Reference to a WorfkflowDef
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a WorkflowDef child element of this MetaDataVersion.'
     domain_of:
     - WorkflowRef
     range: oidref
@@ -349,6 +366,13 @@ slot_usage:
 attributes:
   WorkflowOID:
     name: WorkflowOID
+    description: Reference to a WorfkflowDef
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a WorkflowDef child element of this MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: WorkflowOID

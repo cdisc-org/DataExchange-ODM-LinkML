@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-itemgroupdata">Class: ItemGroupData</h1>
+<p>_Clinical data corresponding to an ItemGroupRef defined in the active MetaDataVersion. _</p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ItemGroupData">odm:ItemGroupData</a></p>
 <div class="mermaid"> classDiagram
     class ItemGroupData
@@ -255,26 +256,26 @@
 <tbody>
 <tr>
 <td><a href="../ItemGroupOID/">ItemGroupOID</a></td>
-<td>1..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to an ItemGroupDef for the MetaDataVersion identified in the Clinic...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ItemGroupRepeatKey/">ItemGroupRepeatKey</a></td>
-<td>0..1 <br/> <a href="../RepeatKey/">RepeatKey</a></td>
-<td></td>
+<td>0..1 <br/> <a href="RepeatKey.md">RepeatKey</a></td>
+<td>A key used to distinguish between repeats of the same type of item group</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../TransactionTypeRef/">TransactionTypeRef</a></td>
 <td>0..1 <br/> <a href="../TransactionType/">TransactionType</a></td>
-<td></td>
+<td>The TransactionType attribute need not be present in a Snapshot document</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ItemGroupDataSeq/">ItemGroupDataSeq</a></td>
-<td>0..1 <br/> <a href="../PositiveInteger/">PositiveInteger</a></td>
-<td></td>
+<td>0..1 <br/> <a href="PositiveInteger.md">PositiveInteger</a></td>
+<td>Unique sequence # for each ItemGroupData child element (record) in the contai...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -285,13 +286,13 @@
 </tr>
 <tr>
 <td><a href="../ItemGroupDataRef/">ItemGroupDataRef</a></td>
-<td>0..1 <br/> <a href="./">ItemGroupData</a></td>
+<td>0..* <br/> <a href="./">ItemGroupData</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ItemDataRef/">ItemDataRef</a></td>
-<td>0..1 <br/> <a href="../ItemData/">ItemData</a></td>
+<td>0..* <br/> <a href="../ItemData/">ItemData</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -309,7 +310,7 @@
 </tr>
 <tr>
 <td><a href="../AnnotationRef/">AnnotationRef</a></td>
-<td>0..* <br/> <a href="../Annotation/">Annotation</a></td>
+<td>0..1 <br/> <a href="../Annotation/">Annotation</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -385,6 +386,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ItemGroupData
+description: 'Clinical data corresponding to an ItemGroupRef defined in the active
+  MetaDataVersion. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemGroupData
@@ -402,6 +405,12 @@ slots:
 slot_usage:
   ItemGroupOID:
     name: ItemGroupOID
+    description: Reference to an ItemGroupDef for the MetaDataVersion identified in
+      the ClinicalData element.
+    comments:
+    - 'Required
+
+      The values of ItemGroupOID must be unique within the parent element.'
     domain_of:
     - ItemGroupRef
     - SourceItem
@@ -411,12 +420,24 @@ slot_usage:
     required: true
   ItemGroupRepeatKey:
     name: ItemGroupRepeatKey
+    description: A key used to distinguish between repeats of the same type of item
+      group.
+    comments:
+    - 'Conditional Required when the Repeating attribute for the ItemGroupDef element
+      is "Yes" .
+
+      The values of ItemGroupRepeatKey must be unique within the parent element. The
+      ItemGroupRepeatKey is present only if the ItemGroupDef is repeating . For /ODM/ReferenceData/ItemGroupData
+      , the ItemGroupOID and ItemGroupRepeatKey pair must be unique.'
     domain_of:
     - ItemGroupData
     - KeySet
     range: repeatKey
   TransactionTypeRef:
     name: TransactionTypeRef
+    description: The TransactionType attribute need not be present in a Snapshot document.
+    comments:
+    - Conditional Required when the FileType attribute for the ODM element is Transactional.
     domain_of:
     - SubjectData
     - StudyEventData
@@ -426,6 +447,17 @@ slot_usage:
     range: TransactionType
   ItemGroupDataSeq:
     name: ItemGroupDataSeq
+    description: 'Unique sequence # for each ItemGroupData child element (record)
+      in the container element. The ItemGroupDataSeq attribute doesn’t have any other
+      meaning than the sequence in which the items are saved and exchanged for each
+      ItemGroupDef. It is equivalent to the observation # in a dataset.'
+    comments:
+    - 'Conditional Required when the parent element is ReferenceData or ClinicalData,
+      the ItemGroupDataSeq.
+
+      ItemGroupDataSeq may only be used when ItemGroupData is a direct child of either
+      ClinicalData or ReferenceData and the ItemGroupData represents a row in a dataset.
+      The ItemGroupDataSeq and ItemGroupRepeatKey attributes are mutually exclusive.'
     domain_of:
     - ItemGroupData
     range: positiveInteger
@@ -444,19 +476,23 @@ slot_usage:
     inlined_as_list: true
   ItemGroupDataRef:
     name: ItemGroupDataRef
+    multivalued: true
     domain_of:
     - ReferenceData
     - ClinicalData
     - StudyEventData
     - ItemGroupData
     range: ItemGroupData
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
   ItemDataRef:
     name: ItemDataRef
+    multivalued: true
     domain_of:
     - ItemGroupData
     range: ItemData
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
   AuditRecordRef:
     name: AuditRecordRef
     domain_of:
@@ -483,7 +519,6 @@ slot_usage:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
-    multivalued: true
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -493,8 +528,7 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 class_uri: odm:ItemGroupData
 
 </code></pre>
@@ -502,12 +536,20 @@ class_uri: odm:ItemGroupData
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ItemGroupData
+description: 'Clinical data corresponding to an ItemGroupRef defined in the active
+  MetaDataVersion. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemGroupData
 slot_usage:
   ItemGroupOID:
     name: ItemGroupOID
+    description: Reference to an ItemGroupDef for the MetaDataVersion identified in
+      the ClinicalData element.
+    comments:
+    - 'Required
+
+      The values of ItemGroupOID must be unique within the parent element.'
     domain_of:
     - ItemGroupRef
     - SourceItem
@@ -517,12 +559,24 @@ slot_usage:
     required: true
   ItemGroupRepeatKey:
     name: ItemGroupRepeatKey
+    description: A key used to distinguish between repeats of the same type of item
+      group.
+    comments:
+    - 'Conditional Required when the Repeating attribute for the ItemGroupDef element
+      is "Yes" .
+
+      The values of ItemGroupRepeatKey must be unique within the parent element. The
+      ItemGroupRepeatKey is present only if the ItemGroupDef is repeating . For /ODM/ReferenceData/ItemGroupData
+      , the ItemGroupOID and ItemGroupRepeatKey pair must be unique.'
     domain_of:
     - ItemGroupData
     - KeySet
     range: repeatKey
   TransactionTypeRef:
     name: TransactionTypeRef
+    description: The TransactionType attribute need not be present in a Snapshot document.
+    comments:
+    - Conditional Required when the FileType attribute for the ODM element is Transactional.
     domain_of:
     - SubjectData
     - StudyEventData
@@ -532,6 +586,17 @@ slot_usage:
     range: TransactionType
   ItemGroupDataSeq:
     name: ItemGroupDataSeq
+    description: 'Unique sequence # for each ItemGroupData child element (record)
+      in the container element. The ItemGroupDataSeq attribute doesn’t have any other
+      meaning than the sequence in which the items are saved and exchanged for each
+      ItemGroupDef. It is equivalent to the observation # in a dataset.'
+    comments:
+    - 'Conditional Required when the parent element is ReferenceData or ClinicalData,
+      the ItemGroupDataSeq.
+
+      ItemGroupDataSeq may only be used when ItemGroupData is a direct child of either
+      ClinicalData or ReferenceData and the ItemGroupData represents a row in a dataset.
+      The ItemGroupDataSeq and ItemGroupRepeatKey attributes are mutually exclusive.'
     domain_of:
     - ItemGroupData
     range: positiveInteger
@@ -550,19 +615,23 @@ slot_usage:
     inlined_as_list: true
   ItemGroupDataRef:
     name: ItemGroupDataRef
+    multivalued: true
     domain_of:
     - ReferenceData
     - ClinicalData
     - StudyEventData
     - ItemGroupData
     range: ItemGroupData
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
   ItemDataRef:
     name: ItemDataRef
+    multivalued: true
     domain_of:
     - ItemGroupData
     range: ItemData
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
   AuditRecordRef:
     name: AuditRecordRef
     domain_of:
@@ -589,7 +658,6 @@ slot_usage:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
-    multivalued: true
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -599,11 +667,16 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 attributes:
   ItemGroupOID:
     name: ItemGroupOID
+    description: Reference to an ItemGroupDef for the MetaDataVersion identified in
+      the ClinicalData element.
+    comments:
+    - 'Required
+
+      The values of ItemGroupOID must be unique within the parent element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ItemGroupOID
@@ -617,6 +690,15 @@ attributes:
     required: true
   ItemGroupRepeatKey:
     name: ItemGroupRepeatKey
+    description: A key used to distinguish between repeats of the same type of item
+      group.
+    comments:
+    - 'Conditional Required when the Repeating attribute for the ItemGroupDef element
+      is "Yes" .
+
+      The values of ItemGroupRepeatKey must be unique within the parent element. The
+      ItemGroupRepeatKey is present only if the ItemGroupDef is repeating . For /ODM/ReferenceData/ItemGroupData
+      , the ItemGroupOID and ItemGroupRepeatKey pair must be unique.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ItemGroupRepeatKey
@@ -627,6 +709,9 @@ attributes:
     range: repeatKey
   TransactionTypeRef:
     name: TransactionTypeRef
+    description: The TransactionType attribute need not be present in a Snapshot document.
+    comments:
+    - Conditional Required when the FileType attribute for the ODM element is Transactional.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TransactionTypeRef
@@ -640,6 +725,17 @@ attributes:
     range: TransactionType
   ItemGroupDataSeq:
     name: ItemGroupDataSeq
+    description: 'Unique sequence # for each ItemGroupData child element (record)
+      in the container element. The ItemGroupDataSeq attribute doesn’t have any other
+      meaning than the sequence in which the items are saved and exchanged for each
+      ItemGroupDef. It is equivalent to the observation # in a dataset.'
+    comments:
+    - 'Conditional Required when the parent element is ReferenceData or ClinicalData,
+      the ItemGroupDataSeq.
+
+      ItemGroupDataSeq may only be used when ItemGroupData is a direct child of either
+      ClinicalData or ReferenceData and the ItemGroupData represents a row in a dataset.
+      The ItemGroupDataSeq and ItemGroupRepeatKey attributes are mutually exclusive.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ItemGroupDataSeq
@@ -652,6 +748,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: QueryRef
     owner: ItemGroupData
     domain_of:
@@ -668,6 +765,8 @@ attributes:
     name: ItemGroupDataRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    multivalued: true
+    identifier: false
     alias: ItemGroupDataRef
     owner: ItemGroupData
     domain_of:
@@ -676,21 +775,26 @@ attributes:
     - StudyEventData
     - ItemGroupData
     range: ItemGroupData
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
   ItemDataRef:
     name: ItemDataRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    multivalued: true
+    identifier: false
     alias: ItemDataRef
     owner: ItemGroupData
     domain_of:
     - ItemGroupData
     range: ItemData
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
   AuditRecordRef:
     name: AuditRecordRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: AuditRecordRef
     owner: ItemGroupData
     domain_of:
@@ -707,6 +811,7 @@ attributes:
     name: SignatureRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: SignatureRefRef
     owner: ItemGroupData
     domain_of:
@@ -723,7 +828,7 @@ attributes:
     name: AnnotationRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    multivalued: true
+    identifier: false
     alias: AnnotationRef
     owner: ItemGroupData
     domain_of:
@@ -735,8 +840,7 @@ attributes:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 class_uri: odm:ItemGroupData
 
 </code></pre>

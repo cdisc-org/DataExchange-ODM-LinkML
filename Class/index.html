@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-class">Class: Class</h1>
+<p><em>Element NameClassParent ElementsItemGroupDefElement XPath(s)/ODM/Study/MetaDataVersion/ItemGroupDef/ClassElement Textual ValueNoneAttributesNameChild Elements(SubClass*)Usage/Business RulesBusiness Rule(s):One Class element is allowed for each ItemGroupDef element for a dataset that follows the CDISC SDTMIG, SENDIG, or ADaMIG.For analysis datasets, if the ItemGroupDef IsNonStandard attribute is used, the Class should not be provided.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Class">odm:Class</a></p>
 <div class="mermaid"> classDiagram
     class Class
@@ -230,7 +231,7 @@
 <tr>
 <td><a href="../Name/">Name</a></td>
 <td>1..1 <br/> <a href="../ItemGroupClass/">ItemGroupClass</a></td>
-<td>General observation Sub Class</td>
+<td>Name of the Class</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -293,6 +294,11 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Class
+description: Element NameClassParent ElementsItemGroupDefElement XPath(s)/ODM/Study/MetaDataVersion/ItemGroupDef/ClassElement
+  Textual ValueNoneAttributesNameChild Elements(SubClass*)Usage/Business RulesBusiness
+  Rule(s):One Class element is allowed for each ItemGroupDef element for a dataset
+  that follows the CDISC SDTMIG, SENDIG, or ADaMIG.For analysis datasets, if the ItemGroupDef
+  IsNonStandard attribute is used, the Class should not be provided.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Class
@@ -302,6 +308,12 @@ slots:
 slot_usage:
   Name:
     name: Name
+    description: Name of the Class
+    comments:
+    - "Conditional Required when ODM/@Context=\"Submission\"\nrange:text \nText must\
+      \ follow CDISC Controlled Terminology for General Observation Class. For analysis\
+      \ datasets, if the ItemGroupDef IsNonStandard attribute is used, the Class should\
+      \ not be provided."
     domain_of:
     - Alias
     - MetaDataVersion
@@ -355,12 +367,23 @@ class_uri: odm:Class
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Class
+description: Element NameClassParent ElementsItemGroupDefElement XPath(s)/ODM/Study/MetaDataVersion/ItemGroupDef/ClassElement
+  Textual ValueNoneAttributesNameChild Elements(SubClass*)Usage/Business RulesBusiness
+  Rule(s):One Class element is allowed for each ItemGroupDef element for a dataset
+  that follows the CDISC SDTMIG, SENDIG, or ADaMIG.For analysis datasets, if the ItemGroupDef
+  IsNonStandard attribute is used, the Class should not be provided.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Class
 slot_usage:
   Name:
     name: Name
+    description: Name of the Class
+    comments:
+    - "Conditional Required when ODM/@Context=\"Submission\"\nrange:text \nText must\
+      \ follow CDISC Controlled Terminology for General Observation Class. For analysis\
+      \ datasets, if the ItemGroupDef IsNonStandard attribute is used, the Class should\
+      \ not be provided."
     domain_of:
     - Alias
     - MetaDataVersion
@@ -410,7 +433,12 @@ slot_usage:
 attributes:
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Name of the Class
+    comments:
+    - "Conditional Required when ODM/@Context=\"Submission\"\nrange:text \nText must\
+      \ follow CDISC Controlled Terminology for General Observation Class. For analysis\
+      \ datasets, if the ItemGroupDef IsNonStandard attribute is used, the Class should\
+      \ not be provided."
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -458,6 +486,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: SubClassRef
     owner: Class
     domain_of:

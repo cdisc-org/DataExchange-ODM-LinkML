@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-studyinterventions">Class: StudyInterventions</h1>
+<p><em>The StudyInterventions element is a container element for individual StudyIntervention elements.Element NameStudyInterventionsParent Element(s)ProtocolElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyInterventionsElement Text ValueNoneAttributesNoneChild Elements(StudyIntervention+)Usage/Business Rules</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/StudyInterventions">odm:StudyInterventions</a></p>
 <div class="mermaid"> classDiagram
     class StudyInterventions
@@ -225,7 +226,7 @@
 <tbody>
 <tr>
 <td><a href="../StudyInterventionRefRef/">StudyInterventionRefRef</a></td>
-<td>1..* <br/> <a href="../StudyIntervention/">StudyIntervention</a></td>
+<td>0..* <br/> <a href="../StudyIntervention/">StudyIntervention</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -283,6 +284,10 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: StudyInterventions
+description: The StudyInterventions element is a container element for individual
+  StudyIntervention elements.Element NameStudyInterventionsParent Element(s)ProtocolElement
+  XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyInterventionsElement Text ValueNoneAttributesNoneChild
+  Elements(StudyIntervention+)Usage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventions
@@ -296,10 +301,8 @@ slot_usage:
     - StudyInterventions
     - StudyEstimand
     range: StudyIntervention
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyInterventions
 
 </code></pre>
@@ -307,6 +310,10 @@ class_uri: odm:StudyInterventions
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: StudyInterventions
+description: The StudyInterventions element is a container element for individual
+  StudyIntervention elements.Element NameStudyInterventionsParent Element(s)ProtocolElement
+  XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyInterventionsElement Text ValueNoneAttributesNoneChild
+  Elements(StudyIntervention+)Usage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventions
@@ -318,26 +325,23 @@ slot_usage:
     - StudyInterventions
     - StudyEstimand
     range: StudyIntervention
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   StudyInterventionRefRef:
     name: StudyInterventionRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyInterventionRefRef
     owner: StudyInterventions
     domain_of:
     - StudyInterventions
     - StudyEstimand
     range: StudyIntervention
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyInterventions
 
 </code></pre>

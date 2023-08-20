@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-referencedata">Class: ReferenceData</h1>
+<p><em>Reference data provides information on how to interpret clinical data. For example, reference data might include lab normal ranges. For a study that uses CDISC standards, reference data might include SDTM Trial Design datasets.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ReferenceData">odm:ReferenceData</a></p>
 <div class="mermaid"> classDiagram
     class ReferenceData
@@ -241,14 +242,14 @@
 <tbody>
 <tr>
 <td><a href="../StudyOID/">StudyOID</a></td>
-<td>1..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>References the Study that defines the metadata for this reference data</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../MetaDataVersionOID/">MetaDataVersionOID</a></td>
-<td>1..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>References the MetaDataVersion (within the above Study) for this reference da...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -271,7 +272,7 @@
 </tr>
 <tr>
 <td><a href="../AnnotationRef/">AnnotationRef</a></td>
-<td>0..* <br/> <a href="../Annotation/">Annotation</a></td>
+<td>0..1 <br/> <a href="../Annotation/">Annotation</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -329,6 +330,9 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ReferenceData
+description: Reference data provides information on how to interpret clinical data.
+  For example, reference data might include lab normal ranges. For a study that uses
+  CDISC standards, reference data might include SDTM Trial Design datasets.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ReferenceData
@@ -342,6 +346,15 @@ slots:
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: References the Study that defines the metadata for this reference
+      data.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a Study element with a MetaDataVersion OID attribute that
+      matches the MetaDataVersionOID.'
     domain_of:
     - Include
     - SourceItem
@@ -355,6 +368,19 @@ slot_usage:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References the MetaDataVersion (within the above Study) for this
+      reference data. All metadata references (OIDs) occurring within this ReferenceData
+      element refer to definitions within the selected metadata version. Signature
+      elements nested within ReferenceData have no meaning, and should be ignored.
+      The TransactionType attribute behaves the same within ReferenceData as it does
+      within ClinicalData.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a MetaDataVersion within a Study element with an OID attribute
+      that matches the StudyOID.'
     domain_of:
     - Include
     - SourceItem
@@ -402,7 +428,6 @@ slot_usage:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
-    multivalued: true
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -412,8 +437,7 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 class_uri: odm:ReferenceData
 
 </code></pre>
@@ -421,12 +445,24 @@ class_uri: odm:ReferenceData
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ReferenceData
+description: Reference data provides information on how to interpret clinical data.
+  For example, reference data might include lab normal ranges. For a study that uses
+  CDISC standards, reference data might include SDTM Trial Design datasets.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ReferenceData
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: References the Study that defines the metadata for this reference
+      data.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a Study element with a MetaDataVersion OID attribute that
+      matches the MetaDataVersionOID.'
     domain_of:
     - Include
     - SourceItem
@@ -440,6 +476,19 @@ slot_usage:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References the MetaDataVersion (within the above Study) for this
+      reference data. All metadata references (OIDs) occurring within this ReferenceData
+      element refer to definitions within the selected metadata version. Signature
+      elements nested within ReferenceData have no meaning, and should be ignored.
+      The TransactionType attribute behaves the same within ReferenceData as it does
+      within ClinicalData.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a MetaDataVersion within a Study element with an OID attribute
+      that matches the StudyOID.'
     domain_of:
     - Include
     - SourceItem
@@ -487,7 +536,6 @@ slot_usage:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
-    multivalued: true
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -497,11 +545,19 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 attributes:
   StudyOID:
     name: StudyOID
+    description: References the Study that defines the metadata for this reference
+      data.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a Study element with a MetaDataVersion OID attribute that
+      matches the MetaDataVersionOID.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyOID
@@ -519,6 +575,19 @@ attributes:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References the MetaDataVersion (within the above Study) for this
+      reference data. All metadata references (OIDs) occurring within this ReferenceData
+      element refer to definitions within the selected metadata version. Signature
+      elements nested within ReferenceData have no meaning, and should be ignored.
+      The TransactionType attribute behaves the same within ReferenceData as it does
+      within ClinicalData.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a MetaDataVersion within a Study element with an OID attribute
+      that matches the StudyOID.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: MetaDataVersionOID
@@ -538,6 +607,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ItemGroupDataRef
     owner: ReferenceData
     domain_of:
@@ -552,6 +622,7 @@ attributes:
     name: AuditRecordRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: AuditRecordRef
     owner: ReferenceData
     domain_of:
@@ -568,6 +639,7 @@ attributes:
     name: SignatureRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: SignatureRefRef
     owner: ReferenceData
     domain_of:
@@ -584,7 +656,7 @@ attributes:
     name: AnnotationRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    multivalued: true
+    identifier: false
     alias: AnnotationRef
     owner: ReferenceData
     domain_of:
@@ -596,8 +668,7 @@ attributes:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 class_uri: odm:ReferenceData
 
 </code></pre>

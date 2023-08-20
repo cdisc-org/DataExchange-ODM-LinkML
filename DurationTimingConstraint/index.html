@@ -237,7 +237,7 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="../Oid/">Oid</a></td>
+<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
 <td>Unique identifier of the version within the XML document</td>
 <td>direct</td>
 </tr>
@@ -249,25 +249,25 @@
 </tr>
 <tr>
 <td><a href="../StructuralElementOID/">StructuralElementOID</a></td>
-<td>1..1 <br/> <a href="../Oidref/">Oidref</a></td>
+<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DurationTarget/">DurationTarget</a></td>
-<td>1..1 <br/> <a href="../DurationDatetime/">DurationDatetime</a></td>
+<td>1..1 <br/> <a href="DurationDatetime.md">DurationDatetime</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DurationPreWindow/">DurationPreWindow</a></td>
-<td>0..1 <br/> <a href="../DurationDatetime/">DurationDatetime</a></td>
+<td>0..1 <br/> <a href="DurationDatetime.md">DurationDatetime</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DurationPostWindow/">DurationPostWindow</a></td>
-<td>0..1 <br/> <a href="../DurationDatetime/">DurationDatetime</a></td>
+<td>0..1 <br/> <a href="DurationDatetime.md">DurationDatetime</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -782,6 +782,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: DurationTimingConstraint
     domain_of:

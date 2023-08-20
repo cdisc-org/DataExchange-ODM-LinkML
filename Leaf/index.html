@@ -203,14 +203,14 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-leaf">Class: Leaf</h1>
 <p><em>Contains the XLink information referenced by DocumentRef or ArchiveLocationID</em></p>
-<p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/leaf">odm:leaf</a></p>
+<p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Leaf">odm:Leaf</a></p>
 <div class="mermaid"> classDiagram
     class Leaf
       Leaf : href
 
       Leaf : ID
 
-      Leaf : title
+      Leaf : Title
 
 
 </div>
@@ -228,19 +228,19 @@
 <tbody>
 <tr>
 <td><a href="../ID/">ID</a></td>
-<td>1..1 <br/> <a href="../Oid/">Oid</a></td>
-<td>Unique identifier for the leaf that is referenced</td>
+<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
+<td>Unique ID for the Leaf</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../href/">href</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>1..1 <br/> <a href="Uriorcurie.md">Uriorcurie</a></td>
 <td>URL that can be used to identify the location of a document or dataset file r...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../title/">title</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
+<td><a href="../Title/">Title</a></td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
 <td>Text with the label for the document or dataset</td>
 <td>direct</td>
 </tr>
@@ -259,13 +259,13 @@
 <tbody>
 <tr>
 <td><a href="../MetaDataVersion/">MetaDataVersion</a></td>
-<td><a href="../leafRef/">leafRef</a></td>
+<td><a href="../LeafRef/">LeafRef</a></td>
 <td>range</td>
 <td><a href="./">Leaf</a></td>
 </tr>
 <tr>
 <td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
-<td><a href="../leafRef/">leafRef</a></td>
+<td><a href="../LeafRef/">LeafRef</a></td>
 <td>range</td>
 <td><a href="./">Leaf</a></td>
 </tr>
@@ -273,7 +273,7 @@
 </table>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="https://wiki.cdisc.org/display/ODM2/leaf">https://wiki.cdisc.org/display/ODM2/leaf</a></li>
+<li><a href="https://wiki.cdisc.org/display/ODM2/Leaf">https://wiki.cdisc.org/display/ODM2/Leaf</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -291,7 +291,7 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>odm:leaf</td>
+<td>odm:Leaf</td>
 </tr>
 <tr>
 <td>native</td>
@@ -303,123 +303,179 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: leaf
+<pre><code class="language-yaml">name: Leaf
 description: Contains the XLink information referenced by DocumentRef or ArchiveLocationID
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/leaf
+- https://wiki.cdisc.org/display/ODM2/Leaf
 slots:
 - ID
 - href
-- title
+- Title
 slot_usage:
   ID:
     name: ID
+    description: 'Unique ID for the Leaf. See Section 2.13, Element Identifiers and
+      References , for OID considerations. Business Rule: Leaf ID attributes must
+      be unique within the ODM document (i.e., there can be no 2 Leaf elements with
+      the same ID attribute).'
+    comments:
+    - 'Required
+
+      enum values:The Leaf ID is based on the XML xs:ID datatype, which is a Non-Colonized
+      Name; therefore, ID attributes must start with either a letter or underscore
+      (_), and may contain only letters, digits, underscores, hyphens and periods.'
     domain_of:
-    - leaf
+    - Leaf
     - Signature
     - Annotation
     range: oid
     required: true
   href:
     name: href
+    description: 'URL that can be used to identify the location of a document or dataset
+      file relative to the folder containing the ODM file. If the file is not located
+      in the same folder as the ODM file, a relative file path should be included.
+      Business Rule: For regulatory submissions to the FDA, the locations specified
+      have to conform to locations allowed in the eCTD, in the Technical Conformance
+      Guide for the relevant regulatory authority and the study data specifications. '
+    comments:
+    - 'Required
+
+      range:xsd:anyURI'
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image
     - Coding
+    range: uriorcurie
     required: true
-  title:
-    name: title
+  Title:
+    name: Title
     description: Text with the label for the document or dataset.
     domain_of:
-    - leaf
-    required: true
-    minimum_cardinality: 1
+    - PDFPageRef
+    - Leaf
     maximum_cardinality: 1
-class_uri: odm:leaf
+class_uri: odm:Leaf
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: leaf
+<pre><code class="language-yaml">name: Leaf
 description: Contains the XLink information referenced by DocumentRef or ArchiveLocationID
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/leaf
+- https://wiki.cdisc.org/display/ODM2/Leaf
 slot_usage:
   ID:
     name: ID
+    description: 'Unique ID for the Leaf. See Section 2.13, Element Identifiers and
+      References , for OID considerations. Business Rule: Leaf ID attributes must
+      be unique within the ODM document (i.e., there can be no 2 Leaf elements with
+      the same ID attribute).'
+    comments:
+    - 'Required
+
+      enum values:The Leaf ID is based on the XML xs:ID datatype, which is a Non-Colonized
+      Name; therefore, ID attributes must start with either a letter or underscore
+      (_), and may contain only letters, digits, underscores, hyphens and periods.'
     domain_of:
-    - leaf
+    - Leaf
     - Signature
     - Annotation
     range: oid
     required: true
   href:
     name: href
+    description: 'URL that can be used to identify the location of a document or dataset
+      file relative to the folder containing the ODM file. If the file is not located
+      in the same folder as the ODM file, a relative file path should be included.
+      Business Rule: For regulatory submissions to the FDA, the locations specified
+      have to conform to locations allowed in the eCTD, in the Technical Conformance
+      Guide for the relevant regulatory authority and the study data specifications. '
+    comments:
+    - 'Required
+
+      range:xsd:anyURI'
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image
     - Coding
+    range: uriorcurie
     required: true
-  title:
-    name: title
+  Title:
+    name: Title
     description: Text with the label for the document or dataset.
     domain_of:
-    - leaf
-    required: true
-    minimum_cardinality: 1
+    - PDFPageRef
+    - Leaf
     maximum_cardinality: 1
 attributes:
   ID:
     name: ID
-    description: Unique identifier for the leaf that is referenced.
+    description: 'Unique ID for the Leaf. See Section 2.13, Element Identifiers and
+      References , for OID considerations. Business Rule: Leaf ID attributes must
+      be unique within the ODM document (i.e., there can be no 2 Leaf elements with
+      the same ID attribute).'
+    comments:
+    - 'Required
+
+      enum values:The Leaf ID is based on the XML xs:ID datatype, which is a Non-Colonized
+      Name; therefore, ID attributes must start with either a letter or underscore
+      (_), and may contain only letters, digits, underscores, hyphens and periods.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
     alias: ID
-    owner: leaf
+    owner: Leaf
     domain_of:
-    - leaf
+    - Leaf
     - Signature
     - Annotation
     range: oid
     required: true
   href:
     name: href
-    description: URL that can be used to identify the location of a document or dataset
-      file relative to the folder containing the ODM file.
+    description: 'URL that can be used to identify the location of a document or dataset
+      file relative to the folder containing the ODM file. If the file is not located
+      in the same folder as the ODM file, a relative file path should be included.
+      Business Rule: For regulatory submissions to the FDA, the locations specified
+      have to conform to locations allowed in the eCTD, in the Technical Conformance
+      Guide for the relevant regulatory authority and the study data specifications. '
+    comments:
+    - 'Required
+
+      range:xsd:anyURI'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: href
-    owner: leaf
+    owner: Leaf
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image
     - Coding
-    range: string
+    range: uriorcurie
     required: true
-  title:
-    name: title
+  Title:
+    name: Title
     description: Text with the label for the document or dataset.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: title
-    owner: leaf
+    alias: Title
+    owner: Leaf
     domain_of:
-    - leaf
-    range: string
-    required: true
-    minimum_cardinality: 1
+    - PDFPageRef
+    - Leaf
+    range: text
     maximum_cardinality: 1
-class_uri: odm:leaf
+class_uri: odm:Leaf
 
 </code></pre>
 </details>

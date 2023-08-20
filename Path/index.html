@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-path">Slot: Path</h1>
+<p><em>Provides the machine-executable instruction or template for it to obtain the data or information from the resource. The value of the Path attribute can either be an absolute path, or a relative path starting from the information in the "Name" and "Attribute" attributes of the parent Resource element.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Path">odm:Path</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,14 +328,14 @@
 <tbody>
 <tr>
 <td><a href="../Selection/">Selection</a></td>
-<td></td>
+<td>Template for machine-readable/executable expression for retrieving the data o...</td>
 <td>yes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Text/">Text</a></li>
+<li>Range: <a href="Text.md">Text</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -345,6 +346,10 @@
 <details>
 
 <pre><code class="language-yaml">name: Path
+description: Provides the machine-executable instruction or template for it to obtain
+  the data or information from the resource. The value of the Path attribute can either
+  be an absolute path, or a relative path starting from the information in the &quot;Name&quot;
+  and &quot;Attribute&quot; attributes of the parent Resource element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Path

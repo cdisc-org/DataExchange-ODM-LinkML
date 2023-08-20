@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-query">Class: Query</h1>
+<p><em>The Query element represents a request for clarification on a data item collected for a clinical trial, specifically a request from a sponsor or sponsor’s representative to an investigator to resolve an error or inconsistency discovered during data review. Queries can be created manually by individuals such as site monitors or data managers or automatically by systems. The full text of the Query exists in the Value child element. The optional Name attribute provide the means to provide a short identifier that can be included in listing or user interfaces.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Query">odm:Query</a></p>
 <div class="mermaid"> classDiagram
     class Query
@@ -249,50 +250,50 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="../Oid/">Oid</a></td>
-<td>Unique identifier of the version within the XML document</td>
+<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
+<td>Query unique identifier</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Source/">Source</a></td>
 <td>1..1 <br/> <a href="../QuerySourceType/">QuerySourceType</a></td>
-<td></td>
+<td>Origin of the Query</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Target/">Target</a></td>
-<td>0..1 <br/> <a href="../Text/">Text</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>Element upon which the Query is raised</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Type/">Type</a></td>
 <td>0..1 <br/> <a href="../QueryType/">QueryType</a></td>
-<td>Type of page for page references indicated in the PageRefs attribute</td>
+<td>Indicates whether Is the Query was raised manually by a user or automatically...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../State/">State</a></td>
 <td>1..1 <br/> <a href="../QueryStateType/">QueryStateType</a></td>
-<td></td>
+<td>Status of the Query</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../LastUpdateDatetime/">LastUpdateDatetime</a></td>
-<td>1..1 <br/> <a href="../Datetime/">Datetime</a></td>
-<td></td>
+<td>1..1 <br/> <a href="Datetime.md">Datetime</a></td>
+<td>When was this Query updated? Will correspond to the creation date or the last...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
 <td>0..1 <br/> <a href="../Name/">Name</a></td>
-<td>General observation Sub Class</td>
+<td>Name for a query that can be used to identify the query in a listing or user ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ValueRef/">ValueRef</a></td>
-<td>1..1 <br/> <a href="../Value/">Value</a></td>
-<td></td>
+<td>0..1 <br/> <a href="../Value/">Value</a></td>
+<td>Human-readable designation of the trial phase</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -385,6 +386,13 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Query
+description: The Query element represents a request for clarification on a data item
+  collected for a clinical trial, specifically a request from a sponsor or sponsor’s
+  representative to an investigator to resolve an error or inconsistency discovered
+  during data review. Queries can be created manually by individuals such as site
+  monitors or data managers or automatically by systems. The full text of the Query
+  exists in the Value child element. The optional Name attribute provide the means
+  to provide a short identifier that can be included in listing or user interfaces.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Query
@@ -401,6 +409,9 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Query unique identifier
+    comments:
+    - Must be unique within a Study.
     domain_of:
     - Study
     - MetaDataVersion
@@ -443,6 +454,7 @@ slot_usage:
     required: true
   Source:
     name: Source
+    description: Origin of the Query.
     domain_of:
     - Origin
     - Query
@@ -450,12 +462,21 @@ slot_usage:
     required: true
   Target:
     name: Target
+    description: 'Element upon which the Query is raised. The parent element is the
+      Target when the Target attribute is omitted. '
+    comments:
+    - Optional
     domain_of:
     - Query
     range: text
   Type:
     name: Type
+    description: Indicates whether Is the Query was raised manually by a user or automatically
+      via an edit check.
+    comments:
+    - Optional
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -463,7 +484,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -473,18 +493,25 @@ slot_usage:
     range: QueryType
   State:
     name: State
+    description: Status of the Query
     domain_of:
     - Query
     range: QueryStateType
     required: true
   LastUpdateDatetime:
     name: LastUpdateDatetime
+    description: When was this Query updated? Will correspond to the creation date
+      or the last updated date?
     domain_of:
     - Query
     range: datetime
     required: true
   Name:
     name: Name
+    description: Name for a query that can be used to identify the query in a listing
+      or user interface.
+    comments:
+    - Optional
     domain_of:
     - Alias
     - MetaDataVersion
@@ -527,11 +554,10 @@ slot_usage:
     domain_of:
     - TrialPhase
     - ParameterValue
+    - Telecom
     - ItemData
     - Query
     range: Value
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   AuditRecordRef:
     name: AuditRecordRef
@@ -554,12 +580,22 @@ class_uri: odm:Query
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Query
+description: The Query element represents a request for clarification on a data item
+  collected for a clinical trial, specifically a request from a sponsor or sponsor’s
+  representative to an investigator to resolve an error or inconsistency discovered
+  during data review. Queries can be created manually by individuals such as site
+  monitors or data managers or automatically by systems. The full text of the Query
+  exists in the Value child element. The optional Name attribute provide the means
+  to provide a short identifier that can be included in listing or user interfaces.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Query
 slot_usage:
   OID:
     name: OID
+    description: Query unique identifier
+    comments:
+    - Must be unique within a Study.
     domain_of:
     - Study
     - MetaDataVersion
@@ -602,6 +638,7 @@ slot_usage:
     required: true
   Source:
     name: Source
+    description: Origin of the Query.
     domain_of:
     - Origin
     - Query
@@ -609,12 +646,21 @@ slot_usage:
     required: true
   Target:
     name: Target
+    description: 'Element upon which the Query is raised. The parent element is the
+      Target when the Target attribute is omitted. '
+    comments:
+    - Optional
     domain_of:
     - Query
     range: text
   Type:
     name: Type
+    description: Indicates whether Is the Query was raised manually by a user or automatically
+      via an edit check.
+    comments:
+    - Optional
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -622,7 +668,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -632,18 +677,25 @@ slot_usage:
     range: QueryType
   State:
     name: State
+    description: Status of the Query
     domain_of:
     - Query
     range: QueryStateType
     required: true
   LastUpdateDatetime:
     name: LastUpdateDatetime
+    description: When was this Query updated? Will correspond to the creation date
+      or the last updated date?
     domain_of:
     - Query
     range: datetime
     required: true
   Name:
     name: Name
+    description: Name for a query that can be used to identify the query in a listing
+      or user interface.
+    comments:
+    - Optional
     domain_of:
     - Alias
     - MetaDataVersion
@@ -686,11 +738,10 @@ slot_usage:
     domain_of:
     - TrialPhase
     - ParameterValue
+    - Telecom
     - ItemData
     - Query
     range: Value
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   AuditRecordRef:
     name: AuditRecordRef
@@ -709,7 +760,9 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Query unique identifier
+    comments:
+    - Must be unique within a Study.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -757,6 +810,7 @@ attributes:
     required: true
   Source:
     name: Source
+    description: Origin of the Query.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Source
@@ -768,6 +822,10 @@ attributes:
     required: true
   Target:
     name: Target
+    description: 'Element upon which the Query is raised. The parent element is the
+      Target when the Target attribute is omitted. '
+    comments:
+    - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Target
@@ -777,12 +835,16 @@ attributes:
     range: text
   Type:
     name: Type
-    description: Type of page for page references indicated in the PageRefs attribute.
+    description: Indicates whether Is the Query was raised manually by a user or automatically
+      via an edit check.
+    comments:
+    - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Type
     owner: Query
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -790,7 +852,6 @@ attributes:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -800,6 +861,7 @@ attributes:
     range: QueryType
   State:
     name: State
+    description: Status of the Query
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: State
@@ -810,6 +872,8 @@ attributes:
     required: true
   LastUpdateDatetime:
     name: LastUpdateDatetime
+    description: When was this Query updated? Will correspond to the creation date
+      or the last updated date?
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: LastUpdateDatetime
@@ -820,7 +884,10 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Name for a query that can be used to identify the query in a listing
+      or user interface.
+    comments:
+    - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -864,24 +931,26 @@ attributes:
     range: name
   ValueRef:
     name: ValueRef
+    description: Human-readable designation of the trial phase.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: ValueRef
     owner: Query
     domain_of:
     - TrialPhase
     - ParameterValue
+    - Telecom
     - ItemData
     - Query
     range: Value
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   AuditRecordRef:
     name: AuditRecordRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: AuditRecordRef
     owner: Query
     domain_of:

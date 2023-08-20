@@ -327,52 +327,52 @@
 <tbody>
 <tr>
 <td><a href="../Description/">Description</a></td>
-<td></td>
+<td>A free-text description of the containing metadata component, unless restrict...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Question/">Question</a></td>
-<td></td>
+<td>A label shown to a human user when prompted to provide data for an item on pa...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Definition/">Definition</a></td>
-<td></td>
+<td>Definition of the item</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Prompt/">Prompt</a></td>
-<td></td>
+<td>A prompt text shown to a human user when prompted to provide data for an item...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../CRFCompletionInstructions/">CRFCompletionInstructions</a></td>
-<td></td>
+<td>Instructions for the clinical site on how to enter collected information on t...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ImplementationNotes/">ImplementationNotes</a></td>
-<td></td>
+<td>Further information, such as rationale and implementation instructions, on ho...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../CDISCNotes/">CDISCNotes</a></td>
-<td></td>
+<td>Explanatory text for the variable</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ErrorMessage/">ErrorMessage</a></td>
-<td></td>
+<td>Error message provided to user when the range check fails</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Decode/">Decode</a></td>
-<td></td>
+<td>The displayed value relating to the CodeListItem/@CodedValue</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Comment/">Comment</a></td>
-<td></td>
+<td>A free-text (uninterpreted) comment about clinical data</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -392,6 +392,7 @@
 <pre><code class="language-yaml">name: TranslatedTextRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: TranslatedTextRef
 domain_of:
 - Description

@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-methoddef">Class: MethodDef</h1>
+<p><em>A MethodDef defines how a data value can be obtained from a collection of other data values.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/MethodDef">odm:MethodDef</a></p>
 <div class="mermaid"> classDiagram
     class MethodDef
@@ -251,37 +252,37 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="../Oid/">Oid</a></td>
-<td>Unique identifier of the version within the XML document</td>
+<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
+<td>Unique identifer for the MethodDef element</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
 <td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td>General observation Sub Class</td>
+<td>Human readable name for the method</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Type/">Type</a></td>
 <td>0..1 <br/> <a href="../MethodType/">MethodType</a></td>
-<td>Type of page for page references indicated in the PageRefs attribute</td>
+<td>Computation: derivation involving one or more variables</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CommentOID/">CommentOID</a></td>
-<td>0..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td>The Comment identifier that this value refers to</td>
+<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to a CommentDef with information related to this MethodDef</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DescriptionRef/">DescriptionRef</a></td>
-<td>1..1 <br/> <a href="../Description/">Description</a></td>
+<td>0..1 <br/> <a href="../Description/">Description</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../MethodSignatureRef/">MethodSignatureRef</a></td>
-<td>1..1 <br/> <a href="../MethodSignature/">MethodSignature</a></td>
+<td>0..1 <br/> <a href="../MethodSignature/">MethodSignature</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -357,6 +358,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: MethodDef
+description: A MethodDef defines how a data value can be obtained from a collection
+  of other data values.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MethodDef
@@ -373,6 +376,11 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifer for the MethodDef element.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -415,6 +423,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable name for the method.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -455,7 +468,15 @@ slot_usage:
     required: true
   Type:
     name: Type
+    description: 'Computation: derivation involving one or more variables. Imputation:
+      derivation based on other observations. Transpose: conversion of rows to columns
+      or vice versa. Preload: retrieve and populate data from an external source.'
+    comments:
+    - 'Optional
+
+      enum values:(Computation | Imputation | Transpose | Preload)'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -463,7 +484,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -473,6 +493,11 @@ slot_usage:
     range: MethodType
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef with information related to this MethodDef.
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -528,8 +553,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   MethodSignatureRef:
     name: MethodSignatureRef
@@ -538,8 +561,6 @@ slot_usage:
     - MethodDef
     - ConditionDef
     range: MethodSignature
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   FormalExpressionRef:
     name: FormalExpressionRef
@@ -587,12 +608,19 @@ class_uri: odm:MethodDef
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: MethodDef
+description: A MethodDef defines how a data value can be obtained from a collection
+  of other data values.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MethodDef
 slot_usage:
   OID:
     name: OID
+    description: Unique identifer for the MethodDef element.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -635,6 +663,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable name for the method.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -675,7 +708,15 @@ slot_usage:
     required: true
   Type:
     name: Type
+    description: 'Computation: derivation involving one or more variables. Imputation:
+      derivation based on other observations. Transpose: conversion of rows to columns
+      or vice versa. Preload: retrieve and populate data from an external source.'
+    comments:
+    - 'Optional
+
+      enum values:(Computation | Imputation | Transpose | Preload)'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -683,7 +724,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -693,6 +733,11 @@ slot_usage:
     range: MethodType
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef with information related to this MethodDef.
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -748,8 +793,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   MethodSignatureRef:
     name: MethodSignatureRef
@@ -758,8 +801,6 @@ slot_usage:
     - MethodDef
     - ConditionDef
     range: MethodSignature
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   FormalExpressionRef:
     name: FormalExpressionRef
@@ -803,7 +844,11 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifer for the MethodDef element.
+    comments:
+    - 'Required
+
+      range:oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -851,7 +896,11 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Human readable name for the method.
+    comments:
+    - 'Required
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -896,12 +945,19 @@ attributes:
     required: true
   Type:
     name: Type
-    description: Type of page for page references indicated in the PageRefs attribute.
+    description: 'Computation: derivation involving one or more variables. Imputation:
+      derivation based on other observations. Transpose: conversion of rows to columns
+      or vice versa. Preload: retrieve and populate data from an external source.'
+    comments:
+    - 'Optional
+
+      enum values:(Computation | Imputation | Transpose | Preload)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Type
     owner: MethodDef
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -909,7 +965,6 @@ attributes:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -919,9 +974,11 @@ attributes:
     range: MethodType
   CommentOID:
     name: CommentOID
-    description: "The Comment identifier that this value refers to. Needed when the\
-      \ WhereClause references Items across different domains.\n                The\
-      \ Comment would define any join assumptions."
+    description: Reference to a CommentDef with information related to this MethodDef.
+    comments:
+    - 'Optional
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CommentOID
@@ -944,6 +1001,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: MethodDef
     domain_of:
@@ -985,13 +1043,12 @@ attributes:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   MethodSignatureRef:
     name: MethodSignatureRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: MethodSignatureRef
     owner: MethodDef
     domain_of:
@@ -999,14 +1056,13 @@ attributes:
     - MethodDef
     - ConditionDef
     range: MethodSignature
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   FormalExpressionRef:
     name: FormalExpressionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: FormalExpressionRef
     owner: MethodDef
     domain_of:
@@ -1023,6 +1079,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: AliasRef
     owner: MethodDef
     domain_of:
@@ -1044,6 +1101,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: DocumentRefRef
     owner: MethodDef
     domain_of:

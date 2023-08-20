@@ -327,22 +327,22 @@
 <tbody>
 <tr>
 <td><a href="../ReferenceData/">ReferenceData</a></td>
-<td></td>
+<td>Reference data provides information on how to interpret clinical data</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ClinicalData/">ClinicalData</a></td>
-<td></td>
+<td>Clinical data for 1 or more subjects</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../StudyEventData/">StudyEventData</a></td>
-<td></td>
+<td>Clinical data for a study event (visit)</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ItemGroupData/">ItemGroupData</a></td>
-<td></td>
+<td>Clinical data corresponding to an ItemGroupRef defined in the active MetaData...</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -362,6 +362,7 @@
 <pre><code class="language-yaml">name: ItemGroupDataRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ItemGroupDataRef
 domain_of:
 - ReferenceData

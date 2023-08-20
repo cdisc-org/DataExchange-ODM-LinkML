@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-startconditionoid">Slot: StartConditionOID</h1>
+<p><em>The StartConditionOID references a ConditionDef specifying a condition that must be met for the transition to start. For example, if the source structural element is a StudyEventGroupDef describing the activities for study screening and the target structural element is a StudyEventGroupDef describing study enrollment, the ConditionDef referenced by the StartConditionOID specifies the criteria that must be met for a subject to transition from screening to enrollment.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/StartConditionOID">odm:StartConditionOID</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,14 +328,14 @@
 <tbody>
 <tr>
 <td><a href="../Transition/">Transition</a></td>
-<td></td>
+<td>A Transition defines a link between 2 structural elements in a workflow</td>
 <td>yes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Oidref/">Oidref</a></li>
+<li>Range: <a href="Oidref.md">Oidref</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -345,6 +346,12 @@
 <details>
 
 <pre><code class="language-yaml">name: StartConditionOID
+description: The StartConditionOID references a ConditionDef specifying a condition
+  that must be met for the transition to start. For example, if the source structural
+  element is a StudyEventGroupDef describing the activities for study screening and
+  the target structural element is a StudyEventGroupDef describing study enrollment,
+  the ConditionDef referenced by the StartConditionOID specifies the criteria that
+  must be met for a subject to transition from screening to enrollment.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: StartConditionOID

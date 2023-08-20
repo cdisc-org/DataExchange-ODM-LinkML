@@ -327,32 +327,32 @@
 <tbody>
 <tr>
 <td><a href="../Location/">Location</a></td>
-<td></td>
+<td>A physical location associated with data collection and/or treatment of subje...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ClinicalData/">ClinicalData</a></td>
-<td></td>
+<td>Clinical data for 1 or more subjects</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../SubjectData/">SubjectData</a></td>
-<td></td>
+<td>Clinical data for a single subject</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../StudyEventData/">StudyEventData</a></td>
-<td></td>
+<td>Clinical data for a study event (visit)</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ItemGroupData/">ItemGroupData</a></td>
-<td></td>
+<td>Clinical data corresponding to an ItemGroupRef defined in the active MetaData...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ItemData/">ItemData</a></td>
-<td></td>
+<td>The ItemData element is used for transmission of the clinical data for an ite...</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -372,6 +372,7 @@
 <pre><code class="language-yaml">name: QueryRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: QueryRef
 domain_of:
 - Location

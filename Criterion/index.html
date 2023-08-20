@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-criterion">Class: Criterion</h1>
+<p><em>The Criterion represents either an inclusion or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria).</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Criterion">odm:Criterion</a></p>
 <div class="mermaid"> classDiagram
     class Criterion
@@ -235,20 +236,20 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="../Oid/">Oid</a></td>
-<td>Unique identifier of the version within the XML document</td>
+<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
+<td>Unique identifier</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
 <td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td>General observation Sub Class</td>
+<td>Criterion name</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ConditionOID/">ConditionOID</a></td>
-<td>1..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to a ConditionDef element</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -335,6 +336,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Criterion
+description: The Criterion represents either an inclusion or an exclusion criterion,
+  depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Criterion
@@ -347,6 +350,9 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier.
+    comments:
+    - Required
     domain_of:
     - Study
     - MetaDataVersion
@@ -389,6 +395,9 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Criterion name.
+    comments:
+    - Required
     domain_of:
     - Alias
     - MetaDataVersion
@@ -429,6 +438,11 @@ slot_usage:
     required: true
   ConditionOID:
     name: ConditionOID
+    description: Reference to a ConditionDef element.
+    comments:
+    - 'Optional
+
+      Must match a ConditionDef/@OID child element.'
     domain_of:
     - TargetTransition
     - Criterion
@@ -507,12 +521,17 @@ class_uri: odm:Criterion
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Criterion
+description: The Criterion represents either an inclusion or an exclusion criterion,
+  depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Criterion
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier.
+    comments:
+    - Required
     domain_of:
     - Study
     - MetaDataVersion
@@ -555,6 +574,9 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Criterion name.
+    comments:
+    - Required
     domain_of:
     - Alias
     - MetaDataVersion
@@ -595,6 +617,11 @@ slot_usage:
     required: true
   ConditionOID:
     name: ConditionOID
+    description: Reference to a ConditionDef element.
+    comments:
+    - 'Optional
+
+      Must match a ConditionDef/@OID child element.'
     domain_of:
     - TargetTransition
     - Criterion
@@ -669,7 +696,9 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -717,7 +746,9 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Criterion name.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -762,6 +793,11 @@ attributes:
     required: true
   ConditionOID:
     name: ConditionOID
+    description: Reference to a ConditionDef element.
+    comments:
+    - 'Optional
+
+      Must match a ConditionDef/@OID child element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ConditionOID
@@ -776,6 +812,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: Criterion
     domain_of:
@@ -823,6 +860,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: Criterion
     domain_of:

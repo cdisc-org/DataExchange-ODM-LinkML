@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-parametervalue">Class: ParameterValue</h1>
+<p><em>This element contains the value of the study parameter as text content.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ParameterValue">odm:ParameterValue</a></p>
 <div class="mermaid"> classDiagram
     class ParameterValue
@@ -227,8 +228,8 @@
 <tbody>
 <tr>
 <td><a href="../ValueRef/">ValueRef</a></td>
-<td>1..1 <br/> <a href="../Text/">Text</a></td>
-<td></td>
+<td>1..1 <br/> <a href="Text.md">Text</a></td>
+<td>Value for parent StudyParameter/@Term</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -291,6 +292,7 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ParameterValue
+description: This element contains the value of the study parameter as text content.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ParameterValue
@@ -300,9 +302,18 @@ slots:
 slot_usage:
   ValueRef:
     name: ValueRef
+    description: Value for parent StudyParameter/@Term.
+    comments:
+    - 'Required
+
+      range:text
+
+      When there is a Coding child element, the Values will reflect the requirements
+      of the referenced coding system.'
     domain_of:
     - TrialPhase
     - ParameterValue
+    - Telecom
     - ItemData
     - Query
     range: text
@@ -337,15 +348,25 @@ class_uri: odm:ParameterValue
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ParameterValue
+description: This element contains the value of the study parameter as text content.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ParameterValue
 slot_usage:
   ValueRef:
     name: ValueRef
+    description: Value for parent StudyParameter/@Term.
+    comments:
+    - 'Required
+
+      range:text
+
+      When there is a Coding child element, the Values will reflect the requirements
+      of the referenced coding system.'
     domain_of:
     - TrialPhase
     - ParameterValue
+    - Telecom
     - ItemData
     - Query
     range: text
@@ -376,13 +397,23 @@ slot_usage:
 attributes:
   ValueRef:
     name: ValueRef
+    description: Value for parent StudyParameter/@Term.
+    comments:
+    - 'Required
+
+      range:text
+
+      When there is a Coding child element, the Values will reflect the requirements
+      of the referenced coding system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: ValueRef
     owner: ParameterValue
     domain_of:
     - TrialPhase
     - ParameterValue
+    - Telecom
     - ItemData
     - Query
     range: text
@@ -392,6 +423,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: ParameterValue
     domain_of:

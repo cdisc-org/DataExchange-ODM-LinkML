@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-definitionref">Slot: DefinitionRef</h1>
+<p><em>A free-text definition of the parameter</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/DefinitionRef">odm:DefinitionRef</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,17 +328,17 @@
 <tbody>
 <tr>
 <td><a href="../ItemDef/">ItemDef</a></td>
-<td></td>
+<td>An ItemDef describes a type of item that can occur within a study</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Parameter/">Parameter</a></td>
-<td></td>
+<td>The Parameter element represents a method parameter used as part of a MethodS...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ReturnValue/">ReturnValue</a></td>
-<td></td>
+<td>The ReturnValue element represents a return value used as part of a MethodSig...</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -355,8 +356,10 @@
 <details>
 
 <pre><code class="language-yaml">name: DefinitionRef
+description: A free-text definition of the parameter
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: DefinitionRef
 domain_of:
 - ItemDef

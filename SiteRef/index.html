@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-siteref">Class: SiteRef</h1>
+<p><em>lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType is Transactional.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/SiteRef">odm:SiteRef</a></p>
 <div class="mermaid"> classDiagram
     class SiteRef
@@ -223,8 +224,8 @@
 <tbody>
 <tr>
 <td><a href="../LocationOID/">LocationOID</a></td>
-<td>1..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to a Location definition</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -281,6 +282,9 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: SiteRef
+description: lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement
+  Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness
+  Rule(s):Must be provided when the /ODM/FileType is Transactional.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SiteRef
@@ -289,6 +293,14 @@ slots:
 slot_usage:
   LocationOID:
     name: LocationOID
+    description: Reference to a Location definition.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID attribute value for an AdminData/Location element where the
+      AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID. '
     domain_of:
     - User
     - Organization
@@ -303,12 +315,23 @@ class_uri: odm:SiteRef
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: SiteRef
+description: lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement
+  Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness
+  Rule(s):Must be provided when the /ODM/FileType is Transactional.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SiteRef
 slot_usage:
   LocationOID:
     name: LocationOID
+    description: Reference to a Location definition.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID attribute value for an AdminData/Location element where the
+      AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID. '
     domain_of:
     - User
     - Organization
@@ -319,6 +342,14 @@ slot_usage:
 attributes:
   LocationOID:
     name: LocationOID
+    description: Reference to a Location definition.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID attribute value for an AdminData/Location element where the
+      AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID. '
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: LocationOID

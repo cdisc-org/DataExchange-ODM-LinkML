@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-studystructure">Class: StudyStructure</h1>
+<p><em>The StudyStructure element describes the general structure of a clinical study with arms, epochs, and workflows.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/StudyStructure">odm:StudyStructure</a></p>
 <div class="mermaid"> classDiagram
     class StudyStructure
@@ -313,6 +314,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: StudyStructure
+description: The StudyStructure element describes the general structure of a clinical
+  study with arms, epochs, and workflows.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyStructure
@@ -399,6 +402,8 @@ class_uri: odm:StudyStructure
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: StudyStructure
+description: The StudyStructure element describes the general structure of a clinical
+  study with arms, epochs, and workflows.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyStructure
@@ -478,6 +483,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: StudyStructure
     domain_of:
@@ -525,6 +531,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ArmRef
     owner: StudyStructure
     domain_of:
@@ -537,6 +544,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: EpochRef
     owner: StudyStructure
     domain_of:
@@ -548,6 +556,7 @@ attributes:
     name: WorkflowRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: WorkflowRefRef
     owner: StudyStructure
     domain_of:

@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-alias">Class: Alias</h1>
+<p><em>An Alias provides an additional name for an element. The Context attribute specifies the application domain in which this additional name is relevant.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Alias">odm:Alias</a></p>
 <div class="mermaid"> classDiagram
     class Alias
@@ -225,14 +226,14 @@
 <tbody>
 <tr>
 <td><a href="../ContextRef/">ContextRef</a></td>
-<td>1..1 <br/> <a href="../Text/">Text</a></td>
-<td></td>
+<td>1..1 <br/> <a href="Text.md">Text</a></td>
+<td>Identifies applicable domain or scope of the mapping</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
-<td>1..1 <br/> <a href="../Text/">Text</a></td>
-<td>General observation Sub Class</td>
+<td>1..1 <br/> <a href="Text.md">Text</a></td>
+<td>Alternate name of the parent element</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -331,6 +332,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Alias
+description: An Alias provides an additional name for an element. The Context attribute
+  specifies the application domain in which this additional name is relevant.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Alias
@@ -340,6 +343,13 @@ slots:
 slot_usage:
   ContextRef:
     name: ContextRef
+    description: Identifies applicable domain or scope of the mapping.
+    comments:
+    - 'Required
+
+      range:text
+
+      Valid values may be defined by users or through schema extensions.'
     domain_of:
     - Alias
     - FormalExpression
@@ -348,6 +358,13 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Alternate name of the parent element.
+    comments:
+    - 'Required
+
+      range:text
+
+      Valid values are dependent on the Context attribute value.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -393,12 +410,21 @@ class_uri: odm:Alias
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Alias
+description: An Alias provides an additional name for an element. The Context attribute
+  specifies the application domain in which this additional name is relevant.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Alias
 slot_usage:
   ContextRef:
     name: ContextRef
+    description: Identifies applicable domain or scope of the mapping.
+    comments:
+    - 'Required
+
+      range:text
+
+      Valid values may be defined by users or through schema extensions.'
     domain_of:
     - Alias
     - FormalExpression
@@ -407,6 +433,13 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Alternate name of the parent element.
+    comments:
+    - 'Required
+
+      range:text
+
+      Valid values are dependent on the Context attribute value.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -448,6 +481,13 @@ slot_usage:
 attributes:
   ContextRef:
     name: ContextRef
+    description: Identifies applicable domain or scope of the mapping.
+    comments:
+    - 'Required
+
+      range:text
+
+      Valid values may be defined by users or through schema extensions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ContextRef
@@ -460,7 +500,13 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Alternate name of the parent element.
+    comments:
+    - 'Required
+
+      range:text
+
+      Valid values are dependent on the Context attribute value.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name

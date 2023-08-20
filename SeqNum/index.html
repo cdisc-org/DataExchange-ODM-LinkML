@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-seqnum">Slot: SeqNum</h1>
+<p>_When more than 1 Value element exists this attribute uniquely identifies each Value and defines the order of a Value in a list of Values. _</p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/SeqNum">odm:SeqNum</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,19 +328,19 @@
 <tbody>
 <tr>
 <td><a href="../Annotation/">Annotation</a></td>
-<td></td>
+<td>A general note about clinical data</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Value/">Value</a></td>
-<td></td>
+<td>The data collected for an item</td>
 <td>yes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../PositiveInteger/">PositiveInteger</a></li>
+<li>Range: <a href="PositiveInteger.md">PositiveInteger</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -350,6 +351,8 @@
 <details>
 
 <pre><code class="language-yaml">name: SeqNum
+description: 'When more than 1 Value element exists this attribute uniquely identifies
+  each Value and defines the order of a Value in a list of Values. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SeqNum

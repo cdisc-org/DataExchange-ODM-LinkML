@@ -312,7 +312,7 @@
 
 
 <h1 id="slot-leafid">Slot: leafID</h1>
-<p><em>Unique identifier for the leaf element with the document location.</em></p>
+<p><em>References a leaf element that provides a reference to another ODM document. This is necessary when the source ItemOID references an ItemDef contained in a different ODM document.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/leafID">odm:leafID</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,13 +327,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../DocumentRef/">DocumentRef</a></td>
-<td>Links to a leaf element with the location of the document</td>
-<td>yes</td>
-</tr>
-<tr>
 <td><a href="../SourceItem/">SourceItem</a></td>
-<td></td>
+<td>Provides the information needed to identify the source metadata</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -341,7 +336,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../String/">String</a></p>
+<p>Range: <a href="Oidref.md">Oidref</a></p>
 </li>
 <li>
 <p>Required: True</p>
@@ -356,19 +351,17 @@
 <details>
 
 <pre><code class="language-yaml">name: leafID
-description: Unique identifier for the leaf element with the document location.
+description: References a leaf element that provides a reference to another ODM document.
+  This is necessary when the source ItemOID references an ItemDef contained in a different
+  ODM document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: true
 alias: leafID
 domain_of:
-- DocumentRef
 - SourceItem
-range: string
+range: oidref
 required: true
-any_of:
-- range: oid
-- range: oidref
 
 </code></pre>
 

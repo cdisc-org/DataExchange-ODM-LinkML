@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-conditionoid">Slot: ConditionOID</h1>
+<p><em>Reference to a ConditionDef defining the condition under which the transition must be executed</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ConditionOID">odm:ConditionOID</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,24 +328,24 @@
 <tbody>
 <tr>
 <td><a href="../TargetTransition/">TargetTransition</a></td>
-<td></td>
+<td>Provides a reference to a Transition element</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Criterion/">Criterion</a></td>
-<td></td>
+<td>The Criterion represents either an inclusion or an exclusion criterion, depen...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ExceptionEvent/">ExceptionEvent</a></td>
-<td></td>
+<td>An ExceptionEvent describes an event that occurs suddenly in a study and that...</td>
 <td>yes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Oidref/">Oidref</a></li>
+<li>Range: <a href="Oidref.md">Oidref</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -355,6 +356,8 @@
 <details>
 
 <pre><code class="language-yaml">name: ConditionOID
+description: Reference to a ConditionDef defining the condition under which the transition
+  must be executed
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ConditionOID

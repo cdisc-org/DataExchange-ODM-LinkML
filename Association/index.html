@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-association">Class: Association</h1>
+<p><em>An association permits an annotation to be placed on an ordered pair of entities rather than on just one. The first and second KeySets identify the start and end of the annotated "link."</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Association">odm:Association</a></p>
 <div class="mermaid"> classDiagram
     class Association
@@ -233,31 +234,31 @@
 <tbody>
 <tr>
 <td><a href="../StudyOID/">StudyOID</a></td>
-<td>1..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to an ODM Study element</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../MetaDataVersionOID/">MetaDataVersionOID</a></td>
-<td>1..1 <br/> <a href="../Oidref/">Oidref</a></td>
+<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to a MetaDataVersion element</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../KeySetRef/">KeySetRef</a></td>
+<td>0..1 <br/> <a href="../KeySet/">KeySet</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../KeySetRef/">KeySetRef</a></td>
-<td>1..1 <br/> <a href="../KeySet/">KeySet</a></td>
-<td></td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../KeySetRef/">KeySetRef</a></td>
-<td>1..1 <br/> <a href="../KeySet/">KeySet</a></td>
+<td>0..1 <br/> <a href="../KeySet/">KeySet</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AnnotationRef/">AnnotationRef</a></td>
-<td>1..1 <br/> <a href="../Annotation/">Annotation</a></td>
+<td>0..1 <br/> <a href="../Annotation/">Annotation</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -315,6 +316,9 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Association
+description: An association permits an annotation to be placed on an ordered pair
+  of entities rather than on just one. The first and second KeySets identify the start
+  and end of the annotated "link."
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Association
@@ -327,6 +331,9 @@ slots:
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: Reference to an ODM Study element.
+    comments:
+    - Required
     domain_of:
     - Include
     - SourceItem
@@ -340,6 +347,9 @@ slot_usage:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: Reference to a MetaDataVersion element.
+    comments:
+    - Required
     domain_of:
     - Include
     - SourceItem
@@ -355,8 +365,6 @@ slot_usage:
     domain_of:
     - Association
     range: KeySet
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
@@ -369,8 +377,6 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 class_uri: odm:Association
 
@@ -379,12 +385,18 @@ class_uri: odm:Association
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Association
+description: An association permits an annotation to be placed on an ordered pair
+  of entities rather than on just one. The first and second KeySets identify the start
+  and end of the annotated "link."
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Association
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: Reference to an ODM Study element.
+    comments:
+    - Required
     domain_of:
     - Include
     - SourceItem
@@ -398,6 +410,9 @@ slot_usage:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: Reference to a MetaDataVersion element.
+    comments:
+    - Required
     domain_of:
     - Include
     - SourceItem
@@ -413,8 +428,6 @@ slot_usage:
     domain_of:
     - Association
     range: KeySet
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
@@ -427,12 +440,13 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 attributes:
   StudyOID:
     name: StudyOID
+    description: Reference to an ODM Study element.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyOID
@@ -450,6 +464,9 @@ attributes:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: Reference to a MetaDataVersion element.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: MetaDataVersionOID
@@ -468,18 +485,18 @@ attributes:
     name: KeySetRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: KeySetRef
     owner: Association
     domain_of:
     - Association
     range: KeySet
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: AnnotationRef
     owner: Association
     domain_of:
@@ -491,8 +508,6 @@ attributes:
     - ItemData
     - Association
     range: Annotation
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 class_uri: odm:Association
 

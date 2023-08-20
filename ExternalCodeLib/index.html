@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-externalcodelib">Class: ExternalCodeLib</h1>
+<p><em>The ExternalCodeLib element references a FormalExpression in an external code library, such as a file or GitHub. The intention is to make it possible to reference existing code libraries where the code is maintained as well as making it simpler to include longer, more complex FormalExpressions. The Library attribute provides the name of the external library, whereas ref or href provides a reference to the repository that can be used to retrieve the code. The Method attribute provides the name of the method in the file referenced for cases where multiple methods are provided in the source code file. The Version element provides the version of the external FormalExpression code referenced.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ExternalCodeLib">odm:ExternalCodeLib</a></p>
 <div class="mermaid"> classDiagram
     class ExternalCodeLib
@@ -232,31 +233,31 @@
 <tr>
 <td><a href="../Library/">Library</a></td>
 <td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td></td>
+<td>The name of the external library containing the FormalExpression</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Method/">Method</a></td>
 <td>0..1 <br/> <a href="../Name/">Name</a></td>
-<td></td>
+<td>The name of the method or function that contains the FormalExpression code</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Version/">Version</a></td>
-<td>0..1 <br/> <a href="../Text/">Text</a></td>
-<td>Version of Standard</td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>The version of the code contained in the external library</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ref/">ref</a></td>
-<td>0..1 <br/> <a href="../Text/">Text</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>Reference to a local instance (e</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../href/">href</a></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>URL that can be used to identify the location of a document or dataset file r...</td>
+<td>0..1 <br/> <a href="Uriorcurie.md">Uriorcurie</a></td>
+<td>URL of an external code external library such as GitHub or Bitbucket</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -313,6 +314,15 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ExternalCodeLib
+description: The ExternalCodeLib element references a FormalExpression in an external
+  code library, such as a file or GitHub. The intention is to make it possible to
+  reference existing code libraries where the code is maintained as well as making
+  it simpler to include longer, more complex FormalExpressions. The Library attribute
+  provides the name of the external library, whereas ref or href provides a reference
+  to the repository that can be used to retrieve the code. The Method attribute provides
+  the name of the method in the file referenced for cases where multiple methods are
+  provided in the source code file. The Version element provides the version of the
+  external FormalExpression code referenced.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ExternalCodeLib
@@ -325,31 +335,58 @@ slots:
 slot_usage:
   Library:
     name: Library
+    description: The name of the external library containing the FormalExpression.
+    comments:
+    - 'Required
+
+      range:text'
     domain_of:
     - ExternalCodeLib
     range: name
     required: true
   Method:
     name: Method
+    description: The name of the method or function that contains the FormalExpression
+      code.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ExternalCodeLib
     range: name
   Version:
     name: Version
+    description: The version of the code contained in the external library.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - Standard
     - ExternalCodeLib
     range: text
   ref:
     name: ref
+    description: Reference to a local instance (e.g. file) of the external library
+      containing the FormalExpression code.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ExternalCodeLib
     - Coding
     range: text
   href:
     name: href
+    description: URL of an external code external library such as GitHub or Bitbucket.
+    comments:
+    - 'Optional
+
+      range:URI'
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image
@@ -362,37 +399,73 @@ class_uri: odm:ExternalCodeLib
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ExternalCodeLib
+description: The ExternalCodeLib element references a FormalExpression in an external
+  code library, such as a file or GitHub. The intention is to make it possible to
+  reference existing code libraries where the code is maintained as well as making
+  it simpler to include longer, more complex FormalExpressions. The Library attribute
+  provides the name of the external library, whereas ref or href provides a reference
+  to the repository that can be used to retrieve the code. The Method attribute provides
+  the name of the method in the file referenced for cases where multiple methods are
+  provided in the source code file. The Version element provides the version of the
+  external FormalExpression code referenced.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ExternalCodeLib
 slot_usage:
   Library:
     name: Library
+    description: The name of the external library containing the FormalExpression.
+    comments:
+    - 'Required
+
+      range:text'
     domain_of:
     - ExternalCodeLib
     range: name
     required: true
   Method:
     name: Method
+    description: The name of the method or function that contains the FormalExpression
+      code.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ExternalCodeLib
     range: name
   Version:
     name: Version
+    description: The version of the code contained in the external library.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - Standard
     - ExternalCodeLib
     range: text
   ref:
     name: ref
+    description: Reference to a local instance (e.g. file) of the external library
+      containing the FormalExpression code.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ExternalCodeLib
     - Coding
     range: text
   href:
     name: href
+    description: URL of an external code external library such as GitHub or Bitbucket.
+    comments:
+    - 'Optional
+
+      range:URI'
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image
@@ -401,6 +474,11 @@ slot_usage:
 attributes:
   Library:
     name: Library
+    description: The name of the external library containing the FormalExpression.
+    comments:
+    - 'Required
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Library
@@ -411,6 +489,12 @@ attributes:
     required: true
   Method:
     name: Method
+    description: The name of the method or function that contains the FormalExpression
+      code.
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Method
@@ -420,7 +504,11 @@ attributes:
     range: name
   Version:
     name: Version
-    description: Version of Standard.
+    description: The version of the code contained in the external library.
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Version
@@ -431,6 +519,12 @@ attributes:
     range: text
   ref:
     name: ref
+    description: Reference to a local instance (e.g. file) of the external library
+      containing the FormalExpression code.
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ref
@@ -441,14 +535,17 @@ attributes:
     range: text
   href:
     name: href
-    description: URL that can be used to identify the location of a document or dataset
-      file relative to the folder containing the ODM file.
+    description: URL of an external code external library such as GitHub or Bitbucket.
+    comments:
+    - 'Optional
+
+      range:URI'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: href
     owner: ExternalCodeLib
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image

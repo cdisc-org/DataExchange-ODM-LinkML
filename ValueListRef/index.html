@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-valuelistref">Class: ValueListRef</h1>
+<p><em>The ValueListRef element is the OID of the ValueListDef that contains the valuelist definition associated with the variable. If value-level metadata is required for a variable, a ValueListRef element should be provided as a child element on the ItemDef for the variable definition.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ValueListRef">odm:ValueListRef</a></p>
 <div class="mermaid"> classDiagram
     class ValueListRef
@@ -223,8 +224,8 @@
 <tbody>
 <tr>
 <td><a href="../ValueListOID/">ValueListOID</a></td>
-<td>1..1 <br/> <a href="../Oidref/">Oidref</a></td>
-<td></td>
+<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>Reference to the unique ID of a ValueListDef element that provides value-leve...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -281,6 +282,10 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ValueListRef
+description: The ValueListRef element is the OID of the ValueListDef that contains
+  the valuelist definition associated with the variable. If value-level metadata is
+  required for a variable, a ValueListRef element should be provided as a child element
+  on the ItemDef for the variable definition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ValueListRef
@@ -289,6 +294,14 @@ slots:
 slot_usage:
   ValueListOID:
     name: ValueListOID
+    description: 'Reference to the unique ID of a ValueListDef element that provides
+      value-level metadata. '
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a ValueListDef in the same MetaDataVersion.'
     domain_of:
     - ValueListRef
     range: oidref
@@ -300,12 +313,24 @@ class_uri: odm:ValueListRef
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ValueListRef
+description: The ValueListRef element is the OID of the ValueListDef that contains
+  the valuelist definition associated with the variable. If value-level metadata is
+  required for a variable, a ValueListRef element should be provided as a child element
+  on the ItemDef for the variable definition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ValueListRef
 slot_usage:
   ValueListOID:
     name: ValueListOID
+    description: 'Reference to the unique ID of a ValueListDef element that provides
+      value-level metadata. '
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a ValueListDef in the same MetaDataVersion.'
     domain_of:
     - ValueListRef
     range: oidref
@@ -313,6 +338,14 @@ slot_usage:
 attributes:
   ValueListOID:
     name: ValueListOID
+    description: 'Reference to the unique ID of a ValueListDef element that provides
+      value-level metadata. '
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a ValueListDef in the same MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ValueListOID

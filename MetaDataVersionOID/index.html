@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-metadataversionoid">Slot: MetaDataVersionOID</h1>
+<p><em>References a prior MetaDataVersion within the Study referenced by the StudyOID attribute.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/MetaDataVersionOID">odm:MetaDataVersionOID</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,44 +328,44 @@
 <tbody>
 <tr>
 <td><a href="../Include/">Include</a></td>
-<td></td>
+<td>The Include metadata element allows a reference to a prior metadata version</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../SourceItem/">SourceItem</a></td>
-<td></td>
+<td>Provides the information needed to identify the source metadata</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../MetaDataVersionRef/">MetaDataVersionRef</a></td>
-<td></td>
+<td>A reference to a MetaDataVersion used at the containing Location</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ReferenceData/">ReferenceData</a></td>
-<td></td>
+<td>Reference data provides information on how to interpret clinical data</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ClinicalData/">ClinicalData</a></td>
-<td></td>
+<td>Clinical data for 1 or more subjects</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Association/">Association</a></td>
-<td></td>
+<td>An association permits an annotation to be placed on an ordered pair of entit...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../KeySet/">KeySet</a></td>
-<td></td>
+<td>A KeySet references a single entity (e</td>
 <td>yes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Oidref/">Oidref</a></li>
+<li>Range: <a href="Oidref.md">Oidref</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -375,6 +376,8 @@
 <details>
 
 <pre><code class="language-yaml">name: MetaDataVersionOID
+description: References a prior MetaDataVersion within the Study referenced by the
+  StudyOID attribute.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: MetaDataVersionOID

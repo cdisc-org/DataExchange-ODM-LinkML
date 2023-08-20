@@ -226,7 +226,7 @@
 <tbody>
 <tr>
 <td><a href="../DocumentRefRef/">DocumentRefRef</a></td>
-<td>1..* <br/> <a href="../DocumentRef/">DocumentRef</a></td>
+<td>0..* <br/> <a href="../DocumentRef/">DocumentRef</a></td>
 <td>Links to a def:leaf element with the location of the document</td>
 <td>direct</td>
 </tr>
@@ -304,10 +304,8 @@ slot_usage:
     - MethodDef
     - CommentDef
     range: DocumentRef
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:AnnotatedCRF
 
 </code></pre>
@@ -333,10 +331,8 @@ slot_usage:
     - MethodDef
     - CommentDef
     range: DocumentRef
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   DocumentRefRef:
     name: DocumentRefRef
@@ -344,6 +340,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: DocumentRefRef
     owner: AnnotatedCRF
     domain_of:
@@ -353,10 +350,8 @@ attributes:
     - MethodDef
     - CommentDef
     range: DocumentRef
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:AnnotatedCRF
 
 </code></pre>

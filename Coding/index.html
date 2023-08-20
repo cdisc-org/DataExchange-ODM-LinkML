@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-coding">Class: Coding</h1>
+<p><em>Coding references a symbol from a defined code system. It uses a code defined in a terminology system to associate semantics with a given term, codelist, variable, or group of variables. The presence of a Coding element associates a meaning to its parent element. Including multiple Coding elements for a given parent indicates synonymous meanings provided by different code systems or code system versions.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Coding">odm:Coding</a></p>
 <div class="mermaid"> classDiagram
     class Coding
@@ -237,50 +238,50 @@
 <tbody>
 <tr>
 <td><a href="../CodeRef/">CodeRef</a></td>
-<td>0..1 <br/> <a href="../Text/">Text</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>A string pattern that identifies a concept as defined by the code system</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../System/">System</a></td>
-<td>1..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td></td>
+<td>1..1 <br/> <a href="Uriorcurie.md">Uriorcurie</a></td>
+<td>Identifies the code system that defines the code</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../SystemName/">SystemName</a></td>
-<td>0..1 <br/> <a href="../Text/">Text</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>Human readable name for the code system</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../SystemVersion/">SystemVersion</a></td>
-<td>0..1 <br/> <a href="../Text/">Text</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>Identifies the version of the code system</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Label/">Label</a></td>
-<td>0..1 <br/> <a href="../Text/">Text</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>Used to link the value to a named MethodDef parameter</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../href/">href</a></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>URL that can be used to identify the location of a document or dataset file r...</td>
+<td>0..1 <br/> <a href="Uriorcurie.md">Uriorcurie</a></td>
+<td>URI reference to the Code definition</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ref/">ref</a></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td></td>
+<td>0..1 <br/> <a href="Uriorcurie.md">Uriorcurie</a></td>
+<td>Reference to a local instance of the code system</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CommentOID/">CommentOID</a></td>
-<td>0..1 <br/> <a href="../Text/">Text</a></td>
-<td>The Comment identifier that this value refers to</td>
+<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>Reference to a CommentDef that provides the rationale for the use of the Conc...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -427,6 +428,11 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Coding
+description: Coding references a symbol from a defined code system. It uses a code
+  defined in a terminology system to associate semantics with a given term, codelist,
+  variable, or group of variables. The presence of a Coding element associates a meaning
+  to its parent element. Including multiple Coding elements for a given parent indicates
+  synonymous meanings provided by different code systems or code system versions.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Coding
@@ -442,36 +448,72 @@ slots:
 slot_usage:
   CodeRef:
     name: CodeRef
+    description: A string pattern that identifies a concept as defined by the code
+      system.
+    comments:
+    - 'Optional
+
+      range:text
+
+      When not provided, all codes in the code system are allowed. For example, when
+      referencing the complete set of codes from the MedDRA code system.'
     domain_of:
     - FormalExpression
     - Coding
     range: text
   System:
     name: System
+    description: Identifies the code system that defines the code. If the code is
+      taken from a code system resource then the URL for the code system should be
+      used.
+    comments:
+    - 'Required
+
+      range:URI'
     domain_of:
     - Coding
     range: uriorcurie
     required: true
   SystemName:
     name: SystemName
+    description: 'Human readable name for the code system. '
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - Coding
     range: text
   SystemVersion:
     name: SystemVersion
+    description: Identifies the version of the code system
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - Coding
     range: text
   Label:
     name: Label
+    description: Used to link the value to a named MethodDef parameter.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - Resource
     - Coding
     range: text
   href:
     name: href
+    description: URI reference to the Code definition.
+    comments:
+    - 'Optional
+
+      range:URI'
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image
@@ -479,12 +521,25 @@ slot_usage:
     range: uriorcurie
   ref:
     name: ref
+    description: Reference to a local instance of the code system.
+    comments:
+    - 'Optional
+
+      range:URI'
     domain_of:
     - ExternalCodeLib
     - Coding
     range: uriorcurie
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef that provides the rationale for the use
+      of the Concept .
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID attribute of a CommentDef element within in this Study/MetaDataVersion.'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -506,42 +561,83 @@ class_uri: odm:Coding
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Coding
+description: Coding references a symbol from a defined code system. It uses a code
+  defined in a terminology system to associate semantics with a given term, codelist,
+  variable, or group of variables. The presence of a Coding element associates a meaning
+  to its parent element. Including multiple Coding elements for a given parent indicates
+  synonymous meanings provided by different code systems or code system versions.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Coding
 slot_usage:
   CodeRef:
     name: CodeRef
+    description: A string pattern that identifies a concept as defined by the code
+      system.
+    comments:
+    - 'Optional
+
+      range:text
+
+      When not provided, all codes in the code system are allowed. For example, when
+      referencing the complete set of codes from the MedDRA code system.'
     domain_of:
     - FormalExpression
     - Coding
     range: text
   System:
     name: System
+    description: Identifies the code system that defines the code. If the code is
+      taken from a code system resource then the URL for the code system should be
+      used.
+    comments:
+    - 'Required
+
+      range:URI'
     domain_of:
     - Coding
     range: uriorcurie
     required: true
   SystemName:
     name: SystemName
+    description: 'Human readable name for the code system. '
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - Coding
     range: text
   SystemVersion:
     name: SystemVersion
+    description: Identifies the version of the code system
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - Coding
     range: text
   Label:
     name: Label
+    description: Used to link the value to a named MethodDef parameter.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - Resource
     - Coding
     range: text
   href:
     name: href
+    description: URI reference to the Code definition.
+    comments:
+    - 'Optional
+
+      range:URI'
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image
@@ -549,12 +645,25 @@ slot_usage:
     range: uriorcurie
   ref:
     name: ref
+    description: Reference to a local instance of the code system.
+    comments:
+    - 'Optional
+
+      range:URI'
     domain_of:
     - ExternalCodeLib
     - Coding
     range: uriorcurie
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef that provides the rationale for the use
+      of the Concept .
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID attribute of a CommentDef element within in this Study/MetaDataVersion.'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -572,8 +681,18 @@ slot_usage:
 attributes:
   CodeRef:
     name: CodeRef
+    description: A string pattern that identifies a concept as defined by the code
+      system.
+    comments:
+    - 'Optional
+
+      range:text
+
+      When not provided, all codes in the code system are allowed. For example, when
+      referencing the complete set of codes from the MedDRA code system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: CodeRef
     owner: Coding
     domain_of:
@@ -582,6 +701,13 @@ attributes:
     range: text
   System:
     name: System
+    description: Identifies the code system that defines the code. If the code is
+      taken from a code system resource then the URL for the code system should be
+      used.
+    comments:
+    - 'Required
+
+      range:URI'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: System
@@ -592,6 +718,11 @@ attributes:
     required: true
   SystemName:
     name: SystemName
+    description: 'Human readable name for the code system. '
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SystemName
@@ -601,6 +732,11 @@ attributes:
     range: text
   SystemVersion:
     name: SystemVersion
+    description: Identifies the version of the code system
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SystemVersion
@@ -610,6 +746,11 @@ attributes:
     range: text
   Label:
     name: Label
+    description: Used to link the value to a named MethodDef parameter.
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Label
@@ -620,14 +761,17 @@ attributes:
     range: text
   href:
     name: href
-    description: URL that can be used to identify the location of a document or dataset
-      file relative to the folder containing the ODM file.
+    description: URI reference to the Code definition.
+    comments:
+    - 'Optional
+
+      range:URI'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: href
     owner: Coding
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image
@@ -635,6 +779,11 @@ attributes:
     range: uriorcurie
   ref:
     name: ref
+    description: Reference to a local instance of the code system.
+    comments:
+    - 'Optional
+
+      range:URI'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ref
@@ -645,9 +794,14 @@ attributes:
     range: uriorcurie
   CommentOID:
     name: CommentOID
-    description: "The Comment identifier that this value refers to. Needed when the\
-      \ WhereClause references Items across different domains.\n                The\
-      \ Comment would define any join assumptions."
+    description: Reference to a CommentDef that provides the rationale for the use
+      of the Concept .
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID attribute of a CommentDef element within in this Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CommentOID

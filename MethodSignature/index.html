@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-methodsignature">Class: MethodSignature</h1>
+<p>_A MethodSignature defines the parameters and return values for a method. The MethodSignature improves traceability while enhancing the ability for automation engines to execute a MethodDef's FormalExpression. Most Methods use one or more input parameters and return one or more values. _</p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/MethodSignature">odm:MethodSignature</a></p>
 <div class="mermaid"> classDiagram
     class MethodSignature
@@ -305,6 +306,10 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: MethodSignature
+description: 'A MethodSignature defines the parameters and return values for a method.
+  The MethodSignature improves traceability while enhancing the ability for automation
+  engines to execute a MethodDef''s FormalExpression. Most Methods use one or more
+  input parameters and return one or more values. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MethodSignature
@@ -335,6 +340,10 @@ class_uri: odm:MethodSignature
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: MethodSignature
+description: 'A MethodSignature defines the parameters and return values for a method.
+  The MethodSignature improves traceability while enhancing the ability for automation
+  engines to execute a MethodDef''s FormalExpression. Most Methods use one or more
+  input parameters and return one or more values. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MethodSignature
@@ -361,6 +370,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ParameterRef
     owner: MethodSignature
     domain_of:
@@ -373,6 +383,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ReturnValueRef
     owner: MethodSignature
     domain_of:

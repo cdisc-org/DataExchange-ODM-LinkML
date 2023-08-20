@@ -327,80 +327,80 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../TranslatedText/">TranslatedText</a></td>
+<td>Human-readable text that is appropriate for a particular language</td>
+<td>yes</td>
+</tr>
+<tr>
 <td><a href="../PDFPageRef/">PDFPageRef</a></td>
 <td>This element is the container for CRF page references</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Standard/">Standard</a></td>
-<td></td>
+<td>The Standard element describes each standard used within the MetaDataVersion ...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../StudyEventDef/">StudyEventDef</a></td>
-<td></td>
+<td>StudyEventDef represents the definition of an activity in a study where data ...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
-<td></td>
+<td>An ItemGroupDef describes a type of variable or field grouping that can occur...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Origin/">Origin</a></td>
-<td></td>
+<td>Origin defines the source metadata, where applicable, for ODM ItemRefs or Ite...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Resource/">Resource</a></td>
-<td></td>
+<td>Describes an external resource used as the source for the parent ItemGroup or...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../MethodDef/">MethodDef</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../StudyObjective/">StudyObjective</a></td>
-<td></td>
+<td>A MethodDef defines how a data value can be obtained from a collection of oth...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../StudyEndPoint/">StudyEndPoint</a></td>
-<td></td>
+<td>A study end point reflects an outcome measure of interest that is statistical...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../TransitionTimingConstraint/">TransitionTimingConstraint</a></td>
-<td></td>
+<td>The TransitionTimingConstraint element defines a timing constraint on a trans...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../RelativeTimingConstraint/">RelativeTimingConstraint</a></td>
-<td></td>
+<td>The RelativeTimingConstraint element describes a relative timing constraint b...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Branching/">Branching</a></td>
-<td></td>
+<td>This element describes the branching in a workflow from a source (start) stru...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Organization/">Organization</a></td>
-<td></td>
+<td>An organization can reference a parent organization</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Query/">Query</a></td>
-<td></td>
+<td>The Query element represents a request for clarification on a data item colle...</td>
 <td>yes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../String/">String</a></li>
+<li>Range: <a href="String.md">String</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -416,6 +416,7 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Type
 domain_of:
+- TranslatedText
 - PDFPageRef
 - Standard
 - StudyEventDef
@@ -423,7 +424,6 @@ domain_of:
 - Origin
 - Resource
 - MethodDef
-- StudyObjective
 - StudyEndPoint
 - TransitionTimingConstraint
 - RelativeTimingConstraint
@@ -432,14 +432,13 @@ domain_of:
 - Query
 range: string
 any_of:
+- range: text
 - range: StandardType
 - range: PDFPageType
 - range: EventType
 - range: ItemGroupTypeType
 - range: OriginType
-- range: text
 - range: MethodType
-- range: StudyObjectiveLevel
 - range: StudyEndPointType
 - range: RelativeTimingConstraintType
 - range: BranchingType
