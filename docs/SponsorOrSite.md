@@ -1,5 +1,10 @@
 # Slot: SponsorOrSite
 
+
+_Source of the comment._
+
+
+
 URI: [odm:SponsorOrSite](http://www.cdisc.org/ns/odm/v2.0/SponsorOrSite)
 
 
@@ -13,7 +18,7 @@ URI: [odm:SponsorOrSite](http://www.cdisc.org/ns/odm/v2.0/SponsorOrSite)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Comment](Comment.md) |  |  yes  |
+[Comment](Comment.md) | A free-text (uninterpreted) comment about clinical data |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:SponsorOrSite](http://www.cdisc.org/ns/odm/v2.0/SponsorOrSite)
 <details>
 ```yaml
 name: SponsorOrSite
+description: Source of the comment.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SponsorOrSite

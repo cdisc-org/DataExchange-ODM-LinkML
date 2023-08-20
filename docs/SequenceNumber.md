@@ -1,5 +1,10 @@
 # Slot: SequenceNumber
 
+
+_Order of the Epoch _
+
+
+
 URI: [odm:SequenceNumber](http://www.cdisc.org/ns/odm/v2.0/SequenceNumber)
 
 
@@ -13,7 +18,7 @@ URI: [odm:SequenceNumber](http://www.cdisc.org/ns/odm/v2.0/SequenceNumber)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Epoch](Epoch.md) |  |  yes  |
+[Epoch](Epoch.md) | The planned period of subjects' participation in the trial is divided into se... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:SequenceNumber](http://www.cdisc.org/ns/odm/v2.0/SequenceNumber)
 <details>
 ```yaml
 name: SequenceNumber
+description: 'Order of the Epoch '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SequenceNumber

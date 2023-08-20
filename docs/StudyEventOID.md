@@ -1,5 +1,10 @@
 # Slot: StudyEventOID
 
+
+_Reference to the StudyEventDef ._
+
+
+
 URI: [odm:StudyEventOID](http://www.cdisc.org/ns/odm/v2.0/StudyEventOID)
 
 
@@ -13,10 +18,10 @@ URI: [odm:StudyEventOID](http://www.cdisc.org/ns/odm/v2.0/StudyEventOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEventRef](StudyEventRef.md) |  |  yes  |
-[AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) |  |  yes  |
-[StudyEventData](StudyEventData.md) |  |  yes  |
-[KeySet](KeySet.md) |  |  yes  |
+[StudyEventRef](StudyEventRef.md) | This element references a StudyEventDef as it occurs within a specific versio... |  yes  |
+[AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) | The element AbsoluteTimingConstraint is used to specify when an activity, rep... |  yes  |
+[StudyEventData](StudyEventData.md) | Clinical data for a study event (visit) |  yes  |
+[KeySet](KeySet.md) | A KeySet references a single entity (e |  yes  |
 
 
 
@@ -53,6 +58,7 @@ URI: [odm:StudyEventOID](http://www.cdisc.org/ns/odm/v2.0/StudyEventOID)
 <details>
 ```yaml
 name: StudyEventOID
+description: Reference to the StudyEventDef .
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: StudyEventOID

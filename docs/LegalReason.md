@@ -1,6 +1,11 @@
 # Class: LegalReason
 
 
+_The responsibility statement associated with a signature (e.g., "The signer accepts responsibility for the accuracy of this data.")._
+
+
+
+
 
 URI: [odm:LegalReason](http://www.cdisc.org/ns/odm/v2.0/LegalReason)
 
@@ -82,6 +87,8 @@ URI: [odm:LegalReason](http://www.cdisc.org/ns/odm/v2.0/LegalReason)
 <details>
 ```yaml
 name: LegalReason
+description: The responsibility statement associated with a signature (e.g., "The
+  signer accepts responsibility for the accuracy of this data.").
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/LegalReason
@@ -102,6 +109,8 @@ class_uri: odm:LegalReason
 <details>
 ```yaml
 name: LegalReason
+description: The responsibility statement associated with a signature (e.g., "The
+  signer accepts responsibility for the accuracy of this data.").
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/LegalReason

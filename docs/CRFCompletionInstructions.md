@@ -1,6 +1,11 @@
 # Class: CRFCompletionInstructions
 
 
+_Instructions for the clinical site on how to enter collected information on the CRF._
+
+
+
+
 
 URI: [odm:CRFCompletionInstructions](http://www.cdisc.org/ns/odm/v2.0/CRFCompletionInstructions)
 
@@ -26,7 +31,7 @@ URI: [odm:CRFCompletionInstructions](http://www.cdisc.org/ns/odm/v2.0/CRFComplet
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TranslatedTextRef](TranslatedTextRef.md) | 1..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
+| [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
 
 
 
@@ -84,6 +89,8 @@ URI: [odm:CRFCompletionInstructions](http://www.cdisc.org/ns/odm/v2.0/CRFComplet
 <details>
 ```yaml
 name: CRFCompletionInstructions
+description: Instructions for the clinical site on how to enter collected information
+  on the CRF.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CRFCompletionInstructions
@@ -105,10 +112,8 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:CRFCompletionInstructions
 
 ```
@@ -119,6 +124,8 @@ class_uri: odm:CRFCompletionInstructions
 <details>
 ```yaml
 name: CRFCompletionInstructions
+description: Instructions for the clinical site on how to enter collected information
+  on the CRF.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CRFCompletionInstructions
@@ -138,16 +145,15 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   TranslatedTextRef:
     name: TranslatedTextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TranslatedTextRef
     owner: CRFCompletionInstructions
     domain_of:
@@ -162,10 +168,8 @@ attributes:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:CRFCompletionInstructions
 
 ```

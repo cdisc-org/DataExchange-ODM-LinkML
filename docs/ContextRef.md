@@ -1,5 +1,10 @@
 # Slot: ContextRef
 
+
+_Identifies applicable domain or scope of the mapping._
+
+
+
 URI: [odm:ContextRef](http://www.cdisc.org/ns/odm/v2.0/ContextRef)
 
 
@@ -13,9 +18,9 @@ URI: [odm:ContextRef](http://www.cdisc.org/ns/odm/v2.0/ContextRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Alias](Alias.md) |  |  yes  |
-[FormalExpression](FormalExpression.md) |  |  yes  |
-[ODMFileMetadata](ODMFileMetadata.md) |  |  yes  |
+[Alias](Alias.md) | An Alias provides an additional name for an element |  yes  |
+[FormalExpression](FormalExpression.md) | A FormalExpression used within a ConditionDef or a RangeCheck must evaluate t... |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
 
 
 
@@ -52,6 +57,7 @@ URI: [odm:ContextRef](http://www.cdisc.org/ns/odm/v2.0/ContextRef)
 <details>
 ```yaml
 name: ContextRef
+description: Identifies applicable domain or scope of the mapping.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ContextRef

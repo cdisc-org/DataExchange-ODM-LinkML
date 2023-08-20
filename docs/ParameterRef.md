@@ -13,7 +13,7 @@ URI: [odm:ParameterRef](http://www.cdisc.org/ns/odm/v2.0/ParameterRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MethodSignature](MethodSignature.md) |  |  yes  |
+[MethodSignature](MethodSignature.md) | A MethodSignature defines the parameters and return values for a method |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:ParameterRef](http://www.cdisc.org/ns/odm/v2.0/ParameterRef)
 name: ParameterRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ParameterRef
 domain_of:
 - MethodSignature

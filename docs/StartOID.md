@@ -1,5 +1,10 @@
 # Slot: StartOID
 
+
+_Reference to the definition of the structural element that starts the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef element._
+
+
+
 URI: [odm:StartOID](http://www.cdisc.org/ns/odm/v2.0/StartOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:StartOID](http://www.cdisc.org/ns/odm/v2.0/StartOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[WorkflowStart](WorkflowStart.md) |  |  yes  |
+[WorkflowStart](WorkflowStart.md) | WorkflowStart references a structural element that begins the automated workf... |  yes  |
 
 
 
@@ -50,6 +55,9 @@ URI: [odm:StartOID](http://www.cdisc.org/ns/odm/v2.0/StartOID)
 <details>
 ```yaml
 name: StartOID
+description: Reference to the definition of the structural element that starts the
+  workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef
+  element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: StartOID

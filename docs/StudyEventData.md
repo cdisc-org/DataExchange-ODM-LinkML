@@ -1,6 +1,11 @@
 # Class: StudyEventData
 
 
+_Clinical data for a study event (visit). The model supports repeating study events (e.g., when the same set of information is collected for a series of patient visits)._
+
+
+
+
 
 URI: [odm:StudyEventData](http://www.cdisc.org/ns/odm/v2.0/StudyEventData)
 
@@ -50,14 +55,14 @@ URI: [odm:StudyEventData](http://www.cdisc.org/ns/odm/v2.0/StudyEventData)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEventOID](StudyEventOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [StudyEventRepeatKey](StudyEventRepeatKey.md) | 0..1 <br/> [RepeatKey](RepeatKey.md) |  | direct |
-| [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) |  | direct |
+| [StudyEventOID](StudyEventOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the StudyEventDef  | direct |
+| [StudyEventRepeatKey](StudyEventRepeatKey.md) | 0..1 <br/> [RepeatKey](RepeatKey.md) | A key used to distinguish between repeats of the same type of study event for... | direct |
+| [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... | direct |
 | [ItemGroupDataRef](ItemGroupDataRef.md) | 0..* <br/> [ItemGroupData](ItemGroupData.md) |  | direct |
 | [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) |  | direct |
 | [AuditRecordRef](AuditRecordRef.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) |  | direct |
 | [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) |  | direct |
-| [AnnotationRef](AnnotationRef.md) | 0..* <br/> [Annotation](Annotation.md) |  | direct |
+| [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) |  | direct |
 
 
 
@@ -115,6 +120,9 @@ URI: [odm:StudyEventData](http://www.cdisc.org/ns/odm/v2.0/StudyEventData)
 <details>
 ```yaml
 name: StudyEventData
+description: Clinical data for a study event (visit). The model supports repeating
+  study events (e.g., when the same set of information is collected for a series of
+  patient visits).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventData
@@ -130,6 +138,15 @@ slots:
 slot_usage:
   StudyEventOID:
     name: StudyEventOID
+    description: Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey
+      are used together to identify a particular study event. This pair of values
+      uniquely identifies a StudyEvent within the containing subject. The StudyEventRepeatKey
+      is present if and only if the StudyEventDef is repeating.
+    comments:
+    - 'Required
+
+      Must match a StudyEventGroupDef/@OID or StudyEventDef/@OID for the MetaDataVersion
+      /@OID value that matches the ClinicalData/@MetaDataVersionOID attribute.'
     domain_of:
     - StudyEventRef
     - AbsoluteTimingConstraint
@@ -139,12 +156,31 @@ slot_usage:
     required: true
   StudyEventRepeatKey:
     name: StudyEventRepeatKey
+    description: A key used to distinguish between repeats of the same type of study
+      event for a single subject.
+    comments:
+    - 'Conditional
+
+      If the StudyEventDef/@Repeating attribute has the value "Yes" and there is more
+      than one ClinicalData/SubjectData/StudyEventData/@OID element, the StudyEventRepeatKey
+      attribute must be provided. Must be unique among the set of ClinicalData/SubjectData/StudyEventData/@OID
+      elements. The StudyEventRepeatKey must be present only when the StudyEventDef/@Repeating
+      attribute has the value "Yes".'
     domain_of:
     - StudyEventData
     - KeySet
     range: repeatKey
   TransactionTypeRef:
     name: TransactionTypeRef
+    description: Identifies the transaction type when /ODM/@FileType is Transactional
+      and there is no child element.
+    comments:
+    - 'Conditional Required when contained within an ODM Transactional file and the
+      StudyEventData element has no child element content the TransactionType must
+      be specified.
+
+      When importing data from an ODM Snapshot file, the TransactionType attribute
+      must not affect the processing of any of the StudyEvent child elements.'
     domain_of:
     - SubjectData
     - StudyEventData
@@ -202,7 +238,6 @@ slot_usage:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
-    multivalued: true
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -212,8 +247,7 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 class_uri: odm:StudyEventData
 
 ```
@@ -224,12 +258,24 @@ class_uri: odm:StudyEventData
 <details>
 ```yaml
 name: StudyEventData
+description: Clinical data for a study event (visit). The model supports repeating
+  study events (e.g., when the same set of information is collected for a series of
+  patient visits).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventData
 slot_usage:
   StudyEventOID:
     name: StudyEventOID
+    description: Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey
+      are used together to identify a particular study event. This pair of values
+      uniquely identifies a StudyEvent within the containing subject. The StudyEventRepeatKey
+      is present if and only if the StudyEventDef is repeating.
+    comments:
+    - 'Required
+
+      Must match a StudyEventGroupDef/@OID or StudyEventDef/@OID for the MetaDataVersion
+      /@OID value that matches the ClinicalData/@MetaDataVersionOID attribute.'
     domain_of:
     - StudyEventRef
     - AbsoluteTimingConstraint
@@ -239,12 +285,31 @@ slot_usage:
     required: true
   StudyEventRepeatKey:
     name: StudyEventRepeatKey
+    description: A key used to distinguish between repeats of the same type of study
+      event for a single subject.
+    comments:
+    - 'Conditional
+
+      If the StudyEventDef/@Repeating attribute has the value "Yes" and there is more
+      than one ClinicalData/SubjectData/StudyEventData/@OID element, the StudyEventRepeatKey
+      attribute must be provided. Must be unique among the set of ClinicalData/SubjectData/StudyEventData/@OID
+      elements. The StudyEventRepeatKey must be present only when the StudyEventDef/@Repeating
+      attribute has the value "Yes".'
     domain_of:
     - StudyEventData
     - KeySet
     range: repeatKey
   TransactionTypeRef:
     name: TransactionTypeRef
+    description: Identifies the transaction type when /ODM/@FileType is Transactional
+      and there is no child element.
+    comments:
+    - 'Conditional Required when contained within an ODM Transactional file and the
+      StudyEventData element has no child element content the TransactionType must
+      be specified.
+
+      When importing data from an ODM Snapshot file, the TransactionType attribute
+      must not affect the processing of any of the StudyEvent child elements.'
     domain_of:
     - SubjectData
     - StudyEventData
@@ -302,7 +367,6 @@ slot_usage:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
-    multivalued: true
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -312,11 +376,19 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 attributes:
   StudyEventOID:
     name: StudyEventOID
+    description: Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey
+      are used together to identify a particular study event. This pair of values
+      uniquely identifies a StudyEvent within the containing subject. The StudyEventRepeatKey
+      is present if and only if the StudyEventDef is repeating.
+    comments:
+    - 'Required
+
+      Must match a StudyEventGroupDef/@OID or StudyEventDef/@OID for the MetaDataVersion
+      /@OID value that matches the ClinicalData/@MetaDataVersionOID attribute.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyEventOID
@@ -330,6 +402,16 @@ attributes:
     required: true
   StudyEventRepeatKey:
     name: StudyEventRepeatKey
+    description: A key used to distinguish between repeats of the same type of study
+      event for a single subject.
+    comments:
+    - 'Conditional
+
+      If the StudyEventDef/@Repeating attribute has the value "Yes" and there is more
+      than one ClinicalData/SubjectData/StudyEventData/@OID element, the StudyEventRepeatKey
+      attribute must be provided. Must be unique among the set of ClinicalData/SubjectData/StudyEventData/@OID
+      elements. The StudyEventRepeatKey must be present only when the StudyEventDef/@Repeating
+      attribute has the value "Yes".'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyEventRepeatKey
@@ -340,6 +422,15 @@ attributes:
     range: repeatKey
   TransactionTypeRef:
     name: TransactionTypeRef
+    description: Identifies the transaction type when /ODM/@FileType is Transactional
+      and there is no child element.
+    comments:
+    - 'Conditional Required when contained within an ODM Transactional file and the
+      StudyEventData element has no child element content the TransactionType must
+      be specified.
+
+      When importing data from an ODM Snapshot file, the TransactionType attribute
+      must not affect the processing of any of the StudyEvent child elements.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TransactionTypeRef
@@ -356,6 +447,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ItemGroupDataRef
     owner: StudyEventData
     domain_of:
@@ -371,6 +463,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: QueryRef
     owner: StudyEventData
     domain_of:
@@ -387,6 +480,7 @@ attributes:
     name: AuditRecordRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: AuditRecordRef
     owner: StudyEventData
     domain_of:
@@ -403,6 +497,7 @@ attributes:
     name: SignatureRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: SignatureRefRef
     owner: StudyEventData
     domain_of:
@@ -419,7 +514,7 @@ attributes:
     name: AnnotationRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    multivalued: true
+    identifier: false
     alias: AnnotationRef
     owner: StudyEventData
     domain_of:
@@ -431,8 +526,7 @@ attributes:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 class_uri: odm:StudyEventData
 
 ```

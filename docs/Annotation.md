@@ -1,6 +1,11 @@
 # Class: Annotation
 
 
+_A general note about clinical data. If an annotation has both a comment and flags, the flags should be related to the comment._
+
+
+
+
 
 URI: [odm:Annotation](http://www.cdisc.org/ns/odm/v2.0/Annotation)
 
@@ -42,8 +47,8 @@ URI: [odm:Annotation](http://www.cdisc.org/ns/odm/v2.0/Annotation)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SeqNum](SeqNum.md) | 1..1 <br/> [PositiveInteger](PositiveInteger.md) |  | direct |
-| [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) |  | direct |
+| [SeqNum](SeqNum.md) | 1..1 <br/> [PositiveInteger](PositiveInteger.md) | When more than 1 Value element exists this attribute uniquely identifies each... | direct |
+| [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... | direct |
 | [ID](ID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the leaf that is referenced | direct |
 | [CommentRef](CommentRef.md) | 0..1 <br/> [Comment](Comment.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
@@ -111,6 +116,8 @@ URI: [odm:Annotation](http://www.cdisc.org/ns/odm/v2.0/Annotation)
 <details>
 ```yaml
 name: Annotation
+description: A general note about clinical data. If an annotation has both a comment
+  and flags, the flags should be related to the comment.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Annotation
@@ -124,6 +131,10 @@ slots:
 slot_usage:
   SeqNum:
     name: SeqNum
+    comments:
+    - 'Required
+
+      range:positiveInteger'
     domain_of:
     - Annotation
     - Value
@@ -131,6 +142,14 @@ slot_usage:
     required: true
   TransactionTypeRef:
     name: TransactionTypeRef
+    comments:
+    - 'Optional
+
+      enum values:(Insert | Update | Remove | Upsert | Context)
+
+      An empty Annotation (one with no annotation value, no comment and no flags)
+      is not allowed unless the TransactionType is Remove . On Update, the entire
+      value of the annotation is replaced.'
     domain_of:
     - SubjectData
     - StudyEventData
@@ -141,7 +160,7 @@ slot_usage:
   ID:
     name: ID
     domain_of:
-    - leaf
+    - Leaf
     - Signature
     - Annotation
     range: oid
@@ -192,12 +211,18 @@ class_uri: odm:Annotation
 <details>
 ```yaml
 name: Annotation
+description: A general note about clinical data. If an annotation has both a comment
+  and flags, the flags should be related to the comment.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Annotation
 slot_usage:
   SeqNum:
     name: SeqNum
+    comments:
+    - 'Required
+
+      range:positiveInteger'
     domain_of:
     - Annotation
     - Value
@@ -205,6 +230,14 @@ slot_usage:
     required: true
   TransactionTypeRef:
     name: TransactionTypeRef
+    comments:
+    - 'Optional
+
+      enum values:(Insert | Update | Remove | Upsert | Context)
+
+      An empty Annotation (one with no annotation value, no comment and no flags)
+      is not allowed unless the TransactionType is Remove . On Update, the entire
+      value of the annotation is replaced.'
     domain_of:
     - SubjectData
     - StudyEventData
@@ -215,7 +248,7 @@ slot_usage:
   ID:
     name: ID
     domain_of:
-    - leaf
+    - Leaf
     - Signature
     - Annotation
     range: oid
@@ -259,6 +292,12 @@ slot_usage:
 attributes:
   SeqNum:
     name: SeqNum
+    description: 'When more than 1 Value element exists this attribute uniquely identifies
+      each Value and defines the order of a Value in a list of Values. '
+    comments:
+    - 'Required
+
+      range:positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SeqNum
@@ -270,6 +309,16 @@ attributes:
     required: true
   TransactionTypeRef:
     name: TransactionTypeRef
+    description: Identifies the transaction type when /ODM/@FileType is Transactional
+      and there is no child element.
+    comments:
+    - 'Optional
+
+      enum values:(Insert | Update | Remove | Upsert | Context)
+
+      An empty Annotation (one with no annotation value, no comment and no flags)
+      is not allowed unless the TransactionType is Remove . On Update, the entire
+      value of the annotation is replaced.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TransactionTypeRef
@@ -290,7 +339,7 @@ attributes:
     alias: ID
     owner: Annotation
     domain_of:
-    - leaf
+    - Leaf
     - Signature
     - Annotation
     range: oid
@@ -299,6 +348,7 @@ attributes:
     name: CommentRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: CommentRef
     owner: Annotation
     domain_of:
@@ -310,6 +360,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: Annotation
     domain_of:
@@ -337,6 +388,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: FlagRef
     owner: Annotation
     domain_of:

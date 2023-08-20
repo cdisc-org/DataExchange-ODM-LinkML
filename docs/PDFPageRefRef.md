@@ -58,6 +58,7 @@ name: PDFPageRefRef
 description: The PDFPageRef element is a container for page references in a PDF file.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: PDFPageRefRef
 domain_of:
 - DocumentRef

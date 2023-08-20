@@ -13,7 +13,7 @@ URI: [odm:WhereClauseRefRef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemRef](ItemRef.md) |  |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:WhereClauseRefRef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseRefRef)
 name: WhereClauseRefRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: WhereClauseRefRef
 domain_of:
 - ItemRef

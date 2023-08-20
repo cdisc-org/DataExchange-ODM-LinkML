@@ -1,6 +1,11 @@
 # Class: ODMFileMetadata
 
 
+_Root element for ODM Documents. The ODM element is the top-level (root) element of each ODM document._
+
+
+
+
 
 URI: [odm:ODM](http://www.cdisc.org/ns/odm/v2.0/ODM)
 
@@ -74,17 +79,17 @@ URI: [odm:ODM](http://www.cdisc.org/ns/odm/v2.0/ODM)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [FileTypeRef](FileTypeRef.md) | 1..1 <br/> [FileType](FileType.md) |  | direct |
-| [GranularityRef](GranularityRef.md) | 0..1 <br/> [Granularity](Granularity.md) |  | direct |
-| [ContextRef](ContextRef.md) | 0..1 <br/> [Context](Context.md) |  | direct |
-| [FileOID](FileOID.md) | 1..1 <br/> [Oid](Oid.md) |  | direct |
-| [CreationDateTime](CreationDateTime.md) | 1..1 <br/> [Datetime](Datetime.md) |  | direct |
-| [PriorFileOID](PriorFileOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [AsOfDateTime](AsOfDateTime.md) | 0..1 <br/> [Datetime](Datetime.md) |  | direct |
-| [ODMVersionRef](ODMVersionRef.md) | 0..1 <br/> [ODMVersion](ODMVersion.md) |  | direct |
-| [Originator](Originator.md) | 0..1 <br/> [Text](Text.md) |  | direct |
-| [SourceSystem](SourceSystem.md) | 0..1 <br/> [Text](Text.md) |  | direct |
-| [SourceSystemVersion](SourceSystemVersion.md) | 0..1 <br/> [Text](Text.md) |  | direct |
+| [FileTypeRef](FileTypeRef.md) | 1..1 <br/> [FileType](FileType.md) | Snapshot means that the document contains only the current state of the data ... | direct |
+| [GranularityRef](GranularityRef.md) | 0..1 <br/> [Granularity](Granularity.md) | Granularity is intended to give the sender a shorthand way to Describes the s... | direct |
+| [ContextRef](ContextRef.md) | 0..1 <br/> [Context](Context.md) | Indicates the intended usage of the ODM document | direct |
+| [FileOID](FileOID.md) | 1..1 <br/> [Oid](Oid.md) | A unique identifier for this file | direct |
+| [CreationDateTime](CreationDateTime.md) | 1..1 <br/> [Datetime](Datetime.md) | Time of creation of the file containing the document | direct |
+| [PriorFileOID](PriorFileOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to the previous file (if any) in a series | direct |
+| [AsOfDateTime](AsOfDateTime.md) | 0..1 <br/> [Datetime](Datetime.md) | The date/time at which the source database was queried in order to create thi... | direct |
+| [ODMVersionRef](ODMVersionRef.md) | 0..1 <br/> [ODMVersion](ODMVersion.md) | The version of the ODM standard used | direct |
+| [Originator](Originator.md) | 0..1 <br/> [Text](Text.md) | The organization that generated the ODM file | direct |
+| [SourceSystem](SourceSystem.md) | 0..1 <br/> [Text](Text.md) | The computer system or database management system that is the source of the i... | direct |
+| [SourceSystemVersion](SourceSystemVersion.md) | 0..1 <br/> [Text](Text.md) | The version of the "SourceSystem" above | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 | [StudyRef](StudyRef.md) | 0..* <br/> [Study](Study.md) |  | direct |
 | [AdminDataRef](AdminDataRef.md) | 0..* <br/> [AdminData](AdminData.md) |  | direct |
@@ -141,6 +146,8 @@ URI: [odm:ODM](http://www.cdisc.org/ns/odm/v2.0/ODM)
 <details>
 ```yaml
 name: ODMFileMetadata
+description: Root element for ODM Documents. The ODM element is the top-level (root)
+  element of each ODM document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ODM
@@ -165,17 +172,46 @@ slots:
 slot_usage:
   FileTypeRef:
     name: FileTypeRef
+    description: 'Snapshot means that the document contains only the current state
+      of the data and metadata it describes, and no transactional history. Transactional
+      means that the document may contain more than one instance per data point. Query
+      means the document contains only ClinicalData/Query elements. '
+    comments:
+    - 'Required
+
+      enum values:( Snapshot | Transactional | Query)'
     domain_of:
     - ODMFileMetadata
     range: FileType
     required: true
   GranularityRef:
     name: GranularityRef
+    description: Granularity is intended to give the sender a shorthand way to Describes
+      the scope of information in the document, for certain common types of documents.
+      All means the entire study; Metadata means the Study/MetaDataVersion element;
+      AdminData and ReferenceData mean the corresponding elements; AllClinicalData
+      means all of the ClinicalData collected for the study. SingleSite, means all
+      of the Clinical Data for a single study site. SingleSubject means all of the
+      Clinical Data for a single Subject.
+    comments:
+    - 'Optional
+
+      enum values:( All | Metadata | AdminData | ReferenceData | AllClinicalData |
+      SingleSite | SingleSubject )'
     domain_of:
     - ODMFileMetadata
     range: Granularity
   ContextRef:
     name: ContextRef
+    description: Indicates the intended usage of the ODM document. Archive - indicates
+      that the file is intended to meet the requirements of an electronic record as
+      defined in 21 CFR 11. Submission - indicates that the file is intended to be
+      used for regulatory submission. Exchange - indicates that the file was generated
+      to be imported into an ODM compliant system.
+    comments:
+    - 'Optional
+
+      enum values:(Archive| Submission | Exchange)'
     domain_of:
     - Alias
     - FormalExpression
@@ -183,43 +219,85 @@ slot_usage:
     range: Context
   FileOID:
     name: FileOID
+    description: A unique identifier for this file.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - ODMFileMetadata
     range: oid
     required: true
   CreationDateTime:
     name: CreationDateTime
+    description: Time of creation of the file containing the document.
+    comments:
+    - 'Required
+
+      range:datetime'
     domain_of:
     - ODMFileMetadata
     range: datetime
     required: true
   PriorFileOID:
     name: PriorFileOID
+    description: Reference to the previous file (if any) in a series.
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - ODMFileMetadata
     range: oidref
   AsOfDateTime:
     name: AsOfDateTime
+    description: The date/time at which the source database was queried in order to
+      create this document.
+    comments:
+    - 'Optional
+
+      range:datetime'
     domain_of:
     - ODMFileMetadata
     range: datetime
   ODMVersionRef:
     name: ODMVersionRef
+    description: The version of the ODM standard used.
+    comments:
+    - 'Required
+
+      enum values:Pattern: 2.0(.(0|([1-9][0-9]*)))?(-([0-9a-zA-Z])+)*'
     domain_of:
     - ODMFileMetadata
     range: ODMVersion
   Originator:
     name: Originator
+    description: The organization that generated the ODM file.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ODMFileMetadata
     range: text
   SourceSystem:
     name: SourceSystem
+    description: The computer system or database management system that is the source
+      of the information in this file.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ODMFileMetadata
     range: text
   SourceSystemVersion:
     name: SourceSystemVersion
+    description: The version of the "SourceSystem" above.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ODMFileMetadata
     range: text
@@ -315,23 +393,54 @@ class_uri: odm:ODM
 <details>
 ```yaml
 name: ODMFileMetadata
+description: Root element for ODM Documents. The ODM element is the top-level (root)
+  element of each ODM document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ODM
 slot_usage:
   FileTypeRef:
     name: FileTypeRef
+    description: 'Snapshot means that the document contains only the current state
+      of the data and metadata it describes, and no transactional history. Transactional
+      means that the document may contain more than one instance per data point. Query
+      means the document contains only ClinicalData/Query elements. '
+    comments:
+    - 'Required
+
+      enum values:( Snapshot | Transactional | Query)'
     domain_of:
     - ODMFileMetadata
     range: FileType
     required: true
   GranularityRef:
     name: GranularityRef
+    description: Granularity is intended to give the sender a shorthand way to Describes
+      the scope of information in the document, for certain common types of documents.
+      All means the entire study; Metadata means the Study/MetaDataVersion element;
+      AdminData and ReferenceData mean the corresponding elements; AllClinicalData
+      means all of the ClinicalData collected for the study. SingleSite, means all
+      of the Clinical Data for a single study site. SingleSubject means all of the
+      Clinical Data for a single Subject.
+    comments:
+    - 'Optional
+
+      enum values:( All | Metadata | AdminData | ReferenceData | AllClinicalData |
+      SingleSite | SingleSubject )'
     domain_of:
     - ODMFileMetadata
     range: Granularity
   ContextRef:
     name: ContextRef
+    description: Indicates the intended usage of the ODM document. Archive - indicates
+      that the file is intended to meet the requirements of an electronic record as
+      defined in 21 CFR 11. Submission - indicates that the file is intended to be
+      used for regulatory submission. Exchange - indicates that the file was generated
+      to be imported into an ODM compliant system.
+    comments:
+    - 'Optional
+
+      enum values:(Archive| Submission | Exchange)'
     domain_of:
     - Alias
     - FormalExpression
@@ -339,43 +448,85 @@ slot_usage:
     range: Context
   FileOID:
     name: FileOID
+    description: A unique identifier for this file.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - ODMFileMetadata
     range: oid
     required: true
   CreationDateTime:
     name: CreationDateTime
+    description: Time of creation of the file containing the document.
+    comments:
+    - 'Required
+
+      range:datetime'
     domain_of:
     - ODMFileMetadata
     range: datetime
     required: true
   PriorFileOID:
     name: PriorFileOID
+    description: Reference to the previous file (if any) in a series.
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - ODMFileMetadata
     range: oidref
   AsOfDateTime:
     name: AsOfDateTime
+    description: The date/time at which the source database was queried in order to
+      create this document.
+    comments:
+    - 'Optional
+
+      range:datetime'
     domain_of:
     - ODMFileMetadata
     range: datetime
   ODMVersionRef:
     name: ODMVersionRef
+    description: The version of the ODM standard used.
+    comments:
+    - 'Required
+
+      enum values:Pattern: 2.0(.(0|([1-9][0-9]*)))?(-([0-9a-zA-Z])+)*'
     domain_of:
     - ODMFileMetadata
     range: ODMVersion
   Originator:
     name: Originator
+    description: The organization that generated the ODM file.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ODMFileMetadata
     range: text
   SourceSystem:
     name: SourceSystem
+    description: The computer system or database management system that is the source
+      of the information in this file.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ODMFileMetadata
     range: text
   SourceSystemVersion:
     name: SourceSystemVersion
+    description: The version of the "SourceSystem" above.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ODMFileMetadata
     range: text
@@ -464,6 +615,14 @@ slot_usage:
 attributes:
   FileTypeRef:
     name: FileTypeRef
+    description: 'Snapshot means that the document contains only the current state
+      of the data and metadata it describes, and no transactional history. Transactional
+      means that the document may contain more than one instance per data point. Query
+      means the document contains only ClinicalData/Query elements. '
+    comments:
+    - 'Required
+
+      enum values:( Snapshot | Transactional | Query)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: FileTypeRef
@@ -474,6 +633,18 @@ attributes:
     required: true
   GranularityRef:
     name: GranularityRef
+    description: Granularity is intended to give the sender a shorthand way to Describes
+      the scope of information in the document, for certain common types of documents.
+      All means the entire study; Metadata means the Study/MetaDataVersion element;
+      AdminData and ReferenceData mean the corresponding elements; AllClinicalData
+      means all of the ClinicalData collected for the study. SingleSite, means all
+      of the Clinical Data for a single study site. SingleSubject means all of the
+      Clinical Data for a single Subject.
+    comments:
+    - 'Optional
+
+      enum values:( All | Metadata | AdminData | ReferenceData | AllClinicalData |
+      SingleSite | SingleSubject )'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: GranularityRef
@@ -483,6 +654,15 @@ attributes:
     range: Granularity
   ContextRef:
     name: ContextRef
+    description: Indicates the intended usage of the ODM document. Archive - indicates
+      that the file is intended to meet the requirements of an electronic record as
+      defined in 21 CFR 11. Submission - indicates that the file is intended to be
+      used for regulatory submission. Exchange - indicates that the file was generated
+      to be imported into an ODM compliant system.
+    comments:
+    - 'Optional
+
+      enum values:(Archive| Submission | Exchange)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ContextRef
@@ -494,6 +674,11 @@ attributes:
     range: Context
   FileOID:
     name: FileOID
+    description: A unique identifier for this file.
+    comments:
+    - 'Required
+
+      range:oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: FileOID
@@ -504,6 +689,11 @@ attributes:
     required: true
   CreationDateTime:
     name: CreationDateTime
+    description: Time of creation of the file containing the document.
+    comments:
+    - 'Required
+
+      range:datetime'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CreationDateTime
@@ -514,6 +704,11 @@ attributes:
     required: true
   PriorFileOID:
     name: PriorFileOID
+    description: Reference to the previous file (if any) in a series.
+    comments:
+    - 'Optional
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: PriorFileOID
@@ -523,6 +718,12 @@ attributes:
     range: oidref
   AsOfDateTime:
     name: AsOfDateTime
+    description: The date/time at which the source database was queried in order to
+      create this document.
+    comments:
+    - 'Optional
+
+      range:datetime'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: AsOfDateTime
@@ -532,6 +733,11 @@ attributes:
     range: datetime
   ODMVersionRef:
     name: ODMVersionRef
+    description: The version of the ODM standard used.
+    comments:
+    - 'Required
+
+      enum values:Pattern: 2.0(.(0|([1-9][0-9]*)))?(-([0-9a-zA-Z])+)*'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ODMVersionRef
@@ -541,6 +747,11 @@ attributes:
     range: ODMVersion
   Originator:
     name: Originator
+    description: The organization that generated the ODM file.
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Originator
@@ -550,6 +761,12 @@ attributes:
     range: text
   SourceSystem:
     name: SourceSystem
+    description: The computer system or database management system that is the source
+      of the information in this file.
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SourceSystem
@@ -559,6 +776,11 @@ attributes:
     range: text
   SourceSystemVersion:
     name: SourceSystemVersion
+    description: The version of the "SourceSystem" above.
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SourceSystemVersion
@@ -570,6 +792,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: ODMFileMetadata
     domain_of:
@@ -617,6 +840,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyRef
     owner: ODMFileMetadata
     domain_of:
@@ -629,6 +853,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: AdminDataRef
     owner: ODMFileMetadata
     domain_of:
@@ -641,6 +866,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ReferenceDataRef
     owner: ODMFileMetadata
     domain_of:
@@ -653,6 +879,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ClinicalDataRef
     owner: ODMFileMetadata
     domain_of:
@@ -665,6 +892,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: AssociationRef
     owner: ODMFileMetadata
     domain_of:

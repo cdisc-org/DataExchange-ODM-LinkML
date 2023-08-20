@@ -1,5 +1,10 @@
 # Slot: Role
 
+
+_The Role for the referenced ItemDef. The Role attribute provides a single role name describing the use of this data item. If the Role is defined by a standard terminology, RoleCodeListOID may be used to reference a CodeList that defines the full set roles from which the Role attribute value is to be taken._
+
+
+
 URI: [odm:Role](http://www.cdisc.org/ns/odm/v2.0/Role)
 
 
@@ -13,9 +18,9 @@ URI: [odm:Role](http://www.cdisc.org/ns/odm/v2.0/Role)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemRef](ItemRef.md) |  |  yes  |
-[Organization](Organization.md) |  |  yes  |
-[Location](Location.md) |  |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
+[Organization](Organization.md) | An organization can reference a parent organization |  yes  |
+[Location](Location.md) | A physical location associated with data collection and/or treatment of subje... |  yes  |
 
 
 
@@ -52,6 +57,10 @@ URI: [odm:Role](http://www.cdisc.org/ns/odm/v2.0/Role)
 <details>
 ```yaml
 name: Role
+description: The Role for the referenced ItemDef. The Role attribute provides a single
+  role name describing the use of this data item. If the Role is defined by a standard
+  terminology, RoleCodeListOID may be used to reference a CodeList that defines the
+  full set roles from which the Role attribute value is to be taken.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Role

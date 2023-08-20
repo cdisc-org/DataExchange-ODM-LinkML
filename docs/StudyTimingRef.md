@@ -13,7 +13,7 @@ URI: [odm:StudyTimingRef](http://www.cdisc.org/ns/odm/v2.0/StudyTimingRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyTimings](StudyTimings.md) |  |  yes  |
+[StudyTimings](StudyTimings.md) | The StudyTimings element is a container element for individual StudyTiming el... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:StudyTimingRef](http://www.cdisc.org/ns/odm/v2.0/StudyTimingRef)
 name: StudyTimingRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: StudyTimingRef
 domain_of:
 - StudyTimings

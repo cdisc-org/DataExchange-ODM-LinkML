@@ -1,5 +1,10 @@
 # Slot: ItemOID
 
+
+_Reference to the ItemDef ._
+
+
+
 URI: [odm:ItemOID](http://www.cdisc.org/ns/odm/v2.0/ItemOID)
 
 
@@ -13,11 +18,11 @@ URI: [odm:ItemOID](http://www.cdisc.org/ns/odm/v2.0/ItemOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemRef](ItemRef.md) |  |  yes  |
-[SourceItem](SourceItem.md) |  |  yes  |
-[RangeCheck](RangeCheck.md) |  |  yes  |
-[ItemData](ItemData.md) |  |  yes  |
-[KeySet](KeySet.md) |  |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
+[SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata |  yes  |
+[RangeCheck](RangeCheck.md) | A RangeCheck defines a constraint on the value of the enclosing item |  yes  |
+[ItemData](ItemData.md) | The ItemData element is used for transmission of the clinical data for an ite... |  yes  |
+[KeySet](KeySet.md) | A KeySet references a single entity (e |  yes  |
 
 
 
@@ -54,6 +59,7 @@ URI: [odm:ItemOID](http://www.cdisc.org/ns/odm/v2.0/ItemOID)
 <details>
 ```yaml
 name: ItemOID
+description: Reference to the ItemDef .
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ItemOID

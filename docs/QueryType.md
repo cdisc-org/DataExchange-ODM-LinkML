@@ -18,7 +18,7 @@ URI: [QueryType](QueryType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) |  |
+| [Type](Type.md) | Indicates whether Is the Query was raised manually by a user or automatically... |
 
 
 

@@ -1,5 +1,10 @@
 # Slot: ValueListOID
 
+
+_Reference to the unique ID of a ValueListDef element that provides value-level metadata. _
+
+
+
 URI: [odm:ValueListOID](http://www.cdisc.org/ns/odm/v2.0/ValueListOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:ValueListOID](http://www.cdisc.org/ns/odm/v2.0/ValueListOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ValueListRef](ValueListRef.md) |  |  yes  |
+[ValueListRef](ValueListRef.md) | The ValueListRef element is the OID of the ValueListDef that contains the val... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:ValueListOID](http://www.cdisc.org/ns/odm/v2.0/ValueListOID)
 <details>
 ```yaml
 name: ValueListOID
+description: 'Reference to the unique ID of a ValueListDef element that provides value-level
+  metadata. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ValueListOID

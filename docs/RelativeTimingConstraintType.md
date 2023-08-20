@@ -20,8 +20,8 @@ URI: [RelativeTimingConstraintType](RelativeTimingConstraintType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) |  |
-| [Type](Type.md) |  |
+| [Type](Type.md) | Defines how the timing is to be defined between the two activities, starting ... |
+| [Type](Type.md) | Defines how the timing is to be defined between the two activities, starting ... |
 
 
 

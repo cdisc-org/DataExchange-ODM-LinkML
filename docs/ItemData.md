@@ -1,6 +1,11 @@
 # Class: ItemData
 
 
+_The ItemData element is used for transmission of the clinical data for an item. The model does not support repeating items within a single item group._
+
+
+
+
 
 URI: [odm:ItemData](http://www.cdisc.org/ns/odm/v2.0/ItemData)
 
@@ -52,14 +57,14 @@ URI: [odm:ItemData](http://www.cdisc.org/ns/odm/v2.0/ItemData)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ItemOID](ItemOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) |  | direct |
-| [IsNull](IsNull.md) | 0..1 <br/> [YesOnly](YesOnly.md) |  | direct |
-| [ValueRef](ValueRef.md) | 0..* <br/> [Value](Value.md) |  | direct |
+| [ItemOID](ItemOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to an ItemDef in the MetaDataVersion identified in the ClinicalData... | direct |
+| [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Records the TransactionType for this ItemData instance in the source system | direct |
+| [IsNull](IsNull.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Flag specifying that an item's value is to be set to null | direct |
+| [ValueRef](ValueRef.md) | 0..* <br/> [Value](Value.md) | Human-readable designation of the trial phase | direct |
 | [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) |  | direct |
 | [AuditRecordRef](AuditRecordRef.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) |  | direct |
 | [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) |  | direct |
-| [AnnotationRef](AnnotationRef.md) | 0..* <br/> [Annotation](Annotation.md) |  | direct |
+| [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) |  | direct |
 
 
 
@@ -117,6 +122,8 @@ URI: [odm:ItemData](http://www.cdisc.org/ns/odm/v2.0/ItemData)
 <details>
 ```yaml
 name: ItemData
+description: The ItemData element is used for transmission of the clinical data for
+  an item. The model does not support repeating items within a single item group.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemData
@@ -132,6 +139,12 @@ slots:
 slot_usage:
   ItemOID:
     name: ItemOID
+    description: Reference to an ItemDef in the MetaDataVersion identified in the
+      ClinicalData element. The referenced ItemDef defines the DataType of this item.
+      The ItemOID attribute is used to identify a particular item definition. This
+      value uniquely identifies an Item within the containing ItemGroup.
+    comments:
+    - Required
     domain_of:
     - ItemRef
     - SourceItem
@@ -142,6 +155,11 @@ slot_usage:
     required: true
   TransactionTypeRef:
     name: TransactionTypeRef
+    description: Records the TransactionType for this ItemData instance in the source
+      system.
+    comments:
+    - 'Conditional Required on the ItemData element, or one of its ancestor elements,
+      when ODM/@FileType has the value "Transactional". '
     domain_of:
     - SubjectData
     - StudyEventData
@@ -151,6 +169,17 @@ slot_usage:
     range: TransactionType
   IsNull:
     name: IsNull
+    description: Flag specifying that an item's value is to be set to null. In the
+      interest of creating non-verbose XML instances, one should not use ItemData
+      elements with IsNull set to "Yes" to indicate uncollected data. The better practice
+      is to transmit only collected data. For use cases where data traceability is
+      important, providing ItemData elements with IsNull="Yes" maybe be useful. It
+      is not necessary to provide an ItemData element with IsNull set to "Yes" in
+      cases where the source system would not create a record.
+    comments:
+    - Conditional If the child element ItemData/Value is present, the IsNull attribute
+      must not be set. If IsNull is set, the child element ItemData/Value must not
+      be present.
     domain_of:
     - ItemData
     range: YesOnly
@@ -160,6 +189,7 @@ slot_usage:
     domain_of:
     - TrialPhase
     - ParameterValue
+    - Telecom
     - ItemData
     - Query
     range: Value
@@ -204,7 +234,6 @@ slot_usage:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
-    multivalued: true
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -214,8 +243,7 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 class_uri: odm:ItemData
 
 ```
@@ -226,12 +254,20 @@ class_uri: odm:ItemData
 <details>
 ```yaml
 name: ItemData
+description: The ItemData element is used for transmission of the clinical data for
+  an item. The model does not support repeating items within a single item group.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemData
 slot_usage:
   ItemOID:
     name: ItemOID
+    description: Reference to an ItemDef in the MetaDataVersion identified in the
+      ClinicalData element. The referenced ItemDef defines the DataType of this item.
+      The ItemOID attribute is used to identify a particular item definition. This
+      value uniquely identifies an Item within the containing ItemGroup.
+    comments:
+    - Required
     domain_of:
     - ItemRef
     - SourceItem
@@ -242,6 +278,11 @@ slot_usage:
     required: true
   TransactionTypeRef:
     name: TransactionTypeRef
+    description: Records the TransactionType for this ItemData instance in the source
+      system.
+    comments:
+    - 'Conditional Required on the ItemData element, or one of its ancestor elements,
+      when ODM/@FileType has the value "Transactional". '
     domain_of:
     - SubjectData
     - StudyEventData
@@ -251,6 +292,17 @@ slot_usage:
     range: TransactionType
   IsNull:
     name: IsNull
+    description: Flag specifying that an item's value is to be set to null. In the
+      interest of creating non-verbose XML instances, one should not use ItemData
+      elements with IsNull set to "Yes" to indicate uncollected data. The better practice
+      is to transmit only collected data. For use cases where data traceability is
+      important, providing ItemData elements with IsNull="Yes" maybe be useful. It
+      is not necessary to provide an ItemData element with IsNull set to "Yes" in
+      cases where the source system would not create a record.
+    comments:
+    - Conditional If the child element ItemData/Value is present, the IsNull attribute
+      must not be set. If IsNull is set, the child element ItemData/Value must not
+      be present.
     domain_of:
     - ItemData
     range: YesOnly
@@ -260,6 +312,7 @@ slot_usage:
     domain_of:
     - TrialPhase
     - ParameterValue
+    - Telecom
     - ItemData
     - Query
     range: Value
@@ -304,7 +357,6 @@ slot_usage:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
-    multivalued: true
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -314,11 +366,16 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 attributes:
   ItemOID:
     name: ItemOID
+    description: Reference to an ItemDef in the MetaDataVersion identified in the
+      ClinicalData element. The referenced ItemDef defines the DataType of this item.
+      The ItemOID attribute is used to identify a particular item definition. This
+      value uniquely identifies an Item within the containing ItemGroup.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ItemOID
@@ -333,6 +390,11 @@ attributes:
     required: true
   TransactionTypeRef:
     name: TransactionTypeRef
+    description: Records the TransactionType for this ItemData instance in the source
+      system.
+    comments:
+    - 'Conditional Required on the ItemData element, or one of its ancestor elements,
+      when ODM/@FileType has the value "Transactional". '
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TransactionTypeRef
@@ -346,6 +408,17 @@ attributes:
     range: TransactionType
   IsNull:
     name: IsNull
+    description: Flag specifying that an item's value is to be set to null. In the
+      interest of creating non-verbose XML instances, one should not use ItemData
+      elements with IsNull set to "Yes" to indicate uncollected data. The better practice
+      is to transmit only collected data. For use cases where data traceability is
+      important, providing ItemData elements with IsNull="Yes" maybe be useful. It
+      is not necessary to provide an ItemData element with IsNull set to "Yes" in
+      cases where the source system would not create a record.
+    comments:
+    - Conditional If the child element ItemData/Value is present, the IsNull attribute
+      must not be set. If IsNull is set, the child element ItemData/Value must not
+      be present.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: IsNull
@@ -355,14 +428,17 @@ attributes:
     range: YesOnly
   ValueRef:
     name: ValueRef
+    description: Human-readable designation of the trial phase.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ValueRef
     owner: ItemData
     domain_of:
     - TrialPhase
     - ParameterValue
+    - Telecom
     - ItemData
     - Query
     range: Value
@@ -373,6 +449,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: QueryRef
     owner: ItemData
     domain_of:
@@ -389,6 +466,7 @@ attributes:
     name: AuditRecordRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: AuditRecordRef
     owner: ItemData
     domain_of:
@@ -405,6 +483,7 @@ attributes:
     name: SignatureRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: SignatureRefRef
     owner: ItemData
     domain_of:
@@ -421,7 +500,7 @@ attributes:
     name: AnnotationRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    multivalued: true
+    identifier: false
     alias: AnnotationRef
     owner: ItemData
     domain_of:
@@ -433,8 +512,7 @@ attributes:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 class_uri: odm:ItemData
 
 ```

@@ -1,6 +1,11 @@
 # Class: AdminData
 
 
+_Administrative information about users, locations, organizations, and electronic signatures._
+
+
+
+
 
 URI: [odm:AdminData](http://www.cdisc.org/ns/odm/v2.0/AdminData)
 
@@ -40,7 +45,7 @@ URI: [odm:AdminData](http://www.cdisc.org/ns/odm/v2.0/AdminData)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [StudyOID](StudyOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a Study  | direct |
 | [UserRefRef](UserRefRef.md) | 0..* <br/> [User](User.md) |  | direct |
 | [OrganizationRef](OrganizationRef.md) | 0..* <br/> [Organization](Organization.md) |  | direct |
 | [LocationRefRef](LocationRefRef.md) | 0..* <br/> [Location](Location.md) |  | direct |
@@ -102,6 +107,8 @@ URI: [odm:AdminData](http://www.cdisc.org/ns/odm/v2.0/AdminData)
 <details>
 ```yaml
 name: AdminData
+description: Administrative information about users, locations, organizations, and
+  electronic signatures.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AdminData
@@ -114,6 +121,13 @@ slots:
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: Reference to a Study .
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID for a /ODM/Study element. '
     domain_of:
     - Include
     - SourceItem
@@ -170,12 +184,21 @@ class_uri: odm:AdminData
 <details>
 ```yaml
 name: AdminData
+description: Administrative information about users, locations, organizations, and
+  electronic signatures.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AdminData
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: Reference to a Study .
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID for a /ODM/Study element. '
     domain_of:
     - Include
     - SourceItem
@@ -225,6 +248,13 @@ slot_usage:
 attributes:
   StudyOID:
     name: StudyOID
+    description: Reference to a Study .
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID for a /ODM/Study element. '
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyOID
@@ -244,6 +274,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: UserRefRef
     owner: AdminData
     domain_of:
@@ -258,6 +289,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: OrganizationRef
     owner: AdminData
     domain_of:
@@ -270,6 +302,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: LocationRefRef
     owner: AdminData
     domain_of:
@@ -284,6 +317,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: SignatureDefRef
     owner: AdminData
     domain_of:

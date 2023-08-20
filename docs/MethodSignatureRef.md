@@ -13,9 +13,9 @@ URI: [odm:MethodSignatureRef](http://www.cdisc.org/ns/odm/v2.0/MethodSignatureRe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[RangeCheck](RangeCheck.md) |  |  yes  |
-[MethodDef](MethodDef.md) |  |  yes  |
-[ConditionDef](ConditionDef.md) |  |  yes  |
+[RangeCheck](RangeCheck.md) | A RangeCheck defines a constraint on the value of the enclosing item |  yes  |
+[MethodDef](MethodDef.md) | A MethodDef defines how a data value can be obtained from a collection of oth... |  yes  |
+[ConditionDef](ConditionDef.md) | A ConditionDef defines a boolean condition |  yes  |
 
 
 
@@ -54,6 +54,7 @@ URI: [odm:MethodSignatureRef](http://www.cdisc.org/ns/odm/v2.0/MethodSignatureRe
 name: MethodSignatureRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: MethodSignatureRef
 domain_of:
 - RangeCheck

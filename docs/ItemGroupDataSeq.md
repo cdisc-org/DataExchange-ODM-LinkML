@@ -1,5 +1,10 @@
 # Slot: ItemGroupDataSeq
 
+
+_Unique sequence # for each ItemGroupData child element (record) in the container element. The ItemGroupDataSeq attribute doesn’t have any other meaning than the sequence in which the items are saved and exchanged for each ItemGroupDef. It is equivalent to the observation # in a dataset._
+
+
+
 URI: [odm:ItemGroupDataSeq](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDataSeq)
 
 
@@ -13,7 +18,7 @@ URI: [odm:ItemGroupDataSeq](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDataSeq)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemGroupData](ItemGroupData.md) |  |  yes  |
+[ItemGroupData](ItemGroupData.md) | Clinical data corresponding to an ItemGroupRef defined in the active MetaData... |  yes  |
 
 
 
@@ -50,6 +55,10 @@ URI: [odm:ItemGroupDataSeq](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDataSeq)
 <details>
 ```yaml
 name: ItemGroupDataSeq
+description: 'Unique sequence # for each ItemGroupData child element (record) in the
+  container element. The ItemGroupDataSeq attribute doesn’t have any other meaning
+  than the sequence in which the items are saved and exchanged for each ItemGroupDef.
+  It is equivalent to the observation # in a dataset.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ItemGroupDataSeq

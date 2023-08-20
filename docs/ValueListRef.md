@@ -1,6 +1,11 @@
 # Class: ValueListRef
 
 
+_The ValueListRef element is the OID of the ValueListDef that contains the valuelist definition associated with the variable. If value-level metadata is required for a variable, a ValueListRef element should be provided as a child element on the ItemDef for the variable definition._
+
+
+
+
 
 URI: [odm:ValueListRef](http://www.cdisc.org/ns/odm/v2.0/ValueListRef)
 
@@ -24,7 +29,7 @@ URI: [odm:ValueListRef](http://www.cdisc.org/ns/odm/v2.0/ValueListRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ValueListOID](ValueListOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [ValueListOID](ValueListOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the unique ID of a ValueListDef element that provides value-leve... | direct |
 
 
 
@@ -82,6 +87,10 @@ URI: [odm:ValueListRef](http://www.cdisc.org/ns/odm/v2.0/ValueListRef)
 <details>
 ```yaml
 name: ValueListRef
+description: The ValueListRef element is the OID of the ValueListDef that contains
+  the valuelist definition associated with the variable. If value-level metadata is
+  required for a variable, a ValueListRef element should be provided as a child element
+  on the ItemDef for the variable definition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ValueListRef
@@ -90,6 +99,14 @@ slots:
 slot_usage:
   ValueListOID:
     name: ValueListOID
+    description: 'Reference to the unique ID of a ValueListDef element that provides
+      value-level metadata. '
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a ValueListDef in the same MetaDataVersion.'
     domain_of:
     - ValueListRef
     range: oidref
@@ -104,12 +121,24 @@ class_uri: odm:ValueListRef
 <details>
 ```yaml
 name: ValueListRef
+description: The ValueListRef element is the OID of the ValueListDef that contains
+  the valuelist definition associated with the variable. If value-level metadata is
+  required for a variable, a ValueListRef element should be provided as a child element
+  on the ItemDef for the variable definition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ValueListRef
 slot_usage:
   ValueListOID:
     name: ValueListOID
+    description: 'Reference to the unique ID of a ValueListDef element that provides
+      value-level metadata. '
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a ValueListDef in the same MetaDataVersion.'
     domain_of:
     - ValueListRef
     range: oidref
@@ -117,6 +146,14 @@ slot_usage:
 attributes:
   ValueListOID:
     name: ValueListOID
+    description: 'Reference to the unique ID of a ValueListDef element that provides
+      value-level metadata. '
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a ValueListDef in the same MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ValueListOID

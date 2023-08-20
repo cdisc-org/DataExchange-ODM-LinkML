@@ -1,5 +1,10 @@
 # Slot: Term
 
+
+_Longer name. Provides the full name of the parameter._
+
+
+
 URI: [odm:Term](http://www.cdisc.org/ns/odm/v2.0/Term)
 
 
@@ -13,7 +18,7 @@ URI: [odm:Term](http://www.cdisc.org/ns/odm/v2.0/Term)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyParameter](StudyParameter.md) |  |  yes  |
+[StudyParameter](StudyParameter.md) | A StudyParameter defines a study design parameter for which the value or valu... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:Term](http://www.cdisc.org/ns/odm/v2.0/Term)
 <details>
 ```yaml
 name: Term
+description: Longer name. Provides the full name of the parameter.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Term

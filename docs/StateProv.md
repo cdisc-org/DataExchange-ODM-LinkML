@@ -1,6 +1,11 @@
 # Class: StateProv
 
 
+_The state or province name part of a user's postal address._
+
+
+
+
 
 URI: [odm:StateProv](http://www.cdisc.org/ns/odm/v2.0/StateProv)
 
@@ -82,6 +87,7 @@ URI: [odm:StateProv](http://www.cdisc.org/ns/odm/v2.0/StateProv)
 <details>
 ```yaml
 name: StateProv
+description: The state or province name part of a user's postal address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StateProv
@@ -102,6 +108,7 @@ class_uri: odm:StateProv
 <details>
 ```yaml
 name: StateProv
+description: The state or province name part of a user's postal address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StateProv

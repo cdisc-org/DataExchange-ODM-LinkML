@@ -1,5 +1,10 @@
 # Slot: ArmOID
 
+
+_Reference to an Arm element defined in the study._
+
+
+
 URI: [odm:ArmOID](http://www.cdisc.org/ns/odm/v2.0/ArmOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:ArmOID](http://www.cdisc.org/ns/odm/v2.0/ArmOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEventGroupDef](StudyEventGroupDef.md) |  |  yes  |
+[StudyEventGroupDef](StudyEventGroupDef.md) | StudyEventGroupDef is a study building block that groups a number of smaller ... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:ArmOID](http://www.cdisc.org/ns/odm/v2.0/ArmOID)
 <details>
 ```yaml
 name: ArmOID
+description: Reference to an Arm element defined in the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ArmOID

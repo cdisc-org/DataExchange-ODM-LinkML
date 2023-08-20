@@ -805,7 +805,7 @@
       }
     },
     {
-      "name": "StudyEndPointLevel",
+      "name": "StudyEstimandLevel",
       "xs:restriction": {
         "base": "xs:string",
         "xs:enumeration": [
@@ -3533,7 +3533,7 @@
           "use": "required"
         },
         {
-          "name": "Type",
+          "name": "Level",
           "type": "StudyObjectiveLevel",
           "use": "optional"
         }
@@ -3574,7 +3574,7 @@
         },
         {
           "name": "Level",
-          "type": "StudyEndPointLevel",
+          "type": "StudyEstimandLevel",
           "use": "optional"
         }
       ]
@@ -3606,6 +3606,11 @@
           "name": "Name",
           "type": "name",
           "use": "required"
+        },
+        {
+          "name": "Level",
+          "type": "StudyEstimandLevel",
+          "use": "optional"
         }
       ]
     },
@@ -4216,6 +4221,21 @@
         {
           "name": "EffectiveDate",
           "type": "date",
+          "use": "required"
+        }
+      ]
+    },
+    {
+      "name": "TelecomAttributeDefinition",
+      "xs:attribute": [
+        {
+          "name": "TelecomType",
+          "type": "TelecomTypeType",
+          "use": "required"
+        },
+        {
+          "name": "Value",
+          "type": "text",
           "use": "required"
         }
       ]
@@ -9432,16 +9452,9 @@
           "maxOccurs": "unbounded"
         }
       },
-      "xs:attribute": [
+      "xs:attributeGroup": [
         {
-          "name": "TelecomType",
-          "type": "TelecomTypeType",
-          "use": "required"
-        },
-        {
-          "name": "Value",
-          "type": "text",
-          "use": "required"
+          "ref": "TelecomAttributeDefinition"
         }
       ]
     },

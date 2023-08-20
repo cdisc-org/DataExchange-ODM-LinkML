@@ -1,5 +1,10 @@
 # Slot: StudyInterventionOID
 
+
+_Reference to a StudyIntervention_
+
+
+
 URI: [odm:StudyInterventionOID](http://www.cdisc.org/ns/odm/v2.0/StudyInterventionOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:StudyInterventionOID](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyInterventionRef](StudyInterventionRef.md) |  |  yes  |
+[StudyInterventionRef](StudyInterventionRef.md) | Element NameStudyInterventionRefParent ElementsStudyEstimandElement XPath(s)/... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:StudyInterventionOID](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 <details>
 ```yaml
 name: StudyInterventionOID
+description: Reference to a StudyIntervention
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: StudyInterventionOID

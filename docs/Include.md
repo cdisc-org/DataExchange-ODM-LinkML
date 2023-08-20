@@ -1,6 +1,11 @@
 # Class: Include
 
 
+_The Include metadata element allows a reference to a prior metadata version._
+
+
+
+
 
 URI: [odm:Include](http://www.cdisc.org/ns/odm/v2.0/Include)
 
@@ -28,9 +33,9 @@ URI: [odm:Include](http://www.cdisc.org/ns/odm/v2.0/Include)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [href](href.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URL that can be used to identify the location of a document or dataset file r... | direct |
+| [StudyOID](StudyOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the Study that provides a prior metadata version | direct |
+| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References a prior MetaDataVersion within the Study referenced by the StudyOI... | direct |
+| [href](href.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Reference to the location where the to be included Study-Metadata definition ... | direct |
 
 
 
@@ -88,6 +93,7 @@ URI: [odm:Include](http://www.cdisc.org/ns/odm/v2.0/Include)
 <details>
 ```yaml
 name: Include
+description: The Include metadata element allows a reference to a prior metadata version.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Include
@@ -98,6 +104,14 @@ slots:
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: References the Study that provides a prior metadata version. This
+      attribute allows an Include element to reference a metadata version in another
+      study. Thus, it is possible for many studies to share a set of common metadata
+      definitions
+    comments:
+    - 'Required
+
+      range:oidref'
     domain_of:
     - Include
     - SourceItem
@@ -111,6 +125,12 @@ slot_usage:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References a prior MetaDataVersion within the Study referenced by
+      the StudyOID attribute.
+    comments:
+    - 'Required
+
+      range:oidref'
     domain_of:
     - Include
     - SourceItem
@@ -123,8 +143,19 @@ slot_usage:
     required: true
   href:
     name: href
+    description: Reference to the location where the to be included Study-Metadata
+      definition can be accessed. The href attribute allows to provide the location
+      (as a URL) of the ODM where the to-be-included elements can be retrieved, in
+      the case that the combination of the referenced study and metadataversion is
+      not present in the same file. The reference can be to a file (e.g., "file:///d:/MyStudies/MyStudy/PriorVersionODM.xml")
+      or be an API call (e.g., " https://www.MyCompany.com/MyStudies?StudyOID=MyStudy&MetaDataVersionOID=MV.001
+      ").
+    comments:
+    - 'Optional
+
+      range:URI'
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image
@@ -140,12 +171,21 @@ class_uri: odm:Include
 <details>
 ```yaml
 name: Include
+description: The Include metadata element allows a reference to a prior metadata version.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Include
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: References the Study that provides a prior metadata version. This
+      attribute allows an Include element to reference a metadata version in another
+      study. Thus, it is possible for many studies to share a set of common metadata
+      definitions
+    comments:
+    - 'Required
+
+      range:oidref'
     domain_of:
     - Include
     - SourceItem
@@ -159,6 +199,12 @@ slot_usage:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References a prior MetaDataVersion within the Study referenced by
+      the StudyOID attribute.
+    comments:
+    - 'Required
+
+      range:oidref'
     domain_of:
     - Include
     - SourceItem
@@ -171,8 +217,19 @@ slot_usage:
     required: true
   href:
     name: href
+    description: Reference to the location where the to be included Study-Metadata
+      definition can be accessed. The href attribute allows to provide the location
+      (as a URL) of the ODM where the to-be-included elements can be retrieved, in
+      the case that the combination of the referenced study and metadataversion is
+      not present in the same file. The reference can be to a file (e.g., "file:///d:/MyStudies/MyStudy/PriorVersionODM.xml")
+      or be an API call (e.g., " https://www.MyCompany.com/MyStudies?StudyOID=MyStudy&MetaDataVersionOID=MV.001
+      ").
+    comments:
+    - 'Optional
+
+      range:URI'
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image
@@ -181,6 +238,14 @@ slot_usage:
 attributes:
   StudyOID:
     name: StudyOID
+    description: References the Study that provides a prior metadata version. This
+      attribute allows an Include element to reference a metadata version in another
+      study. Thus, it is possible for many studies to share a set of common metadata
+      definitions
+    comments:
+    - 'Required
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyOID
@@ -198,6 +263,12 @@ attributes:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References a prior MetaDataVersion within the Study referenced by
+      the StudyOID attribute.
+    comments:
+    - 'Required
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: MetaDataVersionOID
@@ -214,14 +285,23 @@ attributes:
     required: true
   href:
     name: href
-    description: URL that can be used to identify the location of a document or dataset
-      file relative to the folder containing the ODM file.
+    description: Reference to the location where the to be included Study-Metadata
+      definition can be accessed. The href attribute allows to provide the location
+      (as a URL) of the ODM where the to-be-included elements can be retrieved, in
+      the case that the combination of the referenced study and metadataversion is
+      not present in the same file. The reference can be to a file (e.g., "file:///d:/MyStudies/MyStudy/PriorVersionODM.xml")
+      or be an API call (e.g., " https://www.MyCompany.com/MyStudies?StudyOID=MyStudy&MetaDataVersionOID=MV.001
+      ").
+    comments:
+    - 'Optional
+
+      range:URI'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: href
     owner: Include
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image

@@ -31,7 +31,7 @@ URI: [ItemGroupClass](ItemGroupClass)
 
 | Name | Description |
 | ---  | --- |
-| [Name](Name.md) |  |
+| [Name](Name.md) | Name of the Class |
 
 
 

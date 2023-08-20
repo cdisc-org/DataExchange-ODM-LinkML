@@ -1,6 +1,11 @@
 # Class: UserName
 
 
+_The user's login identification in the sender's system._
+
+
+
+
 
 URI: [odm:UserName](http://www.cdisc.org/ns/odm/v2.0/UserName)
 
@@ -82,6 +87,7 @@ URI: [odm:UserName](http://www.cdisc.org/ns/odm/v2.0/UserName)
 <details>
 ```yaml
 name: UserName
+description: The user's login identification in the sender's system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/UserName
@@ -102,6 +108,7 @@ class_uri: odm:UserName
 <details>
 ```yaml
 name: UserName
+description: The user's login identification in the sender's system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/UserName

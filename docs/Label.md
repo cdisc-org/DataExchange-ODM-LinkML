@@ -1,5 +1,10 @@
 # Slot: Label
 
+
+_Used to link the value to a named MethodDef parameter._
+
+
+
 URI: [odm:Label](http://www.cdisc.org/ns/odm/v2.0/Label)
 
 
@@ -13,8 +18,8 @@ URI: [odm:Label](http://www.cdisc.org/ns/odm/v2.0/Label)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Resource](Resource.md) |  |  yes  |
-[Coding](Coding.md) |  |  yes  |
+[Resource](Resource.md) | Describes an external resource used as the source for the parent ItemGroup or... |  yes  |
+[Coding](Coding.md) | Coding references a symbol from a defined code system |  yes  |
 
 
 
@@ -51,6 +56,7 @@ URI: [odm:Label](http://www.cdisc.org/ns/odm/v2.0/Label)
 <details>
 ```yaml
 name: Label
+description: Used to link the value to a named MethodDef parameter.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Label

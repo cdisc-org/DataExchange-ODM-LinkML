@@ -13,7 +13,7 @@ URI: [odm:ClinicalDataRef](http://www.cdisc.org/ns/odm/v2.0/ClinicalDataRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) |  |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:ClinicalDataRef](http://www.cdisc.org/ns/odm/v2.0/ClinicalDataRef)
 name: ClinicalDataRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ClinicalDataRef
 domain_of:
 - ODMFileMetadata

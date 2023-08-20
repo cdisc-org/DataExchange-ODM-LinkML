@@ -1,5 +1,10 @@
 # Slot: CreationDateTime
 
+
+_Time of creation of the file containing the document._
+
+
+
 URI: [odm:CreationDateTime](http://www.cdisc.org/ns/odm/v2.0/CreationDateTime)
 
 
@@ -13,7 +18,7 @@ URI: [odm:CreationDateTime](http://www.cdisc.org/ns/odm/v2.0/CreationDateTime)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) |  |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:CreationDateTime](http://www.cdisc.org/ns/odm/v2.0/CreationDateTime)
 <details>
 ```yaml
 name: CreationDateTime
+description: Time of creation of the file containing the document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: CreationDateTime

@@ -1,5 +1,10 @@
 # Slot: Other
 
+
+_Flag to indicate that the Item represents "other" content added to an ItemGroup._
+
+
+
 URI: [odm:Other](http://www.cdisc.org/ns/odm/v2.0/Other)
 
 
@@ -13,8 +18,8 @@ URI: [odm:Other](http://www.cdisc.org/ns/odm/v2.0/Other)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemRef](ItemRef.md) |  |  yes  |
-[CodeListItem](CodeListItem.md) |  |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
+[CodeListItem](CodeListItem.md) | Defines an individual member value of a codelist |  yes  |
 
 
 
@@ -51,6 +56,8 @@ URI: [odm:Other](http://www.cdisc.org/ns/odm/v2.0/Other)
 <details>
 ```yaml
 name: Other
+description: Flag to indicate that the Item represents "other" content added to an
+  ItemGroup.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Other

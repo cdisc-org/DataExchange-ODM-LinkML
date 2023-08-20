@@ -1,5 +1,10 @@
 # Slot: StudyEndPointOID
 
+
+_Reference to the StudyEndPoint ._
+
+
+
 URI: [odm:StudyEndPointOID](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:StudyEndPointOID](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEndPointRef](StudyEndPointRef.md) |  |  yes  |
+[StudyEndPointRef](StudyEndPointRef.md) | Go to start of metadata |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:StudyEndPointOID](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointOID)
 <details>
 ```yaml
 name: StudyEndPointOID
+description: Reference to the StudyEndPoint .
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: StudyEndPointOID

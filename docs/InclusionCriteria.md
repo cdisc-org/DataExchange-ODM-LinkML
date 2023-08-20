@@ -1,6 +1,11 @@
 # Class: InclusionCriteria
 
 
+_The InclusionCriteria is a container element for Criterion elements describing inclusion criteria for subjects in the study. When a list is provided, subjects must meet each of the criteria in the list in order to enroll in the study._
+
+
+
+
 
 URI: [odm:InclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/InclusionCriteria)
 
@@ -26,7 +31,7 @@ URI: [odm:InclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/InclusionCriteria)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [CriterionRef](CriterionRef.md) | 1..* <br/> [Criterion](Criterion.md) |  | direct |
+| [CriterionRef](CriterionRef.md) | 0..* <br/> [Criterion](Criterion.md) |  | direct |
 
 
 
@@ -84,6 +89,9 @@ URI: [odm:InclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/InclusionCriteria)
 <details>
 ```yaml
 name: InclusionCriteria
+description: The InclusionCriteria is a container element for Criterion elements describing
+  inclusion criteria for subjects in the study. When a list is provided, subjects
+  must meet each of the criteria in the list in order to enroll in the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/InclusionCriteria
@@ -99,10 +107,8 @@ slot_usage:
     - EntryCriteria
     - ExitCriteria
     range: Criterion
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:InclusionCriteria
 
 ```
@@ -113,6 +119,9 @@ class_uri: odm:InclusionCriteria
 <details>
 ```yaml
 name: InclusionCriteria
+description: The InclusionCriteria is a container element for Criterion elements describing
+  inclusion criteria for subjects in the study. When a list is provided, subjects
+  must meet each of the criteria in the list in order to enroll in the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/InclusionCriteria
@@ -126,16 +135,15 @@ slot_usage:
     - EntryCriteria
     - ExitCriteria
     range: Criterion
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   CriterionRef:
     name: CriterionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CriterionRef
     owner: InclusionCriteria
     domain_of:
@@ -144,10 +152,8 @@ attributes:
     - EntryCriteria
     - ExitCriteria
     range: Criterion
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:InclusionCriteria
 
 ```

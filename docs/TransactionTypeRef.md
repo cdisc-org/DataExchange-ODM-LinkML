@@ -1,5 +1,10 @@
 # Slot: TransactionTypeRef
 
+
+_Identifies the transaction type when /ODM/@FileType is Transactional and there is no child element._
+
+
+
 URI: [odm:TransactionTypeRef](http://www.cdisc.org/ns/odm/v2.0/TransactionTypeRef)
 
 
@@ -13,11 +18,11 @@ URI: [odm:TransactionTypeRef](http://www.cdisc.org/ns/odm/v2.0/TransactionTypeRe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SubjectData](SubjectData.md) |  |  yes  |
-[StudyEventData](StudyEventData.md) |  |  yes  |
-[ItemGroupData](ItemGroupData.md) |  |  yes  |
-[ItemData](ItemData.md) |  |  yes  |
-[Annotation](Annotation.md) |  |  yes  |
+[SubjectData](SubjectData.md) | Clinical data for a single subject |  yes  |
+[StudyEventData](StudyEventData.md) | Clinical data for a study event (visit) |  yes  |
+[ItemGroupData](ItemGroupData.md) | Clinical data corresponding to an ItemGroupRef defined in the active MetaData... |  yes  |
+[ItemData](ItemData.md) | The ItemData element is used for transmission of the clinical data for an ite... |  yes  |
+[Annotation](Annotation.md) | A general note about clinical data |  yes  |
 
 
 
@@ -54,6 +59,8 @@ URI: [odm:TransactionTypeRef](http://www.cdisc.org/ns/odm/v2.0/TransactionTypeRe
 <details>
 ```yaml
 name: TransactionTypeRef
+description: Identifies the transaction type when /ODM/@FileType is Transactional
+  and there is no child element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: TransactionTypeRef

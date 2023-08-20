@@ -1,5 +1,10 @@
 # Slot: StudyEventRepeatKey
 
+
+_A key used to distinguish between repeats of the same type of study event for a single subject._
+
+
+
 URI: [odm:StudyEventRepeatKey](http://www.cdisc.org/ns/odm/v2.0/StudyEventRepeatKey)
 
 
@@ -13,8 +18,8 @@ URI: [odm:StudyEventRepeatKey](http://www.cdisc.org/ns/odm/v2.0/StudyEventRepeat
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEventData](StudyEventData.md) |  |  yes  |
-[KeySet](KeySet.md) |  |  yes  |
+[StudyEventData](StudyEventData.md) | Clinical data for a study event (visit) |  yes  |
+[KeySet](KeySet.md) | A KeySet references a single entity (e |  yes  |
 
 
 
@@ -51,6 +56,8 @@ URI: [odm:StudyEventRepeatKey](http://www.cdisc.org/ns/odm/v2.0/StudyEventRepeat
 <details>
 ```yaml
 name: StudyEventRepeatKey
+description: A key used to distinguish between repeats of the same type of study event
+  for a single subject.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: StudyEventRepeatKey

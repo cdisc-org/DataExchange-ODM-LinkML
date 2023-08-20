@@ -20,7 +20,7 @@ URI: [OriginSource](OriginSource)
 
 | Name | Description |
 | ---  | --- |
-| [Source](Source.md) |  |
+| [Source](Source.md) | I ndicates the party responsible for the data's origin type |
 
 
 

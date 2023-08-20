@@ -1,6 +1,11 @@
 # Class: StudyEndPoint
 
 
+_A study end point reflects an outcome measure of interest that is statistically analyzed to address a particular research question for the study. It typically specifies the type of assessments made; the timing of those assessments; the assessment tools used; and other details, as applicable, such as how multiple assessments within an individual are to be combined._
+
+
+
+
 
 URI: [odm:StudyEndPoint](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoint)
 
@@ -19,7 +24,7 @@ URI: [odm:StudyEndPoint](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoint)
         
       StudyEndPoint : Level
         
-          StudyEndPoint --|> StudyEndPointLevel : Level
+          StudyEndPoint --|> StudyEstimandLevel : Level
         
       StudyEndPoint : Name
         
@@ -42,11 +47,11 @@ URI: [odm:StudyEndPoint](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoint)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [Type](Type.md) | 0..1 <br/> [StudyEndPointType](StudyEndPointType.md) | Type of page for page references indicated in the PageRefs attribute | direct |
-| [Level](Level.md) | 0..1 <br/> [StudyEndPointLevel](StudyEndPointLevel.md) |  | direct |
-| [DescriptionRef](DescriptionRef.md) | 1..1 <br/> [Description](Description.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the StudyEndPoint element | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable identifier for the StudyEndPoint element | direct |
+| [Type](Type.md) | 0..1 <br/> [StudyEndPointType](StudyEndPointType.md) | The type of end point | direct |
+| [Level](Level.md) | 0..1 <br/> [StudyEstimandLevel](StudyEstimandLevel.md) | Level for the Study Endpoint | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 | [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) |  | direct |
 
 
@@ -105,6 +110,11 @@ URI: [odm:StudyEndPoint](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoint)
 <details>
 ```yaml
 name: StudyEndPoint
+description: A study end point reflects an outcome measure of interest that is statistically
+  analyzed to address a particular research question for the study. It typically specifies
+  the type of assessments made; the timing of those assessments; the assessment tools
+  used; and other details, as applicable, such as how multiple assessments within
+  an individual are to be combined.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPoint
@@ -118,6 +128,13 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the StudyEndPoint element
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute for the StudyEndPoint must be unique within the study.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -160,6 +177,13 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable identifier for the StudyEndPoint element.
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name must be unique within the set of StudyEndPoints elements for the study.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -200,7 +224,20 @@ slot_usage:
     required: true
   Type:
     name: Type
+    description: 'The type of end point. Simple: measures the change of a single outcome
+      that is meaningful in the context of the disease being studied. Humane: the
+      point at which pain and/or distress is terminated, minimized, or reduced. Surrogate:
+      a measure of effect of a specific treatment that may correlate with a real clinical
+      endpoint but does not necessarily have a guaranteed relationship (e.g., a biomarker).
+      Combined: end point that is a combination of several measures. Example: A heart
+      attack study may report the incidence of the combined endpoint of chest pain,
+      myocardial infarction, or death.'
+    comments:
+    - 'Optional
+
+      enum values:(Simple | Humane | Surrogate | Composite)'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -208,7 +245,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -218,9 +254,22 @@ slot_usage:
     range: StudyEndPointType
   Level:
     name: Level
+    description: Level for the Study Endpoint. Primary endpoint(s) are typically efficacy
+      measures that address the main research question [1] Secondary endpoints are
+      generally not sufficient to influence decision-making alone, but may support
+      the claim of efficacy by demonstrating additional effects or by supporting a
+      causal mechanism. [2] Exploratory endpoints (where nominated) typically capture
+      outcomes that occur less frequently or which may be useful for exploring novel
+      hypotheses. [1]
+    comments:
+    - "Optional \nenum values:(Primary | Secondary | Exploratory)\nThese are defined\
+      \ in concordance with the ICH M11 Clinical electronic Structured Harmonised\
+      \ Protocol Specification"
     domain_of:
+    - StudyObjective
     - StudyEndPoint
-    range: StudyEndPointLevel
+    - StudyEstimand
+    range: StudyEstimandLevel
   DescriptionRef:
     name: DescriptionRef
     domain_of:
@@ -262,8 +311,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   FormalExpressionRef:
     name: FormalExpressionRef
@@ -287,12 +334,24 @@ class_uri: odm:StudyEndPoint
 <details>
 ```yaml
 name: StudyEndPoint
+description: A study end point reflects an outcome measure of interest that is statistically
+  analyzed to address a particular research question for the study. It typically specifies
+  the type of assessments made; the timing of those assessments; the assessment tools
+  used; and other details, as applicable, such as how multiple assessments within
+  an individual are to be combined.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPoint
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the StudyEndPoint element
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute for the StudyEndPoint must be unique within the study.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -335,6 +394,13 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable identifier for the StudyEndPoint element.
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name must be unique within the set of StudyEndPoints elements for the study.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -375,7 +441,20 @@ slot_usage:
     required: true
   Type:
     name: Type
+    description: 'The type of end point. Simple: measures the change of a single outcome
+      that is meaningful in the context of the disease being studied. Humane: the
+      point at which pain and/or distress is terminated, minimized, or reduced. Surrogate:
+      a measure of effect of a specific treatment that may correlate with a real clinical
+      endpoint but does not necessarily have a guaranteed relationship (e.g., a biomarker).
+      Combined: end point that is a combination of several measures. Example: A heart
+      attack study may report the incidence of the combined endpoint of chest pain,
+      myocardial infarction, or death.'
+    comments:
+    - 'Optional
+
+      enum values:(Simple | Humane | Surrogate | Composite)'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -383,7 +462,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -393,9 +471,22 @@ slot_usage:
     range: StudyEndPointType
   Level:
     name: Level
+    description: Level for the Study Endpoint. Primary endpoint(s) are typically efficacy
+      measures that address the main research question [1] Secondary endpoints are
+      generally not sufficient to influence decision-making alone, but may support
+      the claim of efficacy by demonstrating additional effects or by supporting a
+      causal mechanism. [2] Exploratory endpoints (where nominated) typically capture
+      outcomes that occur less frequently or which may be useful for exploring novel
+      hypotheses. [1]
+    comments:
+    - "Optional \nenum values:(Primary | Secondary | Exploratory)\nThese are defined\
+      \ in concordance with the ICH M11 Clinical electronic Structured Harmonised\
+      \ Protocol Specification"
     domain_of:
+    - StudyObjective
     - StudyEndPoint
-    range: StudyEndPointLevel
+    - StudyEstimand
+    range: StudyEstimandLevel
   DescriptionRef:
     name: DescriptionRef
     domain_of:
@@ -437,8 +528,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   FormalExpressionRef:
     name: FormalExpressionRef
@@ -455,7 +544,13 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for the StudyEndPoint element
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute for the StudyEndPoint must be unique within the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -503,7 +598,13 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Human readable identifier for the StudyEndPoint element.
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name must be unique within the set of StudyEndPoints elements for the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -548,12 +649,24 @@ attributes:
     required: true
   Type:
     name: Type
-    description: Type of page for page references indicated in the PageRefs attribute.
+    description: 'The type of end point. Simple: measures the change of a single outcome
+      that is meaningful in the context of the disease being studied. Humane: the
+      point at which pain and/or distress is terminated, minimized, or reduced. Surrogate:
+      a measure of effect of a specific treatment that may correlate with a real clinical
+      endpoint but does not necessarily have a guaranteed relationship (e.g., a biomarker).
+      Combined: end point that is a combination of several measures. Example: A heart
+      attack study may report the incidence of the combined endpoint of chest pain,
+      myocardial infarction, or death.'
+    comments:
+    - 'Optional
+
+      enum values:(Simple | Humane | Surrogate | Composite)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Type
     owner: StudyEndPoint
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -561,7 +674,6 @@ attributes:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -571,17 +683,31 @@ attributes:
     range: StudyEndPointType
   Level:
     name: Level
+    description: Level for the Study Endpoint. Primary endpoint(s) are typically efficacy
+      measures that address the main research question [1] Secondary endpoints are
+      generally not sufficient to influence decision-making alone, but may support
+      the claim of efficacy by demonstrating additional effects or by supporting a
+      causal mechanism. [2] Exploratory endpoints (where nominated) typically capture
+      outcomes that occur less frequently or which may be useful for exploring novel
+      hypotheses. [1]
+    comments:
+    - "Optional \nenum values:(Primary | Secondary | Exploratory)\nThese are defined\
+      \ in concordance with the ICH M11 Clinical electronic Structured Harmonised\
+      \ Protocol Specification"
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Level
     owner: StudyEndPoint
     domain_of:
+    - StudyObjective
     - StudyEndPoint
-    range: StudyEndPointLevel
+    - StudyEstimand
+    range: StudyEstimandLevel
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: StudyEndPoint
     domain_of:
@@ -623,14 +749,13 @@ attributes:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   FormalExpressionRef:
     name: FormalExpressionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: FormalExpressionRef
     owner: StudyEndPoint
     domain_of:

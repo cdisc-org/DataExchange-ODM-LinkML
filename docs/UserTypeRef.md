@@ -1,5 +1,10 @@
 # Slot: UserTypeRef
 
+
+_User's role in the study._
+
+
+
 URI: [odm:UserTypeRef](http://www.cdisc.org/ns/odm/v2.0/UserTypeRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:UserTypeRef](http://www.cdisc.org/ns/odm/v2.0/UserTypeRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[User](User.md) |  |  yes  |
+[User](User.md) | Information about a specific user of a clinical data collection or data manag... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:UserTypeRef](http://www.cdisc.org/ns/odm/v2.0/UserTypeRef)
 <details>
 ```yaml
 name: UserTypeRef
+description: User's role in the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: UserTypeRef

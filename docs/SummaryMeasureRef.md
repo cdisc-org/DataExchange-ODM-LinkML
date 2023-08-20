@@ -13,7 +13,7 @@ URI: [odm:SummaryMeasureRef](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasureRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEstimand](StudyEstimand.md) |  |  yes  |
+[StudyEstimand](StudyEstimand.md) | Element NameStudyEstimandParent ElementsStudyEstimandsElement XPath(s)/ODM/St... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:SummaryMeasureRef](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasureRef)
 name: SummaryMeasureRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: SummaryMeasureRef
 domain_of:
 - StudyEstimand

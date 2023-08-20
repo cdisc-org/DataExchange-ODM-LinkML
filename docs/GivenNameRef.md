@@ -13,7 +13,7 @@ URI: [odm:GivenNameRef](http://www.cdisc.org/ns/odm/v2.0/GivenNameRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[User](User.md) |  |  yes  |
+[User](User.md) | Information about a specific user of a clinical data collection or data manag... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:GivenNameRef](http://www.cdisc.org/ns/odm/v2.0/GivenNameRef)
 name: GivenNameRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: GivenNameRef
 domain_of:
 - User

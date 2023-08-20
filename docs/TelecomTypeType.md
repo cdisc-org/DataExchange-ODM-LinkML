@@ -19,6 +19,13 @@ URI: [TelecomTypeType](TelecomTypeType)
 
 
 
+## Slots
+
+| Name | Description |
+| ---  | --- |
+| [TelecomType](TelecomType.md) |  |
+| [TelecomType](TelecomType.md) |  |
+
 
 
 

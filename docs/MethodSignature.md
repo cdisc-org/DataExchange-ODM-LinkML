@@ -1,6 +1,11 @@
 # Class: MethodSignature
 
 
+_A MethodSignature defines the parameters and return values for a method. The MethodSignature improves traceability while enhancing the ability for automation engines to execute a MethodDef's FormalExpression. Most Methods use one or more input parameters and return one or more values. _
+
+
+
+
 
 URI: [odm:MethodSignature](http://www.cdisc.org/ns/odm/v2.0/MethodSignature)
 
@@ -91,6 +96,10 @@ URI: [odm:MethodSignature](http://www.cdisc.org/ns/odm/v2.0/MethodSignature)
 <details>
 ```yaml
 name: MethodSignature
+description: 'A MethodSignature defines the parameters and return values for a method.
+  The MethodSignature improves traceability while enhancing the ability for automation
+  engines to execute a MethodDef''s FormalExpression. Most Methods use one or more
+  input parameters and return one or more values. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MethodSignature
@@ -124,6 +133,10 @@ class_uri: odm:MethodSignature
 <details>
 ```yaml
 name: MethodSignature
+description: 'A MethodSignature defines the parameters and return values for a method.
+  The MethodSignature improves traceability while enhancing the ability for automation
+  engines to execute a MethodDef''s FormalExpression. Most Methods use one or more
+  input parameters and return one or more values. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MethodSignature
@@ -150,6 +163,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ParameterRef
     owner: MethodSignature
     domain_of:
@@ -162,6 +176,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ReturnValueRef
     owner: MethodSignature
     domain_of:

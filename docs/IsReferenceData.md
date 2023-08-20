@@ -1,5 +1,10 @@
 # Slot: IsReferenceData
 
+
+_Specifies whether this ItemGroupDef is used for non-subject data._
+
+
+
 URI: [odm:IsReferenceData](http://www.cdisc.org/ns/odm/v2.0/IsReferenceData)
 
 
@@ -13,7 +18,7 @@ URI: [odm:IsReferenceData](http://www.cdisc.org/ns/odm/v2.0/IsReferenceData)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
+[ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:IsReferenceData](http://www.cdisc.org/ns/odm/v2.0/IsReferenceData)
 <details>
 ```yaml
 name: IsReferenceData
+description: Specifies whether this ItemGroupDef is used for non-subject data.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: IsReferenceData

@@ -13,7 +13,7 @@ URI: [odm:RelativeTimingConstraintRef](http://www.cdisc.org/ns/odm/v2.0/Relative
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyTiming](StudyTiming.md) |  |  yes  |
+[StudyTiming](StudyTiming.md) | The StudyTiming element defines a timing constraint within the study, which c... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:RelativeTimingConstraintRef](http://www.cdisc.org/ns/odm/v2.0/Relative
 name: RelativeTimingConstraintRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: RelativeTimingConstraintRef
 domain_of:
 - StudyTiming

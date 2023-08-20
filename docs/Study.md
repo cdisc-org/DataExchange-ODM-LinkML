@@ -1,6 +1,11 @@
 # Class: Study
 
 
+_This element collects static structural information about an individual study.Element NameStudyParent ElementsODMElement XPath(s)/ODM/StudyElement Textual ValueNone AttributesOID, StudyName, ProtocolName, VersionID, VersionName, StatusChild Elements(Description?, MetaDataVersion*)Usage/Business RulesBusiness Rule(s): Required when ODM/@Granularity is in (All | Metadata)_
+
+
+
+
 
 URI: [odm:Study](http://www.cdisc.org/ns/odm/v2.0/Study)
 
@@ -42,14 +47,14 @@ URI: [odm:Study](http://www.cdisc.org/ns/odm/v2.0/Study)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [StudyName](StudyName.md) | 1..1 <br/> [Name](Name.md) |  | direct |
-| [ProtocolName](ProtocolName.md) | 1..1 <br/> [Name](Name.md) |  | direct |
-| [VersionID](VersionID.md) | 0..1 <br/> [Name](Name.md) |  | direct |
-| [VersionName](VersionName.md) | 0..1 <br/> [Name](Name.md) |  | direct |
-| [Status](Status.md) | 0..1 <br/> [Name](Name.md) | Status of Standard | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the study | direct |
+| [StudyName](StudyName.md) | 1..1 <br/> [Name](Name.md) | Sponsoring organization's internal name for the study | direct |
+| [ProtocolName](ProtocolName.md) | 1..1 <br/> [Name](Name.md) | P rotocol identifier or protocol number assigned to the study  | direct |
+| [VersionID](VersionID.md) | 0..1 <br/> [Name](Name.md) | Identifier for the specific version of the study in the source system that th... | direct |
+| [VersionName](VersionName.md) | 0..1 <br/> [Name](Name.md) | Short descriptive label for the version of the study, e | direct |
+| [Status](Status.md) | 0..1 <br/> [Name](Name.md) | Represents the workflow status for the version of the study with content incl... | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [MetaDataVersionRefRef](MetaDataVersionRefRef.md) | 1..* <br/> [MetaDataVersion](MetaDataVersion.md) |  | direct |
+| [MetaDataVersionRefRef](MetaDataVersionRefRef.md) | 0..* <br/> [MetaDataVersion](MetaDataVersion.md) |  | direct |
 
 
 
@@ -107,6 +112,11 @@ URI: [odm:Study](http://www.cdisc.org/ns/odm/v2.0/Study)
 <details>
 ```yaml
 name: Study
+description: 'This element collects static structural information about an individual
+  study.Element NameStudyParent ElementsODMElement XPath(s)/ODM/StudyElement Textual
+  ValueNone AttributesOID, StudyName, ProtocolName, VersionID, VersionName, StatusChild
+  Elements(Description?, MetaDataVersion*)Usage/Business RulesBusiness Rule(s): Required
+  when ODM/@Granularity is in (All | Metadata)'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Study
@@ -122,6 +132,11 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the study.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -164,28 +179,63 @@ slot_usage:
     required: true
   StudyName:
     name: StudyName
+    description: Sponsoring organization's internal name for the study. If no internal
+      name is available, the value is expected to be the same value as ProtocolName.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Study
     range: name
     required: true
   ProtocolName:
     name: ProtocolName
+    description: P rotocol identifier or protocol number assigned to the study . It
+      is used by the regulatory authority or clinical trial registry.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Study
     range: name
     required: true
   VersionID:
     name: VersionID
+    description: Identifier for the specific version of the study in the source system
+      that the enclosed Study element metadata refers to.
+    comments:
+    - 'Optional
+
+      range:name'
     domain_of:
     - Study
     range: name
   VersionName:
     name: VersionName
+    description: Short descriptive label for the version of the study, e.g. "Initial
+      go live" when VersionID = "<study version ID for Initial go live>". VersionName
+      may be provided when a VersionID is provided.
+    comments:
+    - 'Optional
+
+      range:name'
     domain_of:
     - Study
     range: name
   Status:
     name: Status
+    description: Represents the workflow status for the version of the study with
+      content included in the enclosed Study element metadata. Status values can be
+      different in each system and may have specific meaning within each system, e.g.
+      a "Production" version of a study in a particular source system may be non-editable
+      and editable in a different source system. If no VersionID is provided, Status
+      refers to the status of the Study as a whole.
+    comments:
+    - 'Optional
+
+      range:name'
     domain_of:
     - Study
     - Standard
@@ -239,10 +289,8 @@ slot_usage:
     - Study
     - Location
     range: MetaDataVersion
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Study
 
 ```
@@ -253,12 +301,22 @@ class_uri: odm:Study
 <details>
 ```yaml
 name: Study
+description: 'This element collects static structural information about an individual
+  study.Element NameStudyParent ElementsODMElement XPath(s)/ODM/StudyElement Textual
+  ValueNone AttributesOID, StudyName, ProtocolName, VersionID, VersionName, StatusChild
+  Elements(Description?, MetaDataVersion*)Usage/Business RulesBusiness Rule(s): Required
+  when ODM/@Granularity is in (All | Metadata)'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Study
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the study.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -301,28 +359,63 @@ slot_usage:
     required: true
   StudyName:
     name: StudyName
+    description: Sponsoring organization's internal name for the study. If no internal
+      name is available, the value is expected to be the same value as ProtocolName.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Study
     range: name
     required: true
   ProtocolName:
     name: ProtocolName
+    description: P rotocol identifier or protocol number assigned to the study . It
+      is used by the regulatory authority or clinical trial registry.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Study
     range: name
     required: true
   VersionID:
     name: VersionID
+    description: Identifier for the specific version of the study in the source system
+      that the enclosed Study element metadata refers to.
+    comments:
+    - 'Optional
+
+      range:name'
     domain_of:
     - Study
     range: name
   VersionName:
     name: VersionName
+    description: Short descriptive label for the version of the study, e.g. "Initial
+      go live" when VersionID = "<study version ID for Initial go live>". VersionName
+      may be provided when a VersionID is provided.
+    comments:
+    - 'Optional
+
+      range:name'
     domain_of:
     - Study
     range: name
   Status:
     name: Status
+    description: Represents the workflow status for the version of the study with
+      content included in the enclosed Study element metadata. Status values can be
+      different in each system and may have specific meaning within each system, e.g.
+      a "Production" version of a study in a particular source system may be non-editable
+      and editable in a different source system. If no VersionID is provided, Status
+      refers to the status of the Study as a whole.
+    comments:
+    - 'Optional
+
+      range:name'
     domain_of:
     - Study
     - Standard
@@ -376,14 +469,16 @@ slot_usage:
     - Study
     - Location
     range: MetaDataVersion
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for the study.
+    comments:
+    - 'Required
+
+      range:oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -431,6 +526,12 @@ attributes:
     required: true
   StudyName:
     name: StudyName
+    description: Sponsoring organization's internal name for the study. If no internal
+      name is available, the value is expected to be the same value as ProtocolName.
+    comments:
+    - 'Required
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyName
@@ -441,6 +542,12 @@ attributes:
     required: true
   ProtocolName:
     name: ProtocolName
+    description: P rotocol identifier or protocol number assigned to the study . It
+      is used by the regulatory authority or clinical trial registry.
+    comments:
+    - 'Required
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ProtocolName
@@ -451,6 +558,12 @@ attributes:
     required: true
   VersionID:
     name: VersionID
+    description: Identifier for the specific version of the study in the source system
+      that the enclosed Study element metadata refers to.
+    comments:
+    - 'Optional
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: VersionID
@@ -460,6 +573,13 @@ attributes:
     range: name
   VersionName:
     name: VersionName
+    description: Short descriptive label for the version of the study, e.g. "Initial
+      go live" when VersionID = "<study version ID for Initial go live>". VersionName
+      may be provided when a VersionID is provided.
+    comments:
+    - 'Optional
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: VersionName
@@ -469,7 +589,16 @@ attributes:
     range: name
   Status:
     name: Status
-    description: Status of Standard.
+    description: Represents the workflow status for the version of the study with
+      content included in the enclosed Study element metadata. Status values can be
+      different in each system and may have specific meaning within each system, e.g.
+      a "Production" version of a study in a particular source system may be non-editable
+      and editable in a different source system. If no VersionID is provided, Status
+      refers to the status of the Study as a whole.
+    comments:
+    - 'Optional
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Status
@@ -482,6 +611,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: Study
     domain_of:
@@ -529,16 +659,15 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: MetaDataVersionRefRef
     owner: Study
     domain_of:
     - Study
     - Location
     range: MetaDataVersion
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Study
 
 ```

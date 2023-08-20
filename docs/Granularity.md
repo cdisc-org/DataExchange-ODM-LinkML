@@ -23,8 +23,8 @@ URI: [Granularity](Granularity)
 
 | Name | Description |
 | ---  | --- |
-| [GranularityRef](GranularityRef.md) |  |
-| [GranularityRef](GranularityRef.md) |  |
+| [GranularityRef](GranularityRef.md) | Granularity is intended to give the sender a shorthand way to Describes the s... |
+| [GranularityRef](GranularityRef.md) | Granularity is intended to give the sender a shorthand way to Describes the s... |
 
 
 

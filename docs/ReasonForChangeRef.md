@@ -13,7 +13,7 @@ URI: [odm:ReasonForChangeRef](http://www.cdisc.org/ns/odm/v2.0/ReasonForChangeRe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[AuditRecord](AuditRecord.md) |  |  yes  |
+[AuditRecord](AuditRecord.md) | An AuditRecord carries information pertaining to the creation, deletion, or m... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:ReasonForChangeRef](http://www.cdisc.org/ns/odm/v2.0/ReasonForChangeRe
 name: ReasonForChangeRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ReasonForChangeRef
 domain_of:
 - AuditRecord

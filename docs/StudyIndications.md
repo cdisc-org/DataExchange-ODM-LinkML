@@ -1,6 +1,11 @@
 # Class: StudyIndications
 
 
+_StudyIndications is a container element for individual StudyIndication elements._
+
+
+
+
 
 URI: [odm:StudyIndications](http://www.cdisc.org/ns/odm/v2.0/StudyIndications)
 
@@ -26,7 +31,7 @@ URI: [odm:StudyIndications](http://www.cdisc.org/ns/odm/v2.0/StudyIndications)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyIndicationRef](StudyIndicationRef.md) | 1..* <br/> [StudyIndication](StudyIndication.md) |  | direct |
+| [StudyIndicationRef](StudyIndicationRef.md) | 0..* <br/> [StudyIndication](StudyIndication.md) |  | direct |
 
 
 
@@ -84,6 +89,8 @@ URI: [odm:StudyIndications](http://www.cdisc.org/ns/odm/v2.0/StudyIndications)
 <details>
 ```yaml
 name: StudyIndications
+description: StudyIndications is a container element for individual StudyIndication
+  elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyIndications
@@ -96,10 +103,8 @@ slot_usage:
     domain_of:
     - StudyIndications
     range: StudyIndication
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyIndications
 
 ```
@@ -110,6 +115,8 @@ class_uri: odm:StudyIndications
 <details>
 ```yaml
 name: StudyIndications
+description: StudyIndications is a container element for individual StudyIndication
+  elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyIndications
@@ -120,25 +127,22 @@ slot_usage:
     domain_of:
     - StudyIndications
     range: StudyIndication
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   StudyIndicationRef:
     name: StudyIndicationRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyIndicationRef
     owner: StudyIndications
     domain_of:
     - StudyIndications
     range: StudyIndication
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyIndications
 
 ```

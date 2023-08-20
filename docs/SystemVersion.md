@@ -1,5 +1,10 @@
 # Slot: SystemVersion
 
+
+_Identifies the version of the code system_
+
+
+
 URI: [odm:SystemVersion](http://www.cdisc.org/ns/odm/v2.0/SystemVersion)
 
 
@@ -13,7 +18,7 @@ URI: [odm:SystemVersion](http://www.cdisc.org/ns/odm/v2.0/SystemVersion)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Coding](Coding.md) |  |  yes  |
+[Coding](Coding.md) | Coding references a symbol from a defined code system |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:SystemVersion](http://www.cdisc.org/ns/odm/v2.0/SystemVersion)
 <details>
 ```yaml
 name: SystemVersion
+description: Identifies the version of the code system
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SystemVersion

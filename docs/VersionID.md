@@ -1,5 +1,10 @@
 # Slot: VersionID
 
+
+_Identifier for the specific version of the study in the source system that the enclosed Study element metadata refers to._
+
+
+
 URI: [odm:VersionID](http://www.cdisc.org/ns/odm/v2.0/VersionID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:VersionID](http://www.cdisc.org/ns/odm/v2.0/VersionID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Study](Study.md) |  |  yes  |
+[Study](Study.md) | This element collects static structural information about an individual study |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:VersionID](http://www.cdisc.org/ns/odm/v2.0/VersionID)
 <details>
 ```yaml
 name: VersionID
+description: Identifier for the specific version of the study in the source system
+  that the enclosed Study element metadata refers to.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: VersionID

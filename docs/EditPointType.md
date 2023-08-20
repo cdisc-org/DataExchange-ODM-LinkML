@@ -19,8 +19,8 @@ URI: [EditPointType](EditPointType)
 
 | Name | Description |
 | ---  | --- |
-| [EditPoint](EditPoint.md) |  |
-| [EditPoint](EditPoint.md) |  |
+| [EditPoint](EditPoint.md) | Identifies the phase of data processing in which update action occurred |
+| [EditPoint](EditPoint.md) | Identifies the phase of data processing in which update action occurred |
 
 
 

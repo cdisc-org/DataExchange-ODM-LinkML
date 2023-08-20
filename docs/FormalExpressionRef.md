@@ -13,11 +13,11 @@ URI: [odm:FormalExpressionRef](http://www.cdisc.org/ns/odm/v2.0/FormalExpression
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[RangeCheck](RangeCheck.md) |  |  yes  |
-[MethodDef](MethodDef.md) |  |  yes  |
-[ConditionDef](ConditionDef.md) |  |  yes  |
-[StudyEndPoint](StudyEndPoint.md) |  |  yes  |
-[StudyTargetPopulation](StudyTargetPopulation.md) |  |  yes  |
+[RangeCheck](RangeCheck.md) | A RangeCheck defines a constraint on the value of the enclosing item |  yes  |
+[MethodDef](MethodDef.md) | A MethodDef defines how a data value can be obtained from a collection of oth... |  yes  |
+[ConditionDef](ConditionDef.md) | A ConditionDef defines a boolean condition |  yes  |
+[StudyEndPoint](StudyEndPoint.md) | A study end point reflects an outcome measure of interest that is statistical... |  yes  |
+[StudyTargetPopulation](StudyTargetPopulation.md) | The StudyTargetPopulation describes the population targeted for the clinical ... |  yes  |
 
 
 
@@ -56,6 +56,7 @@ URI: [odm:FormalExpressionRef](http://www.cdisc.org/ns/odm/v2.0/FormalExpression
 name: FormalExpressionRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: FormalExpressionRef
 domain_of:
 - RangeCheck

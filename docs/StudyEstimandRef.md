@@ -13,7 +13,7 @@ URI: [odm:StudyEstimandRef](http://www.cdisc.org/ns/odm/v2.0/StudyEstimandRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEstimands](StudyEstimands.md) |  |  yes  |
+[StudyEstimands](StudyEstimands.md) | Element NameStudyEstimandsParent ElementsProtocolElement XPath(s)/ODM/Study/M... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:StudyEstimandRef](http://www.cdisc.org/ns/odm/v2.0/StudyEstimandRef)
 name: StudyEstimandRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: StudyEstimandRef
 domain_of:
 - StudyEstimands

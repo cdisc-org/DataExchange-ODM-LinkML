@@ -1,5 +1,10 @@
 # Slot: MetaDataVersionOID
 
+
+_References a prior MetaDataVersion within the Study referenced by the StudyOID attribute._
+
+
+
 URI: [odm:MetaDataVersionOID](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersionOID)
 
 
@@ -13,13 +18,13 @@ URI: [odm:MetaDataVersionOID](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersionOI
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Include](Include.md) |  |  yes  |
-[SourceItem](SourceItem.md) |  |  yes  |
-[MetaDataVersionRef](MetaDataVersionRef.md) |  |  yes  |
-[ReferenceData](ReferenceData.md) |  |  yes  |
-[ClinicalData](ClinicalData.md) |  |  yes  |
-[Association](Association.md) |  |  yes  |
-[KeySet](KeySet.md) |  |  yes  |
+[Include](Include.md) | The Include metadata element allows a reference to a prior metadata version |  yes  |
+[SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata |  yes  |
+[MetaDataVersionRef](MetaDataVersionRef.md) | A reference to a MetaDataVersion used at the containing Location |  yes  |
+[ReferenceData](ReferenceData.md) | Reference data provides information on how to interpret clinical data |  yes  |
+[ClinicalData](ClinicalData.md) | Clinical data for 1 or more subjects |  yes  |
+[Association](Association.md) | An association permits an annotation to be placed on an ordered pair of entit... |  yes  |
+[KeySet](KeySet.md) | A KeySet references a single entity (e |  yes  |
 
 
 
@@ -56,6 +61,8 @@ URI: [odm:MetaDataVersionOID](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersionOI
 <details>
 ```yaml
 name: MetaDataVersionOID
+description: References a prior MetaDataVersion within the Study referenced by the
+  StudyOID attribute.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: MetaDataVersionOID

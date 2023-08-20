@@ -13,7 +13,7 @@ URI: [odm:ExclusionCriteriaRef](http://www.cdisc.org/ns/odm/v2.0/ExclusionCriter
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[InclusionExclusionCriteria](InclusionExclusionCriteria.md) |  |  yes  |
+[InclusionExclusionCriteria](InclusionExclusionCriteria.md) | The InclusionExclusionCriteria element can contain 2 lists of Criterion eleme... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:ExclusionCriteriaRef](http://www.cdisc.org/ns/odm/v2.0/ExclusionCriter
 name: ExclusionCriteriaRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ExclusionCriteriaRef
 domain_of:
 - InclusionExclusionCriteria

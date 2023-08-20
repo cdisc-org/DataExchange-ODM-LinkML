@@ -1,6 +1,11 @@
 # Class: StudyEventGroupDef
 
 
+_StudyEventGroupDef is a study building block that groups a number of smaller building blocks, which can themselves be StudyEventGroups or StudyEvents. It thus allows nesting of building blocks._
+
+
+
+
 
 URI: [odm:StudyEventGroupDef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupDef)
 
@@ -52,16 +57,16 @@ URI: [odm:StudyEventGroupDef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupDe
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [ArmOID](ArmOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [EpochOID](EpochOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | The Comment identifier that this value refers to | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the StudyEventGroupDef element | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable identifier for the StudyEventGroupDef element | direct |
+| [ArmOID](ArmOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to an Arm element defined in the study | direct |
+| [EpochOID](EpochOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to an Epoch element defined in the study | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a CommentDef element defined in the study | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 | [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
-| [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | 0..1 <br/> [StudyEventGroupRef](StudyEventGroupRef.md) |  | direct |
-| [StudyEventRefRef](StudyEventRefRef.md) | 0..1 <br/> [StudyEventRef](StudyEventRef.md) |  | direct |
+| [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | 0..* <br/> [StudyEventGroupRef](StudyEventGroupRef.md) |  | direct |
+| [StudyEventRefRef](StudyEventRefRef.md) | 0..* <br/> [StudyEventRef](StudyEventRef.md) |  | direct |
 
 
 
@@ -119,6 +124,9 @@ URI: [odm:StudyEventGroupDef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupDe
 <details>
 ```yaml
 name: StudyEventGroupDef
+description: StudyEventGroupDef is a study building block that groups a number of
+  smaller building blocks, which can themselves be StudyEventGroups or StudyEvents.
+  It thus allows nesting of building blocks.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventGroupDef
@@ -136,6 +144,13 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the StudyEventGroupDef element.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute for the StudyEventGroupDef must be unique within the study.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -178,6 +193,14 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable identifier for the StudyEventGroupDef element.
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name must be unique within the set of StudyEventGroupDef elements for the
+      study.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -218,16 +241,40 @@ slot_usage:
     required: true
   ArmOID:
     name: ArmOID
+    description: Reference to an Arm element defined in the study.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The ArmOID must match the OID attribute for an Arm element contained in the
+      Study/MetaDataVersion.'
     domain_of:
     - StudyEventGroupDef
     range: oidref
   EpochOID:
     name: EpochOID
+    description: Reference to an Epoch element defined in the study.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The EpochOID must match the OID attribute for an Epoch element contained in
+      the Study/MetaDataVersion.'
     domain_of:
     - StudyEventGroupDef
     range: oidref
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef element defined in the study.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The CommentOID must match the OID attribute for a CommentDef element contained
+      in the Study/MetaDataVersion.'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -321,19 +368,23 @@ slot_usage:
     inlined_as_list: true
   StudyEventGroupRefRef:
     name: StudyEventGroupRefRef
+    multivalued: true
     domain_of:
     - StudyEventGroupDef
     - Protocol
     - ExceptionEvent
     range: StudyEventGroupRef
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
   StudyEventRefRef:
     name: StudyEventRefRef
+    multivalued: true
     domain_of:
     - StudyEventGroupDef
     - ExceptionEvent
     range: StudyEventRef
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:StudyEventGroupDef
 
 ```
@@ -344,12 +395,22 @@ class_uri: odm:StudyEventGroupDef
 <details>
 ```yaml
 name: StudyEventGroupDef
+description: StudyEventGroupDef is a study building block that groups a number of
+  smaller building blocks, which can themselves be StudyEventGroups or StudyEvents.
+  It thus allows nesting of building blocks.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventGroupDef
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the StudyEventGroupDef element.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute for the StudyEventGroupDef must be unique within the study.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -392,6 +453,14 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable identifier for the StudyEventGroupDef element.
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name must be unique within the set of StudyEventGroupDef elements for the
+      study.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -432,16 +501,40 @@ slot_usage:
     required: true
   ArmOID:
     name: ArmOID
+    description: Reference to an Arm element defined in the study.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The ArmOID must match the OID attribute for an Arm element contained in the
+      Study/MetaDataVersion.'
     domain_of:
     - StudyEventGroupDef
     range: oidref
   EpochOID:
     name: EpochOID
+    description: Reference to an Epoch element defined in the study.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The EpochOID must match the OID attribute for an Epoch element contained in
+      the Study/MetaDataVersion.'
     domain_of:
     - StudyEventGroupDef
     range: oidref
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef element defined in the study.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The CommentOID must match the OID attribute for a CommentDef element contained
+      in the Study/MetaDataVersion.'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -535,23 +628,33 @@ slot_usage:
     inlined_as_list: true
   StudyEventGroupRefRef:
     name: StudyEventGroupRefRef
+    multivalued: true
     domain_of:
     - StudyEventGroupDef
     - Protocol
     - ExceptionEvent
     range: StudyEventGroupRef
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
   StudyEventRefRef:
     name: StudyEventRefRef
+    multivalued: true
     domain_of:
     - StudyEventGroupDef
     - ExceptionEvent
     range: StudyEventRef
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for the StudyEventGroupDef element.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute for the StudyEventGroupDef must be unique within the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -599,7 +702,14 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Human readable identifier for the StudyEventGroupDef element.
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name must be unique within the set of StudyEventGroupDef elements for the
+      study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -644,6 +754,14 @@ attributes:
     required: true
   ArmOID:
     name: ArmOID
+    description: Reference to an Arm element defined in the study.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The ArmOID must match the OID attribute for an Arm element contained in the
+      Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ArmOID
@@ -653,6 +771,14 @@ attributes:
     range: oidref
   EpochOID:
     name: EpochOID
+    description: Reference to an Epoch element defined in the study.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The EpochOID must match the OID attribute for an Epoch element contained in
+      the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: EpochOID
@@ -662,9 +788,14 @@ attributes:
     range: oidref
   CommentOID:
     name: CommentOID
-    description: "The Comment identifier that this value refers to. Needed when the\
-      \ WhereClause references Items across different domains.\n                The\
-      \ Comment would define any join assumptions."
+    description: Reference to a CommentDef element defined in the study.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The CommentOID must match the OID attribute for a CommentDef element contained
+      in the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CommentOID
@@ -687,6 +818,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: StudyEventGroupDef
     domain_of:
@@ -733,6 +865,7 @@ attributes:
     name: WorkflowRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: WorkflowRefRef
     owner: StudyEventGroupDef
     domain_of:
@@ -750,6 +883,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: StudyEventGroupDef
     domain_of:
@@ -776,6 +910,8 @@ attributes:
     name: StudyEventGroupRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    multivalued: true
+    identifier: false
     alias: StudyEventGroupRefRef
     owner: StudyEventGroupDef
     domain_of:
@@ -783,18 +919,22 @@ attributes:
     - Protocol
     - ExceptionEvent
     range: StudyEventGroupRef
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
   StudyEventRefRef:
     name: StudyEventRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    multivalued: true
+    identifier: false
     alias: StudyEventRefRef
     owner: StudyEventGroupDef
     domain_of:
     - StudyEventGroupDef
     - ExceptionEvent
     range: StudyEventRef
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:StudyEventGroupDef
 
 ```

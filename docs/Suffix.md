@@ -1,6 +1,11 @@
 # Class: Suffix
 
 
+_This element may include credentials, or suffixes (e.g., Jr., III)._
+
+
+
+
 
 URI: [odm:Suffix](http://www.cdisc.org/ns/odm/v2.0/Suffix)
 
@@ -82,6 +87,7 @@ URI: [odm:Suffix](http://www.cdisc.org/ns/odm/v2.0/Suffix)
 <details>
 ```yaml
 name: Suffix
+description: This element may include credentials, or suffixes (e.g., Jr., III).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Suffix
@@ -102,6 +108,7 @@ class_uri: odm:Suffix
 <details>
 ```yaml
 name: Suffix
+description: This element may include credentials, or suffixes (e.g., Jr., III).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Suffix

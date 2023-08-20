@@ -1,6 +1,11 @@
 # Class: StudyEstimand
 
 
+_Element NameStudyEstimandParent ElementsStudyEstimandsElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimandElement Textual ValueNoneAttributesOID, NameChild Elements(Description?, StudyTargetPopulationRef?, StudyInterventionRef?, StudyEndpointRef?, IntercurrentEvent*, SummaryMeasure?)Usage/Business Rules_
+
+
+
+
 
 URI: [odm:StudyEstimand](http://www.cdisc.org/ns/odm/v2.0/StudyEstimand)
 
@@ -16,6 +21,10 @@ URI: [odm:StudyEstimand](http://www.cdisc.org/ns/odm/v2.0/StudyEstimand)
       StudyEstimand : IntercurrentEventRef
         
           StudyEstimand --|> IntercurrentEvent : IntercurrentEventRef
+        
+      StudyEstimand : Level
+        
+          StudyEstimand --|> StudyEstimandLevel : Level
         
       StudyEstimand : Name
         
@@ -50,8 +59,9 @@ URI: [odm:StudyEstimand](http://www.cdisc.org/ns/odm/v2.0/StudyEstimand)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the StudyEstimand element | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable name for the Study Estimand | direct |
+| [Level](Level.md) | 0..1 <br/> [StudyEstimandLevel](StudyEstimandLevel.md) | Defined Level for the Study Estimand | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 | [StudyTargetPopulationRefRef](StudyTargetPopulationRefRef.md) | 0..1 <br/> [StudyTargetPopulationRef](StudyTargetPopulationRef.md) |  | direct |
 | [StudyInterventionRefRef](StudyInterventionRefRef.md) | 0..1 <br/> [StudyInterventionRef](StudyInterventionRef.md) |  | direct |
@@ -115,12 +125,17 @@ URI: [odm:StudyEstimand](http://www.cdisc.org/ns/odm/v2.0/StudyEstimand)
 <details>
 ```yaml
 name: StudyEstimand
+description: Element NameStudyEstimandParent ElementsStudyEstimandsElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimandElement
+  Textual ValueNoneAttributesOID, NameChild Elements(Description?, StudyTargetPopulationRef?,
+  StudyInterventionRef?, StudyEndpointRef?, IntercurrentEvent*, SummaryMeasure?)Usage/Business
+  Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEstimand
 slots:
 - OID
 - Name
+- Level
 - DescriptionRef
 - StudyTargetPopulationRefRef
 - StudyInterventionRefRef
@@ -130,6 +145,11 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the StudyEstimand element.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -172,6 +192,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable name for the Study Estimand.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -210,6 +235,18 @@ slot_usage:
     - Query
     range: name
     required: true
+  Level:
+    name: Level
+    description: Defined Level for the Study Estimand
+    comments:
+    - 'Optional
+
+      enum values:( Primary | Secondary | Exploratory )'
+    domain_of:
+    - StudyObjective
+    - StudyEndPoint
+    - StudyEstimand
+    range: StudyEstimandLevel
   DescriptionRef:
     name: DescriptionRef
     domain_of:
@@ -298,12 +335,21 @@ class_uri: odm:StudyEstimand
 <details>
 ```yaml
 name: StudyEstimand
+description: Element NameStudyEstimandParent ElementsStudyEstimandsElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimandElement
+  Textual ValueNoneAttributesOID, NameChild Elements(Description?, StudyTargetPopulationRef?,
+  StudyInterventionRef?, StudyEndpointRef?, IntercurrentEvent*, SummaryMeasure?)Usage/Business
+  Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEstimand
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the StudyEstimand element.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -346,6 +392,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable name for the Study Estimand.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -384,6 +435,18 @@ slot_usage:
     - Query
     range: name
     required: true
+  Level:
+    name: Level
+    description: Defined Level for the Study Estimand
+    comments:
+    - 'Optional
+
+      enum values:( Primary | Secondary | Exploratory )'
+    domain_of:
+    - StudyObjective
+    - StudyEndPoint
+    - StudyEstimand
+    range: StudyEstimandLevel
   DescriptionRef:
     name: DescriptionRef
     domain_of:
@@ -465,7 +528,11 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for the StudyEstimand element.
+    comments:
+    - 'Required
+
+      range:oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -513,7 +580,11 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Human readable name for the Study Estimand.
+    comments:
+    - 'Required
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -556,10 +627,27 @@ attributes:
     - Query
     range: name
     required: true
+  Level:
+    name: Level
+    description: Defined Level for the Study Estimand
+    comments:
+    - 'Optional
+
+      enum values:( Primary | Secondary | Exploratory )'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: Level
+    owner: StudyEstimand
+    domain_of:
+    - StudyObjective
+    - StudyEndPoint
+    - StudyEstimand
+    range: StudyEstimandLevel
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: StudyEstimand
     domain_of:
@@ -606,6 +694,7 @@ attributes:
     name: StudyTargetPopulationRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StudyTargetPopulationRefRef
     owner: StudyEstimand
     domain_of:
@@ -617,6 +706,7 @@ attributes:
     name: StudyInterventionRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StudyInterventionRefRef
     owner: StudyEstimand
     domain_of:
@@ -628,6 +718,7 @@ attributes:
     name: StudyEndPointRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StudyEndPointRefRef
     owner: StudyEstimand
     domain_of:
@@ -641,6 +732,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: IntercurrentEventRef
     owner: StudyEstimand
     domain_of:
@@ -652,6 +744,7 @@ attributes:
     name: SummaryMeasureRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: SummaryMeasureRef
     owner: StudyEstimand
     domain_of:

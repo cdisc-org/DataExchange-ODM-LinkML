@@ -1,6 +1,11 @@
 # Class: Image
 
 
+_A visual depiction of the user._
+
+
+
+
 
 URI: [odm:Image](http://www.cdisc.org/ns/odm/v2.0/Image)
 
@@ -28,9 +33,9 @@ URI: [odm:Image](http://www.cdisc.org/ns/odm/v2.0/Image)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ImageFileName](ImageFileName.md) | 0..1 <br/> [FileName](FileName.md) |  | direct |
-| [href](href.md) | 0..1 <br/> [Text](Text.md) | URL that can be used to identify the location of a document or dataset file r... | direct |
-| [MimeType](MimeType.md) | 0..1 <br/> [Text](Text.md) |  | direct |
+| [ImageFileName](ImageFileName.md) | 0..1 <br/> [FileName](FileName.md) | The file name of or file path to the picture | direct |
+| [href](href.md) | 0..1 <br/> [Text](Text.md) | URL of the location of the picture | direct |
+| [MimeType](MimeType.md) | 0..1 <br/> [Text](Text.md) | Media type of the image | direct |
 
 
 
@@ -88,6 +93,7 @@ URI: [odm:Image](http://www.cdisc.org/ns/odm/v2.0/Image)
 <details>
 ```yaml
 name: Image
+description: A visual depiction of the user.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Image
@@ -98,13 +104,27 @@ slots:
 slot_usage:
   ImageFileName:
     name: ImageFileName
+    description: The file name of or file path to the picture
+    comments:
+    - 'Conditional
+
+      range:fileName
+
+      Either IamgeFileName or href must be present.'
     domain_of:
     - Image
     range: fileName
   href:
     name: href
+    description: URL of the location of the picture
+    comments:
+    - 'Conditional
+
+      range:text
+
+      Either ImageFileName or href must be present.'
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image
@@ -112,6 +132,14 @@ slot_usage:
     range: text
   MimeType:
     name: MimeType
+    description: Media type of the image
+    comments:
+    - 'Optional
+
+      range:text
+
+      Use of MimeType from the IANA list: http://www.iana.org/assignments/media-types/media-types.xhtml
+      is recommended.'
     domain_of:
     - Image
     range: text
@@ -125,19 +153,34 @@ class_uri: odm:Image
 <details>
 ```yaml
 name: Image
+description: A visual depiction of the user.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Image
 slot_usage:
   ImageFileName:
     name: ImageFileName
+    description: The file name of or file path to the picture
+    comments:
+    - 'Conditional
+
+      range:fileName
+
+      Either IamgeFileName or href must be present.'
     domain_of:
     - Image
     range: fileName
   href:
     name: href
+    description: URL of the location of the picture
+    comments:
+    - 'Conditional
+
+      range:text
+
+      Either ImageFileName or href must be present.'
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image
@@ -145,12 +188,27 @@ slot_usage:
     range: text
   MimeType:
     name: MimeType
+    description: Media type of the image
+    comments:
+    - 'Optional
+
+      range:text
+
+      Use of MimeType from the IANA list: http://www.iana.org/assignments/media-types/media-types.xhtml
+      is recommended.'
     domain_of:
     - Image
     range: text
 attributes:
   ImageFileName:
     name: ImageFileName
+    description: The file name of or file path to the picture
+    comments:
+    - 'Conditional
+
+      range:fileName
+
+      Either IamgeFileName or href must be present.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ImageFileName
@@ -160,14 +218,19 @@ attributes:
     range: fileName
   href:
     name: href
-    description: URL that can be used to identify the location of a document or dataset
-      file relative to the folder containing the ODM file.
+    description: URL of the location of the picture
+    comments:
+    - 'Conditional
+
+      range:text
+
+      Either ImageFileName or href must be present.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: href
     owner: Image
     domain_of:
-    - leaf
+    - Leaf
     - Include
     - ExternalCodeLib
     - Image
@@ -175,6 +238,14 @@ attributes:
     range: text
   MimeType:
     name: MimeType
+    description: Media type of the image
+    comments:
+    - 'Optional
+
+      range:text
+
+      Use of MimeType from the IANA list: http://www.iana.org/assignments/media-types/media-types.xhtml
+      is recommended.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: MimeType

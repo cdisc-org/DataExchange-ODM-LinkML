@@ -1,6 +1,11 @@
 # Class: StudyEstimands
 
 
+_Element NameStudyEstimandsParent ElementsProtocolElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimandsElement Textual ValueNoneUsage/Business RulesAttributesTypeChild Elements(StudyEstimand*)_
+
+
+
+
 
 URI: [odm:StudyEstimands](http://www.cdisc.org/ns/odm/v2.0/StudyEstimands)
 
@@ -26,7 +31,7 @@ URI: [odm:StudyEstimands](http://www.cdisc.org/ns/odm/v2.0/StudyEstimands)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEstimandRef](StudyEstimandRef.md) | 1..* <br/> [StudyEstimand](StudyEstimand.md) |  | direct |
+| [StudyEstimandRef](StudyEstimandRef.md) | 0..* <br/> [StudyEstimand](StudyEstimand.md) |  | direct |
 
 
 
@@ -84,6 +89,8 @@ URI: [odm:StudyEstimands](http://www.cdisc.org/ns/odm/v2.0/StudyEstimands)
 <details>
 ```yaml
 name: StudyEstimands
+description: Element NameStudyEstimandsParent ElementsProtocolElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimandsElement
+  Textual ValueNoneUsage/Business RulesAttributesTypeChild Elements(StudyEstimand*)
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEstimands
@@ -96,10 +103,8 @@ slot_usage:
     domain_of:
     - StudyEstimands
     range: StudyEstimand
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyEstimands
 
 ```
@@ -110,6 +115,8 @@ class_uri: odm:StudyEstimands
 <details>
 ```yaml
 name: StudyEstimands
+description: Element NameStudyEstimandsParent ElementsProtocolElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimandsElement
+  Textual ValueNoneUsage/Business RulesAttributesTypeChild Elements(StudyEstimand*)
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEstimands
@@ -120,25 +127,22 @@ slot_usage:
     domain_of:
     - StudyEstimands
     range: StudyEstimand
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   StudyEstimandRef:
     name: StudyEstimandRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyEstimandRef
     owner: StudyEstimands
     domain_of:
     - StudyEstimands
     range: StudyEstimand
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyEstimands
 
 ```

@@ -1,5 +1,10 @@
 # Slot: Repeating
 
+
+_The Repeating flag indicates when this type of study event can occur repeatedly within any given subject. When Repeating is "Yes" multiple instances of StudyEventData for this StudyEventDef may be collected for a study subject._
+
+
+
 URI: [odm:Repeating](http://www.cdisc.org/ns/odm/v2.0/Repeating)
 
 
@@ -13,8 +18,8 @@ URI: [odm:Repeating](http://www.cdisc.org/ns/odm/v2.0/Repeating)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEventDef](StudyEventDef.md) |  |  yes  |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
+[StudyEventDef](StudyEventDef.md) | StudyEventDef represents the definition of an activity in a study where data ... |  yes  |
+[ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
 
 
 
@@ -51,6 +56,9 @@ URI: [odm:Repeating](http://www.cdisc.org/ns/odm/v2.0/Repeating)
 <details>
 ```yaml
 name: Repeating
+description: The Repeating flag indicates when this type of study event can occur
+  repeatedly within any given subject. When Repeating is "Yes" multiple instances
+  of StudyEventData for this StudyEventDef may be collected for a study subject.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Repeating

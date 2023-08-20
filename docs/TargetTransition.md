@@ -1,6 +1,11 @@
 # Class: TargetTransition
 
 
+_Provides a reference to a Transition element._
+
+
+
+
 
 URI: [odm:TargetTransition](http://www.cdisc.org/ns/odm/v2.0/TargetTransition)
 
@@ -26,8 +31,8 @@ URI: [odm:TargetTransition](http://www.cdisc.org/ns/odm/v2.0/TargetTransition)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TargetTransitionOID](TargetTransitionOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [ConditionOID](ConditionOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [TargetTransitionOID](TargetTransitionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the Transition that is one of the targets of the branching | direct |
+| [ConditionOID](ConditionOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a ConditionDef defining the condition under which the transition... | direct |
 
 
 
@@ -85,6 +90,7 @@ URI: [odm:TargetTransition](http://www.cdisc.org/ns/odm/v2.0/TargetTransition)
 <details>
 ```yaml
 name: TargetTransition
+description: Provides a reference to a Transition element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TargetTransition
@@ -94,6 +100,14 @@ slots:
 slot_usage:
   TargetTransitionOID:
     name: TargetTransitionOID
+    description: Reference to the Transition that is one of the targets of the branching.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The TargetTransitionOID attibute must match the OID attribute of a Transition
+      element in the Study/MetaDataVersion.'
     domain_of:
     - TargetTransition
     - DefaultTransition
@@ -101,6 +115,15 @@ slot_usage:
     required: true
   ConditionOID:
     name: ConditionOID
+    description: Reference to a ConditionDef defining the condition under which the
+      transition must be executed
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The ConditionOID must match the OID attribute of a ConditionDef element in the
+      Study/MetaDataVersion.'
     domain_of:
     - TargetTransition
     - Criterion
@@ -116,12 +139,21 @@ class_uri: odm:TargetTransition
 <details>
 ```yaml
 name: TargetTransition
+description: Provides a reference to a Transition element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TargetTransition
 slot_usage:
   TargetTransitionOID:
     name: TargetTransitionOID
+    description: Reference to the Transition that is one of the targets of the branching.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The TargetTransitionOID attibute must match the OID attribute of a Transition
+      element in the Study/MetaDataVersion.'
     domain_of:
     - TargetTransition
     - DefaultTransition
@@ -129,6 +161,15 @@ slot_usage:
     required: true
   ConditionOID:
     name: ConditionOID
+    description: Reference to a ConditionDef defining the condition under which the
+      transition must be executed
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The ConditionOID must match the OID attribute of a ConditionDef element in the
+      Study/MetaDataVersion.'
     domain_of:
     - TargetTransition
     - Criterion
@@ -137,6 +178,14 @@ slot_usage:
 attributes:
   TargetTransitionOID:
     name: TargetTransitionOID
+    description: Reference to the Transition that is one of the targets of the branching.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The TargetTransitionOID attibute must match the OID attribute of a Transition
+      element in the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TargetTransitionOID
@@ -148,6 +197,15 @@ attributes:
     required: true
   ConditionOID:
     name: ConditionOID
+    description: Reference to a ConditionDef defining the condition under which the
+      transition must be executed
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The ConditionOID must match the OID attribute of a ConditionDef element in the
+      Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ConditionOID

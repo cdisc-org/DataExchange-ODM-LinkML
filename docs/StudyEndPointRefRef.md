@@ -13,9 +13,9 @@ URI: [odm:StudyEndPointRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointRef
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyObjective](StudyObjective.md) |  |  yes  |
-[StudyEndPoints](StudyEndPoints.md) |  |  yes  |
-[StudyEstimand](StudyEstimand.md) |  |  yes  |
+[StudyObjective](StudyObjective.md) | Element NameStudyObjectiveParent ElementStudyObjectivesElement XPath(s)/ODM/S... |  yes  |
+[StudyEndPoints](StudyEndPoints.md) | Go to start of metadata |  yes  |
+[StudyEstimand](StudyEstimand.md) | Element NameStudyEstimandParent ElementsStudyEstimandsElement XPath(s)/ODM/St... |  yes  |
 
 
 
@@ -54,6 +54,7 @@ URI: [odm:StudyEndPointRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointRef
 name: StudyEndPointRefRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: StudyEndPointRefRef
 domain_of:
 - StudyObjective

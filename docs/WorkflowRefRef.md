@@ -13,13 +13,13 @@ URI: [odm:WorkflowRefRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEventGroupDef](StudyEventGroupDef.md) |  |  yes  |
-[StudyEventDef](StudyEventDef.md) |  |  yes  |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
-[Protocol](Protocol.md) |  |  yes  |
-[StudyStructure](StudyStructure.md) |  |  yes  |
-[Arm](Arm.md) |  |  yes  |
-[ExceptionEvent](ExceptionEvent.md) |  |  yes  |
+[StudyEventGroupDef](StudyEventGroupDef.md) | StudyEventGroupDef is a study building block that groups a number of smaller ... |  yes  |
+[StudyEventDef](StudyEventDef.md) | StudyEventDef represents the definition of an activity in a study where data ... |  yes  |
+[ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
+[Protocol](Protocol.md) | The Protocol element lists the kinds of study events that can occur within a ... |  yes  |
+[StudyStructure](StudyStructure.md) | The StudyStructure element describes the general structure of a clinical stud... |  yes  |
+[Arm](Arm.md) | An Arm element provides the declaration of a study arm |  yes  |
+[ExceptionEvent](ExceptionEvent.md) | An ExceptionEvent describes an event that occurs suddenly in a study and that... |  yes  |
 
 
 
@@ -58,6 +58,7 @@ URI: [odm:WorkflowRefRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRefRef)
 name: WorkflowRefRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: WorkflowRefRef
 domain_of:
 - StudyEventGroupDef

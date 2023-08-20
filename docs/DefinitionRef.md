@@ -1,5 +1,10 @@
 # Slot: DefinitionRef
 
+
+_A free-text definition of the parameter_
+
+
+
 URI: [odm:DefinitionRef](http://www.cdisc.org/ns/odm/v2.0/DefinitionRef)
 
 
@@ -13,9 +18,9 @@ URI: [odm:DefinitionRef](http://www.cdisc.org/ns/odm/v2.0/DefinitionRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemDef](ItemDef.md) |  |  yes  |
-[Parameter](Parameter.md) |  |  yes  |
-[ReturnValue](ReturnValue.md) |  |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
+[Parameter](Parameter.md) | The Parameter element represents a method parameter used as part of a MethodS... |  yes  |
+[ReturnValue](ReturnValue.md) | The ReturnValue element represents a return value used as part of a MethodSig... |  yes  |
 
 
 
@@ -52,8 +57,10 @@ URI: [odm:DefinitionRef](http://www.cdisc.org/ns/odm/v2.0/DefinitionRef)
 <details>
 ```yaml
 name: DefinitionRef
+description: A free-text definition of the parameter
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: DefinitionRef
 domain_of:
 - ItemDef

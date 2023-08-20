@@ -13,22 +13,22 @@ _This is a dynamic enum_
 
 | Name | Description |
 | ---  | --- |
-| [Other](Other.md) |  |
-| [Repeat](Repeat.md) |  |
+| [HasNoData](HasNoData.md) | Used to indicate that an ItemGroupDef has no data |
+| [Other](Other.md) | Flag to indicate that the Item represents "other" content added to an ItemGro... |
+| [IsNull](IsNull.md) | Flag specifying that an item's value is to be set to null |
 | [ExtendedValue](ExtendedValue.md) |  |
-| [HasNoData](HasNoData.md) |  |
-| [IsNonStandard](IsNonStandard.md) |  |
-| [IsNull](IsNull.md) |  |
-| [IsNonStandard](IsNonStandard.md) |  |
-| [HasNoData](HasNoData.md) |  |
-| [IsNonStandard](IsNonStandard.md) |  |
-| [HasNoData](HasNoData.md) |  |
-| [Repeat](Repeat.md) |  |
-| [Other](Other.md) |  |
-| [IsNonStandard](IsNonStandard.md) |  |
-| [Other](Other.md) |  |
+| [IsNonStandard](IsNonStandard.md) | Required for ADaM, SDTM, or SEND if StandardOID is not provided |
+| [Repeat](Repeat.md) | Indicates that the item serves as the item over which repeats are to be perfo... |
+| [IsNonStandard](IsNonStandard.md) | Required for ADaM, SDTM, or SEND if StandardOID is not provided |
+| [HasNoData](HasNoData.md) | Used to indicate that an ItemGroupDef has no data |
+| [IsNonStandard](IsNonStandard.md) | A non-standard variable is one that is not defined in the SDTMIG or the under... |
+| [HasNoData](HasNoData.md) | Used to indicate that an ItemRef that represent a dataset's variable has no d... |
+| [Repeat](Repeat.md) | Indicates that the item serves as the item over which repeats are to be perfo... |
+| [Other](Other.md) | Flag to indicate that the Item represents "other" content added to an ItemGro... |
+| [IsNonStandard](IsNonStandard.md) | Used when the controlled terminology includes a set of EnumeratedItem or Code... |
+| [Other](Other.md) | Flag to indicate that the term represents "other" content |
 | [ExtendedValue](ExtendedValue.md) |  |
-| [IsNull](IsNull.md) |  |
+| [IsNull](IsNull.md) | Flag specifying that an item's value is to be set to null |
 
 
 

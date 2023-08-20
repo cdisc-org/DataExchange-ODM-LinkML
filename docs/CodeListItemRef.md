@@ -13,7 +13,7 @@ URI: [odm:CodeListItemRef](http://www.cdisc.org/ns/odm/v2.0/CodeListItemRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[CodeList](CodeList.md) |  |  yes  |
+[CodeList](CodeList.md) | Defines a discrete set of permitted values for an item, or provides a referen... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:CodeListItemRef](http://www.cdisc.org/ns/odm/v2.0/CodeListItemRef)
 name: CodeListItemRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: CodeListItemRef
 domain_of:
 - CodeList

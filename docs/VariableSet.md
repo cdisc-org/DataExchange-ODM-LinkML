@@ -1,5 +1,10 @@
 # Slot: VariableSet
 
+
+_ADaM variable set, e.g. Dose, Analysis Parameter, Treatment Timing._
+
+
+
 URI: [odm:VariableSet](http://www.cdisc.org/ns/odm/v2.0/VariableSet)
 
 
@@ -13,7 +18,7 @@ URI: [odm:VariableSet](http://www.cdisc.org/ns/odm/v2.0/VariableSet)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemDef](ItemDef.md) |  |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:VariableSet](http://www.cdisc.org/ns/odm/v2.0/VariableSet)
 <details>
 ```yaml
 name: VariableSet
+description: ADaM variable set, e.g. Dose, Analysis Parameter, Treatment Timing.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: VariableSet

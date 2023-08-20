@@ -1,5 +1,10 @@
 # Slot: ref
 
+
+_Reference to a local instance (e.g. file) of the external library containing the FormalExpression code._
+
+
+
 URI: [odm:ref](http://www.cdisc.org/ns/odm/v2.0/ref)
 
 
@@ -13,8 +18,8 @@ URI: [odm:ref](http://www.cdisc.org/ns/odm/v2.0/ref)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ExternalCodeLib](ExternalCodeLib.md) |  |  yes  |
-[Coding](Coding.md) |  |  yes  |
+[ExternalCodeLib](ExternalCodeLib.md) | The ExternalCodeLib element references a FormalExpression in an external code... |  yes  |
+[Coding](Coding.md) | Coding references a symbol from a defined code system |  yes  |
 
 
 
@@ -51,6 +56,8 @@ URI: [odm:ref](http://www.cdisc.org/ns/odm/v2.0/ref)
 <details>
 ```yaml
 name: ref
+description: Reference to a local instance (e.g. file) of the external library containing
+  the FormalExpression code.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ref

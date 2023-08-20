@@ -13,7 +13,7 @@ URI: [odm:WorkflowEndRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowEndRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[WorkflowDef](WorkflowDef.md) |  |  yes  |
+[WorkflowDef](WorkflowDef.md) | A WorkflowDef defines an automated workflow for a study |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:WorkflowEndRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowEndRef)
 name: WorkflowEndRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: WorkflowEndRef
 domain_of:
 - WorkflowDef

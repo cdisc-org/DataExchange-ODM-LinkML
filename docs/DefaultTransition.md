@@ -1,6 +1,11 @@
 # Class: DefaultTransition
 
 
+_Element NameDefaultTransitionParent ElementsBranchingElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/WorkflowDef/Branching/DefaultTransitionElement Textual ValueNoneAttributesTargetTransitionOIDChild ElementsNoneUsage/Business Rules_
+
+
+
+
 
 URI: [odm:DefaultTransition](http://www.cdisc.org/ns/odm/v2.0/DefaultTransition)
 
@@ -24,7 +29,7 @@ URI: [odm:DefaultTransition](http://www.cdisc.org/ns/odm/v2.0/DefaultTransition)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TargetTransitionOID](TargetTransitionOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [TargetTransitionOID](TargetTransitionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the Transition that is the default target of the branching | direct |
 
 
 
@@ -82,6 +87,8 @@ URI: [odm:DefaultTransition](http://www.cdisc.org/ns/odm/v2.0/DefaultTransition)
 <details>
 ```yaml
 name: DefaultTransition
+description: Element NameDefaultTransitionParent ElementsBranchingElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/WorkflowDef/Branching/DefaultTransitionElement
+  Textual ValueNoneAttributesTargetTransitionOIDChild ElementsNoneUsage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DefaultTransition
@@ -90,6 +97,14 @@ slots:
 slot_usage:
   TargetTransitionOID:
     name: TargetTransitionOID
+    description: Reference to the Transition that is the default target of the branching.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The TargetTransitionOID attribute must match the OID attribute of a Transition
+      element within the WorkflowDef.'
     domain_of:
     - TargetTransition
     - DefaultTransition
@@ -105,12 +120,22 @@ class_uri: odm:DefaultTransition
 <details>
 ```yaml
 name: DefaultTransition
+description: Element NameDefaultTransitionParent ElementsBranchingElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/WorkflowDef/Branching/DefaultTransitionElement
+  Textual ValueNoneAttributesTargetTransitionOIDChild ElementsNoneUsage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DefaultTransition
 slot_usage:
   TargetTransitionOID:
     name: TargetTransitionOID
+    description: Reference to the Transition that is the default target of the branching.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The TargetTransitionOID attribute must match the OID attribute of a Transition
+      element within the WorkflowDef.'
     domain_of:
     - TargetTransition
     - DefaultTransition
@@ -119,6 +144,14 @@ slot_usage:
 attributes:
   TargetTransitionOID:
     name: TargetTransitionOID
+    description: Reference to the Transition that is the default target of the branching.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The TargetTransitionOID attribute must match the OID attribute of a Transition
+      element within the WorkflowDef.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TargetTransitionOID

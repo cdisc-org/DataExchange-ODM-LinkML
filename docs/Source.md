@@ -1,5 +1,10 @@
 # Slot: Source
 
+
+_I ndicates the party responsible for the data's origin type._
+
+
+
 URI: [odm:Source](http://www.cdisc.org/ns/odm/v2.0/Source)
 
 
@@ -13,8 +18,8 @@ URI: [odm:Source](http://www.cdisc.org/ns/odm/v2.0/Source)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Origin](Origin.md) |  |  yes  |
-[Query](Query.md) |  |  yes  |
+[Origin](Origin.md) | Origin defines the source metadata, where applicable, for ODM ItemRefs or Ite... |  yes  |
+[Query](Query.md) | The Query element represents a request for clarification on a data item colle... |  yes  |
 
 
 
@@ -51,6 +56,7 @@ URI: [odm:Source](http://www.cdisc.org/ns/odm/v2.0/Source)
 <details>
 ```yaml
 name: Source
+description: I ndicates the party responsible for the data's origin type.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Source

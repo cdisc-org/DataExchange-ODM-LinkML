@@ -1,5 +1,10 @@
 # Slot: OrganizationOID
 
+
+_Reference to an Organization elment._
+
+
+
 URI: [odm:OrganizationOID](http://www.cdisc.org/ns/odm/v2.0/OrganizationOID)
 
 
@@ -13,8 +18,8 @@ URI: [odm:OrganizationOID](http://www.cdisc.org/ns/odm/v2.0/OrganizationOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[User](User.md) |  |  yes  |
-[Location](Location.md) |  |  yes  |
+[User](User.md) | Information about a specific user of a clinical data collection or data manag... |  yes  |
+[Location](Location.md) | A physical location associated with data collection and/or treatment of subje... |  yes  |
 
 
 
@@ -51,6 +56,7 @@ URI: [odm:OrganizationOID](http://www.cdisc.org/ns/odm/v2.0/OrganizationOID)
 <details>
 ```yaml
 name: OrganizationOID
+description: Reference to an Organization elment.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: OrganizationOID

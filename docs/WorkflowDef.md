@@ -1,6 +1,11 @@
 # Class: WorkflowDef
 
 
+_A WorkflowDef defines an automated workflow for a study._
+
+
+
+
 
 URI: [odm:WorkflowDef](http://www.cdisc.org/ns/odm/v2.0/WorkflowDef)
 
@@ -46,13 +51,13 @@ URI: [odm:WorkflowDef](http://www.cdisc.org/ns/odm/v2.0/WorkflowDef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the workflow | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable label for the workflow | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [WorkflowStartRef](WorkflowStartRef.md) | 1..1 <br/> [WorkflowStart](WorkflowStart.md) |  | direct |
-| [WorkflowEndRef](WorkflowEndRef.md) | 1..* <br/> [WorkflowEnd](WorkflowEnd.md) |  | direct |
-| [TransitionRef](TransitionRef.md) | 0..1 <br/> [Transition](Transition.md) |  | direct |
-| [BranchingRef](BranchingRef.md) | 0..1 <br/> [Branching](Branching.md) |  | direct |
+| [WorkflowStartRef](WorkflowStartRef.md) | 0..1 <br/> [WorkflowStart](WorkflowStart.md) |  | direct |
+| [WorkflowEndRef](WorkflowEndRef.md) | 0..* <br/> [WorkflowEnd](WorkflowEnd.md) |  | direct |
+| [TransitionRef](TransitionRef.md) | 0..* <br/> [Transition](Transition.md) |  | direct |
+| [BranchingRef](BranchingRef.md) | 0..* <br/> [Branching](Branching.md) |  | direct |
 
 
 
@@ -110,6 +115,7 @@ URI: [odm:WorkflowDef](http://www.cdisc.org/ns/odm/v2.0/WorkflowDef)
 <details>
 ```yaml
 name: WorkflowDef
+description: A WorkflowDef defines an automated workflow for a study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowDef
@@ -124,6 +130,13 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the workflow.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute value must be unique within the Study.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -166,6 +179,13 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: 'Human readable label for the workflow. '
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name attribute value must be unique within the Study.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -251,8 +271,6 @@ slot_usage:
     domain_of:
     - WorkflowDef
     range: WorkflowStart
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   WorkflowEndRef:
     name: WorkflowEndRef
@@ -260,22 +278,24 @@ slot_usage:
     domain_of:
     - WorkflowDef
     range: WorkflowEnd
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   TransitionRef:
     name: TransitionRef
+    multivalued: true
     domain_of:
     - WorkflowDef
     range: Transition
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
   BranchingRef:
     name: BranchingRef
+    multivalued: true
     domain_of:
     - WorkflowDef
     range: Branching
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:WorkflowDef
 
 ```
@@ -286,12 +306,20 @@ class_uri: odm:WorkflowDef
 <details>
 ```yaml
 name: WorkflowDef
+description: A WorkflowDef defines an automated workflow for a study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowDef
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the workflow.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute value must be unique within the Study.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -334,6 +362,13 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: 'Human readable label for the workflow. '
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name attribute value must be unique within the Study.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -419,8 +454,6 @@ slot_usage:
     domain_of:
     - WorkflowDef
     range: WorkflowStart
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   WorkflowEndRef:
     name: WorkflowEndRef
@@ -428,26 +461,34 @@ slot_usage:
     domain_of:
     - WorkflowDef
     range: WorkflowEnd
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   TransitionRef:
     name: TransitionRef
+    multivalued: true
     domain_of:
     - WorkflowDef
     range: Transition
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
   BranchingRef:
     name: BranchingRef
+    multivalued: true
     domain_of:
     - WorkflowDef
     range: Branching
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for the workflow.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute value must be unique within the Study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -495,7 +536,13 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: 'Human readable label for the workflow. '
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name attribute value must be unique within the Study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -542,6 +589,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: WorkflowDef
     domain_of:
@@ -588,48 +636,52 @@ attributes:
     name: WorkflowStartRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: WorkflowStartRef
     owner: WorkflowDef
     domain_of:
     - WorkflowDef
     range: WorkflowStart
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   WorkflowEndRef:
     name: WorkflowEndRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: WorkflowEndRef
     owner: WorkflowDef
     domain_of:
     - WorkflowDef
     range: WorkflowEnd
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   TransitionRef:
     name: TransitionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    multivalued: true
+    identifier: false
     alias: TransitionRef
     owner: WorkflowDef
     domain_of:
     - WorkflowDef
     range: Transition
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
   BranchingRef:
     name: BranchingRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    multivalued: true
+    identifier: false
     alias: BranchingRef
     owner: WorkflowDef
     domain_of:
     - WorkflowDef
     range: Branching
-    maximum_cardinality: 1
+    inlined: true
+    inlined_as_list: true
 class_uri: odm:WorkflowDef
 
 ```

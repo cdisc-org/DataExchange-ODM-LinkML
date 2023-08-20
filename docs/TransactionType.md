@@ -21,11 +21,11 @@ URI: [TransactionType](TransactionType)
 
 | Name | Description |
 | ---  | --- |
-| [TransactionTypeRef](TransactionTypeRef.md) |  |
-| [TransactionTypeRef](TransactionTypeRef.md) |  |
-| [TransactionTypeRef](TransactionTypeRef.md) |  |
-| [TransactionTypeRef](TransactionTypeRef.md) |  |
-| [TransactionTypeRef](TransactionTypeRef.md) |  |
+| [TransactionTypeRef](TransactionTypeRef.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... |
+| [TransactionTypeRef](TransactionTypeRef.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... |
+| [TransactionTypeRef](TransactionTypeRef.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... |
+| [TransactionTypeRef](TransactionTypeRef.md) | The TransactionType attribute need not be present in a Snapshot document |
+| [TransactionTypeRef](TransactionTypeRef.md) | Records the TransactionType for this ItemData instance in the source system |
 | [TransactionTypeRef](TransactionTypeRef.md) |  |
 
 

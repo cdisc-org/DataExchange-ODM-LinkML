@@ -18,7 +18,7 @@ URI: [StandardType](StandardType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) |  |
+| [Type](Type.md) | The type of standard |
 
 
 

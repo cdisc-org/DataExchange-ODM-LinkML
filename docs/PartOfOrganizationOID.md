@@ -1,5 +1,10 @@
 # Slot: PartOfOrganizationOID
 
+
+_Reference to a parent organization._
+
+
+
 URI: [odm:PartOfOrganizationOID](http://www.cdisc.org/ns/odm/v2.0/PartOfOrganizationOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:PartOfOrganizationOID](http://www.cdisc.org/ns/odm/v2.0/PartOfOrganiza
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Organization](Organization.md) |  |  yes  |
+[Organization](Organization.md) | An organization can reference a parent organization |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:PartOfOrganizationOID](http://www.cdisc.org/ns/odm/v2.0/PartOfOrganiza
 <details>
 ```yaml
 name: PartOfOrganizationOID
+description: Reference to a parent organization.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: PartOfOrganizationOID

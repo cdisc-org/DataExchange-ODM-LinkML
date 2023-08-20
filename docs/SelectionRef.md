@@ -13,7 +13,7 @@ URI: [odm:SelectionRef](http://www.cdisc.org/ns/odm/v2.0/SelectionRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Resource](Resource.md) |  |  yes  |
+[Resource](Resource.md) | Describes an external resource used as the source for the parent ItemGroup or... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:SelectionRef](http://www.cdisc.org/ns/odm/v2.0/SelectionRef)
 name: SelectionRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: SelectionRef
 domain_of:
 - Resource

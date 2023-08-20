@@ -13,8 +13,8 @@ URI: [odm:StudyTargetPopulationRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyTar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Protocol](Protocol.md) |  |  yes  |
-[StudyEstimand](StudyEstimand.md) |  |  yes  |
+[Protocol](Protocol.md) | The Protocol element lists the kinds of study events that can occur within a ... |  yes  |
+[StudyEstimand](StudyEstimand.md) | Element NameStudyEstimandParent ElementsStudyEstimandsElement XPath(s)/ODM/St... |  yes  |
 
 
 
@@ -53,6 +53,7 @@ URI: [odm:StudyTargetPopulationRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyTar
 name: StudyTargetPopulationRefRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: StudyTargetPopulationRefRef
 domain_of:
 - Protocol

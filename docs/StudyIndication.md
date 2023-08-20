@@ -1,6 +1,11 @@
 # Class: StudyIndication
 
 
+_This element describes a study indication (e.g., condition, disease) for the clinical study. The human-readable description is provided in the Description element. The Coding element can be used to provide a machine-readable code for the indication (e.g., SNOMED-CT code 26929004 for "Alzheimer's disease")._
+
+
+
+
 
 URI: [odm:StudyIndication](http://www.cdisc.org/ns/odm/v2.0/StudyIndication)
 
@@ -33,7 +38,7 @@ URI: [odm:StudyIndication](http://www.cdisc.org/ns/odm/v2.0/StudyIndication)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [DescriptionRef](DescriptionRef.md) | 1..1 <br/> [Description](Description.md) |  | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
 
 
@@ -92,6 +97,10 @@ URI: [odm:StudyIndication](http://www.cdisc.org/ns/odm/v2.0/StudyIndication)
 <details>
 ```yaml
 name: StudyIndication
+description: This element describes a study indication (e.g., condition, disease)
+  for the clinical study. The human-readable description is provided in the Description
+  element. The Coding element can be used to provide a machine-readable code for the
+  indication (e.g., SNOMED-CT code 26929004 for "Alzheimer's disease").
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyIndication
@@ -183,8 +192,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -219,6 +226,10 @@ class_uri: odm:StudyIndication
 <details>
 ```yaml
 name: StudyIndication
+description: This element describes a study indication (e.g., condition, disease)
+  for the clinical study. The human-readable description is provided in the Description
+  element. The Coding element can be used to provide a machine-readable code for the
+  indication (e.g., SNOMED-CT code 26929004 for "Alzheimer's disease").
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyIndication
@@ -306,8 +317,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -385,6 +394,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: StudyIndication
     domain_of:
@@ -426,14 +436,13 @@ attributes:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: StudyIndication
     domain_of:

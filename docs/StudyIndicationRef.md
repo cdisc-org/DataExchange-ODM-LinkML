@@ -13,7 +13,7 @@ URI: [odm:StudyIndicationRef](http://www.cdisc.org/ns/odm/v2.0/StudyIndicationRe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyIndications](StudyIndications.md) |  |  yes  |
+[StudyIndications](StudyIndications.md) | StudyIndications is a container element for individual StudyIndication elemen... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:StudyIndicationRef](http://www.cdisc.org/ns/odm/v2.0/StudyIndicationRe
 name: StudyIndicationRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: StudyIndicationRef
 domain_of:
 - StudyIndications

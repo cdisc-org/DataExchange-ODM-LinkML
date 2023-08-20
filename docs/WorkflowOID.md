@@ -1,5 +1,10 @@
 # Slot: WorkflowOID
 
+
+_Reference to a WorfkflowDef_
+
+
+
 URI: [odm:WorkflowOID](http://www.cdisc.org/ns/odm/v2.0/WorkflowOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:WorkflowOID](http://www.cdisc.org/ns/odm/v2.0/WorkflowOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[WorkflowRef](WorkflowRef.md) |  |  yes  |
+[WorkflowRef](WorkflowRef.md) | The WorkflowRef references a workflow definition |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:WorkflowOID](http://www.cdisc.org/ns/odm/v2.0/WorkflowOID)
 <details>
 ```yaml
 name: WorkflowOID
+description: Reference to a WorfkflowDef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: WorkflowOID

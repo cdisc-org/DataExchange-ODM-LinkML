@@ -1,6 +1,11 @@
 # Class: Branching
 
 
+_This element describes the branching in a workflow from a source (start) structural element to 2 or more target structural elements, over a Transition element._
+
+
+
+
 
 URI: [odm:Branching](http://www.cdisc.org/ns/odm/v2.0/Branching)
 
@@ -41,7 +46,7 @@ URI: [odm:Branching](http://www.cdisc.org/ns/odm/v2.0/Branching)
 | [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
 | [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
 | [Type](Type.md) | 1..1 <br/> [BranchingType](BranchingType.md) | Type of page for page references indicated in the PageRefs attribute | direct |
-| [TargetTransitionRef](TargetTransitionRef.md) | 1..* <br/> [TargetTransition](TargetTransition.md) |  | direct |
+| [TargetTransitionRef](TargetTransitionRef.md) | 0..* <br/> [TargetTransition](TargetTransition.md) |  | direct |
 | [DefaultTransitionRef](DefaultTransitionRef.md) | 0..* <br/> [DefaultTransition](DefaultTransition.md) |  | direct |
 
 
@@ -100,6 +105,8 @@ URI: [odm:Branching](http://www.cdisc.org/ns/odm/v2.0/Branching)
 <details>
 ```yaml
 name: Branching
+description: This element describes the branching in a workflow from a source (start)
+  structural element to 2 or more target structural elements, over a Transition element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Branching
@@ -112,6 +119,12 @@ slots:
 slot_usage:
   OID:
     name: OID
+    comments:
+    - 'Required
+
+      range:oid
+
+      The Branching/@OID attribute must be unique within the Study/MetaDataVersion.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -154,6 +167,12 @@ slot_usage:
     required: true
   Name:
     name: Name
+    comments:
+    - 'Required
+
+      range:name
+
+      The Branching/@Name attribute must be unique within the set of Study/MetaDataVersion/WorkflowDefs'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -194,7 +213,15 @@ slot_usage:
     required: true
   Type:
     name: Type
+    comments:
+    - 'Required
+
+      enum values:(Exclusive | Parallel)
+
+      The TargetTransition element must provide a reference to a ConditionDef when
+      the value of Type is "Exclusive".'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -202,7 +229,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -217,10 +243,8 @@ slot_usage:
     domain_of:
     - Branching
     range: TargetTransition
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   DefaultTransitionRef:
     name: DefaultTransitionRef
     multivalued: true
@@ -239,12 +263,20 @@ class_uri: odm:Branching
 <details>
 ```yaml
 name: Branching
+description: This element describes the branching in a workflow from a source (start)
+  structural element to 2 or more target structural elements, over a Transition element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Branching
 slot_usage:
   OID:
     name: OID
+    comments:
+    - 'Required
+
+      range:oid
+
+      The Branching/@OID attribute must be unique within the Study/MetaDataVersion.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -287,6 +319,12 @@ slot_usage:
     required: true
   Name:
     name: Name
+    comments:
+    - 'Required
+
+      range:name
+
+      The Branching/@Name attribute must be unique within the set of Study/MetaDataVersion/WorkflowDefs'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -327,7 +365,15 @@ slot_usage:
     required: true
   Type:
     name: Type
+    comments:
+    - 'Required
+
+      enum values:(Exclusive | Parallel)
+
+      The TargetTransition element must provide a reference to a ConditionDef when
+      the value of Type is "Exclusive".'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -335,7 +381,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -350,10 +395,8 @@ slot_usage:
     domain_of:
     - Branching
     range: TargetTransition
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   DefaultTransitionRef:
     name: DefaultTransitionRef
     multivalued: true
@@ -366,6 +409,12 @@ attributes:
   OID:
     name: OID
     description: Unique identifier of the version within the XML document.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The Branching/@OID attribute must be unique within the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -414,6 +463,12 @@ attributes:
   Name:
     name: Name
     description: General observation Sub Class.
+    comments:
+    - 'Required
+
+      range:name
+
+      The Branching/@Name attribute must be unique within the set of Study/MetaDataVersion/WorkflowDefs'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -459,11 +514,19 @@ attributes:
   Type:
     name: Type
     description: Type of page for page references indicated in the PageRefs attribute.
+    comments:
+    - 'Required
+
+      enum values:(Exclusive | Parallel)
+
+      The TargetTransition element must provide a reference to a ConditionDef when
+      the value of Type is "Exclusive".'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Type
     owner: Branching
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -471,7 +534,6 @@ attributes:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -485,20 +547,20 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TargetTransitionRef
     owner: Branching
     domain_of:
     - Branching
     range: TargetTransition
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   DefaultTransitionRef:
     name: DefaultTransitionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: DefaultTransitionRef
     owner: Branching
     domain_of:

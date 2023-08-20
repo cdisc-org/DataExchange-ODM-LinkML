@@ -19,7 +19,7 @@ URI: [Context](Context)
 
 | Name | Description |
 | ---  | --- |
-| [ContextRef](ContextRef.md) |  |
+| [ContextRef](ContextRef.md) | Indicates the intended usage of the ODM document |
 
 
 

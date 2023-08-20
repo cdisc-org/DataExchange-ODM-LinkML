@@ -1,6 +1,11 @@
 # Class: StudySummary
 
 
+_The StudyParameter element allows to provide a set of study design parameters such as anticipated number of subjects, minimum and maximum age of the participants, or planned number of arms._
+
+
+
+
 
 URI: [odm:StudySummary](http://www.cdisc.org/ns/odm/v2.0/StudySummary)
 
@@ -26,7 +31,7 @@ URI: [odm:StudySummary](http://www.cdisc.org/ns/odm/v2.0/StudySummary)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyParameterRef](StudyParameterRef.md) | 1..* <br/> [StudyParameter](StudyParameter.md) |  | direct |
+| [StudyParameterRef](StudyParameterRef.md) | 0..* <br/> [StudyParameter](StudyParameter.md) |  | direct |
 
 
 
@@ -84,6 +89,9 @@ URI: [odm:StudySummary](http://www.cdisc.org/ns/odm/v2.0/StudySummary)
 <details>
 ```yaml
 name: StudySummary
+description: The StudyParameter element allows to provide a set of study design parameters
+  such as anticipated number of subjects, minimum and maximum age of the participants,
+  or planned number of arms.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudySummary
@@ -96,10 +104,8 @@ slot_usage:
     domain_of:
     - StudySummary
     range: StudyParameter
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudySummary
 
 ```
@@ -110,6 +116,9 @@ class_uri: odm:StudySummary
 <details>
 ```yaml
 name: StudySummary
+description: The StudyParameter element allows to provide a set of study design parameters
+  such as anticipated number of subjects, minimum and maximum age of the participants,
+  or planned number of arms.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudySummary
@@ -120,25 +129,22 @@ slot_usage:
     domain_of:
     - StudySummary
     range: StudyParameter
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   StudyParameterRef:
     name: StudyParameterRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyParameterRef
     owner: StudySummary
     domain_of:
     - StudySummary
     range: StudyParameter
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudySummary
 
 ```

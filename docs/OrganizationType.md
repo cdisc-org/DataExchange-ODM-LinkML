@@ -22,7 +22,7 @@ URI: [OrganizationType](OrganizationType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) |  |
+| [Type](Type.md) | Categorization of organizations associated with clinical studies |
 
 
 

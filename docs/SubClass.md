@@ -33,8 +33,8 @@ URI: [odm:SubClass](http://www.cdisc.org/ns/odm/v2.0/SubClass)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Name](Name.md) | 1..1 <br/> [ItemGroupSubClass](ItemGroupSubClass.md) | General observation Sub Class | direct |
-| [ParentClass](ParentClass.md) | 0..1 <br/> [ItemGroupClassSubClass](ItemGroupClassSubClass.md) | Parent class of the Sub Class | direct |
+| [Name](Name.md) | 1..1 <br/> [ItemGroupSubClass](ItemGroupSubClass.md) | Name of the SubClass | direct |
+| [ParentClass](ParentClass.md) | 0..1 <br/> [ItemGroupClassSubClass](ItemGroupClassSubClass.md) | For a nested or multilevel SubClass, the ParentClass attribute is used to def... | direct |
 
 
 
@@ -102,6 +102,13 @@ slots:
 slot_usage:
   Name:
     name: Name
+    description: Name of the SubClass
+    comments:
+    - 'Required
+
+      range:text
+
+      Text must follow CDISC Controlled Terminology for SubClass.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -142,6 +149,14 @@ slot_usage:
     required: true
   ParentClass:
     name: ParentClass
+    description: 'For a nested or multilevel SubClass, the ParentClass attribute is
+      used to define the hierarchy. '
+    comments:
+    - 'Optional
+
+      range:text
+
+      Text must follow CDISC Controlled Terminology for Class or SubClass.'
     domain_of:
     - SubClass
     range: ItemGroupClassSubClass
@@ -162,6 +177,13 @@ see_also:
 slot_usage:
   Name:
     name: Name
+    description: Name of the SubClass
+    comments:
+    - 'Required
+
+      range:text
+
+      Text must follow CDISC Controlled Terminology for SubClass.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -202,13 +224,27 @@ slot_usage:
     required: true
   ParentClass:
     name: ParentClass
+    description: 'For a nested or multilevel SubClass, the ParentClass attribute is
+      used to define the hierarchy. '
+    comments:
+    - 'Optional
+
+      range:text
+
+      Text must follow CDISC Controlled Terminology for Class or SubClass.'
     domain_of:
     - SubClass
     range: ItemGroupClassSubClass
 attributes:
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Name of the SubClass
+    comments:
+    - 'Required
+
+      range:text
+
+      Text must follow CDISC Controlled Terminology for SubClass.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -253,7 +289,14 @@ attributes:
     required: true
   ParentClass:
     name: ParentClass
-    description: Parent class of the Sub Class
+    description: 'For a nested or multilevel SubClass, the ParentClass attribute is
+      used to define the hierarchy. '
+    comments:
+    - 'Optional
+
+      range:text
+
+      Text must follow CDISC Controlled Terminology for Class or SubClass.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ParentClass

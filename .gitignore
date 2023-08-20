@@ -1,6 +1,8 @@
 *.log
 site/
-venv
+venv/
 tools/__pycache__
 scratch
 debug.*
+*_cache.sqlite
+.vscode/

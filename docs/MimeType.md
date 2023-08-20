@@ -1,5 +1,10 @@
 # Slot: MimeType
 
+
+_Media type of the image_
+
+
+
 URI: [odm:MimeType](http://www.cdisc.org/ns/odm/v2.0/MimeType)
 
 
@@ -13,7 +18,7 @@ URI: [odm:MimeType](http://www.cdisc.org/ns/odm/v2.0/MimeType)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Image](Image.md) |  |  yes  |
+[Image](Image.md) | A visual depiction of the user |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:MimeType](http://www.cdisc.org/ns/odm/v2.0/MimeType)
 <details>
 ```yaml
 name: MimeType
+description: Media type of the image
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: MimeType

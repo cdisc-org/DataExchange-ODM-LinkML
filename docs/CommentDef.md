@@ -37,8 +37,8 @@ URI: [odm:CommentDef](http://www.cdisc.org/ns/odm/v2.0/CommentDef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [DescriptionRef](DescriptionRef.md) | 1..1 <br/> [Description](Description.md) | Text of the comment | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Text of the comment | direct |
 | [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file | direct |
 
 
@@ -111,6 +111,11 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -193,8 +198,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   DocumentRefRef:
     name: DocumentRefRef
@@ -230,6 +233,11 @@ see_also:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -312,8 +320,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   DocumentRefRef:
     name: DocumentRefRef
@@ -332,7 +338,11 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -383,6 +393,7 @@ attributes:
     description: Text of the comment.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: CommentDef
     domain_of:
@@ -424,8 +435,6 @@ attributes:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   DocumentRefRef:
     name: DocumentRefRef
@@ -434,6 +443,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: DocumentRefRef
     owner: CommentDef
     domain_of:

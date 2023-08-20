@@ -39,11 +39,11 @@ URI: [odm:PDFPageRef](http://www.cdisc.org/ns/odm/v2.0/PDFPageRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [PageRefs](PageRefs.md) | 0..1 <br/> [Text](Text.md) | List of PDF pages separated by a space | direct |
+| [PageRefs](PageRefs.md) | 0..1 <br/> [Text](Text.md) | List of PDF pages, separated by spaces | direct |
 | [FirstPage](FirstPage.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | First page in a range of pages | direct |
 | [LastPage](LastPage.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Last page in a range of pages | direct |
-| [Type](Type.md) | 1..1 <br/> [PDFPageType](PDFPageType.md) | Type of page for page references indicated in the PageRefs attribute | direct |
-| [Title](Title.md) | 0..1 <br/> [Text](Text.md) | Text with the label for the document reference | direct |
+| [Type](Type.md) | 1..1 <br/> [PDFPageType](PDFPageType.md) | Type of page for page reference(s) indicated in the PageRefs attribute | direct |
+| [Title](Title.md) | 0..1 <br/> [Text](Text.md) | Alternative label to provide a more specific and descriptive reference to a p... | direct |
 
 
 
@@ -114,22 +114,48 @@ slots:
 slot_usage:
   PageRefs:
     name: PageRefs
+    description: 'List of PDF pages, separated by spaces. Sample: "17 20 32"'
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - PDFPageRef
     range: text
   FirstPage:
     name: FirstPage
+    description: First page in a range of pages. Note that the way to indicate the
+      range of pages depends on the associated Type attribute provided.
+    comments:
+    - 'Conditional Required if PageRefs is not provided.
+
+      range:positiveInteger'
     domain_of:
     - PDFPageRef
     range: positiveInteger
   LastPage:
     name: LastPage
+    description: Last page in a range of pages. Note that the way to indicate the
+      range of pages depends on the associated Type attribute provided.
+    comments:
+    - 'Conditional Required if PageRefs is not provided.
+
+      range:positiveInteger'
     domain_of:
     - PDFPageRef
     range: positiveInteger
   Type:
     name: Type
+    description: Type of page for page reference(s) indicated in the PageRefs attribute
+    comments:
+    - 'Required
+
+      enum values:(PhysicalRef | NamedDestination)
+
+      When Type="NamedDestination", NamedDestinations have to be created within the
+      PDF document to be able to link to them via a hyperlink.'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -137,7 +163,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -148,8 +173,15 @@ slot_usage:
     required: true
   Title:
     name: Title
+    description: Alternative label to provide a more specific and descriptive reference
+      to a page link.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - PDFPageRef
+    - Leaf
     range: text
 class_uri: odm:PDFPageRef
 
@@ -168,22 +200,48 @@ see_also:
 slot_usage:
   PageRefs:
     name: PageRefs
+    description: 'List of PDF pages, separated by spaces. Sample: "17 20 32"'
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - PDFPageRef
     range: text
   FirstPage:
     name: FirstPage
+    description: First page in a range of pages. Note that the way to indicate the
+      range of pages depends on the associated Type attribute provided.
+    comments:
+    - 'Conditional Required if PageRefs is not provided.
+
+      range:positiveInteger'
     domain_of:
     - PDFPageRef
     range: positiveInteger
   LastPage:
     name: LastPage
+    description: Last page in a range of pages. Note that the way to indicate the
+      range of pages depends on the associated Type attribute provided.
+    comments:
+    - 'Conditional Required if PageRefs is not provided.
+
+      range:positiveInteger'
     domain_of:
     - PDFPageRef
     range: positiveInteger
   Type:
     name: Type
+    description: Type of page for page reference(s) indicated in the PageRefs attribute
+    comments:
+    - 'Required
+
+      enum values:(PhysicalRef | NamedDestination)
+
+      When Type="NamedDestination", NamedDestinations have to be created within the
+      PDF document to be able to link to them via a hyperlink.'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -191,7 +249,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -202,13 +259,24 @@ slot_usage:
     required: true
   Title:
     name: Title
+    description: Alternative label to provide a more specific and descriptive reference
+      to a page link.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - PDFPageRef
+    - Leaf
     range: text
 attributes:
   PageRefs:
     name: PageRefs
-    description: List of PDF pages separated by a space.
+    description: 'List of PDF pages, separated by spaces. Sample: "17 20 32"'
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: PageRefs
@@ -218,7 +286,12 @@ attributes:
     range: text
   FirstPage:
     name: FirstPage
-    description: First page in a range of pages.
+    description: First page in a range of pages. Note that the way to indicate the
+      range of pages depends on the associated Type attribute provided.
+    comments:
+    - 'Conditional Required if PageRefs is not provided.
+
+      range:positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: FirstPage
@@ -228,7 +301,12 @@ attributes:
     range: positiveInteger
   LastPage:
     name: LastPage
-    description: Last page in a range of pages.
+    description: Last page in a range of pages. Note that the way to indicate the
+      range of pages depends on the associated Type attribute provided.
+    comments:
+    - 'Conditional Required if PageRefs is not provided.
+
+      range:positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: LastPage
@@ -238,12 +316,20 @@ attributes:
     range: positiveInteger
   Type:
     name: Type
-    description: Type of page for page references indicated in the PageRefs attribute.
+    description: Type of page for page reference(s) indicated in the PageRefs attribute
+    comments:
+    - 'Required
+
+      enum values:(PhysicalRef | NamedDestination)
+
+      When Type="NamedDestination", NamedDestinations have to be created within the
+      PDF document to be able to link to them via a hyperlink.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Type
     owner: PDFPageRef
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -251,7 +337,6 @@ attributes:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -262,13 +347,19 @@ attributes:
     required: true
   Title:
     name: Title
-    description: Text with the label for the document reference.
+    description: Alternative label to provide a more specific and descriptive reference
+      to a page link.
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Title
     owner: PDFPageRef
     domain_of:
     - PDFPageRef
+    - Leaf
     range: text
 class_uri: odm:PDFPageRef
 

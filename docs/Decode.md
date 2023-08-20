@@ -1,6 +1,11 @@
 # Class: Decode
 
 
+_The displayed value relating to the CodeListItem/@CodedValue. This is often a label corresponding to a short name or alpha-numeric code. The actual Decode text is provided in a TranslatedText element so that it can be provided in different languages on a case report form or tabular data summary._
+
+
+
+
 
 URI: [odm:Decode](http://www.cdisc.org/ns/odm/v2.0/Decode)
 
@@ -26,7 +31,7 @@ URI: [odm:Decode](http://www.cdisc.org/ns/odm/v2.0/Decode)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TranslatedTextRef](TranslatedTextRef.md) | 1..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
+| [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
 
 
 
@@ -84,6 +89,10 @@ URI: [odm:Decode](http://www.cdisc.org/ns/odm/v2.0/Decode)
 <details>
 ```yaml
 name: Decode
+description: The displayed value relating to the CodeListItem/@CodedValue. This is
+  often a label corresponding to a short name or alpha-numeric code. The actual Decode
+  text is provided in a TranslatedText element so that it can be provided in different
+  languages on a case report form or tabular data summary.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Decode
@@ -105,10 +114,8 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Decode
 
 ```
@@ -119,6 +126,10 @@ class_uri: odm:Decode
 <details>
 ```yaml
 name: Decode
+description: The displayed value relating to the CodeListItem/@CodedValue. This is
+  often a label corresponding to a short name or alpha-numeric code. The actual Decode
+  text is provided in a TranslatedText element so that it can be provided in different
+  languages on a case report form or tabular data summary.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Decode
@@ -138,16 +149,15 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   TranslatedTextRef:
     name: TranslatedTextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TranslatedTextRef
     owner: Decode
     domain_of:
@@ -162,10 +172,8 @@ attributes:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Decode
 
 ```

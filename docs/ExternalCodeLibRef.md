@@ -13,7 +13,7 @@ URI: [odm:ExternalCodeLibRef](http://www.cdisc.org/ns/odm/v2.0/ExternalCodeLibRe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[FormalExpression](FormalExpression.md) |  |  yes  |
+[FormalExpression](FormalExpression.md) | A FormalExpression used within a ConditionDef or a RangeCheck must evaluate t... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:ExternalCodeLibRef](http://www.cdisc.org/ns/odm/v2.0/ExternalCodeLibRe
 name: ExternalCodeLibRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ExternalCodeLibRef
 domain_of:
 - FormalExpression

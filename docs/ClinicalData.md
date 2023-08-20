@@ -1,6 +1,11 @@
 # Class: ClinicalData
 
 
+_Clinical data for 1 or more subjects._
+
+
+
+
 
 URI: [odm:ClinicalData](http://www.cdisc.org/ns/odm/v2.0/ClinicalData)
 
@@ -50,14 +55,14 @@ URI: [odm:ClinicalData](http://www.cdisc.org/ns/odm/v2.0/ClinicalData)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [StudyOID](StudyOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the Study that uses the data nested within this element | direct |
+| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the MetaDataVersion (within the above Study) that governs the data... | direct |
 | [SubjectDataRef](SubjectDataRef.md) | 0..* <br/> [SubjectData](SubjectData.md) |  | direct |
 | [ItemGroupDataRef](ItemGroupDataRef.md) | 0..* <br/> [ItemGroupData](ItemGroupData.md) |  | direct |
 | [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) |  | direct |
 | [AuditRecordRef](AuditRecordRef.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) |  | direct |
 | [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) |  | direct |
-| [AnnotationRef](AnnotationRef.md) | 0..* <br/> [Annotation](Annotation.md) |  | direct |
+| [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) |  | direct |
 
 
 
@@ -115,6 +120,7 @@ URI: [odm:ClinicalData](http://www.cdisc.org/ns/odm/v2.0/ClinicalData)
 <details>
 ```yaml
 name: ClinicalData
+description: Clinical data for 1 or more subjects.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ClinicalData
@@ -130,6 +136,13 @@ slots:
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: References the Study that uses the data nested within this element.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match a Study/@OID value.'
     domain_of:
     - Include
     - SourceItem
@@ -143,6 +156,17 @@ slot_usage:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References the MetaDataVersion (within the above Study) that governs
+      the data nested within this element. The StudyOID and MetaDataVersionOID attributes
+      select a particular metadata version. All metadata references (OIDs) occurring
+      within this ClinicalData element refer to definitions within the selected metadata
+      version.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match a MetaDataVersions/@OID value contained in the Study element.'
     domain_of:
     - Include
     - SourceItem
@@ -211,7 +235,6 @@ slot_usage:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
-    multivalued: true
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -221,8 +244,7 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 class_uri: odm:ClinicalData
 
 ```
@@ -233,12 +255,20 @@ class_uri: odm:ClinicalData
 <details>
 ```yaml
 name: ClinicalData
+description: Clinical data for 1 or more subjects.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ClinicalData
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: References the Study that uses the data nested within this element.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match a Study/@OID value.'
     domain_of:
     - Include
     - SourceItem
@@ -252,6 +282,17 @@ slot_usage:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References the MetaDataVersion (within the above Study) that governs
+      the data nested within this element. The StudyOID and MetaDataVersionOID attributes
+      select a particular metadata version. All metadata references (OIDs) occurring
+      within this ClinicalData element refer to definitions within the selected metadata
+      version.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match a MetaDataVersions/@OID value contained in the Study element.'
     domain_of:
     - Include
     - SourceItem
@@ -320,7 +361,6 @@ slot_usage:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
-    multivalued: true
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -330,11 +370,17 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 attributes:
   StudyOID:
     name: StudyOID
+    description: References the Study that uses the data nested within this element.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match a Study/@OID value.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyOID
@@ -352,6 +398,17 @@ attributes:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References the MetaDataVersion (within the above Study) that governs
+      the data nested within this element. The StudyOID and MetaDataVersionOID attributes
+      select a particular metadata version. All metadata references (OIDs) occurring
+      within this ClinicalData element refer to definitions within the selected metadata
+      version.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match a MetaDataVersions/@OID value contained in the Study element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: MetaDataVersionOID
@@ -371,6 +428,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: SubjectDataRef
     owner: ClinicalData
     domain_of:
@@ -383,6 +441,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ItemGroupDataRef
     owner: ClinicalData
     domain_of:
@@ -398,6 +457,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: QueryRef
     owner: ClinicalData
     domain_of:
@@ -414,6 +474,7 @@ attributes:
     name: AuditRecordRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: AuditRecordRef
     owner: ClinicalData
     domain_of:
@@ -430,6 +491,7 @@ attributes:
     name: SignatureRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: SignatureRefRef
     owner: ClinicalData
     domain_of:
@@ -446,7 +508,7 @@ attributes:
     name: AnnotationRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    multivalued: true
+    identifier: false
     alias: AnnotationRef
     owner: ClinicalData
     domain_of:
@@ -458,8 +520,7 @@ attributes:
     - ItemData
     - Association
     range: Annotation
-    inlined: true
-    inlined_as_list: true
+    maximum_cardinality: 1
 class_uri: odm:ClinicalData
 
 ```

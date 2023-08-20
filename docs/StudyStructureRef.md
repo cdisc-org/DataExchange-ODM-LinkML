@@ -13,7 +13,7 @@ URI: [odm:StudyStructureRef](http://www.cdisc.org/ns/odm/v2.0/StudyStructureRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Protocol](Protocol.md) |  |  yes  |
+[Protocol](Protocol.md) | The Protocol element lists the kinds of study events that can occur within a ... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:StudyStructureRef](http://www.cdisc.org/ns/odm/v2.0/StudyStructureRef)
 name: StudyStructureRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: StudyStructureRef
 domain_of:
 - Protocol

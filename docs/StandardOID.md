@@ -1,5 +1,10 @@
 # Slot: StandardOID
 
+
+_Reference to a Standard element._
+
+
+
 URI: [odm:StandardOID](http://www.cdisc.org/ns/odm/v2.0/StandardOID)
 
 
@@ -13,8 +18,8 @@ URI: [odm:StandardOID](http://www.cdisc.org/ns/odm/v2.0/StandardOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
-[CodeList](CodeList.md) |  |  yes  |
+[ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
+[CodeList](CodeList.md) | Defines a discrete set of permitted values for an item, or provides a referen... |  yes  |
 
 
 
@@ -51,6 +56,7 @@ URI: [odm:StandardOID](http://www.cdisc.org/ns/odm/v2.0/StandardOID)
 <details>
 ```yaml
 name: StandardOID
+description: Reference to a Standard element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: StandardOID

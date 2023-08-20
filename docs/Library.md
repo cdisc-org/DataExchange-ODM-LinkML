@@ -1,5 +1,10 @@
 # Slot: Library
 
+
+_The name of the external library containing the FormalExpression._
+
+
+
 URI: [odm:Library](http://www.cdisc.org/ns/odm/v2.0/Library)
 
 
@@ -13,7 +18,7 @@ URI: [odm:Library](http://www.cdisc.org/ns/odm/v2.0/Library)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ExternalCodeLib](ExternalCodeLib.md) |  |  yes  |
+[ExternalCodeLib](ExternalCodeLib.md) | The ExternalCodeLib element references a FormalExpression in an external code... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:Library](http://www.cdisc.org/ns/odm/v2.0/Library)
 <details>
 ```yaml
 name: Library
+description: The name of the external library containing the FormalExpression.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Library

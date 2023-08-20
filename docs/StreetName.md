@@ -1,6 +1,11 @@
 # Class: StreetName
 
 
+_The street name part of a user's postal address._
+
+
+
+
 
 URI: [odm:StreetName](http://www.cdisc.org/ns/odm/v2.0/StreetName)
 
@@ -82,6 +87,7 @@ URI: [odm:StreetName](http://www.cdisc.org/ns/odm/v2.0/StreetName)
 <details>
 ```yaml
 name: StreetName
+description: The street name part of a user's postal address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StreetName
@@ -102,6 +108,7 @@ class_uri: odm:StreetName
 <details>
 ```yaml
 name: StreetName
+description: The street name part of a user's postal address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StreetName

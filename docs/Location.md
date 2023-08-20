@@ -1,6 +1,11 @@
 # Class: Location
 
 
+_A physical location associated with data collection and/or treatment of subjects. _
+
+
+
+
 
 URI: [odm:Location](http://www.cdisc.org/ns/odm/v2.0/Location)
 
@@ -50,12 +55,12 @@ URI: [odm:Location](http://www.cdisc.org/ns/odm/v2.0/Location)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [Role](Role.md) | 0..1 <br/> [Text](Text.md) |  | direct |
-| [OrganizationOID](OrganizationOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human-readable identifier | direct |
+| [Role](Role.md) | 0..1 <br/> [Text](Text.md) | Specifies the role of this location in the study | direct |
+| [OrganizationOID](OrganizationOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to an organization | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [MetaDataVersionRefRef](MetaDataVersionRefRef.md) | 1..* <br/> [MetaDataVersionRef](MetaDataVersionRef.md) |  | direct |
+| [MetaDataVersionRefRef](MetaDataVersionRefRef.md) | 0..* <br/> [MetaDataVersionRef](MetaDataVersionRef.md) |  | direct |
 | [AddressRef](AddressRef.md) | 0..* <br/> [Address](Address.md) |  | direct |
 | [TelecomRef](TelecomRef.md) | 0..* <br/> [Telecom](Telecom.md) |  | direct |
 | [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) |  | direct |
@@ -116,6 +121,8 @@ URI: [odm:Location](http://www.cdisc.org/ns/odm/v2.0/Location)
 <details>
 ```yaml
 name: Location
+description: 'A physical location associated with data collection and/or treatment
+  of subjects. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Location
@@ -132,6 +139,13 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier
+    comments:
+    - 'Required
+
+      range:oid
+
+      Must be unique for a study.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -174,6 +188,13 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human-readable identifier.
+    comments:
+    - 'Required
+
+      range:name
+
+      Must be unique within the set of Location definitions for the study.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -214,6 +235,11 @@ slot_usage:
     required: true
   Role:
     name: Role
+    description: Specifies the role of this location in the study.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ItemRef
     - Organization
@@ -221,6 +247,11 @@ slot_usage:
     range: text
   OrganizationOID:
     name: OrganizationOID
+    description: Reference to an organization.
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - User
     - Location
@@ -274,10 +305,8 @@ slot_usage:
     - Study
     - Location
     range: MetaDataVersionRef
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   AddressRef:
     name: AddressRef
     multivalued: true
@@ -321,12 +350,21 @@ class_uri: odm:Location
 <details>
 ```yaml
 name: Location
+description: 'A physical location associated with data collection and/or treatment
+  of subjects. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Location
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier
+    comments:
+    - 'Required
+
+      range:oid
+
+      Must be unique for a study.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -369,6 +407,13 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human-readable identifier.
+    comments:
+    - 'Required
+
+      range:name
+
+      Must be unique within the set of Location definitions for the study.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -409,6 +454,11 @@ slot_usage:
     required: true
   Role:
     name: Role
+    description: Specifies the role of this location in the study.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ItemRef
     - Organization
@@ -416,6 +466,11 @@ slot_usage:
     range: text
   OrganizationOID:
     name: OrganizationOID
+    description: Reference to an organization.
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - User
     - Location
@@ -469,10 +524,8 @@ slot_usage:
     - Study
     - Location
     range: MetaDataVersionRef
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   AddressRef:
     name: AddressRef
     multivalued: true
@@ -509,7 +562,13 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier
+    comments:
+    - 'Required
+
+      range:oid
+
+      Must be unique for a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -557,7 +616,13 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Human-readable identifier.
+    comments:
+    - 'Required
+
+      range:name
+
+      Must be unique within the set of Location definitions for the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -602,6 +667,11 @@ attributes:
     required: true
   Role:
     name: Role
+    description: Specifies the role of this location in the study.
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Role
@@ -613,6 +683,11 @@ attributes:
     range: text
   OrganizationOID:
     name: OrganizationOID
+    description: Reference to an organization.
+    comments:
+    - 'Optional
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: OrganizationOID
@@ -625,6 +700,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: Location
     domain_of:
@@ -672,21 +748,21 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: MetaDataVersionRefRef
     owner: Location
     domain_of:
     - Study
     - Location
     range: MetaDataVersionRef
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   AddressRef:
     name: AddressRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: AddressRef
     owner: Location
     domain_of:
@@ -701,6 +777,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TelecomRef
     owner: Location
     domain_of:
@@ -715,6 +792,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: QueryRef
     owner: Location
     domain_of:

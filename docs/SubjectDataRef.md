@@ -13,7 +13,7 @@ URI: [odm:SubjectDataRef](http://www.cdisc.org/ns/odm/v2.0/SubjectDataRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ClinicalData](ClinicalData.md) |  |  yes  |
+[ClinicalData](ClinicalData.md) | Clinical data for 1 or more subjects |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:SubjectDataRef](http://www.cdisc.org/ns/odm/v2.0/SubjectDataRef)
 name: SubjectDataRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: SubjectDataRef
 domain_of:
 - ClinicalData

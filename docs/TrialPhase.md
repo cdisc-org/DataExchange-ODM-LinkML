@@ -1,6 +1,11 @@
 # Class: TrialPhase
 
 
+_The TrialPhase element designates the phase of the study in the clinical trial._
+
+
+
+
 
 URI: [odm:TrialPhase](http://www.cdisc.org/ns/odm/v2.0/TrialPhase)
 
@@ -28,7 +33,7 @@ URI: [odm:TrialPhase](http://www.cdisc.org/ns/odm/v2.0/TrialPhase)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ValueRef](ValueRef.md) | 1..1 <br/> [TrialPhaseType](TrialPhaseType.md) |  | direct |
+| [ValueRef](ValueRef.md) | 1..1 <br/> [TrialPhaseType](TrialPhaseType.md) | Human-readable designation of the trial phase | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 
 
@@ -87,6 +92,8 @@ URI: [odm:TrialPhase](http://www.cdisc.org/ns/odm/v2.0/TrialPhase)
 <details>
 ```yaml
 name: TrialPhase
+description: The TrialPhase element designates the phase of the study in the clinical
+  trial.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TrialPhase
@@ -96,9 +103,21 @@ slots:
 slot_usage:
   ValueRef:
     name: ValueRef
+    description: Human-readable designation of the trial phase.
+    comments:
+    - 'Required
+
+      enum values:(PHASE 0 TRIAL, PHASE I TRIAL, PHASE I/II TRIAL, PHASE II TRIAL,
+      PHASE II/III TRIAL, PHASE IIA TRIAL, PHASE IIB TRIAL, PHASE III TRIAL, PHASE
+      IIIA TRIAL, PHASE IIIB TRIAL, PHASE IV TRIAL, PHASE V TRIAL, NOT APPLICABLE)
+
+      The TrialPhase/@Name must be unique within the Study. The values are enumerated
+      by CDISC controlled terminology TPHASE (NCI code C66737). This is an extensible
+      attribute.'
     domain_of:
     - TrialPhase
     - ParameterValue
+    - Telecom
     - ItemData
     - Query
     range: TrialPhaseType
@@ -155,15 +174,29 @@ class_uri: odm:TrialPhase
 <details>
 ```yaml
 name: TrialPhase
+description: The TrialPhase element designates the phase of the study in the clinical
+  trial.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TrialPhase
 slot_usage:
   ValueRef:
     name: ValueRef
+    description: Human-readable designation of the trial phase.
+    comments:
+    - 'Required
+
+      enum values:(PHASE 0 TRIAL, PHASE I TRIAL, PHASE I/II TRIAL, PHASE II TRIAL,
+      PHASE II/III TRIAL, PHASE IIA TRIAL, PHASE IIB TRIAL, PHASE III TRIAL, PHASE
+      IIIA TRIAL, PHASE IIIB TRIAL, PHASE IV TRIAL, PHASE V TRIAL, NOT APPLICABLE)
+
+      The TrialPhase/@Name must be unique within the Study. The values are enumerated
+      by CDISC controlled terminology TPHASE (NCI code C66737). This is an extensible
+      attribute.'
     domain_of:
     - TrialPhase
     - ParameterValue
+    - Telecom
     - ItemData
     - Query
     range: TrialPhaseType
@@ -213,13 +246,26 @@ slot_usage:
 attributes:
   ValueRef:
     name: ValueRef
+    description: Human-readable designation of the trial phase.
+    comments:
+    - 'Required
+
+      enum values:(PHASE 0 TRIAL, PHASE I TRIAL, PHASE I/II TRIAL, PHASE II TRIAL,
+      PHASE II/III TRIAL, PHASE IIA TRIAL, PHASE IIB TRIAL, PHASE III TRIAL, PHASE
+      IIIA TRIAL, PHASE IIIB TRIAL, PHASE IV TRIAL, PHASE V TRIAL, NOT APPLICABLE)
+
+      The TrialPhase/@Name must be unique within the Study. The values are enumerated
+      by CDISC controlled terminology TPHASE (NCI code C66737). This is an extensible
+      attribute.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: ValueRef
     owner: TrialPhase
     domain_of:
     - TrialPhase
     - ParameterValue
+    - Telecom
     - ItemData
     - Query
     range: TrialPhaseType
@@ -228,6 +274,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: TrialPhase
     domain_of:

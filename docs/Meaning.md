@@ -1,6 +1,11 @@
 # Class: Meaning
 
 
+_A short name or description for this signature. It should reflect the context of the signature and/or the text that appears when the signature is applied in the user interface._
+
+
+
+
 
 URI: [odm:Meaning](http://www.cdisc.org/ns/odm/v2.0/Meaning)
 
@@ -82,6 +87,9 @@ URI: [odm:Meaning](http://www.cdisc.org/ns/odm/v2.0/Meaning)
 <details>
 ```yaml
 name: Meaning
+description: A short name or description for this signature. It should reflect the
+  context of the signature and/or the text that appears when the signature is applied
+  in the user interface.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Meaning
@@ -102,6 +110,9 @@ class_uri: odm:Meaning
 <details>
 ```yaml
 name: Meaning
+description: A short name or description for this signature. It should reflect the
+  context of the signature and/or the text that appears when the signature is applied
+  in the user interface.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Meaning

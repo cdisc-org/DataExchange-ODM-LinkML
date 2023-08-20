@@ -1,5 +1,10 @@
 # Slot: Purpose
 
+
+_Purpose of the ItemGroup. _
+
+
+
 URI: [odm:Purpose](http://www.cdisc.org/ns/odm/v2.0/Purpose)
 
 
@@ -13,7 +18,7 @@ URI: [odm:Purpose](http://www.cdisc.org/ns/odm/v2.0/Purpose)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
+[ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:Purpose](http://www.cdisc.org/ns/odm/v2.0/Purpose)
 <details>
 ```yaml
 name: Purpose
+description: 'Purpose of the ItemGroup. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Purpose

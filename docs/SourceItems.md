@@ -1,6 +1,11 @@
 # Class: SourceItems
 
 
+_Identifies source items as needed to support automated data capture and end-to-end traceability._
+
+
+
+
 
 URI: [odm:SourceItems](http://www.cdisc.org/ns/odm/v2.0/SourceItems)
 
@@ -30,7 +35,7 @@ URI: [odm:SourceItems](http://www.cdisc.org/ns/odm/v2.0/SourceItems)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SourceItemRef](SourceItemRef.md) | 1..* <br/> [SourceItem](SourceItem.md) |  | direct |
+| [SourceItemRef](SourceItemRef.md) | 0..* <br/> [SourceItem](SourceItem.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
 
 
@@ -89,6 +94,8 @@ URI: [odm:SourceItems](http://www.cdisc.org/ns/odm/v2.0/SourceItems)
 <details>
 ```yaml
 name: SourceItems
+description: Identifies source items as needed to support automated data capture and
+  end-to-end traceability.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SourceItems
@@ -102,10 +109,8 @@ slot_usage:
     domain_of:
     - SourceItems
     range: SourceItem
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
@@ -139,6 +144,8 @@ class_uri: odm:SourceItems
 <details>
 ```yaml
 name: SourceItems
+description: Identifies source items as needed to support automated data capture and
+  end-to-end traceability.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SourceItems
@@ -149,10 +156,8 @@ slot_usage:
     domain_of:
     - SourceItems
     range: SourceItem
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
@@ -182,20 +187,20 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: SourceItemRef
     owner: SourceItems
     domain_of:
     - SourceItems
     range: SourceItem
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   CodingRef:
     name: CodingRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: SourceItems
     domain_of:

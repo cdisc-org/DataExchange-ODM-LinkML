@@ -1,5 +1,10 @@
 # Slot: EndConditionOID
 
+
+_The EndConditionOID references a ConditionDef defining the condition under which the transition can be completed. As long as the condition is not met, the transition to the next actitivity or event must be considered to be temporary blocked. When the target structural element can be considered to be a "visit," the condition can be regarded as a visit entry criterion._
+
+
+
 URI: [odm:EndConditionOID](http://www.cdisc.org/ns/odm/v2.0/EndConditionOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:EndConditionOID](http://www.cdisc.org/ns/odm/v2.0/EndConditionOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Transition](Transition.md) |  |  yes  |
+[Transition](Transition.md) | A Transition defines a link between 2 structural elements in a workflow |  yes  |
 
 
 
@@ -50,6 +55,11 @@ URI: [odm:EndConditionOID](http://www.cdisc.org/ns/odm/v2.0/EndConditionOID)
 <details>
 ```yaml
 name: EndConditionOID
+description: The EndConditionOID references a ConditionDef defining the condition
+  under which the transition can be completed. As long as the condition is not met,
+  the transition to the next actitivity or event must be considered to be temporary
+  blocked. When the target structural element can be considered to be a "visit," the
+  condition can be regarded as a visit entry criterion.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: EndConditionOID

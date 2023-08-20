@@ -13,7 +13,7 @@ URI: [odm:FamilyNameRef](http://www.cdisc.org/ns/odm/v2.0/FamilyNameRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[User](User.md) |  |  yes  |
+[User](User.md) | Information about a specific user of a clinical data collection or data manag... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:FamilyNameRef](http://www.cdisc.org/ns/odm/v2.0/FamilyNameRef)
 name: FamilyNameRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: FamilyNameRef
 domain_of:
 - User

@@ -1,5 +1,10 @@
 # Slot: Structure
 
+
+_Description of the level of detail represented by individual records in the ItemGroup_
+
+
+
 URI: [odm:Structure](http://www.cdisc.org/ns/odm/v2.0/Structure)
 
 
@@ -13,7 +18,7 @@ URI: [odm:Structure](http://www.cdisc.org/ns/odm/v2.0/Structure)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
+[ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:Structure](http://www.cdisc.org/ns/odm/v2.0/Structure)
 <details>
 ```yaml
 name: Structure
+description: Description of the level of detail represented by individual records
+  in the ItemGroup
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Structure

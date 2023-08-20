@@ -1,6 +1,11 @@
 # Class: StudyTargetPopulationRef
 
 
+_Element NameStudyTargetPopulationRefParent ElementsStudyEstimandElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimand/StudyTargetPopulationRefElement Textual ValueNoneAttributesStudyTargetPopulationOIDChild ElementsNoneUsage/Business Rules_
+
+
+
+
 
 URI: [odm:StudyTargetPopulationRef](http://www.cdisc.org/ns/odm/v2.0/StudyTargetPopulationRef)
 
@@ -82,6 +87,10 @@ URI: [odm:StudyTargetPopulationRef](http://www.cdisc.org/ns/odm/v2.0/StudyTarget
 <details>
 ```yaml
 name: StudyTargetPopulationRef
+description: Element NameStudyTargetPopulationRefParent ElementsStudyEstimandElement
+  XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimand/StudyTargetPopulationRefElement
+  Textual ValueNoneAttributesStudyTargetPopulationOIDChild ElementsNoneUsage/Business
+  Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTargetPopulationRef
@@ -104,6 +113,10 @@ class_uri: odm:StudyTargetPopulationRef
 <details>
 ```yaml
 name: StudyTargetPopulationRef
+description: Element NameStudyTargetPopulationRefParent ElementsStudyEstimandElement
+  XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimand/StudyTargetPopulationRefElement
+  Textual ValueNoneAttributesStudyTargetPopulationOIDChild ElementsNoneUsage/Business
+  Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTargetPopulationRef

@@ -13,7 +13,7 @@ URI: [odm:StudyObjectiveRef](http://www.cdisc.org/ns/odm/v2.0/StudyObjectiveRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyObjectives](StudyObjectives.md) |  |  yes  |
+[StudyObjectives](StudyObjectives.md) | The StudyObjectives is a container element for individual StudyObjective elem... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:StudyObjectiveRef](http://www.cdisc.org/ns/odm/v2.0/StudyObjectiveRef)
 name: StudyObjectiveRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: StudyObjectiveRef
 domain_of:
 - StudyObjectives

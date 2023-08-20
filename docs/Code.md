@@ -1,6 +1,11 @@
 # Class: Code
 
 
+_Contains the source code that represents a FormalExpression in a given Context. The source code must be executable, and the MethodSignature defines the input parameters and return values for the code._
+
+
+
+
 
 URI: [odm:Code](http://www.cdisc.org/ns/odm/v2.0/Code)
 
@@ -82,6 +87,9 @@ URI: [odm:Code](http://www.cdisc.org/ns/odm/v2.0/Code)
 <details>
 ```yaml
 name: Code
+description: Contains the source code that represents a FormalExpression in a given
+  Context. The source code must be executable, and the MethodSignature defines the
+  input parameters and return values for the code.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Code
@@ -102,6 +110,9 @@ class_uri: odm:Code
 <details>
 ```yaml
 name: Code
+description: Contains the source code that represents a FormalExpression in a given
+  Context. The source code must be executable, and the MethodSignature defines the
+  input parameters and return values for the code.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Code

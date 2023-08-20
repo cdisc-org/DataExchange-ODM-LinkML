@@ -13,7 +13,7 @@ URI: [odm:MeaningRef](http://www.cdisc.org/ns/odm/v2.0/MeaningRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SignatureDef](SignatureDef.md) |  |  yes  |
+[SignatureDef](SignatureDef.md) | Provides Metadata for signatures included in the /ODM/ClinicalData |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:MeaningRef](http://www.cdisc.org/ns/odm/v2.0/MeaningRef)
 name: MeaningRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: MeaningRef
 domain_of:
 - SignatureDef

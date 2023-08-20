@@ -1,6 +1,11 @@
 # Class: StudyInterventionRef
 
 
+_Element NameStudyInterventionRefParent ElementsStudyEstimandElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimandElement Textual ValueNoneAttributesStudyInterventionOIDChild ElementsNoneUsage/Business RulesOptional_
+
+
+
+
 
 URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventionRef)
 
@@ -24,7 +29,7 @@ URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyInterventionOID](StudyInterventionOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [StudyInterventionOID](StudyInterventionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to a StudyIntervention | direct |
 
 
 
@@ -82,6 +87,9 @@ URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 <details>
 ```yaml
 name: StudyInterventionRef
+description: Element NameStudyInterventionRefParent ElementsStudyEstimandElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimandElement
+  Textual ValueNoneAttributesStudyInterventionOIDChild ElementsNoneUsage/Business
+  RulesOptional
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventionRef
@@ -90,6 +98,11 @@ slots:
 slot_usage:
   StudyInterventionOID:
     name: StudyInterventionOID
+    description: Reference to a StudyIntervention
+    comments:
+    - 'Required
+
+      range:oidref'
     domain_of:
     - StudyInterventionRef
     range: oidref
@@ -104,12 +117,20 @@ class_uri: odm:StudyInterventionRef
 <details>
 ```yaml
 name: StudyInterventionRef
+description: Element NameStudyInterventionRefParent ElementsStudyEstimandElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimandElement
+  Textual ValueNoneAttributesStudyInterventionOIDChild ElementsNoneUsage/Business
+  RulesOptional
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventionRef
 slot_usage:
   StudyInterventionOID:
     name: StudyInterventionOID
+    description: Reference to a StudyIntervention
+    comments:
+    - 'Required
+
+      range:oidref'
     domain_of:
     - StudyInterventionRef
     range: oidref
@@ -117,6 +138,11 @@ slot_usage:
 attributes:
   StudyInterventionOID:
     name: StudyInterventionOID
+    description: Reference to a StudyIntervention
+    comments:
+    - 'Required
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyInterventionOID

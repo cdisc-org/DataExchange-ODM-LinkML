@@ -1,6 +1,11 @@
 # Class: WorkflowEnd
 
 
+_A WorkflowEnd references a structural element with which the workflows ends._
+
+
+
+
 
 URI: [odm:WorkflowEnd](http://www.cdisc.org/ns/odm/v2.0/WorkflowEnd)
 
@@ -26,7 +31,7 @@ URI: [odm:WorkflowEnd](http://www.cdisc.org/ns/odm/v2.0/WorkflowEnd)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [EndOID](EndOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [EndOID](EndOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the definition of the structural element that ends the workflow | direct |
 | [_content](_content.md) | 0..1 <br/> [Text](Text.md) | multi-line text content from between XML tags | direct |
 
 
@@ -85,6 +90,8 @@ URI: [odm:WorkflowEnd](http://www.cdisc.org/ns/odm/v2.0/WorkflowEnd)
 <details>
 ```yaml
 name: WorkflowEnd
+description: A WorkflowEnd references a structural element with which the workflows
+  ends.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowEnd
@@ -94,6 +101,17 @@ slots:
 slot_usage:
   EndOID:
     name: EndOID
+    description: Reference to the definition of the structural element that ends the
+      workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef
+      element.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The EndOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
+      ItemGroupDef or ItemDef child element of the MetaDataVersion parent element
+      of the WorkflowDef.'
     domain_of:
     - WorkflowEnd
     range: oidref
@@ -137,12 +155,25 @@ class_uri: odm:WorkflowEnd
 <details>
 ```yaml
 name: WorkflowEnd
+description: A WorkflowEnd references a structural element with which the workflows
+  ends.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowEnd
 slot_usage:
   EndOID:
     name: EndOID
+    description: Reference to the definition of the structural element that ends the
+      workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef
+      element.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The EndOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
+      ItemGroupDef or ItemDef child element of the MetaDataVersion parent element
+      of the WorkflowDef.'
     domain_of:
     - WorkflowEnd
     range: oidref
@@ -179,6 +210,17 @@ slot_usage:
 attributes:
   EndOID:
     name: EndOID
+    description: Reference to the definition of the structural element that ends the
+      workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef
+      element.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The EndOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
+      ItemGroupDef or ItemDef child element of the MetaDataVersion parent element
+      of the WorkflowDef.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: EndOID

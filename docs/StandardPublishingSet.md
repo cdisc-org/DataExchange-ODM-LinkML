@@ -22,7 +22,7 @@ URI: [StandardPublishingSet](StandardPublishingSet)
 | Name | Description |
 | ---  | --- |
 | [PublishingSet](PublishingSet.md) | Set of published files of Standard when Type="CT" (e |
-| [PublishingSet](PublishingSet.md) |  |
+| [PublishingSet](PublishingSet.md) | The name of the publishing set that contains the published standard |
 
 
 

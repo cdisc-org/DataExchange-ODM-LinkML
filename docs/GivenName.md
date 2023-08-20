@@ -1,6 +1,11 @@
 # Class: GivenName
 
 
+_The user's initial given name or all given names. _
+
+
+
+
 
 URI: [odm:GivenName](http://www.cdisc.org/ns/odm/v2.0/GivenName)
 
@@ -82,6 +87,7 @@ URI: [odm:GivenName](http://www.cdisc.org/ns/odm/v2.0/GivenName)
 <details>
 ```yaml
 name: GivenName
+description: 'The user''s initial given name or all given names. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/GivenName
@@ -102,6 +108,7 @@ class_uri: odm:GivenName
 <details>
 ```yaml
 name: GivenName
+description: 'The user''s initial given name or all given names. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/GivenName

@@ -20,7 +20,7 @@ URI: [StudyEndPointType](StudyEndPointType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) |  |
+| [Type](Type.md) | The type of end point |
 
 
 

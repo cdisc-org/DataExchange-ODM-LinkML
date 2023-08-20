@@ -13,7 +13,7 @@ URI: [odm:CityRef](http://www.cdisc.org/ns/odm/v2.0/CityRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Address](Address.md) |  |  yes  |
+[Address](Address.md) | The postal address for a user, location, or organization |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:CityRef](http://www.cdisc.org/ns/odm/v2.0/CityRef)
 name: CityRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: CityRef
 domain_of:
 - Address

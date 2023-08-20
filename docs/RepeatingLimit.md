@@ -1,5 +1,10 @@
 # Slot: RepeatingLimit
 
+
+_Maximum number of repeats._
+
+
+
 URI: [odm:RepeatingLimit](http://www.cdisc.org/ns/odm/v2.0/RepeatingLimit)
 
 
@@ -13,7 +18,7 @@ URI: [odm:RepeatingLimit](http://www.cdisc.org/ns/odm/v2.0/RepeatingLimit)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
+[ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:RepeatingLimit](http://www.cdisc.org/ns/odm/v2.0/RepeatingLimit)
 <details>
 ```yaml
 name: RepeatingLimit
+description: Maximum number of repeats.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: RepeatingLimit

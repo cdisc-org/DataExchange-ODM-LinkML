@@ -1,5 +1,10 @@
 # Slot: Methodology
 
+
+_Defines the type of electronic signature, including the meaning as required by 21 CFR Part 11 ._
+
+
+
 URI: [odm:Methodology](http://www.cdisc.org/ns/odm/v2.0/Methodology)
 
 
@@ -13,7 +18,7 @@ URI: [odm:Methodology](http://www.cdisc.org/ns/odm/v2.0/Methodology)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SignatureDef](SignatureDef.md) |  |  yes  |
+[SignatureDef](SignatureDef.md) | Provides Metadata for signatures included in the /ODM/ClinicalData |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:Methodology](http://www.cdisc.org/ns/odm/v2.0/Methodology)
 <details>
 ```yaml
 name: Methodology
+description: Defines the type of electronic signature, including the meaning as required
+  by 21 CFR Part 11 .
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Methodology

@@ -1,6 +1,11 @@
 # Class: MetaDataVersion
 
 
+_The metadata for a study is defined in a series of MetaDataVersion elements. Through this mechanism (multiple MetaDataVersion elements), the model supports the incremental deployment of "mid-stream study changes," and thus can handle a situation where multiple versions of the metadata are being used simultaneously (e.g., due to delays in IRB approval at various sites)._
+
+
+
+
 
 URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
 
@@ -43,9 +48,9 @@ URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
         
           MetaDataVersion --|> ItemGroupDef : ItemGroupDefRef
         
-      MetaDataVersion : leafRef
+      MetaDataVersion : LeafRef
         
-          MetaDataVersion --|> leaf : leafRef
+          MetaDataVersion --|> Leaf : LeafRef
         
       MetaDataVersion : MethodDefRef
         
@@ -100,9 +105,9 @@ URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | The Comment identifier that this value refers to | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | MetaDataVersion name | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a CommentDef element | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 | [IncludeRef](IncludeRef.md) | 0..1 <br/> [Include](Include.md) |  | direct |
 | [StandardsRef](StandardsRef.md) | 0..1 <br/> [Standards](Standards.md) |  | direct |
@@ -120,7 +125,7 @@ URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
 | [ConditionDefRef](ConditionDefRef.md) | 0..* <br/> [ConditionDef](ConditionDef.md) |  | direct |
 | [MethodDefRef](MethodDefRef.md) | 0..* <br/> [MethodDef](MethodDef.md) |  | direct |
 | [CommentDefRef](CommentDefRef.md) | 0..* <br/> [CommentDef](CommentDef.md) |  | direct |
-| [leafRef](leafRef.md) | 0..* <br/> [Leaf](Leaf.md) |  | direct |
+| [LeafRef](LeafRef.md) | 0..* <br/> [Leaf](Leaf.md) |  | direct |
 
 
 
@@ -178,6 +183,11 @@ URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
 <details>
 ```yaml
 name: MetaDataVersion
+description: The metadata for a study is defined in a series of MetaDataVersion elements.
+  Through this mechanism (multiple MetaDataVersion elements), the model supports the
+  incremental deployment of "mid-stream study changes," and thus can handle a situation
+  where multiple versions of the metadata are being used simultaneously (e.g., due
+  to delays in IRB approval at various sites).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MetaDataVersion
@@ -202,10 +212,15 @@ slots:
 - ConditionDefRef
 - MethodDefRef
 - CommentDefRef
-- leafRef
+- LeafRef
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -248,6 +263,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: MetaDataVersion name.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -288,6 +308,11 @@ slot_usage:
     required: true
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef element.
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -463,13 +488,13 @@ slot_usage:
     range: CommentDef
     inlined: true
     inlined_as_list: true
-  leafRef:
-    name: leafRef
+  LeafRef:
+    name: LeafRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     - ItemGroupDef
-    range: leaf
+    range: Leaf
     inlined: true
     inlined_as_list: true
 class_uri: odm:MetaDataVersion
@@ -482,12 +507,22 @@ class_uri: odm:MetaDataVersion
 <details>
 ```yaml
 name: MetaDataVersion
+description: The metadata for a study is defined in a series of MetaDataVersion elements.
+  Through this mechanism (multiple MetaDataVersion elements), the model supports the
+  incremental deployment of "mid-stream study changes," and thus can handle a situation
+  where multiple versions of the metadata are being used simultaneously (e.g., due
+  to delays in IRB approval at various sites).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MetaDataVersion
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -530,6 +565,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: MetaDataVersion name.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -570,6 +610,11 @@ slot_usage:
     required: true
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef element.
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -745,19 +790,23 @@ slot_usage:
     range: CommentDef
     inlined: true
     inlined_as_list: true
-  leafRef:
-    name: leafRef
+  LeafRef:
+    name: LeafRef
     multivalued: true
     domain_of:
     - MetaDataVersion
     - ItemGroupDef
-    range: leaf
+    range: Leaf
     inlined: true
     inlined_as_list: true
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -805,7 +854,11 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: MetaDataVersion name.
+    comments:
+    - 'Required
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -850,9 +903,11 @@ attributes:
     required: true
   CommentOID:
     name: CommentOID
-    description: "The Comment identifier that this value refers to. Needed when the\
-      \ WhereClause references Items across different domains.\n                The\
-      \ Comment would define any join assumptions."
+    description: Reference to a CommentDef element.
+    comments:
+    - 'Optional
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CommentOID
@@ -875,6 +930,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: MetaDataVersion
     domain_of:
@@ -921,6 +977,7 @@ attributes:
     name: IncludeRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: IncludeRef
     owner: MetaDataVersion
     domain_of:
@@ -931,6 +988,7 @@ attributes:
     name: StandardsRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StandardsRef
     owner: MetaDataVersion
     domain_of:
@@ -941,6 +999,7 @@ attributes:
     name: AnnotatedCRFRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: AnnotatedCRFRef
     owner: MetaDataVersion
     domain_of:
@@ -951,6 +1010,7 @@ attributes:
     name: SupplementalDocRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: SupplementalDocRef
     owner: MetaDataVersion
     domain_of:
@@ -962,6 +1022,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ValueListDefRef
     owner: MetaDataVersion
     domain_of:
@@ -974,6 +1035,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: WhereClauseDefRef
     owner: MetaDataVersion
     domain_of:
@@ -985,6 +1047,7 @@ attributes:
     name: ProtocolRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: ProtocolRef
     owner: MetaDataVersion
     domain_of:
@@ -996,6 +1059,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: WorkflowDefRef
     owner: MetaDataVersion
     domain_of:
@@ -1008,6 +1072,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyEventGroupDefRef
     owner: MetaDataVersion
     domain_of:
@@ -1020,6 +1085,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyEventDefRef
     owner: MetaDataVersion
     domain_of:
@@ -1032,6 +1098,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ItemGroupDefRef
     owner: MetaDataVersion
     domain_of:
@@ -1044,6 +1111,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ItemDefRef
     owner: MetaDataVersion
     domain_of:
@@ -1056,6 +1124,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodeListRefRef
     owner: MetaDataVersion
     domain_of:
@@ -1069,6 +1138,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ConditionDefRef
     owner: MetaDataVersion
     domain_of:
@@ -1081,6 +1151,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: MethodDefRef
     owner: MetaDataVersion
     domain_of:
@@ -1093,6 +1164,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CommentDefRef
     owner: MetaDataVersion
     domain_of:
@@ -1100,17 +1172,18 @@ attributes:
     range: CommentDef
     inlined: true
     inlined_as_list: true
-  leafRef:
-    name: leafRef
+  LeafRef:
+    name: LeafRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    alias: leafRef
+    identifier: false
+    alias: LeafRef
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     - ItemGroupDef
-    range: leaf
+    range: Leaf
     inlined: true
     inlined_as_list: true
 class_uri: odm:MetaDataVersion

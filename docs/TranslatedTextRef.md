@@ -13,16 +13,16 @@ URI: [odm:TranslatedTextRef](http://www.cdisc.org/ns/odm/v2.0/TranslatedTextRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Description](Description.md) |  |  yes  |
-[Question](Question.md) |  |  yes  |
-[Definition](Definition.md) |  |  yes  |
-[Prompt](Prompt.md) |  |  yes  |
-[CRFCompletionInstructions](CRFCompletionInstructions.md) |  |  yes  |
-[ImplementationNotes](ImplementationNotes.md) |  |  yes  |
-[CDISCNotes](CDISCNotes.md) |  |  yes  |
-[ErrorMessage](ErrorMessage.md) |  |  yes  |
-[Decode](Decode.md) |  |  yes  |
-[Comment](Comment.md) |  |  yes  |
+[Description](Description.md) | A free-text description of the containing metadata component, unless restrict... |  yes  |
+[Question](Question.md) | A label shown to a human user when prompted to provide data for an item on pa... |  yes  |
+[Definition](Definition.md) | Definition of the item |  yes  |
+[Prompt](Prompt.md) | A prompt text shown to a human user when prompted to provide data for an item... |  yes  |
+[CRFCompletionInstructions](CRFCompletionInstructions.md) | Instructions for the clinical site on how to enter collected information on t... |  yes  |
+[ImplementationNotes](ImplementationNotes.md) | Further information, such as rationale and implementation instructions, on ho... |  yes  |
+[CDISCNotes](CDISCNotes.md) | Explanatory text for the variable |  yes  |
+[ErrorMessage](ErrorMessage.md) | Error message provided to user when the range check fails |  yes  |
+[Decode](Decode.md) | The displayed value relating to the CodeListItem/@CodedValue |  yes  |
+[Comment](Comment.md) | A free-text (uninterpreted) comment about clinical data |  yes  |
 
 
 
@@ -61,6 +61,7 @@ URI: [odm:TranslatedTextRef](http://www.cdisc.org/ns/odm/v2.0/TranslatedTextRef)
 name: TranslatedTextRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: TranslatedTextRef
 domain_of:
 - Description

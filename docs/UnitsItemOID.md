@@ -1,5 +1,10 @@
 # Slot: UnitsItemOID
 
+
+_Reference to a sibling ItemRef element that represents the unit specification for this ItemRef (defines the associated units variable)._
+
+
+
 URI: [odm:UnitsItemOID](http://www.cdisc.org/ns/odm/v2.0/UnitsItemOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:UnitsItemOID](http://www.cdisc.org/ns/odm/v2.0/UnitsItemOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemRef](ItemRef.md) |  |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:UnitsItemOID](http://www.cdisc.org/ns/odm/v2.0/UnitsItemOID)
 <details>
 ```yaml
 name: UnitsItemOID
+description: Reference to a sibling ItemRef element that represents the unit specification
+  for this ItemRef (defines the associated units variable).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: UnitsItemOID

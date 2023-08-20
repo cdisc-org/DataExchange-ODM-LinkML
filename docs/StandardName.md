@@ -24,7 +24,7 @@ URI: [StandardName](StandardName)
 
 | Name | Description |
 | ---  | --- |
-| [Name](Name.md) |  |
+| [Name](Name.md) | Name of the external standard to which the data conforms |
 
 
 

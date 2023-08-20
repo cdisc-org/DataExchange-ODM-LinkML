@@ -22,8 +22,8 @@ URI: [QueryStateType](QueryStateType)
 
 | Name | Description |
 | ---  | --- |
-| [State](State.md) |  |
-| [State](State.md) |  |
+| [State](State.md) | Status of the Query |
+| [State](State.md) | Status of the Query |
 
 
 

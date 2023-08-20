@@ -1,5 +1,10 @@
 # Slot: ShortName
 
+
+_Short name or code for the parameter._
+
+
+
 URI: [odm:ShortName](http://www.cdisc.org/ns/odm/v2.0/ShortName)
 
 
@@ -13,7 +18,7 @@ URI: [odm:ShortName](http://www.cdisc.org/ns/odm/v2.0/ShortName)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyParameter](StudyParameter.md) |  |  yes  |
+[StudyParameter](StudyParameter.md) | A StudyParameter defines a study design parameter for which the value or valu... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:ShortName](http://www.cdisc.org/ns/odm/v2.0/ShortName)
 <details>
 ```yaml
 name: ShortName
+description: Short name or code for the parameter.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ShortName

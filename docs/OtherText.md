@@ -1,6 +1,11 @@
 # Class: OtherText
 
 
+_Any other text needed as part of a user's postal address._
+
+
+
+
 
 URI: [odm:OtherText](http://www.cdisc.org/ns/odm/v2.0/OtherText)
 
@@ -82,6 +87,7 @@ URI: [odm:OtherText](http://www.cdisc.org/ns/odm/v2.0/OtherText)
 <details>
 ```yaml
 name: OtherText
+description: Any other text needed as part of a user's postal address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/OtherText
@@ -102,6 +108,7 @@ class_uri: odm:OtherText
 <details>
 ```yaml
 name: OtherText
+description: Any other text needed as part of a user's postal address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/OtherText

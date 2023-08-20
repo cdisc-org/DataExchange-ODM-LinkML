@@ -1,5 +1,10 @@
 # Slot: SignatureOID
 
+
+_Reference to the SignatureDef ._
+
+
+
 URI: [odm:SignatureOID](http://www.cdisc.org/ns/odm/v2.0/SignatureOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:SignatureOID](http://www.cdisc.org/ns/odm/v2.0/SignatureOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SignatureRef](SignatureRef.md) |  |  yes  |
+[SignatureRef](SignatureRef.md) | Element NameSignatureRefParent ElementsSignatureElement XPath(s)/ODM/Referenc... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:SignatureOID](http://www.cdisc.org/ns/odm/v2.0/SignatureOID)
 <details>
 ```yaml
 name: SignatureOID
+description: Reference to the SignatureDef .
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SignatureOID

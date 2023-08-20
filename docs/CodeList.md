@@ -1,6 +1,11 @@
 # Class: CodeList
 
 
+_Defines a discrete set of permitted values for an item, or provides a reference to a codelist or dictionary maintained by an external organization via the Coding element, or a combination of both. Examples provided under Coding.Element NameCodeListParent ElementsMetaDataVersionElement XPath(s)/ODM/Study/MetaDataVersion/CodeListElement Textual ValueNoneAttributesOID, Name, DataType, CommentOID, StandardOID, IsNonStandardChild Elements(Description?, CodeListItem*, Coding*, Alias*)Usage/Business Rules_
+
+
+
+
 
 URI: [odm:CodeList](http://www.cdisc.org/ns/odm/v2.0/CodeList)
 
@@ -54,12 +59,12 @@ URI: [odm:CodeList](http://www.cdisc.org/ns/odm/v2.0/CodeList)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [DataTypeRef](DataTypeRef.md) | 1..1 <br/> [CLDataType](CLDataType.md) | The DataType attribute specifies how the corresponding value | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | The Comment identifier that this value refers to | direct |
-| [StandardOID](StandardOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [IsNonStandard](IsNonStandard.md) | 0..1 <br/> [YesOnly](YesOnly.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the Codelist element | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable name for the Codelist | direct |
+| [DataTypeRef](DataTypeRef.md) | 1..1 <br/> [CLDataType](CLDataType.md) | Specifies the DataType for codes defined in this codelist | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a CommentDef Element | direct |
+| [StandardOID](StandardOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a Standard element | direct |
+| [IsNonStandard](IsNonStandard.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Used when the controlled terminology includes a set of EnumeratedItem or Code... | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 | [CodeListItemRef](CodeListItemRef.md) | 0..* <br/> [CodeListItem](CodeListItem.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
@@ -121,6 +126,12 @@ URI: [odm:CodeList](http://www.cdisc.org/ns/odm/v2.0/CodeList)
 <details>
 ```yaml
 name: CodeList
+description: Defines a discrete set of permitted values for an item, or provides a
+  reference to a codelist or dictionary maintained by an external organization via
+  the Coding element, or a combination of both. Examples provided under Coding.Element
+  NameCodeListParent ElementsMetaDataVersionElement XPath(s)/ODM/Study/MetaDataVersion/CodeListElement
+  Textual ValueNoneAttributesOID, Name, DataType, CommentOID, StandardOID, IsNonStandardChild
+  Elements(Description?, CodeListItem*, Coding*, Alias*)Usage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CodeList
@@ -138,6 +149,9 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the Codelist element.
+    comments:
+    - Required
     domain_of:
     - Study
     - MetaDataVersion
@@ -180,6 +194,9 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable name for the Codelist.
+    comments:
+    - Required
     domain_of:
     - Alias
     - MetaDataVersion
@@ -220,6 +237,9 @@ slot_usage:
     required: true
   DataTypeRef:
     name: DataTypeRef
+    description: Specifies the DataType for codes defined in this codelist.
+    comments:
+    - Required
     domain_of:
     - ItemDef
     - CodeList
@@ -229,6 +249,9 @@ slot_usage:
     required: true
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef Element.
+    comments:
+    - Optional
     domain_of:
     - MetaDataVersion
     - Standard
@@ -245,12 +268,19 @@ slot_usage:
     range: oidref
   StandardOID:
     name: StandardOID
+    description: Reference to a Standard element.
+    comments:
+    - Optional
     domain_of:
     - ItemGroupDef
     - CodeList
     range: oidref
   IsNonStandard:
     name: IsNonStandard
+    description: Used when the controlled terminology includes a set of EnumeratedItem
+      or CodeListItem elements as defined by the sponsor.
+    comments:
+    - Conditional
     domain_of:
     - ItemGroupDef
     - ItemRef
@@ -354,12 +384,21 @@ class_uri: odm:CodeList
 <details>
 ```yaml
 name: CodeList
+description: Defines a discrete set of permitted values for an item, or provides a
+  reference to a codelist or dictionary maintained by an external organization via
+  the Coding element, or a combination of both. Examples provided under Coding.Element
+  NameCodeListParent ElementsMetaDataVersionElement XPath(s)/ODM/Study/MetaDataVersion/CodeListElement
+  Textual ValueNoneAttributesOID, Name, DataType, CommentOID, StandardOID, IsNonStandardChild
+  Elements(Description?, CodeListItem*, Coding*, Alias*)Usage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CodeList
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the Codelist element.
+    comments:
+    - Required
     domain_of:
     - Study
     - MetaDataVersion
@@ -402,6 +441,9 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable name for the Codelist.
+    comments:
+    - Required
     domain_of:
     - Alias
     - MetaDataVersion
@@ -442,6 +484,9 @@ slot_usage:
     required: true
   DataTypeRef:
     name: DataTypeRef
+    description: Specifies the DataType for codes defined in this codelist.
+    comments:
+    - Required
     domain_of:
     - ItemDef
     - CodeList
@@ -451,6 +496,9 @@ slot_usage:
     required: true
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef Element.
+    comments:
+    - Optional
     domain_of:
     - MetaDataVersion
     - Standard
@@ -467,12 +515,19 @@ slot_usage:
     range: oidref
   StandardOID:
     name: StandardOID
+    description: Reference to a Standard element.
+    comments:
+    - Optional
     domain_of:
     - ItemGroupDef
     - CodeList
     range: oidref
   IsNonStandard:
     name: IsNonStandard
+    description: Used when the controlled terminology includes a set of EnumeratedItem
+      or CodeListItem elements as defined by the sponsor.
+    comments:
+    - Conditional
     domain_of:
     - ItemGroupDef
     - ItemRef
@@ -569,7 +624,9 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for the Codelist element.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -617,7 +674,9 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Human readable name for the Codelist.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -662,8 +721,9 @@ attributes:
     required: true
   DataTypeRef:
     name: DataTypeRef
-    description: "The DataType attribute specifies how the corresponding value\n \
-      \                   elements are to be interpreted for comparison and storage."
+    description: Specifies the DataType for codes defined in this codelist.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: DataTypeRef
@@ -677,9 +737,9 @@ attributes:
     required: true
   CommentOID:
     name: CommentOID
-    description: "The Comment identifier that this value refers to. Needed when the\
-      \ WhereClause references Items across different domains.\n                The\
-      \ Comment would define any join assumptions."
+    description: Reference to a CommentDef Element.
+    comments:
+    - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CommentOID
@@ -700,6 +760,9 @@ attributes:
     range: oidref
   StandardOID:
     name: StandardOID
+    description: Reference to a Standard element.
+    comments:
+    - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StandardOID
@@ -710,6 +773,10 @@ attributes:
     range: oidref
   IsNonStandard:
     name: IsNonStandard
+    description: Used when the controlled terminology includes a set of EnumeratedItem
+      or CodeListItem elements as defined by the sponsor.
+    comments:
+    - Conditional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: IsNonStandard
@@ -723,6 +790,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: CodeList
     domain_of:
@@ -770,6 +838,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodeListItemRef
     owner: CodeList
     domain_of:
@@ -782,6 +851,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: CodeList
     domain_of:
@@ -809,6 +879,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: AliasRef
     owner: CodeList
     domain_of:

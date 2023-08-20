@@ -1,6 +1,11 @@
 # Class: TransitionTimingConstraint
 
 
+_The TransitionTimingConstraint element defines a timing constraint on a transition between structural elements as defined in a workflow. As such, it is a non-blocking constraint. This means that the transition is set on hold as long as the timing condition is not fulfilled, and is executed as soon as the timing condition is fulfilled._
+
+
+
+
 
 URI: [odm:TransitionTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/TransitionTimingConstraint)
 
@@ -44,14 +49,14 @@ URI: [odm:TransitionTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/Transitio
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [TransitionOID](TransitionOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [MethodOID](MethodOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [Type](Type.md) | 0..1 <br/> [RelativeTimingConstraintType](RelativeTimingConstraintType.md) | Type of page for page references indicated in the PageRefs attribute | direct |
-| [TimepointTarget](TimepointTarget.md) | 1..1 <br/> [DurationDatetime](DurationDatetime.md) |  | direct |
-| [TimepointPreWindow](TimepointPreWindow.md) | 0..1 <br/> [DurationDatetime](DurationDatetime.md) |  | direct |
-| [TimepointPostWindow](TimepointPostWindow.md) | 0..1 <br/> [DurationDatetime](DurationDatetime.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human-readable name | direct |
+| [TransitionOID](TransitionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the workflow Transition on which the timing constraint must be exe... | direct |
+| [MethodOID](MethodOID.md) | 0..1 <br/> [Oidref](Oidref.md) | R eferences a MethodDef that returns a durationDatetime | direct |
+| [Type](Type.md) | 0..1 <br/> [RelativeTimingConstraintType](RelativeTimingConstraintType.md) | Defines how the timing is to be defined between the two activities, starting ... | direct |
+| [TimepointTarget](TimepointTarget.md) | 1..1 <br/> [DurationDatetime](DurationDatetime.md) | The planned time between the 2 activities defined by the transition in the wo... | direct |
+| [TimepointPreWindow](TimepointPreWindow.md) | 0..1 <br/> [DurationDatetime](DurationDatetime.md) | Specifies the amount of time prior to the TimepointTarget, the time between t... | direct |
+| [TimepointPostWindow](TimepointPostWindow.md) | 0..1 <br/> [DurationDatetime](DurationDatetime.md) | Specifies the amount of time after the TimepointTarget, the time between the ... | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 
 
@@ -110,6 +115,11 @@ URI: [odm:TransitionTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/Transitio
 <details>
 ```yaml
 name: TransitionTimingConstraint
+description: The TransitionTimingConstraint element defines a timing constraint on
+  a transition between structural elements as defined in a workflow. As such, it is
+  a non-blocking constraint. This means that the transition is set on hold as long
+  as the timing condition is not fulfilled, and is executed as soon as the timing
+  condition is fulfilled.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TransitionTimingConstraint
@@ -126,6 +136,11 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -168,6 +183,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human-readable name.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -208,12 +228,32 @@ slot_usage:
     required: true
   TransitionOID:
     name: TransitionOID
+    description: References the workflow Transition on which the timing constraint
+      must be executed.
+    comments:
+    - 'Required
+
+      range:oidref'
     domain_of:
     - TransitionTimingConstraint
     range: oidref
     required: true
   MethodOID:
     name: MethodOID
+    description: R eferences a MethodDef that returns a durationDatetime. Use of a
+      method allows timings that depend on other pieces of information, or complex
+      timing calculations.
+    comments:
+    - 'Conditional
+
+      range:oidref
+
+      Must match the OID attribute of a MethodDef element in this Study/MetaDataVersion.
+      The MethodSignature for the referenced MethodDef must identify the input parameters
+      and a return value DateType of durationDatetime. If the returned value for the
+      method is a "zero time duration" (i.e., "P0D", "PT0H", or "PT0S"), the transition
+      must be executed immediately, or within the provided time window, when provided.
+      Either the TimepointTarget or the MethodOID must be provided - not both.'
     domain_of:
     - ItemGroupRef
     - ItemRef
@@ -221,7 +261,17 @@ slot_usage:
     range: oidref
   Type:
     name: Type
+    description: Defines how the timing is to be defined between the two activities,
+      starting from the start or the end of the source activity, and ending at the
+      start or the end of the target activity.
+    comments:
+    - 'Optional
+
+      enum values:(StartToStart, StartToFinish, FinishToStart, FinishToFinish)
+
+      If not provided, StartToStart is assumed.'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -229,7 +279,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -239,6 +288,17 @@ slot_usage:
     range: RelativeTimingConstraintType
   TimepointTarget:
     name: TimepointTarget
+    description: The planned time between the 2 activities defined by the transition
+      in the workflow.
+    comments:
+    - 'Conditional
+
+      range:durationDatetime
+
+      Must be expressed as an ISO 8601 duration. Either the TimepointTarget or the
+      MethodOID must be provided - not both. If the value is a "zero time duration"
+      (i.e., "P0D", "PT0H", or "PT0S"), the transition must be executed immediately,
+      or within the provided time window, when provided.'
     domain_of:
     - TransitionTimingConstraint
     - AbsoluteTimingConstraint
@@ -246,6 +306,14 @@ slot_usage:
     required: true
   TimepointPreWindow:
     name: TimepointPreWindow
+    description: Specifies the amount of time prior to the TimepointTarget, the time
+      between the two activities, may be shortened.
+    comments:
+    - 'Optional
+
+      range:durationDatetime
+
+      Must be expressed as an ISO 8601 duration.'
     domain_of:
     - TransitionTimingConstraint
     - AbsoluteTimingConstraint
@@ -253,6 +321,14 @@ slot_usage:
     range: durationDatetime
   TimepointPostWindow:
     name: TimepointPostWindow
+    description: Specifies the amount of time after the TimepointTarget, the time
+      between the two activities, may be lengthened.
+    comments:
+    - 'Optional
+
+      range:durationDatetime
+
+      Must be expressed as an ISO 8601 duration.'
     domain_of:
     - TransitionTimingConstraint
     - AbsoluteTimingConstraint
@@ -310,12 +386,22 @@ class_uri: odm:TransitionTimingConstraint
 <details>
 ```yaml
 name: TransitionTimingConstraint
+description: The TransitionTimingConstraint element defines a timing constraint on
+  a transition between structural elements as defined in a workflow. As such, it is
+  a non-blocking constraint. This means that the transition is set on hold as long
+  as the timing condition is not fulfilled, and is executed as soon as the timing
+  condition is fulfilled.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TransitionTimingConstraint
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -358,6 +444,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human-readable name.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -398,12 +489,32 @@ slot_usage:
     required: true
   TransitionOID:
     name: TransitionOID
+    description: References the workflow Transition on which the timing constraint
+      must be executed.
+    comments:
+    - 'Required
+
+      range:oidref'
     domain_of:
     - TransitionTimingConstraint
     range: oidref
     required: true
   MethodOID:
     name: MethodOID
+    description: R eferences a MethodDef that returns a durationDatetime. Use of a
+      method allows timings that depend on other pieces of information, or complex
+      timing calculations.
+    comments:
+    - 'Conditional
+
+      range:oidref
+
+      Must match the OID attribute of a MethodDef element in this Study/MetaDataVersion.
+      The MethodSignature for the referenced MethodDef must identify the input parameters
+      and a return value DateType of durationDatetime. If the returned value for the
+      method is a "zero time duration" (i.e., "P0D", "PT0H", or "PT0S"), the transition
+      must be executed immediately, or within the provided time window, when provided.
+      Either the TimepointTarget or the MethodOID must be provided - not both.'
     domain_of:
     - ItemGroupRef
     - ItemRef
@@ -411,7 +522,17 @@ slot_usage:
     range: oidref
   Type:
     name: Type
+    description: Defines how the timing is to be defined between the two activities,
+      starting from the start or the end of the source activity, and ending at the
+      start or the end of the target activity.
+    comments:
+    - 'Optional
+
+      enum values:(StartToStart, StartToFinish, FinishToStart, FinishToFinish)
+
+      If not provided, StartToStart is assumed.'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -419,7 +540,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -429,6 +549,17 @@ slot_usage:
     range: RelativeTimingConstraintType
   TimepointTarget:
     name: TimepointTarget
+    description: The planned time between the 2 activities defined by the transition
+      in the workflow.
+    comments:
+    - 'Conditional
+
+      range:durationDatetime
+
+      Must be expressed as an ISO 8601 duration. Either the TimepointTarget or the
+      MethodOID must be provided - not both. If the value is a "zero time duration"
+      (i.e., "P0D", "PT0H", or "PT0S"), the transition must be executed immediately,
+      or within the provided time window, when provided.'
     domain_of:
     - TransitionTimingConstraint
     - AbsoluteTimingConstraint
@@ -436,6 +567,14 @@ slot_usage:
     required: true
   TimepointPreWindow:
     name: TimepointPreWindow
+    description: Specifies the amount of time prior to the TimepointTarget, the time
+      between the two activities, may be shortened.
+    comments:
+    - 'Optional
+
+      range:durationDatetime
+
+      Must be expressed as an ISO 8601 duration.'
     domain_of:
     - TransitionTimingConstraint
     - AbsoluteTimingConstraint
@@ -443,6 +582,14 @@ slot_usage:
     range: durationDatetime
   TimepointPostWindow:
     name: TimepointPostWindow
+    description: Specifies the amount of time after the TimepointTarget, the time
+      between the two activities, may be lengthened.
+    comments:
+    - 'Optional
+
+      range:durationDatetime
+
+      Must be expressed as an ISO 8601 duration.'
     domain_of:
     - TransitionTimingConstraint
     - AbsoluteTimingConstraint
@@ -493,7 +640,11 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -541,7 +692,11 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Human-readable name.
+    comments:
+    - 'Required
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -586,6 +741,12 @@ attributes:
     required: true
   TransitionOID:
     name: TransitionOID
+    description: References the workflow Transition on which the timing constraint
+      must be executed.
+    comments:
+    - 'Required
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TransitionOID
@@ -596,6 +757,20 @@ attributes:
     required: true
   MethodOID:
     name: MethodOID
+    description: R eferences a MethodDef that returns a durationDatetime. Use of a
+      method allows timings that depend on other pieces of information, or complex
+      timing calculations.
+    comments:
+    - 'Conditional
+
+      range:oidref
+
+      Must match the OID attribute of a MethodDef element in this Study/MetaDataVersion.
+      The MethodSignature for the referenced MethodDef must identify the input parameters
+      and a return value DateType of durationDatetime. If the returned value for the
+      method is a "zero time duration" (i.e., "P0D", "PT0H", or "PT0S"), the transition
+      must be executed immediately, or within the provided time window, when provided.
+      Either the TimepointTarget or the MethodOID must be provided - not both.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: MethodOID
@@ -607,12 +782,21 @@ attributes:
     range: oidref
   Type:
     name: Type
-    description: Type of page for page references indicated in the PageRefs attribute.
+    description: Defines how the timing is to be defined between the two activities,
+      starting from the start or the end of the source activity, and ending at the
+      start or the end of the target activity.
+    comments:
+    - 'Optional
+
+      enum values:(StartToStart, StartToFinish, FinishToStart, FinishToFinish)
+
+      If not provided, StartToStart is assumed.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Type
     owner: TransitionTimingConstraint
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -620,7 +804,6 @@ attributes:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -630,6 +813,17 @@ attributes:
     range: RelativeTimingConstraintType
   TimepointTarget:
     name: TimepointTarget
+    description: The planned time between the 2 activities defined by the transition
+      in the workflow.
+    comments:
+    - 'Conditional
+
+      range:durationDatetime
+
+      Must be expressed as an ISO 8601 duration. Either the TimepointTarget or the
+      MethodOID must be provided - not both. If the value is a "zero time duration"
+      (i.e., "P0D", "PT0H", or "PT0S"), the transition must be executed immediately,
+      or within the provided time window, when provided.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TimepointTarget
@@ -641,6 +835,14 @@ attributes:
     required: true
   TimepointPreWindow:
     name: TimepointPreWindow
+    description: Specifies the amount of time prior to the TimepointTarget, the time
+      between the two activities, may be shortened.
+    comments:
+    - 'Optional
+
+      range:durationDatetime
+
+      Must be expressed as an ISO 8601 duration.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TimepointPreWindow
@@ -652,6 +854,14 @@ attributes:
     range: durationDatetime
   TimepointPostWindow:
     name: TimepointPostWindow
+    description: Specifies the amount of time after the TimepointTarget, the time
+      between the two activities, may be lengthened.
+    comments:
+    - 'Optional
+
+      range:durationDatetime
+
+      Must be expressed as an ISO 8601 duration.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TimepointPostWindow
@@ -665,6 +875,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: TransitionTimingConstraint
     domain_of:

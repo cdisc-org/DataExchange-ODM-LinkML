@@ -1,6 +1,11 @@
 # Class: Comment
 
 
+_A free-text (uninterpreted) comment about clinical data. The comment may have come from the sponsor or the clinical site._
+
+
+
+
 
 URI: [odm:Comment](http://www.cdisc.org/ns/odm/v2.0/Comment)
 
@@ -30,8 +35,8 @@ URI: [odm:Comment](http://www.cdisc.org/ns/odm/v2.0/Comment)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SponsorOrSite](SponsorOrSite.md) | 0..1 <br/> [CommentType](CommentType.md) |  | direct |
-| [TranslatedTextRef](TranslatedTextRef.md) | 1..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
+| [SponsorOrSite](SponsorOrSite.md) | 0..1 <br/> [CommentType](CommentType.md) | Source of the comment | direct |
+| [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
 
 
 
@@ -89,6 +94,8 @@ URI: [odm:Comment](http://www.cdisc.org/ns/odm/v2.0/Comment)
 <details>
 ```yaml
 name: Comment
+description: A free-text (uninterpreted) comment about clinical data. The comment
+  may have come from the sponsor or the clinical site.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Comment
@@ -98,6 +105,11 @@ slots:
 slot_usage:
   SponsorOrSite:
     name: SponsorOrSite
+    description: Source of the comment.
+    comments:
+    - 'Optional
+
+      enum values:(Sponsor | Site)'
     domain_of:
     - Comment
     range: CommentType
@@ -116,10 +128,8 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Comment
 
 ```
@@ -130,12 +140,19 @@ class_uri: odm:Comment
 <details>
 ```yaml
 name: Comment
+description: A free-text (uninterpreted) comment about clinical data. The comment
+  may have come from the sponsor or the clinical site.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Comment
 slot_usage:
   SponsorOrSite:
     name: SponsorOrSite
+    description: Source of the comment.
+    comments:
+    - 'Optional
+
+      enum values:(Sponsor | Site)'
     domain_of:
     - Comment
     range: CommentType
@@ -154,13 +171,16 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   SponsorOrSite:
     name: SponsorOrSite
+    description: Source of the comment.
+    comments:
+    - 'Optional
+
+      enum values:(Sponsor | Site)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SponsorOrSite
@@ -173,6 +193,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TranslatedTextRef
     owner: Comment
     domain_of:
@@ -187,10 +208,8 @@ attributes:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Comment
 
 ```

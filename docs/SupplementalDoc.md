@@ -31,7 +31,7 @@ URI: [odm:SupplementalDoc](http://www.cdisc.org/ns/odm/v2.0/SupplementalDoc)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [DocumentRefRef](DocumentRefRef.md) | 1..* <br/> [DocumentRef](DocumentRef.md) | Links to a leaf element with the location of the document | direct |
+| [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | Links to a leaf element with the location of the document | direct |
 
 
 
@@ -107,10 +107,8 @@ slot_usage:
     - MethodDef
     - CommentDef
     range: DocumentRef
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:SupplementalDoc
 
 ```
@@ -137,10 +135,8 @@ slot_usage:
     - MethodDef
     - CommentDef
     range: DocumentRef
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   DocumentRefRef:
     name: DocumentRefRef
@@ -148,6 +144,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: DocumentRefRef
     owner: SupplementalDoc
     domain_of:
@@ -157,10 +154,8 @@ attributes:
     - MethodDef
     - CommentDef
     range: DocumentRef
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:SupplementalDoc
 
 ```

@@ -1,5 +1,10 @@
 # Slot: State
 
+
+_Status of the Query_
+
+
+
 URI: [odm:State](http://www.cdisc.org/ns/odm/v2.0/State)
 
 
@@ -13,7 +18,7 @@ URI: [odm:State](http://www.cdisc.org/ns/odm/v2.0/State)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Query](Query.md) |  |  yes  |
+[Query](Query.md) | The Query element represents a request for clarification on a data item colle... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:State](http://www.cdisc.org/ns/odm/v2.0/State)
 <details>
 ```yaml
 name: State
+description: Status of the Query
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: State

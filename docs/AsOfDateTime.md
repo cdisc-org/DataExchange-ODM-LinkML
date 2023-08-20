@@ -1,5 +1,10 @@
 # Slot: AsOfDateTime
 
+
+_The date/time at which the source database was queried in order to create this document._
+
+
+
 URI: [odm:AsOfDateTime](http://www.cdisc.org/ns/odm/v2.0/AsOfDateTime)
 
 
@@ -13,7 +18,7 @@ URI: [odm:AsOfDateTime](http://www.cdisc.org/ns/odm/v2.0/AsOfDateTime)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) |  |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:AsOfDateTime](http://www.cdisc.org/ns/odm/v2.0/AsOfDateTime)
 <details>
 ```yaml
 name: AsOfDateTime
+description: The date/time at which the source database was queried in order to create
+  this document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: AsOfDateTime

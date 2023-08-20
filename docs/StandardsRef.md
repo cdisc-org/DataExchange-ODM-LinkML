@@ -13,7 +13,7 @@ URI: [odm:StandardsRef](http://www.cdisc.org/ns/odm/v2.0/StandardsRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MetaDataVersion](MetaDataVersion.md) |  |  yes  |
+[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:StandardsRef](http://www.cdisc.org/ns/odm/v2.0/StandardsRef)
 name: StandardsRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: StandardsRef
 domain_of:
 - MetaDataVersion

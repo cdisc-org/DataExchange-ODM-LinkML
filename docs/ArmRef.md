@@ -13,7 +13,7 @@ URI: [odm:ArmRef](http://www.cdisc.org/ns/odm/v2.0/ArmRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyStructure](StudyStructure.md) |  |  yes  |
+[StudyStructure](StudyStructure.md) | The StudyStructure element describes the general structure of a clinical stud... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:ArmRef](http://www.cdisc.org/ns/odm/v2.0/ArmRef)
 name: ArmRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ArmRef
 domain_of:
 - StudyStructure

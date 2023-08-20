@@ -13,7 +13,7 @@ URI: [odm:CountryRef](http://www.cdisc.org/ns/odm/v2.0/CountryRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Address](Address.md) |  |  yes  |
+[Address](Address.md) | The postal address for a user, location, or organization |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:CountryRef](http://www.cdisc.org/ns/odm/v2.0/CountryRef)
 name: CountryRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: CountryRef
 domain_of:
 - Address

@@ -1,6 +1,11 @@
 # Class: RelativeTimingConstraint
 
 
+_The RelativeTimingConstraint element describes a relative timing constraint between 2 activities or groups of activities, represented by StudyEventGroups, StudyEvents, ItemGroups, or Items._
+
+
+
+
 
 URI: [odm:RelativeTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/RelativeTimingConstraint)
 
@@ -44,14 +49,14 @@ URI: [odm:RelativeTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/RelativeTim
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [PredecessorOID](PredecessorOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [SuccessorOID](SuccessorOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [Type](Type.md) | 0..1 <br/> [RelativeTimingConstraintType](RelativeTimingConstraintType.md) | Type of page for page references indicated in the PageRefs attribute | direct |
-| [TimepointRelativeTarget](TimepointRelativeTarget.md) | 1..1 <br/> [DurationDatetime](DurationDatetime.md) |  | direct |
-| [TimepointPreWindow](TimepointPreWindow.md) | 0..1 <br/> [DurationDatetime](DurationDatetime.md) |  | direct |
-| [TimepointPostWindow](TimepointPostWindow.md) | 0..1 <br/> [DurationDatetime](DurationDatetime.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable name | direct |
+| [PredecessorOID](PredecessorOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that occurs immed... | direct |
+| [SuccessorOID](SuccessorOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs immedi... | direct |
+| [Type](Type.md) | 0..1 <br/> [RelativeTimingConstraintType](RelativeTimingConstraintType.md) | Defines how the timing is to be defined between the two activities, starting ... | direct |
+| [TimepointRelativeTarget](TimepointRelativeTarget.md) | 1..1 <br/> [DurationDatetime](DurationDatetime.md) | The relative timing between two activities or groups of activities | direct |
+| [TimepointPreWindow](TimepointPreWindow.md) | 0..1 <br/> [DurationDatetime](DurationDatetime.md) | Adds a lower bound to a time window for the RelativeTimepointTarget | direct |
+| [TimepointPostWindow](TimepointPostWindow.md) | 0..1 <br/> [DurationDatetime](DurationDatetime.md) | Adds an upper bound to a time window for the RelativeTimepointTarget | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 
 
@@ -110,6 +115,9 @@ URI: [odm:RelativeTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/RelativeTim
 <details>
 ```yaml
 name: RelativeTimingConstraint
+description: The RelativeTimingConstraint element describes a relative timing constraint
+  between 2 activities or groups of activities, represented by StudyEventGroups, StudyEvents,
+  ItemGroups, or Items.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/RelativeTimingConstraint
@@ -126,6 +134,9 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier.
+    comments:
+    - Required
     domain_of:
     - Study
     - MetaDataVersion
@@ -168,6 +179,9 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable name.
+    comments:
+    - Required
     domain_of:
     - Alias
     - MetaDataVersion
@@ -208,17 +222,31 @@ slot_usage:
     required: true
   PredecessorOID:
     name: PredecessorOID
+    description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that
+      occurs immediately before the RelativeTimepointTarget.
+    comments:
+    - Required
     domain_of:
     - RelativeTimingConstraint
     range: oidref
   SuccessorOID:
     name: SuccessorOID
+    description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs
+      immediately after the RelativeTimepointTarget.
+    comments:
+    - Required
     domain_of:
     - RelativeTimingConstraint
     range: oidref
   Type:
     name: Type
+    description: Defines how the timing is to be defined between the two activities,
+      starting from the start or the end of the source activity, and ending at the
+      start or the end of the target activity.
+    comments:
+    - Optional
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -226,7 +254,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -236,12 +263,18 @@ slot_usage:
     range: RelativeTimingConstraintType
   TimepointRelativeTarget:
     name: TimepointRelativeTarget
+    description: The relative timing between two activities or groups of activities.
+    comments:
+    - Required
     domain_of:
     - RelativeTimingConstraint
     range: durationDatetime
     required: true
   TimepointPreWindow:
     name: TimepointPreWindow
+    description: Adds a lower bound to a time window for the RelativeTimepointTarget.
+    comments:
+    - Optional
     domain_of:
     - TransitionTimingConstraint
     - AbsoluteTimingConstraint
@@ -249,6 +282,9 @@ slot_usage:
     range: durationDatetime
   TimepointPostWindow:
     name: TimepointPostWindow
+    description: Adds an upper bound to a time window for the RelativeTimepointTarget.
+    comments:
+    - Optional
     domain_of:
     - TransitionTimingConstraint
     - AbsoluteTimingConstraint
@@ -306,12 +342,18 @@ class_uri: odm:RelativeTimingConstraint
 <details>
 ```yaml
 name: RelativeTimingConstraint
+description: The RelativeTimingConstraint element describes a relative timing constraint
+  between 2 activities or groups of activities, represented by StudyEventGroups, StudyEvents,
+  ItemGroups, or Items.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/RelativeTimingConstraint
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier.
+    comments:
+    - Required
     domain_of:
     - Study
     - MetaDataVersion
@@ -354,6 +396,9 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable name.
+    comments:
+    - Required
     domain_of:
     - Alias
     - MetaDataVersion
@@ -394,17 +439,31 @@ slot_usage:
     required: true
   PredecessorOID:
     name: PredecessorOID
+    description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that
+      occurs immediately before the RelativeTimepointTarget.
+    comments:
+    - Required
     domain_of:
     - RelativeTimingConstraint
     range: oidref
   SuccessorOID:
     name: SuccessorOID
+    description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs
+      immediately after the RelativeTimepointTarget.
+    comments:
+    - Required
     domain_of:
     - RelativeTimingConstraint
     range: oidref
   Type:
     name: Type
+    description: Defines how the timing is to be defined between the two activities,
+      starting from the start or the end of the source activity, and ending at the
+      start or the end of the target activity.
+    comments:
+    - Optional
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -412,7 +471,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -422,12 +480,18 @@ slot_usage:
     range: RelativeTimingConstraintType
   TimepointRelativeTarget:
     name: TimepointRelativeTarget
+    description: The relative timing between two activities or groups of activities.
+    comments:
+    - Required
     domain_of:
     - RelativeTimingConstraint
     range: durationDatetime
     required: true
   TimepointPreWindow:
     name: TimepointPreWindow
+    description: Adds a lower bound to a time window for the RelativeTimepointTarget.
+    comments:
+    - Optional
     domain_of:
     - TransitionTimingConstraint
     - AbsoluteTimingConstraint
@@ -435,6 +499,9 @@ slot_usage:
     range: durationDatetime
   TimepointPostWindow:
     name: TimepointPostWindow
+    description: Adds an upper bound to a time window for the RelativeTimepointTarget.
+    comments:
+    - Optional
     domain_of:
     - TransitionTimingConstraint
     - AbsoluteTimingConstraint
@@ -485,7 +552,9 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -533,7 +602,9 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Human readable name.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -578,6 +649,10 @@ attributes:
     required: true
   PredecessorOID:
     name: PredecessorOID
+    description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that
+      occurs immediately before the RelativeTimepointTarget.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: PredecessorOID
@@ -587,6 +662,10 @@ attributes:
     range: oidref
   SuccessorOID:
     name: SuccessorOID
+    description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs
+      immediately after the RelativeTimepointTarget.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SuccessorOID
@@ -596,12 +675,17 @@ attributes:
     range: oidref
   Type:
     name: Type
-    description: Type of page for page references indicated in the PageRefs attribute.
+    description: Defines how the timing is to be defined between the two activities,
+      starting from the start or the end of the source activity, and ending at the
+      start or the end of the target activity.
+    comments:
+    - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Type
     owner: RelativeTimingConstraint
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -609,7 +693,6 @@ attributes:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -619,6 +702,9 @@ attributes:
     range: RelativeTimingConstraintType
   TimepointRelativeTarget:
     name: TimepointRelativeTarget
+    description: The relative timing between two activities or groups of activities.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TimepointRelativeTarget
@@ -629,6 +715,9 @@ attributes:
     required: true
   TimepointPreWindow:
     name: TimepointPreWindow
+    description: Adds a lower bound to a time window for the RelativeTimepointTarget.
+    comments:
+    - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TimepointPreWindow
@@ -640,6 +729,9 @@ attributes:
     range: durationDatetime
   TimepointPostWindow:
     name: TimepointPostWindow
+    description: Adds an upper bound to a time window for the RelativeTimepointTarget.
+    comments:
+    - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TimepointPostWindow
@@ -653,6 +745,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: RelativeTimingConstraint
     domain_of:

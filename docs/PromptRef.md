@@ -13,7 +13,7 @@ URI: [odm:PromptRef](http://www.cdisc.org/ns/odm/v2.0/PromptRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemDef](ItemDef.md) |  |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:PromptRef](http://www.cdisc.org/ns/odm/v2.0/PromptRef)
 name: PromptRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: PromptRef
 domain_of:
 - ItemDef

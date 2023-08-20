@@ -1,5 +1,10 @@
 # Slot: SourceSystemVersion
 
+
+_The version of the "SourceSystem" above._
+
+
+
 URI: [odm:SourceSystemVersion](http://www.cdisc.org/ns/odm/v2.0/SourceSystemVersion)
 
 
@@ -13,7 +18,7 @@ URI: [odm:SourceSystemVersion](http://www.cdisc.org/ns/odm/v2.0/SourceSystemVers
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) |  |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:SourceSystemVersion](http://www.cdisc.org/ns/odm/v2.0/SourceSystemVers
 <details>
 ```yaml
 name: SourceSystemVersion
+description: The version of the "SourceSystem" above.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SourceSystemVersion

@@ -1,6 +1,11 @@
 # Class: SourceItem
 
 
+_Provides the information needed to identify the source metadata._
+
+
+
+
 
 URI: [odm:SourceItem](http://www.cdisc.org/ns/odm/v2.0/SourceItem)
 
@@ -42,13 +47,13 @@ URI: [odm:SourceItem](http://www.cdisc.org/ns/odm/v2.0/SourceItem)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ItemOID](ItemOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [ItemGroupOID](ItemGroupOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [StudyOID](StudyOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [leafID](leafID.md) | 1..1 <br/> [Oidref](Oidref.md) | Unique identifier for the leaf element with the document location | direct |
-| [Name](Name.md) | 0..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [ResourceRef](ResourceRef.md) | 1..* <br/> [Resource](Resource.md) |  | direct |
+| [ItemOID](ItemOID.md) | 0..1 <br/> [Oidref](Oidref.md) | References the ItemDef that provides the variable metadata | direct |
+| [ItemGroupOID](ItemGroupOID.md) | 0..1 <br/> [Oidref](Oidref.md) | References the ItemGroupDef that provides the ItemGroup or dataset metadata | direct |
+| [MetaDataVersionOID](MetaDataVersionOID.md) | 0..1 <br/> [Oidref](Oidref.md) | References the MetaDataVersion that provides the metadata when referencing an... | direct |
+| [StudyOID](StudyOID.md) | 0..1 <br/> [Oidref](Oidref.md) | References the Study that provides the metadata when referencing another ODM ... | direct |
+| [leafID](leafID.md) | 1..1 <br/> [Oidref](Oidref.md) | References a leaf element that provides a reference to another ODM document | direct |
+| [Name](Name.md) | 0..1 <br/> [Name](Name.md) | Provides a way to connect an argument to a parameter when SourceItems are inp... | direct |
+| [ResourceRef](ResourceRef.md) | 0..* <br/> [Resource](Resource.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
 
 
@@ -107,6 +112,7 @@ URI: [odm:SourceItem](http://www.cdisc.org/ns/odm/v2.0/SourceItem)
 <details>
 ```yaml
 name: SourceItem
+description: Provides the information needed to identify the source metadata.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SourceItem
@@ -122,6 +128,14 @@ slots:
 slot_usage:
   ItemOID:
     name: ItemOID
+    description: References the ItemDef that provides the variable metadata.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID for an ItemDef element. The referenced ItemDef element can
+      be in the same ODM document or another ODM document.'
     domain_of:
     - ItemRef
     - SourceItem
@@ -131,6 +145,15 @@ slot_usage:
     range: oidref
   ItemGroupOID:
     name: ItemGroupOID
+    description: References the ItemGroupDef that provides the ItemGroup or dataset
+      metadata.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID for an ItemGroupDef element. The referenced ItemGroupDef
+      element can be in the same ODM document or another ODM document.'
     domain_of:
     - ItemGroupRef
     - SourceItem
@@ -139,6 +162,16 @@ slot_usage:
     range: oidref
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References the MetaDataVersion that provides the metadata when referencing
+      another ODM document.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID of a MetaDataVersion element. The referenced MetaDataVersion
+      element can be in the same ODM document or another ODM document. Must be provided
+      if the reference is not to an object within the same MetaDataVersion element.'
     domain_of:
     - Include
     - SourceItem
@@ -150,6 +183,16 @@ slot_usage:
     range: oidref
   StudyOID:
     name: StudyOID
+    description: References the Study that provides the metadata when referencing
+      another ODM document.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID for an Study element. The referenced Study element can be
+      in the same ODM document or another ODM document. Must be provided if the reference
+      is not to an object within the same Study element.'
     domain_of:
     - Include
     - SourceItem
@@ -162,12 +205,28 @@ slot_usage:
     range: oidref
   leafID:
     name: leafID
+    description: References a leaf element that provides a reference to another ODM
+      document. This is necessary when the source ItemOID references an ItemDef contained
+      in a different ODM document.
+    comments:
+    - 'Optional
+
+      range:IDREF
+
+      When referencing another ODM document it is necessary to have values for the
+      MetaDataVersionOID and StudyOID attributes. '
     domain_of:
-    - DocumentRef
     - SourceItem
     range: oidref
   Name:
     name: Name
+    description: 'Provides a way to connect an argument to a parameter when SourceItems
+      are inputs to methods. It allows the name used in the programming code in the
+      method description to make it easier to trace the use of the value. '
+    comments:
+    - 'Optional
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -211,10 +270,8 @@ slot_usage:
     domain_of:
     - SourceItem
     range: Resource
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
@@ -248,12 +305,21 @@ class_uri: odm:SourceItem
 <details>
 ```yaml
 name: SourceItem
+description: Provides the information needed to identify the source metadata.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SourceItem
 slot_usage:
   ItemOID:
     name: ItemOID
+    description: References the ItemDef that provides the variable metadata.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID for an ItemDef element. The referenced ItemDef element can
+      be in the same ODM document or another ODM document.'
     domain_of:
     - ItemRef
     - SourceItem
@@ -263,6 +329,15 @@ slot_usage:
     range: oidref
   ItemGroupOID:
     name: ItemGroupOID
+    description: References the ItemGroupDef that provides the ItemGroup or dataset
+      metadata.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID for an ItemGroupDef element. The referenced ItemGroupDef
+      element can be in the same ODM document or another ODM document.'
     domain_of:
     - ItemGroupRef
     - SourceItem
@@ -271,6 +346,16 @@ slot_usage:
     range: oidref
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References the MetaDataVersion that provides the metadata when referencing
+      another ODM document.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID of a MetaDataVersion element. The referenced MetaDataVersion
+      element can be in the same ODM document or another ODM document. Must be provided
+      if the reference is not to an object within the same MetaDataVersion element.'
     domain_of:
     - Include
     - SourceItem
@@ -282,6 +367,16 @@ slot_usage:
     range: oidref
   StudyOID:
     name: StudyOID
+    description: References the Study that provides the metadata when referencing
+      another ODM document.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID for an Study element. The referenced Study element can be
+      in the same ODM document or another ODM document. Must be provided if the reference
+      is not to an object within the same Study element.'
     domain_of:
     - Include
     - SourceItem
@@ -294,12 +389,28 @@ slot_usage:
     range: oidref
   leafID:
     name: leafID
+    description: References a leaf element that provides a reference to another ODM
+      document. This is necessary when the source ItemOID references an ItemDef contained
+      in a different ODM document.
+    comments:
+    - 'Optional
+
+      range:IDREF
+
+      When referencing another ODM document it is necessary to have values for the
+      MetaDataVersionOID and StudyOID attributes. '
     domain_of:
-    - DocumentRef
     - SourceItem
     range: oidref
   Name:
     name: Name
+    description: 'Provides a way to connect an argument to a parameter when SourceItems
+      are inputs to methods. It allows the name used in the programming code in the
+      method description to make it easier to trace the use of the value. '
+    comments:
+    - 'Optional
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -343,10 +454,8 @@ slot_usage:
     domain_of:
     - SourceItem
     range: Resource
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   CodingRef:
     name: CodingRef
     multivalued: true
@@ -373,6 +482,14 @@ slot_usage:
 attributes:
   ItemOID:
     name: ItemOID
+    description: References the ItemDef that provides the variable metadata.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID for an ItemDef element. The referenced ItemDef element can
+      be in the same ODM document or another ODM document.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ItemOID
@@ -386,6 +503,15 @@ attributes:
     range: oidref
   ItemGroupOID:
     name: ItemGroupOID
+    description: References the ItemGroupDef that provides the ItemGroup or dataset
+      metadata.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID for an ItemGroupDef element. The referenced ItemGroupDef
+      element can be in the same ODM document or another ODM document.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ItemGroupOID
@@ -398,6 +524,16 @@ attributes:
     range: oidref
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References the MetaDataVersion that provides the metadata when referencing
+      another ODM document.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID of a MetaDataVersion element. The referenced MetaDataVersion
+      element can be in the same ODM document or another ODM document. Must be provided
+      if the reference is not to an object within the same MetaDataVersion element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: MetaDataVersionOID
@@ -413,6 +549,16 @@ attributes:
     range: oidref
   StudyOID:
     name: StudyOID
+    description: References the Study that provides the metadata when referencing
+      another ODM document.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID for an Study element. The referenced Study element can be
+      in the same ODM document or another ODM document. Must be provided if the reference
+      is not to an object within the same Study element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyOID
@@ -429,20 +575,34 @@ attributes:
     range: oidref
   leafID:
     name: leafID
-    description: Unique identifier for the leaf element with the document location.
+    description: References a leaf element that provides a reference to another ODM
+      document. This is necessary when the source ItemOID references an ItemDef contained
+      in a different ODM document.
+    comments:
+    - 'Optional
+
+      range:IDREF
+
+      When referencing another ODM document it is necessary to have values for the
+      MetaDataVersionOID and StudyOID attributes. '
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
     alias: leafID
     owner: SourceItem
     domain_of:
-    - DocumentRef
     - SourceItem
     range: oidref
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: 'Provides a way to connect an argument to a parameter when SourceItems
+      are inputs to methods. It allows the name used in the programming code in the
+      method description to make it easier to trace the use of the value. '
+    comments:
+    - 'Optional
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -489,20 +649,20 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ResourceRef
     owner: SourceItem
     domain_of:
     - SourceItem
     range: Resource
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
   CodingRef:
     name: CodingRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: SourceItem
     domain_of:

@@ -18,8 +18,8 @@ URI: [SignMethod](SignMethod)
 
 | Name | Description |
 | ---  | --- |
-| [Methodology](Methodology.md) |  |
-| [Methodology](Methodology.md) |  |
+| [Methodology](Methodology.md) | Defines the type of electronic signature, including the meaning as required b... |
+| [Methodology](Methodology.md) | Defines the type of electronic signature, including the meaning as required b... |
 
 
 

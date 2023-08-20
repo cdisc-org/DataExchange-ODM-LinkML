@@ -13,7 +13,7 @@ URI: [odm:AssociationRef](http://www.cdisc.org/ns/odm/v2.0/AssociationRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) |  |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:AssociationRef](http://www.cdisc.org/ns/odm/v2.0/AssociationRef)
 name: AssociationRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: AssociationRef
 domain_of:
 - ODMFileMetadata

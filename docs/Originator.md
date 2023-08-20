@@ -1,5 +1,10 @@
 # Slot: Originator
 
+
+_The organization that generated the ODM file._
+
+
+
 URI: [odm:Originator](http://www.cdisc.org/ns/odm/v2.0/Originator)
 
 
@@ -13,7 +18,7 @@ URI: [odm:Originator](http://www.cdisc.org/ns/odm/v2.0/Originator)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) |  |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:Originator](http://www.cdisc.org/ns/odm/v2.0/Originator)
 <details>
 ```yaml
 name: Originator
+description: The organization that generated the ODM file.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Originator

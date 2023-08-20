@@ -1,5 +1,10 @@
 # Slot: CodedValue
 
+
+_Value of the codelist item (as it would occur in clinical data)._
+
+
+
 URI: [odm:CodedValue](http://www.cdisc.org/ns/odm/v2.0/CodedValue)
 
 
@@ -13,7 +18,7 @@ URI: [odm:CodedValue](http://www.cdisc.org/ns/odm/v2.0/CodedValue)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[CodeListItem](CodeListItem.md) |  |  yes  |
+[CodeListItem](CodeListItem.md) | Defines an individual member value of a codelist |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:CodedValue](http://www.cdisc.org/ns/odm/v2.0/CodedValue)
 <details>
 ```yaml
 name: CodedValue
+description: Value of the codelist item (as it would occur in clinical data).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: CodedValue

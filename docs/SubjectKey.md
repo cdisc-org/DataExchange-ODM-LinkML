@@ -1,17 +1,35 @@
-# Type: SubjectKey
+# Slot: SubjectKey
+
+
+_Unique identifier for the Subject._
 
 
 
-URI: [odm:subjectKey](http://www.cdisc.org/ns/odm/v2.0/subjectKey)
-
-* [base](https://w3id.org/linkml/base): str
-
-* [uri](https://w3id.org/linkml/uri): odm:subjectKey
+URI: [odm:SubjectKey](http://www.cdisc.org/ns/odm/v2.0/SubjectKey)
 
 
 
-* [pattern](https://w3id.org/linkml/pattern): `.{1, }`
+<!-- no inheritance hierarchy -->
 
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+[SubjectData](SubjectData.md) | Clinical data for a single subject |  yes  |
+[KeySet](KeySet.md) | A KeySet references a single entity (e |  yes  |
+
+
+
+
+
+
+
+## Properties
+
+* Range: [SubjectKey](SubjectKey.md)
 
 
 
@@ -32,3 +50,20 @@ URI: [odm:subjectKey](http://www.cdisc.org/ns/odm/v2.0/subjectKey)
 
 
 
+
+## LinkML Source
+
+<details>
+```yaml
+name: SubjectKey
+description: Unique identifier for the Subject.
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+rank: 1000
+alias: SubjectKey
+domain_of:
+- SubjectData
+- KeySet
+range: subjectKey
+
+```
+</details>

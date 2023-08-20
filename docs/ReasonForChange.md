@@ -1,6 +1,11 @@
 # Class: ReasonForChange
 
 
+_A user-supplied reason for a data change._
+
+
+
+
 
 URI: [odm:ReasonForChange](http://www.cdisc.org/ns/odm/v2.0/ReasonForChange)
 
@@ -82,6 +87,7 @@ URI: [odm:ReasonForChange](http://www.cdisc.org/ns/odm/v2.0/ReasonForChange)
 <details>
 ```yaml
 name: ReasonForChange
+description: A user-supplied reason for a data change.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ReasonForChange
@@ -102,6 +108,7 @@ class_uri: odm:ReasonForChange
 <details>
 ```yaml
 name: ReasonForChange
+description: A user-supplied reason for a data change.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ReasonForChange

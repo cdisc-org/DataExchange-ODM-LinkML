@@ -25,8 +25,8 @@ URI: [UserType](UserType)
 
 | Name | Description |
 | ---  | --- |
-| [UserTypeRef](UserTypeRef.md) |  |
-| [UserTypeRef](UserTypeRef.md) |  |
+| [UserTypeRef](UserTypeRef.md) | User's role in the study |
+| [UserTypeRef](UserTypeRef.md) | User's role in the study |
 
 
 

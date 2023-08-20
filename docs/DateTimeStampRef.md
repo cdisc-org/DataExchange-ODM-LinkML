@@ -13,8 +13,8 @@ URI: [odm:DateTimeStampRef](http://www.cdisc.org/ns/odm/v2.0/DateTimeStampRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[AuditRecord](AuditRecord.md) |  |  yes  |
-[Signature](Signature.md) |  |  yes  |
+[AuditRecord](AuditRecord.md) | An AuditRecord carries information pertaining to the creation, deletion, or m... |  yes  |
+[Signature](Signature.md) | An electronic signature applies to a collection of clinical data |  yes  |
 
 
 
@@ -53,6 +53,7 @@ URI: [odm:DateTimeStampRef](http://www.cdisc.org/ns/odm/v2.0/DateTimeStampRef)
 name: DateTimeStampRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: DateTimeStampRef
 domain_of:
 - AuditRecord

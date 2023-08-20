@@ -1,5 +1,10 @@
 # Slot: SourceOID
 
+
+_References the definition of the source structural element for the transition. The structural element may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, ItemDef, or Branching element._
+
+
+
 URI: [odm:SourceOID](http://www.cdisc.org/ns/odm/v2.0/SourceOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:SourceOID](http://www.cdisc.org/ns/odm/v2.0/SourceOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Transition](Transition.md) |  |  yes  |
+[Transition](Transition.md) | A Transition defines a link between 2 structural elements in a workflow |  yes  |
 
 
 
@@ -50,6 +55,9 @@ URI: [odm:SourceOID](http://www.cdisc.org/ns/odm/v2.0/SourceOID)
 <details>
 ```yaml
 name: SourceOID
+description: References the definition of the source structural element for the transition.
+  The structural element may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef,
+  ItemDef, or Branching element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SourceOID

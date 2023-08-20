@@ -1,5 +1,10 @@
 # Slot: Longitude
 
+
+_Longitude component of geoposition coordinates in decimal degrees. May require conversion from degrees, minutes, seconds format._
+
+
+
 URI: [odm:Longitude](http://www.cdisc.org/ns/odm/v2.0/Longitude)
 
 
@@ -13,7 +18,7 @@ URI: [odm:Longitude](http://www.cdisc.org/ns/odm/v2.0/Longitude)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[GeoPosition](GeoPosition.md) |  |  yes  |
+[GeoPosition](GeoPosition.md) | The geographical position using the World Geodetic System WGS84 |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:Longitude](http://www.cdisc.org/ns/odm/v2.0/Longitude)
 <details>
 ```yaml
 name: Longitude
+description: Longitude component of geoposition coordinates in decimal degrees. May
+  require conversion from degrees, minutes, seconds format.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Longitude

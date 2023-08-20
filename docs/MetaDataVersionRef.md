@@ -1,6 +1,11 @@
 # Class: MetaDataVersionRef
 
 
+_A reference to a MetaDataVersion used at the containing Location. The EffectiveDate reflects the possibility that the metadata may change over the course of the study._
+
+
+
+
 
 URI: [odm:MetaDataVersionRef](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersionRef)
 
@@ -28,9 +33,9 @@ URI: [odm:MetaDataVersionRef](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersionRe
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [EffectiveDate](EffectiveDate.md) | 1..1 <br/> [Date](Date.md) |  | direct |
+| [StudyOID](StudyOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the Study that uses this metadata version | direct |
+| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the MetaDataVersion (within the above Study) | direct |
+| [EffectiveDate](EffectiveDate.md) | 1..1 <br/> [Date](Date.md) | Datetime stamp when this MetaDataVersion was published at this location | direct |
 
 
 
@@ -88,6 +93,9 @@ URI: [odm:MetaDataVersionRef](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersionRe
 <details>
 ```yaml
 name: MetaDataVersionRef
+description: A reference to a MetaDataVersion used at the containing Location. The
+  EffectiveDate reflects the possibility that the metadata may change over the course
+  of the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MetaDataVersionRef
@@ -98,6 +106,11 @@ slots:
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: References the Study that uses this metadata version.
+    comments:
+    - 'Required
+
+      range:oidref'
     domain_of:
     - Include
     - SourceItem
@@ -111,6 +124,11 @@ slot_usage:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References the MetaDataVersion (within the above Study).
+    comments:
+    - 'Required
+
+      range:oidref'
     domain_of:
     - Include
     - SourceItem
@@ -123,6 +141,14 @@ slot_usage:
     required: true
   EffectiveDate:
     name: EffectiveDate
+    description: Datetime stamp when this MetaDataVersion was published at this location.
+    comments:
+    - 'Required
+
+      range:date
+
+      All data entered following the EffectiveDate must be included in a ClinicalData
+      element that references this MetaDataVersionOID.'
     domain_of:
     - MetaDataVersionRef
     range: date
@@ -137,12 +163,20 @@ class_uri: odm:MetaDataVersionRef
 <details>
 ```yaml
 name: MetaDataVersionRef
+description: A reference to a MetaDataVersion used at the containing Location. The
+  EffectiveDate reflects the possibility that the metadata may change over the course
+  of the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MetaDataVersionRef
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: References the Study that uses this metadata version.
+    comments:
+    - 'Required
+
+      range:oidref'
     domain_of:
     - Include
     - SourceItem
@@ -156,6 +190,11 @@ slot_usage:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References the MetaDataVersion (within the above Study).
+    comments:
+    - 'Required
+
+      range:oidref'
     domain_of:
     - Include
     - SourceItem
@@ -168,6 +207,14 @@ slot_usage:
     required: true
   EffectiveDate:
     name: EffectiveDate
+    description: Datetime stamp when this MetaDataVersion was published at this location.
+    comments:
+    - 'Required
+
+      range:date
+
+      All data entered following the EffectiveDate must be included in a ClinicalData
+      element that references this MetaDataVersionOID.'
     domain_of:
     - MetaDataVersionRef
     range: date
@@ -175,6 +222,11 @@ slot_usage:
 attributes:
   StudyOID:
     name: StudyOID
+    description: References the Study that uses this metadata version.
+    comments:
+    - 'Required
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyOID
@@ -192,6 +244,11 @@ attributes:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: References the MetaDataVersion (within the above Study).
+    comments:
+    - 'Required
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: MetaDataVersionOID
@@ -208,6 +265,14 @@ attributes:
     required: true
   EffectiveDate:
     name: EffectiveDate
+    description: Datetime stamp when this MetaDataVersion was published at this location.
+    comments:
+    - 'Required
+
+      range:date
+
+      All data entered following the EffectiveDate must be included in a ClinicalData
+      element that references this MetaDataVersionOID.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: EffectiveDate

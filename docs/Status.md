@@ -18,8 +18,8 @@ URI: [odm:Status](http://www.cdisc.org/ns/odm/v2.0/Status)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Study](Study.md) |  |  yes  |
-[Standard](Standard.md) |  |  yes  |
+[Study](Study.md) | This element collects static structural information about an individual study |  yes  |
+[Standard](Standard.md) | The Standard element describes each standard used within the MetaDataVersion ... |  yes  |
 
 
 

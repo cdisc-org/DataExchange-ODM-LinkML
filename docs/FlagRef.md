@@ -13,7 +13,7 @@ URI: [odm:FlagRef](http://www.cdisc.org/ns/odm/v2.0/FlagRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Annotation](Annotation.md) |  |  yes  |
+[Annotation](Annotation.md) | A general note about clinical data |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:FlagRef](http://www.cdisc.org/ns/odm/v2.0/FlagRef)
 name: FlagRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: FlagRef
 domain_of:
 - Annotation

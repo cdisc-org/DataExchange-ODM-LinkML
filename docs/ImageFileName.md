@@ -1,5 +1,10 @@
 # Slot: ImageFileName
 
+
+_The file name of or file path to the picture_
+
+
+
 URI: [odm:ImageFileName](http://www.cdisc.org/ns/odm/v2.0/ImageFileName)
 
 
@@ -13,7 +18,7 @@ URI: [odm:ImageFileName](http://www.cdisc.org/ns/odm/v2.0/ImageFileName)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Image](Image.md) |  |  yes  |
+[Image](Image.md) | A visual depiction of the user |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:ImageFileName](http://www.cdisc.org/ns/odm/v2.0/ImageFileName)
 <details>
 ```yaml
 name: ImageFileName
+description: The file name of or file path to the picture
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ImageFileName

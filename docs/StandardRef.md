@@ -18,7 +18,7 @@ URI: [odm:StandardRef](http://www.cdisc.org/ns/odm/v2.0/StandardRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Standards](Standards.md) |  |  yes  |
+[Standards](Standards.md) | The Standards element provides a container for the list of Standard elements ... |  yes  |
 
 
 
@@ -58,6 +58,7 @@ name: StandardRef
 description: Definition of a standard referenced in the Define-XML document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: StandardRef
 domain_of:
 - Standards

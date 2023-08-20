@@ -1,5 +1,10 @@
 # Slot: UserOID
 
+
+_Reference to a User definition._
+
+
+
 URI: [odm:UserOID](http://www.cdisc.org/ns/odm/v2.0/UserOID)
 
 
@@ -13,8 +18,8 @@ URI: [odm:UserOID](http://www.cdisc.org/ns/odm/v2.0/UserOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[InvestigatorRef](InvestigatorRef.md) |  |  yes  |
-[UserRef](UserRef.md) |  |  yes  |
+[InvestigatorRef](InvestigatorRef.md) | Provides a reference to the user who created the SubjectData record in the so... |  yes  |
+[UserRef](UserRef.md) | Element NameUserRefParent ElementsAuditRecord, SignatureElement XPath(s)/ODM/... |  yes  |
 
 
 
@@ -51,6 +56,7 @@ URI: [odm:UserOID](http://www.cdisc.org/ns/odm/v2.0/UserOID)
 <details>
 ```yaml
 name: UserOID
+description: Reference to a User definition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: UserOID

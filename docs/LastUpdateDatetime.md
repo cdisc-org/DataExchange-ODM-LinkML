@@ -1,5 +1,10 @@
 # Slot: LastUpdateDatetime
 
+
+_When was this Query updated? Will correspond to the creation date or the last updated date?_
+
+
+
 URI: [odm:LastUpdateDatetime](http://www.cdisc.org/ns/odm/v2.0/LastUpdateDatetime)
 
 
@@ -13,7 +18,7 @@ URI: [odm:LastUpdateDatetime](http://www.cdisc.org/ns/odm/v2.0/LastUpdateDatetim
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Query](Query.md) |  |  yes  |
+[Query](Query.md) | The Query element represents a request for clarification on a data item colle... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:LastUpdateDatetime](http://www.cdisc.org/ns/odm/v2.0/LastUpdateDatetim
 <details>
 ```yaml
 name: LastUpdateDatetime
+description: When was this Query updated? Will correspond to the creation date or
+  the last updated date?
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: LastUpdateDatetime

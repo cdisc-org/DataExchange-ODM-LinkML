@@ -1,6 +1,11 @@
 # Class: StudyEndPointRef
 
 
+_Go to start of metadata_
+
+
+
+
 
 URI: [odm:StudyEndPointRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointRef)
 
@@ -26,8 +31,8 @@ URI: [odm:StudyEndPointRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEndPointOID](StudyEndPointOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) |  | direct |
+| [StudyEndPointOID](StudyEndPointOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the StudyEndPoint  | direct |
+| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Indicates the order in which this StudyEndPointRef appears in Metadata displa... | direct |
 
 
 
@@ -86,6 +91,7 @@ URI: [odm:StudyEndPointRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointRef)
 <details>
 ```yaml
 name: StudyEndPointRef
+description: Go to start of metadata
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPointRef
@@ -95,12 +101,24 @@ slots:
 slot_usage:
   StudyEndPointOID:
     name: StudyEndPointOID
+    description: Reference to the StudyEndPoint .
+    comments:
+    - 'Required
+
+      Must match the OID atttribute for a StudyEndPoint in the Study/MetaDataVersion/Protocol.'
     domain_of:
     - StudyEndPointRef
     range: oidref
     required: true
   OrderNumber:
     name: OrderNumber
+    description: Indicates the order in which this StudyEndPointRef appears in Metadata
+      displays or data entry applications.
+    comments:
+    - 'Optional
+
+      OrderNumber must be a positive integer. The StudyEndPointRefs within a StudyObjective
+      must not have duplicate OrderNumber values'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -121,18 +139,31 @@ class_uri: odm:StudyEndPointRef
 <details>
 ```yaml
 name: StudyEndPointRef
+description: Go to start of metadata
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPointRef
 slot_usage:
   StudyEndPointOID:
     name: StudyEndPointOID
+    description: Reference to the StudyEndPoint .
+    comments:
+    - 'Required
+
+      Must match the OID atttribute for a StudyEndPoint in the Study/MetaDataVersion/Protocol.'
     domain_of:
     - StudyEndPointRef
     range: oidref
     required: true
   OrderNumber:
     name: OrderNumber
+    description: Indicates the order in which this StudyEndPointRef appears in Metadata
+      displays or data entry applications.
+    comments:
+    - 'Optional
+
+      OrderNumber must be a positive integer. The StudyEndPointRefs within a StudyObjective
+      must not have duplicate OrderNumber values'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -146,6 +177,11 @@ slot_usage:
 attributes:
   StudyEndPointOID:
     name: StudyEndPointOID
+    description: Reference to the StudyEndPoint .
+    comments:
+    - 'Required
+
+      Must match the OID atttribute for a StudyEndPoint in the Study/MetaDataVersion/Protocol.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyEndPointOID
@@ -156,6 +192,13 @@ attributes:
     required: true
   OrderNumber:
     name: OrderNumber
+    description: Indicates the order in which this StudyEndPointRef appears in Metadata
+      displays or data entry applications.
+    comments:
+    - 'Optional
+
+      OrderNumber must be a positive integer. The StudyEndPointRefs within a StudyObjective
+      must not have duplicate OrderNumber values'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: OrderNumber

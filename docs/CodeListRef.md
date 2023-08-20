@@ -1,6 +1,11 @@
 # Class: CodeListRef
 
 
+_A reference to a CodeList definition._
+
+
+
+
 
 URI: [odm:CodeListRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRef)
 
@@ -24,7 +29,7 @@ URI: [odm:CodeListRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [CodeListOID](CodeListOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [CodeListOID](CodeListOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the CodeList definition that provides the allowable values for I... | direct |
 
 
 
@@ -82,6 +87,7 @@ URI: [odm:CodeListRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRef)
 <details>
 ```yaml
 name: CodeListRef
+description: A reference to a CodeList definition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CodeListRef
@@ -90,6 +96,12 @@ slots:
 slot_usage:
   CodeListOID:
     name: CodeListOID
+    description: Reference to the CodeList definition that provides the allowable
+      values for ItemData that references the ItemDef.
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - CodeListRef
     - FlagValue
@@ -106,12 +118,19 @@ class_uri: odm:CodeListRef
 <details>
 ```yaml
 name: CodeListRef
+description: A reference to a CodeList definition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CodeListRef
 slot_usage:
   CodeListOID:
     name: CodeListOID
+    description: Reference to the CodeList definition that provides the allowable
+      values for ItemData that references the ItemDef.
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - CodeListRef
     - FlagValue
@@ -121,6 +140,12 @@ slot_usage:
 attributes:
   CodeListOID:
     name: CodeListOID
+    description: Reference to the CodeList definition that provides the allowable
+      values for ItemData that references the ItemDef.
+    comments:
+    - 'Optional
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CodeListOID

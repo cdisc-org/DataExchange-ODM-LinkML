@@ -1,6 +1,11 @@
 # Class: Arm
 
 
+_An Arm element provides the declaration of a study arm. Arms do not have any ordering relative to one another._
+
+
+
+
 
 URI: [odm:Arm](http://www.cdisc.org/ns/odm/v2.0/Arm)
 
@@ -34,8 +39,8 @@ URI: [odm:Arm](http://www.cdisc.org/ns/odm/v2.0/Arm)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the Arm definition | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable name of the study arm | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 | [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) |  | direct |
 
@@ -95,6 +100,8 @@ URI: [odm:Arm](http://www.cdisc.org/ns/odm/v2.0/Arm)
 <details>
 ```yaml
 name: Arm
+description: An Arm element provides the declaration of a study arm. Arms do not have
+  any ordering relative to one another.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Arm
@@ -106,6 +113,11 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the Arm definition.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -148,6 +160,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable name of the study arm.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -250,12 +267,19 @@ class_uri: odm:Arm
 <details>
 ```yaml
 name: Arm
+description: An Arm element provides the declaration of a study arm. Arms do not have
+  any ordering relative to one another.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Arm
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the Arm definition.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -298,6 +322,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable name of the study arm.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -393,7 +422,11 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for the Arm definition.
+    comments:
+    - 'Required
+
+      range:oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -441,7 +474,11 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Human readable name of the study arm.
+    comments:
+    - 'Required
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -488,6 +525,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: Arm
     domain_of:
@@ -534,6 +572,7 @@ attributes:
     name: WorkflowRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: WorkflowRefRef
     owner: Arm
     domain_of:

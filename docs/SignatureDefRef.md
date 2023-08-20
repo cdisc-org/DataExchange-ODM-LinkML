@@ -13,7 +13,7 @@ URI: [odm:SignatureDefRef](http://www.cdisc.org/ns/odm/v2.0/SignatureDefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[AdminData](AdminData.md) |  |  yes  |
+[AdminData](AdminData.md) | Administrative information about users, locations, organizations, and electro... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:SignatureDefRef](http://www.cdisc.org/ns/odm/v2.0/SignatureDefRef)
 name: SignatureDefRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: SignatureDefRef
 domain_of:
 - AdminData

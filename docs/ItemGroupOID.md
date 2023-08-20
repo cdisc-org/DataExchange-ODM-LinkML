@@ -1,5 +1,10 @@
 # Slot: ItemGroupOID
 
+
+_Reference to the ItemGroupDef ._
+
+
+
 URI: [odm:ItemGroupOID](http://www.cdisc.org/ns/odm/v2.0/ItemGroupOID)
 
 
@@ -13,10 +18,10 @@ URI: [odm:ItemGroupOID](http://www.cdisc.org/ns/odm/v2.0/ItemGroupOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemGroupRef](ItemGroupRef.md) |  |  yes  |
-[SourceItem](SourceItem.md) |  |  yes  |
-[ItemGroupData](ItemGroupData.md) |  |  yes  |
-[KeySet](KeySet.md) |  |  yes  |
+[ItemGroupRef](ItemGroupRef.md) | ItemGroupRef references an ItemGroupDef as it occurs within a specific StudyE... |  yes  |
+[SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata |  yes  |
+[ItemGroupData](ItemGroupData.md) | Clinical data corresponding to an ItemGroupRef defined in the active MetaData... |  yes  |
+[KeySet](KeySet.md) | A KeySet references a single entity (e |  yes  |
 
 
 
@@ -53,6 +58,7 @@ URI: [odm:ItemGroupOID](http://www.cdisc.org/ns/odm/v2.0/ItemGroupOID)
 <details>
 ```yaml
 name: ItemGroupOID
+description: Reference to the ItemGroupDef .
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ItemGroupOID

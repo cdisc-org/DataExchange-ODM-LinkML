@@ -13,7 +13,7 @@ URI: [odm:ClassRef](http://www.cdisc.org/ns/odm/v2.0/ClassRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
+[ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:ClassRef](http://www.cdisc.org/ns/odm/v2.0/ClassRef)
 name: ClassRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ClassRef
 domain_of:
 - ItemGroupDef

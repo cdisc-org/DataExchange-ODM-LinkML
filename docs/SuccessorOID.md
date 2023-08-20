@@ -1,5 +1,10 @@
 # Slot: SuccessorOID
 
+
+_Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs immediately after the RelativeTimepointTarget._
+
+
+
 URI: [odm:SuccessorOID](http://www.cdisc.org/ns/odm/v2.0/SuccessorOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:SuccessorOID](http://www.cdisc.org/ns/odm/v2.0/SuccessorOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[RelativeTimingConstraint](RelativeTimingConstraint.md) |  |  yes  |
+[RelativeTimingConstraint](RelativeTimingConstraint.md) | The RelativeTimingConstraint element describes a relative timing constraint b... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:SuccessorOID](http://www.cdisc.org/ns/odm/v2.0/SuccessorOID)
 <details>
 ```yaml
 name: SuccessorOID
+description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs
+  immediately after the RelativeTimepointTarget.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SuccessorOID

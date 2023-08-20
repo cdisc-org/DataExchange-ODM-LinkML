@@ -1,6 +1,11 @@
 # Class: Epoch
 
 
+_The planned period of subjects' participation in the trial is divided into sequential epochs. Each epoch is a period of time that serves a purpose in the trial as a whole. Epochs cannot overlap. The sequence of the epoch in the study is provided by the SequenceNumber attribute, the first epoch in the study being assigned the sequence number 1. Sequence numbers are subsequent._
+
+
+
+
 
 URI: [odm:Epoch](http://www.cdisc.org/ns/odm/v2.0/Epoch)
 
@@ -32,9 +37,9 @@ URI: [odm:Epoch](http://www.cdisc.org/ns/odm/v2.0/Epoch)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [SequenceNumber](SequenceNumber.md) | 1..1 <br/> [PositiveInteger](PositiveInteger.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the Epoch | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable name of the study epoch | direct |
+| [SequenceNumber](SequenceNumber.md) | 1..1 <br/> [PositiveInteger](PositiveInteger.md) | Order of the Epoch  | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 
 
@@ -93,6 +98,11 @@ URI: [odm:Epoch](http://www.cdisc.org/ns/odm/v2.0/Epoch)
 <details>
 ```yaml
 name: Epoch
+description: The planned period of subjects' participation in the trial is divided
+  into sequential epochs. Each epoch is a period of time that serves a purpose in
+  the trial as a whole. Epochs cannot overlap. The sequence of the epoch in the study
+  is provided by the SequenceNumber attribute, the first epoch in the study being
+  assigned the sequence number 1. Sequence numbers are subsequent.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Epoch
@@ -104,6 +114,13 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the Epoch.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The Epoch/@OID must be unique within the Study'
     domain_of:
     - Study
     - MetaDataVersion
@@ -146,6 +163,13 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: 'Human readable name of the study epoch. '
+    comments:
+    - 'Required
+
+      range:name
+
+      The Epoch/@Name must be unique within the Study.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -186,6 +210,11 @@ slot_usage:
     required: true
   SequenceNumber:
     name: SequenceNumber
+    description: 'Order of the Epoch '
+    comments:
+    - 'Required
+
+      range:positiveInteger'
     domain_of:
     - Epoch
     range: positiveInteger
@@ -242,12 +271,24 @@ class_uri: odm:Epoch
 <details>
 ```yaml
 name: Epoch
+description: The planned period of subjects' participation in the trial is divided
+  into sequential epochs. Each epoch is a period of time that serves a purpose in
+  the trial as a whole. Epochs cannot overlap. The sequence of the epoch in the study
+  is provided by the SequenceNumber attribute, the first epoch in the study being
+  assigned the sequence number 1. Sequence numbers are subsequent.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Epoch
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the Epoch.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The Epoch/@OID must be unique within the Study'
     domain_of:
     - Study
     - MetaDataVersion
@@ -290,6 +331,13 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: 'Human readable name of the study epoch. '
+    comments:
+    - 'Required
+
+      range:name
+
+      The Epoch/@Name must be unique within the Study.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -330,6 +378,11 @@ slot_usage:
     required: true
   SequenceNumber:
     name: SequenceNumber
+    description: 'Order of the Epoch '
+    comments:
+    - 'Required
+
+      range:positiveInteger'
     domain_of:
     - Epoch
     range: positiveInteger
@@ -379,7 +432,13 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for the Epoch.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The Epoch/@OID must be unique within the Study'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -427,7 +486,13 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: 'Human readable name of the study epoch. '
+    comments:
+    - 'Required
+
+      range:name
+
+      The Epoch/@Name must be unique within the Study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -472,6 +537,11 @@ attributes:
     required: true
   SequenceNumber:
     name: SequenceNumber
+    description: 'Order of the Epoch '
+    comments:
+    - 'Required
+
+      range:positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SequenceNumber
@@ -484,6 +554,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: Epoch
     domain_of:

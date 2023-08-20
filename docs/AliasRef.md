@@ -13,14 +13,14 @@ URI: [odm:AliasRef](http://www.cdisc.org/ns/odm/v2.0/AliasRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEventDef](StudyEventDef.md) |  |  yes  |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
-[ItemDef](ItemDef.md) |  |  yes  |
-[CodeList](CodeList.md) |  |  yes  |
-[CodeListItem](CodeListItem.md) |  |  yes  |
-[MethodDef](MethodDef.md) |  |  yes  |
-[ConditionDef](ConditionDef.md) |  |  yes  |
-[Protocol](Protocol.md) |  |  yes  |
+[StudyEventDef](StudyEventDef.md) | StudyEventDef represents the definition of an activity in a study where data ... |  yes  |
+[ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
+[CodeList](CodeList.md) | Defines a discrete set of permitted values for an item, or provides a referen... |  yes  |
+[CodeListItem](CodeListItem.md) | Defines an individual member value of a codelist |  yes  |
+[MethodDef](MethodDef.md) | A MethodDef defines how a data value can be obtained from a collection of oth... |  yes  |
+[ConditionDef](ConditionDef.md) | A ConditionDef defines a boolean condition |  yes  |
+[Protocol](Protocol.md) | The Protocol element lists the kinds of study events that can occur within a ... |  yes  |
 
 
 
@@ -59,6 +59,7 @@ URI: [odm:AliasRef](http://www.cdisc.org/ns/odm/v2.0/AliasRef)
 name: AliasRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: AliasRef
 domain_of:
 - StudyEventDef

@@ -1,5 +1,10 @@
 # Slot: FileOID
 
+
+_A unique identifier for this file._
+
+
+
 URI: [odm:FileOID](http://www.cdisc.org/ns/odm/v2.0/FileOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:FileOID](http://www.cdisc.org/ns/odm/v2.0/FileOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) |  |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:FileOID](http://www.cdisc.org/ns/odm/v2.0/FileOID)
 <details>
 ```yaml
 name: FileOID
+description: A unique identifier for this file.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: FileOID

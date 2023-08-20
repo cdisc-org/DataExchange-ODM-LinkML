@@ -1,5 +1,10 @@
 # Slot: ItemGroupRepeatKey
 
+
+_A key used to distinguish between repeats of the same type of item group._
+
+
+
 URI: [odm:ItemGroupRepeatKey](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRepeatKey)
 
 
@@ -13,8 +18,8 @@ URI: [odm:ItemGroupRepeatKey](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRepeatKe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemGroupData](ItemGroupData.md) |  |  yes  |
-[KeySet](KeySet.md) |  |  yes  |
+[ItemGroupData](ItemGroupData.md) | Clinical data corresponding to an ItemGroupRef defined in the active MetaData... |  yes  |
+[KeySet](KeySet.md) | A KeySet references a single entity (e |  yes  |
 
 
 
@@ -51,6 +56,7 @@ URI: [odm:ItemGroupRepeatKey](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRepeatKe
 <details>
 ```yaml
 name: ItemGroupRepeatKey
+description: A key used to distinguish between repeats of the same type of item group.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ItemGroupRepeatKey

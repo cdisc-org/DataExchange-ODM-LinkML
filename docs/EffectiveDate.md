@@ -1,5 +1,10 @@
 # Slot: EffectiveDate
 
+
+_Datetime stamp when this MetaDataVersion was published at this location._
+
+
+
 URI: [odm:EffectiveDate](http://www.cdisc.org/ns/odm/v2.0/EffectiveDate)
 
 
@@ -13,7 +18,7 @@ URI: [odm:EffectiveDate](http://www.cdisc.org/ns/odm/v2.0/EffectiveDate)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MetaDataVersionRef](MetaDataVersionRef.md) |  |  yes  |
+[MetaDataVersionRef](MetaDataVersionRef.md) | A reference to a MetaDataVersion used at the containing Location |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:EffectiveDate](http://www.cdisc.org/ns/odm/v2.0/EffectiveDate)
 <details>
 ```yaml
 name: EffectiveDate
+description: Datetime stamp when this MetaDataVersion was published at this location.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: EffectiveDate

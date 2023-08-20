@@ -20,7 +20,7 @@ URI: [ItemGroupSubClass](ItemGroupSubClass)
 
 | Name | Description |
 | ---  | --- |
-| [Name](Name.md) |  |
+| [Name](Name.md) | Name of the SubClass |
 
 
 

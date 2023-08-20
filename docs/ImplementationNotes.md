@@ -1,6 +1,11 @@
 # Class: ImplementationNotes
 
 
+_Further information, such as rationale and implementation instructions, on how to implement the CRF data collection fields._
+
+
+
+
 
 URI: [odm:ImplementationNotes](http://www.cdisc.org/ns/odm/v2.0/ImplementationNotes)
 
@@ -26,7 +31,7 @@ URI: [odm:ImplementationNotes](http://www.cdisc.org/ns/odm/v2.0/ImplementationNo
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TranslatedTextRef](TranslatedTextRef.md) | 1..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
+| [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
 
 
 
@@ -84,6 +89,8 @@ URI: [odm:ImplementationNotes](http://www.cdisc.org/ns/odm/v2.0/ImplementationNo
 <details>
 ```yaml
 name: ImplementationNotes
+description: Further information, such as rationale and implementation instructions,
+  on how to implement the CRF data collection fields.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ImplementationNotes
@@ -105,10 +112,8 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:ImplementationNotes
 
 ```
@@ -119,6 +124,8 @@ class_uri: odm:ImplementationNotes
 <details>
 ```yaml
 name: ImplementationNotes
+description: Further information, such as rationale and implementation instructions,
+  on how to implement the CRF data collection fields.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ImplementationNotes
@@ -138,16 +145,15 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   TranslatedTextRef:
     name: TranslatedTextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TranslatedTextRef
     owner: ImplementationNotes
     domain_of:
@@ -162,10 +168,8 @@ attributes:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:ImplementationNotes
 
 ```

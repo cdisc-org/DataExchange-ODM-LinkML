@@ -13,8 +13,8 @@ URI: [odm:ItemRefRef](http://www.cdisc.org/ns/odm/v2.0/ItemRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ValueListDef](ValueListDef.md) |  |  yes  |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
+[ValueListDef](ValueListDef.md) | The following table specifies the XML structure for valuelist metadata |  yes  |
+[ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
 
 
 
@@ -53,6 +53,7 @@ URI: [odm:ItemRefRef](http://www.cdisc.org/ns/odm/v2.0/ItemRefRef)
 name: ItemRefRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ItemRefRef
 domain_of:
 - ValueListDef

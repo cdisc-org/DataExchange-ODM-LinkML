@@ -1,6 +1,11 @@
 # Class: InclusionExclusionCriteria
 
 
+_The InclusionExclusionCriteria element can contain 2 lists of Criterion elements, represented by the 2 elements InclusionCriteria and ExclusionCriteria. Together, these criteria determine the eligibility of a subject for the study. The actual condition to be evaluated is contained in an ODM ConditionDef, which is referenced by each Criterion‟s ConditionOID attribute._
+
+
+
+
 
 URI: [odm:InclusionExclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/InclusionExclusionCriteria)
 
@@ -89,6 +94,11 @@ URI: [odm:InclusionExclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/Inclusion
 <details>
 ```yaml
 name: InclusionExclusionCriteria
+description: The InclusionExclusionCriteria element can contain 2 lists of Criterion
+  elements, represented by the 2 elements InclusionCriteria and ExclusionCriteria.
+  Together, these criteria determine the eligibility of a subject for the study. The
+  actual condition to be evaluated is contained in an ODM ConditionDef, which is referenced
+  by each Criterion‟s ConditionOID attribute.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/InclusionExclusionCriteria
@@ -118,6 +128,11 @@ class_uri: odm:InclusionExclusionCriteria
 <details>
 ```yaml
 name: InclusionExclusionCriteria
+description: The InclusionExclusionCriteria element can contain 2 lists of Criterion
+  elements, represented by the 2 elements InclusionCriteria and ExclusionCriteria.
+  Together, these criteria determine the eligibility of a subject for the study. The
+  actual condition to be evaluated is contained in an ODM ConditionDef, which is referenced
+  by each Criterion‟s ConditionOID attribute.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/InclusionExclusionCriteria
@@ -139,6 +154,7 @@ attributes:
     name: InclusionCriteriaRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: InclusionCriteriaRef
     owner: InclusionExclusionCriteria
     domain_of:
@@ -149,6 +165,7 @@ attributes:
     name: ExclusionCriteriaRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: ExclusionCriteriaRef
     owner: InclusionExclusionCriteria
     domain_of:

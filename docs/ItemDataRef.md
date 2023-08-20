@@ -13,7 +13,7 @@ URI: [odm:ItemDataRef](http://www.cdisc.org/ns/odm/v2.0/ItemDataRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemGroupData](ItemGroupData.md) |  |  yes  |
+[ItemGroupData](ItemGroupData.md) | Clinical data corresponding to an ItemGroupRef defined in the active MetaData... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:ItemDataRef](http://www.cdisc.org/ns/odm/v2.0/ItemDataRef)
 name: ItemDataRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ItemDataRef
 domain_of:
 - ItemGroupData

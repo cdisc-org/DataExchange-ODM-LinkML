@@ -1,6 +1,11 @@
 # Class: TranslatedText
 
 
+_Human-readable text that is appropriate for a particular language. TranslatedText elements typically occur in a series, presenting a set of alternative textual renditions for different languages and types._
+
+
+
+
 
 URI: [odm:TranslatedText](http://www.cdisc.org/ns/odm/v2.0/TranslatedText)
 
@@ -13,7 +18,7 @@ URI: [odm:TranslatedText](http://www.cdisc.org/ns/odm/v2.0/TranslatedText)
         
       TranslatedText : _language
         
-      TranslatedText : type
+      TranslatedText : Type
         
       
 ```
@@ -28,8 +33,8 @@ URI: [odm:TranslatedText](http://www.cdisc.org/ns/odm/v2.0/TranslatedText)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [_language](_language.md) | 0..1 <br/> [LanguageType](LanguageType.md) | language context for internationalisation and localisation | direct |
-| [type](type.md) | 1..1 <br/> [Text](Text.md) |  | direct |
+| [_language](_language.md) | 0..1 <br/> [LanguageType](LanguageType.md) | Code representing the language of the enclosed text value | direct |
+| [Type](Type.md) | 1..1 <br/> [Text](Text.md) | Contains IANA media type of the TranslatedText element contents | direct |
 | [_content](_content.md) | 0..1 <br/> [ContentType](ContentType.md) | multi-line text content from between XML tags | direct |
 
 
@@ -97,18 +102,70 @@ URI: [odm:TranslatedText](http://www.cdisc.org/ns/odm/v2.0/TranslatedText)
 <details>
 ```yaml
 name: TranslatedText
+description: Human-readable text that is appropriate for a particular language. TranslatedText
+  elements typically occur in a series, presenting a set of alternative textual renditions
+  for different languages and types.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TranslatedText
 slots:
 - _language
-- type
+- Type
 - _content
 slot_usage:
-  type:
-    name: type
+  _language:
+    name: _language
+    description: 'Code representing the language of the enclosed text value. Default
+      value depends on locale. Note: The xml:lang attribute is part of the XML standard.
+      See IETF Trust, Tags for Identifying Languages '
+    comments:
+    - 'Optional
+
+      range:xs:language
+
+      The schema requires xml:lang to be unique within a parent element for the same
+      type. If only one TranslatedText element is provided, the xml:lang is optional.
+      For submissions to the FDA, text content must be in English. To avoid ambiguity,
+      a particular language tag must not occur more than once in a series of TranslatedText
+      elements with the same type. Only one TranslatedText element without an xml:lang
+      attribute may occur within the same parent and type. Examples: "en" for English
+      "en-GB" for British English'
     domain_of:
     - TranslatedText
+    range: _languageType
+  Type:
+    name: Type
+    description: Contains IANA media type of the TranslatedText element contents.
+    comments:
+    - 'Required
+
+      enum values:(text/plain | application/xhtml+xml)
+
+      A TranslatedText element with plain text with specified type "text/plain" must
+      always be present, despite the fact whether other TranslatedText elements with
+      enhanced presentation of the same text are present or not. When type="application/xhtml+xml",
+      contents of the TranslatedText element must contains a limited number of HTML
+      tags. Layout containers : <div> <p> Headers : <h1> <h2> <h3> <h4> <h5> <h6>
+      Lists : <ul> <ol> <li> Definitions: <dl> <dt> <dd> Lines : <hr> Block-level
+      quotes/preformatted : <pre> <blockquote> Links : <a> Inline elements : <span>
+      <code> <br> Text styling : <em> <strong> <b> <i> Tables : <table> <caption>
+      <thead> <tfoot> <tbody> <colgroup> <col> <tr> <th> <td> Images : <img> <map>
+      <area> Color : <span style="color:xxx">'
+    domain_of:
+    - TranslatedText
+    - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
+    - Origin
+    - Resource
+    - MethodDef
+    - StudyEndPoint
+    - TransitionTimingConstraint
+    - RelativeTimingConstraint
+    - Branching
+    - Organization
+    - Query
     range: text
     required: true
   _content:
@@ -151,14 +208,66 @@ class_uri: odm:TranslatedText
 <details>
 ```yaml
 name: TranslatedText
+description: Human-readable text that is appropriate for a particular language. TranslatedText
+  elements typically occur in a series, presenting a set of alternative textual renditions
+  for different languages and types.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TranslatedText
 slot_usage:
-  type:
-    name: type
+  _language:
+    name: _language
+    description: 'Code representing the language of the enclosed text value. Default
+      value depends on locale. Note: The xml:lang attribute is part of the XML standard.
+      See IETF Trust, Tags for Identifying Languages '
+    comments:
+    - 'Optional
+
+      range:xs:language
+
+      The schema requires xml:lang to be unique within a parent element for the same
+      type. If only one TranslatedText element is provided, the xml:lang is optional.
+      For submissions to the FDA, text content must be in English. To avoid ambiguity,
+      a particular language tag must not occur more than once in a series of TranslatedText
+      elements with the same type. Only one TranslatedText element without an xml:lang
+      attribute may occur within the same parent and type. Examples: "en" for English
+      "en-GB" for British English'
     domain_of:
     - TranslatedText
+    range: _languageType
+  Type:
+    name: Type
+    description: Contains IANA media type of the TranslatedText element contents.
+    comments:
+    - 'Required
+
+      enum values:(text/plain | application/xhtml+xml)
+
+      A TranslatedText element with plain text with specified type "text/plain" must
+      always be present, despite the fact whether other TranslatedText elements with
+      enhanced presentation of the same text are present or not. When type="application/xhtml+xml",
+      contents of the TranslatedText element must contains a limited number of HTML
+      tags. Layout containers : <div> <p> Headers : <h1> <h2> <h3> <h4> <h5> <h6>
+      Lists : <ul> <ol> <li> Definitions: <dl> <dt> <dd> Lines : <hr> Block-level
+      quotes/preformatted : <pre> <blockquote> Links : <a> Inline elements : <span>
+      <code> <br> Text styling : <em> <strong> <b> <i> Tables : <table> <caption>
+      <thead> <tfoot> <tbody> <colgroup> <col> <tr> <th> <td> Images : <img> <map>
+      <area> Color : <span style="color:xxx">'
+    domain_of:
+    - TranslatedText
+    - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
+    - Origin
+    - Resource
+    - MethodDef
+    - StudyEndPoint
+    - TransitionTimingConstraint
+    - RelativeTimingConstraint
+    - Branching
+    - Organization
+    - Query
     range: text
     required: true
   _content:
@@ -194,7 +303,21 @@ slot_usage:
 attributes:
   _language:
     name: _language
-    description: language context for internationalisation and localisation
+    description: 'Code representing the language of the enclosed text value. Default
+      value depends on locale. Note: The xml:lang attribute is part of the XML standard.
+      See IETF Trust, Tags for Identifying Languages '
+    comments:
+    - 'Optional
+
+      range:xs:language
+
+      The schema requires xml:lang to be unique within a parent element for the same
+      type. If only one TranslatedText element is provided, the xml:lang is optional.
+      For submissions to the FDA, text content must be in English. To avoid ambiguity,
+      a particular language tag must not occur more than once in a series of TranslatedText
+      elements with the same type. Only one TranslatedText element without an xml:lang
+      attribute may occur within the same parent and type. Examples: "en" for English
+      "en-GB" for British English'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: _language
@@ -202,14 +325,43 @@ attributes:
     domain_of:
     - TranslatedText
     range: _languageType
-  type:
-    name: type
+  Type:
+    name: Type
+    description: Contains IANA media type of the TranslatedText element contents.
+    comments:
+    - 'Required
+
+      enum values:(text/plain | application/xhtml+xml)
+
+      A TranslatedText element with plain text with specified type "text/plain" must
+      always be present, despite the fact whether other TranslatedText elements with
+      enhanced presentation of the same text are present or not. When type="application/xhtml+xml",
+      contents of the TranslatedText element must contains a limited number of HTML
+      tags. Layout containers : <div> <p> Headers : <h1> <h2> <h3> <h4> <h5> <h6>
+      Lists : <ul> <ol> <li> Definitions: <dl> <dt> <dd> Lines : <hr> Block-level
+      quotes/preformatted : <pre> <blockquote> Links : <a> Inline elements : <span>
+      <code> <br> Text styling : <em> <strong> <b> <i> Tables : <table> <caption>
+      <thead> <tfoot> <tbody> <colgroup> <col> <tr> <th> <td> Images : <img> <map>
+      <area> Color : <span style="color:xxx">'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: type
+    alias: Type
     owner: TranslatedText
     domain_of:
     - TranslatedText
+    - PDFPageRef
+    - Standard
+    - StudyEventDef
+    - ItemGroupDef
+    - Origin
+    - Resource
+    - MethodDef
+    - StudyEndPoint
+    - TransitionTimingConstraint
+    - RelativeTimingConstraint
+    - Branching
+    - Organization
+    - Query
     range: text
     required: true
   _content:

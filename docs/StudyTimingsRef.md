@@ -13,7 +13,7 @@ URI: [odm:StudyTimingsRef](http://www.cdisc.org/ns/odm/v2.0/StudyTimingsRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Protocol](Protocol.md) |  |  yes  |
+[Protocol](Protocol.md) | The Protocol element lists the kinds of study events that can occur within a ... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:StudyTimingsRef](http://www.cdisc.org/ns/odm/v2.0/StudyTimingsRef)
 name: StudyTimingsRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: StudyTimingsRef
 domain_of:
 - Protocol

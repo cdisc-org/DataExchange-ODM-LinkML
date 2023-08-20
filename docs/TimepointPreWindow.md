@@ -1,5 +1,10 @@
 # Slot: TimepointPreWindow
 
+
+_Specifies the amount of time prior to the TimepointTarget, the time between the two activities, may be shortened._
+
+
+
 URI: [odm:TimepointPreWindow](http://www.cdisc.org/ns/odm/v2.0/TimepointPreWindow)
 
 
@@ -13,9 +18,9 @@ URI: [odm:TimepointPreWindow](http://www.cdisc.org/ns/odm/v2.0/TimepointPreWindo
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[TransitionTimingConstraint](TransitionTimingConstraint.md) |  |  yes  |
-[AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) |  |  yes  |
-[RelativeTimingConstraint](RelativeTimingConstraint.md) |  |  yes  |
+[TransitionTimingConstraint](TransitionTimingConstraint.md) | The TransitionTimingConstraint element defines a timing constraint on a trans... |  yes  |
+[AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) | The element AbsoluteTimingConstraint is used to specify when an activity, rep... |  yes  |
+[RelativeTimingConstraint](RelativeTimingConstraint.md) | The RelativeTimingConstraint element describes a relative timing constraint b... |  yes  |
 
 
 
@@ -52,6 +57,8 @@ URI: [odm:TimepointPreWindow](http://www.cdisc.org/ns/odm/v2.0/TimepointPreWindo
 <details>
 ```yaml
 name: TimepointPreWindow
+description: Specifies the amount of time prior to the TimepointTarget, the time between
+  the two activities, may be shortened.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: TimepointPreWindow

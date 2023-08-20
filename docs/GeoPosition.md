@@ -1,6 +1,11 @@
 # Class: GeoPosition
 
 
+_The geographical position using the World Geodetic System WGS84. _
+
+
+
+
 
 URI: [odm:GeoPosition](http://www.cdisc.org/ns/odm/v2.0/GeoPosition)
 
@@ -28,9 +33,9 @@ URI: [odm:GeoPosition](http://www.cdisc.org/ns/odm/v2.0/GeoPosition)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Longitude](Longitude.md) | 0..1 <br/> [Decimal](Decimal.md) |  | direct |
-| [Latitude](Latitude.md) | 0..1 <br/> [Decimal](Decimal.md) |  | direct |
-| [Altitude](Altitude.md) | 0..1 <br/> [Decimal](Decimal.md) |  | direct |
+| [Longitude](Longitude.md) | 0..1 <br/> [Decimal](Decimal.md) | Longitude component of geoposition coordinates in decimal degrees | direct |
+| [Latitude](Latitude.md) | 0..1 <br/> [Decimal](Decimal.md) | Latitude component of geoposition coordinate in decimal degrees degrees | direct |
+| [Altitude](Altitude.md) | 0..1 <br/> [Decimal](Decimal.md) | Height above sea level in meters | direct |
 
 
 
@@ -88,6 +93,7 @@ URI: [odm:GeoPosition](http://www.cdisc.org/ns/odm/v2.0/GeoPosition)
 <details>
 ```yaml
 name: GeoPosition
+description: 'The geographical position using the World Geodetic System WGS84. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/GeoPosition
@@ -98,16 +104,33 @@ slots:
 slot_usage:
   Longitude:
     name: Longitude
+    description: Longitude component of geoposition coordinates in decimal degrees.
+      May require conversion from degrees, minutes, seconds format.
+    comments:
+    - 'Optional
+
+      range:decimal'
     domain_of:
     - GeoPosition
     range: decimal
   Latitude:
     name: Latitude
+    description: 'Latitude component of geoposition coordinate in decimal degrees
+      degrees. May require conversion from degrees, minutes, seconds format. '
+    comments:
+    - 'Optional
+
+      range:decimal'
     domain_of:
     - GeoPosition
     range: decimal
   Altitude:
     name: Altitude
+    description: Height above sea level in meters.
+    comments:
+    - 'Optional
+
+      range:decimal'
     domain_of:
     - GeoPosition
     range: decimal
@@ -121,28 +144,52 @@ class_uri: odm:GeoPosition
 <details>
 ```yaml
 name: GeoPosition
+description: 'The geographical position using the World Geodetic System WGS84. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/GeoPosition
 slot_usage:
   Longitude:
     name: Longitude
+    description: Longitude component of geoposition coordinates in decimal degrees.
+      May require conversion from degrees, minutes, seconds format.
+    comments:
+    - 'Optional
+
+      range:decimal'
     domain_of:
     - GeoPosition
     range: decimal
   Latitude:
     name: Latitude
+    description: 'Latitude component of geoposition coordinate in decimal degrees
+      degrees. May require conversion from degrees, minutes, seconds format. '
+    comments:
+    - 'Optional
+
+      range:decimal'
     domain_of:
     - GeoPosition
     range: decimal
   Altitude:
     name: Altitude
+    description: Height above sea level in meters.
+    comments:
+    - 'Optional
+
+      range:decimal'
     domain_of:
     - GeoPosition
     range: decimal
 attributes:
   Longitude:
     name: Longitude
+    description: Longitude component of geoposition coordinates in decimal degrees.
+      May require conversion from degrees, minutes, seconds format.
+    comments:
+    - 'Optional
+
+      range:decimal'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Longitude
@@ -152,6 +199,12 @@ attributes:
     range: decimal
   Latitude:
     name: Latitude
+    description: 'Latitude component of geoposition coordinate in decimal degrees
+      degrees. May require conversion from degrees, minutes, seconds format. '
+    comments:
+    - 'Optional
+
+      range:decimal'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Latitude
@@ -161,6 +214,11 @@ attributes:
     range: decimal
   Altitude:
     name: Altitude
+    description: Height above sea level in meters.
+    comments:
+    - 'Optional
+
+      range:decimal'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Altitude

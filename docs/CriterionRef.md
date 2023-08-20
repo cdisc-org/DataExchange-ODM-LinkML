@@ -13,8 +13,8 @@ URI: [odm:CriterionRef](http://www.cdisc.org/ns/odm/v2.0/CriterionRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[InclusionCriteria](InclusionCriteria.md) |  |  yes  |
-[ExclusionCriteria](ExclusionCriteria.md) |  |  yes  |
+[InclusionCriteria](InclusionCriteria.md) | The InclusionCriteria is a container element for Criterion elements describin... |  yes  |
+[ExclusionCriteria](ExclusionCriteria.md) | The ExclusionCriteria is a container element for Criterion elements describin... |  yes  |
 [EntryCriteria](EntryCriteria.md) |  |  yes  |
 [ExitCriteria](ExitCriteria.md) |  |  yes  |
 
@@ -55,6 +55,7 @@ URI: [odm:CriterionRef](http://www.cdisc.org/ns/odm/v2.0/CriterionRef)
 name: CriterionRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: CriterionRef
 domain_of:
 - InclusionCriteria

@@ -1,6 +1,11 @@
 # Class: CheckValue
 
 
+_A comparison value used in a range check. _
+
+
+
+
 
 URI: [odm:CheckValue](http://www.cdisc.org/ns/odm/v2.0/CheckValue)
 
@@ -82,6 +87,7 @@ URI: [odm:CheckValue](http://www.cdisc.org/ns/odm/v2.0/CheckValue)
 <details>
 ```yaml
 name: CheckValue
+description: 'A comparison value used in a range check. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CheckValue
@@ -102,6 +108,7 @@ class_uri: odm:CheckValue
 <details>
 ```yaml
 name: CheckValue
+description: 'A comparison value used in a range check. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CheckValue

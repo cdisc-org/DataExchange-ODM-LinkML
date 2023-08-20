@@ -20,7 +20,7 @@ URI: [CLDataType](CLDataType)
 
 | Name | Description |
 | ---  | --- |
-| [DataTypeRef](DataTypeRef.md) |  |
+| [DataTypeRef](DataTypeRef.md) | Specifies the DataType for codes defined in this codelist |
 
 
 

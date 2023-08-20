@@ -13,8 +13,8 @@ URI: [odm:ItemGroupRefRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEventDef](StudyEventDef.md) |  |  yes  |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
+[StudyEventDef](StudyEventDef.md) | StudyEventDef represents the definition of an activity in a study where data ... |  yes  |
+[ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
 
 
 
@@ -53,6 +53,7 @@ URI: [odm:ItemGroupRefRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRefRef)
 name: ItemGroupRefRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ItemGroupRefRef
 domain_of:
 - StudyEventDef

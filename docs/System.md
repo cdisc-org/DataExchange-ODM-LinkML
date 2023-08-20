@@ -1,5 +1,10 @@
 # Slot: System
 
+
+_Identifies the code system that defines the code. If the code is taken from a code system resource then the URL for the code system should be used._
+
+
+
 URI: [odm:System](http://www.cdisc.org/ns/odm/v2.0/System)
 
 
@@ -13,7 +18,7 @@ URI: [odm:System](http://www.cdisc.org/ns/odm/v2.0/System)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Coding](Coding.md) |  |  yes  |
+[Coding](Coding.md) | Coding references a symbol from a defined code system |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:System](http://www.cdisc.org/ns/odm/v2.0/System)
 <details>
 ```yaml
 name: System
+description: Identifies the code system that defines the code. If the code is taken
+  from a code system resource then the URL for the code system should be used.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: System

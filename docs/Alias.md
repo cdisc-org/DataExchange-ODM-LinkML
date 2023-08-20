@@ -1,6 +1,11 @@
 # Class: Alias
 
 
+_An Alias provides an additional name for an element. The Context attribute specifies the application domain in which this additional name is relevant._
+
+
+
+
 
 URI: [odm:Alias](http://www.cdisc.org/ns/odm/v2.0/Alias)
 
@@ -26,8 +31,8 @@ URI: [odm:Alias](http://www.cdisc.org/ns/odm/v2.0/Alias)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ContextRef](ContextRef.md) | 1..1 <br/> [Text](Text.md) |  | direct |
-| [Name](Name.md) | 1..1 <br/> [Text](Text.md) | General observation Sub Class | direct |
+| [ContextRef](ContextRef.md) | 1..1 <br/> [Text](Text.md) | Identifies applicable domain or scope of the mapping | direct |
+| [Name](Name.md) | 1..1 <br/> [Text](Text.md) | Alternate name of the parent element | direct |
 
 
 
@@ -92,6 +97,8 @@ URI: [odm:Alias](http://www.cdisc.org/ns/odm/v2.0/Alias)
 <details>
 ```yaml
 name: Alias
+description: An Alias provides an additional name for an element. The Context attribute
+  specifies the application domain in which this additional name is relevant.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Alias
@@ -101,6 +108,13 @@ slots:
 slot_usage:
   ContextRef:
     name: ContextRef
+    description: Identifies applicable domain or scope of the mapping.
+    comments:
+    - 'Required
+
+      range:text
+
+      Valid values may be defined by users or through schema extensions.'
     domain_of:
     - Alias
     - FormalExpression
@@ -109,6 +123,13 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Alternate name of the parent element.
+    comments:
+    - 'Required
+
+      range:text
+
+      Valid values are dependent on the Context attribute value.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -157,12 +178,21 @@ class_uri: odm:Alias
 <details>
 ```yaml
 name: Alias
+description: An Alias provides an additional name for an element. The Context attribute
+  specifies the application domain in which this additional name is relevant.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Alias
 slot_usage:
   ContextRef:
     name: ContextRef
+    description: Identifies applicable domain or scope of the mapping.
+    comments:
+    - 'Required
+
+      range:text
+
+      Valid values may be defined by users or through schema extensions.'
     domain_of:
     - Alias
     - FormalExpression
@@ -171,6 +201,13 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Alternate name of the parent element.
+    comments:
+    - 'Required
+
+      range:text
+
+      Valid values are dependent on the Context attribute value.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -212,6 +249,13 @@ slot_usage:
 attributes:
   ContextRef:
     name: ContextRef
+    description: Identifies applicable domain or scope of the mapping.
+    comments:
+    - 'Required
+
+      range:text
+
+      Valid values may be defined by users or through schema extensions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ContextRef
@@ -224,7 +268,13 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Alternate name of the parent element.
+    comments:
+    - 'Required
+
+      range:text
+
+      Valid values are dependent on the Context attribute value.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name

@@ -13,7 +13,7 @@ URI: [odm:ProtocolRef](http://www.cdisc.org/ns/odm/v2.0/ProtocolRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MetaDataVersion](MetaDataVersion.md) |  |  yes  |
+[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:ProtocolRef](http://www.cdisc.org/ns/odm/v2.0/ProtocolRef)
 name: ProtocolRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ProtocolRef
 domain_of:
 - MetaDataVersion

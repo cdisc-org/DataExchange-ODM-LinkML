@@ -13,7 +13,7 @@ URI: [odm:SubClassRef](http://www.cdisc.org/ns/odm/v2.0/SubClassRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Class](Class.md) |  |  yes  |
+[Class](Class.md) | Element NameClassParent ElementsItemGroupDefElement XPath(s)/ODM/Study/MetaDa... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:SubClassRef](http://www.cdisc.org/ns/odm/v2.0/SubClassRef)
 name: SubClassRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: SubClassRef
 domain_of:
 - Class

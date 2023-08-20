@@ -1,6 +1,11 @@
 # Class: Question
 
 
+_A label shown to a human user when prompted to provide data for an item on paper or on a screen._
+
+
+
+
 
 URI: [odm:Question](http://www.cdisc.org/ns/odm/v2.0/Question)
 
@@ -26,7 +31,7 @@ URI: [odm:Question](http://www.cdisc.org/ns/odm/v2.0/Question)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TranslatedTextRef](TranslatedTextRef.md) | 1..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
+| [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
 
 
 
@@ -84,6 +89,8 @@ URI: [odm:Question](http://www.cdisc.org/ns/odm/v2.0/Question)
 <details>
 ```yaml
 name: Question
+description: A label shown to a human user when prompted to provide data for an item
+  on paper or on a screen.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Question
@@ -105,10 +112,8 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Question
 
 ```
@@ -119,6 +124,8 @@ class_uri: odm:Question
 <details>
 ```yaml
 name: Question
+description: A label shown to a human user when prompted to provide data for an item
+  on paper or on a screen.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Question
@@ -138,16 +145,15 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   TranslatedTextRef:
     name: TranslatedTextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TranslatedTextRef
     owner: Question
     domain_of:
@@ -162,10 +168,8 @@ attributes:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Question
 
 ```

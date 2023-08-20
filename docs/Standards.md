@@ -1,6 +1,11 @@
 # Class: Standards
 
 
+_The Standards element provides a container for the list of Standard elements referenced in the MetaDataVersion for the Study.._
+
+
+
+
 
 URI: [odm:Standards](http://www.cdisc.org/ns/odm/v2.0/Standards)
 
@@ -26,7 +31,7 @@ URI: [odm:Standards](http://www.cdisc.org/ns/odm/v2.0/Standards)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StandardRef](StandardRef.md) | 1..* <br/> [Standard](Standard.md) | Definition of a standard referenced in the Define-XML document | direct |
+| [StandardRef](StandardRef.md) | 0..* <br/> [Standard](Standard.md) | Definition of a standard referenced in the Define-XML document | direct |
 
 
 
@@ -84,6 +89,8 @@ URI: [odm:Standards](http://www.cdisc.org/ns/odm/v2.0/Standards)
 <details>
 ```yaml
 name: Standards
+description: The Standards element provides a container for the list of Standard elements
+  referenced in the MetaDataVersion for the Study..
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Standards
@@ -97,10 +104,8 @@ slot_usage:
     domain_of:
     - Standards
     range: Standard
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Standards
 
 ```
@@ -111,6 +116,8 @@ class_uri: odm:Standards
 <details>
 ```yaml
 name: Standards
+description: The Standards element provides a container for the list of Standard elements
+  referenced in the MetaDataVersion for the Study..
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Standards
@@ -122,10 +129,8 @@ slot_usage:
     domain_of:
     - Standards
     range: Standard
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   StandardRef:
     name: StandardRef
@@ -133,15 +138,14 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StandardRef
     owner: Standards
     domain_of:
     - Standards
     range: Standard
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Standards
 
 ```

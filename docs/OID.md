@@ -18,43 +18,43 @@ URI: [odm:OID](http://www.cdisc.org/ns/odm/v2.0/OID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Study](Study.md) |  |  yes  |
-[MetaDataVersion](MetaDataVersion.md) |  |  yes  |
-[Standard](Standard.md) |  |  yes  |
-[ValueListDef](ValueListDef.md) |  |  yes  |
-[WhereClauseDef](WhereClauseDef.md) |  |  yes  |
-[StudyEventGroupDef](StudyEventGroupDef.md) |  |  yes  |
-[StudyEventDef](StudyEventDef.md) |  |  yes  |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
-[ItemDef](ItemDef.md) |  |  yes  |
-[CodeList](CodeList.md) |  |  yes  |
-[MethodDef](MethodDef.md) |  |  yes  |
-[ConditionDef](ConditionDef.md) |  |  yes  |
+[Study](Study.md) | This element collects static structural information about an individual study |  yes  |
+[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements |  yes  |
+[Standard](Standard.md) | The Standard element describes each standard used within the MetaDataVersion ... |  yes  |
+[ValueListDef](ValueListDef.md) | The following table specifies the XML structure for valuelist metadata |  yes  |
+[WhereClauseDef](WhereClauseDef.md) | The WhereClauseDef element specifies a condition |  yes  |
+[StudyEventGroupDef](StudyEventGroupDef.md) | StudyEventGroupDef is a study building block that groups a number of smaller ... |  yes  |
+[StudyEventDef](StudyEventDef.md) | StudyEventDef represents the definition of an activity in a study where data ... |  yes  |
+[ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
+[CodeList](CodeList.md) | Defines a discrete set of permitted values for an item, or provides a referen... |  yes  |
+[MethodDef](MethodDef.md) | A MethodDef defines how a data value can be obtained from a collection of oth... |  yes  |
+[ConditionDef](ConditionDef.md) | A ConditionDef defines a boolean condition |  yes  |
 [CommentDef](CommentDef.md) | The Comment element allows referencing short comments self-contained in the X... |  yes  |
-[StudyIndication](StudyIndication.md) |  |  yes  |
-[StudyIntervention](StudyIntervention.md) |  |  yes  |
-[StudyObjective](StudyObjective.md) |  |  yes  |
-[StudyEndPoint](StudyEndPoint.md) |  |  yes  |
-[StudyTargetPopulation](StudyTargetPopulation.md) |  |  yes  |
-[StudyEstimand](StudyEstimand.md) |  |  yes  |
-[Arm](Arm.md) |  |  yes  |
-[Epoch](Epoch.md) |  |  yes  |
-[StudyParameter](StudyParameter.md) |  |  yes  |
-[StudyTiming](StudyTiming.md) |  |  yes  |
-[TransitionTimingConstraint](TransitionTimingConstraint.md) |  |  yes  |
-[AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) |  |  yes  |
-[RelativeTimingConstraint](RelativeTimingConstraint.md) |  |  yes  |
+[StudyIndication](StudyIndication.md) | This element describes a study indication (e |  yes  |
+[StudyIntervention](StudyIntervention.md) | This element describes a study intervention (e |  yes  |
+[StudyObjective](StudyObjective.md) | Element NameStudyObjectiveParent ElementStudyObjectivesElement XPath(s)/ODM/S... |  yes  |
+[StudyEndPoint](StudyEndPoint.md) | A study end point reflects an outcome measure of interest that is statistical... |  yes  |
+[StudyTargetPopulation](StudyTargetPopulation.md) | The StudyTargetPopulation describes the population targeted for the clinical ... |  yes  |
+[StudyEstimand](StudyEstimand.md) | Element NameStudyEstimandParent ElementsStudyEstimandsElement XPath(s)/ODM/St... |  yes  |
+[Arm](Arm.md) | An Arm element provides the declaration of a study arm |  yes  |
+[Epoch](Epoch.md) | The planned period of subjects' participation in the trial is divided into se... |  yes  |
+[StudyParameter](StudyParameter.md) | A StudyParameter defines a study design parameter for which the value or valu... |  yes  |
+[StudyTiming](StudyTiming.md) | The StudyTiming element defines a timing constraint within the study, which c... |  yes  |
+[TransitionTimingConstraint](TransitionTimingConstraint.md) | The TransitionTimingConstraint element defines a timing constraint on a trans... |  yes  |
+[AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) | The element AbsoluteTimingConstraint is used to specify when an activity, rep... |  yes  |
+[RelativeTimingConstraint](RelativeTimingConstraint.md) | The RelativeTimingConstraint element describes a relative timing constraint b... |  yes  |
 [DurationTimingConstraint](DurationTimingConstraint.md) |  |  yes  |
-[WorkflowDef](WorkflowDef.md) |  |  yes  |
-[Transition](Transition.md) |  |  yes  |
-[Branching](Branching.md) |  |  yes  |
-[Criterion](Criterion.md) |  |  yes  |
-[ExceptionEvent](ExceptionEvent.md) |  |  yes  |
-[User](User.md) |  |  yes  |
-[Organization](Organization.md) |  |  yes  |
-[Location](Location.md) |  |  yes  |
-[SignatureDef](SignatureDef.md) |  |  yes  |
-[Query](Query.md) |  |  yes  |
+[WorkflowDef](WorkflowDef.md) | A WorkflowDef defines an automated workflow for a study |  yes  |
+[Transition](Transition.md) | A Transition defines a link between 2 structural elements in a workflow |  yes  |
+[Branching](Branching.md) | This element describes the branching in a workflow from a source (start) stru... |  yes  |
+[Criterion](Criterion.md) | The Criterion represents either an inclusion or an exclusion criterion, depen... |  yes  |
+[ExceptionEvent](ExceptionEvent.md) | An ExceptionEvent describes an event that occurs suddenly in a study and that... |  yes  |
+[User](User.md) | Information about a specific user of a clinical data collection or data manag... |  yes  |
+[Organization](Organization.md) | An organization can reference a parent organization |  yes  |
+[Location](Location.md) | A physical location associated with data collection and/or treatment of subje... |  yes  |
+[SignatureDef](SignatureDef.md) | Provides Metadata for signatures included in the /ODM/ClinicalData |  yes  |
+[Query](Query.md) | The Query element represents a request for clarification on a data item colle... |  yes  |
 
 
 

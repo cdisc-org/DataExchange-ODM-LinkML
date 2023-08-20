@@ -13,7 +13,7 @@ URI: [odm:WorkflowStartRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowStartRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[WorkflowDef](WorkflowDef.md) |  |  yes  |
+[WorkflowDef](WorkflowDef.md) | A WorkflowDef defines an automated workflow for a study |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:WorkflowStartRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowStartRef)
 name: WorkflowStartRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: WorkflowStartRef
 domain_of:
 - WorkflowDef

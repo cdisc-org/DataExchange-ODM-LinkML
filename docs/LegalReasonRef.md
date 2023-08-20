@@ -13,7 +13,7 @@ URI: [odm:LegalReasonRef](http://www.cdisc.org/ns/odm/v2.0/LegalReasonRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SignatureDef](SignatureDef.md) |  |  yes  |
+[SignatureDef](SignatureDef.md) | Provides Metadata for signatures included in the /ODM/ClinicalData |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:LegalReasonRef](http://www.cdisc.org/ns/odm/v2.0/LegalReasonRef)
 name: LegalReasonRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: LegalReasonRef
 domain_of:
 - SignatureDef

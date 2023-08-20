@@ -1,6 +1,11 @@
 # Class: StudyEndPoints
 
 
+_Go to start of metadata_
+
+
+
+
 
 URI: [odm:StudyEndPoints](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoints)
 
@@ -26,7 +31,7 @@ URI: [odm:StudyEndPoints](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoints)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEndPointRefRef](StudyEndPointRefRef.md) | 1..* <br/> [StudyEndPoint](StudyEndPoint.md) |  | direct |
+| [StudyEndPointRefRef](StudyEndPointRefRef.md) | 0..* <br/> [StudyEndPoint](StudyEndPoint.md) |  | direct |
 
 
 
@@ -84,6 +89,7 @@ URI: [odm:StudyEndPoints](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoints)
 <details>
 ```yaml
 name: StudyEndPoints
+description: Go to start of metadata
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPoints
@@ -98,10 +104,8 @@ slot_usage:
     - StudyEndPoints
     - StudyEstimand
     range: StudyEndPoint
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyEndPoints
 
 ```
@@ -112,6 +116,7 @@ class_uri: odm:StudyEndPoints
 <details>
 ```yaml
 name: StudyEndPoints
+description: Go to start of metadata
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPoints
@@ -124,16 +129,15 @@ slot_usage:
     - StudyEndPoints
     - StudyEstimand
     range: StudyEndPoint
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   StudyEndPointRefRef:
     name: StudyEndPointRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyEndPointRefRef
     owner: StudyEndPoints
     domain_of:
@@ -141,10 +145,8 @@ attributes:
     - StudyEndPoints
     - StudyEstimand
     range: StudyEndPoint
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyEndPoints
 
 ```

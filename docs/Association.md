@@ -1,6 +1,11 @@
 # Class: Association
 
 
+_An association permits an annotation to be placed on an ordered pair of entities rather than on just one. The first and second KeySets identify the start and end of the annotated "link."_
+
+
+
+
 
 URI: [odm:Association](http://www.cdisc.org/ns/odm/v2.0/Association)
 
@@ -34,11 +39,11 @@ URI: [odm:Association](http://www.cdisc.org/ns/odm/v2.0/Association)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [KeySetRef](KeySetRef.md) | 1..1 <br/> [KeySet](KeySet.md) |  | direct |
-| [KeySetRef](KeySetRef.md) | 1..1 <br/> [KeySet](KeySet.md) |  | direct |
-| [AnnotationRef](AnnotationRef.md) | 1..1 <br/> [Annotation](Annotation.md) |  | direct |
+| [StudyOID](StudyOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to an ODM Study element | direct |
+| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to a MetaDataVersion element | direct |
+| [KeySetRef](KeySetRef.md) | 0..1 <br/> [KeySet](KeySet.md) |  | direct |
+| [KeySetRef](KeySetRef.md) | 0..1 <br/> [KeySet](KeySet.md) |  | direct |
+| [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) |  | direct |
 
 
 
@@ -96,6 +101,9 @@ URI: [odm:Association](http://www.cdisc.org/ns/odm/v2.0/Association)
 <details>
 ```yaml
 name: Association
+description: An association permits an annotation to be placed on an ordered pair
+  of entities rather than on just one. The first and second KeySets identify the start
+  and end of the annotated "link."
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Association
@@ -108,6 +116,9 @@ slots:
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: Reference to an ODM Study element.
+    comments:
+    - Required
     domain_of:
     - Include
     - SourceItem
@@ -121,6 +132,9 @@ slot_usage:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: Reference to a MetaDataVersion element.
+    comments:
+    - Required
     domain_of:
     - Include
     - SourceItem
@@ -136,8 +150,6 @@ slot_usage:
     domain_of:
     - Association
     range: KeySet
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
@@ -150,8 +162,6 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 class_uri: odm:Association
 
@@ -163,12 +173,18 @@ class_uri: odm:Association
 <details>
 ```yaml
 name: Association
+description: An association permits an annotation to be placed on an ordered pair
+  of entities rather than on just one. The first and second KeySets identify the start
+  and end of the annotated "link."
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Association
 slot_usage:
   StudyOID:
     name: StudyOID
+    description: Reference to an ODM Study element.
+    comments:
+    - Required
     domain_of:
     - Include
     - SourceItem
@@ -182,6 +198,9 @@ slot_usage:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: Reference to a MetaDataVersion element.
+    comments:
+    - Required
     domain_of:
     - Include
     - SourceItem
@@ -197,8 +216,6 @@ slot_usage:
     domain_of:
     - Association
     range: KeySet
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
@@ -211,12 +228,13 @@ slot_usage:
     - ItemData
     - Association
     range: Annotation
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 attributes:
   StudyOID:
     name: StudyOID
+    description: Reference to an ODM Study element.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyOID
@@ -234,6 +252,9 @@ attributes:
     required: true
   MetaDataVersionOID:
     name: MetaDataVersionOID
+    description: Reference to a MetaDataVersion element.
+    comments:
+    - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: MetaDataVersionOID
@@ -252,18 +273,18 @@ attributes:
     name: KeySetRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: KeySetRef
     owner: Association
     domain_of:
     - Association
     range: KeySet
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: AnnotationRef
     owner: Association
     domain_of:
@@ -275,8 +296,6 @@ attributes:
     - ItemData
     - Association
     range: Annotation
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 class_uri: odm:Association
 

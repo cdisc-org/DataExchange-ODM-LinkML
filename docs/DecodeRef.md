@@ -13,7 +13,7 @@ URI: [odm:DecodeRef](http://www.cdisc.org/ns/odm/v2.0/DecodeRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[CodeListItem](CodeListItem.md) |  |  yes  |
+[CodeListItem](CodeListItem.md) | Defines an individual member value of a codelist |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:DecodeRef](http://www.cdisc.org/ns/odm/v2.0/DecodeRef)
 name: DecodeRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: DecodeRef
 domain_of:
 - CodeListItem

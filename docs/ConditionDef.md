@@ -1,6 +1,11 @@
 # Class: ConditionDef
 
 
+_A ConditionDef defines a boolean condition.Element NameConditionDefParent ElementsMetaDataVersionElement XPath(s)/ODM/Study/MetaDataVersion/ConditionDefElement Textual ValueNoneAttributesOID, Name, CommentOIDChild Elements(Description, MethodSignature, FormalExpression*, Alias*)The Description element must be provided and should include a prose description. The MethodSignature element must also be provided and identifies the input parameter and return values for the ConditionDef.Usage/Business RulesBusiness Rule(s):The MethodSignature ReturnValue for ConditionDef must always equal boolean.If a FormalExpression is provided, it must contain a machine-readable expression that will evaluate to True or False.Other Information:The Description and MethodSignature are the normative content of the ConditionDef. The ConditionDef is referenced by the CollectionExceptionConditionOID attribute within a study metadata component which may be omitted under circumstances defined by the condition (i.e., when the FormalExpression evaluates to True).Multiple FormalExpressions can be provided if each has a different Context attribute, allowing the same expression to be represented in forms appropriate to multiple systems.If an application cannot interpret any of the FormalExpressions or does not normally support conditional data collection, data for the referencing study metadata component should be collected as though no Condition is specified.In cases where a MethodSignature element exists without an associated FormalExpression, the MethodSignature supports improved traceability. It also serves the case where one role defines the MethodDef or ConditionDef, but another role provides the executable FormalExpression._
+
+
+
+
 
 URI: [odm:ConditionDef](http://www.cdisc.org/ns/odm/v2.0/ConditionDef)
 
@@ -44,11 +49,11 @@ URI: [odm:ConditionDef](http://www.cdisc.org/ns/odm/v2.0/ConditionDef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | The Comment identifier that this value refers to | direct |
-| [DescriptionRef](DescriptionRef.md) | 1..1 <br/> [Description](Description.md) |  | direct |
-| [MethodSignatureRef](MethodSignatureRef.md) | 1..1 <br/> [MethodSignature](MethodSignature.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human-readable name for the Condition | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a CommentDef element | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
+| [MethodSignatureRef](MethodSignatureRef.md) | 0..1 <br/> [MethodSignature](MethodSignature.md) |  | direct |
 | [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) |  | direct |
 | [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) |  | direct |
 
@@ -108,6 +113,27 @@ URI: [odm:ConditionDef](http://www.cdisc.org/ns/odm/v2.0/ConditionDef)
 <details>
 ```yaml
 name: ConditionDef
+description: A ConditionDef defines a boolean condition.Element NameConditionDefParent
+  ElementsMetaDataVersionElement XPath(s)/ODM/Study/MetaDataVersion/ConditionDefElement
+  Textual ValueNoneAttributesOID, Name, CommentOIDChild Elements(Description, MethodSignature,
+  FormalExpression*, Alias*)The Description element must be provided and should include
+  a prose description. The MethodSignature element must also be provided and identifies
+  the input parameter and return values for the ConditionDef.Usage/Business RulesBusiness
+  Rule(s):The MethodSignature ReturnValue for ConditionDef must always equal boolean.If
+  a FormalExpression is provided, it must contain a machine-readable expression that
+  will evaluate to True or False.Other Information:The Description and MethodSignature
+  are the normative content of the ConditionDef. The ConditionDef is referenced by
+  the CollectionExceptionConditionOID attribute within a study metadata component
+  which may be omitted under circumstances defined by the condition (i.e., when the
+  FormalExpression evaluates to True).Multiple FormalExpressions can be provided if
+  each has a different Context attribute, allowing the same expression to be represented
+  in forms appropriate to multiple systems.If an application cannot interpret any
+  of the FormalExpressions or does not normally support conditional data collection,
+  data for the referencing study metadata component should be collected as though
+  no Condition is specified.In cases where a MethodSignature element exists without
+  an associated FormalExpression, the MethodSignature supports improved traceability.
+  It also serves the case where one role defines the MethodDef or ConditionDef, but
+  another role provides the executable FormalExpression.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ConditionDef
@@ -122,6 +148,11 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -164,6 +195,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human-readable name for the Condition.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -204,6 +240,11 @@ slot_usage:
     required: true
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef element.
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -259,8 +300,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   MethodSignatureRef:
     name: MethodSignatureRef
@@ -269,8 +308,6 @@ slot_usage:
     - MethodDef
     - ConditionDef
     range: MethodSignature
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   FormalExpressionRef:
     name: FormalExpressionRef
@@ -309,12 +346,38 @@ class_uri: odm:ConditionDef
 <details>
 ```yaml
 name: ConditionDef
+description: A ConditionDef defines a boolean condition.Element NameConditionDefParent
+  ElementsMetaDataVersionElement XPath(s)/ODM/Study/MetaDataVersion/ConditionDefElement
+  Textual ValueNoneAttributesOID, Name, CommentOIDChild Elements(Description, MethodSignature,
+  FormalExpression*, Alias*)The Description element must be provided and should include
+  a prose description. The MethodSignature element must also be provided and identifies
+  the input parameter and return values for the ConditionDef.Usage/Business RulesBusiness
+  Rule(s):The MethodSignature ReturnValue for ConditionDef must always equal boolean.If
+  a FormalExpression is provided, it must contain a machine-readable expression that
+  will evaluate to True or False.Other Information:The Description and MethodSignature
+  are the normative content of the ConditionDef. The ConditionDef is referenced by
+  the CollectionExceptionConditionOID attribute within a study metadata component
+  which may be omitted under circumstances defined by the condition (i.e., when the
+  FormalExpression evaluates to True).Multiple FormalExpressions can be provided if
+  each has a different Context attribute, allowing the same expression to be represented
+  in forms appropriate to multiple systems.If an application cannot interpret any
+  of the FormalExpressions or does not normally support conditional data collection,
+  data for the referencing study metadata component should be collected as though
+  no Condition is specified.In cases where a MethodSignature element exists without
+  an associated FormalExpression, the MethodSignature supports improved traceability.
+  It also serves the case where one role defines the MethodDef or ConditionDef, but
+  another role provides the executable FormalExpression.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ConditionDef
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -357,6 +420,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human-readable name for the Condition.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -397,6 +465,11 @@ slot_usage:
     required: true
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef element.
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -452,8 +525,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   MethodSignatureRef:
     name: MethodSignatureRef
@@ -462,8 +533,6 @@ slot_usage:
     - MethodDef
     - ConditionDef
     range: MethodSignature
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   FormalExpressionRef:
     name: FormalExpressionRef
@@ -495,7 +564,11 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -543,7 +616,11 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Human-readable name for the Condition.
+    comments:
+    - 'Required
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -588,9 +665,11 @@ attributes:
     required: true
   CommentOID:
     name: CommentOID
-    description: "The Comment identifier that this value refers to. Needed when the\
-      \ WhereClause references Items across different domains.\n                The\
-      \ Comment would define any join assumptions."
+    description: Reference to a CommentDef element.
+    comments:
+    - 'Optional
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CommentOID
@@ -613,6 +692,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: ConditionDef
     domain_of:
@@ -654,13 +734,12 @@ attributes:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   MethodSignatureRef:
     name: MethodSignatureRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: MethodSignatureRef
     owner: ConditionDef
     domain_of:
@@ -668,14 +747,13 @@ attributes:
     - MethodDef
     - ConditionDef
     range: MethodSignature
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   FormalExpressionRef:
     name: FormalExpressionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: FormalExpressionRef
     owner: ConditionDef
     domain_of:
@@ -692,6 +770,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: AliasRef
     owner: ConditionDef
     domain_of:

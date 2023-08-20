@@ -1,5 +1,10 @@
 # Slot: Altitude
 
+
+_Height above sea level in meters._
+
+
+
 URI: [odm:Altitude](http://www.cdisc.org/ns/odm/v2.0/Altitude)
 
 
@@ -13,7 +18,7 @@ URI: [odm:Altitude](http://www.cdisc.org/ns/odm/v2.0/Altitude)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[GeoPosition](GeoPosition.md) |  |  yes  |
+[GeoPosition](GeoPosition.md) | The geographical position using the World Geodetic System WGS84 |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:Altitude](http://www.cdisc.org/ns/odm/v2.0/Altitude)
 <details>
 ```yaml
 name: Altitude
+description: Height above sea level in meters.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Altitude

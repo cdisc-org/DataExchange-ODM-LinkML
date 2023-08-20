@@ -13,10 +13,10 @@ URI: [odm:ItemGroupDataRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDataRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ReferenceData](ReferenceData.md) |  |  yes  |
-[ClinicalData](ClinicalData.md) |  |  yes  |
-[StudyEventData](StudyEventData.md) |  |  yes  |
-[ItemGroupData](ItemGroupData.md) |  |  yes  |
+[ReferenceData](ReferenceData.md) | Reference data provides information on how to interpret clinical data |  yes  |
+[ClinicalData](ClinicalData.md) | Clinical data for 1 or more subjects |  yes  |
+[StudyEventData](StudyEventData.md) | Clinical data for a study event (visit) |  yes  |
+[ItemGroupData](ItemGroupData.md) | Clinical data corresponding to an ItemGroupRef defined in the active MetaData... |  yes  |
 
 
 
@@ -55,6 +55,7 @@ URI: [odm:ItemGroupDataRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDataRef)
 name: ItemGroupDataRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ItemGroupDataRef
 domain_of:
 - ReferenceData

@@ -1,6 +1,11 @@
 # Class: PostalCode
 
 
+_The postal code part of a user's postal address._
+
+
+
+
 
 URI: [odm:PostalCode](http://www.cdisc.org/ns/odm/v2.0/PostalCode)
 
@@ -82,6 +87,7 @@ URI: [odm:PostalCode](http://www.cdisc.org/ns/odm/v2.0/PostalCode)
 <details>
 ```yaml
 name: PostalCode
+description: The postal code part of a user's postal address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/PostalCode
@@ -102,6 +108,7 @@ class_uri: odm:PostalCode
 <details>
 ```yaml
 name: PostalCode
+description: The postal code part of a user's postal address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/PostalCode

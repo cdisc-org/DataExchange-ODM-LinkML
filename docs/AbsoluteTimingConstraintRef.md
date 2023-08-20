@@ -13,7 +13,7 @@ URI: [odm:AbsoluteTimingConstraintRef](http://www.cdisc.org/ns/odm/v2.0/Absolute
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyTiming](StudyTiming.md) |  |  yes  |
+[StudyTiming](StudyTiming.md) | The StudyTiming element defines a timing constraint within the study, which c... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:AbsoluteTimingConstraintRef](http://www.cdisc.org/ns/odm/v2.0/Absolute
 name: AbsoluteTimingConstraintRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: AbsoluteTimingConstraintRef
 domain_of:
 - StudyTiming

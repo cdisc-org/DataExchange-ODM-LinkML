@@ -13,7 +13,7 @@ URI: [odm:StudyEventDataRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventDataRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SubjectData](SubjectData.md) |  |  yes  |
+[SubjectData](SubjectData.md) | Clinical data for a single subject |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:StudyEventDataRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventDataRef)
 name: StudyEventDataRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: StudyEventDataRef
 domain_of:
 - SubjectData

@@ -1,6 +1,11 @@
 # Class: ValueListDef
 
 
+_The following table specifies the XML structure for valuelist metadata. The ValueListDef element contains ItemRef elements that reference ItemDef elements that provide the value-level metadata details_
+
+
+
+
 
 URI: [odm:ValueListDef](http://www.cdisc.org/ns/odm/v2.0/ValueListDef)
 
@@ -32,9 +37,9 @@ URI: [odm:ValueListDef](http://www.cdisc.org/ns/odm/v2.0/ValueListDef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique ID for the Value List See Section 2 | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description of the value list | direct |
-| [ItemRefRef](ItemRefRef.md) | 1..* <br/> [ItemRef](ItemRef.md) | The ItemRef element contains the reference to the value attributes definition... | direct |
+| [ItemRefRef](ItemRefRef.md) | 0..* <br/> [ItemRef](ItemRef.md) | The ItemRef element contains the reference to the value attributes definition... | direct |
 
 
 
@@ -92,6 +97,9 @@ URI: [odm:ValueListDef](http://www.cdisc.org/ns/odm/v2.0/ValueListDef)
 <details>
 ```yaml
 name: ValueListDef
+description: The following table specifies the XML structure for valuelist metadata.
+  The ValueListDef element contains ItemRef elements that reference ItemDef elements
+  that provide the value-level metadata details
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ValueListDef
@@ -102,6 +110,12 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique ID for the Value List See Section 2.13, Element Identifiers
+      and References , for OID considerations.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -194,10 +208,8 @@ slot_usage:
     - ValueListDef
     - ItemGroupDef
     range: ItemRef
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:ValueListDef
 
 ```
@@ -208,12 +220,21 @@ class_uri: odm:ValueListDef
 <details>
 ```yaml
 name: ValueListDef
+description: The following table specifies the XML structure for valuelist metadata.
+  The ValueListDef element contains ItemRef elements that reference ItemDef elements
+  that provide the value-level metadata details
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ValueListDef
 slot_usage:
   OID:
     name: OID
+    description: Unique ID for the Value List See Section 2.13, Element Identifiers
+      and References , for OID considerations.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -306,14 +327,17 @@ slot_usage:
     - ValueListDef
     - ItemGroupDef
     range: ItemRef
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique ID for the Value List See Section 2.13, Element Identifiers
+      and References , for OID considerations.
+    comments:
+    - 'Required
+
+      range:oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -364,6 +388,7 @@ attributes:
     description: Description of the value list.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: ValueListDef
     domain_of:
@@ -413,16 +438,15 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ItemRefRef
     owner: ValueListDef
     domain_of:
     - ValueListDef
     - ItemGroupDef
     range: ItemRef
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:ValueListDef
 
 ```

@@ -1,6 +1,11 @@
 # Class: Address
 
 
+_The postal address for a user, location, or organization._
+
+
+
+
 
 URI: [odm:Address](http://www.cdisc.org/ns/odm/v2.0/Address)
 
@@ -121,6 +126,7 @@ URI: [odm:Address](http://www.cdisc.org/ns/odm/v2.0/Address)
 <details>
 ```yaml
 name: Address
+description: The postal address for a user, location, or organization.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Address
@@ -192,6 +198,7 @@ class_uri: odm:Address
 <details>
 ```yaml
 name: Address
+description: The postal address for a user, location, or organization.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Address
@@ -249,6 +256,7 @@ attributes:
     name: StreetNameRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StreetNameRef
     owner: Address
     domain_of:
@@ -259,6 +267,7 @@ attributes:
     name: HouseNumberRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: HouseNumberRef
     owner: Address
     domain_of:
@@ -269,6 +278,7 @@ attributes:
     name: CityRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: CityRef
     owner: Address
     domain_of:
@@ -279,6 +289,7 @@ attributes:
     name: StateProvRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StateProvRef
     owner: Address
     domain_of:
@@ -289,6 +300,7 @@ attributes:
     name: CountryRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: CountryRef
     owner: Address
     domain_of:
@@ -299,6 +311,7 @@ attributes:
     name: PostalCodeRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: PostalCodeRef
     owner: Address
     domain_of:
@@ -309,6 +322,7 @@ attributes:
     name: GeoPositionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: GeoPositionRef
     owner: Address
     domain_of:
@@ -319,6 +333,7 @@ attributes:
     name: OtherTextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: OtherTextRef
     owner: Address
     domain_of:

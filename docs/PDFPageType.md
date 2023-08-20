@@ -18,7 +18,7 @@ URI: [PDFPageType](PDFPageType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) |  |
+| [Type](Type.md) | Type of page for page reference(s) indicated in the PageRefs attribute |
 
 
 

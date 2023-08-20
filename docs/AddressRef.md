@@ -13,9 +13,9 @@ URI: [odm:AddressRef](http://www.cdisc.org/ns/odm/v2.0/AddressRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[User](User.md) |  |  yes  |
-[Organization](Organization.md) |  |  yes  |
-[Location](Location.md) |  |  yes  |
+[User](User.md) | Information about a specific user of a clinical data collection or data manag... |  yes  |
+[Organization](Organization.md) | An organization can reference a parent organization |  yes  |
+[Location](Location.md) | A physical location associated with data collection and/or treatment of subje... |  yes  |
 
 
 
@@ -54,6 +54,7 @@ URI: [odm:AddressRef](http://www.cdisc.org/ns/odm/v2.0/AddressRef)
 name: AddressRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: AddressRef
 domain_of:
 - User

@@ -1,5 +1,10 @@
 # Slot: ComparatorRef
 
+
+_Comparison operator used to compare the item and value(s)._
+
+
+
 URI: [odm:ComparatorRef](http://www.cdisc.org/ns/odm/v2.0/ComparatorRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:ComparatorRef](http://www.cdisc.org/ns/odm/v2.0/ComparatorRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[RangeCheck](RangeCheck.md) |  |  yes  |
+[RangeCheck](RangeCheck.md) | A RangeCheck defines a constraint on the value of the enclosing item |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:ComparatorRef](http://www.cdisc.org/ns/odm/v2.0/ComparatorRef)
 <details>
 ```yaml
 name: ComparatorRef
+description: Comparison operator used to compare the item and value(s).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ComparatorRef

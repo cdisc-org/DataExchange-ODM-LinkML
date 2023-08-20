@@ -13,7 +13,7 @@ URI: [odm:OrganizationRef](http://www.cdisc.org/ns/odm/v2.0/OrganizationRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[AdminData](AdminData.md) |  |  yes  |
+[AdminData](AdminData.md) | Administrative information about users, locations, organizations, and electro... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:OrganizationRef](http://www.cdisc.org/ns/odm/v2.0/OrganizationRef)
 name: OrganizationRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: OrganizationRef
 domain_of:
 - AdminData

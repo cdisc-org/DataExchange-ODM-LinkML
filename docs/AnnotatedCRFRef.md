@@ -13,7 +13,7 @@ URI: [odm:AnnotatedCRFRef](http://www.cdisc.org/ns/odm/v2.0/AnnotatedCRFRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MetaDataVersion](MetaDataVersion.md) |  |  yes  |
+[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:AnnotatedCRFRef](http://www.cdisc.org/ns/odm/v2.0/AnnotatedCRFRef)
 name: AnnotatedCRFRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: AnnotatedCRFRef
 domain_of:
 - MetaDataVersion

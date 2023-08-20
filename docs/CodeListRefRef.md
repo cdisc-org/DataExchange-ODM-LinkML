@@ -13,8 +13,8 @@ URI: [odm:CodeListRefRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MetaDataVersion](MetaDataVersion.md) |  |  yes  |
-[ItemDef](ItemDef.md) |  |  yes  |
+[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
 
 
 
@@ -53,6 +53,7 @@ URI: [odm:CodeListRefRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRefRef)
 name: CodeListRefRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: CodeListRefRef
 domain_of:
 - MetaDataVersion

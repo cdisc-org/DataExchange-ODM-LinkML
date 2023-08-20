@@ -13,7 +13,7 @@ URI: [odm:ReturnValueRef](http://www.cdisc.org/ns/odm/v2.0/ReturnValueRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MethodSignature](MethodSignature.md) |  |  yes  |
+[MethodSignature](MethodSignature.md) | A MethodSignature defines the parameters and return values for a method |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:ReturnValueRef](http://www.cdisc.org/ns/odm/v2.0/ReturnValueRef)
 name: ReturnValueRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ReturnValueRef
 domain_of:
 - MethodSignature

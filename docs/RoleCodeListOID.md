@@ -1,5 +1,10 @@
 # Slot: RoleCodeListOID
 
+
+_Reference to a CodeList that defines the allowable values of Role for the Study._
+
+
+
 URI: [odm:RoleCodeListOID](http://www.cdisc.org/ns/odm/v2.0/RoleCodeListOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:RoleCodeListOID](http://www.cdisc.org/ns/odm/v2.0/RoleCodeListOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemRef](ItemRef.md) |  |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:RoleCodeListOID](http://www.cdisc.org/ns/odm/v2.0/RoleCodeListOID)
 <details>
 ```yaml
 name: RoleCodeListOID
+description: Reference to a CodeList that defines the allowable values of Role for
+  the Study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: RoleCodeListOID

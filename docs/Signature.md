@@ -1,6 +1,11 @@
 # Class: Signature
 
 
+_An electronic signature applies to a collection of clinical data. This indicates that some user accepts legal responsibility for that data. See 21 CFR Part 11. The signature identifies the person signing, the location of signing, the signature meaning (via the referenced SignatureDef), the date and time of signing, and (in the case of a digital signature) an encrypted hash of the included data._
+
+
+
+
 
 URI: [odm:Signature](http://www.cdisc.org/ns/odm/v2.0/Signature)
 
@@ -41,10 +46,10 @@ URI: [odm:Signature](http://www.cdisc.org/ns/odm/v2.0/Signature)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [ID](ID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the leaf that is referenced | direct |
-| [UserRefRef](UserRefRef.md) | 1..1 <br/> [UserRef](UserRef.md) |  | direct |
-| [LocationRefRef](LocationRefRef.md) | 1..1 <br/> [LocationRef](LocationRef.md) |  | direct |
-| [SignatureRefRef](SignatureRefRef.md) | 1..1 <br/> [SignatureRef](SignatureRef.md) |  | direct |
-| [DateTimeStampRef](DateTimeStampRef.md) | 1..1 <br/> [DateTimeStamp](DateTimeStamp.md) |  | direct |
+| [UserRefRef](UserRefRef.md) | 0..1 <br/> [UserRef](UserRef.md) |  | direct |
+| [LocationRefRef](LocationRefRef.md) | 0..1 <br/> [LocationRef](LocationRef.md) |  | direct |
+| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [SignatureRef](SignatureRef.md) |  | direct |
+| [DateTimeStampRef](DateTimeStampRef.md) | 0..1 <br/> [DateTimeStamp](DateTimeStamp.md) |  | direct |
 
 
 
@@ -107,6 +112,11 @@ URI: [odm:Signature](http://www.cdisc.org/ns/odm/v2.0/Signature)
 <details>
 ```yaml
 name: Signature
+description: An electronic signature applies to a collection of clinical data. This
+  indicates that some user accepts legal responsibility for that data. See 21 CFR
+  Part 11. The signature identifies the person signing, the location of signing, the
+  signature meaning (via the referenced SignatureDef), the date and time of signing,
+  and (in the case of a digital signature) an encrypted hash of the included data.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Signature
@@ -120,7 +130,7 @@ slot_usage:
   ID:
     name: ID
     domain_of:
-    - leaf
+    - Leaf
     - Signature
     - Annotation
     range: oid
@@ -131,8 +141,6 @@ slot_usage:
     - AuditRecord
     - Signature
     range: UserRef
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   LocationRefRef:
     name: LocationRefRef
@@ -141,8 +149,6 @@ slot_usage:
     - AuditRecord
     - Signature
     range: LocationRef
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   SignatureRefRef:
     name: SignatureRefRef
@@ -155,8 +161,6 @@ slot_usage:
     - ItemData
     - Signature
     range: SignatureRef
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   DateTimeStampRef:
     name: DateTimeStampRef
@@ -164,8 +168,6 @@ slot_usage:
     - AuditRecord
     - Signature
     range: DateTimeStamp
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 class_uri: odm:Signature
 
@@ -177,6 +179,11 @@ class_uri: odm:Signature
 <details>
 ```yaml
 name: Signature
+description: An electronic signature applies to a collection of clinical data. This
+  indicates that some user accepts legal responsibility for that data. See 21 CFR
+  Part 11. The signature identifies the person signing, the location of signing, the
+  signature meaning (via the referenced SignatureDef), the date and time of signing,
+  and (in the case of a digital signature) an encrypted hash of the included data.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Signature
@@ -184,7 +191,7 @@ slot_usage:
   ID:
     name: ID
     domain_of:
-    - leaf
+    - Leaf
     - Signature
     - Annotation
     range: oid
@@ -195,8 +202,6 @@ slot_usage:
     - AuditRecord
     - Signature
     range: UserRef
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   LocationRefRef:
     name: LocationRefRef
@@ -205,8 +210,6 @@ slot_usage:
     - AuditRecord
     - Signature
     range: LocationRef
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   SignatureRefRef:
     name: SignatureRefRef
@@ -219,8 +222,6 @@ slot_usage:
     - ItemData
     - Signature
     range: SignatureRef
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   DateTimeStampRef:
     name: DateTimeStampRef
@@ -228,8 +229,6 @@ slot_usage:
     - AuditRecord
     - Signature
     range: DateTimeStamp
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 attributes:
   ID:
@@ -241,7 +240,7 @@ attributes:
     alias: ID
     owner: Signature
     domain_of:
-    - leaf
+    - Leaf
     - Signature
     - Annotation
     range: oid
@@ -250,6 +249,7 @@ attributes:
     name: UserRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: UserRefRef
     owner: Signature
     domain_of:
@@ -257,13 +257,12 @@ attributes:
     - AuditRecord
     - Signature
     range: UserRef
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   LocationRefRef:
     name: LocationRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: LocationRefRef
     owner: Signature
     domain_of:
@@ -271,13 +270,12 @@ attributes:
     - AuditRecord
     - Signature
     range: LocationRef
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   SignatureRefRef:
     name: SignatureRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: SignatureRefRef
     owner: Signature
     domain_of:
@@ -289,21 +287,18 @@ attributes:
     - ItemData
     - Signature
     range: SignatureRef
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   DateTimeStampRef:
     name: DateTimeStampRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DateTimeStampRef
     owner: Signature
     domain_of:
     - AuditRecord
     - Signature
     range: DateTimeStamp
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 class_uri: odm:Signature
 

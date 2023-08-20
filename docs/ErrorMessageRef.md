@@ -13,7 +13,7 @@ URI: [odm:ErrorMessageRef](http://www.cdisc.org/ns/odm/v2.0/ErrorMessageRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[RangeCheck](RangeCheck.md) |  |  yes  |
+[RangeCheck](RangeCheck.md) | A RangeCheck defines a constraint on the value of the enclosing item |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:ErrorMessageRef](http://www.cdisc.org/ns/odm/v2.0/ErrorMessageRef)
 name: ErrorMessageRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ErrorMessageRef
 domain_of:
 - RangeCheck

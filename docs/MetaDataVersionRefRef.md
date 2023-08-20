@@ -13,8 +13,8 @@ URI: [odm:MetaDataVersionRefRef](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersio
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Study](Study.md) |  |  yes  |
-[Location](Location.md) |  |  yes  |
+[Study](Study.md) | This element collects static structural information about an individual study |  yes  |
+[Location](Location.md) | A physical location associated with data collection and/or treatment of subje... |  yes  |
 
 
 
@@ -53,6 +53,7 @@ URI: [odm:MetaDataVersionRefRef](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersio
 name: MetaDataVersionRefRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: MetaDataVersionRefRef
 domain_of:
 - Study

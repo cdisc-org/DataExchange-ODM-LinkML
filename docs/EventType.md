@@ -19,7 +19,7 @@ URI: [EventType](EventType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) |  |
+| [Type](Type.md) | Specifies the StudyEvent Type |
 
 
 

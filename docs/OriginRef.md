@@ -13,8 +13,8 @@ URI: [odm:OriginRef](http://www.cdisc.org/ns/odm/v2.0/OriginRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
-[ItemRef](ItemRef.md) |  |  yes  |
+[ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
 
 
 
@@ -53,6 +53,7 @@ URI: [odm:OriginRef](http://www.cdisc.org/ns/odm/v2.0/OriginRef)
 name: OriginRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: OriginRef
 domain_of:
 - ItemGroupDef

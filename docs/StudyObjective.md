@@ -1,6 +1,11 @@
 # Class: StudyObjective
 
 
+_Element NameStudyObjectiveParent ElementStudyObjectivesElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyObjectives/StudyObjectiveElement Textual ValueNoneAttributesOID, Name, LevelChild Elements (Description?, StudyEndPointRef*)Usage/Business Rules_
+
+
+
+
 
 URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
 
@@ -13,6 +18,10 @@ URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
         
           StudyObjective --|> Description : DescriptionRef
         
+      StudyObjective : Level
+        
+          StudyObjective --|> StudyObjectiveLevel : Level
+        
       StudyObjective : Name
         
       StudyObjective : OID
@@ -20,10 +29,6 @@ URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
       StudyObjective : StudyEndPointRefRef
         
           StudyObjective --|> StudyEndPointRef : StudyEndPointRefRef
-        
-      StudyObjective : Type
-        
-          StudyObjective --|> StudyObjectiveLevel : Type
         
       
 ```
@@ -38,9 +43,9 @@ URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [Type](Type.md) | 0..1 <br/> [StudyObjectiveLevel](StudyObjectiveLevel.md) | Type of page for page references indicated in the PageRefs attribute | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the StudyObjective element | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Name of the study objective | direct |
+| [Level](Level.md) | 0..1 <br/> [StudyObjectiveLevel](StudyObjectiveLevel.md) | Defined level for the Study Objective | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 | [StudyEndPointRefRef](StudyEndPointRefRef.md) | 0..* <br/> [StudyEndPointRef](StudyEndPointRef.md) |  | direct |
 
@@ -100,18 +105,28 @@ URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
 <details>
 ```yaml
 name: StudyObjective
+description: Element NameStudyObjectiveParent ElementStudyObjectivesElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyObjectives/StudyObjectiveElement
+  Textual ValueNoneAttributesOID, Name, LevelChild Elements (Description?, StudyEndPointRef*)Usage/Business
+  Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyObjective
 slots:
 - OID
 - Name
-- Type
+- Level
 - DescriptionRef
 - StudyEndPointRefRef
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the StudyObjective element.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute value must be unique within the Study/MetaDataVersion.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -154,6 +169,14 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Name of the study objective
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name attribute must be unique within the StudyObjectives elements within
+      a Study/MetadataVersion.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -192,23 +215,20 @@ slot_usage:
     - Query
     range: name
     required: true
-  Type:
-    name: Type
+  Level:
+    name: Level
+    description: Defined level for the Study Objective
+    comments:
+    - 'Optional
+
+      enum values:(Primary | Secondary | Exploratory )
+
+      These are defined in concordance with the ICH M11 Clinical electronic Structured
+      Harmonised Protocol Specification'
     domain_of:
-    - PDFPageRef
-    - Standard
-    - StudyEventDef
-    - ItemGroupDef
-    - Origin
-    - Resource
-    - MethodDef
     - StudyObjective
     - StudyEndPoint
-    - TransitionTimingConstraint
-    - RelativeTimingConstraint
-    - Branching
-    - Organization
-    - Query
+    - StudyEstimand
     range: StudyObjectiveLevel
   DescriptionRef:
     name: DescriptionRef
@@ -272,12 +292,22 @@ class_uri: odm:StudyObjective
 <details>
 ```yaml
 name: StudyObjective
+description: Element NameStudyObjectiveParent ElementStudyObjectivesElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyObjectives/StudyObjectiveElement
+  Textual ValueNoneAttributesOID, Name, LevelChild Elements (Description?, StudyEndPointRef*)Usage/Business
+  Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyObjective
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the StudyObjective element.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute value must be unique within the Study/MetaDataVersion.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -320,6 +350,14 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Name of the study objective
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name attribute must be unique within the StudyObjectives elements within
+      a Study/MetadataVersion.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -358,23 +396,20 @@ slot_usage:
     - Query
     range: name
     required: true
-  Type:
-    name: Type
+  Level:
+    name: Level
+    description: Defined level for the Study Objective
+    comments:
+    - 'Optional
+
+      enum values:(Primary | Secondary | Exploratory )
+
+      These are defined in concordance with the ICH M11 Clinical electronic Structured
+      Harmonised Protocol Specification'
     domain_of:
-    - PDFPageRef
-    - Standard
-    - StudyEventDef
-    - ItemGroupDef
-    - Origin
-    - Resource
-    - MethodDef
     - StudyObjective
     - StudyEndPoint
-    - TransitionTimingConstraint
-    - RelativeTimingConstraint
-    - Branching
-    - Organization
-    - Query
+    - StudyEstimand
     range: StudyObjectiveLevel
   DescriptionRef:
     name: DescriptionRef
@@ -431,7 +466,13 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for the StudyObjective element.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute value must be unique within the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -479,7 +520,14 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Name of the study objective
+    comments:
+    - 'Required
+
+      range:name
+
+      The Name attribute must be unique within the StudyObjectives elements within
+      a Study/MetadataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -522,33 +570,30 @@ attributes:
     - Query
     range: name
     required: true
-  Type:
-    name: Type
-    description: Type of page for page references indicated in the PageRefs attribute.
+  Level:
+    name: Level
+    description: Defined level for the Study Objective
+    comments:
+    - 'Optional
+
+      enum values:(Primary | Secondary | Exploratory )
+
+      These are defined in concordance with the ICH M11 Clinical electronic Structured
+      Harmonised Protocol Specification'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Type
+    alias: Level
     owner: StudyObjective
     domain_of:
-    - PDFPageRef
-    - Standard
-    - StudyEventDef
-    - ItemGroupDef
-    - Origin
-    - Resource
-    - MethodDef
     - StudyObjective
     - StudyEndPoint
-    - TransitionTimingConstraint
-    - RelativeTimingConstraint
-    - Branching
-    - Organization
-    - Query
+    - StudyEstimand
     range: StudyObjectiveLevel
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: StudyObjective
     domain_of:
@@ -596,6 +641,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyEndPointRefRef
     owner: StudyObjective
     domain_of:

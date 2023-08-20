@@ -19,7 +19,7 @@ URI: [StudyObjectiveLevel](StudyObjectiveLevel)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) |  |
+| [Level](Level.md) | Defined level for the Study Objective |
 
 
 

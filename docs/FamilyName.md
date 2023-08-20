@@ -1,6 +1,11 @@
 # Class: FamilyName
 
 
+_The user's surname (family name)._
+
+
+
+
 
 URI: [odm:FamilyName](http://www.cdisc.org/ns/odm/v2.0/FamilyName)
 
@@ -82,6 +87,7 @@ URI: [odm:FamilyName](http://www.cdisc.org/ns/odm/v2.0/FamilyName)
 <details>
 ```yaml
 name: FamilyName
+description: The user's surname (family name).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/FamilyName
@@ -102,6 +108,7 @@ class_uri: odm:FamilyName
 <details>
 ```yaml
 name: FamilyName
+description: The user's surname (family name).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/FamilyName

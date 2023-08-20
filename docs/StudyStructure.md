@@ -1,6 +1,11 @@
 # Class: StudyStructure
 
 
+_The StudyStructure element describes the general structure of a clinical study with arms, epochs, and workflows._
+
+
+
+
 
 URI: [odm:StudyStructure](http://www.cdisc.org/ns/odm/v2.0/StudyStructure)
 
@@ -99,6 +104,8 @@ URI: [odm:StudyStructure](http://www.cdisc.org/ns/odm/v2.0/StudyStructure)
 <details>
 ```yaml
 name: StudyStructure
+description: The StudyStructure element describes the general structure of a clinical
+  study with arms, epochs, and workflows.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyStructure
@@ -188,6 +195,8 @@ class_uri: odm:StudyStructure
 <details>
 ```yaml
 name: StudyStructure
+description: The StudyStructure element describes the general structure of a clinical
+  study with arms, epochs, and workflows.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyStructure
@@ -267,6 +276,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: StudyStructure
     domain_of:
@@ -314,6 +324,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: ArmRef
     owner: StudyStructure
     domain_of:
@@ -326,6 +337,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: EpochRef
     owner: StudyStructure
     domain_of:
@@ -337,6 +349,7 @@ attributes:
     name: WorkflowRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: WorkflowRefRef
     owner: StudyStructure
     domain_of:

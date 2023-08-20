@@ -1,6 +1,11 @@
 # Class: HouseNumber
 
 
+_The house number part of a user's postal address._
+
+
+
+
 
 URI: [odm:HouseNumber](http://www.cdisc.org/ns/odm/v2.0/HouseNumber)
 
@@ -82,6 +87,7 @@ URI: [odm:HouseNumber](http://www.cdisc.org/ns/odm/v2.0/HouseNumber)
 <details>
 ```yaml
 name: HouseNumber
+description: The house number part of a user's postal address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/HouseNumber
@@ -102,6 +108,7 @@ class_uri: odm:HouseNumber
 <details>
 ```yaml
 name: HouseNumber
+description: The house number part of a user's postal address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/HouseNumber

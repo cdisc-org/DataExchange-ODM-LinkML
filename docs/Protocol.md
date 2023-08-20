@@ -1,6 +1,11 @@
 # Class: Protocol
 
 
+_The Protocol element lists the kinds of study events that can occur within a specific version of a study. All clinical data must occur within one of these study events._
+
+
+
+
 
 URI: [odm:Protocol](http://www.cdisc.org/ns/odm/v2.0/Protocol)
 
@@ -154,6 +159,9 @@ URI: [odm:Protocol](http://www.cdisc.org/ns/odm/v2.0/Protocol)
 <details>
 ```yaml
 name: Protocol
+description: The Protocol element lists the kinds of study events that can occur within
+  a specific version of a study. All clinical data must occur within one of these
+  study events.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Protocol
@@ -330,6 +338,9 @@ class_uri: odm:Protocol
 <details>
 ```yaml
 name: Protocol
+description: The Protocol element lists the kinds of study events that can occur within
+  a specific version of a study. All clinical data must occur within one of these
+  study events.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Protocol
@@ -485,6 +496,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: Protocol
     domain_of:
@@ -531,6 +543,7 @@ attributes:
     name: StudySummaryRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StudySummaryRef
     owner: Protocol
     domain_of:
@@ -541,6 +554,7 @@ attributes:
     name: StudyStructureRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StudyStructureRef
     owner: Protocol
     domain_of:
@@ -551,6 +565,7 @@ attributes:
     name: TrialPhaseRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: TrialPhaseRef
     owner: Protocol
     domain_of:
@@ -561,6 +576,7 @@ attributes:
     name: StudyTimingsRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StudyTimingsRef
     owner: Protocol
     domain_of:
@@ -571,6 +587,7 @@ attributes:
     name: StudyIndicationsRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StudyIndicationsRef
     owner: Protocol
     domain_of:
@@ -581,6 +598,7 @@ attributes:
     name: StudyInterventionsRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StudyInterventionsRef
     owner: Protocol
     domain_of:
@@ -591,6 +609,7 @@ attributes:
     name: StudyObjectivesRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StudyObjectivesRef
     owner: Protocol
     domain_of:
@@ -601,6 +620,7 @@ attributes:
     name: StudyEndPointsRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StudyEndPointsRef
     owner: Protocol
     domain_of:
@@ -611,6 +631,7 @@ attributes:
     name: StudyTargetPopulationRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StudyTargetPopulationRefRef
     owner: Protocol
     domain_of:
@@ -622,6 +643,7 @@ attributes:
     name: StudyEstimandsRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: StudyEstimandsRef
     owner: Protocol
     domain_of:
@@ -632,6 +654,7 @@ attributes:
     name: InclusionExclusionCriteriaRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: InclusionExclusionCriteriaRef
     owner: Protocol
     domain_of:
@@ -643,6 +666,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyEventGroupRefRef
     owner: Protocol
     domain_of:
@@ -656,6 +680,7 @@ attributes:
     name: WorkflowRefRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: WorkflowRefRef
     owner: Protocol
     domain_of:
@@ -673,6 +698,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: AliasRef
     owner: Protocol
     domain_of:

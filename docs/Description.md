@@ -1,6 +1,11 @@
 # Class: Description
 
 
+_A free-text description of the containing metadata component, unless restricted by Business Rules._
+
+
+
+
 
 URI: [odm:Description](http://www.cdisc.org/ns/odm/v2.0/Description)
 
@@ -26,7 +31,7 @@ URI: [odm:Description](http://www.cdisc.org/ns/odm/v2.0/Description)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TranslatedTextRef](TranslatedTextRef.md) | 1..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
+| [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
 
 
 
@@ -120,6 +125,8 @@ URI: [odm:Description](http://www.cdisc.org/ns/odm/v2.0/Description)
 <details>
 ```yaml
 name: Description
+description: A free-text description of the containing metadata component, unless
+  restricted by Business Rules.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Description
@@ -141,10 +148,8 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Description
 
 ```
@@ -155,6 +160,8 @@ class_uri: odm:Description
 <details>
 ```yaml
 name: Description
+description: A free-text description of the containing metadata component, unless
+  restricted by Business Rules.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Description
@@ -174,16 +181,15 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   TranslatedTextRef:
     name: TranslatedTextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TranslatedTextRef
     owner: Description
     domain_of:
@@ -198,10 +204,8 @@ attributes:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Description
 
 ```

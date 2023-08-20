@@ -13,7 +13,7 @@ URI: [odm:ParameterValueRef](http://www.cdisc.org/ns/odm/v2.0/ParameterValueRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyParameter](StudyParameter.md) |  |  yes  |
+[StudyParameter](StudyParameter.md) | A StudyParameter defines a study design parameter for which the value or valu... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:ParameterValueRef](http://www.cdisc.org/ns/odm/v2.0/ParameterValueRef)
 name: ParameterValueRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ParameterValueRef
 domain_of:
 - StudyParameter

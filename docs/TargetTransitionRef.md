@@ -13,7 +13,7 @@ URI: [odm:TargetTransitionRef](http://www.cdisc.org/ns/odm/v2.0/TargetTransition
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Branching](Branching.md) |  |  yes  |
+[Branching](Branching.md) | This element describes the branching in a workflow from a source (start) stru... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:TargetTransitionRef](http://www.cdisc.org/ns/odm/v2.0/TargetTransition
 name: TargetTransitionRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: TargetTransitionRef
 domain_of:
 - Branching

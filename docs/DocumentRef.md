@@ -14,7 +14,7 @@ URI: [odm:DocumentRef](http://www.cdisc.org/ns/odm/v2.0/DocumentRef)
 ```mermaid
  classDiagram
     class DocumentRef
-      DocumentRef : leafID
+      DocumentRef : LeafID
         
       DocumentRef : PDFPageRefRef
         
@@ -33,7 +33,7 @@ URI: [odm:DocumentRef](http://www.cdisc.org/ns/odm/v2.0/DocumentRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [leafID](leafID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the leaf element with the document location | direct |
+| [LeafID](LeafID.md) | 1..1 <br/> [Oid](Oid.md) | Reference to the unique ID of the Leaf element that contains the location of ... | direct |
 | [PDFPageRefRef](PDFPageRefRef.md) | 0..* <br/> [PDFPageRef](PDFPageRef.md) | The PDFPageRef element is a container for page references in a PDF file | direct |
 
 
@@ -101,14 +101,19 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DocumentRef
 slots:
-- leafID
+- LeafID
 - PDFPageRefRef
 slot_usage:
-  leafID:
-    name: leafID
+  LeafID:
+    name: LeafID
+    description: Reference to the unique ID of the Leaf element that contains the
+      location of a file containing a document.
+    comments:
+    - 'Required
+
+      enum values:t ext'
     domain_of:
     - DocumentRef
-    - SourceItem
     range: oid
     required: true
   PDFPageRefRef:
@@ -136,11 +141,16 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DocumentRef
 slot_usage:
-  leafID:
-    name: leafID
+  LeafID:
+    name: LeafID
+    description: Reference to the unique ID of the Leaf element that contains the
+      location of a file containing a document.
+    comments:
+    - 'Required
+
+      enum values:t ext'
     domain_of:
     - DocumentRef
-    - SourceItem
     range: oid
     required: true
   PDFPageRefRef:
@@ -154,17 +164,20 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  leafID:
-    name: leafID
-    description: Unique identifier for the leaf element with the document location.
+  LeafID:
+    name: LeafID
+    description: Reference to the unique ID of the Leaf element that contains the
+      location of a file containing a document.
+    comments:
+    - 'Required
+
+      enum values:t ext'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: true
-    alias: leafID
+    alias: LeafID
     owner: DocumentRef
     domain_of:
     - DocumentRef
-    - SourceItem
     range: oid
     required: true
   PDFPageRefRef:
@@ -174,6 +187,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: PDFPageRefRef
     owner: DocumentRef
     domain_of:

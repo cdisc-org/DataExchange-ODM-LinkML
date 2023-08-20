@@ -22,7 +22,7 @@ URI: [odm:Length](http://www.cdisc.org/ns/odm/v2.0/Length)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemDef](ItemDef.md) |  |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
 
 
 

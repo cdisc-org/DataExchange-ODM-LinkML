@@ -1,6 +1,11 @@
 # Class: Country
 
 
+_The country name part of a user's postal address. For CDISC SDTM or trial registry applications, this must be represented by an ISO 3166 3-letter or US-GENC country code (e.g., FRA for France, JPN for Japan)._
+
+
+
+
 
 URI: [odm:Country](http://www.cdisc.org/ns/odm/v2.0/Country)
 
@@ -82,6 +87,9 @@ URI: [odm:Country](http://www.cdisc.org/ns/odm/v2.0/Country)
 <details>
 ```yaml
 name: Country
+description: The country name part of a user's postal address. For CDISC SDTM or trial
+  registry applications, this must be represented by an ISO 3166 3-letter or US-GENC
+  country code (e.g., FRA for France, JPN for Japan).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Country
@@ -102,6 +110,9 @@ class_uri: odm:Country
 <details>
 ```yaml
 name: Country
+description: The country name part of a user's postal address. For CDISC SDTM or trial
+  registry applications, this must be represented by an ISO 3166 3-letter or US-GENC
+  country code (e.g., FRA for France, JPN for Japan).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Country

@@ -13,9 +13,9 @@ URI: [odm:LocationRefRef](http://www.cdisc.org/ns/odm/v2.0/LocationRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[AdminData](AdminData.md) |  |  yes  |
-[AuditRecord](AuditRecord.md) |  |  yes  |
-[Signature](Signature.md) |  |  yes  |
+[AdminData](AdminData.md) | Administrative information about users, locations, organizations, and electro... |  yes  |
+[AuditRecord](AuditRecord.md) | An AuditRecord carries information pertaining to the creation, deletion, or m... |  yes  |
+[Signature](Signature.md) | An electronic signature applies to a collection of clinical data |  yes  |
 
 
 
@@ -54,6 +54,7 @@ URI: [odm:LocationRefRef](http://www.cdisc.org/ns/odm/v2.0/LocationRefRef)
 name: LocationRefRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: LocationRefRef
 domain_of:
 - AdminData

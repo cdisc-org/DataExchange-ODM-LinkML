@@ -1,6 +1,11 @@
 # Class: StudyTargetPopulation
 
 
+_The StudyTargetPopulation describes the population targeted for the clinical study._
+
+
+
+
 
 URI: [odm:StudyTargetPopulation](http://www.cdisc.org/ns/odm/v2.0/StudyTargetPopulation)
 
@@ -38,9 +43,9 @@ URI: [odm:StudyTargetPopulation](http://www.cdisc.org/ns/odm/v2.0/StudyTargetPop
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [DescriptionRef](DescriptionRef.md) | 1..1 <br/> [Description](Description.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the StudyTargetPopulation element | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable name for the StudyTargetPopulation | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
 | [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) |  | direct |
 
@@ -100,6 +105,8 @@ URI: [odm:StudyTargetPopulation](http://www.cdisc.org/ns/odm/v2.0/StudyTargetPop
 <details>
 ```yaml
 name: StudyTargetPopulation
+description: The StudyTargetPopulation describes the population targeted for the clinical
+  study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTargetPopulation
@@ -112,6 +119,13 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the StudyTargetPopulation element.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute value must be unique within the Study/MetaDataVersion.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -154,6 +168,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable name for the StudyTargetPopulation.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -233,8 +252,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -281,12 +298,21 @@ class_uri: odm:StudyTargetPopulation
 <details>
 ```yaml
 name: StudyTargetPopulation
+description: The StudyTargetPopulation describes the population targeted for the clinical
+  study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTargetPopulation
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the StudyTargetPopulation element.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute value must be unique within the Study/MetaDataVersion.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -329,6 +355,11 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Human readable name for the StudyTargetPopulation.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -408,8 +439,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -449,7 +478,13 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for the StudyTargetPopulation element.
+    comments:
+    - 'Required
+
+      range:oid
+
+      The OID attribute value must be unique within the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -497,7 +532,11 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Human readable name for the StudyTargetPopulation.
+    comments:
+    - 'Required
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -544,6 +583,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: StudyTargetPopulation
     domain_of:
@@ -585,14 +625,13 @@ attributes:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: StudyTargetPopulation
     domain_of:
@@ -620,6 +659,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: FormalExpressionRef
     owner: StudyTargetPopulation
     domain_of:

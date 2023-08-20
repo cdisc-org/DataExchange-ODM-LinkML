@@ -1,5 +1,10 @@
 # Slot: Rank
 
+
+_Numeric significance of the CodeListItem relative to others in the CodeList. The Rank attribute may be used where the relative value corresponding to an enumeration cannot or should not be determined by its lexical order. For example, if you have a list of enumerated text values including "Low", "Medium", and "High" and wish to assign these relative numeric values 1, 2, and 3 respectively, you should include a Rank attribute for each CodeListItem defined. Without the applied rank attribute, the normal lexical ordering would be "High", "Low", and "Medium"._
+
+
+
 URI: [odm:Rank](http://www.cdisc.org/ns/odm/v2.0/Rank)
 
 
@@ -13,7 +18,7 @@ URI: [odm:Rank](http://www.cdisc.org/ns/odm/v2.0/Rank)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[CodeListItem](CodeListItem.md) |  |  yes  |
+[CodeListItem](CodeListItem.md) | Defines an individual member value of a codelist |  yes  |
 
 
 
@@ -50,6 +55,13 @@ URI: [odm:Rank](http://www.cdisc.org/ns/odm/v2.0/Rank)
 <details>
 ```yaml
 name: Rank
+description: Numeric significance of the CodeListItem relative to others in the CodeList.
+  The Rank attribute may be used where the relative value corresponding to an enumeration
+  cannot or should not be determined by its lexical order. For example, if you have
+  a list of enumerated text values including "Low", "Medium", and "High" and wish
+  to assign these relative numeric values 1, 2, and 3 respectively, you should include
+  a Rank attribute for each CodeListItem defined. Without the applied rank attribute,
+  the normal lexical ordering would be "High", "Low", and "Medium".
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Rank

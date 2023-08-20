@@ -1,6 +1,11 @@
 # Class: WorkflowRef
 
 
+_The WorkflowRef references a workflow definition_
+
+
+
+
 
 URI: [odm:WorkflowRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRef)
 
@@ -24,7 +29,7 @@ URI: [odm:WorkflowRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [WorkflowOID](WorkflowOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [WorkflowOID](WorkflowOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to a WorfkflowDef | direct |
 
 
 
@@ -88,6 +93,7 @@ URI: [odm:WorkflowRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRef)
 <details>
 ```yaml
 name: WorkflowRef
+description: The WorkflowRef references a workflow definition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowRef
@@ -96,6 +102,13 @@ slots:
 slot_usage:
   WorkflowOID:
     name: WorkflowOID
+    description: Reference to a WorfkflowDef
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a WorkflowDef child element of this MetaDataVersion.'
     domain_of:
     - WorkflowRef
     range: oidref
@@ -110,12 +123,20 @@ class_uri: odm:WorkflowRef
 <details>
 ```yaml
 name: WorkflowRef
+description: The WorkflowRef references a workflow definition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowRef
 slot_usage:
   WorkflowOID:
     name: WorkflowOID
+    description: Reference to a WorfkflowDef
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a WorkflowDef child element of this MetaDataVersion.'
     domain_of:
     - WorkflowRef
     range: oidref
@@ -123,6 +144,13 @@ slot_usage:
 attributes:
   WorkflowOID:
     name: WorkflowOID
+    description: Reference to a WorfkflowDef
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID of a WorkflowDef child element of this MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: WorkflowOID

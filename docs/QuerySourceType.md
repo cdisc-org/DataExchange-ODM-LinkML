@@ -21,7 +21,7 @@ URI: [QuerySourceType](QuerySourceType)
 
 | Name | Description |
 | ---  | --- |
-| [Source](Source.md) |  |
+| [Source](Source.md) | Origin of the Query |
 
 
 

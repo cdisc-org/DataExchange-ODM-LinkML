@@ -13,7 +13,7 @@ URI: [odm:CRFCompletionInstructionsRef](http://www.cdisc.org/ns/odm/v2.0/CRFComp
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemDef](ItemDef.md) |  |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:CRFCompletionInstructionsRef](http://www.cdisc.org/ns/odm/v2.0/CRFComp
 name: CRFCompletionInstructionsRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: CRFCompletionInstructionsRef
 domain_of:
 - ItemDef

@@ -18,8 +18,8 @@ URI: [FileType](FileType)
 
 | Name | Description |
 | ---  | --- |
-| [FileTypeRef](FileTypeRef.md) |  |
-| [FileTypeRef](FileTypeRef.md) |  |
+| [FileTypeRef](FileTypeRef.md) | Snapshot means that the document contains only the current state of the data ... |
+| [FileTypeRef](FileTypeRef.md) | Snapshot means that the document contains only the current state of the data ... |
 
 
 

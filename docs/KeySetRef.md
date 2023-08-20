@@ -13,7 +13,7 @@ URI: [odm:KeySetRef](http://www.cdisc.org/ns/odm/v2.0/KeySetRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Association](Association.md) |  |  yes  |
+[Association](Association.md) | An association permits an annotation to be placed on an ordered pair of entit... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:KeySetRef](http://www.cdisc.org/ns/odm/v2.0/KeySetRef)
 name: KeySetRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: KeySetRef
 domain_of:
 - Association

@@ -1,5 +1,10 @@
 # Slot: PriorFileOID
 
+
+_Reference to the previous file (if any) in a series._
+
+
+
 URI: [odm:PriorFileOID](http://www.cdisc.org/ns/odm/v2.0/PriorFileOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:PriorFileOID](http://www.cdisc.org/ns/odm/v2.0/PriorFileOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) |  |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:PriorFileOID](http://www.cdisc.org/ns/odm/v2.0/PriorFileOID)
 <details>
 ```yaml
 name: PriorFileOID
+description: Reference to the previous file (if any) in a series.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: PriorFileOID

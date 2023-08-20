@@ -18,8 +18,8 @@ URI: [SoftOrHard](SoftOrHard)
 
 | Name | Description |
 | ---  | --- |
-| [SoftHard](SoftHard.md) |  |
-| [SoftHard](SoftHard.md) |  |
+| [SoftHard](SoftHard.md) | Type of range check |
+| [SoftHard](SoftHard.md) | Type of range check |
 
 
 

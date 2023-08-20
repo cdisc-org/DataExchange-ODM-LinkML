@@ -13,7 +13,7 @@ URI: [odm:CommentRef](http://www.cdisc.org/ns/odm/v2.0/CommentRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Annotation](Annotation.md) |  |  yes  |
+[Annotation](Annotation.md) | A general note about clinical data |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:CommentRef](http://www.cdisc.org/ns/odm/v2.0/CommentRef)
 name: CommentRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: CommentRef
 domain_of:
 - Annotation

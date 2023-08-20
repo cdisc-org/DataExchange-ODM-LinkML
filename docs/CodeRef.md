@@ -1,5 +1,10 @@
 # Slot: CodeRef
 
+
+_A string pattern that identifies a concept as defined by the code system._
+
+
+
 URI: [odm:CodeRef](http://www.cdisc.org/ns/odm/v2.0/CodeRef)
 
 
@@ -13,8 +18,8 @@ URI: [odm:CodeRef](http://www.cdisc.org/ns/odm/v2.0/CodeRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[FormalExpression](FormalExpression.md) |  |  yes  |
-[Coding](Coding.md) |  |  yes  |
+[FormalExpression](FormalExpression.md) | A FormalExpression used within a ConditionDef or a RangeCheck must evaluate t... |  yes  |
+[Coding](Coding.md) | Coding references a symbol from a defined code system |  yes  |
 
 
 
@@ -51,8 +56,10 @@ URI: [odm:CodeRef](http://www.cdisc.org/ns/odm/v2.0/CodeRef)
 <details>
 ```yaml
 name: CodeRef
+description: A string pattern that identifies a concept as defined by the code system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: CodeRef
 domain_of:
 - FormalExpression

@@ -1,6 +1,11 @@
 # Class: LocationRef
 
 
+_A reference to the user's physical location._
+
+
+
+
 
 URI: [odm:LocationRef](http://www.cdisc.org/ns/odm/v2.0/LocationRef)
 
@@ -24,7 +29,7 @@ URI: [odm:LocationRef](http://www.cdisc.org/ns/odm/v2.0/LocationRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [LocationOID](LocationOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [LocationOID](LocationOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to a Location definition | direct |
 
 
 
@@ -83,6 +88,7 @@ URI: [odm:LocationRef](http://www.cdisc.org/ns/odm/v2.0/LocationRef)
 <details>
 ```yaml
 name: LocationRef
+description: A reference to the user's physical location.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/LocationRef
@@ -91,6 +97,14 @@ slots:
 slot_usage:
   LocationOID:
     name: LocationOID
+    description: Reference to a Location definition.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID for an AdminData/Location element and the LocationOID for
+      the UserRef element contained within the AuditRecord or Signature. '
     domain_of:
     - User
     - Organization
@@ -108,12 +122,21 @@ class_uri: odm:LocationRef
 <details>
 ```yaml
 name: LocationRef
+description: A reference to the user's physical location.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/LocationRef
 slot_usage:
   LocationOID:
     name: LocationOID
+    description: Reference to a Location definition.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID for an AdminData/Location element and the LocationOID for
+      the UserRef element contained within the AuditRecord or Signature. '
     domain_of:
     - User
     - Organization
@@ -124,6 +147,14 @@ slot_usage:
 attributes:
   LocationOID:
     name: LocationOID
+    description: Reference to a Location definition.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID for an AdminData/Location element and the LocationOID for
+      the UserRef element contained within the AuditRecord or Signature. '
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: LocationOID

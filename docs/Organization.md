@@ -1,6 +1,11 @@
 # Class: Organization
 
 
+_An organization can reference a parent organization. Users may be associated with an Organization. An Organization may be associated with a Location. A User, Location, or Organization may have an address._
+
+
+
+
 
 URI: [odm:Organization](http://www.cdisc.org/ns/odm/v2.0/Organization)
 
@@ -48,12 +53,12 @@ URI: [odm:Organization](http://www.cdisc.org/ns/odm/v2.0/Organization)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [Role](Role.md) | 0..1 <br/> [Text](Text.md) |  | direct |
-| [Type](Type.md) | 1..1 <br/> [OrganizationType](OrganizationType.md) | Type of page for page references indicated in the PageRefs attribute | direct |
-| [LocationOID](LocationOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [PartOfOrganizationOID](PartOfOrganizationOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the organization | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Formal, human readable name of the organization | direct |
+| [Role](Role.md) | 0..1 <br/> [Text](Text.md) | Role of the organization in the current study | direct |
+| [Type](Type.md) | 1..1 <br/> [OrganizationType](OrganizationType.md) | Categorization of organizations associated with clinical studies | direct |
+| [LocationOID](LocationOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a location where data is collected and/or study subjects are tre... | direct |
+| [PartOfOrganizationOID](PartOfOrganizationOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a parent organization | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 | [AddressRef](AddressRef.md) | 0..* <br/> [Address](Address.md) |  | direct |
 | [TelecomRef](TelecomRef.md) | 0..* <br/> [Telecom](Telecom.md) |  | direct |
@@ -114,6 +119,9 @@ URI: [odm:Organization](http://www.cdisc.org/ns/odm/v2.0/Organization)
 <details>
 ```yaml
 name: Organization
+description: An organization can reference a parent organization. Users may be associated
+  with an Organization. An Organization may be associated with a Location. A User,
+  Location, or Organization may have an address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Organization
@@ -130,6 +138,13 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the organization.
+    comments:
+    - 'Required
+
+      range:oid
+
+      Must be unique within the Organization elements for a study.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -172,6 +187,13 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Formal, human readable name of the organization.
+    comments:
+    - 'Required
+
+      range:name
+
+      Must be unique within the set of Organization elements for a study.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -212,6 +234,11 @@ slot_usage:
     required: true
   Role:
     name: Role
+    description: Role of the organization in the current study.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ItemRef
     - Organization
@@ -219,7 +246,15 @@ slot_usage:
     range: text
   Type:
     name: Type
+    description: Categorization of organizations associated with clinical studies.
+    comments:
+    - 'Required
+
+      enum values:(Sponsor | Site | CRO | Lab | Other | TechnologyProvider)
+
+      An ODM extension is required if additional Type values are needed.'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -227,7 +262,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -238,6 +272,14 @@ slot_usage:
     required: true
   LocationOID:
     name: LocationOID
+    description: Reference to a location where data is collected and/or study subjects
+      are treated.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID attribute for a Location element for the study.'
     domain_of:
     - User
     - Organization
@@ -246,6 +288,13 @@ slot_usage:
     range: oidref
   PartOfOrganizationOID:
     name: PartOfOrganizationOID
+    description: Reference to a parent organization.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID Organization within the study.'
     domain_of:
     - Organization
     range: oidref
@@ -321,12 +370,22 @@ class_uri: odm:Organization
 <details>
 ```yaml
 name: Organization
+description: An organization can reference a parent organization. Users may be associated
+  with an Organization. An Organization may be associated with a Location. A User,
+  Location, or Organization may have an address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Organization
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for the organization.
+    comments:
+    - 'Required
+
+      range:oid
+
+      Must be unique within the Organization elements for a study.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -369,6 +428,13 @@ slot_usage:
     required: true
   Name:
     name: Name
+    description: Formal, human readable name of the organization.
+    comments:
+    - 'Required
+
+      range:name
+
+      Must be unique within the set of Organization elements for a study.'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -409,6 +475,11 @@ slot_usage:
     required: true
   Role:
     name: Role
+    description: Role of the organization in the current study.
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ItemRef
     - Organization
@@ -416,7 +487,15 @@ slot_usage:
     range: text
   Type:
     name: Type
+    description: Categorization of organizations associated with clinical studies.
+    comments:
+    - 'Required
+
+      enum values:(Sponsor | Site | CRO | Lab | Other | TechnologyProvider)
+
+      An ODM extension is required if additional Type values are needed.'
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -424,7 +503,6 @@ slot_usage:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -435,6 +513,14 @@ slot_usage:
     required: true
   LocationOID:
     name: LocationOID
+    description: Reference to a location where data is collected and/or study subjects
+      are treated.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID attribute for a Location element for the study.'
     domain_of:
     - User
     - Organization
@@ -443,6 +529,13 @@ slot_usage:
     range: oidref
   PartOfOrganizationOID:
     name: PartOfOrganizationOID
+    description: Reference to a parent organization.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID Organization within the study.'
     domain_of:
     - Organization
     range: oidref
@@ -511,7 +604,13 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for the organization.
+    comments:
+    - 'Required
+
+      range:oid
+
+      Must be unique within the Organization elements for a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -559,7 +658,13 @@ attributes:
     required: true
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: Formal, human readable name of the organization.
+    comments:
+    - 'Required
+
+      range:name
+
+      Must be unique within the set of Organization elements for a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -604,6 +709,11 @@ attributes:
     required: true
   Role:
     name: Role
+    description: Role of the organization in the current study.
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Role
@@ -615,12 +725,19 @@ attributes:
     range: text
   Type:
     name: Type
-    description: Type of page for page references indicated in the PageRefs attribute.
+    description: Categorization of organizations associated with clinical studies.
+    comments:
+    - 'Required
+
+      enum values:(Sponsor | Site | CRO | Lab | Other | TechnologyProvider)
+
+      An ODM extension is required if additional Type values are needed.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Type
     owner: Organization
     domain_of:
+    - TranslatedText
     - PDFPageRef
     - Standard
     - StudyEventDef
@@ -628,7 +745,6 @@ attributes:
     - Origin
     - Resource
     - MethodDef
-    - StudyObjective
     - StudyEndPoint
     - TransitionTimingConstraint
     - RelativeTimingConstraint
@@ -639,6 +755,14 @@ attributes:
     required: true
   LocationOID:
     name: LocationOID
+    description: Reference to a location where data is collected and/or study subjects
+      are treated.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID attribute for a Location element for the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: LocationOID
@@ -651,6 +775,13 @@ attributes:
     range: oidref
   PartOfOrganizationOID:
     name: PartOfOrganizationOID
+    description: Reference to a parent organization.
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      Must match the OID Organization within the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: PartOfOrganizationOID
@@ -662,6 +793,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: Organization
     domain_of:
@@ -709,6 +841,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: AddressRef
     owner: Organization
     domain_of:
@@ -723,6 +856,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TelecomRef
     owner: Organization
     domain_of:

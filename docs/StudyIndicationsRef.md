@@ -13,7 +13,7 @@ URI: [odm:StudyIndicationsRef](http://www.cdisc.org/ns/odm/v2.0/StudyIndications
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Protocol](Protocol.md) |  |  yes  |
+[Protocol](Protocol.md) | The Protocol element lists the kinds of study events that can occur within a ... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:StudyIndicationsRef](http://www.cdisc.org/ns/odm/v2.0/StudyIndications
 name: StudyIndicationsRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: StudyIndicationsRef
 domain_of:
 - Protocol

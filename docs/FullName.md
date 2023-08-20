@@ -1,6 +1,11 @@
 # Class: FullName
 
 
+_The user's full formal name. May be a combination of Prefix, GivenName, FamilyName & Suffix. Intended to be used for display._
+
+
+
+
 
 URI: [odm:FullName](http://www.cdisc.org/ns/odm/v2.0/FullName)
 
@@ -82,6 +87,8 @@ URI: [odm:FullName](http://www.cdisc.org/ns/odm/v2.0/FullName)
 <details>
 ```yaml
 name: FullName
+description: The user's full formal name. May be a combination of Prefix, GivenName,
+  FamilyName & Suffix. Intended to be used for display.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/FullName
@@ -102,6 +109,8 @@ class_uri: odm:FullName
 <details>
 ```yaml
 name: FullName
+description: The user's full formal name. May be a combination of Prefix, GivenName,
+  FamilyName & Suffix. Intended to be used for display.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/FullName

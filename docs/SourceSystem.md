@@ -1,5 +1,10 @@
 # Slot: SourceSystem
 
+
+_The computer system or database management system that is the source of the information in this file._
+
+
+
 URI: [odm:SourceSystem](http://www.cdisc.org/ns/odm/v2.0/SourceSystem)
 
 
@@ -13,7 +18,7 @@ URI: [odm:SourceSystem](http://www.cdisc.org/ns/odm/v2.0/SourceSystem)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) |  |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:SourceSystem](http://www.cdisc.org/ns/odm/v2.0/SourceSystem)
 <details>
 ```yaml
 name: SourceSystem
+description: The computer system or database management system that is the source
+  of the information in this file.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SourceSystem

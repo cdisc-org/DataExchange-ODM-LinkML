@@ -1,6 +1,11 @@
 # Class: Selection
 
 
+_Template for machine-readable/executable expression for retrieving the data or information from an external resource._
+
+
+
+
 
 URI: [odm:Selection](http://www.cdisc.org/ns/odm/v2.0/Selection)
 
@@ -24,7 +29,7 @@ URI: [odm:Selection](http://www.cdisc.org/ns/odm/v2.0/Selection)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Path](Path.md) | 1..1 <br/> [Text](Text.md) |  | direct |
+| [Path](Path.md) | 1..1 <br/> [Text](Text.md) | Provides the machine-executable instruction or template for it to obtain the ... | direct |
 
 
 
@@ -82,6 +87,8 @@ URI: [odm:Selection](http://www.cdisc.org/ns/odm/v2.0/Selection)
 <details>
 ```yaml
 name: Selection
+description: Template for machine-readable/executable expression for retrieving the
+  data or information from an external resource.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Selection
@@ -90,6 +97,14 @@ slots:
 slot_usage:
   Path:
     name: Path
+    description: Provides the machine-executable instruction or template for it to
+      obtain the data or information from the resource. The value of the Path attribute
+      can either be an absolute path, or a relative path starting from the information
+      in the "Name" and "Attribute" attributes of the parent Resource element.
+    comments:
+    - 'Required
+
+      range:text'
     domain_of:
     - Selection
     range: text
@@ -104,12 +119,22 @@ class_uri: odm:Selection
 <details>
 ```yaml
 name: Selection
+description: Template for machine-readable/executable expression for retrieving the
+  data or information from an external resource.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Selection
 slot_usage:
   Path:
     name: Path
+    description: Provides the machine-executable instruction or template for it to
+      obtain the data or information from the resource. The value of the Path attribute
+      can either be an absolute path, or a relative path starting from the information
+      in the "Name" and "Attribute" attributes of the parent Resource element.
+    comments:
+    - 'Required
+
+      range:text'
     domain_of:
     - Selection
     range: text
@@ -117,6 +142,14 @@ slot_usage:
 attributes:
   Path:
     name: Path
+    description: Provides the machine-executable instruction or template for it to
+      obtain the data or information from the resource. The value of the Path attribute
+      can either be an absolute path, or a relative path starting from the information
+      in the "Name" and "Attribute" attributes of the parent Resource element.
+    comments:
+    - 'Required
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Path

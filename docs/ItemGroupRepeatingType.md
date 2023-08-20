@@ -20,7 +20,7 @@ URI: [ItemGroupRepeatingType](ItemGroupRepeatingType)
 
 | Name | Description |
 | ---  | --- |
-| [Repeating](Repeating.md) |  |
+| [Repeating](Repeating.md) | The Repeating attribute indicates that the ItemGroup may occur repeatedly wit... |
 
 
 

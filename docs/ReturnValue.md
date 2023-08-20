@@ -1,6 +1,11 @@
 # Class: ReturnValue
 
 
+_The ReturnValue element represents a return value used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck. A return value identifies values passed from the Method to the calling element. A ReturnValue may be computed by a FormalExpression._
+
+
+
+
 
 URI: [odm:ReturnValue](http://www.cdisc.org/ns/odm/v2.0/ReturnValue)
 
@@ -32,10 +37,10 @@ URI: [odm:ReturnValue](http://www.cdisc.org/ns/odm/v2.0/ReturnValue)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [DataTypeRef](DataTypeRef.md) | 1..1 <br/> [DataType](DataType.md) | The DataType attribute specifies how the corresponding value | direct |
-| [DefinitionRef](DefinitionRef.md) | 0..1 <br/> [Text](Text.md) |  | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) |  | direct |
+| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | The return value name | direct |
+| [DataTypeRef](DataTypeRef.md) | 1..1 <br/> [DataType](DataType.md) | Return value datatype | direct |
+| [DefinitionRef](DefinitionRef.md) | 0..1 <br/> [Text](Text.md) | A free-text definition of the return value | direct |
+| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Position of the ReturnValue | direct |
 
 
 
@@ -93,6 +98,9 @@ URI: [odm:ReturnValue](http://www.cdisc.org/ns/odm/v2.0/ReturnValue)
 <details>
 ```yaml
 name: ReturnValue
+description: The ReturnValue element represents a return value used as part of a MethodSignature
+  in MethodDef, ConditionDef, or RangeCheck. A return value identifies values passed
+  from the Method to the calling element. A ReturnValue may be computed by a FormalExpression.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ReturnValue
@@ -104,6 +112,11 @@ slots:
 slot_usage:
   Name:
     name: Name
+    description: The return value name.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -144,6 +157,14 @@ slot_usage:
     required: true
   DataTypeRef:
     name: DataTypeRef
+    description: Return value datatype
+    comments:
+    - 'Required
+
+      enum values:(text | integer | decimal | float | double | date | time | datetime
+      | string | boolean | double | hexBinary | base64Binary | hexFloat | base64Float
+      | partialDate | partialTime | partialDatetime | durationDatetime | intervalDatetime
+      | incompleteDatetime | incompleteDate | incompleteTime | URI )'
     domain_of:
     - ItemDef
     - CodeList
@@ -153,6 +174,11 @@ slot_usage:
     required: true
   DefinitionRef:
     name: DefinitionRef
+    description: A free-text definition of the return value
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ItemDef
     - Parameter
@@ -160,6 +186,11 @@ slot_usage:
     range: text
   OrderNumber:
     name: OrderNumber
+    description: Position of the ReturnValue
+    comments:
+    - 'Optional
+
+      range:positiveInteger'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -180,12 +211,20 @@ class_uri: odm:ReturnValue
 <details>
 ```yaml
 name: ReturnValue
+description: The ReturnValue element represents a return value used as part of a MethodSignature
+  in MethodDef, ConditionDef, or RangeCheck. A return value identifies values passed
+  from the Method to the calling element. A ReturnValue may be computed by a FormalExpression.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ReturnValue
 slot_usage:
   Name:
     name: Name
+    description: The return value name.
+    comments:
+    - 'Required
+
+      range:name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -226,6 +265,14 @@ slot_usage:
     required: true
   DataTypeRef:
     name: DataTypeRef
+    description: Return value datatype
+    comments:
+    - 'Required
+
+      enum values:(text | integer | decimal | float | double | date | time | datetime
+      | string | boolean | double | hexBinary | base64Binary | hexFloat | base64Float
+      | partialDate | partialTime | partialDatetime | durationDatetime | intervalDatetime
+      | incompleteDatetime | incompleteDate | incompleteTime | URI )'
     domain_of:
     - ItemDef
     - CodeList
@@ -235,6 +282,11 @@ slot_usage:
     required: true
   DefinitionRef:
     name: DefinitionRef
+    description: A free-text definition of the return value
+    comments:
+    - 'Optional
+
+      range:text'
     domain_of:
     - ItemDef
     - Parameter
@@ -242,6 +294,11 @@ slot_usage:
     range: text
   OrderNumber:
     name: OrderNumber
+    description: Position of the ReturnValue
+    comments:
+    - 'Optional
+
+      range:positiveInteger'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -255,7 +312,11 @@ slot_usage:
 attributes:
   Name:
     name: Name
-    description: General observation Sub Class.
+    description: The return value name.
+    comments:
+    - 'Required
+
+      range:name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -300,8 +361,14 @@ attributes:
     required: true
   DataTypeRef:
     name: DataTypeRef
-    description: "The DataType attribute specifies how the corresponding value\n \
-      \                   elements are to be interpreted for comparison and storage."
+    description: Return value datatype
+    comments:
+    - 'Required
+
+      enum values:(text | integer | decimal | float | double | date | time | datetime
+      | string | boolean | double | hexBinary | base64Binary | hexFloat | base64Float
+      | partialDate | partialTime | partialDatetime | durationDatetime | intervalDatetime
+      | incompleteDatetime | incompleteDate | incompleteTime | URI )'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: DataTypeRef
@@ -315,8 +382,14 @@ attributes:
     required: true
   DefinitionRef:
     name: DefinitionRef
+    description: A free-text definition of the return value
+    comments:
+    - 'Optional
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DefinitionRef
     owner: ReturnValue
     domain_of:
@@ -326,6 +399,11 @@ attributes:
     range: text
   OrderNumber:
     name: OrderNumber
+    description: Position of the ReturnValue
+    comments:
+    - 'Optional
+
+      range:positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: OrderNumber

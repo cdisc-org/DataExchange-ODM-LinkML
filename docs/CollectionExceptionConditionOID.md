@@ -1,5 +1,10 @@
 # Slot: CollectionExceptionConditionOID
 
+
+_Reference to a ConditionDef_
+
+
+
 URI: [odm:CollectionExceptionConditionOID](http://www.cdisc.org/ns/odm/v2.0/CollectionExceptionConditionOID)
 
 
@@ -13,10 +18,10 @@ URI: [odm:CollectionExceptionConditionOID](http://www.cdisc.org/ns/odm/v2.0/Coll
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEventGroupRef](StudyEventGroupRef.md) |  |  yes  |
-[StudyEventRef](StudyEventRef.md) |  |  yes  |
-[ItemGroupRef](ItemGroupRef.md) |  |  yes  |
-[ItemRef](ItemRef.md) |  |  yes  |
+[StudyEventGroupRef](StudyEventGroupRef.md) | This element references a StudyEventGroupDef as it occurs within a specific v... |  yes  |
+[StudyEventRef](StudyEventRef.md) | This element references a StudyEventDef as it occurs within a specific versio... |  yes  |
+[ItemGroupRef](ItemGroupRef.md) | ItemGroupRef references an ItemGroupDef as it occurs within a specific StudyE... |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
 
 
 
@@ -53,6 +58,7 @@ URI: [odm:CollectionExceptionConditionOID](http://www.cdisc.org/ns/odm/v2.0/Coll
 <details>
 ```yaml
 name: CollectionExceptionConditionOID
+description: Reference to a ConditionDef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: CollectionExceptionConditionOID

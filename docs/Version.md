@@ -18,8 +18,8 @@ URI: [odm:Version](http://www.cdisc.org/ns/odm/v2.0/Version)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Standard](Standard.md) |  |  yes  |
-[ExternalCodeLib](ExternalCodeLib.md) |  |  yes  |
+[Standard](Standard.md) | The Standard element describes each standard used within the MetaDataVersion ... |  yes  |
+[ExternalCodeLib](ExternalCodeLib.md) | The ExternalCodeLib element references a FormalExpression in an external code... |  yes  |
 
 
 

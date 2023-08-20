@@ -1,5 +1,10 @@
 # Slot: TimepointRelativeTarget
 
+
+_The relative timing between two activities or groups of activities._
+
+
+
 URI: [odm:TimepointRelativeTarget](http://www.cdisc.org/ns/odm/v2.0/TimepointRelativeTarget)
 
 
@@ -13,7 +18,7 @@ URI: [odm:TimepointRelativeTarget](http://www.cdisc.org/ns/odm/v2.0/TimepointRel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[RelativeTimingConstraint](RelativeTimingConstraint.md) |  |  yes  |
+[RelativeTimingConstraint](RelativeTimingConstraint.md) | The RelativeTimingConstraint element describes a relative timing constraint b... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:TimepointRelativeTarget](http://www.cdisc.org/ns/odm/v2.0/TimepointRel
 <details>
 ```yaml
 name: TimepointRelativeTarget
+description: The relative timing between two activities or groups of activities.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: TimepointRelativeTarget

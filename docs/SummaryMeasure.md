@@ -1,6 +1,11 @@
 # Class: SummaryMeasure
 
 
+_Element NameSummaryMeasureParent ElementsStudyEstimandElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimand/SummaryMeasureElement Textual ValueNoneAttributesNoneChild ElementsDescriptionUsage/Business Rules_
+
+
+
+
 
 URI: [odm:SummaryMeasure](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasure)
 
@@ -26,7 +31,7 @@ URI: [odm:SummaryMeasure](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasure)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [DescriptionRef](DescriptionRef.md) | 1..1 <br/> [Description](Description.md) |  | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 
 
 
@@ -84,6 +89,8 @@ URI: [odm:SummaryMeasure](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasure)
 <details>
 ```yaml
 name: SummaryMeasure
+description: Element NameSummaryMeasureParent ElementsStudyEstimandElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimand/SummaryMeasureElement
+  Textual ValueNoneAttributesNoneChild ElementsDescriptionUsage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SummaryMeasure
@@ -131,8 +138,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 class_uri: odm:SummaryMeasure
 
@@ -144,6 +149,8 @@ class_uri: odm:SummaryMeasure
 <details>
 ```yaml
 name: SummaryMeasure
+description: Element NameSummaryMeasureParent ElementsStudyEstimandElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimand/SummaryMeasureElement
+  Textual ValueNoneAttributesNoneChild ElementsDescriptionUsage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SummaryMeasure
@@ -189,14 +196,13 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 attributes:
   DescriptionRef:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: SummaryMeasure
     domain_of:
@@ -238,8 +244,6 @@ attributes:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 class_uri: odm:SummaryMeasure
 

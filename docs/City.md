@@ -1,6 +1,11 @@
 # Class: City
 
 
+_The city name part of a user's postal address._
+
+
+
+
 
 URI: [odm:City](http://www.cdisc.org/ns/odm/v2.0/City)
 
@@ -82,6 +87,7 @@ URI: [odm:City](http://www.cdisc.org/ns/odm/v2.0/City)
 <details>
 ```yaml
 name: City
+description: The city name part of a user's postal address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/City
@@ -102,6 +108,7 @@ class_uri: odm:City
 <details>
 ```yaml
 name: City
+description: The city name part of a user's postal address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/City

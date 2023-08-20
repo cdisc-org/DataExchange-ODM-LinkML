@@ -19,8 +19,8 @@ URI: [odm:ID](http://www.cdisc.org/ns/odm/v2.0/ID)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [Leaf](Leaf.md) | Contains the XLink information referenced by DocumentRef or ArchiveLocationID |  yes  |
-[Signature](Signature.md) |  |  yes  |
-[Annotation](Annotation.md) |  |  yes  |
+[Signature](Signature.md) | An electronic signature applies to a collection of clinical data |  yes  |
+[Annotation](Annotation.md) | A general note about clinical data |  yes  |
 
 
 
@@ -65,7 +65,7 @@ rank: 1000
 identifier: true
 alias: ID
 domain_of:
-- leaf
+- Leaf
 - Signature
 - Annotation
 range: oid

@@ -1,5 +1,10 @@
 # Slot: KeySequence
 
+
+_Indicates that this item is a key for the enclosing element. It also provides an ordering for the keys._
+
+
+
 URI: [odm:KeySequence](http://www.cdisc.org/ns/odm/v2.0/KeySequence)
 
 
@@ -13,7 +18,7 @@ URI: [odm:KeySequence](http://www.cdisc.org/ns/odm/v2.0/KeySequence)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemRef](ItemRef.md) |  |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:KeySequence](http://www.cdisc.org/ns/odm/v2.0/KeySequence)
 <details>
 ```yaml
 name: KeySequence
+description: Indicates that this item is a key for the enclosing element. It also
+  provides an ordering for the keys.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: KeySequence

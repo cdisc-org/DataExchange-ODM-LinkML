@@ -1,6 +1,11 @@
 # Class: Prompt
 
 
+_A prompt text shown to a human user when prompted to provide data for an item on paper or on a screen. The Prompt is a short version of the question._
+
+
+
+
 
 URI: [odm:Prompt](http://www.cdisc.org/ns/odm/v2.0/Prompt)
 
@@ -26,7 +31,7 @@ URI: [odm:Prompt](http://www.cdisc.org/ns/odm/v2.0/Prompt)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TranslatedTextRef](TranslatedTextRef.md) | 1..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
+| [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
 
 
 
@@ -84,6 +89,8 @@ URI: [odm:Prompt](http://www.cdisc.org/ns/odm/v2.0/Prompt)
 <details>
 ```yaml
 name: Prompt
+description: A prompt text shown to a human user when prompted to provide data for
+  an item on paper or on a screen. The Prompt is a short version of the question.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Prompt
@@ -105,10 +112,8 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Prompt
 
 ```
@@ -119,6 +124,8 @@ class_uri: odm:Prompt
 <details>
 ```yaml
 name: Prompt
+description: A prompt text shown to a human user when prompted to provide data for
+  an item on paper or on a screen. The Prompt is a short version of the question.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Prompt
@@ -138,16 +145,15 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   TranslatedTextRef:
     name: TranslatedTextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TranslatedTextRef
     owner: Prompt
     domain_of:
@@ -162,10 +168,8 @@ attributes:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Prompt
 
 ```

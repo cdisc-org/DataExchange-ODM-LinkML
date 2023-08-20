@@ -13,8 +13,8 @@ URI: [odm:StudyEventRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEventGroupDef](StudyEventGroupDef.md) |  |  yes  |
-[ExceptionEvent](ExceptionEvent.md) |  |  yes  |
+[StudyEventGroupDef](StudyEventGroupDef.md) | StudyEventGroupDef is a study building block that groups a number of smaller ... |  yes  |
+[ExceptionEvent](ExceptionEvent.md) | An ExceptionEvent describes an event that occurs suddenly in a study and that... |  yes  |
 
 
 
@@ -53,6 +53,7 @@ URI: [odm:StudyEventRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventRefRef)
 name: StudyEventRefRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: StudyEventRefRef
 domain_of:
 - StudyEventGroupDef

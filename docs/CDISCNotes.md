@@ -1,6 +1,11 @@
 # Class: CDISCNotes
 
 
+_Explanatory text for the variable._
+
+
+
+
 
 URI: [odm:CDISCNotes](http://www.cdisc.org/ns/odm/v2.0/CDISCNotes)
 
@@ -26,7 +31,7 @@ URI: [odm:CDISCNotes](http://www.cdisc.org/ns/odm/v2.0/CDISCNotes)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TranslatedTextRef](TranslatedTextRef.md) | 1..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
+| [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
 
 
 
@@ -84,6 +89,7 @@ URI: [odm:CDISCNotes](http://www.cdisc.org/ns/odm/v2.0/CDISCNotes)
 <details>
 ```yaml
 name: CDISCNotes
+description: Explanatory text for the variable.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CDISCNotes
@@ -105,10 +111,8 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:CDISCNotes
 
 ```
@@ -119,6 +123,7 @@ class_uri: odm:CDISCNotes
 <details>
 ```yaml
 name: CDISCNotes
+description: Explanatory text for the variable.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CDISCNotes
@@ -138,16 +143,15 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   TranslatedTextRef:
     name: TranslatedTextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TranslatedTextRef
     owner: CDISCNotes
     domain_of:
@@ -162,10 +166,8 @@ attributes:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:CDISCNotes
 
 ```

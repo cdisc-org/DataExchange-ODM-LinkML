@@ -1,5 +1,10 @@
 # Slot: UsedMethod
 
+
+_Indicates that the action was made by the system rather than a data entry form user action._
+
+
+
 URI: [odm:UsedMethod](http://www.cdisc.org/ns/odm/v2.0/UsedMethod)
 
 
@@ -13,7 +18,7 @@ URI: [odm:UsedMethod](http://www.cdisc.org/ns/odm/v2.0/UsedMethod)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[AuditRecord](AuditRecord.md) |  |  yes  |
+[AuditRecord](AuditRecord.md) | An AuditRecord carries information pertaining to the creation, deletion, or m... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:UsedMethod](http://www.cdisc.org/ns/odm/v2.0/UsedMethod)
 <details>
 ```yaml
 name: UsedMethod
+description: Indicates that the action was made by the system rather than a data entry
+  form user action.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: UsedMethod

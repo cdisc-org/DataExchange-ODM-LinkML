@@ -39,9 +39,9 @@ URI: [DataType](DataType)
 
 | Name | Description |
 | ---  | --- |
-| [DataTypeRef](DataTypeRef.md) |  |
-| [DataTypeRef](DataTypeRef.md) |  |
-| [DataTypeRef](DataTypeRef.md) |  |
+| [DataTypeRef](DataTypeRef.md) | Specification of the allowable values and the intended use of the correspondi... |
+| [DataTypeRef](DataTypeRef.md) | Parameter datatype |
+| [DataTypeRef](DataTypeRef.md) | Return value datatype |
 
 
 

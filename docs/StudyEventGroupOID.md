@@ -1,5 +1,10 @@
 # Slot: StudyEventGroupOID
 
+
+_Reference to the StudyEventGroupDef ._
+
+
+
 URI: [odm:StudyEventGroupOID](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupOID)
 
 
@@ -13,8 +18,8 @@ URI: [odm:StudyEventGroupOID](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupOI
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEventGroupRef](StudyEventGroupRef.md) |  |  yes  |
-[AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) |  |  yes  |
+[StudyEventGroupRef](StudyEventGroupRef.md) | This element references a StudyEventGroupDef as it occurs within a specific v... |  yes  |
+[AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) | The element AbsoluteTimingConstraint is used to specify when an activity, rep... |  yes  |
 
 
 
@@ -51,6 +56,7 @@ URI: [odm:StudyEventGroupOID](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupOI
 <details>
 ```yaml
 name: StudyEventGroupOID
+description: Reference to the StudyEventGroupDef .
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: StudyEventGroupOID

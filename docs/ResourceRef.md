@@ -13,7 +13,7 @@ URI: [odm:ResourceRef](http://www.cdisc.org/ns/odm/v2.0/ResourceRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SourceItem](SourceItem.md) |  |  yes  |
+[SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:ResourceRef](http://www.cdisc.org/ns/odm/v2.0/ResourceRef)
 name: ResourceRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: ResourceRef
 domain_of:
 - SourceItem

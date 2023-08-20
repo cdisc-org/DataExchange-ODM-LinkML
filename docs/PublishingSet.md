@@ -18,7 +18,7 @@ URI: [odm:PublishingSet](http://www.cdisc.org/ns/odm/v2.0/PublishingSet)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Standard](Standard.md) |  |  yes  |
+[Standard](Standard.md) | The Standard element describes each standard used within the MetaDataVersion ... |  yes  |
 
 
 

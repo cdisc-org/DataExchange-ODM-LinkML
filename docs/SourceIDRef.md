@@ -13,7 +13,7 @@ URI: [odm:SourceIDRef](http://www.cdisc.org/ns/odm/v2.0/SourceIDRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[AuditRecord](AuditRecord.md) |  |  yes  |
+[AuditRecord](AuditRecord.md) | An AuditRecord carries information pertaining to the creation, deletion, or m... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:SourceIDRef](http://www.cdisc.org/ns/odm/v2.0/SourceIDRef)
 name: SourceIDRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: SourceIDRef
 domain_of:
 - AuditRecord

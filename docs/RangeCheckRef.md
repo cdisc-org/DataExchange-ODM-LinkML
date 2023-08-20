@@ -13,8 +13,8 @@ URI: [odm:RangeCheckRef](http://www.cdisc.org/ns/odm/v2.0/RangeCheckRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[WhereClauseDef](WhereClauseDef.md) |  |  yes  |
-[ItemDef](ItemDef.md) |  |  yes  |
+[WhereClauseDef](WhereClauseDef.md) | The WhereClauseDef element specifies a condition |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
 
 
 
@@ -53,6 +53,7 @@ URI: [odm:RangeCheckRef](http://www.cdisc.org/ns/odm/v2.0/RangeCheckRef)
 name: RangeCheckRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: RangeCheckRef
 domain_of:
 - WhereClauseDef

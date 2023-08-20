@@ -1,6 +1,11 @@
 # Class: StudyEventGroupRef
 
 
+_This element references a StudyEventGroupDef as it occurs within a specific version of a study. The list of StudyEventGroupRefs identifies the types of study group events that are allowed to occur within the study._
+
+
+
+
 
 URI: [odm:StudyEventGroupRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupRef)
 
@@ -36,10 +41,10 @@ URI: [odm:StudyEventGroupRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupRe
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEventGroupOID](StudyEventGroupOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) |  | direct |
-| [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) |  | direct |
-| [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [StudyEventGroupOID](StudyEventGroupOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the StudyEventGroupDef  | direct |
+| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Indicates the order in which this StudyEventGroup appears in Metadata display... | direct |
+| [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | Indicator of whether this StudyEventGroup must appear in the study clinical d... | direct |
+| [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a ConditionDef | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 
 
@@ -100,6 +105,9 @@ URI: [odm:StudyEventGroupRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupRe
 <details>
 ```yaml
 name: StudyEventGroupRef
+description: This element references a StudyEventGroupDef as it occurs within a specific
+  version of a study. The list of StudyEventGroupRefs identifies the types of study
+  group events that are allowed to occur within the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventGroupRef
@@ -112,6 +120,15 @@ slots:
 slot_usage:
   StudyEventGroupOID:
     name: StudyEventGroupOID
+    description: Reference to the StudyEventGroupDef .
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The StudyEventGroupOID value must match the OID attribute for a StudyEventGroupDef
+      in this Study/MetaDataVersion. The StudyEventGroupRefs within a Protocol must
+      not have duplicate StudyEventGroupOID values.'
     domain_of:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
@@ -119,6 +136,15 @@ slot_usage:
     required: true
   OrderNumber:
     name: OrderNumber
+    description: Indicates the order in which this StudyEventGroup appears in Metadata
+      displays or data entry applications.
+    comments:
+    - 'Optional
+
+      range:positiveInteger
+
+      The StudyEventGroupRefs within a Protocol must not have duplicate OrderNumber
+      values.'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -131,6 +157,15 @@ slot_usage:
     range: positiveInteger
   Mandatory:
     name: Mandatory
+    description: Indicator of whether this StudyEventGroup must appear in the study
+      clinical data for each subject per the study protocol.
+    comments:
+    - 'Required
+
+      enum values:(Yes | No)
+
+      When the value is Yes, the data for each subject in the study must include a
+      StudyEventData element with this StudyEventGroupOID.'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -140,6 +175,14 @@ slot_usage:
     required: true
   CollectionExceptionConditionOID:
     name: CollectionExceptionConditionOID
+    description: Reference to a ConditionDef
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The CollectionExceptionConditionOID value must match the OID attribute for a
+      ConditionDef in this Study/MetaDataVersion.'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -198,12 +241,24 @@ class_uri: odm:StudyEventGroupRef
 <details>
 ```yaml
 name: StudyEventGroupRef
+description: This element references a StudyEventGroupDef as it occurs within a specific
+  version of a study. The list of StudyEventGroupRefs identifies the types of study
+  group events that are allowed to occur within the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventGroupRef
 slot_usage:
   StudyEventGroupOID:
     name: StudyEventGroupOID
+    description: Reference to the StudyEventGroupDef .
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The StudyEventGroupOID value must match the OID attribute for a StudyEventGroupDef
+      in this Study/MetaDataVersion. The StudyEventGroupRefs within a Protocol must
+      not have duplicate StudyEventGroupOID values.'
     domain_of:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
@@ -211,6 +266,15 @@ slot_usage:
     required: true
   OrderNumber:
     name: OrderNumber
+    description: Indicates the order in which this StudyEventGroup appears in Metadata
+      displays or data entry applications.
+    comments:
+    - 'Optional
+
+      range:positiveInteger
+
+      The StudyEventGroupRefs within a Protocol must not have duplicate OrderNumber
+      values.'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -223,6 +287,15 @@ slot_usage:
     range: positiveInteger
   Mandatory:
     name: Mandatory
+    description: Indicator of whether this StudyEventGroup must appear in the study
+      clinical data for each subject per the study protocol.
+    comments:
+    - 'Required
+
+      enum values:(Yes | No)
+
+      When the value is Yes, the data for each subject in the study must include a
+      StudyEventData element with this StudyEventGroupOID.'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -232,6 +305,14 @@ slot_usage:
     required: true
   CollectionExceptionConditionOID:
     name: CollectionExceptionConditionOID
+    description: Reference to a ConditionDef
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The CollectionExceptionConditionOID value must match the OID attribute for a
+      ConditionDef in this Study/MetaDataVersion.'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -283,6 +364,15 @@ slot_usage:
 attributes:
   StudyEventGroupOID:
     name: StudyEventGroupOID
+    description: Reference to the StudyEventGroupDef .
+    comments:
+    - 'Required
+
+      range:oidref
+
+      The StudyEventGroupOID value must match the OID attribute for a StudyEventGroupDef
+      in this Study/MetaDataVersion. The StudyEventGroupRefs within a Protocol must
+      not have duplicate StudyEventGroupOID values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyEventGroupOID
@@ -294,6 +384,15 @@ attributes:
     required: true
   OrderNumber:
     name: OrderNumber
+    description: Indicates the order in which this StudyEventGroup appears in Metadata
+      displays or data entry applications.
+    comments:
+    - 'Optional
+
+      range:positiveInteger
+
+      The StudyEventGroupRefs within a Protocol must not have duplicate OrderNumber
+      values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: OrderNumber
@@ -310,6 +409,15 @@ attributes:
     range: positiveInteger
   Mandatory:
     name: Mandatory
+    description: Indicator of whether this StudyEventGroup must appear in the study
+      clinical data for each subject per the study protocol.
+    comments:
+    - 'Required
+
+      enum values:(Yes | No)
+
+      When the value is Yes, the data for each subject in the study must include a
+      StudyEventData element with this StudyEventGroupOID.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Mandatory
@@ -323,6 +431,14 @@ attributes:
     required: true
   CollectionExceptionConditionOID:
     name: CollectionExceptionConditionOID
+    description: Reference to a ConditionDef
+    comments:
+    - 'Optional
+
+      range:oidref
+
+      The CollectionExceptionConditionOID value must match the OID attribute for a
+      ConditionDef in this Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CollectionExceptionConditionOID
@@ -337,6 +453,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: StudyEventGroupRef
     domain_of:

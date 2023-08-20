@@ -13,7 +13,7 @@ URI: [odm:StudyParameterRef](http://www.cdisc.org/ns/odm/v2.0/StudyParameterRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudySummary](StudySummary.md) |  |  yes  |
+[StudySummary](StudySummary.md) | The StudyParameter element allows to provide a set of study design parameters... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:StudyParameterRef](http://www.cdisc.org/ns/odm/v2.0/StudyParameterRef)
 name: StudyParameterRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: StudyParameterRef
 domain_of:
 - StudySummary

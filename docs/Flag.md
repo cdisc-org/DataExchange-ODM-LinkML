@@ -1,6 +1,11 @@
 # Class: Flag
 
 
+_Element NameFlagParent ElementsAnnotationElement XPath(s)/ODM/ReferenceData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/SubjectData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Annotation/FlagElement Textual ValueNoneAttributesNoneChild Elements(FlagValue, FlagType?)Usage/Business Rules_
+
+
+
+
 
 URI: [odm:Flag](http://www.cdisc.org/ns/odm/v2.0/Flag)
 
@@ -30,7 +35,7 @@ URI: [odm:Flag](http://www.cdisc.org/ns/odm/v2.0/Flag)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [FlagValueRef](FlagValueRef.md) | 1..1 <br/> [FlagValue](FlagValue.md) |  | direct |
+| [FlagValueRef](FlagValueRef.md) | 0..1 <br/> [FlagValue](FlagValue.md) |  | direct |
 | [FlagTypeRef](FlagTypeRef.md) | 0..1 <br/> [FlagType](FlagType.md) |  | direct |
 
 
@@ -89,6 +94,9 @@ URI: [odm:Flag](http://www.cdisc.org/ns/odm/v2.0/Flag)
 <details>
 ```yaml
 name: Flag
+description: Element NameFlagParent ElementsAnnotationElement XPath(s)/ODM/ReferenceData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/SubjectData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Annotation/FlagElement
+  Textual ValueNoneAttributesNoneChild Elements(FlagValue, FlagType?)Usage/Business
+  Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Flag
@@ -101,8 +109,6 @@ slot_usage:
     domain_of:
     - Flag
     range: FlagValue
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   FlagTypeRef:
     name: FlagTypeRef
@@ -120,6 +126,9 @@ class_uri: odm:Flag
 <details>
 ```yaml
 name: Flag
+description: Element NameFlagParent ElementsAnnotationElement XPath(s)/ODM/ReferenceData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/SubjectData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Annotation/FlagElement
+  Textual ValueNoneAttributesNoneChild Elements(FlagValue, FlagType?)Usage/Business
+  Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Flag
@@ -129,8 +138,6 @@ slot_usage:
     domain_of:
     - Flag
     range: FlagValue
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   FlagTypeRef:
     name: FlagTypeRef
@@ -143,18 +150,18 @@ attributes:
     name: FlagValueRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: FlagValueRef
     owner: Flag
     domain_of:
     - Flag
     range: FlagValue
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   FlagTypeRef:
     name: FlagTypeRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: FlagTypeRef
     owner: Flag
     domain_of:

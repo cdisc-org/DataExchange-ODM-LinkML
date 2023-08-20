@@ -1,5 +1,10 @@
 # Slot: EpochOID
 
+
+_Reference to an Epoch element defined in the study._
+
+
+
 URI: [odm:EpochOID](http://www.cdisc.org/ns/odm/v2.0/EpochOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:EpochOID](http://www.cdisc.org/ns/odm/v2.0/EpochOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEventGroupDef](StudyEventGroupDef.md) |  |  yes  |
+[StudyEventGroupDef](StudyEventGroupDef.md) | StudyEventGroupDef is a study building block that groups a number of smaller ... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:EpochOID](http://www.cdisc.org/ns/odm/v2.0/EpochOID)
 <details>
 ```yaml
 name: EpochOID
+description: Reference to an Epoch element defined in the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: EpochOID

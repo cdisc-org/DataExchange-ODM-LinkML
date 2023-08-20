@@ -1,6 +1,11 @@
 # Class: WhereClauseDef
 
 
+_The WhereClauseDef element specifies a condition._
+
+
+
+
 
 URI: [odm:WhereClauseDef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseDef)
 
@@ -30,9 +35,9 @@ URI: [odm:WhereClauseDef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseDef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | The Comment identifier that this value refers to | direct |
-| [RangeCheckRef](RangeCheckRef.md) | 1..* <br/> [RangeCheck](RangeCheck.md) | A WhereClause element defines a condition by using one or more RangeCheck ele... | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique ID for the WhereClauseDef | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to the unique ID of a CommentDef that describes how to join the dat... | direct |
+| [RangeCheckRef](RangeCheckRef.md) | 0..* <br/> [RangeCheck](RangeCheck.md) | A WhereClause element defines a condition by using one or more RangeCheck ele... | direct |
 
 
 
@@ -90,6 +95,7 @@ URI: [odm:WhereClauseDef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseDef)
 <details>
 ```yaml
 name: WhereClauseDef
+description: The WhereClauseDef element specifies a condition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WhereClauseDef
@@ -100,6 +106,12 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique ID for the WhereClauseDef. See Section 2.13, Element Identifiers
+      and References , for OID considerations.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -142,6 +154,16 @@ slot_usage:
     required: true
   CommentOID:
     name: CommentOID
+    description: Reference to the unique ID of a CommentDef that describes how to
+      join the datasets when the WhereClause includes references to variables in different
+      datasets.
+    comments:
+    - 'Conditional
+
+      range:oidref
+
+      Required when RangeCheck includes ItemOID values that belong to different ItemGroupDef
+      elements'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -165,10 +187,8 @@ slot_usage:
     - WhereClauseDef
     - ItemDef
     range: RangeCheck
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:WhereClauseDef
 
 ```
@@ -179,12 +199,19 @@ class_uri: odm:WhereClauseDef
 <details>
 ```yaml
 name: WhereClauseDef
+description: The WhereClauseDef element specifies a condition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WhereClauseDef
 slot_usage:
   OID:
     name: OID
+    description: Unique ID for the WhereClauseDef. See Section 2.13, Element Identifiers
+      and References , for OID considerations.
+    comments:
+    - 'Required
+
+      range:oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -227,6 +254,16 @@ slot_usage:
     required: true
   CommentOID:
     name: CommentOID
+    description: Reference to the unique ID of a CommentDef that describes how to
+      join the datasets when the WhereClause includes references to variables in different
+      datasets.
+    comments:
+    - 'Conditional
+
+      range:oidref
+
+      Required when RangeCheck includes ItemOID values that belong to different ItemGroupDef
+      elements'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -250,14 +287,17 @@ slot_usage:
     - WhereClauseDef
     - ItemDef
     range: RangeCheck
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique ID for the WhereClauseDef. See Section 2.13, Element Identifiers
+      and References , for OID considerations.
+    comments:
+    - 'Required
+
+      range:oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -305,9 +345,16 @@ attributes:
     required: true
   CommentOID:
     name: CommentOID
-    description: "The Comment identifier that this value refers to. Needed when the\
-      \ WhereClause references Items across different domains.\n                The\
-      \ Comment would define any join assumptions."
+    description: Reference to the unique ID of a CommentDef that describes how to
+      join the datasets when the WhereClause includes references to variables in different
+      datasets.
+    comments:
+    - 'Conditional
+
+      range:oidref
+
+      Required when RangeCheck includes ItemOID values that belong to different ItemGroupDef
+      elements'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CommentOID
@@ -333,16 +380,15 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: RangeCheckRef
     owner: WhereClauseDef
     domain_of:
     - WhereClauseDef
     - ItemDef
     range: RangeCheck
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:WhereClauseDef
 
 ```

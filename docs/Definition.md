@@ -1,6 +1,11 @@
 # Class: Definition
 
 
+_Definition of the item._
+
+
+
+
 
 URI: [odm:Definition](http://www.cdisc.org/ns/odm/v2.0/Definition)
 
@@ -26,7 +31,7 @@ URI: [odm:Definition](http://www.cdisc.org/ns/odm/v2.0/Definition)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TranslatedTextRef](TranslatedTextRef.md) | 1..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
+| [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
 
 
 
@@ -84,6 +89,7 @@ URI: [odm:Definition](http://www.cdisc.org/ns/odm/v2.0/Definition)
 <details>
 ```yaml
 name: Definition
+description: Definition of the item.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Definition
@@ -105,10 +111,8 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Definition
 
 ```
@@ -119,6 +123,7 @@ class_uri: odm:Definition
 <details>
 ```yaml
 name: Definition
+description: Definition of the item.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Definition
@@ -138,16 +143,15 @@ slot_usage:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   TranslatedTextRef:
     name: TranslatedTextRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: TranslatedTextRef
     owner: Definition
     domain_of:
@@ -162,10 +166,8 @@ attributes:
     - Decode
     - Comment
     range: TranslatedText
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:Definition
 
 ```

@@ -1,6 +1,11 @@
 # Class: SourceID
 
 
+_Information that identifies the source of the data within an originating system._
+
+
+
+
 
 URI: [odm:SourceID](http://www.cdisc.org/ns/odm/v2.0/SourceID)
 
@@ -82,6 +87,8 @@ URI: [odm:SourceID](http://www.cdisc.org/ns/odm/v2.0/SourceID)
 <details>
 ```yaml
 name: SourceID
+description: Information that identifies the source of the data within an originating
+  system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SourceID
@@ -102,6 +109,8 @@ class_uri: odm:SourceID
 <details>
 ```yaml
 name: SourceID
+description: Information that identifies the source of the data within an originating
+  system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SourceID

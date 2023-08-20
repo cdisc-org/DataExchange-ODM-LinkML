@@ -13,7 +13,7 @@ URI: [odm:SourceItemRef](http://www.cdisc.org/ns/odm/v2.0/SourceItemRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SourceItems](SourceItems.md) |  |  yes  |
+[SourceItems](SourceItems.md) | Identifies source items as needed to support automated data capture and end-t... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:SourceItemRef](http://www.cdisc.org/ns/odm/v2.0/SourceItemRef)
 name: SourceItemRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: SourceItemRef
 domain_of:
 - SourceItems

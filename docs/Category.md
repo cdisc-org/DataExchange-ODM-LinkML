@@ -1,5 +1,10 @@
 # Slot: Category
 
+
+_The Category attribute is typically used to indicate the study phase appropriate to this type of study event. Examples might include screening, pretreatment, treatment, and follow-up._
+
+
+
 URI: [odm:Category](http://www.cdisc.org/ns/odm/v2.0/Category)
 
 
@@ -13,7 +18,7 @@ URI: [odm:Category](http://www.cdisc.org/ns/odm/v2.0/Category)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEventDef](StudyEventDef.md) |  |  yes  |
+[StudyEventDef](StudyEventDef.md) | StudyEventDef represents the definition of an activity in a study where data ... |  yes  |
 
 
 
@@ -50,6 +55,9 @@ URI: [odm:Category](http://www.cdisc.org/ns/odm/v2.0/Category)
 <details>
 ```yaml
 name: Category
+description: The Category attribute is typically used to indicate the study phase
+  appropriate to this type of study event. Examples might include screening, pretreatment,
+  treatment, and follow-up.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Category

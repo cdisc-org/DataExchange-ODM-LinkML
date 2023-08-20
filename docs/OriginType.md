@@ -24,7 +24,7 @@ URI: [OriginType](OriginType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) |  |
+| [Type](Type.md) | Identifies how the clinical data values were obtained |
 
 
 

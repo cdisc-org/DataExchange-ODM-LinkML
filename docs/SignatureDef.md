@@ -1,6 +1,11 @@
 # Class: SignatureDef
 
 
+_Provides Metadata for signatures included in the /ODM/ClinicalData._
+
+
+
+
 
 URI: [odm:SignatureDef](http://www.cdisc.org/ns/odm/v2.0/SignatureDef)
 
@@ -36,10 +41,10 @@ URI: [odm:SignatureDef](http://www.cdisc.org/ns/odm/v2.0/SignatureDef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Methodology](Methodology.md) | 0..1 <br/> [SignMethod](SignMethod.md) |  | direct |
-| [MeaningRef](MeaningRef.md) | 1..1 <br/> [Meaning](Meaning.md) |  | direct |
-| [LegalReasonRef](LegalReasonRef.md) | 1..1 <br/> [LegalReason](LegalReason.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
+| [Methodology](Methodology.md) | 0..1 <br/> [SignMethod](SignMethod.md) | Defines the type of electronic signature, including the meaning as required b... | direct |
+| [MeaningRef](MeaningRef.md) | 0..1 <br/> [Meaning](Meaning.md) |  | direct |
+| [LegalReasonRef](LegalReasonRef.md) | 0..1 <br/> [LegalReason](LegalReason.md) |  | direct |
 
 
 
@@ -97,6 +102,7 @@ URI: [odm:SignatureDef](http://www.cdisc.org/ns/odm/v2.0/SignatureDef)
 <details>
 ```yaml
 name: SignatureDef
+description: Provides Metadata for signatures included in the /ODM/ClinicalData.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SignatureDef
@@ -108,6 +114,13 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid
+
+      Must be unique within a study.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -150,6 +163,15 @@ slot_usage:
     required: true
   Methodology:
     name: Methodology
+    description: Defines the type of electronic signature, including the meaning as
+      required by 21 CFR Part 11 .
+    comments:
+    - 'Optional
+
+      enum values:(Digital | Electronic)
+
+      If the signature is digital, it is based on cryptography. Otherwise the signature
+      is electronic.'
     domain_of:
     - SignatureDef
     range: SignMethod
@@ -158,16 +180,12 @@ slot_usage:
     domain_of:
     - SignatureDef
     range: Meaning
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   LegalReasonRef:
     name: LegalReasonRef
     domain_of:
     - SignatureDef
     range: LegalReason
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 class_uri: odm:SignatureDef
 
@@ -179,12 +197,20 @@ class_uri: odm:SignatureDef
 <details>
 ```yaml
 name: SignatureDef
+description: Provides Metadata for signatures included in the /ODM/ClinicalData.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SignatureDef
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid
+
+      Must be unique within a study.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -227,6 +253,15 @@ slot_usage:
     required: true
   Methodology:
     name: Methodology
+    description: Defines the type of electronic signature, including the meaning as
+      required by 21 CFR Part 11 .
+    comments:
+    - 'Optional
+
+      enum values:(Digital | Electronic)
+
+      If the signature is digital, it is based on cryptography. Otherwise the signature
+      is electronic.'
     domain_of:
     - SignatureDef
     range: SignMethod
@@ -235,21 +270,23 @@ slot_usage:
     domain_of:
     - SignatureDef
     range: Meaning
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   LegalReasonRef:
     name: LegalReasonRef
     domain_of:
     - SignatureDef
     range: LegalReason
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier.
+    comments:
+    - 'Required
+
+      range:oid
+
+      Must be unique within a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -297,6 +334,15 @@ attributes:
     required: true
   Methodology:
     name: Methodology
+    description: Defines the type of electronic signature, including the meaning as
+      required by 21 CFR Part 11 .
+    comments:
+    - 'Optional
+
+      enum values:(Digital | Electronic)
+
+      If the signature is digital, it is based on cryptography. Otherwise the signature
+      is electronic.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Methodology
@@ -308,25 +354,23 @@ attributes:
     name: MeaningRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: MeaningRef
     owner: SignatureDef
     domain_of:
     - SignatureDef
     range: Meaning
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   LegalReasonRef:
     name: LegalReasonRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: LegalReasonRef
     owner: SignatureDef
     domain_of:
     - SignatureDef
     range: LegalReason
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 class_uri: odm:SignatureDef
 

@@ -1,6 +1,11 @@
 # Class: StudyIntervention
 
 
+_This element describes a study intervention (e.g., medication, treatment, therapy) for the clinical study. The human-readable description is provided in the Description element. The Coding element can be used to provide a machine-readable code for the indication (e.g., ATC M01AE01 code for "Ibuprofen" when used as a nonsteroidal anti-inflammatory drug)._
+
+
+
+
 
 URI: [odm:StudyIntervention](http://www.cdisc.org/ns/odm/v2.0/StudyIntervention)
 
@@ -33,7 +38,7 @@ URI: [odm:StudyIntervention](http://www.cdisc.org/ns/odm/v2.0/StudyIntervention)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [DescriptionRef](DescriptionRef.md) | 1..1 <br/> [Description](Description.md) |  | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
 
 
@@ -92,6 +97,11 @@ URI: [odm:StudyIntervention](http://www.cdisc.org/ns/odm/v2.0/StudyIntervention)
 <details>
 ```yaml
 name: StudyIntervention
+description: This element describes a study intervention (e.g., medication, treatment,
+  therapy) for the clinical study. The human-readable description is provided in the
+  Description element. The Coding element can be used to provide a machine-readable
+  code for the indication (e.g., ATC M01AE01 code for "Ibuprofen" when used as a nonsteroidal
+  anti-inflammatory drug).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyIntervention
@@ -183,8 +193,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -219,6 +227,11 @@ class_uri: odm:StudyIntervention
 <details>
 ```yaml
 name: StudyIntervention
+description: This element describes a study intervention (e.g., medication, treatment,
+  therapy) for the clinical study. The human-readable description is provided in the
+  Description element. The Coding element can be used to provide a machine-readable
+  code for the indication (e.g., ATC M01AE01 code for "Ibuprofen" when used as a nonsteroidal
+  anti-inflammatory drug).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyIntervention
@@ -306,8 +319,6 @@ slot_usage:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -385,6 +396,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: StudyIntervention
     domain_of:
@@ -426,14 +438,13 @@ attributes:
     - Location
     - ODMFileMetadata
     range: Description
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: StudyIntervention
     domain_of:

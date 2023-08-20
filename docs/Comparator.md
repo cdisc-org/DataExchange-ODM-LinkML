@@ -24,8 +24,8 @@ URI: [Comparator](Comparator)
 
 | Name | Description |
 | ---  | --- |
-| [ComparatorRef](ComparatorRef.md) |  |
-| [ComparatorRef](ComparatorRef.md) |  |
+| [ComparatorRef](ComparatorRef.md) | Comparison operator used to compare the item and value(s) |
+| [ComparatorRef](ComparatorRef.md) | Comparison operator used to compare the item and value(s) |
 
 
 

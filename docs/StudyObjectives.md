@@ -1,6 +1,11 @@
 # Class: StudyObjectives
 
 
+_The StudyObjectives is a container element for individual StudyObjective elements._
+
+
+
+
 
 URI: [odm:StudyObjectives](http://www.cdisc.org/ns/odm/v2.0/StudyObjectives)
 
@@ -26,7 +31,7 @@ URI: [odm:StudyObjectives](http://www.cdisc.org/ns/odm/v2.0/StudyObjectives)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyObjectiveRef](StudyObjectiveRef.md) | 1..* <br/> [StudyObjective](StudyObjective.md) |  | direct |
+| [StudyObjectiveRef](StudyObjectiveRef.md) | 0..* <br/> [StudyObjective](StudyObjective.md) |  | direct |
 
 
 
@@ -84,6 +89,8 @@ URI: [odm:StudyObjectives](http://www.cdisc.org/ns/odm/v2.0/StudyObjectives)
 <details>
 ```yaml
 name: StudyObjectives
+description: The StudyObjectives is a container element for individual StudyObjective
+  elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyObjectives
@@ -96,10 +103,8 @@ slot_usage:
     domain_of:
     - StudyObjectives
     range: StudyObjective
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyObjectives
 
 ```
@@ -110,6 +115,8 @@ class_uri: odm:StudyObjectives
 <details>
 ```yaml
 name: StudyObjectives
+description: The StudyObjectives is a container element for individual StudyObjective
+  elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyObjectives
@@ -120,25 +127,22 @@ slot_usage:
     domain_of:
     - StudyObjectives
     range: StudyObjective
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   StudyObjectiveRef:
     name: StudyObjectiveRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyObjectiveRef
     owner: StudyObjectives
     domain_of:
     - StudyObjectives
     range: StudyObjective
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyObjectives
 
 ```

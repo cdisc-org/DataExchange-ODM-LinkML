@@ -1,6 +1,11 @@
 # Class: StudyParameter
 
 
+_A StudyParameter defines a study design parameter for which the value or values are delivered in the ParameterValue child element or elements._
+
+
+
+
 
 URI: [odm:StudyParameter](http://www.cdisc.org/ns/odm/v2.0/StudyParameter)
 
@@ -36,10 +41,10 @@ URI: [odm:StudyParameter](http://www.cdisc.org/ns/odm/v2.0/StudyParameter)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Term](Term.md) | 1..1 <br/> [Name](Name.md) |  | direct |
-| [ShortName](ShortName.md) | 0..1 <br/> [Name](Name.md) |  | direct |
-| [ParameterValueRef](ParameterValueRef.md) | 1..1 <br/> [ParameterValue](ParameterValue.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for StudyParameter | direct |
+| [Term](Term.md) | 1..1 <br/> [Name](Name.md) | Longer name | direct |
+| [ShortName](ShortName.md) | 0..1 <br/> [Name](Name.md) | Short name or code for the parameter | direct |
+| [ParameterValueRef](ParameterValueRef.md) | 0..1 <br/> [ParameterValue](ParameterValue.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
 
 
@@ -98,6 +103,8 @@ URI: [odm:StudyParameter](http://www.cdisc.org/ns/odm/v2.0/StudyParameter)
 <details>
 ```yaml
 name: StudyParameter
+description: A StudyParameter defines a study design parameter for which the value
+  or values are delivered in the ParameterValue child element or elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyParameter
@@ -110,6 +117,14 @@ slots:
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for StudyParameter. Note a StudyParameter can be
+      referenced from other elements.
+    comments:
+    - 'Required
+
+      range:oid
+
+      Must be unique within the Protocol.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -152,12 +167,32 @@ slot_usage:
     required: true
   Term:
     name: Term
+    description: Longer name. Provides the full name of the parameter.
+    comments:
+    - 'Required
+
+      range:name
+
+      For the CDISC end-to-end use case, when the study parameter will be included
+      in the SDTM Trial Summary (TS) domain dataset, the Term will be taken from the
+      CDISC Controlled Terminology "TSPARM" (C67152) codelist Note the term may include
+      white space.'
     domain_of:
     - StudyParameter
     range: name
     required: true
   ShortName:
     name: ShortName
+    description: Short name or code for the parameter.
+    comments:
+    - 'Required
+
+      range:name
+
+      Must not include white space. For the CDISC end-to-end use case, when the study
+      parameter will be included in the SDTM TS domain dataset, the ShortName will
+      be taken from the CDISC Controlled Terminology "TSPARMCD" (C66738) codelist
+      and the value of ShortName will be limited to 8 characters.'
     domain_of:
     - StudyParameter
     range: name
@@ -166,8 +201,6 @@ slot_usage:
     domain_of:
     - StudyParameter
     range: ParameterValue
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -202,12 +235,22 @@ class_uri: odm:StudyParameter
 <details>
 ```yaml
 name: StudyParameter
+description: A StudyParameter defines a study design parameter for which the value
+  or values are delivered in the ParameterValue child element or elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyParameter
 slot_usage:
   OID:
     name: OID
+    description: Unique identifier for StudyParameter. Note a StudyParameter can be
+      referenced from other elements.
+    comments:
+    - 'Required
+
+      range:oid
+
+      Must be unique within the Protocol.'
     domain_of:
     - Study
     - MetaDataVersion
@@ -250,12 +293,32 @@ slot_usage:
     required: true
   Term:
     name: Term
+    description: Longer name. Provides the full name of the parameter.
+    comments:
+    - 'Required
+
+      range:name
+
+      For the CDISC end-to-end use case, when the study parameter will be included
+      in the SDTM Trial Summary (TS) domain dataset, the Term will be taken from the
+      CDISC Controlled Terminology "TSPARM" (C67152) codelist Note the term may include
+      white space.'
     domain_of:
     - StudyParameter
     range: name
     required: true
   ShortName:
     name: ShortName
+    description: Short name or code for the parameter.
+    comments:
+    - 'Required
+
+      range:name
+
+      Must not include white space. For the CDISC end-to-end use case, when the study
+      parameter will be included in the SDTM TS domain dataset, the ShortName will
+      be taken from the CDISC Controlled Terminology "TSPARMCD" (C66738) codelist
+      and the value of ShortName will be limited to 8 characters.'
     domain_of:
     - StudyParameter
     range: name
@@ -264,8 +327,6 @@ slot_usage:
     domain_of:
     - StudyParameter
     range: ParameterValue
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
@@ -293,7 +354,14 @@ slot_usage:
 attributes:
   OID:
     name: OID
-    description: Unique identifier of the version within the XML document.
+    description: Unique identifier for StudyParameter. Note a StudyParameter can be
+      referenced from other elements.
+    comments:
+    - 'Required
+
+      range:oid
+
+      Must be unique within the Protocol.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -341,6 +409,16 @@ attributes:
     required: true
   Term:
     name: Term
+    description: Longer name. Provides the full name of the parameter.
+    comments:
+    - 'Required
+
+      range:name
+
+      For the CDISC end-to-end use case, when the study parameter will be included
+      in the SDTM Trial Summary (TS) domain dataset, the Term will be taken from the
+      CDISC Controlled Terminology "TSPARM" (C67152) codelist Note the term may include
+      white space.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Term
@@ -351,6 +429,16 @@ attributes:
     required: true
   ShortName:
     name: ShortName
+    description: Short name or code for the parameter.
+    comments:
+    - 'Required
+
+      range:name
+
+      Must not include white space. For the CDISC end-to-end use case, when the study
+      parameter will be included in the SDTM TS domain dataset, the ShortName will
+      be taken from the CDISC Controlled Terminology "TSPARMCD" (C66738) codelist
+      and the value of ShortName will be limited to 8 characters.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ShortName
@@ -362,19 +450,19 @@ attributes:
     name: ParameterValueRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: ParameterValueRef
     owner: StudyParameter
     domain_of:
     - StudyParameter
     range: ParameterValue
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: StudyParameter
     domain_of:

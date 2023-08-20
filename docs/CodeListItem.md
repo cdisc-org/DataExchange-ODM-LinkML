@@ -1,6 +1,11 @@
 # Class: CodeListItem
 
 
+_Defines an individual member value of a codelist. It may include a display value in the child Decode element_
+
+
+
+
 
 URI: [odm:CodeListItem](http://www.cdisc.org/ns/odm/v2.0/CodeListItem)
 
@@ -54,12 +59,12 @@ URI: [odm:CodeListItem](http://www.cdisc.org/ns/odm/v2.0/CodeListItem)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [CodedValue](CodedValue.md) | 1..1 <br/> [Value](Value.md) |  | direct |
-| [Rank](Rank.md) | 0..1 <br/> [Decimal](Decimal.md) |  | direct |
-| [Other](Other.md) | 0..1 <br/> [YesOnly](YesOnly.md) |  | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) |  | direct |
+| [CodedValue](CodedValue.md) | 1..1 <br/> [Value](Value.md) | Value of the codelist item (as it would occur in clinical data) | direct |
+| [Rank](Rank.md) | 0..1 <br/> [Decimal](Decimal.md) | Numeric significance of the CodeListItem relative to others in the CodeList | direct |
+| [Other](Other.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Flag to indicate that the term represents "other" content | direct |
+| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Ordering on the CodeListItems (within a containing CodeListItem) for use when... | direct |
 | [ExtendedValue](ExtendedValue.md) | 0..1 <br/> [YesOnly](YesOnly.md) |  | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | The Comment identifier that this value refers to | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a CommentDef  | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
 | [DecodeRef](DecodeRef.md) | 0..1 <br/> [Decode](Decode.md) |  | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
@@ -121,6 +126,8 @@ URI: [odm:CodeListItem](http://www.cdisc.org/ns/odm/v2.0/CodeListItem)
 <details>
 ```yaml
 name: CodeListItem
+description: Defines an individual member value of a codelist. It may include a display
+  value in the child Decode element
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CodeListItem
@@ -138,23 +145,52 @@ slots:
 slot_usage:
   CodedValue:
     name: CodedValue
+    description: Value of the codelist item (as it would occur in clinical data).
+    comments:
+    - 'Required
+
+      range:text'
     domain_of:
     - CodeListItem
     range: value
     required: true
   Rank:
     name: Rank
+    description: Numeric significance of the CodeListItem relative to others in the
+      CodeList. The Rank attribute may be used where the relative value corresponding
+      to an enumeration cannot or should not be determined by its lexical order. For
+      example, if you have a list of enumerated text values including "Low", "Medium",
+      and "High" and wish to assign these relative numeric values 1, 2, and 3 respectively,
+      you should include a Rank attribute for each CodeListItem defined. Without the
+      applied rank attribute, the normal lexical ordering would be "High", "Low",
+      and "Medium".
+    comments:
+    - 'Optional
+
+      range:float'
     domain_of:
     - CodeListItem
     range: decimal
   Other:
     name: Other
+    description: Flag to indicate that the term represents "other" content.
+    comments:
+    - 'Optional
+
+      range:(Yes)'
     domain_of:
     - ItemRef
     - CodeListItem
     range: YesOnly
   OrderNumber:
     name: OrderNumber
+    description: Ordering on the CodeListItems (within a containing CodeListItem)
+      for use whenever a list of Items is presented to a user. The ordering does not
+      imply anything about event scheduling, time ordering, or data correctness.
+    comments:
+    - 'Optional
+
+      range:integer'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -172,6 +208,11 @@ slot_usage:
     range: YesOnly
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef .
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -282,29 +323,60 @@ class_uri: odm:CodeListItem
 <details>
 ```yaml
 name: CodeListItem
+description: Defines an individual member value of a codelist. It may include a display
+  value in the child Decode element
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CodeListItem
 slot_usage:
   CodedValue:
     name: CodedValue
+    description: Value of the codelist item (as it would occur in clinical data).
+    comments:
+    - 'Required
+
+      range:text'
     domain_of:
     - CodeListItem
     range: value
     required: true
   Rank:
     name: Rank
+    description: Numeric significance of the CodeListItem relative to others in the
+      CodeList. The Rank attribute may be used where the relative value corresponding
+      to an enumeration cannot or should not be determined by its lexical order. For
+      example, if you have a list of enumerated text values including "Low", "Medium",
+      and "High" and wish to assign these relative numeric values 1, 2, and 3 respectively,
+      you should include a Rank attribute for each CodeListItem defined. Without the
+      applied rank attribute, the normal lexical ordering would be "High", "Low",
+      and "Medium".
+    comments:
+    - 'Optional
+
+      range:float'
     domain_of:
     - CodeListItem
     range: decimal
   Other:
     name: Other
+    description: Flag to indicate that the term represents "other" content.
+    comments:
+    - 'Optional
+
+      range:(Yes)'
     domain_of:
     - ItemRef
     - CodeListItem
     range: YesOnly
   OrderNumber:
     name: OrderNumber
+    description: Ordering on the CodeListItems (within a containing CodeListItem)
+      for use whenever a list of Items is presented to a user. The ordering does not
+      imply anything about event scheduling, time ordering, or data correctness.
+    comments:
+    - 'Optional
+
+      range:integer'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -322,6 +394,11 @@ slot_usage:
     range: YesOnly
   CommentOID:
     name: CommentOID
+    description: Reference to a CommentDef .
+    comments:
+    - 'Optional
+
+      range:oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -425,6 +502,11 @@ slot_usage:
 attributes:
   CodedValue:
     name: CodedValue
+    description: Value of the codelist item (as it would occur in clinical data).
+    comments:
+    - 'Required
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CodedValue
@@ -435,6 +517,18 @@ attributes:
     required: true
   Rank:
     name: Rank
+    description: Numeric significance of the CodeListItem relative to others in the
+      CodeList. The Rank attribute may be used where the relative value corresponding
+      to an enumeration cannot or should not be determined by its lexical order. For
+      example, if you have a list of enumerated text values including "Low", "Medium",
+      and "High" and wish to assign these relative numeric values 1, 2, and 3 respectively,
+      you should include a Rank attribute for each CodeListItem defined. Without the
+      applied rank attribute, the normal lexical ordering would be "High", "Low",
+      and "Medium".
+    comments:
+    - 'Optional
+
+      range:float'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Rank
@@ -444,6 +538,11 @@ attributes:
     range: decimal
   Other:
     name: Other
+    description: Flag to indicate that the term represents "other" content.
+    comments:
+    - 'Optional
+
+      range:(Yes)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Other
@@ -454,6 +553,13 @@ attributes:
     range: YesOnly
   OrderNumber:
     name: OrderNumber
+    description: Ordering on the CodeListItems (within a containing CodeListItem)
+      for use whenever a list of Items is presented to a user. The ordering does not
+      imply anything about event scheduling, time ordering, or data correctness.
+    comments:
+    - 'Optional
+
+      range:integer'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: OrderNumber
@@ -479,9 +585,11 @@ attributes:
     range: YesOnly
   CommentOID:
     name: CommentOID
-    description: "The Comment identifier that this value refers to. Needed when the\
-      \ WhereClause references Items across different domains.\n                The\
-      \ Comment would define any join assumptions."
+    description: Reference to a CommentDef .
+    comments:
+    - 'Optional
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CommentOID
@@ -504,6 +612,7 @@ attributes:
     name: DescriptionRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DescriptionRef
     owner: CodeListItem
     domain_of:
@@ -550,6 +659,7 @@ attributes:
     name: DecodeRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: DecodeRef
     owner: CodeListItem
     domain_of:
@@ -561,6 +671,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: CodingRef
     owner: CodeListItem
     domain_of:
@@ -588,6 +699,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: AliasRef
     owner: CodeListItem
     domain_of:

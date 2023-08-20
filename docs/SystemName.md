@@ -1,5 +1,10 @@
 # Slot: SystemName
 
+
+_Human readable name for the code system. _
+
+
+
 URI: [odm:SystemName](http://www.cdisc.org/ns/odm/v2.0/SystemName)
 
 
@@ -13,7 +18,7 @@ URI: [odm:SystemName](http://www.cdisc.org/ns/odm/v2.0/SystemName)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Coding](Coding.md) |  |  yes  |
+[Coding](Coding.md) | Coding references a symbol from a defined code system |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:SystemName](http://www.cdisc.org/ns/odm/v2.0/SystemName)
 <details>
 ```yaml
 name: SystemName
+description: 'Human readable name for the code system. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SystemName

@@ -1,6 +1,11 @@
 # Class: StudyTimings
 
 
+_The StudyTimings element is a container element for individual StudyTiming elements._
+
+
+
+
 
 URI: [odm:StudyTimings](http://www.cdisc.org/ns/odm/v2.0/StudyTimings)
 
@@ -26,7 +31,7 @@ URI: [odm:StudyTimings](http://www.cdisc.org/ns/odm/v2.0/StudyTimings)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyTimingRef](StudyTimingRef.md) | 1..* <br/> [StudyTiming](StudyTiming.md) |  | direct |
+| [StudyTimingRef](StudyTimingRef.md) | 0..* <br/> [StudyTiming](StudyTiming.md) |  | direct |
 
 
 
@@ -84,6 +89,8 @@ URI: [odm:StudyTimings](http://www.cdisc.org/ns/odm/v2.0/StudyTimings)
 <details>
 ```yaml
 name: StudyTimings
+description: The StudyTimings element is a container element for individual StudyTiming
+  elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTimings
@@ -96,10 +103,8 @@ slot_usage:
     domain_of:
     - StudyTimings
     range: StudyTiming
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyTimings
 
 ```
@@ -110,6 +115,8 @@ class_uri: odm:StudyTimings
 <details>
 ```yaml
 name: StudyTimings
+description: The StudyTimings element is a container element for individual StudyTiming
+  elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTimings
@@ -120,25 +127,22 @@ slot_usage:
     domain_of:
     - StudyTimings
     range: StudyTiming
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 attributes:
   StudyTimingRef:
     name: StudyTimingRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
+    identifier: false
     alias: StudyTimingRef
     owner: StudyTimings
     domain_of:
     - StudyTimings
     range: StudyTiming
-    required: true
     inlined: true
     inlined_as_list: true
-    minimum_cardinality: 1
 class_uri: odm:StudyTimings
 
 ```

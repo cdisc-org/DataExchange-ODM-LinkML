@@ -20,7 +20,7 @@ URI: [MethodType](MethodType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) |  |
+| [Type](Type.md) | Computation: derivation involving one or more variables |
 
 
 

@@ -1,6 +1,11 @@
 # Class: InvestigatorRef
 
 
+_Provides a reference to the user who created the SubjectData record in the source system. _
+
+
+
+
 
 URI: [odm:InvestigatorRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRef)
 
@@ -24,7 +29,7 @@ URI: [odm:InvestigatorRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [UserOID](UserOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [UserOID](UserOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to a User definition | direct |
 
 
 
@@ -82,6 +87,8 @@ URI: [odm:InvestigatorRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRef)
 <details>
 ```yaml
 name: InvestigatorRef
+description: 'Provides a reference to the user who created the SubjectData record
+  in the source system. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/InvestigatorRef
@@ -90,6 +97,14 @@ slots:
 slot_usage:
   UserOID:
     name: UserOID
+    description: Reference to a User definition.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID attribute for an AdminData/User element where the AdminData/@StudyOID
+      matches the ClinicalData/@StudyOID.'
     domain_of:
     - InvestigatorRef
     - UserRef
@@ -105,12 +120,22 @@ class_uri: odm:InvestigatorRef
 <details>
 ```yaml
 name: InvestigatorRef
+description: 'Provides a reference to the user who created the SubjectData record
+  in the source system. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/InvestigatorRef
 slot_usage:
   UserOID:
     name: UserOID
+    description: Reference to a User definition.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID attribute for an AdminData/User element where the AdminData/@StudyOID
+      matches the ClinicalData/@StudyOID.'
     domain_of:
     - InvestigatorRef
     - UserRef
@@ -119,6 +144,14 @@ slot_usage:
 attributes:
   UserOID:
     name: UserOID
+    description: Reference to a User definition.
+    comments:
+    - 'Required
+
+      range:oidref
+
+      Must match the OID attribute for an AdminData/User element where the AdminData/@StudyOID
+      matches the ClinicalData/@StudyOID.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: UserOID

@@ -1,6 +1,11 @@
 # Class: FormalExpression
 
 
+_A FormalExpression used within a ConditionDef or a RangeCheck must evaluate to True or False. A FormalExpression referenced within a MethodDef having Type Imputation, Computation, or Transpose must evaluate to the correct DataType for an Item that may be imputed or computed using the Method. A FormalExpression gets parameter and return value definitions from the MethodSignature element. The data types in the MethodSignature parameters and return values must match the corresponding data types in the FormalExpression. _
+
+
+
+
 
 URI: [odm:FormalExpression](http://www.cdisc.org/ns/odm/v2.0/FormalExpression)
 
@@ -32,9 +37,9 @@ URI: [odm:FormalExpression](http://www.cdisc.org/ns/odm/v2.0/FormalExpression)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ContextRef](ContextRef.md) | 0..1 <br/> [Text](Text.md) |  | direct |
-| [CodeRef](CodeRef.md) | 1..1 <br/> [Code](Code.md) |  | direct |
-| [ExternalCodeLibRef](ExternalCodeLibRef.md) | 1..1 <br/> [ExternalCodeLib](ExternalCodeLib.md) |  | direct |
+| [ContextRef](ContextRef.md) | 0..1 <br/> [Text](Text.md) | A free-form qualifier to suggest an appropriate computer language to be used ... | direct |
+| [CodeRef](CodeRef.md) | 0..1 <br/> [Code](Code.md) | A string pattern that identifies a concept as defined by the code system | direct |
+| [ExternalCodeLibRef](ExternalCodeLibRef.md) | 0..1 <br/> [ExternalCodeLib](ExternalCodeLib.md) |  | direct |
 
 
 
@@ -96,6 +101,13 @@ URI: [odm:FormalExpression](http://www.cdisc.org/ns/odm/v2.0/FormalExpression)
 <details>
 ```yaml
 name: FormalExpression
+description: 'A FormalExpression used within a ConditionDef or a RangeCheck must evaluate
+  to True or False. A FormalExpression referenced within a MethodDef having Type Imputation,
+  Computation, or Transpose must evaluate to the correct DataType for an Item that
+  may be imputed or computed using the Method. A FormalExpression gets parameter and
+  return value definitions from the MethodSignature element. The data types in the
+  MethodSignature parameters and return values must match the corresponding data types
+  in the FormalExpression. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/FormalExpression
@@ -106,6 +118,12 @@ slots:
 slot_usage:
   ContextRef:
     name: ContextRef
+    description: A free-form qualifier to suggest an appropriate computer language
+      to be used when evaluating the FormalExpression content.
+    comments:
+    - 'Required
+
+      range:text'
     domain_of:
     - Alias
     - FormalExpression
@@ -117,16 +135,12 @@ slot_usage:
     - FormalExpression
     - Coding
     range: Code
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   ExternalCodeLibRef:
     name: ExternalCodeLibRef
     domain_of:
     - FormalExpression
     range: ExternalCodeLib
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 class_uri: odm:FormalExpression
 
@@ -138,12 +152,25 @@ class_uri: odm:FormalExpression
 <details>
 ```yaml
 name: FormalExpression
+description: 'A FormalExpression used within a ConditionDef or a RangeCheck must evaluate
+  to True or False. A FormalExpression referenced within a MethodDef having Type Imputation,
+  Computation, or Transpose must evaluate to the correct DataType for an Item that
+  may be imputed or computed using the Method. A FormalExpression gets parameter and
+  return value definitions from the MethodSignature element. The data types in the
+  MethodSignature parameters and return values must match the corresponding data types
+  in the FormalExpression. '
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/FormalExpression
 slot_usage:
   ContextRef:
     name: ContextRef
+    description: A free-form qualifier to suggest an appropriate computer language
+      to be used when evaluating the FormalExpression content.
+    comments:
+    - 'Required
+
+      range:text'
     domain_of:
     - Alias
     - FormalExpression
@@ -155,20 +182,22 @@ slot_usage:
     - FormalExpression
     - Coding
     range: Code
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   ExternalCodeLibRef:
     name: ExternalCodeLibRef
     domain_of:
     - FormalExpression
     range: ExternalCodeLib
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 attributes:
   ContextRef:
     name: ContextRef
+    description: A free-form qualifier to suggest an appropriate computer language
+      to be used when evaluating the FormalExpression content.
+    comments:
+    - 'Required
+
+      range:text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ContextRef
@@ -180,28 +209,28 @@ attributes:
     range: text
   CodeRef:
     name: CodeRef
+    description: A string pattern that identifies a concept as defined by the code
+      system.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: CodeRef
     owner: FormalExpression
     domain_of:
     - FormalExpression
     - Coding
     range: Code
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
   ExternalCodeLibRef:
     name: ExternalCodeLibRef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: false
     alias: ExternalCodeLibRef
     owner: FormalExpression
     domain_of:
     - FormalExpression
     range: ExternalCodeLib
-    required: true
-    minimum_cardinality: 1
     maximum_cardinality: 1
 class_uri: odm:FormalExpression
 

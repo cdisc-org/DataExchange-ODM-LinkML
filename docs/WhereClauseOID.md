@@ -1,5 +1,10 @@
 # Slot: WhereClauseOID
 
+
+_Reference to the unique ID of a WhereClauseDef element_
+
+
+
 URI: [odm:WhereClauseOID](http://www.cdisc.org/ns/odm/v2.0/WhereClauseOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:WhereClauseOID](http://www.cdisc.org/ns/odm/v2.0/WhereClauseOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[WhereClauseRef](WhereClauseRef.md) |  |  yes  |
+[WhereClauseRef](WhereClauseRef.md) | The WhereClauseRef references the WhereClauseDef element that describes the c... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:WhereClauseOID](http://www.cdisc.org/ns/odm/v2.0/WhereClauseOID)
 <details>
 ```yaml
 name: WhereClauseOID
+description: Reference to the unique ID of a WhereClauseDef element
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: WhereClauseOID

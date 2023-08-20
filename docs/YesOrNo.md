@@ -18,16 +18,16 @@ URI: [YesOrNo](YesOrNo)
 
 | Name | Description |
 | ---  | --- |
-| [UsedMethod](UsedMethod.md) |  |
-| [IsReferenceData](IsReferenceData.md) |  |
-| [Mandatory](Mandatory.md) |  |
-| [Mandatory](Mandatory.md) |  |
-| [Mandatory](Mandatory.md) |  |
-| [Repeating](Repeating.md) |  |
-| [Mandatory](Mandatory.md) |  |
-| [IsReferenceData](IsReferenceData.md) |  |
-| [Mandatory](Mandatory.md) |  |
-| [UsedMethod](UsedMethod.md) |  |
+| [IsReferenceData](IsReferenceData.md) | Specifies whether this ItemGroupDef is used for non-subject data |
+| [UsedMethod](UsedMethod.md) | Indicates that the action was made by the system rather than a data entry for... |
+| [Mandatory](Mandatory.md) | Indicator of whether this StudyEventGroup must appear in the study clinical d... |
+| [Mandatory](Mandatory.md) | Indicator of whether this StudyEventGroup must appear in the study clinical d... |
+| [Mandatory](Mandatory.md) | The Mandatory flag indicates that the clinical data for the containing MetaDa... |
+| [Repeating](Repeating.md) | The Repeating flag indicates when this type of study event can occur repeated... |
+| [Mandatory](Mandatory.md) | The Mandatory flag indicates that the clinical data for an instance of the co... |
+| [IsReferenceData](IsReferenceData.md) | Specifies whether this ItemGroupDef is used for non-subject data |
+| [Mandatory](Mandatory.md) | Indicator of whether this ItemGroup must appear in the study clinical data fo... |
+| [UsedMethod](UsedMethod.md) | Indicates that the action was made by the system rather than a data entry for... |
 
 
 

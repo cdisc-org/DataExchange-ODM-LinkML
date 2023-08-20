@@ -18,8 +18,8 @@ URI: [CommentType](CommentType)
 
 | Name | Description |
 | ---  | --- |
-| [SponsorOrSite](SponsorOrSite.md) |  |
-| [SponsorOrSite](SponsorOrSite.md) |  |
+| [SponsorOrSite](SponsorOrSite.md) | Source of the comment |
+| [SponsorOrSite](SponsorOrSite.md) | Source of the comment |
 
 
 

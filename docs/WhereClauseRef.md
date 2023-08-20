@@ -1,6 +1,11 @@
 # Class: WhereClauseRef
 
 
+_The WhereClauseRef references the WhereClauseDef element that describes the conditions under which the variable values are defined by the referenced ItemDef._
+
+
+
+
 
 URI: [odm:WhereClauseRef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseRef)
 
@@ -24,7 +29,7 @@ URI: [odm:WhereClauseRef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [WhereClauseOID](WhereClauseOID.md) | 1..1 <br/> [Oidref](Oidref.md) |  | direct |
+| [WhereClauseOID](WhereClauseOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the unique ID of a WhereClauseDef element | direct |
 
 
 
@@ -82,6 +87,8 @@ URI: [odm:WhereClauseRef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseRef)
 <details>
 ```yaml
 name: WhereClauseRef
+description: The WhereClauseRef references the WhereClauseDef element that describes
+  the conditions under which the variable values are defined by the referenced ItemDef.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WhereClauseRef
@@ -90,6 +97,11 @@ slots:
 slot_usage:
   WhereClauseOID:
     name: WhereClauseOID
+    description: Reference to the unique ID of a WhereClauseDef element
+    comments:
+    - 'Required
+
+      range:oidref'
     domain_of:
     - WhereClauseRef
     range: oidref
@@ -104,12 +116,19 @@ class_uri: odm:WhereClauseRef
 <details>
 ```yaml
 name: WhereClauseRef
+description: The WhereClauseRef references the WhereClauseDef element that describes
+  the conditions under which the variable values are defined by the referenced ItemDef.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WhereClauseRef
 slot_usage:
   WhereClauseOID:
     name: WhereClauseOID
+    description: Reference to the unique ID of a WhereClauseDef element
+    comments:
+    - 'Required
+
+      range:oidref'
     domain_of:
     - WhereClauseRef
     range: oidref
@@ -117,6 +136,11 @@ slot_usage:
 attributes:
   WhereClauseOID:
     name: WhereClauseOID
+    description: Reference to the unique ID of a WhereClauseDef element
+    comments:
+    - 'Required
+
+      range:oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: WhereClauseOID

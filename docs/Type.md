@@ -18,20 +18,20 @@ URI: [odm:Type](http://www.cdisc.org/ns/odm/v2.0/Type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[TranslatedText](TranslatedText.md) | Human-readable text that is appropriate for a particular language |  yes  |
 [PDFPageRef](PDFPageRef.md) | This element is the container for CRF page references |  yes  |
-[Standard](Standard.md) |  |  yes  |
-[StudyEventDef](StudyEventDef.md) |  |  yes  |
-[ItemGroupDef](ItemGroupDef.md) |  |  yes  |
-[Origin](Origin.md) |  |  yes  |
-[Resource](Resource.md) |  |  yes  |
-[MethodDef](MethodDef.md) |  |  yes  |
-[StudyObjective](StudyObjective.md) |  |  yes  |
-[StudyEndPoint](StudyEndPoint.md) |  |  yes  |
-[TransitionTimingConstraint](TransitionTimingConstraint.md) |  |  yes  |
-[RelativeTimingConstraint](RelativeTimingConstraint.md) |  |  yes  |
-[Branching](Branching.md) |  |  yes  |
-[Organization](Organization.md) |  |  yes  |
-[Query](Query.md) |  |  yes  |
+[Standard](Standard.md) | The Standard element describes each standard used within the MetaDataVersion ... |  yes  |
+[StudyEventDef](StudyEventDef.md) | StudyEventDef represents the definition of an activity in a study where data ... |  yes  |
+[ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
+[Origin](Origin.md) | Origin defines the source metadata, where applicable, for ODM ItemRefs or Ite... |  yes  |
+[Resource](Resource.md) | Describes an external resource used as the source for the parent ItemGroup or... |  yes  |
+[MethodDef](MethodDef.md) | A MethodDef defines how a data value can be obtained from a collection of oth... |  yes  |
+[StudyEndPoint](StudyEndPoint.md) | A study end point reflects an outcome measure of interest that is statistical... |  yes  |
+[TransitionTimingConstraint](TransitionTimingConstraint.md) | The TransitionTimingConstraint element defines a timing constraint on a trans... |  yes  |
+[RelativeTimingConstraint](RelativeTimingConstraint.md) | The RelativeTimingConstraint element describes a relative timing constraint b... |  yes  |
+[Branching](Branching.md) | This element describes the branching in a workflow from a source (start) stru... |  yes  |
+[Organization](Organization.md) | An organization can reference a parent organization |  yes  |
+[Query](Query.md) | The Query element represents a request for clarification on a data item colle... |  yes  |
 
 
 
@@ -73,6 +73,7 @@ from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Type
 domain_of:
+- TranslatedText
 - PDFPageRef
 - Standard
 - StudyEventDef
@@ -80,7 +81,6 @@ domain_of:
 - Origin
 - Resource
 - MethodDef
-- StudyObjective
 - StudyEndPoint
 - TransitionTimingConstraint
 - RelativeTimingConstraint
@@ -89,14 +89,13 @@ domain_of:
 - Query
 range: string
 any_of:
+- range: text
 - range: StandardType
 - range: PDFPageType
 - range: EventType
 - range: ItemGroupTypeType
 - range: OriginType
-- range: text
 - range: MethodType
-- range: StudyObjectiveLevel
 - range: StudyEndPointType
 - range: RelativeTimingConstraintType
 - range: BranchingType

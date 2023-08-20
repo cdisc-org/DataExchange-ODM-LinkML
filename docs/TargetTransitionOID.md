@@ -1,5 +1,10 @@
 # Slot: TargetTransitionOID
 
+
+_Reference to the Transition that is one of the targets of the branching._
+
+
+
 URI: [odm:TargetTransitionOID](http://www.cdisc.org/ns/odm/v2.0/TargetTransitionOID)
 
 
@@ -13,8 +18,8 @@ URI: [odm:TargetTransitionOID](http://www.cdisc.org/ns/odm/v2.0/TargetTransition
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[TargetTransition](TargetTransition.md) |  |  yes  |
-[DefaultTransition](DefaultTransition.md) |  |  yes  |
+[TargetTransition](TargetTransition.md) | Provides a reference to a Transition element |  yes  |
+[DefaultTransition](DefaultTransition.md) | Element NameDefaultTransitionParent ElementsBranchingElement XPath(s)/ODM/Stu... |  yes  |
 
 
 
@@ -51,6 +56,7 @@ URI: [odm:TargetTransitionOID](http://www.cdisc.org/ns/odm/v2.0/TargetTransition
 <details>
 ```yaml
 name: TargetTransitionOID
+description: Reference to the Transition that is one of the targets of the branching.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: TargetTransitionOID

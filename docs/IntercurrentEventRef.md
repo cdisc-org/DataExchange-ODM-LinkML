@@ -13,7 +13,7 @@ URI: [odm:IntercurrentEventRef](http://www.cdisc.org/ns/odm/v2.0/IntercurrentEve
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEstimand](StudyEstimand.md) |  |  yes  |
+[StudyEstimand](StudyEstimand.md) | Element NameStudyEstimandParent ElementsStudyEstimandsElement XPath(s)/ODM/St... |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:IntercurrentEventRef](http://www.cdisc.org/ns/odm/v2.0/IntercurrentEve
 name: IntercurrentEventRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: IntercurrentEventRef
 domain_of:
 - StudyEstimand

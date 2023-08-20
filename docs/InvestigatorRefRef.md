@@ -13,7 +13,7 @@ URI: [odm:InvestigatorRefRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRefRe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SubjectData](SubjectData.md) |  |  yes  |
+[SubjectData](SubjectData.md) | Clinical data for a single subject |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:InvestigatorRefRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRefRe
 name: InvestigatorRefRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: InvestigatorRefRef
 domain_of:
 - SubjectData

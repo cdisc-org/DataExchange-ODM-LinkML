@@ -1,6 +1,11 @@
 # Class: Prefix
 
 
+_Title or other prefix. Maps to FHIR HumanName.prefix (https://www.hl7.org/fhir/datatypes.html#humanname)._
+
+
+
+
 
 URI: [odm:Prefix](http://www.cdisc.org/ns/odm/v2.0/Prefix)
 
@@ -82,6 +87,7 @@ URI: [odm:Prefix](http://www.cdisc.org/ns/odm/v2.0/Prefix)
 <details>
 ```yaml
 name: Prefix
+description: Title or other prefix. Maps to FHIR HumanName.prefix (https://www.hl7.org/fhir/datatypes.html#humanname).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Prefix
@@ -102,6 +108,7 @@ class_uri: odm:Prefix
 <details>
 ```yaml
 name: Prefix
+description: Title or other prefix. Maps to FHIR HumanName.prefix (https://www.hl7.org/fhir/datatypes.html#humanname).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Prefix

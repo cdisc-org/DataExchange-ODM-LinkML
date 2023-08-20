@@ -13,7 +13,7 @@ URI: [odm:GeoPositionRef](http://www.cdisc.org/ns/odm/v2.0/GeoPositionRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Address](Address.md) |  |  yes  |
+[Address](Address.md) | The postal address for a user, location, or organization |  yes  |
 
 
 
@@ -52,6 +52,7 @@ URI: [odm:GeoPositionRef](http://www.cdisc.org/ns/odm/v2.0/GeoPositionRef)
 name: GeoPositionRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: false
 alias: GeoPositionRef
 domain_of:
 - Address

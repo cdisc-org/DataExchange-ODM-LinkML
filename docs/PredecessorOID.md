@@ -1,5 +1,10 @@
 # Slot: PredecessorOID
 
+
+_Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that occurs immediately before the RelativeTimepointTarget._
+
+
+
 URI: [odm:PredecessorOID](http://www.cdisc.org/ns/odm/v2.0/PredecessorOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:PredecessorOID](http://www.cdisc.org/ns/odm/v2.0/PredecessorOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[RelativeTimingConstraint](RelativeTimingConstraint.md) |  |  yes  |
+[RelativeTimingConstraint](RelativeTimingConstraint.md) | The RelativeTimingConstraint element describes a relative timing constraint b... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:PredecessorOID](http://www.cdisc.org/ns/odm/v2.0/PredecessorOID)
 <details>
 ```yaml
 name: PredecessorOID
+description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that occurs
+  immediately before the RelativeTimepointTarget.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: PredecessorOID
