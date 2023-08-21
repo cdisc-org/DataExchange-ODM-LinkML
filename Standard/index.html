@@ -242,43 +242,43 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
-<td>Unique identifier for the standard</td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
+<td>Unique identifier for the standard.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
 <td>1..1 <br/> <a href="../StandardName/">StandardName</a></td>
-<td>Name of the external standard to which the data conforms</td>
+<td>Name of the external standard to which the data conforms.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Type/">Type</a></td>
 <td>1..1 <br/> <a href="../StandardType/">StandardType</a></td>
-<td>The type of standard</td>
+<td>The type of standard.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../PublishingSet/">PublishingSet</a></td>
 <td>0..1 <br/> <a href="../StandardPublishingSet/">StandardPublishingSet</a></td>
-<td>The name of the publishing set that contains the published standard</td>
+<td>The name of the publishing set that contains the published standard.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Version/">Version</a></td>
-<td>1..1 <br/> <a href="Text.md">Text</a></td>
-<td>Version of the external standard to which the data conforms</td>
+<td>1..1 <br/> <a href="../text/">text</a></td>
+<td>Version of the external standard to which the data conforms.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Status/">Status</a></td>
 <td>1..1 <br/> <a href="../StandardStatus/">StandardStatus</a></td>
-<td>Publishing status of the standard</td>
+<td>Publishing status of the standard.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CommentOID/">CommentOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>Reference to the unique ID of a CommentDef element that contains the comment ...</td>
 <td>direct</td>
 </tr>
@@ -450,7 +450,7 @@ slot_usage:
     required: true
   Type:
     name: Type
-    description: 'The type of standard. '
+    description: The type of standard.
     comments:
     - 'Required
 
@@ -663,7 +663,7 @@ slot_usage:
     required: true
   Type:
     name: Type
-    description: 'The type of standard. '
+    description: The type of standard.
     comments:
     - 'Required
 
@@ -873,7 +873,7 @@ attributes:
     required: true
   Type:
     name: Type
-    description: 'The type of standard. '
+    description: The type of standard.
     comments:
     - 'Required
 

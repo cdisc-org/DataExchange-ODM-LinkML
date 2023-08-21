@@ -240,32 +240,32 @@
 <tbody>
 <tr>
 <td><a href="../ID/">ID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
-<td>Unique identifier for the leaf that is referenced</td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
+<td>Unique identifier for the leaf that is referenced.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../UserRefRef/">UserRefRef</a></td>
 <td>0..1 <br/> <a href="../UserRef/">UserRef</a></td>
-<td></td>
+<td>UserRef reference: None</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../LocationRefRef/">LocationRefRef</a></td>
 <td>0..1 <br/> <a href="../LocationRef/">LocationRef</a></td>
-<td></td>
+<td>LocationRef reference: A reference to the user's physical location.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../SignatureRefRef/">SignatureRefRef</a></td>
 <td>0..1 <br/> <a href="../SignatureRef/">SignatureRef</a></td>
-<td></td>
+<td>SignatureRef reference: None</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DateTimeStampRef/">DateTimeStampRef</a></td>
 <td>0..1 <br/> <a href="../DateTimeStamp/">DateTimeStamp</a></td>
-<td></td>
+<td>DateTimeStamp reference: None</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -484,6 +484,7 @@ attributes:
     required: true
   UserRefRef:
     name: UserRefRef
+    description: 'UserRef reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -497,6 +498,7 @@ attributes:
     maximum_cardinality: 1
   LocationRefRef:
     name: LocationRefRef
+    description: 'LocationRef reference: A reference to the user''s physical location.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -510,6 +512,7 @@ attributes:
     maximum_cardinality: 1
   SignatureRefRef:
     name: SignatureRefRef
+    description: 'SignatureRef reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -527,6 +530,7 @@ attributes:
     maximum_cardinality: 1
   DateTimeStampRef:
     name: DateTimeStampRef
+    description: 'DateTimeStamp reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

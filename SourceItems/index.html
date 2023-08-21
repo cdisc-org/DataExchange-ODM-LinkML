@@ -231,13 +231,13 @@
 <tr>
 <td><a href="../SourceItemRef/">SourceItemRef</a></td>
 <td>0..* <br/> <a href="../SourceItem/">SourceItem</a></td>
-<td></td>
+<td>SourceItem reference: Provides the information needed to identify the source ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CodingRef/">CodingRef</a></td>
 <td>0..* <br/> <a href="../Coding/">Coding</a></td>
-<td></td>
+<td>Coding reference: Coding references a symbol from a defined code system. It u...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -381,6 +381,8 @@ slot_usage:
 attributes:
   SourceItemRef:
     name: SourceItemRef
+    description: 'SourceItem reference: Provides the information needed to identify
+      the source metadata.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -394,6 +396,12 @@ attributes:
     inlined_as_list: true
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

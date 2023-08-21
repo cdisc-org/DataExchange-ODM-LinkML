@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-queryref">Slot: QueryRef</h1>
+<p><em>Query reference: The Query element represents a request for clarification on a data item collected for a clinical trial, specifically a request from a sponsor or sponsor’s representative to an investigator to resolve an error or inconsistency discovered during data review. Queries can be created manually by individuals such as site monitors or data managers or automatically by systems. The full text of the Query exists in the Value child element. The optional Name attribute provide the means to provide a short identifier that can be included in listing or user interfaces.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/QueryRef">odm:QueryRef</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -332,17 +333,17 @@
 </tr>
 <tr>
 <td><a href="../ClinicalData/">ClinicalData</a></td>
-<td>Clinical data for 1 or more subjects</td>
+<td>Clinical data for 1 or more subjects.</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../SubjectData/">SubjectData</a></td>
-<td>Clinical data for a single subject</td>
+<td>Clinical data for a single subject.</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../StudyEventData/">StudyEventData</a></td>
-<td>Clinical data for a study event (visit)</td>
+<td>Clinical data for a study event (visit). The model supports repeating study e...</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -370,6 +371,14 @@
 <details>
 
 <pre><code class="language-yaml">name: QueryRef
+description: 'Query reference: The Query element represents a request for clarification
+  on a data item collected for a clinical trial, specifically a request from a sponsor
+  or sponsor’s representative to an investigator to resolve an error or inconsistency
+  discovered during data review. Queries can be created manually by individuals such
+  as site monitors or data managers or automatically by systems. The full text of
+  the Query exists in the Value child element. The optional Name attribute provide
+  the means to provide a short identifier that can be included in listing or user
+  interfaces.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

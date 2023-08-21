@@ -202,7 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-studyinterventions">Class: StudyInterventions</h1>
-<p><em>The StudyInterventions element is a container element for individual StudyIntervention elements.Element NameStudyInterventionsParent Element(s)ProtocolElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyInterventionsElement Text ValueNoneAttributesNoneChild Elements(StudyIntervention+)Usage/Business Rules</em></p>
+<p><em>The StudyInterventions element is a container element for individual StudyIntervention elements.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/StudyInterventions">odm:StudyInterventions</a></p>
 <div class="mermaid"> classDiagram
     class StudyInterventions
@@ -227,7 +227,7 @@
 <tr>
 <td><a href="../StudyInterventionRefRef/">StudyInterventionRefRef</a></td>
 <td>0..* <br/> <a href="../StudyIntervention/">StudyIntervention</a></td>
-<td></td>
+<td>StudyInterventionRef reference: None</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -285,9 +285,7 @@
 <details>
 <pre><code class="language-yaml">name: StudyInterventions
 description: The StudyInterventions element is a container element for individual
-  StudyIntervention elements.Element NameStudyInterventionsParent Element(s)ProtocolElement
-  XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyInterventionsElement Text ValueNoneAttributesNoneChild
-  Elements(StudyIntervention+)Usage/Business Rules
+  StudyIntervention elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventions
@@ -311,9 +309,7 @@ class_uri: odm:StudyInterventions
 <details>
 <pre><code class="language-yaml">name: StudyInterventions
 description: The StudyInterventions element is a container element for individual
-  StudyIntervention elements.Element NameStudyInterventionsParent Element(s)ProtocolElement
-  XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyInterventionsElement Text ValueNoneAttributesNoneChild
-  Elements(StudyIntervention+)Usage/Business Rules
+  StudyIntervention elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventions
@@ -330,6 +326,7 @@ slot_usage:
 attributes:
   StudyInterventionRefRef:
     name: StudyInterventionRefRef
+    description: 'StudyInterventionRef reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

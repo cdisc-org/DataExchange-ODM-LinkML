@@ -249,43 +249,43 @@
 <tr>
 <td><a href="../ComparatorRef/">ComparatorRef</a></td>
 <td>0..1 <br/> <a href="../Comparator/">Comparator</a></td>
-<td>Comparison operator used to compare the item and value(s)</td>
+<td>Comparison operator used to compare the item and value(s).</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../SoftHard/">SoftHard</a></td>
 <td>0..1 <br/> <a href="../SoftOrHard/">SoftOrHard</a></td>
-<td>Type of range check</td>
+<td>Type of range check. Soft indicates that a warning occurs when the RangeCheck...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ItemOID/">ItemOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Identifies a variable to compare against</td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Identifies a variable to compare against.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ErrorMessageRef/">ErrorMessageRef</a></td>
 <td>0..1 <br/> <a href="../ErrorMessage/">ErrorMessage</a></td>
-<td></td>
+<td>ErrorMessage reference: Error message provided to user when the range check f...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../MethodSignatureRef/">MethodSignatureRef</a></td>
 <td>0..1 <br/> <a href="../MethodSignature/">MethodSignature</a></td>
-<td></td>
+<td>MethodSignature reference: A MethodSignature defines the parameters and retur...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../FormalExpressionRef/">FormalExpressionRef</a></td>
 <td>0..* <br/> <a href="../FormalExpression/">FormalExpression</a></td>
-<td></td>
+<td>FormalExpression reference: A FormalExpression used within a ConditionDef or ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CheckValueRef/">CheckValueRef</a></td>
 <td>0..* <br/> <a href="../CheckValue/">CheckValue</a></td>
-<td></td>
+<td>CheckValue reference: A comparison value used in a range check.</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -567,6 +567,8 @@ attributes:
     range: oidref
   ErrorMessageRef:
     name: ErrorMessageRef
+    description: 'ErrorMessage reference: Error message provided to user when the
+      range check fails.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -578,6 +580,10 @@ attributes:
     maximum_cardinality: 1
   MethodSignatureRef:
     name: MethodSignatureRef
+    description: 'MethodSignature reference: A MethodSignature defines the parameters
+      and return values for a method. The MethodSignature improves traceability while
+      enhancing the ability for automation engines to execute a MethodDef''s FormalExpression.
+      Most Methods use one or more input parameters and return one or more values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -591,6 +597,13 @@ attributes:
     maximum_cardinality: 1
   FormalExpressionRef:
     name: FormalExpressionRef
+    description: 'FormalExpression reference: A FormalExpression used within a ConditionDef
+      or a RangeCheck must evaluate to True or False. A FormalExpression referenced
+      within a MethodDef having Type Imputation, Computation, or Transpose must evaluate
+      to the correct DataType for an Item that may be imputed or computed using the
+      Method. A FormalExpression gets parameter and return value definitions from
+      the MethodSignature element. The data types in the MethodSignature parameters
+      and return values must match the corresponding data types in the FormalExpression.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -608,6 +621,7 @@ attributes:
     inlined_as_list: true
   CheckValueRef:
     name: CheckValueRef
+    description: 'CheckValue reference: A comparison value used in a range check.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

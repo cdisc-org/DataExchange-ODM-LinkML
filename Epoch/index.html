@@ -232,26 +232,26 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
-<td>Unique identifier for the Epoch</td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
+<td>Unique identifier for the Epoch.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
-<td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td>Human readable name of the study epoch</td>
+<td>1..1 <br/> <a href="../name/">name</a></td>
+<td>Human readable name of the study epoch.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../SequenceNumber/">SequenceNumber</a></td>
-<td>1..1 <br/> <a href="PositiveInteger.md">PositiveInteger</a></td>
+<td>1..1 <br/> <a href="../positiveInteger/">positiveInteger</a></td>
 <td>Order of the Epoch</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DescriptionRef/">DescriptionRef</a></td>
 <td>0..1 <br/> <a href="../Description/">Description</a></td>
-<td></td>
+<td>Description reference: A free-text description of the containing metadata com...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -373,7 +373,7 @@ slot_usage:
     required: true
   Name:
     name: Name
-    description: 'Human readable name of the study epoch. '
+    description: Human readable name of the study epoch.
     comments:
     - 'Required
 
@@ -420,7 +420,7 @@ slot_usage:
     required: true
   SequenceNumber:
     name: SequenceNumber
-    description: 'Order of the Epoch '
+    description: Order of the Epoch
     comments:
     - 'Required
 
@@ -538,7 +538,7 @@ slot_usage:
     required: true
   Name:
     name: Name
-    description: 'Human readable name of the study epoch. '
+    description: Human readable name of the study epoch.
     comments:
     - 'Required
 
@@ -585,7 +585,7 @@ slot_usage:
     required: true
   SequenceNumber:
     name: SequenceNumber
-    description: 'Order of the Epoch '
+    description: Order of the Epoch
     comments:
     - 'Required
 
@@ -693,7 +693,7 @@ attributes:
     required: true
   Name:
     name: Name
-    description: 'Human readable name of the study epoch. '
+    description: Human readable name of the study epoch.
     comments:
     - 'Required
 
@@ -744,7 +744,7 @@ attributes:
     required: true
   SequenceNumber:
     name: SequenceNumber
-    description: 'Order of the Epoch '
+    description: Order of the Epoch
     comments:
     - 'Required
 
@@ -759,6 +759,8 @@ attributes:
     required: true
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

@@ -250,20 +250,20 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
 <td>Query unique identifier</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Source/">Source</a></td>
 <td>1..1 <br/> <a href="../QuerySourceType/">QuerySourceType</a></td>
-<td>Origin of the Query</td>
+<td>Origin of the Query.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Target/">Target</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
-<td>Element upon which the Query is raised</td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
+<td>Element upon which the Query is raised. The parent element is the Target when...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -280,26 +280,26 @@
 </tr>
 <tr>
 <td><a href="../LastUpdateDatetime/">LastUpdateDatetime</a></td>
-<td>1..1 <br/> <a href="Datetime.md">Datetime</a></td>
+<td>1..1 <br/> <a href="../datetime/">datetime</a></td>
 <td>When was this Query updated? Will correspond to the creation date or the last...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
-<td>0..1 <br/> <a href="../Name/">Name</a></td>
+<td>0..1 <br/> <a href="../name/">name</a></td>
 <td>Name for a query that can be used to identify the query in a listing or user ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ValueRef/">ValueRef</a></td>
 <td>0..1 <br/> <a href="../Value/">Value</a></td>
-<td>Human-readable designation of the trial phase</td>
+<td>Human-readable designation of the trial phase.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AuditRecordRef/">AuditRecordRef</a></td>
 <td>0..* <br/> <a href="../AuditRecord/">AuditRecord</a></td>
-<td></td>
+<td>AuditRecord reference: An AuditRecord carries information pertaining to the c...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -462,8 +462,8 @@ slot_usage:
     required: true
   Target:
     name: Target
-    description: 'Element upon which the Query is raised. The parent element is the
-      Target when the Target attribute is omitted. '
+    description: Element upon which the Query is raised. The parent element is the
+      Target when the Target attribute is omitted.
     comments:
     - Optional
     domain_of:
@@ -646,8 +646,8 @@ slot_usage:
     required: true
   Target:
     name: Target
-    description: 'Element upon which the Query is raised. The parent element is the
-      Target when the Target attribute is omitted. '
+    description: Element upon which the Query is raised. The parent element is the
+      Target when the Target attribute is omitted.
     comments:
     - Optional
     domain_of:
@@ -822,8 +822,8 @@ attributes:
     required: true
   Target:
     name: Target
-    description: 'Element upon which the Query is raised. The parent element is the
-      Target when the Target attribute is omitted. '
+    description: Element upon which the Query is raised. The parent element is the
+      Target when the Target attribute is omitted.
     comments:
     - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -947,6 +947,12 @@ attributes:
     maximum_cardinality: 1
   AuditRecordRef:
     name: AuditRecordRef
+    description: 'AuditRecord reference: An AuditRecord carries information pertaining
+      to the creation, deletion, or modification of clinical data. This information
+      includes who performed that action, and where, when, and why that action was
+      performed.AuditRecord information describes a change to clinical data, but is
+      not itself clinical data. The value of some clinical data can always be changed
+      by a subsequent transaction, but history cannot be changed, only added to.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

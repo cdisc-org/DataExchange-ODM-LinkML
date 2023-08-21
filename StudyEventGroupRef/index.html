@@ -236,13 +236,13 @@
 <tbody>
 <tr>
 <td><a href="../StudyEventGroupOID/">StudyEventGroupOID</a></td>
-<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to the StudyEventGroupDef</td>
+<td>1..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to the StudyEventGroupDef .</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../OrderNumber/">OrderNumber</a></td>
-<td>0..1 <br/> <a href="PositiveInteger.md">PositiveInteger</a></td>
+<td>0..1 <br/> <a href="../positiveInteger/">positiveInteger</a></td>
 <td>Indicates the order in which this StudyEventGroup appears in Metadata display...</td>
 <td>direct</td>
 </tr>
@@ -254,14 +254,14 @@
 </tr>
 <tr>
 <td><a href="../CollectionExceptionConditionOID/">CollectionExceptionConditionOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>Reference to a ConditionDef</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DescriptionRef/">DescriptionRef</a></td>
 <td>0..1 <br/> <a href="../Description/">Description</a></td>
-<td></td>
+<td>Description reference: A free-text description of the containing metadata com...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -673,6 +673,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

@@ -248,56 +248,56 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
-<td>Unique identifier for the organization</td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
+<td>Unique identifier for the organization.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
-<td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td>Formal, human readable name of the organization</td>
+<td>1..1 <br/> <a href="../name/">name</a></td>
+<td>Formal, human readable name of the organization.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Role/">Role</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
-<td>Role of the organization in the current study</td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
+<td>Role of the organization in the current study.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Type/">Type</a></td>
 <td>1..1 <br/> <a href="../OrganizationType/">OrganizationType</a></td>
-<td>Categorization of organizations associated with clinical studies</td>
+<td>Categorization of organizations associated with clinical studies.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../LocationOID/">LocationOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>Reference to a location where data is collected and/or study subjects are tre...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../PartOfOrganizationOID/">PartOfOrganizationOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to a parent organization</td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to a parent organization.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DescriptionRef/">DescriptionRef</a></td>
 <td>0..1 <br/> <a href="../Description/">Description</a></td>
-<td></td>
+<td>Description reference: A free-text description of the containing metadata com...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AddressRef/">AddressRef</a></td>
 <td>0..* <br/> <a href="../Address/">Address</a></td>
-<td></td>
+<td>Address reference: The postal address for a user, location, or organization.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../TelecomRef/">TelecomRef</a></td>
 <td>0..* <br/> <a href="../Telecom/">Telecom</a></td>
-<td></td>
+<td>Telecom reference: The telecommunication contacts points of a user, a locatio...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -1023,6 +1023,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1070,6 +1072,7 @@ attributes:
     maximum_cardinality: 1
   AddressRef:
     name: AddressRef
+    description: 'Address reference: The postal address for a user, location, or organization.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1085,6 +1088,8 @@ attributes:
     inlined_as_list: true
   TelecomRef:
     name: TelecomRef
+    description: 'Telecom reference: The telecommunication contacts points of a user,
+      a location, or an organization. The Type attribute designates the type of contact.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

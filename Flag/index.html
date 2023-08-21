@@ -202,7 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-flag">Class: Flag</h1>
-<p><em>Element NameFlagParent ElementsAnnotationElement XPath(s)/ODM/ReferenceData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/SubjectData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Annotation/FlagElement Textual ValueNoneAttributesNoneChild Elements(FlagValue, FlagType?)Usage/Business Rules</em></p>
+<p><em>A machine-processable annotation.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Flag">odm:Flag</a></p>
 <div class="mermaid"> classDiagram
     class Flag
@@ -231,13 +231,13 @@
 <tr>
 <td><a href="../FlagValueRef/">FlagValueRef</a></td>
 <td>0..1 <br/> <a href="../FlagValue/">FlagValue</a></td>
-<td></td>
+<td>FlagValue reference: The value of the flag. The meaning of this value is typi...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../FlagTypeRef/">FlagTypeRef</a></td>
 <td>0..1 <br/> <a href="../FlagType/">FlagType</a></td>
-<td></td>
+<td>FlagType reference: The type of flag. This determines the purpose and semanti...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -294,9 +294,7 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Flag
-description: Element NameFlagParent ElementsAnnotationElement XPath(s)/ODM/ReferenceData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/SubjectData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Annotation/FlagElement
-  Textual ValueNoneAttributesNoneChild Elements(FlagValue, FlagType?)Usage/Business
-  Rules
+description: A machine-processable annotation.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Flag
@@ -323,9 +321,7 @@ class_uri: odm:Flag
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Flag
-description: Element NameFlagParent ElementsAnnotationElement XPath(s)/ODM/ReferenceData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/SubjectData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Annotation/FlagElement
-  Textual ValueNoneAttributesNoneChild Elements(FlagValue, FlagType?)Usage/Business
-  Rules
+description: A machine-processable annotation.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Flag
@@ -345,6 +341,9 @@ slot_usage:
 attributes:
   FlagValueRef:
     name: FlagValueRef
+    description: 'FlagValue reference: The value of the flag. The meaning of this
+      value is typically dependent on the associated FlagType. The actual value must
+      be a member of the referenced CodeList'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -356,6 +355,8 @@ attributes:
     maximum_cardinality: 1
   FlagTypeRef:
     name: FlagTypeRef
+    description: 'FlagType reference: The type of flag. This determines the purpose
+      and semantics of the flag.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

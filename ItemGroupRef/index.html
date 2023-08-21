@@ -234,19 +234,19 @@
 <tbody>
 <tr>
 <td><a href="../ItemGroupOID/">ItemGroupOID</a></td>
-<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to the ItemGroupDef</td>
+<td>1..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to the ItemGroupDef .</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../MethodOID/">MethodOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to a MethodDef that will provide one or more data rows as output</td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to a MethodDef that will provide one or more data rows as output. T...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../OrderNumber/">OrderNumber</a></td>
-<td>0..1 <br/> <a href="PositiveInteger.md">PositiveInteger</a></td>
+<td>0..1 <br/> <a href="../positiveInteger/">positiveInteger</a></td>
 <td>Indicates the order in which this ItemGroup appears in Metadata displays or d...</td>
 <td>direct</td>
 </tr>
@@ -258,7 +258,7 @@
 </tr>
 <tr>
 <td><a href="../CollectionExceptionConditionOID/">CollectionExceptionConditionOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ...</td>
 <td>direct</td>
 </tr>
@@ -370,13 +370,13 @@ slot_usage:
     range: oidref
   OrderNumber:
     name: OrderNumber
-    description: 'Indicates the order in which this ItemGroup appears in Metadata
-      displays or data entry applications. The OrderNumber attribute provides an ordering
-      on the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever
-      a list of ItemGroupDefs is presented to a user. Order of execution is preferably
+    description: Indicates the order in which this ItemGroup appears in Metadata displays
+      or data entry applications. The OrderNumber attribute provides an ordering on
+      the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever a
+      list of ItemGroupDefs is presented to a user. Order of execution is preferably
       defined in a workflow (see Section 3.2.2.1.8, WorkflowDef ) but when used without
       a workflow, may be used the define the order in which data entry forms are presented
-      in an application UI. '
+      in an application UI.
     comments:
     - 'Optional
 
@@ -481,13 +481,13 @@ slot_usage:
     range: oidref
   OrderNumber:
     name: OrderNumber
-    description: 'Indicates the order in which this ItemGroup appears in Metadata
-      displays or data entry applications. The OrderNumber attribute provides an ordering
-      on the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever
-      a list of ItemGroupDefs is presented to a user. Order of execution is preferably
+    description: Indicates the order in which this ItemGroup appears in Metadata displays
+      or data entry applications. The OrderNumber attribute provides an ordering on
+      the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever a
+      list of ItemGroupDefs is presented to a user. Order of execution is preferably
       defined in a workflow (see Section 3.2.2.1.8, WorkflowDef ) but when used without
       a workflow, may be used the define the order in which data entry forms are presented
-      in an application UI. '
+      in an application UI.
     comments:
     - 'Optional
 
@@ -585,13 +585,13 @@ attributes:
     range: oidref
   OrderNumber:
     name: OrderNumber
-    description: 'Indicates the order in which this ItemGroup appears in Metadata
-      displays or data entry applications. The OrderNumber attribute provides an ordering
-      on the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever
-      a list of ItemGroupDefs is presented to a user. Order of execution is preferably
+    description: Indicates the order in which this ItemGroup appears in Metadata displays
+      or data entry applications. The OrderNumber attribute provides an ordering on
+      the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever a
+      list of ItemGroupDefs is presented to a user. Order of execution is preferably
       defined in a workflow (see Section 3.2.2.1.8, WorkflowDef ) but when used without
       a workflow, may be used the define the order in which data entry forms are presented
-      in an application UI. '
+      in an application UI.
     comments:
     - 'Optional
 

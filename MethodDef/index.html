@@ -252,56 +252,56 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
-<td>Unique identifer for the MethodDef element</td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
+<td>Unique identifer for the MethodDef element.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
-<td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td>Human readable name for the method</td>
+<td>1..1 <br/> <a href="../name/">name</a></td>
+<td>Human readable name for the method.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Type/">Type</a></td>
 <td>0..1 <br/> <a href="../MethodType/">MethodType</a></td>
-<td>Computation: derivation involving one or more variables</td>
+<td>Computation: derivation involving one or more variables. Imputation: derivati...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CommentOID/">CommentOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to a CommentDef with information related to this MethodDef</td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to a CommentDef with information related to this MethodDef.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DescriptionRef/">DescriptionRef</a></td>
 <td>0..1 <br/> <a href="../Description/">Description</a></td>
-<td></td>
+<td>Description reference: A free-text description of the containing metadata com...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../MethodSignatureRef/">MethodSignatureRef</a></td>
 <td>0..1 <br/> <a href="../MethodSignature/">MethodSignature</a></td>
-<td></td>
+<td>MethodSignature reference: A MethodSignature defines the parameters and retur...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../FormalExpressionRef/">FormalExpressionRef</a></td>
 <td>0..* <br/> <a href="../FormalExpression/">FormalExpression</a></td>
-<td></td>
+<td>FormalExpression reference: A FormalExpression used within a ConditionDef or ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AliasRef/">AliasRef</a></td>
 <td>0..* <br/> <a href="../Alias/">Alias</a></td>
-<td></td>
+<td>Alias reference: An Alias provides an additional name for an element. The Con...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DocumentRefRef/">DocumentRefRef</a></td>
 <td>0..* <br/> <a href="../DocumentRef/">DocumentRef</a></td>
-<td>The DocumentRef element is a container for page references in a PDF file</td>
+<td>The DocumentRef element is a container for page references in a PDF file.</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -999,6 +999,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1046,6 +1048,10 @@ attributes:
     maximum_cardinality: 1
   MethodSignatureRef:
     name: MethodSignatureRef
+    description: 'MethodSignature reference: A MethodSignature defines the parameters
+      and return values for a method. The MethodSignature improves traceability while
+      enhancing the ability for automation engines to execute a MethodDef''s FormalExpression.
+      Most Methods use one or more input parameters and return one or more values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1059,6 +1065,13 @@ attributes:
     maximum_cardinality: 1
   FormalExpressionRef:
     name: FormalExpressionRef
+    description: 'FormalExpression reference: A FormalExpression used within a ConditionDef
+      or a RangeCheck must evaluate to True or False. A FormalExpression referenced
+      within a MethodDef having Type Imputation, Computation, or Transpose must evaluate
+      to the correct DataType for an Item that may be imputed or computed using the
+      Method. A FormalExpression gets parameter and return value definitions from
+      the MethodSignature element. The data types in the MethodSignature parameters
+      and return values must match the corresponding data types in the FormalExpression.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1076,6 +1089,9 @@ attributes:
     inlined_as_list: true
   AliasRef:
     name: AliasRef
+    description: 'Alias reference: An Alias provides an additional name for an element.
+      The Context attribute specifies the application domain in which this additional
+      name is relevant.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

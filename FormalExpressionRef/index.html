@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-formalexpressionref">Slot: FormalExpressionRef</h1>
+<p><em>FormalExpression reference: A FormalExpression used within a ConditionDef or a RangeCheck must evaluate to True or False. A FormalExpression referenced within a MethodDef having Type Imputation, Computation, or Transpose must evaluate to the correct DataType for an Item that may be imputed or computed using the Method. A FormalExpression gets parameter and return value definitions from the MethodSignature element. The data types in the MethodSignature parameters and return values must match the corresponding data types in the FormalExpression.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/FormalExpressionRef">odm:FormalExpressionRef</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,7 +328,7 @@
 <tbody>
 <tr>
 <td><a href="../RangeCheck/">RangeCheck</a></td>
-<td>A RangeCheck defines a constraint on the value of the enclosing item</td>
+<td>A RangeCheck defines a constraint on the value of the enclosing item. It repr...</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -337,7 +338,7 @@
 </tr>
 <tr>
 <td><a href="../ConditionDef/">ConditionDef</a></td>
-<td>A ConditionDef defines a boolean condition</td>
+<td>A ConditionDef defines a boolean condition.</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -365,6 +366,13 @@
 <details>
 
 <pre><code class="language-yaml">name: FormalExpressionRef
+description: 'FormalExpression reference: A FormalExpression used within a ConditionDef
+  or a RangeCheck must evaluate to True or False. A FormalExpression referenced within
+  a MethodDef having Type Imputation, Computation, or Transpose must evaluate to the
+  correct DataType for an Item that may be imputed or computed using the Method. A
+  FormalExpression gets parameter and return value definitions from the MethodSignature
+  element. The data types in the MethodSignature parameters and return values must
+  match the corresponding data types in the FormalExpression.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

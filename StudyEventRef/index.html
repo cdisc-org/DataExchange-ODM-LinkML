@@ -202,7 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-studyeventref">Class: StudyEventRef</h1>
-<p>_This element references a StudyEventDef as it occurs within a specific version of a study. The list of StudyEventRefs identifies the types of study events that are allowed to occur within the study. _</p>
+<p><em>This element references a StudyEventDef as it occurs within a specific version of a study. The list of StudyEventRefs identifies the types of study events that are allowed to occur within the study.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/StudyEventRef">odm:StudyEventRef</a></p>
 <div class="mermaid"> classDiagram
     class StudyEventRef
@@ -232,13 +232,13 @@
 <tbody>
 <tr>
 <td><a href="../StudyEventOID/">StudyEventOID</a></td>
-<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to the StudyEventDef</td>
+<td>1..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to the StudyEventDef .</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../OrderNumber/">OrderNumber</a></td>
-<td>0..1 <br/> <a href="PositiveInteger.md">PositiveInteger</a></td>
+<td>0..1 <br/> <a href="../positiveInteger/">positiveInteger</a></td>
 <td>Indicates the order in which this StudyEventDef appears in Metadata displays ...</td>
 <td>direct</td>
 </tr>
@@ -250,7 +250,7 @@
 </tr>
 <tr>
 <td><a href="../CollectionExceptionConditionOID/">CollectionExceptionConditionOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ...</td>
 <td>direct</td>
 </tr>
@@ -314,9 +314,9 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: StudyEventRef
-description: 'This element references a StudyEventDef as it occurs within a specific
+description: This element references a StudyEventDef as it occurs within a specific
   version of a study. The list of StudyEventRefs identifies the types of study events
-  that are allowed to occur within the study. '
+  that are allowed to occur within the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventRef
@@ -414,9 +414,9 @@ class_uri: odm:StudyEventRef
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: StudyEventRef
-description: 'This element references a StudyEventDef as it occurs within a specific
+description: This element references a StudyEventDef as it occurs within a specific
   version of a study. The list of StudyEventRefs identifies the types of study events
-  that are allowed to occur within the study. '
+  that are allowed to occur within the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventRef

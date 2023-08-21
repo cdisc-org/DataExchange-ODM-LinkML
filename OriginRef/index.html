@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-originref">Slot: OriginRef</h1>
+<p><em>Origin reference: Origin defines the source metadata, where applicable, for ODM ItemRefs or ItemGroupRefs. Origin as a child element replaces the Origin attribute in ODM v1.3 that exists for the ItemDef and ItemGroupDef elements.The Origin element is based on the def:Origin element in Define-XML v2.1 with the Trace-XML v1.0 extension.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/OriginRef">odm:OriginRef</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -332,7 +333,7 @@
 </tr>
 <tr>
 <td><a href="../ItemRef/">ItemRef</a></td>
-<td>A reference to an ItemDef as it occurs within a specific ItemGroupDef</td>
+<td>A reference to an ItemDef as it occurs within a specific ItemGroupDef. The li...</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -350,6 +351,11 @@
 <details>
 
 <pre><code class="language-yaml">name: OriginRef
+description: 'Origin reference: Origin defines the source metadata, where applicable,
+  for ODM ItemRefs or ItemGroupRefs. Origin as a child element replaces the Origin
+  attribute in ODM v1.3 that exists for the ItemDef and ItemGroupDef elements.The
+  Origin element is based on the def:Origin element in Define-XML v2.1 with the Trace-XML
+  v1.0 extension.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

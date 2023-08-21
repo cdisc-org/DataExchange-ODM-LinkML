@@ -242,38 +242,38 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
-<td>Unique identifier for a StudyTiming element</td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
+<td>Unique identifier for a StudyTiming element.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
-<td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td>Human readable identifier for a StudyTiming element</td>
+<td>1..1 <br/> <a href="../name/">name</a></td>
+<td>Human readable identifier for a StudyTiming element.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AbsoluteTimingConstraintRef/">AbsoluteTimingConstraintRef</a></td>
 <td>0..* <br/> <a href="../AbsoluteTimingConstraint/">AbsoluteTimingConstraint</a></td>
-<td></td>
+<td>AbsoluteTimingConstraint reference: The element AbsoluteTimingConstraint is u...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../RelativeTimingConstraintRef/">RelativeTimingConstraintRef</a></td>
 <td>0..* <br/> <a href="../RelativeTimingConstraint/">RelativeTimingConstraint</a></td>
-<td></td>
+<td>RelativeTimingConstraint reference: The RelativeTimingConstraint element desc...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../TransitionTimingConstraintRef/">TransitionTimingConstraintRef</a></td>
 <td>0..* <br/> <a href="../TransitionTimingConstraint/">TransitionTimingConstraint</a></td>
-<td></td>
+<td>TransitionTimingConstraint reference: The TransitionTimingConstraint element ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DurationTimingConstraintRef/">DurationTimingConstraintRef</a></td>
 <td>0..* <br/> <a href="../DurationTimingConstraint/">DurationTimingConstraint</a></td>
-<td></td>
+<td>DurationTimingConstraint reference: The DurationTimingConstraint constrains t...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -730,6 +730,9 @@ attributes:
     required: true
   AbsoluteTimingConstraintRef:
     name: AbsoluteTimingConstraintRef
+    description: 'AbsoluteTimingConstraint reference: The element AbsoluteTimingConstraint
+      is used to specify when an activity, represented by either a StudyEventGroup
+      or StudyEvent, can take place.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -743,6 +746,10 @@ attributes:
     inlined_as_list: true
   RelativeTimingConstraintRef:
     name: RelativeTimingConstraintRef
+    description: 'RelativeTimingConstraint reference: The RelativeTimingConstraint
+      element describes a relative timing constraint between 2 activities or groups
+      of activities, represented by StudyEventGroups, StudyEvents, ItemGroups, or
+      Items.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -756,6 +763,11 @@ attributes:
     inlined_as_list: true
   TransitionTimingConstraintRef:
     name: TransitionTimingConstraintRef
+    description: 'TransitionTimingConstraint reference: The TransitionTimingConstraint
+      element defines a timing constraint on a transition between structural elements
+      as defined in a workflow. As such, it is a non-blocking constraint. This means
+      that the transition is set on hold as long as the timing condition is not fulfilled,
+      and is executed as soon as the timing condition is fulfilled.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -769,6 +781,10 @@ attributes:
     inlined_as_list: true
   DurationTimingConstraintRef:
     name: DurationTimingConstraintRef
+    description: 'DurationTimingConstraint reference: The DurationTimingConstraint
+      constrains the duration of an activity represented by a study, epoch, StudyEventGroupDef,
+      StudyEventDef, ItemGroupDef, or ItemDef. It is used to constrain the duration
+      of the visit, activity, or any other structural element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

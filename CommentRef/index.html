@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-commentref">Slot: CommentRef</h1>
+<p><em>Comment reference: A free-text (uninterpreted) comment about clinical data. The comment may have come from the sponsor or the clinical site.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/CommentRef">odm:CommentRef</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,7 +328,7 @@
 <tbody>
 <tr>
 <td><a href="../Annotation/">Annotation</a></td>
-<td>A general note about clinical data</td>
+<td>A general note about clinical data. If an annotation has both a comment and f...</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -345,6 +346,8 @@
 <details>
 
 <pre><code class="language-yaml">name: CommentRef
+description: 'Comment reference: A free-text (uninterpreted) comment about clinical
+  data. The comment may have come from the sponsor or the clinical site.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

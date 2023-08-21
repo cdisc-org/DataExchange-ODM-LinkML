@@ -242,50 +242,50 @@
 <tbody>
 <tr>
 <td><a href="../ItemOID/">ItemOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>References the ItemDef that provides the variable metadata</td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>References the ItemDef that provides the variable metadata.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ItemGroupOID/">ItemGroupOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>References the ItemGroupDef that provides the ItemGroup or dataset metadata</td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>References the ItemGroupDef that provides the ItemGroup or dataset metadata.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../MetaDataVersionOID/">MetaDataVersionOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>References the MetaDataVersion that provides the metadata when referencing an...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../StudyOID/">StudyOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>References the Study that provides the metadata when referencing another ODM ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../leafID/">leafID</a></td>
-<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>References a leaf element that provides a reference to another ODM document</td>
+<td>1..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>References a leaf element that provides a reference to another ODM document. ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
-<td>0..1 <br/> <a href="../Name/">Name</a></td>
+<td>0..1 <br/> <a href="../name/">name</a></td>
 <td>Provides a way to connect an argument to a parameter when SourceItems are inp...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ResourceRef/">ResourceRef</a></td>
 <td>0..* <br/> <a href="../Resource/">Resource</a></td>
-<td></td>
+<td>Resource reference: Describes an external resource used as the source for the...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CodingRef/">CodingRef</a></td>
 <td>0..* <br/> <a href="../Coding/">Coding</a></td>
-<td></td>
+<td>Coding reference: Coding references a symbol from a defined code system. It u...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -444,15 +444,15 @@ slot_usage:
       range:IDREF
 
       When referencing another ODM document it is necessary to have values for the
-      MetaDataVersionOID and StudyOID attributes. '
+      MetaDataVersionOID and StudyOID attributes.'
     domain_of:
     - SourceItem
     range: oidref
   Name:
     name: Name
-    description: 'Provides a way to connect an argument to a parameter when SourceItems
+    description: Provides a way to connect an argument to a parameter when SourceItems
       are inputs to methods. It allows the name used in the programming code in the
-      method description to make it easier to trace the use of the value. '
+      method description to make it easier to trace the use of the value.
     comments:
     - 'Optional
 
@@ -625,15 +625,15 @@ slot_usage:
       range:IDREF
 
       When referencing another ODM document it is necessary to have values for the
-      MetaDataVersionOID and StudyOID attributes. '
+      MetaDataVersionOID and StudyOID attributes.'
     domain_of:
     - SourceItem
     range: oidref
   Name:
     name: Name
-    description: 'Provides a way to connect an argument to a parameter when SourceItems
+    description: Provides a way to connect an argument to a parameter when SourceItems
       are inputs to methods. It allows the name used in the programming code in the
-      method description to make it easier to trace the use of the value. '
+      method description to make it easier to trace the use of the value.
     comments:
     - 'Optional
 
@@ -811,7 +811,7 @@ attributes:
       range:IDREF
 
       When referencing another ODM document it is necessary to have values for the
-      MetaDataVersionOID and StudyOID attributes. '
+      MetaDataVersionOID and StudyOID attributes.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -823,9 +823,9 @@ attributes:
     required: true
   Name:
     name: Name
-    description: 'Provides a way to connect an argument to a parameter when SourceItems
+    description: Provides a way to connect an argument to a parameter when SourceItems
       are inputs to methods. It allows the name used in the programming code in the
-      method description to make it easier to trace the use of the value. '
+      method description to make it easier to trace the use of the value.
     comments:
     - 'Optional
 
@@ -873,6 +873,8 @@ attributes:
     range: name
   ResourceRef:
     name: ResourceRef
+    description: 'Resource reference: Describes an external resource used as the source
+      for the parent ItemGroup or Item.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -886,6 +888,12 @@ attributes:
     inlined_as_list: true
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

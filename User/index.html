@@ -268,80 +268,80 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
 <td>Business Rules</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../UserTypeRef/">UserTypeRef</a></td>
 <td>0..1 <br/> <a href="../UserType/">UserType</a></td>
-<td>User's role in the study</td>
+<td>User's role in the study.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../OrganizationOID/">OrganizationOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to an Organization elment</td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to an Organization elment.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../LocationOID/">LocationOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to a Location element</td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to a Location element.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../UserNameRef/">UserNameRef</a></td>
 <td>0..1 <br/> <a href="../UserName/">UserName</a></td>
-<td></td>
+<td>UserName reference: The user's login identification in the sender's system.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../PrefixRef/">PrefixRef</a></td>
 <td>0..1 <br/> <a href="../Prefix/">Prefix</a></td>
-<td></td>
+<td>Prefix reference: Title or other prefix. Maps to FHIR HumanName.prefix (https...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../SuffixRef/">SuffixRef</a></td>
 <td>0..1 <br/> <a href="../Suffix/">Suffix</a></td>
-<td></td>
+<td>Suffix reference: This element may include credentials, or suffixes (e.g., Jr...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../FullNameRef/">FullNameRef</a></td>
 <td>0..1 <br/> <a href="../FullName/">FullName</a></td>
-<td></td>
+<td>FullName reference: The user's full formal name. May be a combination of Pref...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../GivenNameRef/">GivenNameRef</a></td>
 <td>0..1 <br/> <a href="../GivenName/">GivenName</a></td>
-<td></td>
+<td>GivenName reference: The user's initial given name or all given names.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../FamilyNameRef/">FamilyNameRef</a></td>
 <td>0..1 <br/> <a href="../FamilyName/">FamilyName</a></td>
-<td></td>
+<td>FamilyName reference: The user's surname (family name).</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ImageRef/">ImageRef</a></td>
 <td>0..1 <br/> <a href="../Image/">Image</a></td>
-<td></td>
+<td>Image reference: A visual depiction of the user.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AddressRef/">AddressRef</a></td>
 <td>0..* <br/> <a href="../Address/">Address</a></td>
-<td></td>
+<td>Address reference: The postal address for a user, location, or organization.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../TelecomRef/">TelecomRef</a></td>
 <td>0..* <br/> <a href="../Telecom/">Telecom</a></td>
-<td></td>
+<td>Telecom reference: The telecommunication contacts points of a user, a locatio...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -860,6 +860,8 @@ attributes:
     range: oidref
   UserNameRef:
     name: UserNameRef
+    description: 'UserName reference: The user''s login identification in the sender''s
+      system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -871,6 +873,8 @@ attributes:
     maximum_cardinality: 1
   PrefixRef:
     name: PrefixRef
+    description: 'Prefix reference: Title or other prefix. Maps to FHIR HumanName.prefix
+      (https://www.hl7.org/fhir/datatypes.html#humanname).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -882,6 +886,8 @@ attributes:
     maximum_cardinality: 1
   SuffixRef:
     name: SuffixRef
+    description: 'Suffix reference: This element may include credentials, or suffixes
+      (e.g., Jr., III).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -893,6 +899,8 @@ attributes:
     maximum_cardinality: 1
   FullNameRef:
     name: FullNameRef
+    description: 'FullName reference: The user''s full formal name. May be a combination
+      of Prefix, GivenName, FamilyName &amp; Suffix. Intended to be used for display.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -904,6 +912,8 @@ attributes:
     maximum_cardinality: 1
   GivenNameRef:
     name: GivenNameRef
+    description: 'GivenName reference: The user''s initial given name or all given
+      names.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -915,6 +925,7 @@ attributes:
     maximum_cardinality: 1
   FamilyNameRef:
     name: FamilyNameRef
+    description: 'FamilyName reference: The user''s surname (family name).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -926,6 +937,7 @@ attributes:
     maximum_cardinality: 1
   ImageRef:
     name: ImageRef
+    description: 'Image reference: A visual depiction of the user.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -937,6 +949,7 @@ attributes:
     maximum_cardinality: 1
   AddressRef:
     name: AddressRef
+    description: 'Address reference: The postal address for a user, location, or organization.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -952,6 +965,8 @@ attributes:
     inlined_as_list: true
   TelecomRef:
     name: TelecomRef
+    description: 'Telecom reference: The telecommunication contacts points of a user,
+      a location, or an organization. The Type attribute designates the type of contact.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

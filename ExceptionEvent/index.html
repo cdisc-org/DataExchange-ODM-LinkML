@@ -239,44 +239,44 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
-<td>Unique identifier of the version within the XML document</td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
+<td>Unique identifier of the version within the XML document.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
-<td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td>General observation Sub Class</td>
+<td>1..1 <br/> <a href="../name/">name</a></td>
+<td>General observation Sub Class.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ConditionOID/">ConditionOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>Reference to a ConditionDef defining the condition under which the transition...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DescriptionRef/">DescriptionRef</a></td>
 <td>0..1 <br/> <a href="../Description/">Description</a></td>
-<td></td>
+<td>Description reference: A free-text description of the containing metadata com...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../WorkflowRefRef/">WorkflowRefRef</a></td>
 <td>1..1 <br/> <a href="../WorkflowRef/">WorkflowRef</a></td>
-<td></td>
+<td>WorkflowRef reference: The WorkflowRef references a workflow definition</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../StudyEventGroupRefRef/">StudyEventGroupRefRef</a></td>
 <td>1..1 <br/> <a href="../StudyEventGroupRef/">StudyEventGroupRef</a></td>
-<td></td>
+<td>StudyEventGroupRef reference: This element references a StudyEventGroupDef as...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../StudyEventRefRef/">StudyEventRefRef</a></td>
 <td>1..1 <br/> <a href="../StudyEventRef/">StudyEventRef</a></td>
-<td></td>
+<td>StudyEventRef reference: This element references a StudyEventDef as it occurs...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -780,6 +780,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -827,6 +829,7 @@ attributes:
     maximum_cardinality: 1
   WorkflowRefRef:
     name: WorkflowRefRef
+    description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -846,6 +849,10 @@ attributes:
     maximum_cardinality: 1
   StudyEventGroupRefRef:
     name: StudyEventGroupRefRef
+    description: 'StudyEventGroupRef reference: This element references a StudyEventGroupDef
+      as it occurs within a specific version of a study. The list of StudyEventGroupRefs
+      identifies the types of study group events that are allowed to occur within
+      the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -861,6 +868,9 @@ attributes:
     maximum_cardinality: 1
   StudyEventRefRef:
     name: StudyEventRefRef
+    description: 'StudyEventRef reference: This element references a StudyEventDef
+      as it occurs within a specific version of a study. The list of StudyEventRefs
+      identifies the types of study events that are allowed to occur within the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

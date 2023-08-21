@@ -231,13 +231,13 @@
 <tr>
 <td><a href="../SponsorOrSite/">SponsorOrSite</a></td>
 <td>0..1 <br/> <a href="../CommentType/">CommentType</a></td>
-<td>Source of the comment</td>
+<td>Source of the comment.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
 <td>0..* <br/> <a href="../TranslatedText/">TranslatedText</a></td>
-<td></td>
+<td>TranslatedText reference: Human-readable text that is appropriate for a parti...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -387,6 +387,10 @@ attributes:
     range: CommentType
   TranslatedTextRef:
     name: TranslatedTextRef
+    description: 'TranslatedText reference: Human-readable text that is appropriate
+      for a particular language. TranslatedText elements typically occur in a series,
+      presenting a set of alternative textual renditions for different languages and
+      types.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

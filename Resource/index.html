@@ -202,7 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-resource">Class: Resource</h1>
-<p>_Describes an external resource used as the source for the parent ItemGroup or Item. _</p>
+<p><em>Describes an external resource used as the source for the parent ItemGroup or Item.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Resource">odm:Resource</a></p>
 <div class="mermaid"> classDiagram
     class Resource
@@ -234,32 +234,32 @@
 <tbody>
 <tr>
 <td><a href="../Type/">Type</a></td>
-<td>1..1 <br/> <a href="Text.md">Text</a></td>
-<td>Categorization of external resources</td>
+<td>1..1 <br/> <a href="../text/">text</a></td>
+<td>Categorization of external resources. Examples include: "ODM", "HL7-FHIR", "H...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
-<td>1..1 <br/> <a href="../Name/">Name</a></td>
+<td>1..1 <br/> <a href="../name/">name</a></td>
 <td>The human readable identifier of the element or field in the external resourc...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Attribute/">Attribute</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
 <td>Field provided by the Name attribute where the data or information can be obt...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Label/">Label</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
-<td>Used to link the value to a named MethodDef parameter</td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
+<td>Used to link the value to a named MethodDef parameter.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../SelectionRef/">SelectionRef</a></td>
 <td>0..* <br/> <a href="../Selection/">Selection</a></td>
-<td></td>
+<td>Selection reference: Template for machine-readable/executable expression for ...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -316,8 +316,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Resource
-description: 'Describes an external resource used as the source for the parent ItemGroup
-  or Item. '
+description: Describes an external resource used as the source for the parent ItemGroup
+  or Item.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Resource
@@ -419,7 +419,7 @@ slot_usage:
       range:name
 
       The Selection child element must correspond to machine-executable instructions
-      for extracting the information from the resource. '
+      for extracting the information from the resource.'
     domain_of:
     - Resource
     range: text
@@ -449,8 +449,8 @@ class_uri: odm:Resource
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Resource
-description: 'Describes an external resource used as the source for the parent ItemGroup
-  or Item. '
+description: Describes an external resource used as the source for the parent ItemGroup
+  or Item.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Resource
@@ -546,7 +546,7 @@ slot_usage:
       range:name
 
       The Selection child element must correspond to machine-executable instructions
-      for extracting the information from the resource. '
+      for extracting the information from the resource.'
     domain_of:
     - Resource
     range: text
@@ -669,7 +669,7 @@ attributes:
       range:name
 
       The Selection child element must correspond to machine-executable instructions
-      for extracting the information from the resource. '
+      for extracting the information from the resource.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Attribute
@@ -694,6 +694,8 @@ attributes:
     range: text
   SelectionRef:
     name: SelectionRef
+    description: 'Selection reference: Template for machine-readable/executable expression
+      for retrieving the data or information from an external resource.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

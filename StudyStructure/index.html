@@ -239,25 +239,25 @@
 <tr>
 <td><a href="../DescriptionRef/">DescriptionRef</a></td>
 <td>0..1 <br/> <a href="../Description/">Description</a></td>
-<td></td>
+<td>Description reference: A free-text description of the containing metadata com...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ArmRef/">ArmRef</a></td>
 <td>0..* <br/> <a href="../Arm/">Arm</a></td>
-<td></td>
+<td>Arm reference: An Arm element provides the declaration of a study arm. Arms d...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../EpochRef/">EpochRef</a></td>
 <td>0..* <br/> <a href="../Epoch/">Epoch</a></td>
-<td></td>
+<td>Epoch reference: The planned period of subjects' participation in the trial i...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../WorkflowRefRef/">WorkflowRefRef</a></td>
 <td>0..1 <br/> <a href="../WorkflowRef/">WorkflowRef</a></td>
-<td></td>
+<td>WorkflowRef reference: The WorkflowRef references a workflow definition</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -481,6 +481,8 @@ slot_usage:
 attributes:
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -528,6 +530,8 @@ attributes:
     maximum_cardinality: 1
   ArmRef:
     name: ArmRef
+    description: 'Arm reference: An Arm element provides the declaration of a study
+      arm. Arms do not have any ordering relative to one another.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -541,6 +545,12 @@ attributes:
     inlined_as_list: true
   EpochRef:
     name: EpochRef
+    description: 'Epoch reference: The planned period of subjects'' participation
+      in the trial is divided into sequential epochs. Each epoch is a period of time
+      that serves a purpose in the trial as a whole. Epochs cannot overlap. The sequence
+      of the epoch in the study is provided by the SequenceNumber attribute, the first
+      epoch in the study being assigned the sequence number 1. Sequence numbers are
+      subsequent.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -554,6 +564,7 @@ attributes:
     inlined_as_list: true
   WorkflowRefRef:
     name: WorkflowRefRef
+    description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

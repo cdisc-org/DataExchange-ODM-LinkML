@@ -242,7 +242,7 @@
 <tbody>
 <tr>
 <td><a href="../SeqNum/">SeqNum</a></td>
-<td>1..1 <br/> <a href="PositiveInteger.md">PositiveInteger</a></td>
+<td>1..1 <br/> <a href="../positiveInteger/">positiveInteger</a></td>
 <td>When more than 1 Value element exists this attribute uniquely identifies each...</td>
 <td>direct</td>
 </tr>
@@ -254,26 +254,26 @@
 </tr>
 <tr>
 <td><a href="../ID/">ID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
-<td>Unique identifier for the leaf that is referenced</td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
+<td>Unique identifier for the leaf that is referenced.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CommentRef/">CommentRef</a></td>
 <td>0..1 <br/> <a href="../Comment/">Comment</a></td>
-<td></td>
+<td>Comment reference: A free-text (uninterpreted) comment about clinical data. T...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CodingRef/">CodingRef</a></td>
 <td>0..* <br/> <a href="../Coding/">Coding</a></td>
-<td></td>
+<td>Coding reference: Coding references a symbol from a defined code system. It u...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../FlagRef/">FlagRef</a></td>
 <td>0..* <br/> <a href="../Flag/">Flag</a></td>
-<td></td>
+<td>Flag reference: A machine-processable annotation.</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -539,8 +539,8 @@ slot_usage:
 attributes:
   SeqNum:
     name: SeqNum
-    description: 'When more than 1 Value element exists this attribute uniquely identifies
-      each Value and defines the order of a Value in a list of Values. '
+    description: When more than 1 Value element exists this attribute uniquely identifies
+      each Value and defines the order of a Value in a list of Values.
     comments:
     - 'Required
 
@@ -593,6 +593,8 @@ attributes:
     required: true
   CommentRef:
     name: CommentRef
+    description: 'Comment reference: A free-text (uninterpreted) comment about clinical
+      data. The comment may have come from the sponsor or the clinical site.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -604,6 +606,12 @@ attributes:
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -632,6 +640,7 @@ attributes:
     inlined_as_list: true
   FlagRef:
     name: FlagRef
+    description: 'Flag reference: A machine-processable annotation.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

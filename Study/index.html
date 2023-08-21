@@ -202,7 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-study">Class: Study</h1>
-<p><em>This element collects static structural information about an individual study.Element NameStudyParent ElementsODMElement XPath(s)/ODM/StudyElement Textual ValueNone AttributesOID, StudyName, ProtocolName, VersionID, VersionName, StatusChild Elements(Description?, MetaDataVersion*)Usage/Business RulesBusiness Rule(s): Required when ODM/@Granularity is in (All | Metadata)</em></p>
+<p><em>This element collects static structural information about an individual study.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Study">odm:Study</a></p>
 <div class="mermaid"> classDiagram
     class Study
@@ -242,50 +242,50 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
-<td>Unique identifier for the study</td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
+<td>Unique identifier for the study.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../StudyName/">StudyName</a></td>
-<td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td>Sponsoring organization's internal name for the study</td>
+<td>1..1 <br/> <a href="../name/">name</a></td>
+<td>Sponsoring organization's internal name for the study. If no internal name is...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ProtocolName/">ProtocolName</a></td>
-<td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td>P rotocol identifier or protocol number assigned to the study</td>
+<td>1..1 <br/> <a href="../name/">name</a></td>
+<td>P rotocol identifier or protocol number assigned to the study . It is used by...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../VersionID/">VersionID</a></td>
-<td>0..1 <br/> <a href="../Name/">Name</a></td>
+<td>0..1 <br/> <a href="../name/">name</a></td>
 <td>Identifier for the specific version of the study in the source system that th...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../VersionName/">VersionName</a></td>
-<td>0..1 <br/> <a href="../Name/">Name</a></td>
-<td>Short descriptive label for the version of the study, e</td>
+<td>0..1 <br/> <a href="../name/">name</a></td>
+<td>Short descriptive label for the version of the study, e.g. "Initial go live" ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Status/">Status</a></td>
-<td>0..1 <br/> <a href="../Name/">Name</a></td>
+<td>0..1 <br/> <a href="../name/">name</a></td>
 <td>Represents the workflow status for the version of the study with content incl...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DescriptionRef/">DescriptionRef</a></td>
 <td>0..1 <br/> <a href="../Description/">Description</a></td>
-<td></td>
+<td>Description reference: A free-text description of the containing metadata com...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../MetaDataVersionRefRef/">MetaDataVersionRefRef</a></td>
 <td>0..* <br/> <a href="../MetaDataVersion/">MetaDataVersion</a></td>
-<td></td>
+<td>MetaDataVersionRef reference: A reference to a MetaDataVersion used at the co...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -342,11 +342,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Study
-description: 'This element collects static structural information about an individual
-  study.Element NameStudyParent ElementsODMElement XPath(s)/ODM/StudyElement Textual
-  ValueNone AttributesOID, StudyName, ProtocolName, VersionID, VersionName, StatusChild
-  Elements(Description?, MetaDataVersion*)Usage/Business RulesBusiness Rule(s): Required
-  when ODM/@Granularity is in (All | Metadata)'
+description: This element collects static structural information about an individual
+  study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Study
@@ -528,11 +525,8 @@ class_uri: odm:Study
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Study
-description: 'This element collects static structural information about an individual
-  study.Element NameStudyParent ElementsODMElement XPath(s)/ODM/StudyElement Textual
-  ValueNone AttributesOID, StudyName, ProtocolName, VersionID, VersionName, StatusChild
-  Elements(Description?, MetaDataVersion*)Usage/Business RulesBusiness Rule(s): Required
-  when ODM/@Granularity is in (All | Metadata)'
+description: This element collects static structural information about an individual
+  study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Study
@@ -836,6 +830,8 @@ attributes:
     range: name
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -883,6 +879,9 @@ attributes:
     maximum_cardinality: 1
   MetaDataVersionRefRef:
     name: MetaDataVersionRefRef
+    description: 'MetaDataVersionRef reference: A reference to a MetaDataVersion used
+      at the containing Location. The EffectiveDate reflects the possibility that
+      the metadata may change over the course of the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

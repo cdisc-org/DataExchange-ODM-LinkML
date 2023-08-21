@@ -282,91 +282,91 @@
 <tr>
 <td><a href="../ContextRef/">ContextRef</a></td>
 <td>0..1 <br/> <a href="../Context/">Context</a></td>
-<td>Indicates the intended usage of the ODM document</td>
+<td>Indicates the intended usage of the ODM document. Archive - indicates that th...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../FileOID/">FileOID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
-<td>A unique identifier for this file</td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
+<td>A unique identifier for this file.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CreationDateTime/">CreationDateTime</a></td>
-<td>1..1 <br/> <a href="Datetime.md">Datetime</a></td>
-<td>Time of creation of the file containing the document</td>
+<td>1..1 <br/> <a href="../datetime/">datetime</a></td>
+<td>Time of creation of the file containing the document.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../PriorFileOID/">PriorFileOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to the previous file (if any) in a series</td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to the previous file (if any) in a series.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AsOfDateTime/">AsOfDateTime</a></td>
-<td>0..1 <br/> <a href="Datetime.md">Datetime</a></td>
+<td>0..1 <br/> <a href="../datetime/">datetime</a></td>
 <td>The date/time at which the source database was queried in order to create thi...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ODMVersionRef/">ODMVersionRef</a></td>
 <td>0..1 <br/> <a href="../ODMVersion/">ODMVersion</a></td>
-<td>The version of the ODM standard used</td>
+<td>The version of the ODM standard used.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Originator/">Originator</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
-<td>The organization that generated the ODM file</td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
+<td>The organization that generated the ODM file.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../SourceSystem/">SourceSystem</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
 <td>The computer system or database management system that is the source of the i...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../SourceSystemVersion/">SourceSystemVersion</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
-<td>The version of the "SourceSystem" above</td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
+<td>The version of the "SourceSystem" above.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DescriptionRef/">DescriptionRef</a></td>
 <td>0..1 <br/> <a href="../Description/">Description</a></td>
-<td></td>
+<td>Description reference: A free-text description of the containing metadata com...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../StudyRef/">StudyRef</a></td>
 <td>0..* <br/> <a href="../Study/">Study</a></td>
-<td></td>
+<td>Study reference: This element collects static structural information about an...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AdminDataRef/">AdminDataRef</a></td>
 <td>0..* <br/> <a href="../AdminData/">AdminData</a></td>
-<td></td>
+<td>AdminData reference: Administrative information about users, locations, organ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ReferenceDataRef/">ReferenceDataRef</a></td>
 <td>0..* <br/> <a href="../ReferenceData/">ReferenceData</a></td>
-<td></td>
+<td>ReferenceData reference: Reference data provides information on how to interp...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ClinicalDataRef/">ClinicalDataRef</a></td>
 <td>0..* <br/> <a href="../ClinicalData/">ClinicalData</a></td>
-<td></td>
+<td>ClinicalData reference: Clinical data for 1 or more subjects.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AssociationRef/">AssociationRef</a></td>
 <td>0..* <br/> <a href="../Association/">Association</a></td>
-<td></td>
+<td>Association reference: An association permits an annotation to be placed on a...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -430,10 +430,10 @@ slots:
 slot_usage:
   FileTypeRef:
     name: FileTypeRef
-    description: 'Snapshot means that the document contains only the current state
+    description: Snapshot means that the document contains only the current state
       of the data and metadata it describes, and no transactional history. Transactional
       means that the document may contain more than one instance per data point. Query
-      means the document contains only ClinicalData/Query elements. '
+      means the document contains only ClinicalData/Query elements.
     comments:
     - 'Required
 
@@ -656,10 +656,10 @@ see_also:
 slot_usage:
   FileTypeRef:
     name: FileTypeRef
-    description: 'Snapshot means that the document contains only the current state
+    description: Snapshot means that the document contains only the current state
       of the data and metadata it describes, and no transactional history. Transactional
       means that the document may contain more than one instance per data point. Query
-      means the document contains only ClinicalData/Query elements. '
+      means the document contains only ClinicalData/Query elements.
     comments:
     - 'Required
 
@@ -870,10 +870,10 @@ slot_usage:
 attributes:
   FileTypeRef:
     name: FileTypeRef
-    description: 'Snapshot means that the document contains only the current state
+    description: Snapshot means that the document contains only the current state
       of the data and metadata it describes, and no transactional history. Transactional
       means that the document may contain more than one instance per data point. Query
-      means the document contains only ClinicalData/Query elements. '
+      means the document contains only ClinicalData/Query elements.
     comments:
     - 'Required
 
@@ -1045,6 +1045,8 @@ attributes:
     range: text
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1092,6 +1094,8 @@ attributes:
     maximum_cardinality: 1
   StudyRef:
     name: StudyRef
+    description: 'Study reference: This element collects static structural information
+      about an individual study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1105,6 +1109,8 @@ attributes:
     inlined_as_list: true
   AdminDataRef:
     name: AdminDataRef
+    description: 'AdminData reference: Administrative information about users, locations,
+      organizations, and electronic signatures.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1118,6 +1124,10 @@ attributes:
     inlined_as_list: true
   ReferenceDataRef:
     name: ReferenceDataRef
+    description: 'ReferenceData reference: Reference data provides information on
+      how to interpret clinical data. For example, reference data might include lab
+      normal ranges. For a study that uses CDISC standards, reference data might include
+      SDTM Trial Design datasets.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1131,6 +1141,7 @@ attributes:
     inlined_as_list: true
   ClinicalDataRef:
     name: ClinicalDataRef
+    description: 'ClinicalData reference: Clinical data for 1 or more subjects.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1144,6 +1155,9 @@ attributes:
     inlined_as_list: true
   AssociationRef:
     name: AssociationRef
+    description: 'Association reference: An association permits an annotation to be
+      placed on an ordered pair of entities rather than on just one. The first and
+      second KeySets identify the start and end of the annotated "link.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

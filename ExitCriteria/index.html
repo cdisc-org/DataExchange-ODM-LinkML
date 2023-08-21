@@ -221,7 +221,7 @@
 <tr>
 <td><a href="../CriterionRef/">CriterionRef</a></td>
 <td>0..* <br/> <a href="../Criterion/">Criterion</a></td>
-<td></td>
+<td>Criterion reference: The Criterion represents either an inclusion or an exclu...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -301,6 +301,9 @@ slot_usage:
 attributes:
   CriterionRef:
     name: CriterionRef
+    description: 'Criterion reference: The Criterion represents either an inclusion
+      or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria,
+      ExclusionCriteria).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

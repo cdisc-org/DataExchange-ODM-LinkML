@@ -270,14 +270,14 @@
 <tbody>
 <tr>
 <td><a href="../ItemOID/">ItemOID</a></td>
-<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to the ItemDef</td>
+<td>1..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to the ItemDef .</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../KeySequence/">KeySequence</a></td>
-<td>0..1 <br/> <a href="PositiveInteger.md">PositiveInteger</a></td>
-<td>Indicates that this item is a key for the enclosing element</td>
+<td>0..1 <br/> <a href="../positiveInteger/">positiveInteger</a></td>
+<td>Indicates that this item is a key for the enclosing element. It also provides...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -294,13 +294,13 @@
 </tr>
 <tr>
 <td><a href="../MethodOID/">MethodOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to a MethodDef used to derive the value of this item</td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to a MethodDef used to derive the value of this item.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../UnitsItemOID/">UnitsItemOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>Reference to a sibling ItemRef element that represents the unit specification...</td>
 <td>direct</td>
 </tr>
@@ -318,31 +318,31 @@
 </tr>
 <tr>
 <td><a href="../Role/">Role</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
-<td>The Role for the referenced ItemDef</td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
+<td>The Role for the referenced ItemDef. The Role attribute provides a single rol...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../RoleCodeListOID/">RoleCodeListOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>Reference to a CodeList that defines the allowable values of Role for the Stu...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Core/">Core</a></td>
 <td>0..1 <br/> <a href="../CoreType/">CoreType</a></td>
-<td>CDASH, ADaM, SDTM, and SEND Core designations</td>
+<td>CDASH, ADaM, SDTM, and SEND Core designations.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../PreSpecifiedValue/">PreSpecifiedValue</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
-<td>Prefill value or a default value for a field that is automatically populated</td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
+<td>Prefill value or a default value for a field that is automatically populated.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../OrderNumber/">OrderNumber</a></td>
-<td>0..1 <br/> <a href="PositiveInteger.md">PositiveInteger</a></td>
+<td>0..1 <br/> <a href="../positiveInteger/">positiveInteger</a></td>
 <td>Indicates the order in which this ItemRef appears in Metadata displays or dat...</td>
 <td>direct</td>
 </tr>
@@ -354,20 +354,20 @@
 </tr>
 <tr>
 <td><a href="../CollectionExceptionConditionOID/">CollectionExceptionConditionOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>Reference to a ConditionDef that defines the circumstances under which collec...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../OriginRef/">OriginRef</a></td>
 <td>0..* <br/> <a href="../Origin/">Origin</a></td>
-<td></td>
+<td>Origin reference: Origin defines the source metadata, where applicable, for O...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../WhereClauseRefRef/">WhereClauseRefRef</a></td>
 <td>0..* <br/> <a href="../WhereClauseRef/">WhereClauseRef</a></td>
-<td></td>
+<td>WhereClauseRef reference: The WhereClauseRef references the WhereClauseDef el...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -507,9 +507,9 @@ slot_usage:
     range: YesOnly
   HasNoData:
     name: HasNoData
-    description: 'Used to indicate that an ItemRef that represent a dataset''s variable
+    description: Used to indicate that an ItemRef that represent a dataset's variable
       has no data. Note that variables refer to both standard and non-standard/ supplemental
-      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef). '
+      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef).
     comments:
     - 'Conditional
 
@@ -589,7 +589,7 @@ slot_usage:
 
       range:text
 
-      This attribute must not be present unless the Role attribute is defined. '
+      This attribute must not be present unless the Role attribute is defined.'
     domain_of:
     - ItemRef
     - Organization
@@ -611,7 +611,7 @@ slot_usage:
     range: oidref
   Core:
     name: Core
-    description: 'CDASH, ADaM, SDTM, and SEND Core designations. '
+    description: CDASH, ADaM, SDTM, and SEND Core designations.
     comments:
     - 'Optional
 
@@ -680,8 +680,8 @@ slot_usage:
     required: true
   CollectionExceptionConditionOID:
     name: CollectionExceptionConditionOID
-    description: 'Reference to a ConditionDef that defines the circumstances under
-      which collection of the Item may be omitted. '
+    description: Reference to a ConditionDef that defines the circumstances under
+      which collection of the Item may be omitted.
     comments:
     - 'Optional
 
@@ -778,9 +778,9 @@ slot_usage:
     range: YesOnly
   HasNoData:
     name: HasNoData
-    description: 'Used to indicate that an ItemRef that represent a dataset''s variable
+    description: Used to indicate that an ItemRef that represent a dataset's variable
       has no data. Note that variables refer to both standard and non-standard/ supplemental
-      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef). '
+      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef).
     comments:
     - 'Conditional
 
@@ -860,7 +860,7 @@ slot_usage:
 
       range:text
 
-      This attribute must not be present unless the Role attribute is defined. '
+      This attribute must not be present unless the Role attribute is defined.'
     domain_of:
     - ItemRef
     - Organization
@@ -882,7 +882,7 @@ slot_usage:
     range: oidref
   Core:
     name: Core
-    description: 'CDASH, ADaM, SDTM, and SEND Core designations. '
+    description: CDASH, ADaM, SDTM, and SEND Core designations.
     comments:
     - 'Optional
 
@@ -951,8 +951,8 @@ slot_usage:
     required: true
   CollectionExceptionConditionOID:
     name: CollectionExceptionConditionOID
-    description: 'Reference to a ConditionDef that defines the circumstances under
-      which collection of the Item may be omitted. '
+    description: Reference to a ConditionDef that defines the circumstances under
+      which collection of the Item may be omitted.
     comments:
     - 'Optional
 
@@ -1048,9 +1048,9 @@ attributes:
     range: YesOnly
   HasNoData:
     name: HasNoData
-    description: 'Used to indicate that an ItemRef that represent a dataset''s variable
+    description: Used to indicate that an ItemRef that represent a dataset's variable
       has no data. Note that variables refer to both standard and non-standard/ supplemental
-      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef). '
+      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef).
     comments:
     - 'Conditional
 
@@ -1150,7 +1150,7 @@ attributes:
 
       range:text
 
-      This attribute must not be present unless the Role attribute is defined. '
+      This attribute must not be present unless the Role attribute is defined.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Role
@@ -1180,7 +1180,7 @@ attributes:
     range: oidref
   Core:
     name: Core
-    description: 'CDASH, ADaM, SDTM, and SEND Core designations. '
+    description: CDASH, ADaM, SDTM, and SEND Core designations.
     comments:
     - 'Optional
 
@@ -1265,8 +1265,8 @@ attributes:
     required: true
   CollectionExceptionConditionOID:
     name: CollectionExceptionConditionOID
-    description: 'Reference to a ConditionDef that defines the circumstances under
-      which collection of the Item may be omitted. '
+    description: Reference to a ConditionDef that defines the circumstances under
+      which collection of the Item may be omitted.
     comments:
     - 'Optional
 
@@ -1286,6 +1286,11 @@ attributes:
     range: oidref
   OriginRef:
     name: OriginRef
+    description: 'Origin reference: Origin defines the source metadata, where applicable,
+      for ODM ItemRefs or ItemGroupRefs. Origin as a child element replaces the Origin
+      attribute in ODM v1.3 that exists for the ItemDef and ItemGroupDef elements.The
+      Origin element is based on the def:Origin element in Define-XML v2.1 with the
+      Trace-XML v1.0 extension.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1300,6 +1305,9 @@ attributes:
     inlined_as_list: true
   WhereClauseRefRef:
     name: WhereClauseRefRef
+    description: 'WhereClauseRef reference: The WhereClauseRef references the WhereClauseDef
+      element that describes the conditions under which the variable values are defined
+      by the referenced ItemDef.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

@@ -202,7 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-association">Class: Association</h1>
-<p><em>An association permits an annotation to be placed on an ordered pair of entities rather than on just one. The first and second KeySets identify the start and end of the annotated "link."</em></p>
+<p><em>An association permits an annotation to be placed on an ordered pair of entities rather than on just one. The first and second KeySets identify the start and end of the annotated "link.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Association">odm:Association</a></p>
 <div class="mermaid"> classDiagram
     class Association
@@ -234,32 +234,32 @@
 <tbody>
 <tr>
 <td><a href="../StudyOID/">StudyOID</a></td>
-<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to an ODM Study element</td>
+<td>1..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to an ODM Study element.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../MetaDataVersionOID/">MetaDataVersionOID</a></td>
-<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to a MetaDataVersion element</td>
+<td>1..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to a MetaDataVersion element.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../KeySetRef/">KeySetRef</a></td>
 <td>0..1 <br/> <a href="../KeySet/">KeySet</a></td>
-<td></td>
+<td>KeySet reference: A KeySet references a single entity (e.g., a study, a subje...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../KeySetRef/">KeySetRef</a></td>
 <td>0..1 <br/> <a href="../KeySet/">KeySet</a></td>
-<td></td>
+<td>KeySet reference: A KeySet references a single entity (e.g., a study, a subje...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AnnotationRef/">AnnotationRef</a></td>
 <td>0..1 <br/> <a href="../Annotation/">Annotation</a></td>
-<td></td>
+<td>Annotation reference: A general note about clinical data. If an annotation ha...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -318,7 +318,7 @@
 <pre><code class="language-yaml">name: Association
 description: An association permits an annotation to be placed on an ordered pair
   of entities rather than on just one. The first and second KeySets identify the start
-  and end of the annotated "link."
+  and end of the annotated "link.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Association
@@ -387,7 +387,7 @@ class_uri: odm:Association
 <pre><code class="language-yaml">name: Association
 description: An association permits an annotation to be placed on an ordered pair
   of entities rather than on just one. The first and second KeySets identify the start
-  and end of the annotated "link."
+  and end of the annotated "link.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Association
@@ -483,6 +483,10 @@ attributes:
     required: true
   KeySetRef:
     name: KeySetRef
+    description: 'KeySet reference: A KeySet references a single entity (e.g., a study,
+      a subject, a study event). Only those attributes needed to specify the particular
+      entity are required, and all others must be omitted (see Section 2.7, Clinical
+      Data Keys).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -494,6 +498,9 @@ attributes:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
+    description: 'Annotation reference: A general note about clinical data. If an
+      annotation has both a comment and flags, the flags should be related to the
+      comment.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

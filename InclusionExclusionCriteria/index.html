@@ -231,13 +231,13 @@
 <tr>
 <td><a href="../InclusionCriteriaRef/">InclusionCriteriaRef</a></td>
 <td>0..1 <br/> <a href="../InclusionCriteria/">InclusionCriteria</a></td>
-<td></td>
+<td>InclusionCriteria reference: The InclusionCriteria is a container element for...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ExclusionCriteriaRef/">ExclusionCriteriaRef</a></td>
 <td>0..1 <br/> <a href="../ExclusionCriteria/">ExclusionCriteria</a></td>
-<td></td>
+<td>ExclusionCriteria reference: The ExclusionCriteria is a container element for...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -349,6 +349,10 @@ slot_usage:
 attributes:
   InclusionCriteriaRef:
     name: InclusionCriteriaRef
+    description: 'InclusionCriteria reference: The InclusionCriteria is a container
+      element for Criterion elements describing inclusion criteria for subjects in
+      the study. When a list is provided, subjects must meet each of the criteria
+      in the list in order to enroll in the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -360,6 +364,10 @@ attributes:
     maximum_cardinality: 1
   ExclusionCriteriaRef:
     name: ExclusionCriteriaRef
+    description: 'ExclusionCriteria reference: The ExclusionCriteria is a container
+      element for Criterion elements describing exclusion criteria for subjects in
+      the study. When a list is provided, not meeting any of the criteria in the list
+      may lead to exclusion of enrollment in the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

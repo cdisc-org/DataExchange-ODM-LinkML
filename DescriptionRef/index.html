@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-descriptionref">Slot: DescriptionRef</h1>
+<p><em>Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/DescriptionRef">odm:DescriptionRef</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -327,17 +328,17 @@
 <tbody>
 <tr>
 <td><a href="../Study/">Study</a></td>
-<td>This element collects static structural information about an individual study</td>
+<td>This element collects static structural information about an individual study...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../MetaDataVersion/">MetaDataVersion</a></td>
-<td>The metadata for a study is defined in a series of MetaDataVersion elements</td>
+<td>The metadata for a study is defined in a series of MetaDataVersion elements. ...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ValueListDef/">ValueListDef</a></td>
-<td>The following table specifies the XML structure for valuelist metadata</td>
+<td>The following table specifies the XML structure for valuelist metadata. The V...</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -367,7 +368,7 @@
 </tr>
 <tr>
 <td><a href="../ItemDef/">ItemDef</a></td>
-<td>An ItemDef describes a type of item that can occur within a study</td>
+<td>An ItemDef describes a type of item that can occur within a study. Item prope...</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -377,7 +378,7 @@
 </tr>
 <tr>
 <td><a href="../CodeListItem/">CodeListItem</a></td>
-<td>Defines an individual member value of a codelist</td>
+<td>Defines an individual member value of a codelist. It may include a display va...</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -387,7 +388,7 @@
 </tr>
 <tr>
 <td><a href="../ConditionDef/">ConditionDef</a></td>
-<td>A ConditionDef defines a boolean condition</td>
+<td>A ConditionDef defines a boolean condition.</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -412,17 +413,17 @@
 </tr>
 <tr>
 <td><a href="../StudyIndication/">StudyIndication</a></td>
-<td>This element describes a study indication (e</td>
+<td>This element describes a study indication (e.g., condition, disease) for the ...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../StudyIntervention/">StudyIntervention</a></td>
-<td>This element describes a study intervention (e</td>
+<td>This element describes a study intervention (e.g., medication, treatment, the...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../StudyObjective/">StudyObjective</a></td>
-<td>Element NameStudyObjectiveParent ElementStudyObjectivesElement XPath(s)/ODM/S...</td>
+<td></td>
 <td>yes</td>
 </tr>
 <tr>
@@ -437,22 +438,22 @@
 </tr>
 <tr>
 <td><a href="../StudyEstimand/">StudyEstimand</a></td>
-<td>Element NameStudyEstimandParent ElementsStudyEstimandsElement XPath(s)/ODM/St...</td>
+<td></td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../IntercurrentEvent/">IntercurrentEvent</a></td>
-<td>Element NameInterCurrentEventParent ElementsStudyEstimandElement XPath(s)/ODM...</td>
+<td></td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../SummaryMeasure/">SummaryMeasure</a></td>
-<td>Element NameSummaryMeasureParent ElementsStudyEstimandElement XPath(s)/ODM/St...</td>
+<td></td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Arm/">Arm</a></td>
-<td>An Arm element provides the declaration of a study arm</td>
+<td>An Arm element provides the declaration of a study arm. Arms do not have any ...</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -477,12 +478,12 @@
 </tr>
 <tr>
 <td><a href="../DurationTimingConstraint/">DurationTimingConstraint</a></td>
-<td></td>
+<td>The DurationTimingConstraint constrains the duration of an activity represent...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../WorkflowDef/">WorkflowDef</a></td>
-<td>A WorkflowDef defines an automated workflow for a study</td>
+<td>A WorkflowDef defines an automated workflow for a study.</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -497,7 +498,7 @@
 </tr>
 <tr>
 <td><a href="../Organization/">Organization</a></td>
-<td>An organization can reference a parent organization</td>
+<td>An organization can reference a parent organization. Users may be associated ...</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -507,7 +508,7 @@
 </tr>
 <tr>
 <td><a href="../ODMFileMetadata/">ODMFileMetadata</a></td>
-<td>Root element for ODM Documents</td>
+<td>Root element for ODM Documents. The ODM element is the top-level (root) eleme...</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -525,6 +526,8 @@
 <details>
 
 <pre><code class="language-yaml">name: DescriptionRef
+description: 'Description reference: A free-text description of the containing metadata
+  component, unless restricted by Business Rules.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

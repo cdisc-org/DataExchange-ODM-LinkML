@@ -202,7 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-itemgroupdata">Class: ItemGroupData</h1>
-<p>_Clinical data corresponding to an ItemGroupRef defined in the active MetaDataVersion. _</p>
+<p><em>Clinical data corresponding to an ItemGroupRef defined in the active MetaDataVersion.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ItemGroupData">odm:ItemGroupData</a></p>
 <div class="mermaid"> classDiagram
     class ItemGroupData
@@ -256,62 +256,62 @@
 <tbody>
 <tr>
 <td><a href="../ItemGroupOID/">ItemGroupOID</a></td>
-<td>1..1 <br/> <a href="Oidref.md">Oidref</a></td>
+<td>1..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>Reference to an ItemGroupDef for the MetaDataVersion identified in the Clinic...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ItemGroupRepeatKey/">ItemGroupRepeatKey</a></td>
-<td>0..1 <br/> <a href="RepeatKey.md">RepeatKey</a></td>
-<td>A key used to distinguish between repeats of the same type of item group</td>
+<td>0..1 <br/> <a href="../repeatKey/">repeatKey</a></td>
+<td>A key used to distinguish between repeats of the same type of item group.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../TransactionTypeRef/">TransactionTypeRef</a></td>
 <td>0..1 <br/> <a href="../TransactionType/">TransactionType</a></td>
-<td>The TransactionType attribute need not be present in a Snapshot document</td>
+<td>The TransactionType attribute need not be present in a Snapshot document.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ItemGroupDataSeq/">ItemGroupDataSeq</a></td>
-<td>0..1 <br/> <a href="PositiveInteger.md">PositiveInteger</a></td>
+<td>0..1 <br/> <a href="../positiveInteger/">positiveInteger</a></td>
 <td>Unique sequence # for each ItemGroupData child element (record) in the contai...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../QueryRef/">QueryRef</a></td>
 <td>0..* <br/> <a href="../Query/">Query</a></td>
-<td></td>
+<td>Query reference: The Query element represents a request for clarification on ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ItemGroupDataRef/">ItemGroupDataRef</a></td>
 <td>0..* <br/> <a href="./">ItemGroupData</a></td>
-<td></td>
+<td>ItemGroupData reference: Clinical data corresponding to an ItemGroupRef defin...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ItemDataRef/">ItemDataRef</a></td>
 <td>0..* <br/> <a href="../ItemData/">ItemData</a></td>
-<td></td>
+<td>ItemData reference: The ItemData element is used for transmission of the clin...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AuditRecordRef/">AuditRecordRef</a></td>
 <td>0..1 <br/> <a href="../AuditRecord/">AuditRecord</a></td>
-<td></td>
+<td>AuditRecord reference: An AuditRecord carries information pertaining to the c...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../SignatureRefRef/">SignatureRefRef</a></td>
 <td>0..1 <br/> <a href="../Signature/">Signature</a></td>
-<td></td>
+<td>SignatureRef reference: None</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AnnotationRef/">AnnotationRef</a></td>
 <td>0..1 <br/> <a href="../Annotation/">Annotation</a></td>
-<td></td>
+<td>Annotation reference: A general note about clinical data. If an annotation ha...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -386,8 +386,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ItemGroupData
-description: 'Clinical data corresponding to an ItemGroupRef defined in the active
-  MetaDataVersion. '
+description: Clinical data corresponding to an ItemGroupRef defined in the active
+  MetaDataVersion.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemGroupData
@@ -536,8 +536,8 @@ class_uri: odm:ItemGroupData
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ItemGroupData
-description: 'Clinical data corresponding to an ItemGroupRef defined in the active
-  MetaDataVersion. '
+description: Clinical data corresponding to an ItemGroupRef defined in the active
+  MetaDataVersion.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemGroupData
@@ -745,6 +745,14 @@ attributes:
     range: positiveInteger
   QueryRef:
     name: QueryRef
+    description: 'Query reference: The Query element represents a request for clarification
+      on a data item collected for a clinical trial, specifically a request from a
+      sponsor or sponsor’s representative to an investigator to resolve an error or
+      inconsistency discovered during data review. Queries can be created manually
+      by individuals such as site monitors or data managers or automatically by systems.
+      The full text of the Query exists in the Value child element. The optional Name
+      attribute provide the means to provide a short identifier that can be included
+      in listing or user interfaces.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -763,6 +771,8 @@ attributes:
     inlined_as_list: true
   ItemGroupDataRef:
     name: ItemGroupDataRef
+    description: 'ItemGroupData reference: Clinical data corresponding to an ItemGroupRef
+      defined in the active MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -779,6 +789,9 @@ attributes:
     inlined_as_list: true
   ItemDataRef:
     name: ItemDataRef
+    description: 'ItemData reference: The ItemData element is used for transmission
+      of the clinical data for an item. The model does not support repeating items
+      within a single item group.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -792,6 +805,12 @@ attributes:
     inlined_as_list: true
   AuditRecordRef:
     name: AuditRecordRef
+    description: 'AuditRecord reference: An AuditRecord carries information pertaining
+      to the creation, deletion, or modification of clinical data. This information
+      includes who performed that action, and where, when, and why that action was
+      performed.AuditRecord information describes a change to clinical data, but is
+      not itself clinical data. The value of some clinical data can always be changed
+      by a subsequent transaction, but history cannot be changed, only added to.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -809,6 +828,7 @@ attributes:
     maximum_cardinality: 1
   SignatureRefRef:
     name: SignatureRefRef
+    description: 'SignatureRef reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -826,6 +846,9 @@ attributes:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
+    description: 'Annotation reference: A general note about clinical data. If an
+      annotation has both a comment and flags, the flags should be related to the
+      comment.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

@@ -202,7 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-location">Class: Location</h1>
-<p>_A physical location associated with data collection and/or treatment of subjects. _</p>
+<p><em>A physical location associated with data collection and/or treatment of subjects.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Location">odm:Location</a></p>
 <div class="mermaid"> classDiagram
     class Location
@@ -250,56 +250,56 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
 <td>Unique identifier</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
-<td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td>Human-readable identifier</td>
+<td>1..1 <br/> <a href="../name/">name</a></td>
+<td>Human-readable identifier.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Role/">Role</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
-<td>Specifies the role of this location in the study</td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
+<td>Specifies the role of this location in the study.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../OrganizationOID/">OrganizationOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to an organization</td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to an organization.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DescriptionRef/">DescriptionRef</a></td>
 <td>0..1 <br/> <a href="../Description/">Description</a></td>
-<td></td>
+<td>Description reference: A free-text description of the containing metadata com...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../MetaDataVersionRefRef/">MetaDataVersionRefRef</a></td>
 <td>0..* <br/> <a href="../MetaDataVersionRef/">MetaDataVersionRef</a></td>
-<td></td>
+<td>MetaDataVersionRef reference: A reference to a MetaDataVersion used at the co...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AddressRef/">AddressRef</a></td>
 <td>0..* <br/> <a href="../Address/">Address</a></td>
-<td></td>
+<td>Address reference: The postal address for a user, location, or organization.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../TelecomRef/">TelecomRef</a></td>
 <td>0..* <br/> <a href="../Telecom/">Telecom</a></td>
-<td></td>
+<td>Telecom reference: The telecommunication contacts points of a user, a locatio...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../QueryRef/">QueryRef</a></td>
 <td>0..* <br/> <a href="../Query/">Query</a></td>
-<td></td>
+<td>Query reference: The Query element represents a request for clarification on ...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -356,8 +356,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Location
-description: 'A physical location associated with data collection and/or treatment
-  of subjects. '
+description: A physical location associated with data collection and/or treatment
+  of subjects.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Location
@@ -582,8 +582,8 @@ class_uri: odm:Location
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Location
-description: 'A physical location associated with data collection and/or treatment
-  of subjects. '
+description: A physical location associated with data collection and/or treatment
+  of subjects.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Location
@@ -930,6 +930,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -977,6 +979,9 @@ attributes:
     maximum_cardinality: 1
   MetaDataVersionRefRef:
     name: MetaDataVersionRefRef
+    description: 'MetaDataVersionRef reference: A reference to a MetaDataVersion used
+      at the containing Location. The EffectiveDate reflects the possibility that
+      the metadata may change over the course of the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -991,6 +996,7 @@ attributes:
     inlined_as_list: true
   AddressRef:
     name: AddressRef
+    description: 'Address reference: The postal address for a user, location, or organization.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1006,6 +1012,8 @@ attributes:
     inlined_as_list: true
   TelecomRef:
     name: TelecomRef
+    description: 'Telecom reference: The telecommunication contacts points of a user,
+      a location, or an organization. The Type attribute designates the type of contact.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1021,6 +1029,14 @@ attributes:
     inlined_as_list: true
   QueryRef:
     name: QueryRef
+    description: 'Query reference: The Query element represents a request for clarification
+      on a data item collected for a clinical trial, specifically a request from a
+      sponsor or sponsor’s representative to an investigator to resolve an error or
+      inconsistency discovered during data review. Queries can be created manually
+      by individuals such as site monitors or data managers or automatically by systems.
+      The full text of the Query exists in the Value child element. The optional Name
+      attribute provide the means to provide a short identifier that can be included
+      in listing or user interfaces.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

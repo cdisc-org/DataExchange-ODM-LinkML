@@ -255,49 +255,49 @@
 <tr>
 <td><a href="../StreetNameRef/">StreetNameRef</a></td>
 <td>0..1 <br/> <a href="../StreetName/">StreetName</a></td>
-<td></td>
+<td>StreetName reference: The street name part of a user's postal address.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../HouseNumberRef/">HouseNumberRef</a></td>
 <td>0..1 <br/> <a href="../HouseNumber/">HouseNumber</a></td>
-<td></td>
+<td>HouseNumber reference: The house number part of a user's postal address.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CityRef/">CityRef</a></td>
 <td>0..1 <br/> <a href="../City/">City</a></td>
-<td></td>
+<td>City reference: The city name part of a user's postal address.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../StateProvRef/">StateProvRef</a></td>
 <td>0..1 <br/> <a href="../StateProv/">StateProv</a></td>
-<td></td>
+<td>StateProv reference: The state or province name part of a user's postal addre...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CountryRef/">CountryRef</a></td>
 <td>0..1 <br/> <a href="../Country/">Country</a></td>
-<td></td>
+<td>Country reference: The country name part of a user's postal address. For CDIS...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../PostalCodeRef/">PostalCodeRef</a></td>
 <td>0..1 <br/> <a href="../PostalCode/">PostalCode</a></td>
-<td></td>
+<td>PostalCode reference: The postal code part of a user's postal address.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../GeoPositionRef/">GeoPositionRef</a></td>
 <td>0..1 <br/> <a href="../GeoPosition/">GeoPosition</a></td>
-<td></td>
+<td>GeoPosition reference: The geographical position using the World Geodetic Sys...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../OtherTextRef/">OtherTextRef</a></td>
 <td>0..1 <br/> <a href="../OtherText/">OtherText</a></td>
-<td></td>
+<td>OtherText reference: Any other text needed as part of a user's postal address...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -491,6 +491,7 @@ slot_usage:
 attributes:
   StreetNameRef:
     name: StreetNameRef
+    description: 'StreetName reference: The street name part of a user''s postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -502,6 +503,8 @@ attributes:
     maximum_cardinality: 1
   HouseNumberRef:
     name: HouseNumberRef
+    description: 'HouseNumber reference: The house number part of a user''s postal
+      address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -513,6 +516,7 @@ attributes:
     maximum_cardinality: 1
   CityRef:
     name: CityRef
+    description: 'City reference: The city name part of a user''s postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -524,6 +528,8 @@ attributes:
     maximum_cardinality: 1
   StateProvRef:
     name: StateProvRef
+    description: 'StateProv reference: The state or province name part of a user''s
+      postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -535,6 +541,9 @@ attributes:
     maximum_cardinality: 1
   CountryRef:
     name: CountryRef
+    description: 'Country reference: The country name part of a user''s postal address.
+      For CDISC SDTM or trial registry applications, this must be represented by an
+      ISO 3166 3-letter or US-GENC country code (e.g., FRA for France, JPN for Japan).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -546,6 +555,7 @@ attributes:
     maximum_cardinality: 1
   PostalCodeRef:
     name: PostalCodeRef
+    description: 'PostalCode reference: The postal code part of a user''s postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -557,6 +567,8 @@ attributes:
     maximum_cardinality: 1
   GeoPositionRef:
     name: GeoPositionRef
+    description: 'GeoPosition reference: The geographical position using the World
+      Geodetic System WGS84.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -568,6 +580,8 @@ attributes:
     maximum_cardinality: 1
   OtherTextRef:
     name: OtherTextRef
+    description: 'OtherText reference: Any other text needed as part of a user''s
+      postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

@@ -236,8 +236,8 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
-<td>Unique identifier</td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
+<td>Unique identifier.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -249,13 +249,13 @@
 <tr>
 <td><a href="../MeaningRef/">MeaningRef</a></td>
 <td>0..1 <br/> <a href="../Meaning/">Meaning</a></td>
-<td></td>
+<td>Meaning reference: A short name or description for this signature. It should ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../LegalReasonRef/">LegalReasonRef</a></td>
 <td>0..1 <br/> <a href="../LegalReason/">LegalReason</a></td>
-<td></td>
+<td>LegalReason reference: The responsibility statement associated with a signatu...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -559,6 +559,9 @@ attributes:
     range: SignMethod
   MeaningRef:
     name: MeaningRef
+    description: 'Meaning reference: A short name or description for this signature.
+      It should reflect the context of the signature and/or the text that appears
+      when the signature is applied in the user interface.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -570,6 +573,9 @@ attributes:
     maximum_cardinality: 1
   LegalReasonRef:
     name: LegalReasonRef
+    description: 'LegalReason reference: The responsibility statement associated with
+      a signature (e.g., "The signer accepts responsibility for the accuracy of this
+      data.").'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

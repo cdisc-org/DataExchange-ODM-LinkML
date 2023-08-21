@@ -238,49 +238,49 @@
 <tbody>
 <tr>
 <td><a href="../CodeRef/">CodeRef</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
-<td>A string pattern that identifies a concept as defined by the code system</td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
+<td>A string pattern that identifies a concept as defined by the code system.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../System/">System</a></td>
-<td>1..1 <br/> <a href="Uriorcurie.md">Uriorcurie</a></td>
-<td>Identifies the code system that defines the code</td>
+<td>1..1 <br/> <a href="../uriorcurie/">uriorcurie</a></td>
+<td>Identifies the code system that defines the code. If the code is taken from a...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../SystemName/">SystemName</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
-<td>Human readable name for the code system</td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
+<td>Human readable name for the code system.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../SystemVersion/">SystemVersion</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
 <td>Identifies the version of the code system</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Label/">Label</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
-<td>Used to link the value to a named MethodDef parameter</td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
+<td>Used to link the value to a named MethodDef parameter.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../href/">href</a></td>
-<td>0..1 <br/> <a href="Uriorcurie.md">Uriorcurie</a></td>
-<td>URI reference to the Code definition</td>
+<td>0..1 <br/> <a href="../uriorcurie/">uriorcurie</a></td>
+<td>URI reference to the Code definition.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ref/">ref</a></td>
-<td>0..1 <br/> <a href="Uriorcurie.md">Uriorcurie</a></td>
-<td>Reference to a local instance of the code system</td>
+<td>0..1 <br/> <a href="../uriorcurie/">uriorcurie</a></td>
+<td>Reference to a local instance of the code system.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CommentOID/">CommentOID</a></td>
-<td>0..1 <br/> <a href="Text.md">Text</a></td>
+<td>0..1 <br/> <a href="../text/">text</a></td>
 <td>Reference to a CommentDef that provides the rationale for the use of the Conc...</td>
 <td>direct</td>
 </tr>
@@ -476,7 +476,7 @@ slot_usage:
     required: true
   SystemName:
     name: SystemName
-    description: 'Human readable name for the code system. '
+    description: Human readable name for the code system.
     comments:
     - 'Optional
 
@@ -600,7 +600,7 @@ slot_usage:
     required: true
   SystemName:
     name: SystemName
-    description: 'Human readable name for the code system. '
+    description: Human readable name for the code system.
     comments:
     - 'Optional
 
@@ -718,7 +718,7 @@ attributes:
     required: true
   SystemName:
     name: SystemName
-    description: 'Human readable name for the code system. '
+    description: Human readable name for the code system.
     comments:
     - 'Optional
 

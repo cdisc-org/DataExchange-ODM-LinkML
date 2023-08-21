@@ -202,7 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-auditrecord">Class: AuditRecord</h1>
-<p><em>An AuditRecord carries information pertaining to the creation, deletion, or modification of clinical data. This information includes who performed that action, and where, when, and why that action was performed.AuditRecord information describes a change to clinical data, but is not itself clinical data. The value of some clinical data can always be changed by a subsequent transaction, but history cannot be changed, only added to. Element NameAuditRecordParent ElementsReferenceData, ClinicalData, SubjectData, StudyEventData, ItemGroupData, ItemData, QueryElement XPath(s)/ODM/AdminData/Location/Query/AuditRecord/ODM/ReferenceData/AuditRecord/ODM/ClinicalData/AuditRecord/ODM/ClinicalData/Query/AuditRecord/ODM/ClinicalData/SubjectData/AuditRecord/ODM/ClinicalData/SubjectData/Query/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/Query/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Query/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Query/AuditRecordElement Textual ValueNoneUsage/Business RulesBusiness Rule(s):For the Archive use case, all AuditRecord information in the data collection system must be provided within the ODM ClinicalData.When the ODM FileType attribute is set to Transactional, every ClinicalData that has a TransactionType must also have an AuditRecord.Other Information:An AuditRecord applies to any descendant data element that allows a TransactionType and does not have an AuditRecord. Query elements must have their own AuditRecord(s).AuditRecord information describes a change to clinical data, but is not itself clinical data. The value of some clinical data can always be changed by a subsequent transaction, but history cannot be changed -- only added to.AttributesEditPoint, UsedMethod.Child Elements(UserRef, LocationRef, DateTimeStamp, ReasonForChange?, SourceID?)</em></p>
+<p><em>An AuditRecord carries information pertaining to the creation, deletion, or modification of clinical data. This information includes who performed that action, and where, when, and why that action was performed.AuditRecord information describes a change to clinical data, but is not itself clinical data. The value of some clinical data can always be changed by a subsequent transaction, but history cannot be changed, only added to.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/AuditRecord">odm:AuditRecord</a></p>
 <div class="mermaid"> classDiagram
     class AuditRecord
@@ -251,7 +251,7 @@
 <tr>
 <td><a href="../EditPoint/">EditPoint</a></td>
 <td>0..1 <br/> <a href="../EditPointType/">EditPointType</a></td>
-<td>Identifies the phase of data processing in which update action occurred</td>
+<td>Identifies the phase of data processing in which update action occurred.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -263,31 +263,31 @@
 <tr>
 <td><a href="../UserRefRef/">UserRefRef</a></td>
 <td>0..1 <br/> <a href="../UserRef/">UserRef</a></td>
-<td></td>
+<td>UserRef reference: None</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../LocationRefRef/">LocationRefRef</a></td>
 <td>0..1 <br/> <a href="../LocationRef/">LocationRef</a></td>
-<td></td>
+<td>LocationRef reference: A reference to the user's physical location.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DateTimeStampRef/">DateTimeStampRef</a></td>
 <td>0..1 <br/> <a href="../DateTimeStamp/">DateTimeStamp</a></td>
-<td></td>
+<td>DateTimeStamp reference: None</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ReasonForChangeRef/">ReasonForChangeRef</a></td>
 <td>0..1 <br/> <a href="../ReasonForChange/">ReasonForChange</a></td>
-<td></td>
+<td>ReasonForChange reference: A user-supplied reason for a data change.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../SourceIDRef/">SourceIDRef</a></td>
 <td>0..1 <br/> <a href="../SourceID/">SourceID</a></td>
-<td></td>
+<td>SourceID reference: Information that identifies the source of the data within...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -385,18 +385,7 @@ description: An AuditRecord carries information pertaining to the creation, dele
   and where, when, and why that action was performed.AuditRecord information describes
   a change to clinical data, but is not itself clinical data. The value of some clinical
   data can always be changed by a subsequent transaction, but history cannot be changed,
-  only added to. Element NameAuditRecordParent ElementsReferenceData, ClinicalData,
-  SubjectData, StudyEventData, ItemGroupData, ItemData, QueryElement XPath(s)/ODM/AdminData/Location/Query/AuditRecord/ODM/ReferenceData/AuditRecord/ODM/ClinicalData/AuditRecord/ODM/ClinicalData/Query/AuditRecord/ODM/ClinicalData/SubjectData/AuditRecord/ODM/ClinicalData/SubjectData/Query/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/Query/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Query/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Query/AuditRecordElement
-  Textual ValueNoneUsage/Business RulesBusiness Rule(s):For the Archive use case,
-  all AuditRecord information in the data collection system must be provided within
-  the ODM ClinicalData.When the ODM FileType attribute is set to Transactional, every
-  ClinicalData that has a TransactionType must also have an AuditRecord.Other Information:An
-  AuditRecord applies to any descendant data element that allows a TransactionType
-  and does not have an AuditRecord. Query elements must have their own AuditRecord(s).AuditRecord
-  information describes a change to clinical data, but is not itself clinical data.
-  The value of some clinical data can always be changed by a subsequent transaction,
-  but history cannot be changed -- only added to.AttributesEditPoint, UsedMethod.Child
-  Elements(UserRef, LocationRef, DateTimeStamp, ReasonForChange?, SourceID?)
+  only added to.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AuditRecord
@@ -473,18 +462,7 @@ description: An AuditRecord carries information pertaining to the creation, dele
   and where, when, and why that action was performed.AuditRecord information describes
   a change to clinical data, but is not itself clinical data. The value of some clinical
   data can always be changed by a subsequent transaction, but history cannot be changed,
-  only added to. Element NameAuditRecordParent ElementsReferenceData, ClinicalData,
-  SubjectData, StudyEventData, ItemGroupData, ItemData, QueryElement XPath(s)/ODM/AdminData/Location/Query/AuditRecord/ODM/ReferenceData/AuditRecord/ODM/ClinicalData/AuditRecord/ODM/ClinicalData/Query/AuditRecord/ODM/ClinicalData/SubjectData/AuditRecord/ODM/ClinicalData/SubjectData/Query/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/Query/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Query/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/AuditRecord/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Query/AuditRecordElement
-  Textual ValueNoneUsage/Business RulesBusiness Rule(s):For the Archive use case,
-  all AuditRecord information in the data collection system must be provided within
-  the ODM ClinicalData.When the ODM FileType attribute is set to Transactional, every
-  ClinicalData that has a TransactionType must also have an AuditRecord.Other Information:An
-  AuditRecord applies to any descendant data element that allows a TransactionType
-  and does not have an AuditRecord. Query elements must have their own AuditRecord(s).AuditRecord
-  information describes a change to clinical data, but is not itself clinical data.
-  The value of some clinical data can always be changed by a subsequent transaction,
-  but history cannot be changed -- only added to.AttributesEditPoint, UsedMethod.Child
-  Elements(UserRef, LocationRef, DateTimeStamp, ReasonForChange?, SourceID?)
+  only added to.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AuditRecord
@@ -569,6 +547,7 @@ attributes:
     range: YesOrNo
   UserRefRef:
     name: UserRefRef
+    description: 'UserRef reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -582,6 +561,7 @@ attributes:
     maximum_cardinality: 1
   LocationRefRef:
     name: LocationRefRef
+    description: 'LocationRef reference: A reference to the user''s physical location.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -595,6 +575,7 @@ attributes:
     maximum_cardinality: 1
   DateTimeStampRef:
     name: DateTimeStampRef
+    description: 'DateTimeStamp reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -607,6 +588,7 @@ attributes:
     maximum_cardinality: 1
   ReasonForChangeRef:
     name: ReasonForChangeRef
+    description: 'ReasonForChange reference: A user-supplied reason for a data change.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -618,6 +600,8 @@ attributes:
     maximum_cardinality: 1
   SourceIDRef:
     name: SourceIDRef
+    description: 'SourceID reference: Information that identifies the source of the
+      data within an originating system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

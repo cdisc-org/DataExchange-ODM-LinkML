@@ -305,6 +305,7 @@
 
 
 <h1 id="enum-yesonly">Enum: YesOnly</h1>
+<p><em>Enumeration used in ExtendedValue, IsNonStandard, Other, IsNull, HasNoData, Repeat</em></p>
 <p>URI: <a href="YesOnly">YesOnly</a></p>
 <p><em>This is a dynamic enum</em></p>
 <h2 id="slots">Slots</h2>
@@ -317,24 +318,24 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../HasNoData/">HasNoData</a></td>
-<td>Used to indicate that an ItemGroupDef has no data</td>
-</tr>
-<tr>
-<td><a href="../Other/">Other</a></td>
-<td>Flag to indicate that the Item represents "other" content added to an ItemGro...</td>
-</tr>
-<tr>
 <td><a href="../IsNull/">IsNull</a></td>
-<td>Flag specifying that an item's value is to be set to null</td>
+<td>Flag specifying that an item's value is to be set to null. In the interest of...</td>
 </tr>
 <tr>
 <td><a href="../ExtendedValue/">ExtendedValue</a></td>
 <td></td>
 </tr>
 <tr>
+<td><a href="../Other/">Other</a></td>
+<td>Flag to indicate that the Item represents "other" content added to an ItemGro...</td>
+</tr>
+<tr>
+<td><a href="../HasNoData/">HasNoData</a></td>
+<td>Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d...</td>
+</tr>
+<tr>
 <td><a href="../IsNonStandard/">IsNonStandard</a></td>
-<td>Required for ADaM, SDTM, or SEND if StandardOID is not provided</td>
+<td>Required for ADaM, SDTM, or SEND if StandardOID is not provided.</td>
 </tr>
 <tr>
 <td><a href="../Repeat/">Repeat</a></td>
@@ -342,11 +343,11 @@
 </tr>
 <tr>
 <td><a href="../IsNonStandard/">IsNonStandard</a></td>
-<td>Required for ADaM, SDTM, or SEND if StandardOID is not provided</td>
+<td>Required for ADaM, SDTM, or SEND if StandardOID is not provided.</td>
 </tr>
 <tr>
 <td><a href="../HasNoData/">HasNoData</a></td>
-<td>Used to indicate that an ItemGroupDef has no data</td>
+<td>Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d...</td>
 </tr>
 <tr>
 <td><a href="../IsNonStandard/">IsNonStandard</a></td>
@@ -370,7 +371,7 @@
 </tr>
 <tr>
 <td><a href="../Other/">Other</a></td>
-<td>Flag to indicate that the term represents "other" content</td>
+<td>Flag to indicate that the term represents "other" content.</td>
 </tr>
 <tr>
 <td><a href="../ExtendedValue/">ExtendedValue</a></td>
@@ -378,7 +379,7 @@
 </tr>
 <tr>
 <td><a href="../IsNull/">IsNull</a></td>
-<td>Flag specifying that an item's value is to be set to null</td>
+<td>Flag specifying that an item's value is to be set to null. In the interest of...</td>
 </tr>
 </tbody>
 </table>
@@ -391,6 +392,8 @@
 <details>
 
 <pre><code class="language-yaml">name: YesOnly
+description: Enumeration used in ExtendedValue, IsNonStandard, Other, IsNull, HasNoData,
+  Repeat
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 

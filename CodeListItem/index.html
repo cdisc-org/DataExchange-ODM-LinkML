@@ -254,25 +254,25 @@
 <tbody>
 <tr>
 <td><a href="../CodedValue/">CodedValue</a></td>
-<td>1..1 <br/> <a href="../Value/">Value</a></td>
-<td>Value of the codelist item (as it would occur in clinical data)</td>
+<td>1..1 <br/> <a href="../value/">value</a></td>
+<td>Value of the codelist item (as it would occur in clinical data).</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Rank/">Rank</a></td>
-<td>0..1 <br/> <a href="Decimal.md">Decimal</a></td>
-<td>Numeric significance of the CodeListItem relative to others in the CodeList</td>
+<td>0..1 <br/> <a href="../decimal/">decimal</a></td>
+<td>Numeric significance of the CodeListItem relative to others in the CodeList. ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Other/">Other</a></td>
 <td>0..1 <br/> <a href="../YesOnly/">YesOnly</a></td>
-<td>Flag to indicate that the term represents "other" content</td>
+<td>Flag to indicate that the term represents "other" content.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../OrderNumber/">OrderNumber</a></td>
-<td>0..1 <br/> <a href="PositiveInteger.md">PositiveInteger</a></td>
+<td>0..1 <br/> <a href="../positiveInteger/">positiveInteger</a></td>
 <td>Ordering on the CodeListItems (within a containing CodeListItem) for use when...</td>
 <td>direct</td>
 </tr>
@@ -284,32 +284,32 @@
 </tr>
 <tr>
 <td><a href="../CommentOID/">CommentOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to a CommentDef</td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to a CommentDef .</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DescriptionRef/">DescriptionRef</a></td>
 <td>0..1 <br/> <a href="../Description/">Description</a></td>
-<td></td>
+<td>Description reference: A free-text description of the containing metadata com...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DecodeRef/">DecodeRef</a></td>
 <td>0..1 <br/> <a href="../Decode/">Decode</a></td>
-<td></td>
+<td>Decode reference: The displayed value relating to the CodeListItem/@CodedValu...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CodingRef/">CodingRef</a></td>
 <td>0..* <br/> <a href="../Coding/">Coding</a></td>
-<td></td>
+<td>Coding reference: Coding references a symbol from a defined code system. It u...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AliasRef/">AliasRef</a></td>
 <td>0..* <br/> <a href="../Alias/">Alias</a></td>
-<td></td>
+<td>Alias reference: An Alias provides an additional name for an element. The Con...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -847,6 +847,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -894,6 +896,10 @@ attributes:
     maximum_cardinality: 1
   DecodeRef:
     name: DecodeRef
+    description: 'Decode reference: The displayed value relating to the CodeListItem/@CodedValue.
+      This is often a label corresponding to a short name or alpha-numeric code. The
+      actual Decode text is provided in a TranslatedText element so that it can be
+      provided in different languages on a case report form or tabular data summary.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -905,6 +911,12 @@ attributes:
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -933,6 +945,9 @@ attributes:
     inlined_as_list: true
   AliasRef:
     name: AliasRef
+    description: 'Alias reference: An Alias provides an additional name for an element.
+      The Context attribute specifies the application domain in which this additional
+      name is relevant.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

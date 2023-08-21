@@ -312,6 +312,7 @@
 
 
 <h1 id="slot-codingref">Slot: CodingRef</h1>
+<p><em>Coding reference: Coding references a symbol from a defined code system. It uses a code defined in a terminology system to associate semantics with a given term, codelist, variable, or group of variables. The presence of a Coding element associates a meaning to its parent element. Including multiple Coding elements for a given parent indicates synonymous meanings provided by different code systems or code system versions.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/CodingRef">odm:CodingRef</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -352,12 +353,12 @@
 </tr>
 <tr>
 <td><a href="../SourceItem/">SourceItem</a></td>
-<td>Provides the information needed to identify the source metadata</td>
+<td>Provides the information needed to identify the source metadata.</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../ItemDef/">ItemDef</a></td>
-<td>An ItemDef describes a type of item that can occur within a study</td>
+<td>An ItemDef describes a type of item that can occur within a study. Item prope...</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -367,17 +368,17 @@
 </tr>
 <tr>
 <td><a href="../CodeListItem/">CodeListItem</a></td>
-<td>Defines an individual member value of a codelist</td>
+<td>Defines an individual member value of a codelist. It may include a display va...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../StudyIndication/">StudyIndication</a></td>
-<td>This element describes a study indication (e</td>
+<td>This element describes a study indication (e.g., condition, disease) for the ...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../StudyIntervention/">StudyIntervention</a></td>
-<td>This element describes a study intervention (e</td>
+<td>This element describes a study intervention (e.g., medication, treatment, the...</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -392,7 +393,7 @@
 </tr>
 <tr>
 <td><a href="../ParameterValue/">ParameterValue</a></td>
-<td>This element contains the value of the study parameter as text content</td>
+<td>This element contains the value of the study parameter as text content.</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -402,7 +403,7 @@
 </tr>
 <tr>
 <td><a href="../Annotation/">Annotation</a></td>
-<td>A general note about clinical data</td>
+<td>A general note about clinical data. If an annotation has both a comment and f...</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -420,6 +421,12 @@
 <details>
 
 <pre><code class="language-yaml">name: CodingRef
+description: 'Coding reference: Coding references a symbol from a defined code system.
+  It uses a code defined in a terminology system to associate semantics with a given
+  term, codelist, variable, or group of variables. The presence of a Coding element
+  associates a meaning to its parent element. Including multiple Coding elements for
+  a given parent indicates synonymous meanings provided by different code systems
+  or code system versions.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

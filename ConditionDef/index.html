@@ -202,7 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-conditiondef">Class: ConditionDef</h1>
-<p><em>A ConditionDef defines a boolean condition.Element NameConditionDefParent ElementsMetaDataVersionElement XPath(s)/ODM/Study/MetaDataVersion/ConditionDefElement Textual ValueNoneAttributesOID, Name, CommentOIDChild Elements(Description, MethodSignature, FormalExpression<em>, Alias</em>)The Description element must be provided and should include a prose description. The MethodSignature element must also be provided and identifies the input parameter and return values for the ConditionDef.Usage/Business RulesBusiness Rule(s):The MethodSignature ReturnValue for ConditionDef must always equal boolean.If a FormalExpression is provided, it must contain a machine-readable expression that will evaluate to True or False.Other Information:The Description and MethodSignature are the normative content of the ConditionDef. The ConditionDef is referenced by the CollectionExceptionConditionOID attribute within a study metadata component which may be omitted under circumstances defined by the condition (i.e., when the FormalExpression evaluates to True).Multiple FormalExpressions can be provided if each has a different Context attribute, allowing the same expression to be represented in forms appropriate to multiple systems.If an application cannot interpret any of the FormalExpressions or does not normally support conditional data collection, data for the referencing study metadata component should be collected as though no Condition is specified.In cases where a MethodSignature element exists without an associated FormalExpression, the MethodSignature supports improved traceability. It also serves the case where one role defines the MethodDef or ConditionDef, but another role provides the executable FormalExpression.</em></p>
+<p><em>A ConditionDef defines a boolean condition.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ConditionDef">odm:ConditionDef</a></p>
 <div class="mermaid"> classDiagram
     class ConditionDef
@@ -244,44 +244,44 @@
 <tbody>
 <tr>
 <td><a href="../OID/">OID</a></td>
-<td>1..1 <br/> <a href="Oid.md">Oid</a></td>
-<td>Unique identifier</td>
+<td>1..1 <br/> <a href="../oid/">oid</a></td>
+<td>Unique identifier.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../Name/">Name</a></td>
-<td>1..1 <br/> <a href="../Name/">Name</a></td>
-<td>Human-readable name for the Condition</td>
+<td>1..1 <br/> <a href="../name/">name</a></td>
+<td>Human-readable name for the Condition.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../CommentOID/">CommentOID</a></td>
-<td>0..1 <br/> <a href="Oidref.md">Oidref</a></td>
-<td>Reference to a CommentDef element</td>
+<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>Reference to a CommentDef element.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../DescriptionRef/">DescriptionRef</a></td>
 <td>0..1 <br/> <a href="../Description/">Description</a></td>
-<td></td>
+<td>Description reference: A free-text description of the containing metadata com...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../MethodSignatureRef/">MethodSignatureRef</a></td>
 <td>0..1 <br/> <a href="../MethodSignature/">MethodSignature</a></td>
-<td></td>
+<td>MethodSignature reference: A MethodSignature defines the parameters and retur...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../FormalExpressionRef/">FormalExpressionRef</a></td>
 <td>0..* <br/> <a href="../FormalExpression/">FormalExpression</a></td>
-<td></td>
+<td>FormalExpression reference: A FormalExpression used within a ConditionDef or ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../AliasRef/">AliasRef</a></td>
 <td>0..* <br/> <a href="../Alias/">Alias</a></td>
-<td></td>
+<td>Alias reference: An Alias provides an additional name for an element. The Con...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -338,27 +338,7 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ConditionDef
-description: A ConditionDef defines a boolean condition.Element NameConditionDefParent
-  ElementsMetaDataVersionElement XPath(s)/ODM/Study/MetaDataVersion/ConditionDefElement
-  Textual ValueNoneAttributesOID, Name, CommentOIDChild Elements(Description, MethodSignature,
-  FormalExpression*, Alias*)The Description element must be provided and should include
-  a prose description. The MethodSignature element must also be provided and identifies
-  the input parameter and return values for the ConditionDef.Usage/Business RulesBusiness
-  Rule(s):The MethodSignature ReturnValue for ConditionDef must always equal boolean.If
-  a FormalExpression is provided, it must contain a machine-readable expression that
-  will evaluate to True or False.Other Information:The Description and MethodSignature
-  are the normative content of the ConditionDef. The ConditionDef is referenced by
-  the CollectionExceptionConditionOID attribute within a study metadata component
-  which may be omitted under circumstances defined by the condition (i.e., when the
-  FormalExpression evaluates to True).Multiple FormalExpressions can be provided if
-  each has a different Context attribute, allowing the same expression to be represented
-  in forms appropriate to multiple systems.If an application cannot interpret any
-  of the FormalExpressions or does not normally support conditional data collection,
-  data for the referencing study metadata component should be collected as though
-  no Condition is specified.In cases where a MethodSignature element exists without
-  an associated FormalExpression, the MethodSignature supports improved traceability.
-  It also serves the case where one role defines the MethodDef or ConditionDef, but
-  another role provides the executable FormalExpression.
+description: A ConditionDef defines a boolean condition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ConditionDef
@@ -568,27 +548,7 @@ class_uri: odm:ConditionDef
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ConditionDef
-description: A ConditionDef defines a boolean condition.Element NameConditionDefParent
-  ElementsMetaDataVersionElement XPath(s)/ODM/Study/MetaDataVersion/ConditionDefElement
-  Textual ValueNoneAttributesOID, Name, CommentOIDChild Elements(Description, MethodSignature,
-  FormalExpression*, Alias*)The Description element must be provided and should include
-  a prose description. The MethodSignature element must also be provided and identifies
-  the input parameter and return values for the ConditionDef.Usage/Business RulesBusiness
-  Rule(s):The MethodSignature ReturnValue for ConditionDef must always equal boolean.If
-  a FormalExpression is provided, it must contain a machine-readable expression that
-  will evaluate to True or False.Other Information:The Description and MethodSignature
-  are the normative content of the ConditionDef. The ConditionDef is referenced by
-  the CollectionExceptionConditionOID attribute within a study metadata component
-  which may be omitted under circumstances defined by the condition (i.e., when the
-  FormalExpression evaluates to True).Multiple FormalExpressions can be provided if
-  each has a different Context attribute, allowing the same expression to be represented
-  in forms appropriate to multiple systems.If an application cannot interpret any
-  of the FormalExpressions or does not normally support conditional data collection,
-  data for the referencing study metadata component should be collected as though
-  no Condition is specified.In cases where a MethodSignature element exists without
-  an associated FormalExpression, the MethodSignature supports improved traceability.
-  It also serves the case where one role defines the MethodDef or ConditionDef, but
-  another role provides the executable FormalExpression.
+description: A ConditionDef defines a boolean condition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ConditionDef
@@ -912,6 +872,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -959,6 +921,10 @@ attributes:
     maximum_cardinality: 1
   MethodSignatureRef:
     name: MethodSignatureRef
+    description: 'MethodSignature reference: A MethodSignature defines the parameters
+      and return values for a method. The MethodSignature improves traceability while
+      enhancing the ability for automation engines to execute a MethodDef''s FormalExpression.
+      Most Methods use one or more input parameters and return one or more values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -972,6 +938,13 @@ attributes:
     maximum_cardinality: 1
   FormalExpressionRef:
     name: FormalExpressionRef
+    description: 'FormalExpression reference: A FormalExpression used within a ConditionDef
+      or a RangeCheck must evaluate to True or False. A FormalExpression referenced
+      within a MethodDef having Type Imputation, Computation, or Transpose must evaluate
+      to the correct DataType for an Item that may be imputed or computed using the
+      Method. A FormalExpression gets parameter and return value definitions from
+      the MethodSignature element. The data types in the MethodSignature parameters
+      and return values must match the corresponding data types in the FormalExpression.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -989,6 +962,9 @@ attributes:
     inlined_as_list: true
   AliasRef:
     name: AliasRef
+    description: 'Alias reference: An Alias provides an additional name for an element.
+      The Context attribute specifies the application domain in which this additional
+      name is relevant.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
