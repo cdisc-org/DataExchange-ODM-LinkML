@@ -18,9 +18,9 @@ URI: [odm:CodeListOID](http://www.cdisc.org/ns/odm/v2.0/CodeListOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[CodeListRef](CodeListRef.md) | A reference to a CodeList definition |  yes  |
-[FlagValue](FlagValue.md) | The value of the flag |  yes  |
-[FlagType](FlagType.md) | The type of flag |  yes  |
+[CodeListRef](CodeListRef.md) | A reference to a CodeList definition. |  yes  |
+[FlagValue](FlagValue.md) | The value of the flag. The meaning of this value is typically dependent on th... |  yes  |
+[FlagType](FlagType.md) | The type of flag. This determines the purpose and semantics of the flag. |  yes  |
 
 
 
@@ -30,7 +30,7 @@ URI: [odm:CodeListOID](http://www.cdisc.org/ns/odm/v2.0/CodeListOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

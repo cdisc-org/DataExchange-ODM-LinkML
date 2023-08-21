@@ -1,7 +1,7 @@
 # Slot: Latitude
 
 
-_Latitude component of geoposition coordinate in decimal degrees degrees. May require conversion from degrees, minutes, seconds format. _
+_Latitude component of geoposition coordinate in decimal degrees degrees. May require conversion from degrees, minutes, seconds format._
 
 
 
@@ -18,7 +18,7 @@ URI: [odm:Latitude](http://www.cdisc.org/ns/odm/v2.0/Latitude)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[GeoPosition](GeoPosition.md) | The geographical position using the World Geodetic System WGS84 |  yes  |
+[GeoPosition](GeoPosition.md) | The geographical position using the World Geodetic System WGS84. |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:Latitude](http://www.cdisc.org/ns/odm/v2.0/Latitude)
 
 ## Properties
 
-* Range: [Decimal](Decimal.md)
+* Range: [decimal](decimal.md)
 
 
 
@@ -55,8 +55,8 @@ URI: [odm:Latitude](http://www.cdisc.org/ns/odm/v2.0/Latitude)
 <details>
 ```yaml
 name: Latitude
-description: 'Latitude component of geoposition coordinate in decimal degrees degrees.
-  May require conversion from degrees, minutes, seconds format. '
+description: Latitude component of geoposition coordinate in decimal degrees degrees.
+  May require conversion from degrees, minutes, seconds format.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Latitude

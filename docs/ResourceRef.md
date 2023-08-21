@@ -1,5 +1,10 @@
 # Slot: ResourceRef
 
+
+_Resource reference: Describes an external resource used as the source for the parent ItemGroup or Item._
+
+
+
 URI: [odm:ResourceRef](http://www.cdisc.org/ns/odm/v2.0/ResourceRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:ResourceRef](http://www.cdisc.org/ns/odm/v2.0/ResourceRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata |  yes  |
+[SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata. |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:ResourceRef](http://www.cdisc.org/ns/odm/v2.0/ResourceRef)
 <details>
 ```yaml
 name: ResourceRef
+description: 'Resource reference: Describes an external resource used as the source
+  for the parent ItemGroup or Item.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

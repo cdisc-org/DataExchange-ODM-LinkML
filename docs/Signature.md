@@ -45,11 +45,11 @@ URI: [odm:Signature](http://www.cdisc.org/ns/odm/v2.0/Signature)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ID](ID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the leaf that is referenced | direct |
-| [UserRefRef](UserRefRef.md) | 0..1 <br/> [UserRef](UserRef.md) |  | direct |
-| [LocationRefRef](LocationRefRef.md) | 0..1 <br/> [LocationRef](LocationRef.md) |  | direct |
-| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [SignatureRef](SignatureRef.md) |  | direct |
-| [DateTimeStampRef](DateTimeStampRef.md) | 0..1 <br/> [DateTimeStamp](DateTimeStamp.md) |  | direct |
+| [ID](ID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the leaf that is referenced. | direct |
+| [UserRefRef](UserRefRef.md) | 0..1 <br/> [UserRef](UserRef.md) | UserRef reference: None | direct |
+| [LocationRefRef](LocationRefRef.md) | 0..1 <br/> [LocationRef](LocationRef.md) | LocationRef reference: A reference to the user's physical location. | direct |
+| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [SignatureRef](SignatureRef.md) | SignatureRef reference: None | direct |
+| [DateTimeStampRef](DateTimeStampRef.md) | 0..1 <br/> [DateTimeStamp](DateTimeStamp.md) | DateTimeStamp reference: None | direct |
 
 
 
@@ -247,6 +247,7 @@ attributes:
     required: true
   UserRefRef:
     name: UserRefRef
+    description: 'UserRef reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -260,6 +261,7 @@ attributes:
     maximum_cardinality: 1
   LocationRefRef:
     name: LocationRefRef
+    description: 'LocationRef reference: A reference to the user''s physical location.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -273,6 +275,7 @@ attributes:
     maximum_cardinality: 1
   SignatureRefRef:
     name: SignatureRefRef
+    description: 'SignatureRef reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -290,6 +293,7 @@ attributes:
     maximum_cardinality: 1
   DateTimeStampRef:
     name: DateTimeStampRef
+    description: 'DateTimeStamp reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

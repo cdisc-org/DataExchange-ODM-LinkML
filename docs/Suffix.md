@@ -29,7 +29,7 @@ URI: [odm:Suffix](http://www.cdisc.org/ns/odm/v2.0/Suffix)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [_content](_content.md) | 0..1 <br/> [ContentType](ContentType.md) | multi-line text content from between XML tags | direct |
+| [_content](_content.md) | 0..1 <br/> [_contentType](_contentType.md) | multi-line text content from between XML tags | direct |
 
 
 

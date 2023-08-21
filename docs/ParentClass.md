@@ -18,7 +18,7 @@ URI: [odm:ParentClass](http://www.cdisc.org/ns/odm/v2.0/ParentClass)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SubClass](SubClass.md) | This element contains SubClass definitions |  yes  |
+[SubClass](SubClass.md) | This element contains SubClass definitions. |  yes  |
 
 
 

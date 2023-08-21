@@ -29,7 +29,7 @@ URI: [odm:SiteRef](http://www.cdisc.org/ns/odm/v2.0/SiteRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [LocationOID](LocationOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to a Location definition | direct |
+| [LocationOID](LocationOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a Location definition. | direct |
 
 
 
@@ -105,7 +105,7 @@ slot_usage:
       range:oidref
 
       Must match the OID attribute value for an AdminData/Location element where the
-      AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID. '
+      AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID.'
     domain_of:
     - User
     - Organization
@@ -139,7 +139,7 @@ slot_usage:
       range:oidref
 
       Must match the OID attribute value for an AdminData/Location element where the
-      AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID. '
+      AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID.'
     domain_of:
     - User
     - Organization
@@ -157,7 +157,7 @@ attributes:
       range:oidref
 
       Must match the OID attribute value for an AdminData/Location element where the
-      AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID. '
+      AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: LocationOID

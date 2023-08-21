@@ -28,7 +28,7 @@ URI: [odm:WorkflowOID](http://www.cdisc.org/ns/odm/v2.0/WorkflowOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

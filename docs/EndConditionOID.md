@@ -18,7 +18,7 @@ URI: [odm:EndConditionOID](http://www.cdisc.org/ns/odm/v2.0/EndConditionOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Transition](Transition.md) | A Transition defines a link between 2 structural elements in a workflow |  yes  |
+[Transition](Transition.md) | A Transition defines a link between 2 structural elements in a workflow. When... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:EndConditionOID](http://www.cdisc.org/ns/odm/v2.0/EndConditionOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

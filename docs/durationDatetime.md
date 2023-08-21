@@ -2,6 +2,11 @@
 
 
 
+
+_https://wiki.cdisc.org/display/ODM2/Data+Formats_
+
+
+
 URI: [odm:durationDatetime](http://www.cdisc.org/ns/odm/v2.0/durationDatetime)
 
 * [base](https://w3id.org/linkml/base): str
@@ -15,6 +20,10 @@ URI: [odm:durationDatetime](http://www.cdisc.org/ns/odm/v2.0/durationDatetime)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Data+Formats](https://wiki.cdisc.org/display/ODM2/Data+Formats)
 
 ## Identifier and Mapping Information
 

@@ -18,7 +18,7 @@ URI: [odm:Originator](http://www.cdisc.org/ns/odm/v2.0/Originator)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents. The ODM element is the top-level (root) eleme... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:Originator](http://www.cdisc.org/ns/odm/v2.0/Originator)
 
 ## Properties
 
-* Range: [Text](Text.md)
+* Range: [text](text.md)
 
 
 

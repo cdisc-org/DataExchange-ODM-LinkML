@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in SoftHard_
+
+
+
 URI: [SoftOrHard](SoftOrHard)
 
 ## Permissible Values
@@ -18,8 +23,8 @@ URI: [SoftOrHard](SoftOrHard)
 
 | Name | Description |
 | ---  | --- |
-| [SoftHard](SoftHard.md) | Type of range check |
-| [SoftHard](SoftHard.md) | Type of range check |
+| [SoftHard](SoftHard.md) | Type of range check. Soft indicates that a warning occurs when the RangeCheck... |
+| [SoftHard](SoftHard.md) | Type of range check. Soft indicates that a warning occurs when the RangeCheck... |
 
 
 
@@ -47,6 +52,7 @@ URI: [SoftOrHard](SoftOrHard)
 <details>
 ```yaml
 name: SoftOrHard
+description: Enumeration used in SoftHard
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

@@ -19,7 +19,7 @@ URI: [odm:IsNonStandard](http://www.cdisc.org/ns/odm/v2.0/IsNonStandard)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
-[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef. The li... |  yes  |
 [CodeList](CodeList.md) | Defines a discrete set of permitted values for an item, or provides a referen... |  yes  |
 
 

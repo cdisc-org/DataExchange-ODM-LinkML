@@ -1,7 +1,7 @@
 # Slot: Target
 
 
-_Element upon which the Query is raised. The parent element is the Target when the Target attribute is omitted. _
+_Element upon which the Query is raised. The parent element is the Target when the Target attribute is omitted._
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:Target](http://www.cdisc.org/ns/odm/v2.0/Target)
 
 ## Properties
 
-* Range: [Text](Text.md)
+* Range: [text](text.md)
 
 
 
@@ -55,8 +55,8 @@ URI: [odm:Target](http://www.cdisc.org/ns/odm/v2.0/Target)
 <details>
 ```yaml
 name: Target
-description: 'Element upon which the Query is raised. The parent element is the Target
-  when the Target attribute is omitted. '
+description: Element upon which the Query is raised. The parent element is the Target
+  when the Target attribute is omitted.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Target

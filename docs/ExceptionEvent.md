@@ -49,13 +49,13 @@ URI: [odm:ExceptionEvent](http://www.cdisc.org/ns/odm/v2.0/ExceptionEvent)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [ConditionOID](ConditionOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a ConditionDef defining the condition under which the transition... | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [WorkflowRefRef](WorkflowRefRef.md) | 1..1 <br/> [WorkflowRef](WorkflowRef.md) |  | direct |
-| [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | 1..1 <br/> [StudyEventGroupRef](StudyEventGroupRef.md) |  | direct |
-| [StudyEventRefRef](StudyEventRefRef.md) | 1..1 <br/> [StudyEventRef](StudyEventRef.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier of the version within the XML document. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | General observation Sub Class. | direct |
+| [ConditionOID](ConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef defining the condition under which the transition... | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [WorkflowRefRef](WorkflowRefRef.md) | 1..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
+| [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | 1..1 <br/> [StudyEventGroupRef](StudyEventGroupRef.md) | StudyEventGroupRef reference: This element references a StudyEventGroupDef as... | direct |
+| [StudyEventRefRef](StudyEventRefRef.md) | 1..1 <br/> [StudyEventRef](StudyEventRef.md) | StudyEventRef reference: This element references a StudyEventDef as it occurs... | direct |
 
 
 
@@ -575,6 +575,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -622,6 +624,7 @@ attributes:
     maximum_cardinality: 1
   WorkflowRefRef:
     name: WorkflowRefRef
+    description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -641,6 +644,10 @@ attributes:
     maximum_cardinality: 1
   StudyEventGroupRefRef:
     name: StudyEventGroupRefRef
+    description: 'StudyEventGroupRef reference: This element references a StudyEventGroupDef
+      as it occurs within a specific version of a study. The list of StudyEventGroupRefs
+      identifies the types of study group events that are allowed to occur within
+      the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -656,6 +663,9 @@ attributes:
     maximum_cardinality: 1
   StudyEventRefRef:
     name: StudyEventRefRef
+    description: 'StudyEventRef reference: This element references a StudyEventDef
+      as it occurs within a specific version of a study. The list of StudyEventRefs
+      identifies the types of study events that are allowed to occur within the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

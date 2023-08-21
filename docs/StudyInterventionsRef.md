@@ -1,5 +1,10 @@
 # Slot: StudyInterventionsRef
 
+
+_StudyInterventions reference: The StudyInterventions element is a container element for individual StudyIntervention elements._
+
+
+
 URI: [odm:StudyInterventionsRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventionsRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:StudyInterventionsRef](http://www.cdisc.org/ns/odm/v2.0/StudyIntervent
 <details>
 ```yaml
 name: StudyInterventionsRef
+description: 'StudyInterventions reference: The StudyInterventions element is a container
+  element for individual StudyIntervention elements.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

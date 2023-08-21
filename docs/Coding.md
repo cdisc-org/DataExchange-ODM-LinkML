@@ -43,14 +43,14 @@ URI: [odm:Coding](http://www.cdisc.org/ns/odm/v2.0/Coding)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [CodeRef](CodeRef.md) | 0..1 <br/> [Text](Text.md) | A string pattern that identifies a concept as defined by the code system | direct |
-| [System](System.md) | 1..1 <br/> [Uriorcurie](Uriorcurie.md) | Identifies the code system that defines the code | direct |
-| [SystemName](SystemName.md) | 0..1 <br/> [Text](Text.md) | Human readable name for the code system | direct |
-| [SystemVersion](SystemVersion.md) | 0..1 <br/> [Text](Text.md) | Identifies the version of the code system | direct |
-| [Label](Label.md) | 0..1 <br/> [Text](Text.md) | Used to link the value to a named MethodDef parameter | direct |
-| [href](href.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI reference to the Code definition | direct |
-| [ref](ref.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Reference to a local instance of the code system | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [Text](Text.md) | Reference to a CommentDef that provides the rationale for the use of the Conc... | direct |
+| [CodeRef](CodeRef.md) | 0..1 <br/> [text](text.md) | A string pattern that identifies a concept as defined by the code system. | direct |
+| [System](System.md) | 1..1 <br/> [uriorcurie](uriorcurie.md) | Identifies the code system that defines the code. If the code is taken from a... | direct |
+| [SystemName](SystemName.md) | 0..1 <br/> [text](text.md) | Human readable name for the code system. | direct |
+| [SystemVersion](SystemVersion.md) | 0..1 <br/> [text](text.md) | Identifies the version of the code system | direct |
+| [Label](Label.md) | 0..1 <br/> [text](text.md) | Used to link the value to a named MethodDef parameter. | direct |
+| [href](href.md) | 0..1 <br/> [uriorcurie](uriorcurie.md) | URI reference to the Code definition. | direct |
+| [ref](ref.md) | 0..1 <br/> [uriorcurie](uriorcurie.md) | Reference to a local instance of the code system. | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [text](text.md) | Reference to a CommentDef that provides the rationale for the use of the Conc... | direct |
 
 
 
@@ -171,7 +171,7 @@ slot_usage:
     required: true
   SystemName:
     name: SystemName
-    description: 'Human readable name for the code system. '
+    description: Human readable name for the code system.
     comments:
     - 'Optional
 
@@ -298,7 +298,7 @@ slot_usage:
     required: true
   SystemName:
     name: SystemName
-    description: 'Human readable name for the code system. '
+    description: Human readable name for the code system.
     comments:
     - 'Optional
 
@@ -416,7 +416,7 @@ attributes:
     required: true
   SystemName:
     name: SystemName
-    description: 'Human readable name for the code system. '
+    description: Human readable name for the code system.
     comments:
     - 'Optional
 

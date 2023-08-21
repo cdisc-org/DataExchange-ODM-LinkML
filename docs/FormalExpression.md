@@ -1,7 +1,7 @@
 # Class: FormalExpression
 
 
-_A FormalExpression used within a ConditionDef or a RangeCheck must evaluate to True or False. A FormalExpression referenced within a MethodDef having Type Imputation, Computation, or Transpose must evaluate to the correct DataType for an Item that may be imputed or computed using the Method. A FormalExpression gets parameter and return value definitions from the MethodSignature element. The data types in the MethodSignature parameters and return values must match the corresponding data types in the FormalExpression. _
+_A FormalExpression used within a ConditionDef or a RangeCheck must evaluate to True or False. A FormalExpression referenced within a MethodDef having Type Imputation, Computation, or Transpose must evaluate to the correct DataType for an Item that may be imputed or computed using the Method. A FormalExpression gets parameter and return value definitions from the MethodSignature element. The data types in the MethodSignature parameters and return values must match the corresponding data types in the FormalExpression._
 
 
 
@@ -37,9 +37,9 @@ URI: [odm:FormalExpression](http://www.cdisc.org/ns/odm/v2.0/FormalExpression)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ContextRef](ContextRef.md) | 0..1 <br/> [Text](Text.md) | A free-form qualifier to suggest an appropriate computer language to be used ... | direct |
-| [CodeRef](CodeRef.md) | 0..1 <br/> [Code](Code.md) | A string pattern that identifies a concept as defined by the code system | direct |
-| [ExternalCodeLibRef](ExternalCodeLibRef.md) | 0..1 <br/> [ExternalCodeLib](ExternalCodeLib.md) |  | direct |
+| [ContextRef](ContextRef.md) | 0..1 <br/> [text](text.md) | A free-form qualifier to suggest an appropriate computer language to be used ... | direct |
+| [CodeRef](CodeRef.md) | 0..1 <br/> [Code](Code.md) | A string pattern that identifies a concept as defined by the code system. | direct |
+| [ExternalCodeLibRef](ExternalCodeLibRef.md) | 0..1 <br/> [ExternalCodeLib](ExternalCodeLib.md) | ExternalCodeLib reference: The ExternalCodeLib element references a FormalExp... | direct |
 
 
 
@@ -101,13 +101,13 @@ URI: [odm:FormalExpression](http://www.cdisc.org/ns/odm/v2.0/FormalExpression)
 <details>
 ```yaml
 name: FormalExpression
-description: 'A FormalExpression used within a ConditionDef or a RangeCheck must evaluate
+description: A FormalExpression used within a ConditionDef or a RangeCheck must evaluate
   to True or False. A FormalExpression referenced within a MethodDef having Type Imputation,
   Computation, or Transpose must evaluate to the correct DataType for an Item that
   may be imputed or computed using the Method. A FormalExpression gets parameter and
   return value definitions from the MethodSignature element. The data types in the
   MethodSignature parameters and return values must match the corresponding data types
-  in the FormalExpression. '
+  in the FormalExpression.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/FormalExpression
@@ -152,13 +152,13 @@ class_uri: odm:FormalExpression
 <details>
 ```yaml
 name: FormalExpression
-description: 'A FormalExpression used within a ConditionDef or a RangeCheck must evaluate
+description: A FormalExpression used within a ConditionDef or a RangeCheck must evaluate
   to True or False. A FormalExpression referenced within a MethodDef having Type Imputation,
   Computation, or Transpose must evaluate to the correct DataType for an Item that
   may be imputed or computed using the Method. A FormalExpression gets parameter and
   return value definitions from the MethodSignature element. The data types in the
   MethodSignature parameters and return values must match the corresponding data types
-  in the FormalExpression. '
+  in the FormalExpression.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/FormalExpression
@@ -223,6 +223,16 @@ attributes:
     maximum_cardinality: 1
   ExternalCodeLibRef:
     name: ExternalCodeLibRef
+    description: 'ExternalCodeLib reference: The ExternalCodeLib element references
+      a FormalExpression in an external code library, such as a file or GitHub. The
+      intention is to make it possible to reference existing code libraries where
+      the code is maintained as well as making it simpler to include longer, more
+      complex FormalExpressions. The Library attribute provides the name of the external
+      library, whereas ref or href provides a reference to the repository that can
+      be used to retrieve the code. The Method attribute provides the name of the
+      method in the file referenced for cases where multiple methods are provided
+      in the source code file. The Version element provides the version of the external
+      FormalExpression code referenced.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

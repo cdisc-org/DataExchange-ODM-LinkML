@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in GranularityRef_
+
+
+
 URI: [Granularity](Granularity)
 
 ## Permissible Values
@@ -52,6 +57,7 @@ URI: [Granularity](Granularity)
 <details>
 ```yaml
 name: Granularity
+description: Enumeration used in GranularityRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

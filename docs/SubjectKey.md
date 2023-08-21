@@ -18,8 +18,8 @@ URI: [odm:SubjectKey](http://www.cdisc.org/ns/odm/v2.0/SubjectKey)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SubjectData](SubjectData.md) | Clinical data for a single subject |  yes  |
-[KeySet](KeySet.md) | A KeySet references a single entity (e |  yes  |
+[SubjectData](SubjectData.md) | Clinical data for a single subject. |  yes  |
+[KeySet](KeySet.md) | A KeySet references a single entity (e.g., a study, a subject, a study event)... |  yes  |
 
 
 
@@ -29,7 +29,7 @@ URI: [odm:SubjectKey](http://www.cdisc.org/ns/odm/v2.0/SubjectKey)
 
 ## Properties
 
-* Range: [SubjectKey](SubjectKey.md)
+* Range: [subjectKey](subjectKey.md)
 
 
 

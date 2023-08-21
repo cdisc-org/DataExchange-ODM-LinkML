@@ -2,6 +2,11 @@
 
 
 
+
+_https://wiki.cdisc.org/display/ODM2/Data+Formats_
+
+
+
 URI: [odm:name](http://www.cdisc.org/ns/odm/v2.0/name)
 
 * [base](https://w3id.org/linkml/base): str
@@ -16,6 +21,10 @@ URI: [odm:name](http://www.cdisc.org/ns/odm/v2.0/name)
 
 
 
+
+## See Also
+
+* [https://wiki.cdisc.org/display/ODM2/Data+Formats](https://wiki.cdisc.org/display/ODM2/Data+Formats)
 
 ## Identifier and Mapping Information
 

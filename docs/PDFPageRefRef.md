@@ -18,7 +18,7 @@ URI: [odm:PDFPageRefRef](http://www.cdisc.org/ns/odm/v2.0/PDFPageRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[DocumentRef](DocumentRef.md) | Links to a leaf element with the location of the document |  yes  |
+[DocumentRef](DocumentRef.md) | Links to a leaf element with the location of the document. |  yes  |
 
 
 

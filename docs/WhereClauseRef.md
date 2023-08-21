@@ -29,7 +29,7 @@ URI: [odm:WhereClauseRef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [WhereClauseOID](WhereClauseOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the unique ID of a WhereClauseDef element | direct |
+| [WhereClauseOID](WhereClauseOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a WhereClauseDef element | direct |
 
 
 

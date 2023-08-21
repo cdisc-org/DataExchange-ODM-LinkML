@@ -37,9 +37,9 @@ URI: [odm:CommentDef](http://www.cdisc.org/ns/odm/v2.0/CommentDef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Text of the comment | direct |
-| [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Text of the comment. | direct |
+| [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file. | direct |
 
 
 

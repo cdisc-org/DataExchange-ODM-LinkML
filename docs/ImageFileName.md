@@ -18,7 +18,7 @@ URI: [odm:ImageFileName](http://www.cdisc.org/ns/odm/v2.0/ImageFileName)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Image](Image.md) | A visual depiction of the user |  yes  |
+[Image](Image.md) | A visual depiction of the user. |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:ImageFileName](http://www.cdisc.org/ns/odm/v2.0/ImageFileName)
 
 ## Properties
 
-* Range: [FileName](FileName.md)
+* Range: [fileName](fileName.md)
 
 
 

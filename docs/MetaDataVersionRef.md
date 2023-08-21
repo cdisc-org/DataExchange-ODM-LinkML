@@ -33,9 +33,9 @@ URI: [odm:MetaDataVersionRef](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersionRe
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the Study that uses this metadata version | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the MetaDataVersion (within the above Study) | direct |
-| [EffectiveDate](EffectiveDate.md) | 1..1 <br/> [Date](Date.md) | Datetime stamp when this MetaDataVersion was published at this location | direct |
+| [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the Study that uses this metadata version. | direct |
+| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | References the MetaDataVersion (within the above Study). | direct |
+| [EffectiveDate](EffectiveDate.md) | 1..1 <br/> [date](date.md) | Datetime stamp when this MetaDataVersion was published at this location. | direct |
 
 
 

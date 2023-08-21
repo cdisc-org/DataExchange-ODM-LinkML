@@ -28,7 +28,7 @@ URI: [odm:ItemGroupDataSeq](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDataSeq)
 
 ## Properties
 
-* Range: [PositiveInteger](PositiveInteger.md)
+* Range: [positiveInteger](positiveInteger.md)
 
 
 

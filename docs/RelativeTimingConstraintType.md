@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Type_
+
+
+
 URI: [RelativeTimingConstraintType](RelativeTimingConstraintType)
 
 ## Permissible Values
@@ -49,6 +54,7 @@ URI: [RelativeTimingConstraintType](RelativeTimingConstraintType)
 <details>
 ```yaml
 name: RelativeTimingConstraintType
+description: Enumeration used in Type
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

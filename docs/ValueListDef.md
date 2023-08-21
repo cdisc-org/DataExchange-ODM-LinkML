@@ -37,8 +37,8 @@ URI: [odm:ValueListDef](http://www.cdisc.org/ns/odm/v2.0/ValueListDef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique ID for the Value List See Section 2 | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description of the value list | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the Value List See Section 2.13, Element Identifiers and Refere... | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description of the value list. | direct |
 | [ItemRefRef](ItemRefRef.md) | 0..* <br/> [ItemRef](ItemRef.md) | The ItemRef element contains the reference to the value attributes definition... | direct |
 
 

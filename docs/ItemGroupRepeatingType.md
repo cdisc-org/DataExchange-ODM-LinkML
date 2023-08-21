@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Repeating_
+
+
+
 URI: [ItemGroupRepeatingType](ItemGroupRepeatingType)
 
 ## Permissible Values
@@ -48,6 +53,7 @@ URI: [ItemGroupRepeatingType](ItemGroupRepeatingType)
 <details>
 ```yaml
 name: ItemGroupRepeatingType
+description: Enumeration used in Repeating
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

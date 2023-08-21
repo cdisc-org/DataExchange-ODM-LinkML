@@ -1,5 +1,10 @@
 # Slot: DefaultTransitionRef
 
+
+_DefaultTransition reference: None_
+
+
+
 URI: [odm:DefaultTransitionRef](http://www.cdisc.org/ns/odm/v2.0/DefaultTransitionRef)
 
 
@@ -50,6 +55,7 @@ URI: [odm:DefaultTransitionRef](http://www.cdisc.org/ns/odm/v2.0/DefaultTransiti
 <details>
 ```yaml
 name: DefaultTransitionRef
+description: 'DefaultTransition reference: None'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

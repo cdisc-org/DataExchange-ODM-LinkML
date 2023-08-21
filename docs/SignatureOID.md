@@ -18,7 +18,7 @@ URI: [odm:SignatureOID](http://www.cdisc.org/ns/odm/v2.0/SignatureOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SignatureRef](SignatureRef.md) | Element NameSignatureRefParent ElementsSignatureElement XPath(s)/ODM/Referenc... |  yes  |
+[SignatureRef](SignatureRef.md) |  |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:SignatureOID](http://www.cdisc.org/ns/odm/v2.0/SignatureOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

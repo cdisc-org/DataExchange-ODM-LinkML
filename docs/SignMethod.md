@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Methodology_
+
+
+
 URI: [SignMethod](SignMethod)
 
 ## Permissible Values
@@ -47,6 +52,7 @@ URI: [SignMethod](SignMethod)
 <details>
 ```yaml
 name: SignMethod
+description: Enumeration used in Methodology
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

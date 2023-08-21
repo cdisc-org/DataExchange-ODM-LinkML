@@ -1,5 +1,10 @@
 # Slot: StudyEventGroupRefRef
 
+
+_StudyEventGroupRef reference: This element references a StudyEventGroupDef as it occurs within a specific version of a study. The list of StudyEventGroupRefs identifies the types of study group events that are allowed to occur within the study._
+
+
+
 URI: [odm:StudyEventGroupRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupRefRef)
 
 
@@ -52,6 +57,10 @@ URI: [odm:StudyEventGroupRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGrou
 <details>
 ```yaml
 name: StudyEventGroupRefRef
+description: 'StudyEventGroupRef reference: This element references a StudyEventGroupDef
+  as it occurs within a specific version of a study. The list of StudyEventGroupRefs
+  identifies the types of study group events that are allowed to occur within the
+  study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

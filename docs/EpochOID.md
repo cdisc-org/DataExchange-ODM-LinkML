@@ -28,7 +28,7 @@ URI: [odm:EpochOID](http://www.cdisc.org/ns/odm/v2.0/EpochOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

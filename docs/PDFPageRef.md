@@ -39,11 +39,11 @@ URI: [odm:PDFPageRef](http://www.cdisc.org/ns/odm/v2.0/PDFPageRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [PageRefs](PageRefs.md) | 0..1 <br/> [Text](Text.md) | List of PDF pages, separated by spaces | direct |
-| [FirstPage](FirstPage.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | First page in a range of pages | direct |
-| [LastPage](LastPage.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Last page in a range of pages | direct |
+| [PageRefs](PageRefs.md) | 0..1 <br/> [text](text.md) | List of PDF pages, separated by spaces. Sample: "17 20 32 | direct |
+| [FirstPage](FirstPage.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | First page in a range of pages. Note that the way to indicate the range of pa... | direct |
+| [LastPage](LastPage.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Last page in a range of pages. Note that the way to indicate the range of pag... | direct |
 | [Type](Type.md) | 1..1 <br/> [PDFPageType](PDFPageType.md) | Type of page for page reference(s) indicated in the PageRefs attribute | direct |
-| [Title](Title.md) | 0..1 <br/> [Text](Text.md) | Alternative label to provide a more specific and descriptive reference to a p... | direct |
+| [Title](Title.md) | 0..1 <br/> [text](text.md) | Alternative label to provide a more specific and descriptive reference to a p... | direct |
 
 
 
@@ -114,7 +114,7 @@ slots:
 slot_usage:
   PageRefs:
     name: PageRefs
-    description: 'List of PDF pages, separated by spaces. Sample: "17 20 32"'
+    description: 'List of PDF pages, separated by spaces. Sample: "17 20 32'
     comments:
     - 'Optional
 
@@ -200,7 +200,7 @@ see_also:
 slot_usage:
   PageRefs:
     name: PageRefs
-    description: 'List of PDF pages, separated by spaces. Sample: "17 20 32"'
+    description: 'List of PDF pages, separated by spaces. Sample: "17 20 32'
     comments:
     - 'Optional
 
@@ -272,7 +272,7 @@ slot_usage:
 attributes:
   PageRefs:
     name: PageRefs
-    description: 'List of PDF pages, separated by spaces. Sample: "17 20 32"'
+    description: 'List of PDF pages, separated by spaces. Sample: "17 20 32'
     comments:
     - 'Optional
 

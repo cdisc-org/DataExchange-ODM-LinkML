@@ -1,5 +1,10 @@
 # Slot: RangeCheckRef
 
+
+_RangeCheck reference: A RangeCheck defines a constraint on the value of the enclosing item. It represents an expression that evaluates to True when the ItemData value is valid or False when the ItemData value is invalid. The expression is specified using either Comparator and CheckValue or using FormalExpressions._
+
+
+
 URI: [odm:RangeCheckRef](http://www.cdisc.org/ns/odm/v2.0/RangeCheckRef)
 
 
@@ -13,8 +18,8 @@ URI: [odm:RangeCheckRef](http://www.cdisc.org/ns/odm/v2.0/RangeCheckRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[WhereClauseDef](WhereClauseDef.md) | The WhereClauseDef element specifies a condition |  yes  |
-[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
+[WhereClauseDef](WhereClauseDef.md) | The WhereClauseDef element specifies a condition. |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study. Item prope... |  yes  |
 
 
 
@@ -51,6 +56,10 @@ URI: [odm:RangeCheckRef](http://www.cdisc.org/ns/odm/v2.0/RangeCheckRef)
 <details>
 ```yaml
 name: RangeCheckRef
+description: 'RangeCheck reference: A RangeCheck defines a constraint on the value
+  of the enclosing item. It represents an expression that evaluates to True when the
+  ItemData value is valid or False when the ItemData value is invalid. The expression
+  is specified using either Comparator and CheckValue or using FormalExpressions.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

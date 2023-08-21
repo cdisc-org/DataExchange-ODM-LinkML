@@ -44,7 +44,7 @@ Between these 2 frameworks we can translate ODMv2 data & schemata into helpful r
 - Conversion to JSON-LD is not mature so JSON-LD needs separate handling
 - Names in ODM need changing to avoid collisions between Slots/Types/Classes
 - Handling of conditional slot population rules: exactly_one_of, any_of, all_of, none_of
-- Capitalises Type names in documentation and Python outputs (to preserve lower case type names, remove camelcase applied to returned values from `DocumentGenerator.name()` in your installed LinkML source)
+- Capitalises Type names in documentation and Python outputs (to preserve case-sensitive names, remove camelcase applied to returned values in your installed LinkML source files e.g. `DocumentGenerator.name()`, `DocumentGenerator.link()` from linkml/generators/docgen.py)
 
 # How to generate schemata and documentation from source ODM XML
     git clone https://github.com/cdisc-org/DataExchange-ODM.git

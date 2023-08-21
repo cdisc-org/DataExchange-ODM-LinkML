@@ -1,5 +1,10 @@
 # Slot: ItemRefRef
 
+
+_ItemRef reference: A reference to an ItemDef as it occurs within a specific ItemGroupDef. The list of ItemRefs identifies the types of items that are allowed to occur within this type of item group._
+
+
+
 URI: [odm:ItemRefRef](http://www.cdisc.org/ns/odm/v2.0/ItemRefRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:ItemRefRef](http://www.cdisc.org/ns/odm/v2.0/ItemRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ValueListDef](ValueListDef.md) | The following table specifies the XML structure for valuelist metadata |  yes  |
+[ValueListDef](ValueListDef.md) | The following table specifies the XML structure for valuelist metadata. The V... |  yes  |
 [ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
 
 
@@ -51,6 +56,9 @@ URI: [odm:ItemRefRef](http://www.cdisc.org/ns/odm/v2.0/ItemRefRef)
 <details>
 ```yaml
 name: ItemRefRef
+description: 'ItemRef reference: A reference to an ItemDef as it occurs within a specific
+  ItemGroupDef. The list of ItemRefs identifies the types of items that are allowed
+  to occur within this type of item group.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

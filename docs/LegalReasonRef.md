@@ -1,5 +1,10 @@
 # Slot: LegalReasonRef
 
+
+_LegalReason reference: The responsibility statement associated with a signature (e.g., "The signer accepts responsibility for the accuracy of this data.")._
+
+
+
 URI: [odm:LegalReasonRef](http://www.cdisc.org/ns/odm/v2.0/LegalReasonRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:LegalReasonRef](http://www.cdisc.org/ns/odm/v2.0/LegalReasonRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SignatureDef](SignatureDef.md) | Provides Metadata for signatures included in the /ODM/ClinicalData |  yes  |
+[SignatureDef](SignatureDef.md) | Provides Metadata for signatures included in the /ODM/ClinicalData. |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:LegalReasonRef](http://www.cdisc.org/ns/odm/v2.0/LegalReasonRef)
 <details>
 ```yaml
 name: LegalReasonRef
+description: 'LegalReason reference: The responsibility statement associated with
+  a signature (e.g., "The signer accepts responsibility for the accuracy of this data.").'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

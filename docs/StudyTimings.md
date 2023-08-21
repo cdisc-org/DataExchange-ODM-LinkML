@@ -31,7 +31,7 @@ URI: [odm:StudyTimings](http://www.cdisc.org/ns/odm/v2.0/StudyTimings)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyTimingRef](StudyTimingRef.md) | 0..* <br/> [StudyTiming](StudyTiming.md) |  | direct |
+| [StudyTimingRef](StudyTimingRef.md) | 0..* <br/> [StudyTiming](StudyTiming.md) | StudyTiming reference: The StudyTiming element defines a timing constraint wi... | direct |
 
 
 
@@ -132,6 +132,14 @@ slot_usage:
 attributes:
   StudyTimingRef:
     name: StudyTimingRef
+    description: 'StudyTiming reference: The StudyTiming element defines a timing
+      constraint within the study, which can be an absolute timing constraint (e.g.,
+      start of the screening visit must be between 1 January 2022 and 31 December
+      2022), a relative timing constraint (e.g., visit 2 must be within 30 days after
+      visit 1 with a window of +/- 1 week), a transition timing constraint (i.e.,
+      timing constraint on a transition within a defined workflow), or a duration
+      timing constraint (e.g., the duration of visit 2 is planned to take hours with
+      a window of 30 minutes).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

@@ -1,5 +1,10 @@
 # Slot: KeySetRef
 
+
+_KeySet reference: A KeySet references a single entity (e.g., a study, a subject, a study event). Only those attributes needed to specify the particular entity are required, and all others must be omitted (see Section 2.7, Clinical Data Keys)._
+
+
+
 URI: [odm:KeySetRef](http://www.cdisc.org/ns/odm/v2.0/KeySetRef)
 
 
@@ -50,6 +55,10 @@ URI: [odm:KeySetRef](http://www.cdisc.org/ns/odm/v2.0/KeySetRef)
 <details>
 ```yaml
 name: KeySetRef
+description: 'KeySet reference: A KeySet references a single entity (e.g., a study,
+  a subject, a study event). Only those attributes needed to specify the particular
+  entity are required, and all others must be omitted (see Section 2.7, Clinical Data
+  Keys).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

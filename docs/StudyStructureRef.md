@@ -1,5 +1,10 @@
 # Slot: StudyStructureRef
 
+
+_StudyStructure reference: The StudyStructure element describes the general structure of a clinical study with arms, epochs, and workflows._
+
+
+
 URI: [odm:StudyStructureRef](http://www.cdisc.org/ns/odm/v2.0/StudyStructureRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:StudyStructureRef](http://www.cdisc.org/ns/odm/v2.0/StudyStructureRef)
 <details>
 ```yaml
 name: StudyStructureRef
+description: 'StudyStructure reference: The StudyStructure element describes the general
+  structure of a clinical study with arms, epochs, and workflows.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

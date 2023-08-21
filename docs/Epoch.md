@@ -37,10 +37,10 @@ URI: [odm:Epoch](http://www.cdisc.org/ns/odm/v2.0/Epoch)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the Epoch | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable name of the study epoch | direct |
-| [SequenceNumber](SequenceNumber.md) | 1..1 <br/> [PositiveInteger](PositiveInteger.md) | Order of the Epoch  | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Epoch. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name of the study epoch. | direct |
+| [SequenceNumber](SequenceNumber.md) | 1..1 <br/> [positiveInteger](positiveInteger.md) | Order of the Epoch | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
 
 
@@ -163,7 +163,7 @@ slot_usage:
     required: true
   Name:
     name: Name
-    description: 'Human readable name of the study epoch. '
+    description: Human readable name of the study epoch.
     comments:
     - 'Required
 
@@ -210,7 +210,7 @@ slot_usage:
     required: true
   SequenceNumber:
     name: SequenceNumber
-    description: 'Order of the Epoch '
+    description: Order of the Epoch
     comments:
     - 'Required
 
@@ -331,7 +331,7 @@ slot_usage:
     required: true
   Name:
     name: Name
-    description: 'Human readable name of the study epoch. '
+    description: Human readable name of the study epoch.
     comments:
     - 'Required
 
@@ -378,7 +378,7 @@ slot_usage:
     required: true
   SequenceNumber:
     name: SequenceNumber
-    description: 'Order of the Epoch '
+    description: Order of the Epoch
     comments:
     - 'Required
 
@@ -486,7 +486,7 @@ attributes:
     required: true
   Name:
     name: Name
-    description: 'Human readable name of the study epoch. '
+    description: Human readable name of the study epoch.
     comments:
     - 'Required
 
@@ -537,7 +537,7 @@ attributes:
     required: true
   SequenceNumber:
     name: SequenceNumber
-    description: 'Order of the Epoch '
+    description: Order of the Epoch
     comments:
     - 'Required
 
@@ -552,6 +552,8 @@ attributes:
     required: true
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

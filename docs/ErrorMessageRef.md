@@ -1,5 +1,10 @@
 # Slot: ErrorMessageRef
 
+
+_ErrorMessage reference: Error message provided to user when the range check fails._
+
+
+
 URI: [odm:ErrorMessageRef](http://www.cdisc.org/ns/odm/v2.0/ErrorMessageRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:ErrorMessageRef](http://www.cdisc.org/ns/odm/v2.0/ErrorMessageRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[RangeCheck](RangeCheck.md) | A RangeCheck defines a constraint on the value of the enclosing item |  yes  |
+[RangeCheck](RangeCheck.md) | A RangeCheck defines a constraint on the value of the enclosing item. It repr... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:ErrorMessageRef](http://www.cdisc.org/ns/odm/v2.0/ErrorMessageRef)
 <details>
 ```yaml
 name: ErrorMessageRef
+description: 'ErrorMessage reference: Error message provided to user when the range
+  check fails.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

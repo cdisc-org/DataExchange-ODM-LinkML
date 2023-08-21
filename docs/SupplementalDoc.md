@@ -31,7 +31,7 @@ URI: [odm:SupplementalDoc](http://www.cdisc.org/ns/odm/v2.0/SupplementalDoc)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | Links to a leaf element with the location of the document | direct |
+| [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | Links to a leaf element with the location of the document. | direct |
 
 
 

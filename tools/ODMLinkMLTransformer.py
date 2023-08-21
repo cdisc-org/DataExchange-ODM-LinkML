@@ -1,9 +1,11 @@
 import re
 from dataclasses import dataclass, field
-from linkml_runtime.linkml_model import ClassDefinition, SlotDefinition, Prefix, \
-    EnumDefinition, SubsetDefinition, SubsetDefinitionName, TypeDefinition, SchemaDefinition
+from linkml_runtime.linkml_model import ClassDefinition, SlotDefinition, \
+    Prefix, EnumDefinition, SubsetDefinition, SubsetDefinitionName, \
+    TypeDefinition, SchemaDefinition, Example
 from linkml.utils.schema_builder import SchemaBuilder
 from linkml_runtime.utils.schemaview import SchemaView
+import scraper
 
 # Names for unnamed XML elements
 CONTENT_KEY = '_content'
@@ -25,6 +27,7 @@ class ODMLinkMLTransformer():
     schema: SchemaDefinition = None
     schema_builder: SchemaBuilder = None
     namespace: str = field(default = 'http://www.cdisc.org/ns/odm/v2.0')
+    type_documentation: str = field(default = 'https://wiki.cdisc.org/display/ODM2/Data+Formats')
     namespace_prefix: str = field(default = 'odm')
     look_up_membership: dict = None
     class_names: list = None
@@ -176,8 +179,7 @@ class ODMLinkMLTransformer():
         identifiers = ['OID', 'leafID', 'ID']
         return True if ref in identifiers else None
         
-        
-    @classmethod
+
     def print_debug(self, *args) -> None:
         if DEBUG:
             print(*args)
@@ -546,8 +548,8 @@ class ODMLinkMLTransformer():
         else:
             print('No name found for', mapped)
             return None
-        
-    
+
+
     def process_refs(self, element, slot_usage, slots, selector_list, has_choice = False) -> [dict, list]:
         """
         Recursive processing of xs:sequence, xs:choice, xs:element and xs:group
@@ -616,3 +618,162 @@ class ODMLinkMLTransformer():
             )
 
         return slot_usage, slots
+
+
+    def supplement_with_wiki(self) -> None:
+        """
+        Scrape ODMv2 wiki and add structured content
+        """
+        headers = scraper.connect()
+        print('Scraping class info from wiki')
+        for klass in self.class_names:
+            scraped = scraper.scrape_wiki_content(klass, headers = headers)
+            if not scraped:
+                continue
+            fixed_klass = 'ODMFileMetadata' if klass == 'ODM' else klass
+            schema_description = self.schema.schema.classes[fixed_klass]['description']
+            wiki_description = scraped.get('description')
+            self.schema.schema.classes[fixed_klass]['description'] = schema_description or wiki_description
+            wiki_examples = scraped.get('examples') or []
+            fixed_examples = []
+            example_number = 0
+            for example in wiki_examples:
+                example_number += 1
+                example_object = Example(example)
+                fixed_examples.append(example_object)
+            # self.schema.schema.classes[fixed_klass]['examples'] = fixed_examples
+
+            attribute_table = scraped.get('attribute_table', [])
+            for slot in attribute_table:
+                description = slot.get('Definition')
+                schema_slot_description = None
+                slot_usage = None
+                slot_name = slot.get('Attribute')
+                if not slot_name:
+                    continue
+                slot_name = self.map_type(self.hardcoded_name(slot_name))
+                external_comments = []
+                internal_notes = []
+                usage = slot.get('Usage')
+                if usage:
+                    # TODO: check wiki vs XML Schema for usage
+                    external_comments.append(usage)
+                data_type = slot.get('Schema Datatype or Enumeration')
+                range = None
+                if data_type and len(data_type.split()) > 1:
+                    # TODO: make into enum, check wiki vs XML schema for range
+                    external_comments.append('enum values:' + data_type)
+                elif data_type:# TODO: check wiki vs XML Schema for range
+                    external_comments.append('range:' + data_type)
+                    range = data_type
+                rules = slot.get('Business Rule(s)')
+                if rules:
+                    external_comments.append(rules)      
+                
+                # Defensive schema object access in case missing from imported schema
+                try:
+                    slot_usage = self.schema.schema.classes[fixed_klass]['slot_usage']
+                    try:
+                        this_slot_usage = self.schema.schema.classes[fixed_klass]['slot_usage'][slot_name]
+                    except KeyError:
+                        print('slot', slot_name, 'from wiki page for class', fixed_klass, 'did not have a usage')
+                        this_slot_usage = None
+                except KeyError:
+                    print('slot', slot_name, 'has no slot_usage')
+                if this_slot_usage is None:
+                    continue
+                try:
+                    schema_class_slot_description = this_slot_usage['description']
+                except KeyError:
+                    schema_class_slot_description = None
+                self.schema.schema.classes[fixed_klass]['slot_usage'][slot_name]['description'] = \
+                    schema_class_slot_description or description
+
+                slot_entry = None
+                try:
+                    slot_entry = self.schema.schema.slots[slot_name]            
+                    try:
+                        this_slot_entry = self.schema.schema.slots[slot_name]['description']
+                    except KeyError:
+                        this_slot_entry = None
+                except KeyError:
+                    print('slot', slot_name, 'from wiki page for class', fixed_klass, 'was not found in slots')
+
+                if slot_entry:
+                    original_description = slot_entry['description']
+                    self.schema.schema.slots[slot_name]['description'] =  \
+                        original_description or schema_class_slot_description or description
+                
+                if external_comments:
+                    self.schema.schema.classes[fixed_klass]['slot_usage'][slot_name]['comments'] = \
+                        '\n'.join(external_comments)
+
+
+    def record_enum_usage(self, enum_usage, range, slot_name) -> list:
+        if range in list(self.schema.schema.enums.keys()):
+            value = enum_usage[range] or [] if range in enum_usage.keys() else []
+            value.append(slot_name)
+            enum_usage[range] = value
+        return enum_usage
+
+
+    def patch_descriptions(self) -> None:
+        """
+        Handle missing descriptions
+        """
+        enum_usage = {}
+
+        # Classes - throw error
+        for class_name, klass in self.schema.schema.classes.items():
+            if not klass['description']:
+                print('No description found for class', class_name)
+            slot_usage = klass['slot_usage']
+            for slot_name in slot_usage:
+                if slot_name not in self.schema.schema.slots.keys():
+                    continue
+                range = self.schema.schema.slots[slot_name]['range']
+                enum_usage = self.record_enum_usage(enum_usage, range, slot_name)
+                any_of = self.schema.schema.slots[slot_name]['any_of']
+                for r in any_of:
+                    enum_usage = self.record_enum_usage(enum_usage, r.get('range'), slot_name)
+
+        # Slots - for references f'{class} reference: {description}'. throw error, otherwise
+        for slot_name, slot in self.schema.schema.slots.items():
+            range = slot['range']
+            original_slot_description = slot['description']
+            ref_description = None
+            enum_usage = self.record_enum_usage(enum_usage, range, slot_name)
+            any_of = slot['any_of']
+            for r in any_of:
+                enum_usage = self.record_enum_usage(enum_usage, r.get('range'), slot_name)
+            if range in list(self.schema.schema.classes.keys()):
+                try:
+                    class_description = self.schema.schema.classes[range]['description'] or None
+                except KeyError:
+                    class_description = None
+                ref_description = f'{range} reference: {class_description}'
+            self.schema.schema.slots[slot_name]['description'] = original_slot_description or ref_description
+        if not self.schema.schema.slots[slot_name]['description']:
+            print('No description found for slot', slot_name)
+        
+        # Enumerations - report where they are used
+        for enum_name, enum in self.schema.schema.enums.items():
+            original_description = enum['description']
+            description = None
+            if enum_name in list(enum_usage.keys()):
+                description = f'Enumeration used in {", ".join(list(set(enum_usage[enum_name])))}'
+            self.schema.schema.enums[enum_name]['description'] = original_description or description
+        if not self.schema.schema.enums[enum_name]['description']:
+            print('No description or usage found for Enum:', enum_name)
+
+        # Types - hardcode description where missing
+        for type_name, type in self.schema.schema.types.items():
+            if self.schema.schema.types[type_name]['from_schema'] != self.namespace:
+                continue
+            if not self.schema.schema.types[type_name]['description']:
+                self.schema.schema.types[type_name]['description'] = self.type_documentation
+            self.schema.schema.types[type_name]['see_also'] = self.type_documentation
+        if not self.schema.schema.types[type_name]['description']:
+            print('No description found for Type:', type_name)
+
+        return None

@@ -28,7 +28,7 @@ URI: [odm:PredecessorOID](http://www.cdisc.org/ns/odm/v2.0/PredecessorOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

@@ -73,19 +73,19 @@ URI: [odm:User](http://www.cdisc.org/ns/odm/v2.0/User)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Business Rules | direct |
-| [UserTypeRef](UserTypeRef.md) | 0..1 <br/> [UserType](UserType.md) | User's role in the study | direct |
-| [OrganizationOID](OrganizationOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to an Organization elment | direct |
-| [LocationOID](LocationOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a Location element | direct |
-| [UserNameRef](UserNameRef.md) | 0..1 <br/> [UserName](UserName.md) |  | direct |
-| [PrefixRef](PrefixRef.md) | 0..1 <br/> [Prefix](Prefix.md) |  | direct |
-| [SuffixRef](SuffixRef.md) | 0..1 <br/> [Suffix](Suffix.md) |  | direct |
-| [FullNameRef](FullNameRef.md) | 0..1 <br/> [FullName](FullName.md) |  | direct |
-| [GivenNameRef](GivenNameRef.md) | 0..1 <br/> [GivenName](GivenName.md) |  | direct |
-| [FamilyNameRef](FamilyNameRef.md) | 0..1 <br/> [FamilyName](FamilyName.md) |  | direct |
-| [ImageRef](ImageRef.md) | 0..1 <br/> [Image](Image.md) |  | direct |
-| [AddressRef](AddressRef.md) | 0..* <br/> [Address](Address.md) |  | direct |
-| [TelecomRef](TelecomRef.md) | 0..* <br/> [Telecom](Telecom.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Business Rules | direct |
+| [UserTypeRef](UserTypeRef.md) | 0..1 <br/> [UserType](UserType.md) | User's role in the study. | direct |
+| [OrganizationOID](OrganizationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an Organization elment. | direct |
+| [LocationOID](LocationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Location element. | direct |
+| [UserNameRef](UserNameRef.md) | 0..1 <br/> [UserName](UserName.md) | UserName reference: The user's login identification in the sender's system. | direct |
+| [PrefixRef](PrefixRef.md) | 0..1 <br/> [Prefix](Prefix.md) | Prefix reference: Title or other prefix. Maps to FHIR HumanName.prefix (https... | direct |
+| [SuffixRef](SuffixRef.md) | 0..1 <br/> [Suffix](Suffix.md) | Suffix reference: This element may include credentials, or suffixes (e.g., Jr... | direct |
+| [FullNameRef](FullNameRef.md) | 0..1 <br/> [FullName](FullName.md) | FullName reference: The user's full formal name. May be a combination of Pref... | direct |
+| [GivenNameRef](GivenNameRef.md) | 0..1 <br/> [GivenName](GivenName.md) | GivenName reference: The user's initial given name or all given names. | direct |
+| [FamilyNameRef](FamilyNameRef.md) | 0..1 <br/> [FamilyName](FamilyName.md) | FamilyName reference: The user's surname (family name). | direct |
+| [ImageRef](ImageRef.md) | 0..1 <br/> [Image](Image.md) | Image reference: A visual depiction of the user. | direct |
+| [AddressRef](AddressRef.md) | 0..* <br/> [Address](Address.md) | Address reference: The postal address for a user, location, or organization. | direct |
+| [TelecomRef](TelecomRef.md) | 0..* <br/> [Telecom](Telecom.md) | Telecom reference: The telecommunication contacts points of a user, a locatio... | direct |
 
 
 
@@ -608,6 +608,8 @@ attributes:
     range: oidref
   UserNameRef:
     name: UserNameRef
+    description: 'UserName reference: The user''s login identification in the sender''s
+      system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -619,6 +621,8 @@ attributes:
     maximum_cardinality: 1
   PrefixRef:
     name: PrefixRef
+    description: 'Prefix reference: Title or other prefix. Maps to FHIR HumanName.prefix
+      (https://www.hl7.org/fhir/datatypes.html#humanname).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -630,6 +634,8 @@ attributes:
     maximum_cardinality: 1
   SuffixRef:
     name: SuffixRef
+    description: 'Suffix reference: This element may include credentials, or suffixes
+      (e.g., Jr., III).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -641,6 +647,8 @@ attributes:
     maximum_cardinality: 1
   FullNameRef:
     name: FullNameRef
+    description: 'FullName reference: The user''s full formal name. May be a combination
+      of Prefix, GivenName, FamilyName & Suffix. Intended to be used for display.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -652,6 +660,8 @@ attributes:
     maximum_cardinality: 1
   GivenNameRef:
     name: GivenNameRef
+    description: 'GivenName reference: The user''s initial given name or all given
+      names.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -663,6 +673,7 @@ attributes:
     maximum_cardinality: 1
   FamilyNameRef:
     name: FamilyNameRef
+    description: 'FamilyName reference: The user''s surname (family name).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -674,6 +685,7 @@ attributes:
     maximum_cardinality: 1
   ImageRef:
     name: ImageRef
+    description: 'Image reference: A visual depiction of the user.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -685,6 +697,7 @@ attributes:
     maximum_cardinality: 1
   AddressRef:
     name: AddressRef
+    description: 'Address reference: The postal address for a user, location, or organization.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -700,6 +713,8 @@ attributes:
     inlined_as_list: true
   TelecomRef:
     name: TelecomRef
+    description: 'Telecom reference: The telecommunication contacts points of a user,
+      a location, or an organization. The Type attribute designates the type of contact.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

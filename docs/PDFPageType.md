@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Type_
+
+
+
 URI: [PDFPageType](PDFPageType)
 
 ## Permissible Values
@@ -46,6 +51,7 @@ URI: [PDFPageType](PDFPageType)
 <details>
 ```yaml
 name: PDFPageType
+description: Enumeration used in Type
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

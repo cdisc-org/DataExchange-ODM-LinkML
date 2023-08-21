@@ -1,5 +1,10 @@
 # Slot: CRFCompletionInstructionsRef
 
+
+_CRFCompletionInstructions reference: Instructions for the clinical site on how to enter collected information on the CRF._
+
+
+
 URI: [odm:CRFCompletionInstructionsRef](http://www.cdisc.org/ns/odm/v2.0/CRFCompletionInstructionsRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:CRFCompletionInstructionsRef](http://www.cdisc.org/ns/odm/v2.0/CRFComp
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study. Item prope... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:CRFCompletionInstructionsRef](http://www.cdisc.org/ns/odm/v2.0/CRFComp
 <details>
 ```yaml
 name: CRFCompletionInstructionsRef
+description: 'CRFCompletionInstructions reference: Instructions for the clinical site
+  on how to enter collected information on the CRF.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

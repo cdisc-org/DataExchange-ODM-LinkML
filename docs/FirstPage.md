@@ -18,7 +18,7 @@ URI: [odm:FirstPage](http://www.cdisc.org/ns/odm/v2.0/FirstPage)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[PDFPageRef](PDFPageRef.md) | This element is the container for CRF page references |  yes  |
+[PDFPageRef](PDFPageRef.md) | This element is the container for CRF page references. |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:FirstPage](http://www.cdisc.org/ns/odm/v2.0/FirstPage)
 
 ## Properties
 
-* Range: [PositiveInteger](PositiveInteger.md)
+* Range: [positiveInteger](positiveInteger.md)
 
 
 

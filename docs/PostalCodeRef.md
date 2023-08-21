@@ -1,5 +1,10 @@
 # Slot: PostalCodeRef
 
+
+_PostalCode reference: The postal code part of a user's postal address._
+
+
+
 URI: [odm:PostalCodeRef](http://www.cdisc.org/ns/odm/v2.0/PostalCodeRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:PostalCodeRef](http://www.cdisc.org/ns/odm/v2.0/PostalCodeRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Address](Address.md) | The postal address for a user, location, or organization |  yes  |
+[Address](Address.md) | The postal address for a user, location, or organization. |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:PostalCodeRef](http://www.cdisc.org/ns/odm/v2.0/PostalCodeRef)
 <details>
 ```yaml
 name: PostalCodeRef
+description: 'PostalCode reference: The postal code part of a user''s postal address.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

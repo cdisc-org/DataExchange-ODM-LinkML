@@ -1,5 +1,10 @@
 # Slot: OtherTextRef
 
+
+_OtherText reference: Any other text needed as part of a user's postal address._
+
+
+
 URI: [odm:OtherTextRef](http://www.cdisc.org/ns/odm/v2.0/OtherTextRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:OtherTextRef](http://www.cdisc.org/ns/odm/v2.0/OtherTextRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Address](Address.md) | The postal address for a user, location, or organization |  yes  |
+[Address](Address.md) | The postal address for a user, location, or organization. |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:OtherTextRef](http://www.cdisc.org/ns/odm/v2.0/OtherTextRef)
 <details>
 ```yaml
 name: OtherTextRef
+description: 'OtherText reference: Any other text needed as part of a user''s postal
+  address.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

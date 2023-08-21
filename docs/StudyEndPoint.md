@@ -47,12 +47,12 @@ URI: [odm:StudyEndPoint](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoint)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the StudyEndPoint element | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable identifier for the StudyEndPoint element | direct |
-| [Type](Type.md) | 0..1 <br/> [StudyEndPointType](StudyEndPointType.md) | The type of end point | direct |
-| [Level](Level.md) | 0..1 <br/> [StudyEstimandLevel](StudyEstimandLevel.md) | Level for the Study Endpoint | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEndPoint element | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable identifier for the StudyEndPoint element. | direct |
+| [Type](Type.md) | 0..1 <br/> [StudyEndPointType](StudyEndPointType.md) | The type of end point. Simple: measures the change of a single outcome that i... | direct |
+| [Level](Level.md) | 0..1 <br/> [StudyEstimandLevel](StudyEstimandLevel.md) | Level for the Study Endpoint. Primary endpoint(s) are typically efficacy meas... | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
 
 
 
@@ -262,9 +262,12 @@ slot_usage:
       outcomes that occur less frequently or which may be useful for exploring novel
       hypotheses. [1]
     comments:
-    - "Optional \nenum values:(Primary | Secondary | Exploratory)\nThese are defined\
-      \ in concordance with the ICH M11 Clinical electronic Structured Harmonised\
-      \ Protocol Specification"
+    - 'Optional
+
+      enum values:(Primary | Secondary | Exploratory)
+
+      These are defined in concordance with the ICH M11 Clinical electronic Structured
+      Harmonised Protocol Specification'
     domain_of:
     - StudyObjective
     - StudyEndPoint
@@ -479,9 +482,12 @@ slot_usage:
       outcomes that occur less frequently or which may be useful for exploring novel
       hypotheses. [1]
     comments:
-    - "Optional \nenum values:(Primary | Secondary | Exploratory)\nThese are defined\
-      \ in concordance with the ICH M11 Clinical electronic Structured Harmonised\
-      \ Protocol Specification"
+    - 'Optional
+
+      enum values:(Primary | Secondary | Exploratory)
+
+      These are defined in concordance with the ICH M11 Clinical electronic Structured
+      Harmonised Protocol Specification'
     domain_of:
     - StudyObjective
     - StudyEndPoint
@@ -691,9 +697,12 @@ attributes:
       outcomes that occur less frequently or which may be useful for exploring novel
       hypotheses. [1]
     comments:
-    - "Optional \nenum values:(Primary | Secondary | Exploratory)\nThese are defined\
-      \ in concordance with the ICH M11 Clinical electronic Structured Harmonised\
-      \ Protocol Specification"
+    - 'Optional
+
+      enum values:(Primary | Secondary | Exploratory)
+
+      These are defined in concordance with the ICH M11 Clinical electronic Structured
+      Harmonised Protocol Specification'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Level
@@ -705,6 +714,8 @@ attributes:
     range: StudyEstimandLevel
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -752,6 +763,13 @@ attributes:
     maximum_cardinality: 1
   FormalExpressionRef:
     name: FormalExpressionRef
+    description: 'FormalExpression reference: A FormalExpression used within a ConditionDef
+      or a RangeCheck must evaluate to True or False. A FormalExpression referenced
+      within a MethodDef having Type Imputation, Computation, or Transpose must evaluate
+      to the correct DataType for an Item that may be imputed or computed using the
+      Method. A FormalExpression gets parameter and return value definitions from
+      the MethodSignature element. The data types in the MethodSignature parameters
+      and return values must match the corresponding data types in the FormalExpression.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

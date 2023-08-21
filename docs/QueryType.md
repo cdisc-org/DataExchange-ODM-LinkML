@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Type_
+
+
+
 URI: [QueryType](QueryType)
 
 ## Permissible Values
@@ -46,6 +51,7 @@ URI: [QueryType](QueryType)
 <details>
 ```yaml
 name: QueryType
+description: Enumeration used in Type
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

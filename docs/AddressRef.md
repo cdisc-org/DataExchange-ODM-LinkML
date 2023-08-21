@@ -1,5 +1,10 @@
 # Slot: AddressRef
 
+
+_Address reference: The postal address for a user, location, or organization._
+
+
+
 URI: [odm:AddressRef](http://www.cdisc.org/ns/odm/v2.0/AddressRef)
 
 
@@ -14,7 +19,7 @@ URI: [odm:AddressRef](http://www.cdisc.org/ns/odm/v2.0/AddressRef)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [User](User.md) | Information about a specific user of a clinical data collection or data manag... |  yes  |
-[Organization](Organization.md) | An organization can reference a parent organization |  yes  |
+[Organization](Organization.md) | An organization can reference a parent organization. Users may be associated ... |  yes  |
 [Location](Location.md) | A physical location associated with data collection and/or treatment of subje... |  yes  |
 
 
@@ -52,6 +57,7 @@ URI: [odm:AddressRef](http://www.cdisc.org/ns/odm/v2.0/AddressRef)
 <details>
 ```yaml
 name: AddressRef
+description: 'Address reference: The postal address for a user, location, or organization.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

@@ -1,5 +1,10 @@
 # Slot: StudyEstimandRef
 
+
+_StudyEstimand reference: None_
+
+
+
 URI: [odm:StudyEstimandRef](http://www.cdisc.org/ns/odm/v2.0/StudyEstimandRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:StudyEstimandRef](http://www.cdisc.org/ns/odm/v2.0/StudyEstimandRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEstimands](StudyEstimands.md) | Element NameStudyEstimandsParent ElementsProtocolElement XPath(s)/ODM/Study/M... |  yes  |
+[StudyEstimands](StudyEstimands.md) |  |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:StudyEstimandRef](http://www.cdisc.org/ns/odm/v2.0/StudyEstimandRef)
 <details>
 ```yaml
 name: StudyEstimandRef
+description: 'StudyEstimand reference: None'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

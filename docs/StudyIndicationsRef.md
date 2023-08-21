@@ -1,5 +1,10 @@
 # Slot: StudyIndicationsRef
 
+
+_StudyIndications reference: StudyIndications is a container element for individual StudyIndication elements._
+
+
+
 URI: [odm:StudyIndicationsRef](http://www.cdisc.org/ns/odm/v2.0/StudyIndicationsRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:StudyIndicationsRef](http://www.cdisc.org/ns/odm/v2.0/StudyIndications
 <details>
 ```yaml
 name: StudyIndicationsRef
+description: 'StudyIndications reference: StudyIndications is a container element
+  for individual StudyIndication elements.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

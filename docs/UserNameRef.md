@@ -1,5 +1,10 @@
 # Slot: UserNameRef
 
+
+_UserName reference: The user's login identification in the sender's system._
+
+
+
 URI: [odm:UserNameRef](http://www.cdisc.org/ns/odm/v2.0/UserNameRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:UserNameRef](http://www.cdisc.org/ns/odm/v2.0/UserNameRef)
 <details>
 ```yaml
 name: UserNameRef
+description: 'UserName reference: The user''s login identification in the sender''s
+  system.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

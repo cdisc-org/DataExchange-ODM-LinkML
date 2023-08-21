@@ -1,7 +1,7 @@
 # Class: Resource
 
 
-_Describes an external resource used as the source for the parent ItemGroup or Item. _
+_Describes an external resource used as the source for the parent ItemGroup or Item._
 
 
 
@@ -39,11 +39,11 @@ URI: [odm:Resource](http://www.cdisc.org/ns/odm/v2.0/Resource)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Type](Type.md) | 1..1 <br/> [Text](Text.md) | Categorization of external resources | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | The human readable identifier of the element or field in the external resourc... | direct |
-| [Attribute](Attribute.md) | 0..1 <br/> [Text](Text.md) | Field provided by the Name attribute where the data or information can be obt... | direct |
-| [Label](Label.md) | 0..1 <br/> [Text](Text.md) | Used to link the value to a named MethodDef parameter | direct |
-| [SelectionRef](SelectionRef.md) | 0..* <br/> [Selection](Selection.md) |  | direct |
+| [Type](Type.md) | 1..1 <br/> [text](text.md) | Categorization of external resources. Examples include: "ODM", "HL7-FHIR", "H... | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | The human readable identifier of the element or field in the external resourc... | direct |
+| [Attribute](Attribute.md) | 0..1 <br/> [text](text.md) | Field provided by the Name attribute where the data or information can be obt... | direct |
+| [Label](Label.md) | 0..1 <br/> [text](text.md) | Used to link the value to a named MethodDef parameter. | direct |
+| [SelectionRef](SelectionRef.md) | 0..* <br/> [Selection](Selection.md) | Selection reference: Template for machine-readable/executable expression for ... | direct |
 
 
 
@@ -101,8 +101,8 @@ URI: [odm:Resource](http://www.cdisc.org/ns/odm/v2.0/Resource)
 <details>
 ```yaml
 name: Resource
-description: 'Describes an external resource used as the source for the parent ItemGroup
-  or Item. '
+description: Describes an external resource used as the source for the parent ItemGroup
+  or Item.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Resource
@@ -204,7 +204,7 @@ slot_usage:
       range:name
 
       The Selection child element must correspond to machine-executable instructions
-      for extracting the information from the resource. '
+      for extracting the information from the resource.'
     domain_of:
     - Resource
     range: text
@@ -237,8 +237,8 @@ class_uri: odm:Resource
 <details>
 ```yaml
 name: Resource
-description: 'Describes an external resource used as the source for the parent ItemGroup
-  or Item. '
+description: Describes an external resource used as the source for the parent ItemGroup
+  or Item.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Resource
@@ -334,7 +334,7 @@ slot_usage:
       range:name
 
       The Selection child element must correspond to machine-executable instructions
-      for extracting the information from the resource. '
+      for extracting the information from the resource.'
     domain_of:
     - Resource
     range: text
@@ -457,7 +457,7 @@ attributes:
       range:name
 
       The Selection child element must correspond to machine-executable instructions
-      for extracting the information from the resource. '
+      for extracting the information from the resource.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Attribute
@@ -482,6 +482,8 @@ attributes:
     range: text
   SelectionRef:
     name: SelectionRef
+    description: 'Selection reference: Template for machine-readable/executable expression
+      for retrieving the data or information from an external resource.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

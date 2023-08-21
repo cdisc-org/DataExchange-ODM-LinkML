@@ -1,7 +1,7 @@
 # Class: Origin
 
 
-_Origin defines the source metadata, where applicable, for ODM ItemRefs or ItemGroupRefs. Origin as a child element replaces the Origin attribute in ODM v1.3 that exists for the ItemDef and ItemGroupDef elements.The Origin element is based on the def:Origin element in Define-XML v2.1 with the Trace-XML v1.0 extension. Element NameOriginParent ElementsItemGroupDef, ItemRefElement XPath(s)/ODM/Study/MetaDataVersion/ValueListDef/ItemRef/Origin/ODM/Study/MetaDataVersion/ItemGroupDef/Origin/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef/OriginElement Textual ValueNoneAttributesType, SourceChild Elements(Description?, SourceItems?, Coding*, DocumentRef*)The SourceItems element contains SourceItem child elements that reference the source variables, if any, for a given ItemRef. SourceItem elements provide machine-readable traceability and identify specific arguments for a MethodDef, specially when used with an Origin with Type="Derived".Usage/Business Rules_
+_Origin defines the source metadata, where applicable, for ODM ItemRefs or ItemGroupRefs. Origin as a child element replaces the Origin attribute in ODM v1.3 that exists for the ItemDef and ItemGroupDef elements.The Origin element is based on the def:Origin element in Define-XML v2.1 with the Trace-XML v1.0 extension._
 
 
 
@@ -51,12 +51,12 @@ URI: [odm:Origin](http://www.cdisc.org/ns/odm/v2.0/Origin)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Type](Type.md) | 1..1 <br/> [OriginType](OriginType.md) | Identifies how the clinical data values were obtained | direct |
-| [Source](Source.md) | 0..1 <br/> [OriginSource](OriginSource.md) | I ndicates the party responsible for the data's origin type | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [SourceItemsRef](SourceItemsRef.md) | 0..1 <br/> [SourceItems](SourceItems.md) |  | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
-| [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file | direct |
+| [Type](Type.md) | 1..1 <br/> [OriginType](OriginType.md) | Identifies how the clinical data values were obtained. | direct |
+| [Source](Source.md) | 0..1 <br/> [OriginSource](OriginSource.md) | I ndicates the party responsible for the data's origin type. | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [SourceItemsRef](SourceItemsRef.md) | 0..1 <br/> [SourceItems](SourceItems.md) | SourceItems reference: Identifies source items as needed to support automated... | direct |
+| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file. | direct |
 
 
 
@@ -119,12 +119,6 @@ description: Origin defines the source metadata, where applicable, for ODM ItemR
   or ItemGroupRefs. Origin as a child element replaces the Origin attribute in ODM
   v1.3 that exists for the ItemDef and ItemGroupDef elements.The Origin element is
   based on the def:Origin element in Define-XML v2.1 with the Trace-XML v1.0 extension.
-  Element NameOriginParent ElementsItemGroupDef, ItemRefElement XPath(s)/ODM/Study/MetaDataVersion/ValueListDef/ItemRef/Origin/ODM/Study/MetaDataVersion/ItemGroupDef/Origin/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef/OriginElement
-  Textual ValueNoneAttributesType, SourceChild Elements(Description?, SourceItems?,
-  Coding*, DocumentRef*)The SourceItems element contains SourceItem child elements
-  that reference the source variables, if any, for a given ItemRef. SourceItem elements
-  provide machine-readable traceability and identify specific arguments for a MethodDef,
-  specially when used with an Origin with Type="Derived".Usage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Origin
@@ -278,12 +272,6 @@ description: Origin defines the source metadata, where applicable, for ODM ItemR
   or ItemGroupRefs. Origin as a child element replaces the Origin attribute in ODM
   v1.3 that exists for the ItemDef and ItemGroupDef elements.The Origin element is
   based on the def:Origin element in Define-XML v2.1 with the Trace-XML v1.0 extension.
-  Element NameOriginParent ElementsItemGroupDef, ItemRefElement XPath(s)/ODM/Study/MetaDataVersion/ValueListDef/ItemRef/Origin/ODM/Study/MetaDataVersion/ItemGroupDef/Origin/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef/OriginElement
-  Textual ValueNoneAttributesType, SourceChild Elements(Description?, SourceItems?,
-  Coding*, DocumentRef*)The SourceItems element contains SourceItem child elements
-  that reference the source variables, if any, for a given ItemRef. SourceItem elements
-  provide machine-readable traceability and identify specific arguments for a MethodDef,
-  specially when used with an Origin with Type="Derived".Usage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Origin
@@ -472,6 +460,8 @@ attributes:
     range: OriginSource
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -519,6 +509,8 @@ attributes:
     maximum_cardinality: 1
   SourceItemsRef:
     name: SourceItemsRef
+    description: 'SourceItems reference: Identifies source items as needed to support
+      automated data capture and end-to-end traceability.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -530,6 +522,12 @@ attributes:
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

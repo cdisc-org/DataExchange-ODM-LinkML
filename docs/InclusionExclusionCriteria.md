@@ -35,8 +35,8 @@ URI: [odm:InclusionExclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/Inclusion
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [InclusionCriteriaRef](InclusionCriteriaRef.md) | 0..1 <br/> [InclusionCriteria](InclusionCriteria.md) |  | direct |
-| [ExclusionCriteriaRef](ExclusionCriteriaRef.md) | 0..1 <br/> [ExclusionCriteria](ExclusionCriteria.md) |  | direct |
+| [InclusionCriteriaRef](InclusionCriteriaRef.md) | 0..1 <br/> [InclusionCriteria](InclusionCriteria.md) | InclusionCriteria reference: The InclusionCriteria is a container element for... | direct |
+| [ExclusionCriteriaRef](ExclusionCriteriaRef.md) | 0..1 <br/> [ExclusionCriteria](ExclusionCriteria.md) | ExclusionCriteria reference: The ExclusionCriteria is a container element for... | direct |
 
 
 
@@ -152,6 +152,10 @@ slot_usage:
 attributes:
   InclusionCriteriaRef:
     name: InclusionCriteriaRef
+    description: 'InclusionCriteria reference: The InclusionCriteria is a container
+      element for Criterion elements describing inclusion criteria for subjects in
+      the study. When a list is provided, subjects must meet each of the criteria
+      in the list in order to enroll in the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -163,6 +167,10 @@ attributes:
     maximum_cardinality: 1
   ExclusionCriteriaRef:
     name: ExclusionCriteriaRef
+    description: 'ExclusionCriteria reference: The ExclusionCriteria is a container
+      element for Criterion elements describing exclusion criteria for subjects in
+      the study. When a list is provided, not meeting any of the criteria in the list
+      may lead to exclusion of enrollment in the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

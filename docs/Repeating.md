@@ -29,7 +29,7 @@ URI: [odm:Repeating](http://www.cdisc.org/ns/odm/v2.0/Repeating)
 
 ## Properties
 
-* Range: [String](String.md)
+* Range: [string](string.md)
 
 
 

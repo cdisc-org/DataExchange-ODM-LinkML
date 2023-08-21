@@ -33,9 +33,9 @@ URI: [odm:Leaf](http://www.cdisc.org/ns/odm/v2.0/Leaf)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ID](ID.md) | 1..1 <br/> [Oid](Oid.md) | Unique ID for the Leaf | direct |
-| [href](href.md) | 1..1 <br/> [Uriorcurie](Uriorcurie.md) | URL that can be used to identify the location of a document or dataset file r... | direct |
-| [Title](Title.md) | 0..1 <br/> [Text](Text.md) | Text with the label for the document or dataset | direct |
+| [ID](ID.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the Leaf. See Section 2.13, Element Identifiers and References ... | direct |
+| [href](href.md) | 1..1 <br/> [uriorcurie](uriorcurie.md) | URL that can be used to identify the location of a document or dataset file r... | direct |
+| [Title](Title.md) | 0..1 <br/> [text](text.md) | Text with the label for the document or dataset. | direct |
 
 
 
@@ -128,7 +128,7 @@ slot_usage:
       in the same folder as the ODM file, a relative file path should be included.
       Business Rule: For regulatory submissions to the FDA, the locations specified
       have to conform to locations allowed in the eCTD, in the Technical Conformance
-      Guide for the relevant regulatory authority and the study data specifications. '
+      Guide for the relevant regulatory authority and the study data specifications.'
     comments:
     - 'Required
 
@@ -188,7 +188,7 @@ slot_usage:
       in the same folder as the ODM file, a relative file path should be included.
       Business Rule: For regulatory submissions to the FDA, the locations specified
       have to conform to locations allowed in the eCTD, in the Technical Conformance
-      Guide for the relevant regulatory authority and the study data specifications. '
+      Guide for the relevant regulatory authority and the study data specifications.'
     comments:
     - 'Required
 
@@ -239,7 +239,7 @@ attributes:
       in the same folder as the ODM file, a relative file path should be included.
       Business Rule: For regulatory submissions to the FDA, the locations specified
       have to conform to locations allowed in the eCTD, in the Technical Conformance
-      Guide for the relevant regulatory authority and the study data specifications. '
+      Guide for the relevant regulatory authority and the study data specifications.'
     comments:
     - 'Required
 

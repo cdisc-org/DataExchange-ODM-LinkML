@@ -1,11 +1,6 @@
 # Class: StudyInterventionRef
 
 
-_Element NameStudyInterventionRefParent ElementsStudyEstimandElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimandElement Textual ValueNoneAttributesStudyInterventionOIDChild ElementsNoneUsage/Business RulesOptional_
-
-
-
-
 
 URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventionRef)
 
@@ -29,7 +24,7 @@ URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyInterventionOID](StudyInterventionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to a StudyIntervention | direct |
+| [StudyInterventionOID](StudyInterventionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a StudyIntervention | direct |
 
 
 
@@ -87,9 +82,6 @@ URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 <details>
 ```yaml
 name: StudyInterventionRef
-description: Element NameStudyInterventionRefParent ElementsStudyEstimandElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimandElement
-  Textual ValueNoneAttributesStudyInterventionOIDChild ElementsNoneUsage/Business
-  RulesOptional
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventionRef
@@ -117,9 +109,6 @@ class_uri: odm:StudyInterventionRef
 <details>
 ```yaml
 name: StudyInterventionRef
-description: Element NameStudyInterventionRefParent ElementsStudyEstimandElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimandElement
-  Textual ValueNoneAttributesStudyInterventionOIDChild ElementsNoneUsage/Business
-  RulesOptional
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventionRef

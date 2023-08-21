@@ -1,5 +1,10 @@
 # Slot: ExclusionCriteriaRef
 
+
+_ExclusionCriteria reference: The ExclusionCriteria is a container element for Criterion elements describing exclusion criteria for subjects in the study. When a list is provided, not meeting any of the criteria in the list may lead to exclusion of enrollment in the study._
+
+
+
 URI: [odm:ExclusionCriteriaRef](http://www.cdisc.org/ns/odm/v2.0/ExclusionCriteriaRef)
 
 
@@ -50,6 +55,10 @@ URI: [odm:ExclusionCriteriaRef](http://www.cdisc.org/ns/odm/v2.0/ExclusionCriter
 <details>
 ```yaml
 name: ExclusionCriteriaRef
+description: 'ExclusionCriteria reference: The ExclusionCriteria is a container element
+  for Criterion elements describing exclusion criteria for subjects in the study.
+  When a list is provided, not meeting any of the criteria in the list may lead to
+  exclusion of enrollment in the study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

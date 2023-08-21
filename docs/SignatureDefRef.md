@@ -1,5 +1,10 @@
 # Slot: SignatureDefRef
 
+
+_SignatureDef reference: Provides Metadata for signatures included in the /ODM/ClinicalData._
+
+
+
 URI: [odm:SignatureDefRef](http://www.cdisc.org/ns/odm/v2.0/SignatureDefRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:SignatureDefRef](http://www.cdisc.org/ns/odm/v2.0/SignatureDefRef)
 <details>
 ```yaml
 name: SignatureDefRef
+description: 'SignatureDef reference: Provides Metadata for signatures included in
+  the /ODM/ClinicalData.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

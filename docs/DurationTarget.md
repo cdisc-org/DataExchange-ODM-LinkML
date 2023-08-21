@@ -1,5 +1,10 @@
 # Slot: DurationTarget
 
+
+_Constrains the duration of an activity represented by a Study, Epoch, StudyEventGroupDef, StudyEventDef, ItemGroupDef or ItemDef. Specifies the planned duration of the referenced structural element._
+
+
+
 URI: [odm:DurationTarget](http://www.cdisc.org/ns/odm/v2.0/DurationTarget)
 
 
@@ -13,7 +18,7 @@ URI: [odm:DurationTarget](http://www.cdisc.org/ns/odm/v2.0/DurationTarget)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[DurationTimingConstraint](DurationTimingConstraint.md) |  |  yes  |
+[DurationTimingConstraint](DurationTimingConstraint.md) | The DurationTimingConstraint constrains the duration of an activity represent... |  yes  |
 
 
 
@@ -23,7 +28,7 @@ URI: [odm:DurationTarget](http://www.cdisc.org/ns/odm/v2.0/DurationTarget)
 
 ## Properties
 
-* Range: [DurationDatetime](DurationDatetime.md)
+* Range: [durationDatetime](durationDatetime.md)
 
 
 
@@ -50,6 +55,9 @@ URI: [odm:DurationTarget](http://www.cdisc.org/ns/odm/v2.0/DurationTarget)
 <details>
 ```yaml
 name: DurationTarget
+description: Constrains the duration of an activity represented by a Study, Epoch,
+  StudyEventGroupDef, StudyEventDef, ItemGroupDef or ItemDef. Specifies the planned
+  duration of the referenced structural element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: DurationTarget

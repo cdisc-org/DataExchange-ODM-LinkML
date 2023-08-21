@@ -1,5 +1,10 @@
 # Slot: SourceIDRef
 
+
+_SourceID reference: Information that identifies the source of the data within an originating system._
+
+
+
 URI: [odm:SourceIDRef](http://www.cdisc.org/ns/odm/v2.0/SourceIDRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:SourceIDRef](http://www.cdisc.org/ns/odm/v2.0/SourceIDRef)
 <details>
 ```yaml
 name: SourceIDRef
+description: 'SourceID reference: Information that identifies the source of the data
+  within an originating system.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

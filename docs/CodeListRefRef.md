@@ -1,5 +1,10 @@
 # Slot: CodeListRefRef
 
+
+_CodeListRef reference: A reference to a CodeList definition._
+
+
+
 URI: [odm:CodeListRefRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRefRef)
 
 
@@ -13,8 +18,8 @@ URI: [odm:CodeListRefRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements |  yes  |
-[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
+[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements. ... |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study. Item prope... |  yes  |
 
 
 
@@ -51,6 +56,7 @@ URI: [odm:CodeListRefRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRefRef)
 <details>
 ```yaml
 name: CodeListRefRef
+description: 'CodeListRef reference: A reference to a CodeList definition.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

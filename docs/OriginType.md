@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Type_
+
+
+
 URI: [OriginType](OriginType)
 
 ## Permissible Values
@@ -24,7 +29,7 @@ URI: [OriginType](OriginType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) | Identifies how the clinical data values were obtained |
+| [Type](Type.md) | Identifies how the clinical data values were obtained. |
 
 
 
@@ -52,6 +57,7 @@ URI: [OriginType](OriginType)
 <details>
 ```yaml
 name: OriginType
+description: Enumeration used in Type
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

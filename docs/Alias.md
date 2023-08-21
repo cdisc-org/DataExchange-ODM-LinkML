@@ -31,8 +31,8 @@ URI: [odm:Alias](http://www.cdisc.org/ns/odm/v2.0/Alias)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ContextRef](ContextRef.md) | 1..1 <br/> [Text](Text.md) | Identifies applicable domain or scope of the mapping | direct |
-| [Name](Name.md) | 1..1 <br/> [Text](Text.md) | Alternate name of the parent element | direct |
+| [ContextRef](ContextRef.md) | 1..1 <br/> [text](text.md) | Identifies applicable domain or scope of the mapping. | direct |
+| [Name](Name.md) | 1..1 <br/> [text](text.md) | Alternate name of the parent element. | direct |
 
 
 

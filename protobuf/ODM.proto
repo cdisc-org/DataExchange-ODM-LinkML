@@ -1,3 +1,4 @@
+// The element AbsoluteTimingConstraint is used to specify when an activity, represented by either a StudyEventGroup or StudyEvent, can take place.
 message AbsoluteTimingConstraint
  {
   oid oID = 0
@@ -9,6 +10,7 @@ message AbsoluteTimingConstraint
   durationDatetime timepointPostWindow = 0
   description descriptionRef = 0
  }
+// The postal address for a user, location, or organization.
 message Address
  {
   streetName streetNameRef = 0
@@ -20,6 +22,7 @@ message Address
   geoPosition geoPositionRef = 0
   otherText otherTextRef = 0
  }
+// Administrative information about users, locations, organizations, and electronic signatures.
 message AdminData
  {
   oidref studyOID = 0
@@ -28,6 +31,7 @@ message AdminData
  repeated  location locationRefRef = 0
  repeated  signatureDef signatureDefRef = 0
  }
+// An Alias provides an additional name for an element. The Context attribute specifies the application domain in which this additional name is relevant.
 message Alias
  {
   text contextRef = 0
@@ -38,6 +42,7 @@ message AnnotatedCRF
  {
  repeated  documentRef documentRefRef = 0
  }
+// A general note about clinical data. If an annotation has both a comment and flags, the flags should be related to the comment.
 message Annotation
  {
   positiveInteger seqNum = 0
@@ -47,6 +52,7 @@ message Annotation
  repeated  coding codingRef = 0
  repeated  flag flagRef = 0
  }
+// An Arm element provides the declaration of a study arm. Arms do not have any ordering relative to one another.
 message Arm
  {
   oid oID = 0
@@ -54,6 +60,7 @@ message Arm
   description descriptionRef = 0
   workflowRef workflowRefRef = 0
  }
+// An association permits an annotation to be placed on an ordered pair of entities rather than on just one. The first and second KeySets identify the start and end of the annotated "link.
 message Association
  {
   oidref studyOID = 0
@@ -61,6 +68,7 @@ message Association
   keySet keySetRef = 0
   annotation annotationRef = 0
  }
+// An AuditRecord carries information pertaining to the creation, deletion, or modification of clinical data. This information includes who performed that action, and where, when, and why that action was performed.AuditRecord information describes a change to clinical data, but is not itself clinical data. The value of some clinical data can always be changed by a subsequent transaction, but history cannot be changed, only added to.
 message AuditRecord
  {
   editPointType editPoint = 0
@@ -71,6 +79,7 @@ message AuditRecord
   reasonForChange reasonForChangeRef = 0
   sourceID sourceIDRef = 0
  }
+// This element describes the branching in a workflow from a source (start) structural element to 2 or more target structural elements, over a Transition element.
 message Branching
  {
   oid oID = 0
@@ -79,15 +88,18 @@ message Branching
  repeated  targetTransition targetTransitionRef = 0
  repeated  defaultTransition defaultTransitionRef = 0
  }
+// Explanatory text for the variable.
 message CDISCNotes
  {
  repeated  translatedText translatedTextRef = 0
  }
+// A comparison value used in a range check.
 message CheckValue
  {
   contentType content = 0
   string range = 0
  }
+// The city name part of a user's postal address.
 message City
  {
   contentType content = 0
@@ -98,6 +110,7 @@ message Class
   itemGroupClass name = 0
  repeated  subClass subClassRef = 0
  }
+// Clinical data for 1 or more subjects.
 message ClinicalData
  {
   oidref studyOID = 0
@@ -107,13 +120,15 @@ message ClinicalData
  repeated  query queryRef = 0
   auditRecord auditRecordRef = 0
   signature signatureRefRef = 0
- repeated  annotation annotationRef = 0
+  annotation annotationRef = 0
  }
+// Contains the source code that represents a FormalExpression in a given Context. The source code must be executable, and the MethodSignature defines the input parameters and return values for the code.
 message Code
  {
   contentType content = 0
   string range = 0
  }
+// Defines a discrete set of permitted values for an item, or provides a reference to a codelist or dictionary maintained by an external organization via the Coding element, or a combination of both. Examples provided under Coding.
 message CodeList
  {
   oid oID = 0
@@ -127,6 +142,7 @@ message CodeList
  repeated  coding codingRef = 0
  repeated  alias aliasRef = 0
  }
+// Defines an individual member value of a codelist. It may include a display value in the child Decode element
 message CodeListItem
  {
   value codedValue = 0
@@ -140,10 +156,12 @@ message CodeListItem
  repeated  coding codingRef = 0
  repeated  alias aliasRef = 0
  }
+// A reference to a CodeList definition.
 message CodeListRef
  {
   oidref codeListOID = 0
  }
+// Coding references a symbol from a defined code system. It uses a code defined in a terminology system to associate semantics with a given term, codelist, variable, or group of variables. The presence of a Coding element associates a meaning to its parent element. Including multiple Coding elements for a given parent indicates synonymous meanings provided by different code systems or code system versions.
 message Coding
  {
   text codeRef = 0
@@ -155,6 +173,7 @@ message Coding
   uriorcurie ref = 0
   text commentOID = 0
  }
+// A free-text (uninterpreted) comment about clinical data. The comment may have come from the sponsor or the clinical site.
 message Comment
  {
   commentType sponsorOrSite = 0
@@ -167,6 +186,7 @@ message CommentDef
   description descriptionRef = 0
  repeated  documentRef documentRefRef = 0
  }
+// A ConditionDef defines a boolean condition.
 message ConditionDef
  {
   oid oID = 0
@@ -177,15 +197,18 @@ message ConditionDef
  repeated  formalExpression formalExpressionRef = 0
  repeated  alias aliasRef = 0
  }
+// The country name part of a user's postal address. For CDISC SDTM or trial registry applications, this must be represented by an ISO 3166 3-letter or US-GENC country code (e.g., FRA for France, JPN for Japan).
 message Country
  {
   contentType content = 0
   string range = 0
  }
+// Instructions for the clinical site on how to enter collected information on the CRF.
 message CRFCompletionInstructions
  {
  repeated  translatedText translatedTextRef = 0
  }
+// The Criterion represents either an inclusion or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria).
 message Criterion
  {
   oid oID = 0
@@ -199,6 +222,7 @@ message DateTimeStamp
   contentType content = 0
   string range = 0
  }
+// The displayed value relating to the CodeListItem/@CodedValue. This is often a label corresponding to a short name or alpha-numeric code. The actual Decode text is provided in a TranslatedText element so that it can be provided in different languages on a case report form or tabular data summary.
 message Decode
  {
  repeated  translatedText translatedTextRef = 0
@@ -207,10 +231,12 @@ message DefaultTransition
  {
   oidref targetTransitionOID = 0
  }
+// Definition of the item.
 message Definition
  {
  repeated  translatedText translatedTextRef = 0
  }
+// A free-text description of the containing metadata component, unless restricted by Business Rules.
 message Description
  {
  repeated  translatedText translatedTextRef = 0
@@ -221,6 +247,7 @@ message DocumentRef
   oid leafID = 0
  repeated  pDFPageRef pDFPageRefRef = 0
  }
+// The DurationTimingConstraint constrains the duration of an activity represented by a study, epoch, StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef. It is used to constrain the duration of the visit, activity, or any other structural element.
 message DurationTimingConstraint
  {
   oid oID = 0
@@ -235,6 +262,7 @@ message EntryCriteria
  {
  repeated  criterion criterionRef = 0
  }
+// The planned period of subjects' participation in the trial is divided into sequential epochs. Each epoch is a period of time that serves a purpose in the trial as a whole. Epochs cannot overlap. The sequence of the epoch in the study is provided by the SequenceNumber attribute, the first epoch in the study being assigned the sequence number 1. Sequence numbers are subsequent.
 message Epoch
  {
   oid oID = 0
@@ -242,10 +270,12 @@ message Epoch
   positiveInteger sequenceNumber = 0
   description descriptionRef = 0
  }
+// Error message provided to user when the range check fails.
 message ErrorMessage
  {
  repeated  translatedText translatedTextRef = 0
  }
+// An ExceptionEvent describes an event that occurs suddenly in a study and that was not planned as part of the normal workflow of the study. Examples are adverse events, death of a subject not caused by an adverse event, etc.
 message ExceptionEvent
  {
   oid oID = 0
@@ -253,9 +283,10 @@ message ExceptionEvent
   oidref conditionOID = 0
   description descriptionRef = 0
   workflowRef workflowRefRef = 0
- repeated  studyEventGroupRef studyEventGroupRefRef = 0
- repeated  studyEventRef studyEventRefRef = 0
+  studyEventGroupRef studyEventGroupRefRef = 0
+  studyEventRef studyEventRefRef = 0
  }
+// The ExclusionCriteria is a container element for Criterion elements describing exclusion criteria for subjects in the study. When a list is provided, not meeting any of the criteria in the list may lead to exclusion of enrollment in the study.
 message ExclusionCriteria
  {
  repeated  criterion criterionRef = 0
@@ -264,6 +295,7 @@ message ExitCriteria
  {
  repeated  criterion criterionRef = 0
  }
+// The ExternalCodeLib element references a FormalExpression in an external code library, such as a file or GitHub. The intention is to make it possible to reference existing code libraries where the code is maintained as well as making it simpler to include longer, more complex FormalExpressions. The Library attribute provides the name of the external library, whereas ref or href provides a reference to the repository that can be used to retrieve the code. The Method attribute provides the name of the method in the file referenced for cases where multiple methods are provided in the source code file. The Version element provides the version of the external FormalExpression code referenced.
 message ExternalCodeLib
  {
   name library = 0
@@ -272,73 +304,87 @@ message ExternalCodeLib
   text ref = 0
   uriorcurie href = 0
  }
+// The user's surname (family name).
 message FamilyName
  {
   contentType content = 0
   string range = 0
  }
+// A machine-processable annotation.
 message Flag
  {
   flagValue flagValueRef = 0
   flagType flagTypeRef = 0
  }
+// The type of flag. This determines the purpose and semantics of the flag.
 message FlagType
  {
   oidref codeListOID = 0
   name content = 0
  }
+// The value of the flag. The meaning of this value is typically dependent on the associated FlagType. The actual value must be a member of the referenced CodeList
 message FlagValue
  {
   oidref codeListOID = 0
   name content = 0
  }
+// A FormalExpression used within a ConditionDef or a RangeCheck must evaluate to True or False. A FormalExpression referenced within a MethodDef having Type Imputation, Computation, or Transpose must evaluate to the correct DataType for an Item that may be imputed or computed using the Method. A FormalExpression gets parameter and return value definitions from the MethodSignature element. The data types in the MethodSignature parameters and return values must match the corresponding data types in the FormalExpression.
 message FormalExpression
  {
   text contextRef = 0
   code codeRef = 0
   externalCodeLib externalCodeLibRef = 0
  }
+// The user's full formal name. May be a combination of Prefix, GivenName, FamilyName & Suffix. Intended to be used for display.
 message FullName
  {
   contentType content = 0
   string range = 0
  }
+// The geographical position using the World Geodetic System WGS84.
 message GeoPosition
  {
   decimal longitude = 0
   decimal latitude = 0
   decimal altitude = 0
  }
+// The user's initial given name or all given names.
 message GivenName
  {
   contentType content = 0
   string range = 0
  }
+// The house number part of a user's postal address.
 message HouseNumber
  {
   contentType content = 0
   string range = 0
  }
+// A visual depiction of the user.
 message Image
  {
   fileName imageFileName = 0
   text href = 0
   text mimeType = 0
  }
+// Further information, such as rationale and implementation instructions, on how to implement the CRF data collection fields.
 message ImplementationNotes
  {
  repeated  translatedText translatedTextRef = 0
  }
+// The Include metadata element allows a reference to a prior metadata version.
 message Include
  {
   oidref studyOID = 0
   oidref metaDataVersionOID = 0
   uriorcurie href = 0
  }
+// The InclusionCriteria is a container element for Criterion elements describing inclusion criteria for subjects in the study. When a list is provided, subjects must meet each of the criteria in the list in order to enroll in the study.
 message InclusionCriteria
  {
  repeated  criterion criterionRef = 0
  }
+// The InclusionExclusionCriteria element can contain 2 lists of Criterion elements, represented by the 2 elements InclusionCriteria and ExclusionCriteria. Together, these criteria determine the eligibility of a subject for the study. The actual condition to be evaluated is contained in an ODM ConditionDef, which is referenced by each Criterion‟s ConditionOID attribute.
 message InclusionExclusionCriteria
  {
   inclusionCriteria inclusionCriteriaRef = 0
@@ -348,10 +394,12 @@ message IntercurrentEvent
  {
   description descriptionRef = 0
  }
+// Provides a reference to the user who created the SubjectData record in the source system.
 message InvestigatorRef
  {
   oidref userOID = 0
  }
+// The ItemData element is used for transmission of the clinical data for an item. The model does not support repeating items within a single item group.
 message ItemData
  {
   oidref itemOID = 0
@@ -361,8 +409,9 @@ message ItemData
  repeated  query queryRef = 0
   auditRecord auditRecordRef = 0
   signature signatureRefRef = 0
- repeated  annotation annotationRef = 0
+  annotation annotationRef = 0
  }
+// An ItemDef describes a type of item that can occur within a study. Item properties include name, datatype, range, or codelist restrictions, and several other properties.
 message ItemDef
  {
   oid oID = 0
@@ -385,6 +434,7 @@ message ItemDef
  repeated  coding codingRef = 0
  repeated  alias aliasRef = 0
  }
+// Clinical data corresponding to an ItemGroupRef defined in the active MetaDataVersion.
 message ItemGroupData
  {
   oidref itemGroupOID = 0
@@ -392,12 +442,13 @@ message ItemGroupData
   transactionType transactionTypeRef = 0
   positiveInteger itemGroupDataSeq = 0
  repeated  query queryRef = 0
-  itemGroupData itemGroupDataRef = 0
-  itemData itemDataRef = 0
+ repeated  itemGroupData itemGroupDataRef = 0
+ repeated  itemData itemDataRef = 0
   auditRecord auditRecordRef = 0
   signature signatureRefRef = 0
- repeated  annotation annotationRef = 0
+  annotation annotationRef = 0
  }
+// An ItemGroupDef describes a type of variable or field grouping that can occur within a study.
 message ItemGroupDef
  {
   oid oID = 0
@@ -422,9 +473,10 @@ message ItemGroupDef
  repeated  origin originRef = 0
  repeated  alias aliasRef = 0
   leaf leafRef = 0
-  itemGroupRef itemGroupRefRef = 0
-  itemRef itemRefRef = 0
+ repeated  itemGroupRef itemGroupRefRef = 0
+ repeated  itemRef itemRefRef = 0
  }
+// ItemGroupRef references an ItemGroupDef as it occurs within a specific StudyEventDef or ItemGroupDef. The list of ItemGroupRefs identifies the types of item groups that are allowed to occur within this type of studyevent or (nested) item group. The ItemGroupRefs within a single StudyEventDef or ItemGroupDef must not have duplicate ItemGroupOID or OrderNumber attribute values.
 message ItemGroupRef
  {
   oidref itemGroupOID = 0
@@ -433,6 +485,7 @@ message ItemGroupRef
   yesOrNo mandatory = 0
   oidref collectionExceptionConditionOID = 0
  }
+// A reference to an ItemDef as it occurs within a specific ItemGroupDef. The list of ItemRefs identifies the types of items that are allowed to occur within this type of item group.
 message ItemRef
  {
   oidref itemOID = 0
@@ -453,6 +506,7 @@ message ItemRef
  repeated  origin originRef = 0
  repeated  whereClauseRef whereClauseRefRef = 0
  }
+// A KeySet references a single entity (e.g., a study, a subject, a study event). Only those attributes needed to specify the particular entity are required, and all others must be omitted (see Section 2.7, Clinical Data Keys).
 message KeySet
  {
   oidref studyOID = 0
@@ -468,14 +522,16 @@ message KeySet
 message Leaf
  {
   oid iD = 0
-  string href = 0
-  string title = 0
+  uriorcurie href = 0
+  text title = 0
  }
+// The responsibility statement associated with a signature (e.g., "The signer accepts responsibility for the accuracy of this data.").
 message LegalReason
  {
   contentType content = 0
   string range = 0
  }
+// A physical location associated with data collection and/or treatment of subjects.
 message Location
  {
   oid oID = 0
@@ -488,15 +544,18 @@ message Location
  repeated  telecom telecomRef = 0
  repeated  query queryRef = 0
  }
+// A reference to the user's physical location.
 message LocationRef
  {
   oidref locationOID = 0
  }
+// A short name or description for this signature. It should reflect the context of the signature and/or the text that appears when the signature is applied in the user interface.
 message Meaning
  {
   contentType content = 0
   string range = 0
  }
+// The metadata for a study is defined in a series of MetaDataVersion elements. Through this mechanism (multiple MetaDataVersion elements), the model supports the incremental deployment of "mid-stream study changes," and thus can handle a situation where multiple versions of the metadata are being used simultaneously (e.g., due to delays in IRB approval at various sites).
 message MetaDataVersion
  {
   oid oID = 0
@@ -521,12 +580,14 @@ message MetaDataVersion
  repeated  commentDef commentDefRef = 0
  repeated  leaf leafRef = 0
  }
+// A reference to a MetaDataVersion used at the containing Location. The EffectiveDate reflects the possibility that the metadata may change over the course of the study.
 message MetaDataVersionRef
  {
   oidref studyOID = 0
   oidref metaDataVersionOID = 0
   date effectiveDate = 0
  }
+// A MethodDef defines how a data value can be obtained from a collection of other data values.
 message MethodDef
  {
   oid oID = 0
@@ -539,11 +600,13 @@ message MethodDef
  repeated  alias aliasRef = 0
  repeated  documentRef documentRefRef = 0
  }
+// A MethodSignature defines the parameters and return values for a method. The MethodSignature improves traceability while enhancing the ability for automation engines to execute a MethodDef's FormalExpression. Most Methods use one or more input parameters and return one or more values.
 message MethodSignature
  {
  repeated  parameter parameterRef = 0
  repeated  returnValue returnValueRef = 0
  }
+// Root element for ODM Documents. The ODM element is the top-level (root) element of each ODM document.
 message ODMFileMetadata
  {
   fileType fileTypeRef = 0
@@ -564,6 +627,7 @@ message ODMFileMetadata
  repeated  clinicalData clinicalDataRef = 0
  repeated  association associationRef = 0
  }
+// An organization can reference a parent organization. Users may be associated with an Organization. An Organization may be associated with a Location. A User, Location, or Organization may have an address.
 message Organization
  {
   oid oID = 0
@@ -576,6 +640,7 @@ message Organization
  repeated  address addressRef = 0
  repeated  telecom telecomRef = 0
  }
+// Origin defines the source metadata, where applicable, for ODM ItemRefs or ItemGroupRefs. Origin as a child element replaces the Origin attribute in ODM v1.3 that exists for the ItemDef and ItemGroupDef elements.The Origin element is based on the def:Origin element in Define-XML v2.1 with the Trace-XML v1.0 extension.
 message Origin
  {
   originType type = 0
@@ -585,11 +650,13 @@ message Origin
  repeated  coding codingRef = 0
  repeated  documentRef documentRefRef = 0
  }
+// Any other text needed as part of a user's postal address.
 message OtherText
  {
   contentType content = 0
   string range = 0
  }
+// The Parameter element represents a method parameter used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck.
 message Parameter
  {
   name name = 0
@@ -597,6 +664,7 @@ message Parameter
   text definitionRef = 0
   positiveInteger orderNumber = 0
  }
+// This element contains the value of the study parameter as text content.
 message ParameterValue
  {
   text valueRef = 0
@@ -611,20 +679,24 @@ message PDFPageRef
   pDFPageType type = 0
   text title = 0
  }
+// The postal code part of a user's postal address.
 message PostalCode
  {
   contentType content = 0
   string range = 0
  }
+// Title or other prefix. Maps to FHIR HumanName.prefix (https://www.hl7.org/fhir/datatypes.html#humanname).
 message Prefix
  {
   contentType content = 0
   string range = 0
  }
+// A prompt text shown to a human user when prompted to provide data for an item on paper or on a screen. The Prompt is a short version of the question.
 message Prompt
  {
  repeated  translatedText translatedTextRef = 0
  }
+// The Protocol element lists the kinds of study events that can occur within a specific version of a study. All clinical data must occur within one of these study events.
 message Protocol
  {
   description descriptionRef = 0
@@ -643,6 +715,7 @@ message Protocol
   workflowRef workflowRefRef = 0
  repeated  alias aliasRef = 0
  }
+// The Query element represents a request for clarification on a data item collected for a clinical trial, specifically a request from a sponsor or sponsor’s representative to an investigator to resolve an error or inconsistency discovered during data review. Queries can be created manually by individuals such as site monitors or data managers or automatically by systems. The full text of the Query exists in the Value child element. The optional Name attribute provide the means to provide a short identifier that can be included in listing or user interfaces.
 message Query
  {
   oid oID = 0
@@ -655,10 +728,12 @@ message Query
   value valueRef = 0
  repeated  auditRecord auditRecordRef = 0
  }
+// A label shown to a human user when prompted to provide data for an item on paper or on a screen.
 message Question
  {
  repeated  translatedText translatedTextRef = 0
  }
+// A RangeCheck defines a constraint on the value of the enclosing item. It represents an expression that evaluates to True when the ItemData value is valid or False when the ItemData value is invalid. The expression is specified using either Comparator and CheckValue or using FormalExpressions.
 message RangeCheck
  {
   comparator comparatorRef = 0
@@ -669,11 +744,13 @@ message RangeCheck
  repeated  formalExpression formalExpressionRef = 0
  repeated  checkValue checkValueRef = 0
  }
+// A user-supplied reason for a data change.
 message ReasonForChange
  {
   contentType content = 0
   string range = 0
  }
+// Reference data provides information on how to interpret clinical data. For example, reference data might include lab normal ranges. For a study that uses CDISC standards, reference data might include SDTM Trial Design datasets.
 message ReferenceData
  {
   oidref studyOID = 0
@@ -681,8 +758,9 @@ message ReferenceData
  repeated  itemGroupData itemGroupDataRef = 0
   auditRecord auditRecordRef = 0
   signature signatureRefRef = 0
- repeated  annotation annotationRef = 0
+  annotation annotationRef = 0
  }
+// The RelativeTimingConstraint element describes a relative timing constraint between 2 activities or groups of activities, represented by StudyEventGroups, StudyEvents, ItemGroups, or Items.
 message RelativeTimingConstraint
  {
   oid oID = 0
@@ -695,6 +773,7 @@ message RelativeTimingConstraint
   durationDatetime timepointPostWindow = 0
   description descriptionRef = 0
  }
+// Describes an external resource used as the source for the parent ItemGroup or Item.
 message Resource
  {
   text type = 0
@@ -703,6 +782,7 @@ message Resource
   text label = 0
  repeated  selection selectionRef = 0
  }
+// The ReturnValue element represents a return value used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck. A return value identifies values passed from the Method to the calling element. A ReturnValue may be computed by a FormalExpression.
 message ReturnValue
  {
   name name = 0
@@ -710,10 +790,12 @@ message ReturnValue
   text definitionRef = 0
   positiveInteger orderNumber = 0
  }
+// Template for machine-readable/executable expression for retrieving the data or information from an external resource.
 message Selection
  {
   text path = 0
  }
+// An electronic signature applies to a collection of clinical data. This indicates that some user accepts legal responsibility for that data. See 21 CFR Part 11. The signature identifies the person signing, the location of signing, the signature meaning (via the referenced SignatureDef), the date and time of signing, and (in the case of a digital signature) an encrypted hash of the included data.
 message Signature
  {
   oid iD = 0
@@ -722,6 +804,7 @@ message Signature
   signatureRef signatureRefRef = 0
   dateTimeStamp dateTimeStampRef = 0
  }
+// Provides Metadata for signatures included in the /ODM/ClinicalData.
 message SignatureDef
  {
   oid oID = 0
@@ -733,15 +816,18 @@ message SignatureRef
  {
   oidref signatureOID = 0
  }
+// lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType is Transactional.
 message SiteRef
  {
   oidref locationOID = 0
  }
+// Information that identifies the source of the data within an originating system.
 message SourceID
  {
   contentType content = 0
   string range = 0
  }
+// Provides the information needed to identify the source metadata.
 message SourceItem
  {
   oidref itemOID = 0
@@ -753,11 +839,13 @@ message SourceItem
  repeated  resource resourceRef = 0
  repeated  coding codingRef = 0
  }
+// Identifies source items as needed to support automated data capture and end-to-end traceability.
 message SourceItems
  {
  repeated  sourceItem sourceItemRef = 0
  repeated  coding codingRef = 0
  }
+// The Standard element describes each standard used within the MetaDataVersion element.
 message Standard
  {
   oid oID = 0
@@ -768,20 +856,24 @@ message Standard
   standardStatus status = 0
   oidref commentOID = 0
  }
+// The Standards element provides a container for the list of Standard elements referenced in the MetaDataVersion for the Study..
 message Standards
  {
  repeated  standard standardRef = 0
  }
+// The state or province name part of a user's postal address.
 message StateProv
  {
   contentType content = 0
   string range = 0
  }
+// The street name part of a user's postal address.
 message StreetName
  {
   contentType content = 0
   string range = 0
  }
+// This element collects static structural information about an individual study.
 message Study
  {
   oid oID = 0
@@ -793,20 +885,23 @@ message Study
   description descriptionRef = 0
  repeated  metaDataVersion metaDataVersionRefRef = 0
  }
+// A study end point reflects an outcome measure of interest that is statistically analyzed to address a particular research question for the study. It typically specifies the type of assessments made; the timing of those assessments; the assessment tools used; and other details, as applicable, such as how multiple assessments within an individual are to be combined.
 message StudyEndPoint
  {
   oid oID = 0
   name name = 0
   studyEndPointType type = 0
-  studyEndPointLevel level = 0
+  studyEstimandLevel level = 0
   description descriptionRef = 0
  repeated  formalExpression formalExpressionRef = 0
  }
+// Go to start of metadata
 message StudyEndPointRef
  {
   oidref studyEndPointOID = 0
   positiveInteger orderNumber = 0
  }
+// Go to start of metadata
 message StudyEndPoints
  {
  repeated  studyEndPoint studyEndPointRefRef = 0
@@ -815,6 +910,7 @@ message StudyEstimand
  {
   oid oID = 0
   name name = 0
+  studyEstimandLevel level = 0
   description descriptionRef = 0
   studyTargetPopulationRef studyTargetPopulationRefRef = 0
   studyInterventionRef studyInterventionRefRef = 0
@@ -826,6 +922,7 @@ message StudyEstimands
  {
  repeated  studyEstimand studyEstimandRef = 0
  }
+// Clinical data for a study event (visit). The model supports repeating study events (e.g., when the same set of information is collected for a series of patient visits).
 message StudyEventData
  {
   oidref studyEventOID = 0
@@ -835,8 +932,9 @@ message StudyEventData
  repeated  query queryRef = 0
   auditRecord auditRecordRef = 0
   signature signatureRefRef = 0
- repeated  annotation annotationRef = 0
+  annotation annotationRef = 0
  }
+// StudyEventDef represents the definition of an activity in a study where data is collected. For example, a study event may represent a set of item groups that represent data collection instruments to be completed for a subject during a visit in a study. The visit occurs as part of a study workflow, and the workflow is referenced in the study event.
 message StudyEventDef
  {
   oid oID = 0
@@ -851,6 +949,7 @@ message StudyEventDef
  repeated  coding codingRef = 0
  repeated  alias aliasRef = 0
  }
+// StudyEventGroupDef is a study building block that groups a number of smaller building blocks, which can themselves be StudyEventGroups or StudyEvents. It thus allows nesting of building blocks.
 message StudyEventGroupDef
  {
   oid oID = 0
@@ -861,9 +960,10 @@ message StudyEventGroupDef
   description descriptionRef = 0
   workflowRef workflowRefRef = 0
  repeated  coding codingRef = 0
-  studyEventGroupRef studyEventGroupRefRef = 0
-  studyEventRef studyEventRefRef = 0
+ repeated  studyEventGroupRef studyEventGroupRefRef = 0
+ repeated  studyEventRef studyEventRefRef = 0
  }
+// This element references a StudyEventGroupDef as it occurs within a specific version of a study. The list of StudyEventGroupRefs identifies the types of study group events that are allowed to occur within the study.
 message StudyEventGroupRef
  {
   oidref studyEventGroupOID = 0
@@ -872,6 +972,7 @@ message StudyEventGroupRef
   oidref collectionExceptionConditionOID = 0
   description descriptionRef = 0
  }
+// This element references a StudyEventDef as it occurs within a specific version of a study. The list of StudyEventRefs identifies the types of study events that are allowed to occur within the study.
 message StudyEventRef
  {
   oidref studyEventOID = 0
@@ -879,16 +980,19 @@ message StudyEventRef
   yesOrNo mandatory = 0
   oidref collectionExceptionConditionOID = 0
  }
+// This element describes a study indication (e.g., condition, disease) for the clinical study. The human-readable description is provided in the Description element. The Coding element can be used to provide a machine-readable code for the indication (e.g., SNOMED-CT code 26929004 for "Alzheimer's disease").
 message StudyIndication
  {
   oid oID = 0
   description descriptionRef = 0
  repeated  coding codingRef = 0
  }
+// StudyIndications is a container element for individual StudyIndication elements.
 message StudyIndications
  {
  repeated  studyIndication studyIndicationRef = 0
  }
+// This element describes a study intervention (e.g., medication, treatment, therapy) for the clinical study. The human-readable description is provided in the Description element. The Coding element can be used to provide a machine-readable code for the indication (e.g., ATC M01AE01 code for "Ibuprofen" when used as a nonsteroidal anti-inflammatory drug).
 message StudyIntervention
  {
   oid oID = 0
@@ -899,6 +1003,7 @@ message StudyInterventionRef
  {
   oidref studyInterventionOID = 0
  }
+// The StudyInterventions element is a container element for individual StudyIntervention elements.
 message StudyInterventions
  {
  repeated  studyIntervention studyInterventionRefRef = 0
@@ -907,14 +1012,16 @@ message StudyObjective
  {
   oid oID = 0
   name name = 0
-  studyObjectiveLevel type = 0
+  studyObjectiveLevel level = 0
   description descriptionRef = 0
  repeated  studyEndPointRef studyEndPointRefRef = 0
  }
+// The StudyObjectives is a container element for individual StudyObjective elements.
 message StudyObjectives
  {
  repeated  studyObjective studyObjectiveRef = 0
  }
+// A StudyParameter defines a study design parameter for which the value or values are delivered in the ParameterValue child element or elements.
 message StudyParameter
  {
   oid oID = 0
@@ -923,6 +1030,7 @@ message StudyParameter
   parameterValue parameterValueRef = 0
  repeated  coding codingRef = 0
  }
+// The StudyStructure element describes the general structure of a clinical study with arms, epochs, and workflows.
 message StudyStructure
  {
   description descriptionRef = 0
@@ -930,10 +1038,12 @@ message StudyStructure
  repeated  epoch epochRef = 0
   workflowRef workflowRefRef = 0
  }
+// The StudyParameter element allows to provide a set of study design parameters such as anticipated number of subjects, minimum and maximum age of the participants, or planned number of arms.
 message StudySummary
  {
  repeated  studyParameter studyParameterRef = 0
  }
+// The StudyTargetPopulation describes the population targeted for the clinical study.
 message StudyTargetPopulation
  {
   oid oID = 0
@@ -946,6 +1056,7 @@ message StudyTargetPopulationRef
  {
   oidref studyTargetPopulationOID = 0
  }
+// The StudyTiming element defines a timing constraint within the study, which can be an absolute timing constraint (e.g., start of the screening visit must be between 1 January 2022 and 31 December 2022), a relative timing constraint (e.g., visit 2 must be within 30 days after visit 1 with a window of +/- 1 week), a transition timing constraint (i.e., timing constraint on a transition within a defined workflow), or a duration timing constraint (e.g., the duration of visit 2 is planned to take hours with a window of 30 minutes).
 message StudyTiming
  {
   oid oID = 0
@@ -955,6 +1066,7 @@ message StudyTiming
  repeated  transitionTimingConstraint transitionTimingConstraintRef = 0
  repeated  durationTimingConstraint durationTimingConstraintRef = 0
  }
+// The StudyTimings element is a container element for individual StudyTiming elements.
 message StudyTimings
  {
  repeated  studyTiming studyTimingRef = 0
@@ -965,6 +1077,7 @@ message SubClass
   itemGroupSubClass name = 0
   itemGroupClassSubClass parentClass = 0
  }
+// Clinical data for a single subject.
 message SubjectData
  {
   subjectKey subjectKey = 0
@@ -975,8 +1088,9 @@ message SubjectData
  repeated  query queryRef = 0
   auditRecord auditRecordRef = 0
   signature signatureRefRef = 0
- repeated  annotation annotationRef = 0
+  annotation annotationRef = 0
  }
+// This element may include credentials, or suffixes (e.g., Jr., III).
 message Suffix
  {
   contentType content = 0
@@ -991,11 +1105,19 @@ message SupplementalDoc
  {
  repeated  documentRef documentRefRef = 0
  }
+// Provides a reference to a Transition element.
 message TargetTransition
  {
   oidref targetTransitionOID = 0
   oidref conditionOID = 0
  }
+// The telecommunication contacts points of a user, a location, or an organization. The Type attribute designates the type of contact.
+message Telecom
+ {
+  telecomTypeType telecomType = 0
+  text valueRef = 0
+ }
+// A Transition defines a link between 2 structural elements in a workflow. When the execution of the transition is dependent upon a timing constraint that is either directly defined or calculated, a TransitionTimingConstraint must be defined, referencing the current Transition.
 message Transition
  {
   oid oID = 0
@@ -1005,6 +1127,7 @@ message Transition
   oidref startConditionOID = 0
   oidref endConditionOID = 0
  }
+// The TransitionTimingConstraint element defines a timing constraint on a transition between structural elements as defined in a workflow. As such, it is a non-blocking constraint. This means that the transition is set on hold as long as the timing condition is not fulfilled, and is executed as soon as the timing condition is fulfilled.
 message TransitionTimingConstraint
  {
   oid oID = 0
@@ -1017,17 +1140,20 @@ message TransitionTimingConstraint
   durationDatetime timepointPostWindow = 0
   description descriptionRef = 0
  }
+// Human-readable text that is appropriate for a particular language. TranslatedText elements typically occur in a series, presenting a set of alternative textual renditions for different languages and types.
 message TranslatedText
  {
   languageType language = 0
   text type = 0
   contentType content = 0
  }
+// The TrialPhase element designates the phase of the study in the clinical trial.
 message TrialPhase
  {
   trialPhaseType valueRef = 0
   description descriptionRef = 0
  }
+// Information about a specific user of a clinical data collection or data management system.
 message User
  {
   oid oID = 0
@@ -1044,6 +1170,7 @@ message User
  repeated  address addressRef = 0
  repeated  telecom telecomRef = 0
  }
+// The user's login identification in the sender's system.
 message UserName
  {
   contentType content = 0
@@ -1053,31 +1180,37 @@ message UserRef
  {
   oidref userOID = 0
  }
+// The data collected for an item. This data is represented according to DataType attribute of the ItemDef referenced by the ItemOID attribute in the parent ItemData element.
 message Value
  {
   positiveInteger seqNum = 0
   text content = 0
  }
+// The following table specifies the XML structure for valuelist metadata. The ValueListDef element contains ItemRef elements that reference ItemDef elements that provide the value-level metadata details
 message ValueListDef
  {
   oid oID = 0
   description descriptionRef = 0
  repeated  itemRef itemRefRef = 0
  }
+// The ValueListRef element is the OID of the ValueListDef that contains the valuelist definition associated with the variable. If value-level metadata is required for a variable, a ValueListRef element should be provided as a child element on the ItemDef for the variable definition.
 message ValueListRef
  {
   oidref valueListOID = 0
  }
+// The WhereClauseDef element specifies a condition.
 message WhereClauseDef
  {
   oid oID = 0
   oidref commentOID = 0
  repeated  rangeCheck rangeCheckRef = 0
  }
+// The WhereClauseRef references the WhereClauseDef element that describes the conditions under which the variable values are defined by the referenced ItemDef.
 message WhereClauseRef
  {
   oidref whereClauseOID = 0
  }
+// A WorkflowDef defines an automated workflow for a study.
 message WorkflowDef
  {
   oid oID = 0
@@ -1085,18 +1218,21 @@ message WorkflowDef
   description descriptionRef = 0
   workflowStart workflowStartRef = 0
  repeated  workflowEnd workflowEndRef = 0
-  transition transitionRef = 0
-  branching branchingRef = 0
+ repeated  transition transitionRef = 0
+ repeated  branching branchingRef = 0
  }
+// A WorkflowEnd references a structural element with which the workflows ends.
 message WorkflowEnd
  {
   oidref endOID = 0
   text content = 0
  }
+// The WorkflowRef references a workflow definition
 message WorkflowRef
  {
   oidref workflowOID = 0
  }
+// WorkflowStart references a structural element that begins the automated workflow.
 message WorkflowStart
  {
   oidref startOID = 0

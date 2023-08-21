@@ -18,7 +18,7 @@ URI: [odm:StudyName](http://www.cdisc.org/ns/odm/v2.0/StudyName)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Study](Study.md) | This element collects static structural information about an individual study |  yes  |
+[Study](Study.md) | This element collects static structural information about an individual study... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:StudyName](http://www.cdisc.org/ns/odm/v2.0/StudyName)
 
 ## Properties
 
-* Range: [Name](Name.md)
+* Range: [name](name.md)
 
 
 

@@ -1,5 +1,10 @@
 # Slot: StreetNameRef
 
+
+_StreetName reference: The street name part of a user's postal address._
+
+
+
 URI: [odm:StreetNameRef](http://www.cdisc.org/ns/odm/v2.0/StreetNameRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:StreetNameRef](http://www.cdisc.org/ns/odm/v2.0/StreetNameRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Address](Address.md) | The postal address for a user, location, or organization |  yes  |
+[Address](Address.md) | The postal address for a user, location, or organization. |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:StreetNameRef](http://www.cdisc.org/ns/odm/v2.0/StreetNameRef)
 <details>
 ```yaml
 name: StreetNameRef
+description: 'StreetName reference: The street name part of a user''s postal address.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

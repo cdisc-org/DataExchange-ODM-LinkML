@@ -19,11 +19,11 @@ def main() -> None:
 def process_text(text) -> str:
     if not text:
         return None
-    #return '\n'.join(re.sub(r'\s+', ' ', t) for t in text.split('\n'))
-    return re.sub(r'\s+', ' ', text)
+    #return '\n'.join(re.sub(r'\s+', ' ', re.sub(r"^'|'$|^\"|\"$", "", t.strip())) for t in text.split('\n'))
+    return re.sub(r'\s+', ' ', re.sub(r"^'|'$|^\"|\"$", "", text.strip()))
 
 def connect() -> dict:
-    requests_cache.install_cache('wiki_cache', expire_after=3600)  # In seconds i.e. 3600 = 1 hour
+    requests_cache.install_cache('wiki_cache', expire_after=3600)
     # Set the TOKEN environment variable if needed using
     # export TOKEN=<your access token>
     TOKEN = os.getenv('TOKEN')
@@ -73,17 +73,22 @@ def scrape_wiki_content(
         text = process_text(paragraph.get_text())
         if not text:
             continue
-        word_count = len(text.split())
+        word_count = len(re.findall('\w+', text))
         line_break_count = text.count('\n') or 0
         words_per_line = word_count / (line_break_count + 1)
         parent = paragraph.parent
-
-        in_main_content = bool(parent.get('class', None) == ['wiki-content'] and parent.get('id', None) == 'main-content')
-        is_part_of_table = (parent.name == 'td' or parent.name == 'th') and (parent.find_parent('table') or parent.find_parent('table-wrap'))
+        in_main_content = bool(parent.get('class', None) == ['wiki-content'] and \
+                               parent.get('id', None) == 'main-content')
+        is_part_of_table = (parent.name == 'td' or parent.name == 'th') and \
+            (parent.find_parent('table') or parent.find_parent('table-wrap'))
+        
         if not description and in_main_content and (words_per_line > 3) and not is_part_of_table:
             description = re.sub(r"^'|'$", "", text)
-            print_debug('Description found:', description)
-            scraped['description'] = description
+            start_of_table_after_description = 'Element Name'
+            if not description.startswith(start_of_table_after_description):
+                description = description.split(start_of_table_after_description)[0].strip()
+                print_debug('Description found:', description)
+                scraped['description'] = description
 
         is_example = bool(paragraph.get('class', None) == ['example-title'])
         if is_example:

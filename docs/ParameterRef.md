@@ -1,5 +1,10 @@
 # Slot: ParameterRef
 
+
+_Parameter reference: The Parameter element represents a method parameter used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck._
+
+
+
 URI: [odm:ParameterRef](http://www.cdisc.org/ns/odm/v2.0/ParameterRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:ParameterRef](http://www.cdisc.org/ns/odm/v2.0/ParameterRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MethodSignature](MethodSignature.md) | A MethodSignature defines the parameters and return values for a method |  yes  |
+[MethodSignature](MethodSignature.md) | A MethodSignature defines the parameters and return values for a method. The ... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:ParameterRef](http://www.cdisc.org/ns/odm/v2.0/ParameterRef)
 <details>
 ```yaml
 name: ParameterRef
+description: 'Parameter reference: The Parameter element represents a method parameter
+  used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

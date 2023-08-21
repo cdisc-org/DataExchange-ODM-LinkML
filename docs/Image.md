@@ -33,9 +33,9 @@ URI: [odm:Image](http://www.cdisc.org/ns/odm/v2.0/Image)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ImageFileName](ImageFileName.md) | 0..1 <br/> [FileName](FileName.md) | The file name of or file path to the picture | direct |
-| [href](href.md) | 0..1 <br/> [Text](Text.md) | URL of the location of the picture | direct |
-| [MimeType](MimeType.md) | 0..1 <br/> [Text](Text.md) | Media type of the image | direct |
+| [ImageFileName](ImageFileName.md) | 0..1 <br/> [fileName](fileName.md) | The file name of or file path to the picture | direct |
+| [href](href.md) | 0..1 <br/> [text](text.md) | URL of the location of the picture | direct |
+| [MimeType](MimeType.md) | 0..1 <br/> [text](text.md) | Media type of the image | direct |
 
 
 

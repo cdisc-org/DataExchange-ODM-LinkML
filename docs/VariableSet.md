@@ -18,7 +18,7 @@ URI: [odm:VariableSet](http://www.cdisc.org/ns/odm/v2.0/VariableSet)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study. Item prope... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:VariableSet](http://www.cdisc.org/ns/odm/v2.0/VariableSet)
 
 ## Properties
 
-* Range: [Text](Text.md)
+* Range: [text](text.md)
 
 
 

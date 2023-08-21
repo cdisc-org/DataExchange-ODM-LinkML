@@ -49,15 +49,15 @@ URI: [odm:RelativeTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/RelativeTim
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable name | direct |
-| [PredecessorOID](PredecessorOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that occurs immed... | direct |
-| [SuccessorOID](SuccessorOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs immedi... | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name. | direct |
+| [PredecessorOID](PredecessorOID.md) | 0..1 <br/> [oidref](oidref.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that occurs immed... | direct |
+| [SuccessorOID](SuccessorOID.md) | 0..1 <br/> [oidref](oidref.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs immedi... | direct |
 | [Type](Type.md) | 0..1 <br/> [RelativeTimingConstraintType](RelativeTimingConstraintType.md) | Defines how the timing is to be defined between the two activities, starting ... | direct |
-| [TimepointRelativeTarget](TimepointRelativeTarget.md) | 1..1 <br/> [DurationDatetime](DurationDatetime.md) | The relative timing between two activities or groups of activities | direct |
-| [TimepointPreWindow](TimepointPreWindow.md) | 0..1 <br/> [DurationDatetime](DurationDatetime.md) | Adds a lower bound to a time window for the RelativeTimepointTarget | direct |
-| [TimepointPostWindow](TimepointPostWindow.md) | 0..1 <br/> [DurationDatetime](DurationDatetime.md) | Adds an upper bound to a time window for the RelativeTimepointTarget | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
+| [TimepointRelativeTarget](TimepointRelativeTarget.md) | 1..1 <br/> [durationDatetime](durationDatetime.md) | The relative timing between two activities or groups of activities. | direct |
+| [TimepointPreWindow](TimepointPreWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Adds a lower bound to a time window for the RelativeTimepointTarget. | direct |
+| [TimepointPostWindow](TimepointPostWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Adds an upper bound to a time window for the RelativeTimepointTarget. | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
 
 
@@ -743,6 +743,8 @@ attributes:
     range: durationDatetime
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

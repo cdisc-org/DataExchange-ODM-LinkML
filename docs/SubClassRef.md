@@ -1,5 +1,10 @@
 # Slot: SubClassRef
 
+
+_SubClass reference: This element contains SubClass definitions._
+
+
+
 URI: [odm:SubClassRef](http://www.cdisc.org/ns/odm/v2.0/SubClassRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:SubClassRef](http://www.cdisc.org/ns/odm/v2.0/SubClassRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Class](Class.md) | Element NameClassParent ElementsItemGroupDefElement XPath(s)/ODM/Study/MetaDa... |  yes  |
+[Class](Class.md) |  |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:SubClassRef](http://www.cdisc.org/ns/odm/v2.0/SubClassRef)
 <details>
 ```yaml
 name: SubClassRef
+description: 'SubClass reference: This element contains SubClass definitions.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

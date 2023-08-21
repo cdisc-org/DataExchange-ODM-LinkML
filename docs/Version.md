@@ -29,7 +29,7 @@ URI: [odm:Version](http://www.cdisc.org/ns/odm/v2.0/Version)
 
 ## Properties
 
-* Range: [Text](Text.md)
+* Range: [text](text.md)
 
 
 

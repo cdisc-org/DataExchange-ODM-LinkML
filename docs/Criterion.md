@@ -41,11 +41,11 @@ URI: [odm:Criterion](http://www.cdisc.org/ns/odm/v2.0/Criterion)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Criterion name | direct |
-| [ConditionOID](ConditionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to a ConditionDef element | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Criterion name. | direct |
+| [ConditionOID](ConditionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef element. | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
 
 
@@ -583,6 +583,8 @@ attributes:
     required: true
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -630,6 +632,12 @@ attributes:
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

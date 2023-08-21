@@ -18,7 +18,7 @@ URI: [odm:SponsorOrSite](http://www.cdisc.org/ns/odm/v2.0/SponsorOrSite)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Comment](Comment.md) | A free-text (uninterpreted) comment about clinical data |  yes  |
+[Comment](Comment.md) | A free-text (uninterpreted) comment about clinical data. The comment may have... |  yes  |
 
 
 

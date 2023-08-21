@@ -28,7 +28,7 @@ URI: [odm:Library](http://www.cdisc.org/ns/odm/v2.0/Library)
 
 ## Properties
 
-* Range: [Name](Name.md)
+* Range: [name](name.md)
 
 
 

@@ -1,5 +1,10 @@
 # Slot: UserRefRef
 
+
+_UserRef reference: None_
+
+
+
 URI: [odm:UserRefRef](http://www.cdisc.org/ns/odm/v2.0/UserRefRef)
 
 
@@ -15,7 +20,7 @@ URI: [odm:UserRefRef](http://www.cdisc.org/ns/odm/v2.0/UserRefRef)
 | --- | --- | --- |
 [AdminData](AdminData.md) | Administrative information about users, locations, organizations, and electro... |  yes  |
 [AuditRecord](AuditRecord.md) | An AuditRecord carries information pertaining to the creation, deletion, or m... |  yes  |
-[Signature](Signature.md) | An electronic signature applies to a collection of clinical data |  yes  |
+[Signature](Signature.md) | An electronic signature applies to a collection of clinical data. This indica... |  yes  |
 
 
 
@@ -52,6 +57,7 @@ URI: [odm:UserRefRef](http://www.cdisc.org/ns/odm/v2.0/UserRefRef)
 <details>
 ```yaml
 name: UserRefRef
+description: 'UserRef reference: None'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

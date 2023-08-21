@@ -1,5 +1,10 @@
 # Slot: CriterionRef
 
+
+_Criterion reference: The Criterion represents either an inclusion or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria)._
+
+
+
 URI: [odm:CriterionRef](http://www.cdisc.org/ns/odm/v2.0/CriterionRef)
 
 
@@ -53,6 +58,9 @@ URI: [odm:CriterionRef](http://www.cdisc.org/ns/odm/v2.0/CriterionRef)
 <details>
 ```yaml
 name: CriterionRef
+description: 'Criterion reference: The Criterion represents either an inclusion or
+  an exclusion criterion, depending on the parent element (i.e., InclusionCriteria,
+  ExclusionCriteria).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

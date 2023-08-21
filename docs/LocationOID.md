@@ -19,9 +19,9 @@ URI: [odm:LocationOID](http://www.cdisc.org/ns/odm/v2.0/LocationOID)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [User](User.md) | Information about a specific user of a clinical data collection or data manag... |  yes  |
-[Organization](Organization.md) | An organization can reference a parent organization |  yes  |
+[Organization](Organization.md) | An organization can reference a parent organization. Users may be associated ... |  yes  |
 [SiteRef](SiteRef.md) | lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData... |  yes  |
-[LocationRef](LocationRef.md) | A reference to the user's physical location |  yes  |
+[LocationRef](LocationRef.md) | A reference to the user's physical location. |  yes  |
 
 
 
@@ -31,7 +31,7 @@ URI: [odm:LocationOID](http://www.cdisc.org/ns/odm/v2.0/LocationOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

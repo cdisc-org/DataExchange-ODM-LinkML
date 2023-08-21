@@ -33,8 +33,8 @@ URI: [odm:DocumentRef](http://www.cdisc.org/ns/odm/v2.0/DocumentRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [LeafID](LeafID.md) | 1..1 <br/> [Oid](Oid.md) | Reference to the unique ID of the Leaf element that contains the location of ... | direct |
-| [PDFPageRefRef](PDFPageRefRef.md) | 0..* <br/> [PDFPageRef](PDFPageRef.md) | The PDFPageRef element is a container for page references in a PDF file | direct |
+| [LeafID](LeafID.md) | 1..1 <br/> [oid](oid.md) | Reference to the unique ID of the Leaf element that contains the location of ... | direct |
+| [PDFPageRefRef](PDFPageRefRef.md) | 0..* <br/> [PDFPageRef](PDFPageRef.md) | The PDFPageRef element is a container for page references in a PDF file. | direct |
 
 
 

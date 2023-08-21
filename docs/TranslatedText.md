@@ -33,9 +33,9 @@ URI: [odm:TranslatedText](http://www.cdisc.org/ns/odm/v2.0/TranslatedText)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [_language](_language.md) | 0..1 <br/> [LanguageType](LanguageType.md) | Code representing the language of the enclosed text value | direct |
-| [Type](Type.md) | 1..1 <br/> [Text](Text.md) | Contains IANA media type of the TranslatedText element contents | direct |
-| [_content](_content.md) | 0..1 <br/> [ContentType](ContentType.md) | multi-line text content from between XML tags | direct |
+| [_language](_language.md) | 0..1 <br/> [_languageType](_languageType.md) | Code representing the language of the enclosed text value. Default value depe... | direct |
+| [Type](Type.md) | 1..1 <br/> [text](text.md) | Contains IANA media type of the TranslatedText element contents. | direct |
+| [_content](_content.md) | 0..1 <br/> [_contentType](_contentType.md) | multi-line text content from between XML tags | direct |
 
 
 
@@ -117,7 +117,7 @@ slot_usage:
     name: _language
     description: 'Code representing the language of the enclosed text value. Default
       value depends on locale. Note: The xml:lang attribute is part of the XML standard.
-      See IETF Trust, Tags for Identifying Languages '
+      See IETF Trust, Tags for Identifying Languages'
     comments:
     - 'Optional
 
@@ -219,7 +219,7 @@ slot_usage:
     name: _language
     description: 'Code representing the language of the enclosed text value. Default
       value depends on locale. Note: The xml:lang attribute is part of the XML standard.
-      See IETF Trust, Tags for Identifying Languages '
+      See IETF Trust, Tags for Identifying Languages'
     comments:
     - 'Optional
 
@@ -305,7 +305,7 @@ attributes:
     name: _language
     description: 'Code representing the language of the enclosed text value. Default
       value depends on locale. Note: The xml:lang attribute is part of the XML standard.
-      See IETF Trust, Tags for Identifying Languages '
+      See IETF Trust, Tags for Identifying Languages'
     comments:
     - 'Optional
 

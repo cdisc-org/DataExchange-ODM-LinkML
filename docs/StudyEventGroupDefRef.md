@@ -1,5 +1,10 @@
 # Slot: StudyEventGroupDefRef
 
+
+_StudyEventGroupDef reference: StudyEventGroupDef is a study building block that groups a number of smaller building blocks, which can themselves be StudyEventGroups or StudyEvents. It thus allows nesting of building blocks._
+
+
+
 URI: [odm:StudyEventGroupDefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupDefRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:StudyEventGroupDefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGrou
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements |  yes  |
+[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements. ... |  yes  |
 
 
 
@@ -50,6 +55,9 @@ URI: [odm:StudyEventGroupDefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGrou
 <details>
 ```yaml
 name: StudyEventGroupDefRef
+description: 'StudyEventGroupDef reference: StudyEventGroupDef is a study building
+  block that groups a number of smaller building blocks, which can themselves be StudyEventGroups
+  or StudyEvents. It thus allows nesting of building blocks.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

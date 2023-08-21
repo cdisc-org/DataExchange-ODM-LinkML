@@ -19,7 +19,7 @@ URI: [odm:CodeRef](http://www.cdisc.org/ns/odm/v2.0/CodeRef)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [FormalExpression](FormalExpression.md) | A FormalExpression used within a ConditionDef or a RangeCheck must evaluate t... |  yes  |
-[Coding](Coding.md) | Coding references a symbol from a defined code system |  yes  |
+[Coding](Coding.md) | Coding references a symbol from a defined code system. It uses a code defined... |  yes  |
 
 
 

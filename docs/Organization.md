@@ -53,15 +53,15 @@ URI: [odm:Organization](http://www.cdisc.org/ns/odm/v2.0/Organization)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the organization | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Formal, human readable name of the organization | direct |
-| [Role](Role.md) | 0..1 <br/> [Text](Text.md) | Role of the organization in the current study | direct |
-| [Type](Type.md) | 1..1 <br/> [OrganizationType](OrganizationType.md) | Categorization of organizations associated with clinical studies | direct |
-| [LocationOID](LocationOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a location where data is collected and/or study subjects are tre... | direct |
-| [PartOfOrganizationOID](PartOfOrganizationOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a parent organization | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [AddressRef](AddressRef.md) | 0..* <br/> [Address](Address.md) |  | direct |
-| [TelecomRef](TelecomRef.md) | 0..* <br/> [Telecom](Telecom.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the organization. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Formal, human readable name of the organization. | direct |
+| [Role](Role.md) | 0..1 <br/> [text](text.md) | Role of the organization in the current study. | direct |
+| [Type](Type.md) | 1..1 <br/> [OrganizationType](OrganizationType.md) | Categorization of organizations associated with clinical studies. | direct |
+| [LocationOID](LocationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a location where data is collected and/or study subjects are tre... | direct |
+| [PartOfOrganizationOID](PartOfOrganizationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a parent organization. | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [AddressRef](AddressRef.md) | 0..* <br/> [Address](Address.md) | Address reference: The postal address for a user, location, or organization. | direct |
+| [TelecomRef](TelecomRef.md) | 0..* <br/> [Telecom](Telecom.md) | Telecom reference: The telecommunication contacts points of a user, a locatio... | direct |
 
 
 
@@ -791,6 +791,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -838,6 +840,7 @@ attributes:
     maximum_cardinality: 1
   AddressRef:
     name: AddressRef
+    description: 'Address reference: The postal address for a user, location, or organization.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -853,6 +856,8 @@ attributes:
     inlined_as_list: true
   TelecomRef:
     name: TelecomRef
+    description: 'Telecom reference: The telecommunication contacts points of a user,
+      a location, or an organization. The Type attribute designates the type of contact.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

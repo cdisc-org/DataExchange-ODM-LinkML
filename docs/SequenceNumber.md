@@ -1,7 +1,7 @@
 # Slot: SequenceNumber
 
 
-_Order of the Epoch _
+_Order of the Epoch_
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:SequenceNumber](http://www.cdisc.org/ns/odm/v2.0/SequenceNumber)
 
 ## Properties
 
-* Range: [PositiveInteger](PositiveInteger.md)
+* Range: [positiveInteger](positiveInteger.md)
 
 
 
@@ -55,7 +55,7 @@ URI: [odm:SequenceNumber](http://www.cdisc.org/ns/odm/v2.0/SequenceNumber)
 <details>
 ```yaml
 name: SequenceNumber
-description: 'Order of the Epoch '
+description: Order of the Epoch
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SequenceNumber

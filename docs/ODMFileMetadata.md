@@ -81,21 +81,21 @@ URI: [odm:ODM](http://www.cdisc.org/ns/odm/v2.0/ODM)
 | ---  | --- | --- | --- |
 | [FileTypeRef](FileTypeRef.md) | 1..1 <br/> [FileType](FileType.md) | Snapshot means that the document contains only the current state of the data ... | direct |
 | [GranularityRef](GranularityRef.md) | 0..1 <br/> [Granularity](Granularity.md) | Granularity is intended to give the sender a shorthand way to Describes the s... | direct |
-| [ContextRef](ContextRef.md) | 0..1 <br/> [Context](Context.md) | Indicates the intended usage of the ODM document | direct |
-| [FileOID](FileOID.md) | 1..1 <br/> [Oid](Oid.md) | A unique identifier for this file | direct |
-| [CreationDateTime](CreationDateTime.md) | 1..1 <br/> [Datetime](Datetime.md) | Time of creation of the file containing the document | direct |
-| [PriorFileOID](PriorFileOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to the previous file (if any) in a series | direct |
-| [AsOfDateTime](AsOfDateTime.md) | 0..1 <br/> [Datetime](Datetime.md) | The date/time at which the source database was queried in order to create thi... | direct |
-| [ODMVersionRef](ODMVersionRef.md) | 0..1 <br/> [ODMVersion](ODMVersion.md) | The version of the ODM standard used | direct |
-| [Originator](Originator.md) | 0..1 <br/> [Text](Text.md) | The organization that generated the ODM file | direct |
-| [SourceSystem](SourceSystem.md) | 0..1 <br/> [Text](Text.md) | The computer system or database management system that is the source of the i... | direct |
-| [SourceSystemVersion](SourceSystemVersion.md) | 0..1 <br/> [Text](Text.md) | The version of the "SourceSystem" above | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [StudyRef](StudyRef.md) | 0..* <br/> [Study](Study.md) |  | direct |
-| [AdminDataRef](AdminDataRef.md) | 0..* <br/> [AdminData](AdminData.md) |  | direct |
-| [ReferenceDataRef](ReferenceDataRef.md) | 0..* <br/> [ReferenceData](ReferenceData.md) |  | direct |
-| [ClinicalDataRef](ClinicalDataRef.md) | 0..* <br/> [ClinicalData](ClinicalData.md) |  | direct |
-| [AssociationRef](AssociationRef.md) | 0..* <br/> [Association](Association.md) |  | direct |
+| [ContextRef](ContextRef.md) | 0..1 <br/> [Context](Context.md) | Indicates the intended usage of the ODM document. Archive - indicates that th... | direct |
+| [FileOID](FileOID.md) | 1..1 <br/> [oid](oid.md) | A unique identifier for this file. | direct |
+| [CreationDateTime](CreationDateTime.md) | 1..1 <br/> [datetime](datetime.md) | Time of creation of the file containing the document. | direct |
+| [PriorFileOID](PriorFileOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to the previous file (if any) in a series. | direct |
+| [AsOfDateTime](AsOfDateTime.md) | 0..1 <br/> [datetime](datetime.md) | The date/time at which the source database was queried in order to create thi... | direct |
+| [ODMVersionRef](ODMVersionRef.md) | 0..1 <br/> [ODMVersion](ODMVersion.md) | The version of the ODM standard used. | direct |
+| [Originator](Originator.md) | 0..1 <br/> [text](text.md) | The organization that generated the ODM file. | direct |
+| [SourceSystem](SourceSystem.md) | 0..1 <br/> [text](text.md) | The computer system or database management system that is the source of the i... | direct |
+| [SourceSystemVersion](SourceSystemVersion.md) | 0..1 <br/> [text](text.md) | The version of the "SourceSystem" above. | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [StudyRef](StudyRef.md) | 0..* <br/> [Study](Study.md) | Study reference: This element collects static structural information about an... | direct |
+| [AdminDataRef](AdminDataRef.md) | 0..* <br/> [AdminData](AdminData.md) | AdminData reference: Administrative information about users, locations, organ... | direct |
+| [ReferenceDataRef](ReferenceDataRef.md) | 0..* <br/> [ReferenceData](ReferenceData.md) | ReferenceData reference: Reference data provides information on how to interp... | direct |
+| [ClinicalDataRef](ClinicalDataRef.md) | 0..* <br/> [ClinicalData](ClinicalData.md) | ClinicalData reference: Clinical data for 1 or more subjects. | direct |
+| [AssociationRef](AssociationRef.md) | 0..* <br/> [Association](Association.md) | Association reference: An association permits an annotation to be placed on a... | direct |
 
 
 
@@ -172,10 +172,10 @@ slots:
 slot_usage:
   FileTypeRef:
     name: FileTypeRef
-    description: 'Snapshot means that the document contains only the current state
+    description: Snapshot means that the document contains only the current state
       of the data and metadata it describes, and no transactional history. Transactional
       means that the document may contain more than one instance per data point. Query
-      means the document contains only ClinicalData/Query elements. '
+      means the document contains only ClinicalData/Query elements.
     comments:
     - 'Required
 
@@ -401,10 +401,10 @@ see_also:
 slot_usage:
   FileTypeRef:
     name: FileTypeRef
-    description: 'Snapshot means that the document contains only the current state
+    description: Snapshot means that the document contains only the current state
       of the data and metadata it describes, and no transactional history. Transactional
       means that the document may contain more than one instance per data point. Query
-      means the document contains only ClinicalData/Query elements. '
+      means the document contains only ClinicalData/Query elements.
     comments:
     - 'Required
 
@@ -615,10 +615,10 @@ slot_usage:
 attributes:
   FileTypeRef:
     name: FileTypeRef
-    description: 'Snapshot means that the document contains only the current state
+    description: Snapshot means that the document contains only the current state
       of the data and metadata it describes, and no transactional history. Transactional
       means that the document may contain more than one instance per data point. Query
-      means the document contains only ClinicalData/Query elements. '
+      means the document contains only ClinicalData/Query elements.
     comments:
     - 'Required
 
@@ -790,6 +790,8 @@ attributes:
     range: text
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -837,6 +839,8 @@ attributes:
     maximum_cardinality: 1
   StudyRef:
     name: StudyRef
+    description: 'Study reference: This element collects static structural information
+      about an individual study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -850,6 +854,8 @@ attributes:
     inlined_as_list: true
   AdminDataRef:
     name: AdminDataRef
+    description: 'AdminData reference: Administrative information about users, locations,
+      organizations, and electronic signatures.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -863,6 +869,10 @@ attributes:
     inlined_as_list: true
   ReferenceDataRef:
     name: ReferenceDataRef
+    description: 'ReferenceData reference: Reference data provides information on
+      how to interpret clinical data. For example, reference data might include lab
+      normal ranges. For a study that uses CDISC standards, reference data might include
+      SDTM Trial Design datasets.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -876,6 +886,7 @@ attributes:
     inlined_as_list: true
   ClinicalDataRef:
     name: ClinicalDataRef
+    description: 'ClinicalData reference: Clinical data for 1 or more subjects.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -889,6 +900,9 @@ attributes:
     inlined_as_list: true
   AssociationRef:
     name: AssociationRef
+    description: 'Association reference: An association permits an annotation to be
+      placed on an ordered pair of entities rather than on just one. The first and
+      second KeySets identify the start and end of the annotated "link.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

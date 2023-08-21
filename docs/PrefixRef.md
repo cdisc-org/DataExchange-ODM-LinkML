@@ -1,5 +1,10 @@
 # Slot: PrefixRef
 
+
+_Prefix reference: Title or other prefix. Maps to FHIR HumanName.prefix (https://www.hl7.org/fhir/datatypes.html#humanname)._
+
+
+
 URI: [odm:PrefixRef](http://www.cdisc.org/ns/odm/v2.0/PrefixRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:PrefixRef](http://www.cdisc.org/ns/odm/v2.0/PrefixRef)
 <details>
 ```yaml
 name: PrefixRef
+description: 'Prefix reference: Title or other prefix. Maps to FHIR HumanName.prefix
+  (https://www.hl7.org/fhir/datatypes.html#humanname).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

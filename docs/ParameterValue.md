@@ -33,8 +33,8 @@ URI: [odm:ParameterValue](http://www.cdisc.org/ns/odm/v2.0/ParameterValue)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ValueRef](ValueRef.md) | 1..1 <br/> [Text](Text.md) | Value for parent StudyParameter/@Term | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
+| [ValueRef](ValueRef.md) | 1..1 <br/> [text](text.md) | Value for parent StudyParameter/@Term. | direct |
+| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
 
 
@@ -223,6 +223,12 @@ attributes:
     required: true
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

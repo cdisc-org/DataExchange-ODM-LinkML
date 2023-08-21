@@ -1,11 +1,6 @@
 # Class: SignatureRef
 
 
-_Element NameSignatureRefParent ElementsSignatureElement XPath(s)/ODM/ReferenceData/Signature/SignatureRef/ODM/ReferenceData/ItemGroupData/Signature/SignatureRef/ODM/ReferenceData/ItemGroupData/ItemData/Signature/SignatureRef/ODM/ClinicalData/Signature/SignatureRef/ODM/ClinicalData/ItemGroupData/Signature/SignatureRef/ODM/ClinicalData/ItemGroupData/ItemData/Signature/SignatureRef/ODM/ClinicalData/SubjectData/Signature/SignatureRef/ODM/ClinicalData/SubjectData/StudyEventData/Signature/SignatureRef/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Signature/SignatureRef/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Signature/SignatureRefElement Textual ValueNoneAttributesSignatureOIDChild ElementsNoneUsage/Business Rules_
-
-
-
-
 
 URI: [odm:SignatureRef](http://www.cdisc.org/ns/odm/v2.0/SignatureRef)
 
@@ -29,7 +24,7 @@ URI: [odm:SignatureRef](http://www.cdisc.org/ns/odm/v2.0/SignatureRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SignatureOID](SignatureOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the SignatureDef  | direct |
+| [SignatureOID](SignatureOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the SignatureDef . | direct |
 
 
 
@@ -87,8 +82,6 @@ URI: [odm:SignatureRef](http://www.cdisc.org/ns/odm/v2.0/SignatureRef)
 <details>
 ```yaml
 name: SignatureRef
-description: Element NameSignatureRefParent ElementsSignatureElement XPath(s)/ODM/ReferenceData/Signature/SignatureRef/ODM/ReferenceData/ItemGroupData/Signature/SignatureRef/ODM/ReferenceData/ItemGroupData/ItemData/Signature/SignatureRef/ODM/ClinicalData/Signature/SignatureRef/ODM/ClinicalData/ItemGroupData/Signature/SignatureRef/ODM/ClinicalData/ItemGroupData/ItemData/Signature/SignatureRef/ODM/ClinicalData/SubjectData/Signature/SignatureRef/ODM/ClinicalData/SubjectData/StudyEventData/Signature/SignatureRef/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Signature/SignatureRef/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Signature/SignatureRefElement
-  Textual ValueNoneAttributesSignatureOIDChild ElementsNoneUsage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SignatureRef
@@ -116,8 +109,6 @@ class_uri: odm:SignatureRef
 <details>
 ```yaml
 name: SignatureRef
-description: Element NameSignatureRefParent ElementsSignatureElement XPath(s)/ODM/ReferenceData/Signature/SignatureRef/ODM/ReferenceData/ItemGroupData/Signature/SignatureRef/ODM/ReferenceData/ItemGroupData/ItemData/Signature/SignatureRef/ODM/ClinicalData/Signature/SignatureRef/ODM/ClinicalData/ItemGroupData/Signature/SignatureRef/ODM/ClinicalData/ItemGroupData/ItemData/Signature/SignatureRef/ODM/ClinicalData/SubjectData/Signature/SignatureRef/ODM/ClinicalData/SubjectData/StudyEventData/Signature/SignatureRef/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Signature/SignatureRef/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Signature/SignatureRefElement
-  Textual ValueNoneAttributesSignatureOIDChild ElementsNoneUsage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SignatureRef

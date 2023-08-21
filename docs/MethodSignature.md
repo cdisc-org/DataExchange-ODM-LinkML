@@ -1,7 +1,7 @@
 # Class: MethodSignature
 
 
-_A MethodSignature defines the parameters and return values for a method. The MethodSignature improves traceability while enhancing the ability for automation engines to execute a MethodDef's FormalExpression. Most Methods use one or more input parameters and return one or more values. _
+_A MethodSignature defines the parameters and return values for a method. The MethodSignature improves traceability while enhancing the ability for automation engines to execute a MethodDef's FormalExpression. Most Methods use one or more input parameters and return one or more values._
 
 
 
@@ -35,8 +35,8 @@ URI: [odm:MethodSignature](http://www.cdisc.org/ns/odm/v2.0/MethodSignature)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ParameterRef](ParameterRef.md) | 0..* <br/> [Parameter](Parameter.md) |  | direct |
-| [ReturnValueRef](ReturnValueRef.md) | 0..* <br/> [ReturnValue](ReturnValue.md) |  | direct |
+| [ParameterRef](ParameterRef.md) | 0..* <br/> [Parameter](Parameter.md) | Parameter reference: The Parameter element represents a method parameter used... | direct |
+| [ReturnValueRef](ReturnValueRef.md) | 0..* <br/> [ReturnValue](ReturnValue.md) | ReturnValue reference: The ReturnValue element represents a return value used... | direct |
 
 
 
@@ -96,10 +96,10 @@ URI: [odm:MethodSignature](http://www.cdisc.org/ns/odm/v2.0/MethodSignature)
 <details>
 ```yaml
 name: MethodSignature
-description: 'A MethodSignature defines the parameters and return values for a method.
+description: A MethodSignature defines the parameters and return values for a method.
   The MethodSignature improves traceability while enhancing the ability for automation
-  engines to execute a MethodDef''s FormalExpression. Most Methods use one or more
-  input parameters and return one or more values. '
+  engines to execute a MethodDef's FormalExpression. Most Methods use one or more
+  input parameters and return one or more values.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MethodSignature
@@ -133,10 +133,10 @@ class_uri: odm:MethodSignature
 <details>
 ```yaml
 name: MethodSignature
-description: 'A MethodSignature defines the parameters and return values for a method.
+description: A MethodSignature defines the parameters and return values for a method.
   The MethodSignature improves traceability while enhancing the ability for automation
-  engines to execute a MethodDef''s FormalExpression. Most Methods use one or more
-  input parameters and return one or more values. '
+  engines to execute a MethodDef's FormalExpression. Most Methods use one or more
+  input parameters and return one or more values.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MethodSignature
@@ -160,6 +160,8 @@ slot_usage:
 attributes:
   ParameterRef:
     name: ParameterRef
+    description: 'Parameter reference: The Parameter element represents a method parameter
+      used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -173,6 +175,10 @@ attributes:
     inlined_as_list: true
   ReturnValueRef:
     name: ReturnValueRef
+    description: 'ReturnValue reference: The ReturnValue element represents a return
+      value used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck.
+      A return value identifies values passed from the Method to the calling element.
+      A ReturnValue may be computed by a FormalExpression.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

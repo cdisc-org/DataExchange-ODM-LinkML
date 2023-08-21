@@ -47,12 +47,12 @@ URI: [odm:Annotation](http://www.cdisc.org/ns/odm/v2.0/Annotation)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SeqNum](SeqNum.md) | 1..1 <br/> [PositiveInteger](PositiveInteger.md) | When more than 1 Value element exists this attribute uniquely identifies each... | direct |
+| [SeqNum](SeqNum.md) | 1..1 <br/> [positiveInteger](positiveInteger.md) | When more than 1 Value element exists this attribute uniquely identifies each... | direct |
 | [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... | direct |
-| [ID](ID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the leaf that is referenced | direct |
-| [CommentRef](CommentRef.md) | 0..1 <br/> [Comment](Comment.md) |  | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
-| [FlagRef](FlagRef.md) | 0..* <br/> [Flag](Flag.md) |  | direct |
+| [ID](ID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the leaf that is referenced. | direct |
+| [CommentRef](CommentRef.md) | 0..1 <br/> [Comment](Comment.md) | Comment reference: A free-text (uninterpreted) comment about clinical data. T... | direct |
+| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [FlagRef](FlagRef.md) | 0..* <br/> [Flag](Flag.md) | Flag reference: A machine-processable annotation. | direct |
 
 
 
@@ -292,8 +292,8 @@ slot_usage:
 attributes:
   SeqNum:
     name: SeqNum
-    description: 'When more than 1 Value element exists this attribute uniquely identifies
-      each Value and defines the order of a Value in a list of Values. '
+    description: When more than 1 Value element exists this attribute uniquely identifies
+      each Value and defines the order of a Value in a list of Values.
     comments:
     - 'Required
 
@@ -346,6 +346,8 @@ attributes:
     required: true
   CommentRef:
     name: CommentRef
+    description: 'Comment reference: A free-text (uninterpreted) comment about clinical
+      data. The comment may have come from the sponsor or the clinical site.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -357,6 +359,12 @@ attributes:
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -385,6 +393,7 @@ attributes:
     inlined_as_list: true
   FlagRef:
     name: FlagRef
+    description: 'Flag reference: A machine-processable annotation.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

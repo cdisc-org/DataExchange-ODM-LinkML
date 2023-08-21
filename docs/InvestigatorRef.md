@@ -1,7 +1,7 @@
 # Class: InvestigatorRef
 
 
-_Provides a reference to the user who created the SubjectData record in the source system. _
+_Provides a reference to the user who created the SubjectData record in the source system._
 
 
 
@@ -29,7 +29,7 @@ URI: [odm:InvestigatorRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [UserOID](UserOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to a User definition | direct |
+| [UserOID](UserOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a User definition. | direct |
 
 
 
@@ -87,8 +87,8 @@ URI: [odm:InvestigatorRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRef)
 <details>
 ```yaml
 name: InvestigatorRef
-description: 'Provides a reference to the user who created the SubjectData record
-  in the source system. '
+description: Provides a reference to the user who created the SubjectData record in
+  the source system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/InvestigatorRef
@@ -120,8 +120,8 @@ class_uri: odm:InvestigatorRef
 <details>
 ```yaml
 name: InvestigatorRef
-description: 'Provides a reference to the user who created the SubjectData record
-  in the source system. '
+description: Provides a reference to the user who created the SubjectData record in
+  the source system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/InvestigatorRef

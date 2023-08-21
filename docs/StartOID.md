@@ -28,7 +28,7 @@ URI: [odm:StartOID](http://www.cdisc.org/ns/odm/v2.0/StartOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

@@ -34,7 +34,7 @@ URI: [odm:Telecom](http://www.cdisc.org/ns/odm/v2.0/Telecom)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [TelecomType](TelecomType.md) | 1..1 <br/> [TelecomTypeType](TelecomTypeType.md) |  | direct |
-| [ValueRef](ValueRef.md) | 1..1 <br/> [Text](Text.md) | Human-readable designation of the trial phase | direct |
+| [ValueRef](ValueRef.md) | 1..1 <br/> [text](text.md) | Human-readable designation of the trial phase. | direct |
 
 
 

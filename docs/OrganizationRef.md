@@ -1,5 +1,10 @@
 # Slot: OrganizationRef
 
+
+_Organization reference: An organization can reference a parent organization. Users may be associated with an Organization. An Organization may be associated with a Location. A User, Location, or Organization may have an address._
+
+
+
 URI: [odm:OrganizationRef](http://www.cdisc.org/ns/odm/v2.0/OrganizationRef)
 
 
@@ -50,6 +55,9 @@ URI: [odm:OrganizationRef](http://www.cdisc.org/ns/odm/v2.0/OrganizationRef)
 <details>
 ```yaml
 name: OrganizationRef
+description: 'Organization reference: An organization can reference a parent organization.
+  Users may be associated with an Organization. An Organization may be associated
+  with a Location. A User, Location, or Organization may have an address.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

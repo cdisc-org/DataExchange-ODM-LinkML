@@ -91,25 +91,25 @@ URI: [odm:ItemDef](http://www.cdisc.org/ns/odm/v2.0/ItemDef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the ItemDef element | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable name for the ItemDef | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the ItemDef element. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the ItemDef. | direct |
 | [DataTypeRef](DataTypeRef.md) | 1..1 <br/> [DataType](DataType.md) | Specification of the allowable values and the intended use of the correspondi... | direct |
-| [Length](Length.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Specifies the number of characters allowed for the ItemData/Value when it is ... | direct |
-| [DisplayFormat](DisplayFormat.md) | 0..1 <br/> [Text](Text.md) | Display format supports data visualization of numeric float and date values | direct |
-| [VariableSet](VariableSet.md) | 0..1 <br/> [Text](Text.md) | ADaM variable set, e | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a CommentDef with sponsor provided information related to this I... | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
+| [Length](Length.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Specifies the number of characters allowed for the ItemData/Value when it is ... | direct |
+| [DisplayFormat](DisplayFormat.md) | 0..1 <br/> [text](text.md) | Display format supports data visualization of numeric float and date values. | direct |
+| [VariableSet](VariableSet.md) | 0..1 <br/> [text](text.md) | ADaM variable set, e.g. Dose, Analysis Parameter, Treatment Timing. | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef with sponsor provided information related to this I... | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [DefinitionRef](DefinitionRef.md) | 0..1 <br/> [Definition](Definition.md) | A free-text definition of the parameter | direct |
-| [QuestionRef](QuestionRef.md) | 0..1 <br/> [Question](Question.md) |  | direct |
-| [PromptRef](PromptRef.md) | 0..1 <br/> [Prompt](Prompt.md) |  | direct |
-| [CRFCompletionInstructionsRef](CRFCompletionInstructionsRef.md) | 0..1 <br/> [CRFCompletionInstructions](CRFCompletionInstructions.md) |  | direct |
-| [ImplementationNotesRef](ImplementationNotesRef.md) | 0..1 <br/> [ImplementationNotes](ImplementationNotes.md) |  | direct |
-| [CDISCNotesRef](CDISCNotesRef.md) | 0..1 <br/> [CDISCNotes](CDISCNotes.md) |  | direct |
-| [RangeCheckRef](RangeCheckRef.md) | 0..* <br/> [RangeCheck](RangeCheck.md) |  | direct |
-| [CodeListRefRef](CodeListRefRef.md) | 0..1 <br/> [CodeListRef](CodeListRef.md) |  | direct |
-| [ValueListRefRef](ValueListRefRef.md) | 0..1 <br/> [ValueListRef](ValueListRef.md) |  | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
-| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) |  | direct |
+| [QuestionRef](QuestionRef.md) | 0..1 <br/> [Question](Question.md) | Question reference: A label shown to a human user when prompted to provide da... | direct |
+| [PromptRef](PromptRef.md) | 0..1 <br/> [Prompt](Prompt.md) | Prompt reference: A prompt text shown to a human user when prompted to provid... | direct |
+| [CRFCompletionInstructionsRef](CRFCompletionInstructionsRef.md) | 0..1 <br/> [CRFCompletionInstructions](CRFCompletionInstructions.md) | CRFCompletionInstructions reference: Instructions for the clinical site on ho... | direct |
+| [ImplementationNotesRef](ImplementationNotesRef.md) | 0..1 <br/> [ImplementationNotes](ImplementationNotes.md) | ImplementationNotes reference: Further information, such as rationale and imp... | direct |
+| [CDISCNotesRef](CDISCNotesRef.md) | 0..1 <br/> [CDISCNotes](CDISCNotes.md) | CDISCNotes reference: Explanatory text for the variable. | direct |
+| [RangeCheckRef](RangeCheckRef.md) | 0..* <br/> [RangeCheck](RangeCheck.md) | RangeCheck reference: A RangeCheck defines a constraint on the value of the e... | direct |
+| [CodeListRefRef](CodeListRefRef.md) | 0..1 <br/> [CodeListRef](CodeListRef.md) | CodeListRef reference: A reference to a CodeList definition. | direct |
+| [ValueListRefRef](ValueListRefRef.md) | 0..1 <br/> [ValueListRef](ValueListRef.md) | ValueListRef reference: The ValueListRef element is the OID of the ValueListD... | direct |
+| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
 
 
 
@@ -317,8 +317,8 @@ slot_usage:
     range: positiveInteger
   DisplayFormat:
     name: DisplayFormat
-    description: 'Display format supports data visualization of numeric float and
-      date values. '
+    description: Display format supports data visualization of numeric float and date
+      values.
     comments:
     - 'Optional
 
@@ -638,8 +638,8 @@ slot_usage:
     range: positiveInteger
   DisplayFormat:
     name: DisplayFormat
-    description: 'Display format supports data visualization of numeric float and
-      date values. '
+    description: Display format supports data visualization of numeric float and date
+      values.
     comments:
     - 'Optional
 
@@ -960,8 +960,8 @@ attributes:
     range: positiveInteger
   DisplayFormat:
     name: DisplayFormat
-    description: 'Display format supports data visualization of numeric float and
-      date values. '
+    description: Display format supports data visualization of numeric float and date
+      values.
     comments:
     - 'Optional
 
@@ -1015,6 +1015,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1076,6 +1078,8 @@ attributes:
     maximum_cardinality: 1
   QuestionRef:
     name: QuestionRef
+    description: 'Question reference: A label shown to a human user when prompted
+      to provide data for an item on paper or on a screen.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1087,6 +1091,9 @@ attributes:
     maximum_cardinality: 1
   PromptRef:
     name: PromptRef
+    description: 'Prompt reference: A prompt text shown to a human user when prompted
+      to provide data for an item on paper or on a screen. The Prompt is a short version
+      of the question.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1098,6 +1105,8 @@ attributes:
     maximum_cardinality: 1
   CRFCompletionInstructionsRef:
     name: CRFCompletionInstructionsRef
+    description: 'CRFCompletionInstructions reference: Instructions for the clinical
+      site on how to enter collected information on the CRF.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1109,6 +1118,9 @@ attributes:
     maximum_cardinality: 1
   ImplementationNotesRef:
     name: ImplementationNotesRef
+    description: 'ImplementationNotes reference: Further information, such as rationale
+      and implementation instructions, on how to implement the CRF data collection
+      fields.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1120,6 +1132,7 @@ attributes:
     maximum_cardinality: 1
   CDISCNotesRef:
     name: CDISCNotesRef
+    description: 'CDISCNotes reference: Explanatory text for the variable.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1131,6 +1144,10 @@ attributes:
     maximum_cardinality: 1
   RangeCheckRef:
     name: RangeCheckRef
+    description: 'RangeCheck reference: A RangeCheck defines a constraint on the value
+      of the enclosing item. It represents an expression that evaluates to True when
+      the ItemData value is valid or False when the ItemData value is invalid. The
+      expression is specified using either Comparator and CheckValue or using FormalExpressions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1145,6 +1162,7 @@ attributes:
     inlined_as_list: true
   CodeListRefRef:
     name: CodeListRefRef
+    description: 'CodeListRef reference: A reference to a CodeList definition.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1157,6 +1175,10 @@ attributes:
     maximum_cardinality: 1
   ValueListRefRef:
     name: ValueListRefRef
+    description: 'ValueListRef reference: The ValueListRef element is the OID of the
+      ValueListDef that contains the valuelist definition associated with the variable.
+      If value-level metadata is required for a variable, a ValueListRef element should
+      be provided as a child element on the ItemDef for the variable definition.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1168,6 +1190,12 @@ attributes:
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1196,6 +1224,9 @@ attributes:
     inlined_as_list: true
   AliasRef:
     name: AliasRef
+    description: 'Alias reference: An Alias provides an additional name for an element.
+      The Context attribute specifies the application domain in which this additional
+      name is relevant.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

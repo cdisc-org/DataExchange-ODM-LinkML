@@ -1,5 +1,10 @@
 # Slot: ClinicalDataRef
 
+
+_ClinicalData reference: Clinical data for 1 or more subjects._
+
+
+
 URI: [odm:ClinicalDataRef](http://www.cdisc.org/ns/odm/v2.0/ClinicalDataRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:ClinicalDataRef](http://www.cdisc.org/ns/odm/v2.0/ClinicalDataRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents. The ODM element is the top-level (root) eleme... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:ClinicalDataRef](http://www.cdisc.org/ns/odm/v2.0/ClinicalDataRef)
 <details>
 ```yaml
 name: ClinicalDataRef
+description: 'ClinicalData reference: Clinical data for 1 or more subjects.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

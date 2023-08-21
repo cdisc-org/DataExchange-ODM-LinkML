@@ -1,5 +1,10 @@
 # Slot: TargetTransitionRef
 
+
+_TargetTransition reference: Provides a reference to a Transition element._
+
+
+
 URI: [odm:TargetTransitionRef](http://www.cdisc.org/ns/odm/v2.0/TargetTransitionRef)
 
 
@@ -50,6 +55,7 @@ URI: [odm:TargetTransitionRef](http://www.cdisc.org/ns/odm/v2.0/TargetTransition
 <details>
 ```yaml
 name: TargetTransitionRef
+description: 'TargetTransition reference: Provides a reference to a Transition element.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

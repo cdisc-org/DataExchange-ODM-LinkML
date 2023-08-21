@@ -1,5 +1,10 @@
 # Slot: CommentRef
 
+
+_Comment reference: A free-text (uninterpreted) comment about clinical data. The comment may have come from the sponsor or the clinical site._
+
+
+
 URI: [odm:CommentRef](http://www.cdisc.org/ns/odm/v2.0/CommentRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:CommentRef](http://www.cdisc.org/ns/odm/v2.0/CommentRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Annotation](Annotation.md) | A general note about clinical data |  yes  |
+[Annotation](Annotation.md) | A general note about clinical data. If an annotation has both a comment and f... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:CommentRef](http://www.cdisc.org/ns/odm/v2.0/CommentRef)
 <details>
 ```yaml
 name: CommentRef
+description: 'Comment reference: A free-text (uninterpreted) comment about clinical
+  data. The comment may have come from the sponsor or the clinical site.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

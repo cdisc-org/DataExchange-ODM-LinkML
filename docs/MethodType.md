@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Type_
+
+
+
 URI: [MethodType](MethodType)
 
 ## Permissible Values
@@ -20,7 +25,7 @@ URI: [MethodType](MethodType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) | Computation: derivation involving one or more variables |
+| [Type](Type.md) | Computation: derivation involving one or more variables. Imputation: derivati... |
 
 
 
@@ -48,6 +53,7 @@ URI: [MethodType](MethodType)
 <details>
 ```yaml
 name: MethodType
+description: Enumeration used in Type
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

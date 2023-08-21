@@ -1,5 +1,10 @@
 # Slot: TrialPhaseRef
 
+
+_TrialPhase reference: The TrialPhase element designates the phase of the study in the clinical trial._
+
+
+
 URI: [odm:TrialPhaseRef](http://www.cdisc.org/ns/odm/v2.0/TrialPhaseRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:TrialPhaseRef](http://www.cdisc.org/ns/odm/v2.0/TrialPhaseRef)
 <details>
 ```yaml
 name: TrialPhaseRef
+description: 'TrialPhase reference: The TrialPhase element designates the phase of
+  the study in the clinical trial.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

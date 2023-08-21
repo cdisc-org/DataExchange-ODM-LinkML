@@ -1,5 +1,10 @@
 # Slot: AdminDataRef
 
+
+_AdminData reference: Administrative information about users, locations, organizations, and electronic signatures._
+
+
+
 URI: [odm:AdminDataRef](http://www.cdisc.org/ns/odm/v2.0/AdminDataRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:AdminDataRef](http://www.cdisc.org/ns/odm/v2.0/AdminDataRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents. The ODM element is the top-level (root) eleme... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:AdminDataRef](http://www.cdisc.org/ns/odm/v2.0/AdminDataRef)
 <details>
 ```yaml
 name: AdminDataRef
+description: 'AdminData reference: Administrative information about users, locations,
+  organizations, and electronic signatures.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

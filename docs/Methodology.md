@@ -18,7 +18,7 @@ URI: [odm:Methodology](http://www.cdisc.org/ns/odm/v2.0/Methodology)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SignatureDef](SignatureDef.md) | Provides Metadata for signatures included in the /ODM/ClinicalData |  yes  |
+[SignatureDef](SignatureDef.md) | Provides Metadata for signatures included in the /ODM/ClinicalData. |  yes  |
 
 
 

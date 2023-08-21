@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Name_
+
+
+
 URI: [ItemGroupClass](ItemGroupClass)
 
 ## Permissible Values
@@ -65,6 +70,7 @@ URI: [ItemGroupClass](ItemGroupClass)
 ```yaml
 name: ItemGroupClass
 conforms_to: nci:ExtCodeID:C103329
+description: Enumeration used in Name
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 aliases:
 - C103329

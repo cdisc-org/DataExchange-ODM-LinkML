@@ -35,8 +35,8 @@ URI: [odm:SourceItems](http://www.cdisc.org/ns/odm/v2.0/SourceItems)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SourceItemRef](SourceItemRef.md) | 0..* <br/> [SourceItem](SourceItem.md) |  | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
+| [SourceItemRef](SourceItemRef.md) | 0..* <br/> [SourceItem](SourceItem.md) | SourceItem reference: Provides the information needed to identify the source ... | direct |
+| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
 
 
@@ -184,6 +184,8 @@ slot_usage:
 attributes:
   SourceItemRef:
     name: SourceItemRef
+    description: 'SourceItem reference: Provides the information needed to identify
+      the source metadata.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -197,6 +199,12 @@ attributes:
     inlined_as_list: true
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

@@ -28,7 +28,7 @@ URI: [odm:RepeatingLimit](http://www.cdisc.org/ns/odm/v2.0/RepeatingLimit)
 
 ## Properties
 
-* Range: [PositiveInteger](PositiveInteger.md)
+* Range: [positiveInteger](positiveInteger.md)
 
 
 

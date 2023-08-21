@@ -29,7 +29,7 @@ URI: [odm:CodeListRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [CodeListOID](CodeListOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the CodeList definition that provides the allowable values for I... | direct |
+| [CodeListOID](CodeListOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the CodeList definition that provides the allowable values for I... | direct |
 
 
 

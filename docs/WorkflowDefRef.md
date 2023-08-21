@@ -1,5 +1,10 @@
 # Slot: WorkflowDefRef
 
+
+_WorkflowDef reference: A WorkflowDef defines an automated workflow for a study._
+
+
+
 URI: [odm:WorkflowDefRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowDefRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:WorkflowDefRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowDefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements |  yes  |
+[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements. ... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:WorkflowDefRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowDefRef)
 <details>
 ```yaml
 name: WorkflowDefRef
+description: 'WorkflowDef reference: A WorkflowDef defines an automated workflow for
+  a study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

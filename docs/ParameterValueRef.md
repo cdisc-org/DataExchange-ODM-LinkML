@@ -1,5 +1,10 @@
 # Slot: ParameterValueRef
 
+
+_ParameterValue reference: This element contains the value of the study parameter as text content._
+
+
+
 URI: [odm:ParameterValueRef](http://www.cdisc.org/ns/odm/v2.0/ParameterValueRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:ParameterValueRef](http://www.cdisc.org/ns/odm/v2.0/ParameterValueRef)
 <details>
 ```yaml
 name: ParameterValueRef
+description: 'ParameterValue reference: This element contains the value of the study
+  parameter as text content.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

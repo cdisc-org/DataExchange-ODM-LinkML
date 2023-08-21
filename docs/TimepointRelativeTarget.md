@@ -28,7 +28,7 @@ URI: [odm:TimepointRelativeTarget](http://www.cdisc.org/ns/odm/v2.0/TimepointRel
 
 ## Properties
 
-* Range: [DurationDatetime](DurationDatetime.md)
+* Range: [durationDatetime](durationDatetime.md)
 
 
 

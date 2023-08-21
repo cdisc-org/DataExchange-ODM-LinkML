@@ -1,5 +1,10 @@
 # Slot: StudyEndPointRefRef
 
+
+_StudyEndPointRef reference: Go to start of metadata_
+
+
+
 URI: [odm:StudyEndPointRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointRefRef)
 
 
@@ -13,9 +18,9 @@ URI: [odm:StudyEndPointRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointRef
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyObjective](StudyObjective.md) | Element NameStudyObjectiveParent ElementStudyObjectivesElement XPath(s)/ODM/S... |  yes  |
+[StudyObjective](StudyObjective.md) |  |  yes  |
 [StudyEndPoints](StudyEndPoints.md) | Go to start of metadata |  yes  |
-[StudyEstimand](StudyEstimand.md) | Element NameStudyEstimandParent ElementsStudyEstimandsElement XPath(s)/ODM/St... |  yes  |
+[StudyEstimand](StudyEstimand.md) |  |  yes  |
 
 
 
@@ -52,6 +57,7 @@ URI: [odm:StudyEndPointRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointRef
 <details>
 ```yaml
 name: StudyEndPointRefRef
+description: 'StudyEndPointRef reference: Go to start of metadata'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

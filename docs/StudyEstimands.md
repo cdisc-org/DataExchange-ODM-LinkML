@@ -1,11 +1,6 @@
 # Class: StudyEstimands
 
 
-_Element NameStudyEstimandsParent ElementsProtocolElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimandsElement Textual ValueNoneUsage/Business RulesAttributesTypeChild Elements(StudyEstimand*)_
-
-
-
-
 
 URI: [odm:StudyEstimands](http://www.cdisc.org/ns/odm/v2.0/StudyEstimands)
 
@@ -31,7 +26,7 @@ URI: [odm:StudyEstimands](http://www.cdisc.org/ns/odm/v2.0/StudyEstimands)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEstimandRef](StudyEstimandRef.md) | 0..* <br/> [StudyEstimand](StudyEstimand.md) |  | direct |
+| [StudyEstimandRef](StudyEstimandRef.md) | 0..* <br/> [StudyEstimand](StudyEstimand.md) | StudyEstimand reference: None | direct |
 
 
 
@@ -89,8 +84,6 @@ URI: [odm:StudyEstimands](http://www.cdisc.org/ns/odm/v2.0/StudyEstimands)
 <details>
 ```yaml
 name: StudyEstimands
-description: Element NameStudyEstimandsParent ElementsProtocolElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimandsElement
-  Textual ValueNoneUsage/Business RulesAttributesTypeChild Elements(StudyEstimand*)
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEstimands
@@ -115,8 +108,6 @@ class_uri: odm:StudyEstimands
 <details>
 ```yaml
 name: StudyEstimands
-description: Element NameStudyEstimandsParent ElementsProtocolElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimandsElement
-  Textual ValueNoneUsage/Business RulesAttributesTypeChild Elements(StudyEstimand*)
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEstimands
@@ -132,6 +123,7 @@ slot_usage:
 attributes:
   StudyEstimandRef:
     name: StudyEstimandRef
+    description: 'StudyEstimand reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

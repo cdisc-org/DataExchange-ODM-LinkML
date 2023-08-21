@@ -18,8 +18,8 @@ URI: [odm:Other](http://www.cdisc.org/ns/odm/v2.0/Other)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
-[CodeListItem](CodeListItem.md) | Defines an individual member value of a codelist |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef. The li... |  yes  |
+[CodeListItem](CodeListItem.md) | Defines an individual member value of a codelist. It may include a display va... |  yes  |
 
 
 

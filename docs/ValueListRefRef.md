@@ -1,5 +1,10 @@
 # Slot: ValueListRefRef
 
+
+_ValueListRef reference: The ValueListRef element is the OID of the ValueListDef that contains the valuelist definition associated with the variable. If value-level metadata is required for a variable, a ValueListRef element should be provided as a child element on the ItemDef for the variable definition._
+
+
+
 URI: [odm:ValueListRefRef](http://www.cdisc.org/ns/odm/v2.0/ValueListRefRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:ValueListRefRef](http://www.cdisc.org/ns/odm/v2.0/ValueListRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study. Item prope... |  yes  |
 
 
 
@@ -50,6 +55,10 @@ URI: [odm:ValueListRefRef](http://www.cdisc.org/ns/odm/v2.0/ValueListRefRef)
 <details>
 ```yaml
 name: ValueListRefRef
+description: 'ValueListRef reference: The ValueListRef element is the OID of the ValueListDef
+  that contains the valuelist definition associated with the variable. If value-level
+  metadata is required for a variable, a ValueListRef element should be provided as
+  a child element on the ItemDef for the variable definition.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

@@ -1,5 +1,10 @@
 # Slot: SummaryMeasureRef
 
+
+_SummaryMeasure reference: None_
+
+
+
 URI: [odm:SummaryMeasureRef](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasureRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:SummaryMeasureRef](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasureRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEstimand](StudyEstimand.md) | Element NameStudyEstimandParent ElementsStudyEstimandsElement XPath(s)/ODM/St... |  yes  |
+[StudyEstimand](StudyEstimand.md) |  |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:SummaryMeasureRef](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasureRef)
 <details>
 ```yaml
 name: SummaryMeasureRef
+description: 'SummaryMeasure reference: None'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

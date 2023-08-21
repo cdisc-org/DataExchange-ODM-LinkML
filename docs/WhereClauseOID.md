@@ -28,7 +28,7 @@ URI: [odm:WhereClauseOID](http://www.cdisc.org/ns/odm/v2.0/WhereClauseOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

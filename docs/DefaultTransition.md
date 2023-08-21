@@ -1,11 +1,6 @@
 # Class: DefaultTransition
 
 
-_Element NameDefaultTransitionParent ElementsBranchingElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/WorkflowDef/Branching/DefaultTransitionElement Textual ValueNoneAttributesTargetTransitionOIDChild ElementsNoneUsage/Business Rules_
-
-
-
-
 
 URI: [odm:DefaultTransition](http://www.cdisc.org/ns/odm/v2.0/DefaultTransition)
 
@@ -29,7 +24,7 @@ URI: [odm:DefaultTransition](http://www.cdisc.org/ns/odm/v2.0/DefaultTransition)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TargetTransitionOID](TargetTransitionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the Transition that is the default target of the branching | direct |
+| [TargetTransitionOID](TargetTransitionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the Transition that is the default target of the branching. | direct |
 
 
 
@@ -87,8 +82,6 @@ URI: [odm:DefaultTransition](http://www.cdisc.org/ns/odm/v2.0/DefaultTransition)
 <details>
 ```yaml
 name: DefaultTransition
-description: Element NameDefaultTransitionParent ElementsBranchingElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/WorkflowDef/Branching/DefaultTransitionElement
-  Textual ValueNoneAttributesTargetTransitionOIDChild ElementsNoneUsage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DefaultTransition
@@ -120,8 +113,6 @@ class_uri: odm:DefaultTransition
 <details>
 ```yaml
 name: DefaultTransition
-description: Element NameDefaultTransitionParent ElementsBranchingElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/WorkflowDef/Branching/DefaultTransitionElement
-  Textual ValueNoneAttributesTargetTransitionOIDChild ElementsNoneUsage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DefaultTransition

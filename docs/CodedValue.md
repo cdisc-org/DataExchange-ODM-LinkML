@@ -18,7 +18,7 @@ URI: [odm:CodedValue](http://www.cdisc.org/ns/odm/v2.0/CodedValue)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[CodeListItem](CodeListItem.md) | Defines an individual member value of a codelist |  yes  |
+[CodeListItem](CodeListItem.md) | Defines an individual member value of a codelist. It may include a display va... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:CodedValue](http://www.cdisc.org/ns/odm/v2.0/CodedValue)
 
 ## Properties
 
-* Range: [Value](Value.md)
+* Range: [value](value.md)
 
 
 

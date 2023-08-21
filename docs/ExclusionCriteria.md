@@ -31,7 +31,7 @@ URI: [odm:ExclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/ExclusionCriteria)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [CriterionRef](CriterionRef.md) | 0..* <br/> [Criterion](Criterion.md) |  | direct |
+| [CriterionRef](CriterionRef.md) | 0..* <br/> [Criterion](Criterion.md) | Criterion reference: The Criterion represents either an inclusion or an exclu... | direct |
 
 
 
@@ -140,6 +140,9 @@ slot_usage:
 attributes:
   CriterionRef:
     name: CriterionRef
+    description: 'Criterion reference: The Criterion represents either an inclusion
+      or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria,
+      ExclusionCriteria).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

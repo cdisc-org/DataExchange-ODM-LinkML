@@ -43,11 +43,11 @@ URI: [odm:Branching](http://www.cdisc.org/ns/odm/v2.0/Branching)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier of the version within the XML document | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | General observation Sub Class | direct |
-| [Type](Type.md) | 1..1 <br/> [BranchingType](BranchingType.md) | Type of page for page references indicated in the PageRefs attribute | direct |
-| [TargetTransitionRef](TargetTransitionRef.md) | 0..* <br/> [TargetTransition](TargetTransition.md) |  | direct |
-| [DefaultTransitionRef](DefaultTransitionRef.md) | 0..* <br/> [DefaultTransition](DefaultTransition.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier of the version within the XML document. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | General observation Sub Class. | direct |
+| [Type](Type.md) | 1..1 <br/> [BranchingType](BranchingType.md) | Type of page for page references indicated in the PageRefs attribute. | direct |
+| [TargetTransitionRef](TargetTransitionRef.md) | 0..* <br/> [TargetTransition](TargetTransition.md) | TargetTransition reference: Provides a reference to a Transition element. | direct |
+| [DefaultTransitionRef](DefaultTransitionRef.md) | 0..* <br/> [DefaultTransition](DefaultTransition.md) | DefaultTransition reference: None | direct |
 
 
 
@@ -544,6 +544,8 @@ attributes:
     required: true
   TargetTransitionRef:
     name: TargetTransitionRef
+    description: 'TargetTransition reference: Provides a reference to a Transition
+      element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -557,6 +559,7 @@ attributes:
     inlined_as_list: true
   DefaultTransitionRef:
     name: DefaultTransitionRef
+    description: 'DefaultTransition reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

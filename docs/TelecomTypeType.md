@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in TelecomType_
+
+
+
 URI: [TelecomTypeType](TelecomTypeType)
 
 ## Permissible Values
@@ -52,6 +57,7 @@ URI: [TelecomTypeType](TelecomTypeType)
 <details>
 ```yaml
 name: TelecomTypeType
+description: Enumeration used in TelecomType
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

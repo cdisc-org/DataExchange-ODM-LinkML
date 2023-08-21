@@ -19,7 +19,7 @@ URI: [odm:ValueRef](http://www.cdisc.org/ns/odm/v2.0/ValueRef)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [TrialPhase](TrialPhase.md) | The TrialPhase element designates the phase of the study in the clinical tria... |  yes  |
-[ParameterValue](ParameterValue.md) | This element contains the value of the study parameter as text content |  yes  |
+[ParameterValue](ParameterValue.md) | This element contains the value of the study parameter as text content. |  yes  |
 [Telecom](Telecom.md) | The telecommunication contacts points of a user, a location, or an organizati... |  yes  |
 [ItemData](ItemData.md) | The ItemData element is used for transmission of the clinical data for an ite... |  yes  |
 [Query](Query.md) | The Query element represents a request for clarification on a data item colle... |  yes  |

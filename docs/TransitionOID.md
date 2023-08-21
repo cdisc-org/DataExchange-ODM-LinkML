@@ -28,7 +28,7 @@ URI: [odm:TransitionOID](http://www.cdisc.org/ns/odm/v2.0/TransitionOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

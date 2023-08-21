@@ -1,5 +1,10 @@
 # Slot: StudyObjectivesRef
 
+
+_StudyObjectives reference: The StudyObjectives is a container element for individual StudyObjective elements._
+
+
+
 URI: [odm:StudyObjectivesRef](http://www.cdisc.org/ns/odm/v2.0/StudyObjectivesRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:StudyObjectivesRef](http://www.cdisc.org/ns/odm/v2.0/StudyObjectivesRe
 <details>
 ```yaml
 name: StudyObjectivesRef
+description: 'StudyObjectives reference: The StudyObjectives is a container element
+  for individual StudyObjective elements.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

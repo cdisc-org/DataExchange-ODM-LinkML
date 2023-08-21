@@ -1,7 +1,7 @@
 # Class: CheckValue
 
 
-_A comparison value used in a range check. _
+_A comparison value used in a range check._
 
 
 
@@ -29,7 +29,7 @@ URI: [odm:CheckValue](http://www.cdisc.org/ns/odm/v2.0/CheckValue)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [_content](_content.md) | 0..1 <br/> [ContentType](ContentType.md) | multi-line text content from between XML tags | direct |
+| [_content](_content.md) | 0..1 <br/> [_contentType](_contentType.md) | multi-line text content from between XML tags | direct |
 
 
 
@@ -87,7 +87,7 @@ URI: [odm:CheckValue](http://www.cdisc.org/ns/odm/v2.0/CheckValue)
 <details>
 ```yaml
 name: CheckValue
-description: 'A comparison value used in a range check. '
+description: A comparison value used in a range check.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CheckValue
@@ -108,7 +108,7 @@ class_uri: odm:CheckValue
 <details>
 ```yaml
 name: CheckValue
-description: 'A comparison value used in a range check. '
+description: A comparison value used in a range check.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CheckValue

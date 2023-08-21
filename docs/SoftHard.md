@@ -18,7 +18,7 @@ URI: [odm:SoftHard](http://www.cdisc.org/ns/odm/v2.0/SoftHard)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[RangeCheck](RangeCheck.md) | A RangeCheck defines a constraint on the value of the enclosing item |  yes  |
+[RangeCheck](RangeCheck.md) | A RangeCheck defines a constraint on the value of the enclosing item. It repr... |  yes  |
 
 
 

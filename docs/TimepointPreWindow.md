@@ -30,7 +30,7 @@ URI: [odm:TimepointPreWindow](http://www.cdisc.org/ns/odm/v2.0/TimepointPreWindo
 
 ## Properties
 
-* Range: [DurationDatetime](DurationDatetime.md)
+* Range: [durationDatetime](durationDatetime.md)
 
 
 

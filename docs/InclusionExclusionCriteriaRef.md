@@ -1,5 +1,10 @@
 # Slot: InclusionExclusionCriteriaRef
 
+
+_InclusionExclusionCriteria reference: The InclusionExclusionCriteria element can contain 2 lists of Criterion elements, represented by the 2 elements InclusionCriteria and ExclusionCriteria. Together, these criteria determine the eligibility of a subject for the study. The actual condition to be evaluated is contained in an ODM ConditionDef, which is referenced by each Criterion‟s ConditionOID attribute._
+
+
+
 URI: [odm:InclusionExclusionCriteriaRef](http://www.cdisc.org/ns/odm/v2.0/InclusionExclusionCriteriaRef)
 
 
@@ -50,6 +55,12 @@ URI: [odm:InclusionExclusionCriteriaRef](http://www.cdisc.org/ns/odm/v2.0/Inclus
 <details>
 ```yaml
 name: InclusionExclusionCriteriaRef
+description: 'InclusionExclusionCriteria reference: The InclusionExclusionCriteria
+  element can contain 2 lists of Criterion elements, represented by the 2 elements
+  InclusionCriteria and ExclusionCriteria. Together, these criteria determine the
+  eligibility of a subject for the study. The actual condition to be evaluated is
+  contained in an ODM ConditionDef, which is referenced by each Criterion‟s ConditionOID
+  attribute.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

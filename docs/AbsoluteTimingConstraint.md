@@ -1,7 +1,7 @@
 # Class: AbsoluteTimingConstraint
 
 
-_The element AbsoluteTimingConstraint is used to specify when an activity, represented by either a StudyEventGroup or StudyEvent, can take place. _
+_The element AbsoluteTimingConstraint is used to specify when an activity, represented by either a StudyEventGroup or StudyEvent, can take place._
 
 
 
@@ -45,14 +45,14 @@ URI: [odm:AbsoluteTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/AbsoluteTim
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable name | direct |
-| [StudyEventGroupOID](StudyEventGroupOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to StudyEventGroup definition element | direct |
-| [StudyEventOID](StudyEventOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to StudyEvent definition element | direct |
-| [TimepointTarget](TimepointTarget.md) | 1..1 <br/> [String](String.md) | Specifies the targetted date, time, or datetime | direct |
-| [TimepointPreWindow](TimepointPreWindow.md) | 0..1 <br/> [DurationDatetime](DurationDatetime.md) | Specifies the amount of time before the TimepointTarget that the activity may... | direct |
-| [TimepointPostWindow](TimepointPostWindow.md) | 0..1 <br/> [DurationDatetime](DurationDatetime.md) | Specifies the amount of time after the TimepointTarget that the activity can ... | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name. | direct |
+| [StudyEventGroupOID](StudyEventGroupOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to StudyEventGroup definition element. | direct |
+| [StudyEventOID](StudyEventOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to StudyEvent definition element. | direct |
+| [TimepointTarget](TimepointTarget.md) | 1..1 <br/> [string](string.md) | Specifies the targetted date, time, or datetime. | direct |
+| [TimepointPreWindow](TimepointPreWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Specifies the amount of time before the TimepointTarget that the activity may... | direct |
+| [TimepointPostWindow](TimepointPostWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Specifies the amount of time after the TimepointTarget that the activity can ... | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
 
 
@@ -110,8 +110,8 @@ URI: [odm:AbsoluteTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/AbsoluteTim
 <details>
 ```yaml
 name: AbsoluteTimingConstraint
-description: 'The element AbsoluteTimingConstraint is used to specify when an activity,
-  represented by either a StudyEventGroup or StudyEvent, can take place. '
+description: The element AbsoluteTimingConstraint is used to specify when an activity,
+  represented by either a StudyEventGroup or StudyEvent, can take place.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AbsoluteTimingConstraint
@@ -266,8 +266,8 @@ slot_usage:
     - range: partialDatetime
   TimepointPreWindow:
     name: TimepointPreWindow
-    description: 'Specifies the amount of time before the TimepointTarget that the
-      activity may be started. '
+    description: Specifies the amount of time before the TimepointTarget that the
+      activity may be started.
     comments:
     - 'Optional
 
@@ -281,8 +281,8 @@ slot_usage:
     range: durationDatetime
   TimepointPostWindow:
     name: TimepointPostWindow
-    description: 'Specifies the amount of time after the TimepointTarget that the
-      activity can be started. '
+    description: Specifies the amount of time after the TimepointTarget that the activity
+      can be started.
     comments:
     - 'Optional
 
@@ -346,8 +346,8 @@ class_uri: odm:AbsoluteTimingConstraint
 <details>
 ```yaml
 name: AbsoluteTimingConstraint
-description: 'The element AbsoluteTimingConstraint is used to specify when an activity,
-  represented by either a StudyEventGroup or StudyEvent, can take place. '
+description: The element AbsoluteTimingConstraint is used to specify when an activity,
+  represented by either a StudyEventGroup or StudyEvent, can take place.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AbsoluteTimingConstraint
@@ -493,8 +493,8 @@ slot_usage:
     - range: partialDatetime
   TimepointPreWindow:
     name: TimepointPreWindow
-    description: 'Specifies the amount of time before the TimepointTarget that the
-      activity may be started. '
+    description: Specifies the amount of time before the TimepointTarget that the
+      activity may be started.
     comments:
     - 'Optional
 
@@ -508,8 +508,8 @@ slot_usage:
     range: durationDatetime
   TimepointPostWindow:
     name: TimepointPostWindow
-    description: 'Specifies the amount of time after the TimepointTarget that the
-      activity can be started. '
+    description: Specifies the amount of time after the TimepointTarget that the activity
+      can be started.
     comments:
     - 'Optional
 
@@ -727,8 +727,8 @@ attributes:
     - range: partialDatetime
   TimepointPreWindow:
     name: TimepointPreWindow
-    description: 'Specifies the amount of time before the TimepointTarget that the
-      activity may be started. '
+    description: Specifies the amount of time before the TimepointTarget that the
+      activity may be started.
     comments:
     - 'Optional
 
@@ -746,8 +746,8 @@ attributes:
     range: durationDatetime
   TimepointPostWindow:
     name: TimepointPostWindow
-    description: 'Specifies the amount of time after the TimepointTarget that the
-      activity can be started. '
+    description: Specifies the amount of time after the TimepointTarget that the activity
+      can be started.
     comments:
     - 'Optional
 
@@ -765,6 +765,8 @@ attributes:
     range: durationDatetime
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

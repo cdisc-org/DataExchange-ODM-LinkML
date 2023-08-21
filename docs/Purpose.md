@@ -1,7 +1,7 @@
 # Slot: Purpose
 
 
-_Purpose of the ItemGroup. _
+_Purpose of the ItemGroup._
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:Purpose](http://www.cdisc.org/ns/odm/v2.0/Purpose)
 
 ## Properties
 
-* Range: [Text](Text.md)
+* Range: [text](text.md)
 
 
 
@@ -55,7 +55,7 @@ URI: [odm:Purpose](http://www.cdisc.org/ns/odm/v2.0/Purpose)
 <details>
 ```yaml
 name: Purpose
-description: 'Purpose of the ItemGroup. '
+description: Purpose of the ItemGroup.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Purpose

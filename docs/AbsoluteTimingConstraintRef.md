@@ -1,5 +1,10 @@
 # Slot: AbsoluteTimingConstraintRef
 
+
+_AbsoluteTimingConstraint reference: The element AbsoluteTimingConstraint is used to specify when an activity, represented by either a StudyEventGroup or StudyEvent, can take place._
+
+
+
 URI: [odm:AbsoluteTimingConstraintRef](http://www.cdisc.org/ns/odm/v2.0/AbsoluteTimingConstraintRef)
 
 
@@ -50,6 +55,9 @@ URI: [odm:AbsoluteTimingConstraintRef](http://www.cdisc.org/ns/odm/v2.0/Absolute
 <details>
 ```yaml
 name: AbsoluteTimingConstraintRef
+description: 'AbsoluteTimingConstraint reference: The element AbsoluteTimingConstraint
+  is used to specify when an activity, represented by either a StudyEventGroup or
+  StudyEvent, can take place.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

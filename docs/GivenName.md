@@ -1,7 +1,7 @@
 # Class: GivenName
 
 
-_The user's initial given name or all given names. _
+_The user's initial given name or all given names._
 
 
 
@@ -29,7 +29,7 @@ URI: [odm:GivenName](http://www.cdisc.org/ns/odm/v2.0/GivenName)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [_content](_content.md) | 0..1 <br/> [ContentType](ContentType.md) | multi-line text content from between XML tags | direct |
+| [_content](_content.md) | 0..1 <br/> [_contentType](_contentType.md) | multi-line text content from between XML tags | direct |
 
 
 
@@ -87,7 +87,7 @@ URI: [odm:GivenName](http://www.cdisc.org/ns/odm/v2.0/GivenName)
 <details>
 ```yaml
 name: GivenName
-description: 'The user''s initial given name or all given names. '
+description: The user's initial given name or all given names.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/GivenName
@@ -108,7 +108,7 @@ class_uri: odm:GivenName
 <details>
 ```yaml
 name: GivenName
-description: 'The user''s initial given name or all given names. '
+description: The user's initial given name or all given names.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/GivenName

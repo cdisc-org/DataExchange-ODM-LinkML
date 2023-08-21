@@ -19,7 +19,7 @@ URI: [odm:HasNoData](http://www.cdisc.org/ns/odm/v2.0/HasNoData)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
-[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef. The li... |  yes  |
 
 
 

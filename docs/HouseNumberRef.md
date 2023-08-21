@@ -1,5 +1,10 @@
 # Slot: HouseNumberRef
 
+
+_HouseNumber reference: The house number part of a user's postal address._
+
+
+
 URI: [odm:HouseNumberRef](http://www.cdisc.org/ns/odm/v2.0/HouseNumberRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:HouseNumberRef](http://www.cdisc.org/ns/odm/v2.0/HouseNumberRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Address](Address.md) | The postal address for a user, location, or organization |  yes  |
+[Address](Address.md) | The postal address for a user, location, or organization. |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:HouseNumberRef](http://www.cdisc.org/ns/odm/v2.0/HouseNumberRef)
 <details>
 ```yaml
 name: HouseNumberRef
+description: 'HouseNumber reference: The house number part of a user''s postal address.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

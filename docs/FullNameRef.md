@@ -1,5 +1,10 @@
 # Slot: FullNameRef
 
+
+_FullName reference: The user's full formal name. May be a combination of Prefix, GivenName, FamilyName & Suffix. Intended to be used for display._
+
+
+
 URI: [odm:FullNameRef](http://www.cdisc.org/ns/odm/v2.0/FullNameRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:FullNameRef](http://www.cdisc.org/ns/odm/v2.0/FullNameRef)
 <details>
 ```yaml
 name: FullNameRef
+description: 'FullName reference: The user''s full formal name. May be a combination
+  of Prefix, GivenName, FamilyName & Suffix. Intended to be used for display.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

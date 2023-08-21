@@ -29,7 +29,7 @@ URI: [odm:WorkflowStart](http://www.cdisc.org/ns/odm/v2.0/WorkflowStart)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StartOID](StartOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the definition of the structural element that starts the workflo... | direct |
+| [StartOID](StartOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the definition of the structural element that starts the workflo... | direct |
 
 
 

@@ -1,5 +1,10 @@
 # Slot: QuestionRef
 
+
+_Question reference: A label shown to a human user when prompted to provide data for an item on paper or on a screen._
+
+
+
 URI: [odm:QuestionRef](http://www.cdisc.org/ns/odm/v2.0/QuestionRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:QuestionRef](http://www.cdisc.org/ns/odm/v2.0/QuestionRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study. Item prope... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:QuestionRef](http://www.cdisc.org/ns/odm/v2.0/QuestionRef)
 <details>
 ```yaml
 name: QuestionRef
+description: 'Question reference: A label shown to a human user when prompted to provide
+  data for an item on paper or on a screen.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

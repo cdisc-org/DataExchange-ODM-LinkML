@@ -20,7 +20,7 @@ URI: [odm:DataTypeRef](http://www.cdisc.org/ns/odm/v2.0/DataTypeRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study. Item prope... |  yes  |
 [CodeList](CodeList.md) | Defines a discrete set of permitted values for an item, or provides a referen... |  yes  |
 [Parameter](Parameter.md) | The Parameter element represents a method parameter used as part of a MethodS... |  yes  |
 [ReturnValue](ReturnValue.md) | The ReturnValue element represents a return value used as part of a MethodSig... |  yes  |
@@ -33,7 +33,7 @@ URI: [odm:DataTypeRef](http://www.cdisc.org/ns/odm/v2.0/DataTypeRef)
 
 ## Properties
 
-* Range: [String](String.md)
+* Range: [string](string.md)
 
 
 

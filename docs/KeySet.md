@@ -43,14 +43,14 @@ URI: [odm:KeySet](http://www.cdisc.org/ns/odm/v2.0/KeySet)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the StudyOID in an ODM/ClinicalData element | direct |
-| [SubjectKey](SubjectKey.md) | 0..1 <br/> [SubjectKey](SubjectKey.md) | Reference to a SubjectKey attribute value for a SubjectData child element of ... | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a MetaDataVersionOID attribute value for this ClinicalData eleme... | direct |
-| [StudyEventOID](StudyEventOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a StudyEventOID attribute value for a StudyEventData child eleme... | direct |
-| [StudyEventRepeatKey](StudyEventRepeatKey.md) | 0..1 <br/> [RepeatKey](RepeatKey.md) | Reference to a StudyEventRepeatKey attribute value for a StudyEventData child... | direct |
-| [ItemGroupOID](ItemGroupOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to an ItemGroupOID attribute value for an ItemGroupData child eleme... | direct |
-| [ItemGroupRepeatKey](ItemGroupRepeatKey.md) | 0..1 <br/> [RepeatKey](RepeatKey.md) | Reference to an ItemGroupRepeatKey attribute value for an ItemGroupData child... | direct |
-| [ItemOID](ItemOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to an ItemOID attribute for an ItemData child element of this Clini... | direct |
+| [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the StudyOID in an ODM/ClinicalData element. | direct |
+| [SubjectKey](SubjectKey.md) | 0..1 <br/> [subjectKey](subjectKey.md) | Reference to a SubjectKey attribute value for a SubjectData child element of ... | direct |
+| [MetaDataVersionOID](MetaDataVersionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a MetaDataVersionOID attribute value for this ClinicalData eleme... | direct |
+| [StudyEventOID](StudyEventOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a StudyEventOID attribute value for a StudyEventData child eleme... | direct |
+| [StudyEventRepeatKey](StudyEventRepeatKey.md) | 0..1 <br/> [repeatKey](repeatKey.md) | Reference to a StudyEventRepeatKey attribute value for a StudyEventData child... | direct |
+| [ItemGroupOID](ItemGroupOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an ItemGroupOID attribute value for an ItemGroupData child eleme... | direct |
+| [ItemGroupRepeatKey](ItemGroupRepeatKey.md) | 0..1 <br/> [repeatKey](repeatKey.md) | Reference to an ItemGroupRepeatKey attribute value for an ItemGroupData child... | direct |
+| [ItemOID](ItemOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an ItemOID attribute for an ItemData child element of this Clini... | direct |
 
 
 
@@ -213,8 +213,8 @@ slot_usage:
     range: oidref
   ItemGroupRepeatKey:
     name: ItemGroupRepeatKey
-    description: 'Reference to an ItemGroupRepeatKey attribute value for an ItemGroupData
-      child element of this ClinicalData/SubjectData/StudyEventData element. '
+    description: Reference to an ItemGroupRepeatKey attribute value for an ItemGroupData
+      child element of this ClinicalData/SubjectData/StudyEventData element.
     comments:
     - '(Optional
 
@@ -346,8 +346,8 @@ slot_usage:
     range: oidref
   ItemGroupRepeatKey:
     name: ItemGroupRepeatKey
-    description: 'Reference to an ItemGroupRepeatKey attribute value for an ItemGroupData
-      child element of this ClinicalData/SubjectData/StudyEventData element. '
+    description: Reference to an ItemGroupRepeatKey attribute value for an ItemGroupData
+      child element of this ClinicalData/SubjectData/StudyEventData element.
     comments:
     - '(Optional
 
@@ -487,8 +487,8 @@ attributes:
     range: oidref
   ItemGroupRepeatKey:
     name: ItemGroupRepeatKey
-    description: 'Reference to an ItemGroupRepeatKey attribute value for an ItemGroupData
-      child element of this ClinicalData/SubjectData/StudyEventData element. '
+    description: Reference to an ItemGroupRepeatKey attribute value for an ItemGroupData
+      child element of this ClinicalData/SubjectData/StudyEventData element.
     comments:
     - '(Optional
 

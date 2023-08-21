@@ -1,11 +1,6 @@
 # Class: StudyObjective
 
 
-_Element NameStudyObjectiveParent ElementStudyObjectivesElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyObjectives/StudyObjectiveElement Textual ValueNoneAttributesOID, Name, LevelChild Elements (Description?, StudyEndPointRef*)Usage/Business Rules_
-
-
-
-
 
 URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
 
@@ -43,11 +38,11 @@ URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the StudyObjective element | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Name of the study objective | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyObjective element. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Name of the study objective | direct |
 | [Level](Level.md) | 0..1 <br/> [StudyObjectiveLevel](StudyObjectiveLevel.md) | Defined level for the Study Objective | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [StudyEndPointRefRef](StudyEndPointRefRef.md) | 0..* <br/> [StudyEndPointRef](StudyEndPointRef.md) |  | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [StudyEndPointRefRef](StudyEndPointRefRef.md) | 0..* <br/> [StudyEndPointRef](StudyEndPointRef.md) | StudyEndPointRef reference: Go to start of metadata | direct |
 
 
 
@@ -105,9 +100,6 @@ URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
 <details>
 ```yaml
 name: StudyObjective
-description: Element NameStudyObjectiveParent ElementStudyObjectivesElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyObjectives/StudyObjectiveElement
-  Textual ValueNoneAttributesOID, Name, LevelChild Elements (Description?, StudyEndPointRef*)Usage/Business
-  Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyObjective
@@ -292,9 +284,6 @@ class_uri: odm:StudyObjective
 <details>
 ```yaml
 name: StudyObjective
-description: Element NameStudyObjectiveParent ElementStudyObjectivesElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyObjectives/StudyObjectiveElement
-  Textual ValueNoneAttributesOID, Name, LevelChild Elements (Description?, StudyEndPointRef*)Usage/Business
-  Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyObjective
@@ -591,6 +580,8 @@ attributes:
     range: StudyObjectiveLevel
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -638,6 +629,7 @@ attributes:
     maximum_cardinality: 1
   StudyEndPointRefRef:
     name: StudyEndPointRefRef
+    description: 'StudyEndPointRef reference: Go to start of metadata'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

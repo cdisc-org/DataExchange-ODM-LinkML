@@ -18,7 +18,7 @@ URI: [odm:StudyInterventionOID](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyInterventionRef](StudyInterventionRef.md) | Element NameStudyInterventionRefParent ElementsStudyEstimandElement XPath(s)/... |  yes  |
+[StudyInterventionRef](StudyInterventionRef.md) |  |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:StudyInterventionOID](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

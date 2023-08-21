@@ -18,7 +18,7 @@ URI: [odm:PartOfOrganizationOID](http://www.cdisc.org/ns/odm/v2.0/PartOfOrganiza
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Organization](Organization.md) | An organization can reference a parent organization |  yes  |
+[Organization](Organization.md) | An organization can reference a parent organization. Users may be associated ... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:PartOfOrganizationOID](http://www.cdisc.org/ns/odm/v2.0/PartOfOrganiza
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

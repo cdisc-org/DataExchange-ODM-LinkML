@@ -31,8 +31,8 @@ URI: [odm:Value](http://www.cdisc.org/ns/odm/v2.0/Value)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SeqNum](SeqNum.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | When more than 1 Value element exists this attribute uniquely identifies each... | direct |
-| [_content](_content.md) | 0..1 <br/> [Text](Text.md) | multi-line text content from between XML tags | direct |
+| [SeqNum](SeqNum.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | When more than 1 Value element exists this attribute uniquely identifies each... | direct |
+| [_content](_content.md) | 0..1 <br/> [text](text.md) | multi-line text content from between XML tags | direct |
 
 
 
@@ -103,11 +103,12 @@ slots:
 slot_usage:
   SeqNum:
     name: SeqNum
-    description: 'When more than 1 Value element exists this attribute uniquely identifies
-      each Value and defines the order of a Value in a list of Values. '
+    description: When more than 1 Value element exists this attribute uniquely identifies
+      each Value and defines the order of a Value in a list of Values.
     comments:
-    - "Conditional Required when the parent ItemData has more than one Value element.\
-      \ \nMust be unique within the ItemData element."
+    - 'Conditional Required when the parent ItemData has more than one Value element.
+
+      Must be unique within the ItemData element.'
     domain_of:
     - Annotation
     - Value
@@ -160,11 +161,12 @@ see_also:
 slot_usage:
   SeqNum:
     name: SeqNum
-    description: 'When more than 1 Value element exists this attribute uniquely identifies
-      each Value and defines the order of a Value in a list of Values. '
+    description: When more than 1 Value element exists this attribute uniquely identifies
+      each Value and defines the order of a Value in a list of Values.
     comments:
-    - "Conditional Required when the parent ItemData has more than one Value element.\
-      \ \nMust be unique within the ItemData element."
+    - 'Conditional Required when the parent ItemData has more than one Value element.
+
+      Must be unique within the ItemData element.'
     domain_of:
     - Annotation
     - Value
@@ -201,11 +203,12 @@ slot_usage:
 attributes:
   SeqNum:
     name: SeqNum
-    description: 'When more than 1 Value element exists this attribute uniquely identifies
-      each Value and defines the order of a Value in a list of Values. '
+    description: When more than 1 Value element exists this attribute uniquely identifies
+      each Value and defines the order of a Value in a list of Values.
     comments:
-    - "Conditional Required when the parent ItemData has more than one Value element.\
-      \ \nMust be unique within the ItemData element."
+    - 'Conditional Required when the parent ItemData has more than one Value element.
+
+      Must be unique within the ItemData element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SeqNum

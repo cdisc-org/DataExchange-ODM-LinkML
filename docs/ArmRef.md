@@ -1,5 +1,10 @@
 # Slot: ArmRef
 
+
+_Arm reference: An Arm element provides the declaration of a study arm. Arms do not have any ordering relative to one another._
+
+
+
 URI: [odm:ArmRef](http://www.cdisc.org/ns/odm/v2.0/ArmRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:ArmRef](http://www.cdisc.org/ns/odm/v2.0/ArmRef)
 <details>
 ```yaml
 name: ArmRef
+description: 'Arm reference: An Arm element provides the declaration of a study arm.
+  Arms do not have any ordering relative to one another.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

@@ -37,11 +37,11 @@ URI: [odm:ExternalCodeLib](http://www.cdisc.org/ns/odm/v2.0/ExternalCodeLib)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Library](Library.md) | 1..1 <br/> [Name](Name.md) | The name of the external library containing the FormalExpression | direct |
-| [Method](Method.md) | 0..1 <br/> [Name](Name.md) | The name of the method or function that contains the FormalExpression code | direct |
-| [Version](Version.md) | 0..1 <br/> [Text](Text.md) | The version of the code contained in the external library | direct |
-| [ref](ref.md) | 0..1 <br/> [Text](Text.md) | Reference to a local instance (e | direct |
-| [href](href.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URL of an external code external library such as GitHub or Bitbucket | direct |
+| [Library](Library.md) | 1..1 <br/> [name](name.md) | The name of the external library containing the FormalExpression. | direct |
+| [Method](Method.md) | 0..1 <br/> [name](name.md) | The name of the method or function that contains the FormalExpression code. | direct |
+| [Version](Version.md) | 0..1 <br/> [text](text.md) | The version of the code contained in the external library. | direct |
+| [ref](ref.md) | 0..1 <br/> [text](text.md) | Reference to a local instance (e.g. file) of the external library containing ... | direct |
+| [href](href.md) | 0..1 <br/> [uriorcurie](uriorcurie.md) | URL of an external code external library such as GitHub or Bitbucket. | direct |
 
 
 

@@ -43,10 +43,10 @@ URI: [odm:StudyStructure](http://www.cdisc.org/ns/odm/v2.0/StudyStructure)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [ArmRef](ArmRef.md) | 0..* <br/> [Arm](Arm.md) |  | direct |
-| [EpochRef](EpochRef.md) | 0..* <br/> [Epoch](Epoch.md) |  | direct |
-| [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) |  | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [ArmRef](ArmRef.md) | 0..* <br/> [Arm](Arm.md) | Arm reference: An Arm element provides the declaration of a study arm. Arms d... | direct |
+| [EpochRef](EpochRef.md) | 0..* <br/> [Epoch](Epoch.md) | Epoch reference: The planned period of subjects' participation in the trial i... | direct |
+| [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
 
 
 
@@ -274,6 +274,8 @@ slot_usage:
 attributes:
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -321,6 +323,8 @@ attributes:
     maximum_cardinality: 1
   ArmRef:
     name: ArmRef
+    description: 'Arm reference: An Arm element provides the declaration of a study
+      arm. Arms do not have any ordering relative to one another.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -334,6 +338,12 @@ attributes:
     inlined_as_list: true
   EpochRef:
     name: EpochRef
+    description: 'Epoch reference: The planned period of subjects'' participation
+      in the trial is divided into sequential epochs. Each epoch is a period of time
+      that serves a purpose in the trial as a whole. Epochs cannot overlap. The sequence
+      of the epoch in the study is provided by the SequenceNumber attribute, the first
+      epoch in the study being assigned the sequence number 1. Sequence numbers are
+      subsequent.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -347,6 +357,7 @@ attributes:
     inlined_as_list: true
   WorkflowRefRef:
     name: WorkflowRefRef
+    description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

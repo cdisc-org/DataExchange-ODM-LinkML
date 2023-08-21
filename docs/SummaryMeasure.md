@@ -1,11 +1,6 @@
 # Class: SummaryMeasure
 
 
-_Element NameSummaryMeasureParent ElementsStudyEstimandElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimand/SummaryMeasureElement Textual ValueNoneAttributesNoneChild ElementsDescriptionUsage/Business Rules_
-
-
-
-
 
 URI: [odm:SummaryMeasure](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasure)
 
@@ -31,7 +26,7 @@ URI: [odm:SummaryMeasure](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasure)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
 
 
@@ -89,8 +84,6 @@ URI: [odm:SummaryMeasure](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasure)
 <details>
 ```yaml
 name: SummaryMeasure
-description: Element NameSummaryMeasureParent ElementsStudyEstimandElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimand/SummaryMeasureElement
-  Textual ValueNoneAttributesNoneChild ElementsDescriptionUsage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SummaryMeasure
@@ -149,8 +142,6 @@ class_uri: odm:SummaryMeasure
 <details>
 ```yaml
 name: SummaryMeasure
-description: Element NameSummaryMeasureParent ElementsStudyEstimandElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyEstimands/StudyEstimand/SummaryMeasureElement
-  Textual ValueNoneAttributesNoneChild ElementsDescriptionUsage/Business Rules
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SummaryMeasure
@@ -200,6 +191,8 @@ slot_usage:
 attributes:
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

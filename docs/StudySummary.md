@@ -31,7 +31,7 @@ URI: [odm:StudySummary](http://www.cdisc.org/ns/odm/v2.0/StudySummary)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyParameterRef](StudyParameterRef.md) | 0..* <br/> [StudyParameter](StudyParameter.md) |  | direct |
+| [StudyParameterRef](StudyParameterRef.md) | 0..* <br/> [StudyParameter](StudyParameter.md) | StudyParameter reference: A StudyParameter defines a study design parameter f... | direct |
 
 
 
@@ -134,6 +134,9 @@ slot_usage:
 attributes:
   StudyParameterRef:
     name: StudyParameterRef
+    description: 'StudyParameter reference: A StudyParameter defines a study design
+      parameter for which the value or values are delivered in the ParameterValue
+      child element or elements.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

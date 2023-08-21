@@ -31,8 +31,8 @@ URI: [odm:FlagType](http://www.cdisc.org/ns/odm/v2.0/FlagType)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [CodeListOID](CodeListOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the CodeList definition | direct |
-| [_content](_content.md) | 0..1 <br/> [Name](Name.md) | multi-line text content from between XML tags | direct |
+| [CodeListOID](CodeListOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the CodeList definition. | direct |
+| [_content](_content.md) | 0..1 <br/> [name](name.md) | multi-line text content from between XML tags | direct |
 
 
 

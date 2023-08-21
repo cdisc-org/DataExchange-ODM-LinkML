@@ -1,5 +1,10 @@
 # Slot: MethodDefRef
 
+
+_MethodDef reference: A MethodDef defines how a data value can be obtained from a collection of other data values._
+
+
+
 URI: [odm:MethodDefRef](http://www.cdisc.org/ns/odm/v2.0/MethodDefRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:MethodDefRef](http://www.cdisc.org/ns/odm/v2.0/MethodDefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements |  yes  |
+[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements. ... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:MethodDefRef](http://www.cdisc.org/ns/odm/v2.0/MethodDefRef)
 <details>
 ```yaml
 name: MethodDefRef
+description: 'MethodDef reference: A MethodDef defines how a data value can be obtained
+  from a collection of other data values.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

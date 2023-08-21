@@ -28,7 +28,7 @@ URI: [odm:Attribute](http://www.cdisc.org/ns/odm/v2.0/Attribute)
 
 ## Properties
 
-* Range: [Text](Text.md)
+* Range: [text](text.md)
 
 
 

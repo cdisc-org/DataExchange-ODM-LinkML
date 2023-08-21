@@ -18,8 +18,8 @@ URI: [odm:Type](http://www.cdisc.org/ns/odm/v2.0/Type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[TranslatedText](TranslatedText.md) | Human-readable text that is appropriate for a particular language |  yes  |
-[PDFPageRef](PDFPageRef.md) | This element is the container for CRF page references |  yes  |
+[TranslatedText](TranslatedText.md) | Human-readable text that is appropriate for a particular language. Translated... |  yes  |
+[PDFPageRef](PDFPageRef.md) | This element is the container for CRF page references. |  yes  |
 [Standard](Standard.md) | The Standard element describes each standard used within the MetaDataVersion ... |  yes  |
 [StudyEventDef](StudyEventDef.md) | StudyEventDef represents the definition of an activity in a study where data ... |  yes  |
 [ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
@@ -30,7 +30,7 @@ URI: [odm:Type](http://www.cdisc.org/ns/odm/v2.0/Type)
 [TransitionTimingConstraint](TransitionTimingConstraint.md) | The TransitionTimingConstraint element defines a timing constraint on a trans... |  yes  |
 [RelativeTimingConstraint](RelativeTimingConstraint.md) | The RelativeTimingConstraint element describes a relative timing constraint b... |  yes  |
 [Branching](Branching.md) | This element describes the branching in a workflow from a source (start) stru... |  yes  |
-[Organization](Organization.md) | An organization can reference a parent organization |  yes  |
+[Organization](Organization.md) | An organization can reference a parent organization. Users may be associated ... |  yes  |
 [Query](Query.md) | The Query element represents a request for clarification on a data item colle... |  yes  |
 
 
@@ -41,7 +41,7 @@ URI: [odm:Type](http://www.cdisc.org/ns/odm/v2.0/Type)
 
 ## Properties
 
-* Range: [String](String.md)
+* Range: [string](string.md)
 
 
 

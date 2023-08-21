@@ -1,5 +1,10 @@
 # Slot: DurationPreWindow
 
+
+_Defines the amount of time by which the targetted duration may be reduced._
+
+
+
 URI: [odm:DurationPreWindow](http://www.cdisc.org/ns/odm/v2.0/DurationPreWindow)
 
 
@@ -13,7 +18,7 @@ URI: [odm:DurationPreWindow](http://www.cdisc.org/ns/odm/v2.0/DurationPreWindow)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[DurationTimingConstraint](DurationTimingConstraint.md) |  |  yes  |
+[DurationTimingConstraint](DurationTimingConstraint.md) | The DurationTimingConstraint constrains the duration of an activity represent... |  yes  |
 
 
 
@@ -23,7 +28,7 @@ URI: [odm:DurationPreWindow](http://www.cdisc.org/ns/odm/v2.0/DurationPreWindow)
 
 ## Properties
 
-* Range: [DurationDatetime](DurationDatetime.md)
+* Range: [durationDatetime](durationDatetime.md)
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:DurationPreWindow](http://www.cdisc.org/ns/odm/v2.0/DurationPreWindow)
 <details>
 ```yaml
 name: DurationPreWindow
+description: Defines the amount of time by which the targetted duration may be reduced.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: DurationPreWindow

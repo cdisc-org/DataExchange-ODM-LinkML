@@ -28,7 +28,7 @@ URI: [odm:DatasetName](http://www.cdisc.org/ns/odm/v2.0/DatasetName)
 
 ## Properties
 
-* Range: [Name](Name.md)
+* Range: [name](name.md)
 
 
 

@@ -75,23 +75,23 @@ URI: [odm:ItemRef](http://www.cdisc.org/ns/odm/v2.0/ItemRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ItemOID](ItemOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the ItemDef  | direct |
-| [KeySequence](KeySequence.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Indicates that this item is a key for the enclosing element | direct |
+| [ItemOID](ItemOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the ItemDef . | direct |
+| [KeySequence](KeySequence.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates that this item is a key for the enclosing element. It also provides... | direct |
 | [IsNonStandard](IsNonStandard.md) | 0..1 <br/> [YesOnly](YesOnly.md) | A non-standard variable is one that is not defined in the SDTMIG or the under... | direct |
 | [HasNoData](HasNoData.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Used to indicate that an ItemRef that represent a dataset's variable has no d... | direct |
-| [MethodOID](MethodOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a MethodDef used to derive the value of this item | direct |
-| [UnitsItemOID](UnitsItemOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a sibling ItemRef element that represents the unit specification... | direct |
+| [MethodOID](MethodOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a MethodDef used to derive the value of this item. | direct |
+| [UnitsItemOID](UnitsItemOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a sibling ItemRef element that represents the unit specification... | direct |
 | [Repeat](Repeat.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Indicates that the item serves as the item over which repeats are to be perfo... | direct |
 | [Other](Other.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Flag to indicate that the Item represents "other" content added to an ItemGro... | direct |
-| [Role](Role.md) | 0..1 <br/> [Text](Text.md) | The Role for the referenced ItemDef | direct |
-| [RoleCodeListOID](RoleCodeListOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a CodeList that defines the allowable values of Role for the Stu... | direct |
-| [Core](Core.md) | 0..1 <br/> [CoreType](CoreType.md) | CDASH, ADaM, SDTM, and SEND Core designations | direct |
-| [PreSpecifiedValue](PreSpecifiedValue.md) | 0..1 <br/> [Text](Text.md) | Prefill value or a default value for a field that is automatically populated | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Indicates the order in which this ItemRef appears in Metadata displays or dat... | direct |
+| [Role](Role.md) | 0..1 <br/> [text](text.md) | The Role for the referenced ItemDef. The Role attribute provides a single rol... | direct |
+| [RoleCodeListOID](RoleCodeListOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CodeList that defines the allowable values of Role for the Stu... | direct |
+| [Core](Core.md) | 0..1 <br/> [CoreType](CoreType.md) | CDASH, ADaM, SDTM, and SEND Core designations. | direct |
+| [PreSpecifiedValue](PreSpecifiedValue.md) | 0..1 <br/> [text](text.md) | Prefill value or a default value for a field that is automatically populated. | direct |
+| [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this ItemRef appears in Metadata displays or dat... | direct |
 | [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | Indicator of whether this ItemGroup must appear in the study clinical data fo... | direct |
-| [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a ConditionDef that defines the circumstances under which collec... | direct |
-| [OriginRef](OriginRef.md) | 0..* <br/> [Origin](Origin.md) |  | direct |
-| [WhereClauseRefRef](WhereClauseRefRef.md) | 0..* <br/> [WhereClauseRef](WhereClauseRef.md) |  | direct |
+| [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef that defines the circumstances under which collec... | direct |
+| [OriginRef](OriginRef.md) | 0..* <br/> [Origin](Origin.md) | Origin reference: Origin defines the source metadata, where applicable, for O... | direct |
+| [WhereClauseRefRef](WhereClauseRefRef.md) | 0..* <br/> [WhereClauseRef](WhereClauseRef.md) | WhereClauseRef reference: The WhereClauseRef references the WhereClauseDef el... | direct |
 
 
 
@@ -227,9 +227,9 @@ slot_usage:
     range: YesOnly
   HasNoData:
     name: HasNoData
-    description: 'Used to indicate that an ItemRef that represent a dataset''s variable
+    description: Used to indicate that an ItemRef that represent a dataset's variable
       has no data. Note that variables refer to both standard and non-standard/ supplemental
-      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef). '
+      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef).
     comments:
     - 'Conditional
 
@@ -309,7 +309,7 @@ slot_usage:
 
       range:text
 
-      This attribute must not be present unless the Role attribute is defined. '
+      This attribute must not be present unless the Role attribute is defined.'
     domain_of:
     - ItemRef
     - Organization
@@ -331,7 +331,7 @@ slot_usage:
     range: oidref
   Core:
     name: Core
-    description: 'CDASH, ADaM, SDTM, and SEND Core designations. '
+    description: CDASH, ADaM, SDTM, and SEND Core designations.
     comments:
     - 'Optional
 
@@ -400,8 +400,8 @@ slot_usage:
     required: true
   CollectionExceptionConditionOID:
     name: CollectionExceptionConditionOID
-    description: 'Reference to a ConditionDef that defines the circumstances under
-      which collection of the Item may be omitted. '
+    description: Reference to a ConditionDef that defines the circumstances under
+      which collection of the Item may be omitted.
     comments:
     - 'Optional
 
@@ -501,9 +501,9 @@ slot_usage:
     range: YesOnly
   HasNoData:
     name: HasNoData
-    description: 'Used to indicate that an ItemRef that represent a dataset''s variable
+    description: Used to indicate that an ItemRef that represent a dataset's variable
       has no data. Note that variables refer to both standard and non-standard/ supplemental
-      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef). '
+      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef).
     comments:
     - 'Conditional
 
@@ -583,7 +583,7 @@ slot_usage:
 
       range:text
 
-      This attribute must not be present unless the Role attribute is defined. '
+      This attribute must not be present unless the Role attribute is defined.'
     domain_of:
     - ItemRef
     - Organization
@@ -605,7 +605,7 @@ slot_usage:
     range: oidref
   Core:
     name: Core
-    description: 'CDASH, ADaM, SDTM, and SEND Core designations. '
+    description: CDASH, ADaM, SDTM, and SEND Core designations.
     comments:
     - 'Optional
 
@@ -674,8 +674,8 @@ slot_usage:
     required: true
   CollectionExceptionConditionOID:
     name: CollectionExceptionConditionOID
-    description: 'Reference to a ConditionDef that defines the circumstances under
-      which collection of the Item may be omitted. '
+    description: Reference to a ConditionDef that defines the circumstances under
+      which collection of the Item may be omitted.
     comments:
     - 'Optional
 
@@ -771,9 +771,9 @@ attributes:
     range: YesOnly
   HasNoData:
     name: HasNoData
-    description: 'Used to indicate that an ItemRef that represent a dataset''s variable
+    description: Used to indicate that an ItemRef that represent a dataset's variable
       has no data. Note that variables refer to both standard and non-standard/ supplemental
-      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef). '
+      qualifiers variables (/ODM/Study/MetaDataVersion/ItemGroupDef/ItemRef or /ODM/Study/MetaDataVersion/ValueListDef/ItemRef).
     comments:
     - 'Conditional
 
@@ -873,7 +873,7 @@ attributes:
 
       range:text
 
-      This attribute must not be present unless the Role attribute is defined. '
+      This attribute must not be present unless the Role attribute is defined.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Role
@@ -903,7 +903,7 @@ attributes:
     range: oidref
   Core:
     name: Core
-    description: 'CDASH, ADaM, SDTM, and SEND Core designations. '
+    description: CDASH, ADaM, SDTM, and SEND Core designations.
     comments:
     - 'Optional
 
@@ -988,8 +988,8 @@ attributes:
     required: true
   CollectionExceptionConditionOID:
     name: CollectionExceptionConditionOID
-    description: 'Reference to a ConditionDef that defines the circumstances under
-      which collection of the Item may be omitted. '
+    description: Reference to a ConditionDef that defines the circumstances under
+      which collection of the Item may be omitted.
     comments:
     - 'Optional
 
@@ -1009,6 +1009,11 @@ attributes:
     range: oidref
   OriginRef:
     name: OriginRef
+    description: 'Origin reference: Origin defines the source metadata, where applicable,
+      for ODM ItemRefs or ItemGroupRefs. Origin as a child element replaces the Origin
+      attribute in ODM v1.3 that exists for the ItemDef and ItemGroupDef elements.The
+      Origin element is based on the def:Origin element in Define-XML v2.1 with the
+      Trace-XML v1.0 extension.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1023,6 +1028,9 @@ attributes:
     inlined_as_list: true
   WhereClauseRefRef:
     name: WhereClauseRefRef
+    description: 'WhereClauseRef reference: The WhereClauseRef references the WhereClauseDef
+      element that describes the conditions under which the variable values are defined
+      by the referenced ItemDef.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

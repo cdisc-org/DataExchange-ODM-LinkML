@@ -1,5 +1,10 @@
 # Slot: ClassRef
 
+
+_Class reference: None_
+
+
+
 URI: [odm:ClassRef](http://www.cdisc.org/ns/odm/v2.0/ClassRef)
 
 
@@ -50,6 +55,7 @@ URI: [odm:ClassRef](http://www.cdisc.org/ns/odm/v2.0/ClassRef)
 <details>
 ```yaml
 name: ClassRef
+description: 'Class reference: None'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

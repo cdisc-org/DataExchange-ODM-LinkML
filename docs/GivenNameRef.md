@@ -1,5 +1,10 @@
 # Slot: GivenNameRef
 
+
+_GivenName reference: The user's initial given name or all given names._
+
+
+
 URI: [odm:GivenNameRef](http://www.cdisc.org/ns/odm/v2.0/GivenNameRef)
 
 
@@ -50,6 +55,7 @@ URI: [odm:GivenNameRef](http://www.cdisc.org/ns/odm/v2.0/GivenNameRef)
 <details>
 ```yaml
 name: GivenNameRef
+description: 'GivenName reference: The user''s initial given name or all given names.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

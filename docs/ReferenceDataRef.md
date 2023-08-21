@@ -1,5 +1,10 @@
 # Slot: ReferenceDataRef
 
+
+_ReferenceData reference: Reference data provides information on how to interpret clinical data. For example, reference data might include lab normal ranges. For a study that uses CDISC standards, reference data might include SDTM Trial Design datasets._
+
+
+
 URI: [odm:ReferenceDataRef](http://www.cdisc.org/ns/odm/v2.0/ReferenceDataRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:ReferenceDataRef](http://www.cdisc.org/ns/odm/v2.0/ReferenceDataRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents. The ODM element is the top-level (root) eleme... |  yes  |
 
 
 
@@ -50,6 +55,10 @@ URI: [odm:ReferenceDataRef](http://www.cdisc.org/ns/odm/v2.0/ReferenceDataRef)
 <details>
 ```yaml
 name: ReferenceDataRef
+description: 'ReferenceData reference: Reference data provides information on how
+  to interpret clinical data. For example, reference data might include lab normal
+  ranges. For a study that uses CDISC standards, reference data might include SDTM
+  Trial Design datasets.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

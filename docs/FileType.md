@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in FileTypeRef_
+
+
+
 URI: [FileType](FileType)
 
 ## Permissible Values
@@ -47,6 +52,7 @@ URI: [FileType](FileType)
 <details>
 ```yaml
 name: FileType
+description: Enumeration used in FileTypeRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

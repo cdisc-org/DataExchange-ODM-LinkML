@@ -37,10 +37,10 @@ URI: [odm:ReturnValue](http://www.cdisc.org/ns/odm/v2.0/ReturnValue)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | The return value name | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | The return value name. | direct |
 | [DataTypeRef](DataTypeRef.md) | 1..1 <br/> [DataType](DataType.md) | Return value datatype | direct |
-| [DefinitionRef](DefinitionRef.md) | 0..1 <br/> [Text](Text.md) | A free-text definition of the return value | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Position of the ReturnValue | direct |
+| [DefinitionRef](DefinitionRef.md) | 0..1 <br/> [text](text.md) | A free-text definition of the return value | direct |
+| [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Position of the ReturnValue | direct |
 
 
 

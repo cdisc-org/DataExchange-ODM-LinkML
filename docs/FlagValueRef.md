@@ -1,5 +1,10 @@
 # Slot: FlagValueRef
 
+
+_FlagValue reference: The value of the flag. The meaning of this value is typically dependent on the associated FlagType. The actual value must be a member of the referenced CodeList_
+
+
+
 URI: [odm:FlagValueRef](http://www.cdisc.org/ns/odm/v2.0/FlagValueRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:FlagValueRef](http://www.cdisc.org/ns/odm/v2.0/FlagValueRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Flag](Flag.md) | Element NameFlagParent ElementsAnnotationElement XPath(s)/ODM/ReferenceData/A... |  yes  |
+[Flag](Flag.md) | A machine-processable annotation. |  yes  |
 
 
 
@@ -50,6 +55,9 @@ URI: [odm:FlagValueRef](http://www.cdisc.org/ns/odm/v2.0/FlagValueRef)
 <details>
 ```yaml
 name: FlagValueRef
+description: 'FlagValue reference: The value of the flag. The meaning of this value
+  is typically dependent on the associated FlagType. The actual value must be a member
+  of the referenced CodeList'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

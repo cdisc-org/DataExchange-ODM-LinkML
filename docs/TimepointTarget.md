@@ -29,7 +29,7 @@ URI: [odm:TimepointTarget](http://www.cdisc.org/ns/odm/v2.0/TimepointTarget)
 
 ## Properties
 
-* Range: [String](String.md)
+* Range: [string](string.md)
 
 
 

@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Level_
+
+
+
 URI: [StudyEstimandLevel](StudyEstimandLevel)
 
 ## Permissible Values
@@ -19,7 +24,7 @@ URI: [StudyEstimandLevel](StudyEstimandLevel)
 
 | Name | Description |
 | ---  | --- |
-| [Level](Level.md) | Level for the Study Endpoint |
+| [Level](Level.md) | Level for the Study Endpoint. Primary endpoint(s) are typically efficacy meas... |
 | [Level](Level.md) | Defined Level for the Study Estimand |
 
 
@@ -48,6 +53,7 @@ URI: [StudyEstimandLevel](StudyEstimandLevel)
 <details>
 ```yaml
 name: StudyEstimandLevel
+description: Enumeration used in Level
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

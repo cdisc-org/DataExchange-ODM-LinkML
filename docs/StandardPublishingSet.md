@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in PublishingSet_
+
+
+
 URI: [StandardPublishingSet](StandardPublishingSet)
 
 ## Permissible Values
@@ -21,8 +26,8 @@ URI: [StandardPublishingSet](StandardPublishingSet)
 
 | Name | Description |
 | ---  | --- |
-| [PublishingSet](PublishingSet.md) | Set of published files of Standard when Type="CT" (e |
-| [PublishingSet](PublishingSet.md) | The name of the publishing set that contains the published standard |
+| [PublishingSet](PublishingSet.md) | Set of published files of Standard when Type="CT" (e.g. SDTM, ADaM, SEND, CDA... |
+| [PublishingSet](PublishingSet.md) | The name of the publishing set that contains the published standard. |
 
 
 
@@ -56,6 +61,7 @@ URI: [StandardPublishingSet](StandardPublishingSet)
 ```yaml
 name: StandardPublishingSet
 conforms_to: nci:ExtCodeID:C172331
+description: Enumeration used in PublishingSet
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 aliases:
 - C172331

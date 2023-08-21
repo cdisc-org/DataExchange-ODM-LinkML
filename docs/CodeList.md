@@ -1,7 +1,7 @@
 # Class: CodeList
 
 
-_Defines a discrete set of permitted values for an item, or provides a reference to a codelist or dictionary maintained by an external organization via the Coding element, or a combination of both. Examples provided under Coding.Element NameCodeListParent ElementsMetaDataVersionElement XPath(s)/ODM/Study/MetaDataVersion/CodeListElement Textual ValueNoneAttributesOID, Name, DataType, CommentOID, StandardOID, IsNonStandardChild Elements(Description?, CodeListItem*, Coding*, Alias*)Usage/Business Rules_
+_Defines a discrete set of permitted values for an item, or provides a reference to a codelist or dictionary maintained by an external organization via the Coding element, or a combination of both. Examples provided under Coding._
 
 
 
@@ -59,16 +59,16 @@ URI: [odm:CodeList](http://www.cdisc.org/ns/odm/v2.0/CodeList)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the Codelist element | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable name for the Codelist | direct |
-| [DataTypeRef](DataTypeRef.md) | 1..1 <br/> [CLDataType](CLDataType.md) | Specifies the DataType for codes defined in this codelist | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a CommentDef Element | direct |
-| [StandardOID](StandardOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a Standard element | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Codelist element. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the Codelist. | direct |
+| [DataTypeRef](DataTypeRef.md) | 1..1 <br/> [CLDataType](CLDataType.md) | Specifies the DataType for codes defined in this codelist. | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef Element. | direct |
+| [StandardOID](StandardOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Standard element. | direct |
 | [IsNonStandard](IsNonStandard.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Used when the controlled terminology includes a set of EnumeratedItem or Code... | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [CodeListItemRef](CodeListItemRef.md) | 0..* <br/> [CodeListItem](CodeListItem.md) |  | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
-| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) |  | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [CodeListItemRef](CodeListItemRef.md) | 0..* <br/> [CodeListItem](CodeListItem.md) | CodeListItem reference: Defines an individual member value of a codelist. It ... | direct |
+| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
 
 
 
@@ -128,10 +128,7 @@ URI: [odm:CodeList](http://www.cdisc.org/ns/odm/v2.0/CodeList)
 name: CodeList
 description: Defines a discrete set of permitted values for an item, or provides a
   reference to a codelist or dictionary maintained by an external organization via
-  the Coding element, or a combination of both. Examples provided under Coding.Element
-  NameCodeListParent ElementsMetaDataVersionElement XPath(s)/ODM/Study/MetaDataVersion/CodeListElement
-  Textual ValueNoneAttributesOID, Name, DataType, CommentOID, StandardOID, IsNonStandardChild
-  Elements(Description?, CodeListItem*, Coding*, Alias*)Usage/Business Rules
+  the Coding element, or a combination of both. Examples provided under Coding.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CodeList
@@ -386,10 +383,7 @@ class_uri: odm:CodeList
 name: CodeList
 description: Defines a discrete set of permitted values for an item, or provides a
   reference to a codelist or dictionary maintained by an external organization via
-  the Coding element, or a combination of both. Examples provided under Coding.Element
-  NameCodeListParent ElementsMetaDataVersionElement XPath(s)/ODM/Study/MetaDataVersion/CodeListElement
-  Textual ValueNoneAttributesOID, Name, DataType, CommentOID, StandardOID, IsNonStandardChild
-  Elements(Description?, CodeListItem*, Coding*, Alias*)Usage/Business Rules
+  the Coding element, or a combination of both. Examples provided under Coding.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CodeList
@@ -788,6 +782,8 @@ attributes:
     range: YesOnly
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -835,6 +831,8 @@ attributes:
     maximum_cardinality: 1
   CodeListItemRef:
     name: CodeListItemRef
+    description: 'CodeListItem reference: Defines an individual member value of a
+      codelist. It may include a display value in the child Decode element'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -848,6 +846,12 @@ attributes:
     inlined_as_list: true
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -876,6 +880,9 @@ attributes:
     inlined_as_list: true
   AliasRef:
     name: AliasRef
+    description: 'Alias reference: An Alias provides an additional name for an element.
+      The Context attribute specifies the application domain in which this additional
+      name is relevant.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

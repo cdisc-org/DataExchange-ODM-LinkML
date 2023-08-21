@@ -1,5 +1,10 @@
 # Slot: FamilyNameRef
 
+
+_FamilyName reference: The user's surname (family name)._
+
+
+
 URI: [odm:FamilyNameRef](http://www.cdisc.org/ns/odm/v2.0/FamilyNameRef)
 
 
@@ -50,6 +55,7 @@ URI: [odm:FamilyNameRef](http://www.cdisc.org/ns/odm/v2.0/FamilyNameRef)
 <details>
 ```yaml
 name: FamilyNameRef
+description: 'FamilyName reference: The user''s surname (family name).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

@@ -28,7 +28,7 @@ URI: [odm:ShortName](http://www.cdisc.org/ns/odm/v2.0/ShortName)
 
 ## Properties
 
-* Range: [Name](Name.md)
+* Range: [name](name.md)
 
 
 

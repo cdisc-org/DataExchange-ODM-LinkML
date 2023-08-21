@@ -18,7 +18,7 @@ URI: [odm:MimeType](http://www.cdisc.org/ns/odm/v2.0/MimeType)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Image](Image.md) | A visual depiction of the user |  yes  |
+[Image](Image.md) | A visual depiction of the user. |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:MimeType](http://www.cdisc.org/ns/odm/v2.0/MimeType)
 
 ## Properties
 
-* Range: [Text](Text.md)
+* Range: [text](text.md)
 
 
 

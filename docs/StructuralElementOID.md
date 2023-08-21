@@ -1,5 +1,10 @@
 # Slot: StructuralElementOID
 
+
+_OID of a structural element such as a Study, Epoch, StudyEventGroup, StudyEvent, ItemGroup, Item_
+
+
+
 URI: [odm:StructuralElementOID](http://www.cdisc.org/ns/odm/v2.0/StructuralElementOID)
 
 
@@ -13,7 +18,7 @@ URI: [odm:StructuralElementOID](http://www.cdisc.org/ns/odm/v2.0/StructuralEleme
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[DurationTimingConstraint](DurationTimingConstraint.md) |  |  yes  |
+[DurationTimingConstraint](DurationTimingConstraint.md) | The DurationTimingConstraint constrains the duration of an activity represent... |  yes  |
 
 
 
@@ -23,7 +28,7 @@ URI: [odm:StructuralElementOID](http://www.cdisc.org/ns/odm/v2.0/StructuralEleme
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:StructuralElementOID](http://www.cdisc.org/ns/odm/v2.0/StructuralEleme
 <details>
 ```yaml
 name: StructuralElementOID
+description: OID of a structural element such as a Study, Epoch, StudyEventGroup,
+  StudyEvent, ItemGroup, Item
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: StructuralElementOID

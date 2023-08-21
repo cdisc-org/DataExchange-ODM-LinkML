@@ -1,7 +1,7 @@
 # Class: Study
 
 
-_This element collects static structural information about an individual study.Element NameStudyParent ElementsODMElement XPath(s)/ODM/StudyElement Textual ValueNone AttributesOID, StudyName, ProtocolName, VersionID, VersionName, StatusChild Elements(Description?, MetaDataVersion*)Usage/Business RulesBusiness Rule(s): Required when ODM/@Granularity is in (All | Metadata)_
+_This element collects static structural information about an individual study._
 
 
 
@@ -47,14 +47,14 @@ URI: [odm:Study](http://www.cdisc.org/ns/odm/v2.0/Study)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the study | direct |
-| [StudyName](StudyName.md) | 1..1 <br/> [Name](Name.md) | Sponsoring organization's internal name for the study | direct |
-| [ProtocolName](ProtocolName.md) | 1..1 <br/> [Name](Name.md) | P rotocol identifier or protocol number assigned to the study  | direct |
-| [VersionID](VersionID.md) | 0..1 <br/> [Name](Name.md) | Identifier for the specific version of the study in the source system that th... | direct |
-| [VersionName](VersionName.md) | 0..1 <br/> [Name](Name.md) | Short descriptive label for the version of the study, e | direct |
-| [Status](Status.md) | 0..1 <br/> [Name](Name.md) | Represents the workflow status for the version of the study with content incl... | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [MetaDataVersionRefRef](MetaDataVersionRefRef.md) | 0..* <br/> [MetaDataVersion](MetaDataVersion.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the study. | direct |
+| [StudyName](StudyName.md) | 1..1 <br/> [name](name.md) | Sponsoring organization's internal name for the study. If no internal name is... | direct |
+| [ProtocolName](ProtocolName.md) | 1..1 <br/> [name](name.md) | P rotocol identifier or protocol number assigned to the study . It is used by... | direct |
+| [VersionID](VersionID.md) | 0..1 <br/> [name](name.md) | Identifier for the specific version of the study in the source system that th... | direct |
+| [VersionName](VersionName.md) | 0..1 <br/> [name](name.md) | Short descriptive label for the version of the study, e.g. "Initial go live" ... | direct |
+| [Status](Status.md) | 0..1 <br/> [name](name.md) | Represents the workflow status for the version of the study with content incl... | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [MetaDataVersionRefRef](MetaDataVersionRefRef.md) | 0..* <br/> [MetaDataVersion](MetaDataVersion.md) | MetaDataVersionRef reference: A reference to a MetaDataVersion used at the co... | direct |
 
 
 
@@ -112,11 +112,8 @@ URI: [odm:Study](http://www.cdisc.org/ns/odm/v2.0/Study)
 <details>
 ```yaml
 name: Study
-description: 'This element collects static structural information about an individual
-  study.Element NameStudyParent ElementsODMElement XPath(s)/ODM/StudyElement Textual
-  ValueNone AttributesOID, StudyName, ProtocolName, VersionID, VersionName, StatusChild
-  Elements(Description?, MetaDataVersion*)Usage/Business RulesBusiness Rule(s): Required
-  when ODM/@Granularity is in (All | Metadata)'
+description: This element collects static structural information about an individual
+  study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Study
@@ -301,11 +298,8 @@ class_uri: odm:Study
 <details>
 ```yaml
 name: Study
-description: 'This element collects static structural information about an individual
-  study.Element NameStudyParent ElementsODMElement XPath(s)/ODM/StudyElement Textual
-  ValueNone AttributesOID, StudyName, ProtocolName, VersionID, VersionName, StatusChild
-  Elements(Description?, MetaDataVersion*)Usage/Business RulesBusiness Rule(s): Required
-  when ODM/@Granularity is in (All | Metadata)'
+description: This element collects static structural information about an individual
+  study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Study
@@ -609,6 +603,8 @@ attributes:
     range: name
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -656,6 +652,9 @@ attributes:
     maximum_cardinality: 1
   MetaDataVersionRefRef:
     name: MetaDataVersionRefRef
+    description: 'MetaDataVersionRef reference: A reference to a MetaDataVersion used
+      at the containing Location. The EffectiveDate reflects the possibility that
+      the metadata may change over the course of the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

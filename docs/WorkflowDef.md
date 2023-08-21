@@ -51,13 +51,13 @@ URI: [odm:WorkflowDef](http://www.cdisc.org/ns/odm/v2.0/WorkflowDef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the workflow | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable label for the workflow | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [WorkflowStartRef](WorkflowStartRef.md) | 0..1 <br/> [WorkflowStart](WorkflowStart.md) |  | direct |
-| [WorkflowEndRef](WorkflowEndRef.md) | 0..* <br/> [WorkflowEnd](WorkflowEnd.md) |  | direct |
-| [TransitionRef](TransitionRef.md) | 0..* <br/> [Transition](Transition.md) |  | direct |
-| [BranchingRef](BranchingRef.md) | 0..* <br/> [Branching](Branching.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the workflow. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable label for the workflow. | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [WorkflowStartRef](WorkflowStartRef.md) | 0..1 <br/> [WorkflowStart](WorkflowStart.md) | WorkflowStart reference: WorkflowStart references a structural element that b... | direct |
+| [WorkflowEndRef](WorkflowEndRef.md) | 0..* <br/> [WorkflowEnd](WorkflowEnd.md) | WorkflowEnd reference: A WorkflowEnd references a structural element with whi... | direct |
+| [TransitionRef](TransitionRef.md) | 0..* <br/> [Transition](Transition.md) | Transition reference: A Transition defines a link between 2 structural elemen... | direct |
+| [BranchingRef](BranchingRef.md) | 0..* <br/> [Branching](Branching.md) | Branching reference: This element describes the branching in a workflow from ... | direct |
 
 
 
@@ -179,7 +179,7 @@ slot_usage:
     required: true
   Name:
     name: Name
-    description: 'Human readable label for the workflow. '
+    description: Human readable label for the workflow.
     comments:
     - 'Required
 
@@ -362,7 +362,7 @@ slot_usage:
     required: true
   Name:
     name: Name
-    description: 'Human readable label for the workflow. '
+    description: Human readable label for the workflow.
     comments:
     - 'Required
 
@@ -536,7 +536,7 @@ attributes:
     required: true
   Name:
     name: Name
-    description: 'Human readable label for the workflow. '
+    description: Human readable label for the workflow.
     comments:
     - 'Required
 
@@ -587,6 +587,8 @@ attributes:
     required: true
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -634,6 +636,8 @@ attributes:
     maximum_cardinality: 1
   WorkflowStartRef:
     name: WorkflowStartRef
+    description: 'WorkflowStart reference: WorkflowStart references a structural element
+      that begins the automated workflow.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -645,6 +649,8 @@ attributes:
     maximum_cardinality: 1
   WorkflowEndRef:
     name: WorkflowEndRef
+    description: 'WorkflowEnd reference: A WorkflowEnd references a structural element
+      with which the workflows ends.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -658,6 +664,10 @@ attributes:
     inlined_as_list: true
   TransitionRef:
     name: TransitionRef
+    description: 'Transition reference: A Transition defines a link between 2 structural
+      elements in a workflow. When the execution of the transition is dependent upon
+      a timing constraint that is either directly defined or calculated, a TransitionTimingConstraint
+      must be defined, referencing the current Transition.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -671,6 +681,9 @@ attributes:
     inlined_as_list: true
   BranchingRef:
     name: BranchingRef
+    description: 'Branching reference: This element describes the branching in a workflow
+      from a source (start) structural element to 2 or more target structural elements,
+      over a Transition element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

@@ -1,5 +1,10 @@
 # Slot: InclusionCriteriaRef
 
+
+_InclusionCriteria reference: The InclusionCriteria is a container element for Criterion elements describing inclusion criteria for subjects in the study. When a list is provided, subjects must meet each of the criteria in the list in order to enroll in the study._
+
+
+
 URI: [odm:InclusionCriteriaRef](http://www.cdisc.org/ns/odm/v2.0/InclusionCriteriaRef)
 
 
@@ -50,6 +55,10 @@ URI: [odm:InclusionCriteriaRef](http://www.cdisc.org/ns/odm/v2.0/InclusionCriter
 <details>
 ```yaml
 name: InclusionCriteriaRef
+description: 'InclusionCriteria reference: The InclusionCriteria is a container element
+  for Criterion elements describing inclusion criteria for subjects in the study.
+  When a list is provided, subjects must meet each of the criteria in the list in
+  order to enroll in the study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

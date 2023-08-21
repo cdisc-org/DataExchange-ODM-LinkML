@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in State_
+
+
+
 URI: [QueryStateType](QueryStateType)
 
 ## Permissible Values
@@ -51,6 +56,7 @@ URI: [QueryStateType](QueryStateType)
 <details>
 ```yaml
 name: QueryStateType
+description: Enumeration used in State
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

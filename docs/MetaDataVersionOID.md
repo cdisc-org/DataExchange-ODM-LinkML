@@ -18,13 +18,13 @@ URI: [odm:MetaDataVersionOID](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersionOI
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Include](Include.md) | The Include metadata element allows a reference to a prior metadata version |  yes  |
-[SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata |  yes  |
-[MetaDataVersionRef](MetaDataVersionRef.md) | A reference to a MetaDataVersion used at the containing Location |  yes  |
-[ReferenceData](ReferenceData.md) | Reference data provides information on how to interpret clinical data |  yes  |
-[ClinicalData](ClinicalData.md) | Clinical data for 1 or more subjects |  yes  |
+[Include](Include.md) | The Include metadata element allows a reference to a prior metadata version. |  yes  |
+[SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata. |  yes  |
+[MetaDataVersionRef](MetaDataVersionRef.md) | A reference to a MetaDataVersion used at the containing Location. The Effecti... |  yes  |
+[ReferenceData](ReferenceData.md) | Reference data provides information on how to interpret clinical data. For ex... |  yes  |
+[ClinicalData](ClinicalData.md) | Clinical data for 1 or more subjects. |  yes  |
 [Association](Association.md) | An association permits an annotation to be placed on an ordered pair of entit... |  yes  |
-[KeySet](KeySet.md) | A KeySet references a single entity (e |  yes  |
+[KeySet](KeySet.md) | A KeySet references a single entity (e.g., a study, a subject, a study event)... |  yes  |
 
 
 
@@ -34,7 +34,7 @@ URI: [odm:MetaDataVersionOID](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersionOI
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

@@ -1,5 +1,10 @@
 # Slot: ItemGroupRefRef
 
+
+_ItemGroupRef reference: ItemGroupRef references an ItemGroupDef as it occurs within a specific StudyEventDef or ItemGroupDef. The list of ItemGroupRefs identifies the types of item groups that are allowed to occur within this type of studyevent or (nested) item group. The ItemGroupRefs within a single StudyEventDef or ItemGroupDef must not have duplicate ItemGroupOID or OrderNumber attribute values._
+
+
+
 URI: [odm:ItemGroupRefRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRefRef)
 
 
@@ -51,6 +56,11 @@ URI: [odm:ItemGroupRefRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRefRef)
 <details>
 ```yaml
 name: ItemGroupRefRef
+description: 'ItemGroupRef reference: ItemGroupRef references an ItemGroupDef as it
+  occurs within a specific StudyEventDef or ItemGroupDef. The list of ItemGroupRefs
+  identifies the types of item groups that are allowed to occur within this type of
+  studyevent or (nested) item group. The ItemGroupRefs within a single StudyEventDef
+  or ItemGroupDef must not have duplicate ItemGroupOID or OrderNumber attribute values.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

@@ -18,7 +18,7 @@ URI: [odm:LastPage](http://www.cdisc.org/ns/odm/v2.0/LastPage)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[PDFPageRef](PDFPageRef.md) | This element is the container for CRF page references |  yes  |
+[PDFPageRef](PDFPageRef.md) | This element is the container for CRF page references. |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:LastPage](http://www.cdisc.org/ns/odm/v2.0/LastPage)
 
 ## Properties
 
-* Range: [PositiveInteger](PositiveInteger.md)
+* Range: [positiveInteger](positiveInteger.md)
 
 
 

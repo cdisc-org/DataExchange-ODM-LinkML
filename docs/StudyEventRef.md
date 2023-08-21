@@ -1,7 +1,7 @@
 # Class: StudyEventRef
 
 
-_This element references a StudyEventDef as it occurs within a specific version of a study. The list of StudyEventRefs identifies the types of study events that are allowed to occur within the study. _
+_This element references a StudyEventDef as it occurs within a specific version of a study. The list of StudyEventRefs identifies the types of study events that are allowed to occur within the study._
 
 
 
@@ -37,10 +37,10 @@ URI: [odm:StudyEventRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEventOID](StudyEventOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the StudyEventDef  | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Indicates the order in which this StudyEventDef appears in Metadata displays ... | direct |
+| [StudyEventOID](StudyEventOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventDef . | direct |
+| [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEventDef appears in Metadata displays ... | direct |
 | [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | The Mandatory flag indicates that the clinical data for the containing MetaDa... | direct |
-| [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
+| [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
 
 
 
@@ -99,9 +99,9 @@ URI: [odm:StudyEventRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventRef)
 <details>
 ```yaml
 name: StudyEventRef
-description: 'This element references a StudyEventDef as it occurs within a specific
+description: This element references a StudyEventDef as it occurs within a specific
   version of a study. The list of StudyEventRefs identifies the types of study events
-  that are allowed to occur within the study. '
+  that are allowed to occur within the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventRef
@@ -202,9 +202,9 @@ class_uri: odm:StudyEventRef
 <details>
 ```yaml
 name: StudyEventRef
-description: 'This element references a StudyEventDef as it occurs within a specific
+description: This element references a StudyEventDef as it occurs within a specific
   version of a study. The list of StudyEventRefs identifies the types of study events
-  that are allowed to occur within the study. '
+  that are allowed to occur within the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventRef

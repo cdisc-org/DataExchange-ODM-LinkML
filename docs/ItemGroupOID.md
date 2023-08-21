@@ -19,9 +19,9 @@ URI: [odm:ItemGroupOID](http://www.cdisc.org/ns/odm/v2.0/ItemGroupOID)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [ItemGroupRef](ItemGroupRef.md) | ItemGroupRef references an ItemGroupDef as it occurs within a specific StudyE... |  yes  |
-[SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata |  yes  |
+[SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata. |  yes  |
 [ItemGroupData](ItemGroupData.md) | Clinical data corresponding to an ItemGroupRef defined in the active MetaData... |  yes  |
-[KeySet](KeySet.md) | A KeySet references a single entity (e |  yes  |
+[KeySet](KeySet.md) | A KeySet references a single entity (e.g., a study, a subject, a study event)... |  yes  |
 
 
 
@@ -31,7 +31,7 @@ URI: [odm:ItemGroupOID](http://www.cdisc.org/ns/odm/v2.0/ItemGroupOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

@@ -1,5 +1,10 @@
 # Slot: SourceItemsRef
 
+
+_SourceItems reference: Identifies source items as needed to support automated data capture and end-to-end traceability._
+
+
+
 URI: [odm:SourceItemsRef](http://www.cdisc.org/ns/odm/v2.0/SourceItemsRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:SourceItemsRef](http://www.cdisc.org/ns/odm/v2.0/SourceItemsRef)
 <details>
 ```yaml
 name: SourceItemsRef
+description: 'SourceItems reference: Identifies source items as needed to support
+  automated data capture and end-to-end traceability.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

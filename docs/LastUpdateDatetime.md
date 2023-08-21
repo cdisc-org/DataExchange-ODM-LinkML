@@ -28,7 +28,7 @@ URI: [odm:LastUpdateDatetime](http://www.cdisc.org/ns/odm/v2.0/LastUpdateDatetim
 
 ## Properties
 
-* Range: [Datetime](Datetime.md)
+* Range: [datetime](datetime.md)
 
 
 

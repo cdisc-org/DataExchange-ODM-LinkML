@@ -13,7 +13,7 @@ URI: [odm:StudyTargetPopulationOID](http://www.cdisc.org/ns/odm/v2.0/StudyTarget
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyTargetPopulationRef](StudyTargetPopulationRef.md) | Element NameStudyTargetPopulationRefParent ElementsStudyEstimandElement XPath... |  yes  |
+[StudyTargetPopulationRef](StudyTargetPopulationRef.md) |  |  yes  |
 
 
 
@@ -23,7 +23,7 @@ URI: [odm:StudyTargetPopulationOID](http://www.cdisc.org/ns/odm/v2.0/StudyTarget
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

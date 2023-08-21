@@ -1,5 +1,10 @@
 # Slot: CheckValueRef
 
+
+_CheckValue reference: A comparison value used in a range check._
+
+
+
 URI: [odm:CheckValueRef](http://www.cdisc.org/ns/odm/v2.0/CheckValueRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:CheckValueRef](http://www.cdisc.org/ns/odm/v2.0/CheckValueRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[RangeCheck](RangeCheck.md) | A RangeCheck defines a constraint on the value of the enclosing item |  yes  |
+[RangeCheck](RangeCheck.md) | A RangeCheck defines a constraint on the value of the enclosing item. It repr... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:CheckValueRef](http://www.cdisc.org/ns/odm/v2.0/CheckValueRef)
 <details>
 ```yaml
 name: CheckValueRef
+description: 'CheckValue reference: A comparison value used in a range check.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

@@ -1,5 +1,10 @@
 # Slot: StateProvRef
 
+
+_StateProv reference: The state or province name part of a user's postal address._
+
+
+
 URI: [odm:StateProvRef](http://www.cdisc.org/ns/odm/v2.0/StateProvRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:StateProvRef](http://www.cdisc.org/ns/odm/v2.0/StateProvRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Address](Address.md) | The postal address for a user, location, or organization |  yes  |
+[Address](Address.md) | The postal address for a user, location, or organization. |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:StateProvRef](http://www.cdisc.org/ns/odm/v2.0/StateProvRef)
 <details>
 ```yaml
 name: StateProvRef
+description: 'StateProv reference: The state or province name part of a user''s postal
+  address.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

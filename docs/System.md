@@ -18,7 +18,7 @@ URI: [odm:System](http://www.cdisc.org/ns/odm/v2.0/System)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Coding](Coding.md) | Coding references a symbol from a defined code system |  yes  |
+[Coding](Coding.md) | Coding references a symbol from a defined code system. It uses a code defined... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:System](http://www.cdisc.org/ns/odm/v2.0/System)
 
 ## Properties
 
-* Range: [Uriorcurie](Uriorcurie.md)
+* Range: [uriorcurie](uriorcurie.md)
 
 
 

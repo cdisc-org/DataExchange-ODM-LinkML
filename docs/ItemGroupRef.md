@@ -39,11 +39,11 @@ URI: [odm:ItemGroupRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ItemGroupOID](ItemGroupOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the ItemGroupDef  | direct |
-| [MethodOID](MethodOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a MethodDef that will provide one or more data rows as output | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Indicates the order in which this ItemGroup appears in Metadata displays or d... | direct |
+| [ItemGroupOID](ItemGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the ItemGroupDef . | direct |
+| [MethodOID](MethodOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a MethodDef that will provide one or more data rows as output. T... | direct |
+| [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this ItemGroup appears in Metadata displays or d... | direct |
 | [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | The Mandatory flag indicates that the clinical data for an instance of the co... | direct |
-| [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
+| [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
 
 
 
@@ -150,13 +150,13 @@ slot_usage:
     range: oidref
   OrderNumber:
     name: OrderNumber
-    description: 'Indicates the order in which this ItemGroup appears in Metadata
-      displays or data entry applications. The OrderNumber attribute provides an ordering
-      on the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever
-      a list of ItemGroupDefs is presented to a user. Order of execution is preferably
+    description: Indicates the order in which this ItemGroup appears in Metadata displays
+      or data entry applications. The OrderNumber attribute provides an ordering on
+      the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever a
+      list of ItemGroupDefs is presented to a user. Order of execution is preferably
       defined in a workflow (see Section 3.2.2.1.8, WorkflowDef ) but when used without
       a workflow, may be used the define the order in which data entry forms are presented
-      in an application UI. '
+      in an application UI.
     comments:
     - 'Optional
 
@@ -264,13 +264,13 @@ slot_usage:
     range: oidref
   OrderNumber:
     name: OrderNumber
-    description: 'Indicates the order in which this ItemGroup appears in Metadata
-      displays or data entry applications. The OrderNumber attribute provides an ordering
-      on the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever
-      a list of ItemGroupDefs is presented to a user. Order of execution is preferably
+    description: Indicates the order in which this ItemGroup appears in Metadata displays
+      or data entry applications. The OrderNumber attribute provides an ordering on
+      the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever a
+      list of ItemGroupDefs is presented to a user. Order of execution is preferably
       defined in a workflow (see Section 3.2.2.1.8, WorkflowDef ) but when used without
       a workflow, may be used the define the order in which data entry forms are presented
-      in an application UI. '
+      in an application UI.
     comments:
     - 'Optional
 
@@ -368,13 +368,13 @@ attributes:
     range: oidref
   OrderNumber:
     name: OrderNumber
-    description: 'Indicates the order in which this ItemGroup appears in Metadata
-      displays or data entry applications. The OrderNumber attribute provides an ordering
-      on the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever
-      a list of ItemGroupDefs is presented to a user. Order of execution is preferably
+    description: Indicates the order in which this ItemGroup appears in Metadata displays
+      or data entry applications. The OrderNumber attribute provides an ordering on
+      the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever a
+      list of ItemGroupDefs is presented to a user. Order of execution is preferably
       defined in a workflow (see Section 3.2.2.1.8, WorkflowDef ) but when used without
       a workflow, may be used the define the order in which data entry forms are presented
-      in an application UI. '
+      in an application UI.
     comments:
     - 'Optional
 

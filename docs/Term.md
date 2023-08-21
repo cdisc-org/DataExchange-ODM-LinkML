@@ -28,7 +28,7 @@ URI: [odm:Term](http://www.cdisc.org/ns/odm/v2.0/Term)
 
 ## Properties
 
-* Range: [Name](Name.md)
+* Range: [name](name.md)
 
 
 

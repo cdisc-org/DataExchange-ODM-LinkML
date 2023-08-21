@@ -18,7 +18,7 @@ URI: [odm:Longitude](http://www.cdisc.org/ns/odm/v2.0/Longitude)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[GeoPosition](GeoPosition.md) | The geographical position using the World Geodetic System WGS84 |  yes  |
+[GeoPosition](GeoPosition.md) | The geographical position using the World Geodetic System WGS84. |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:Longitude](http://www.cdisc.org/ns/odm/v2.0/Longitude)
 
 ## Properties
 
-* Range: [Decimal](Decimal.md)
+* Range: [decimal](decimal.md)
 
 
 

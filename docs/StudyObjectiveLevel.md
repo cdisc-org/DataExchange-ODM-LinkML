@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Level_
+
+
+
 URI: [StudyObjectiveLevel](StudyObjectiveLevel)
 
 ## Permissible Values
@@ -47,6 +52,7 @@ URI: [StudyObjectiveLevel](StudyObjectiveLevel)
 <details>
 ```yaml
 name: StudyObjectiveLevel
+description: Enumeration used in Level
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

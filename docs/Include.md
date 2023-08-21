@@ -33,9 +33,9 @@ URI: [odm:Include](http://www.cdisc.org/ns/odm/v2.0/Include)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the Study that provides a prior metadata version | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References a prior MetaDataVersion within the Study referenced by the StudyOI... | direct |
-| [href](href.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Reference to the location where the to be included Study-Metadata definition ... | direct |
+| [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the Study that provides a prior metadata version. This attribute a... | direct |
+| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | References a prior MetaDataVersion within the Study referenced by the StudyOI... | direct |
+| [href](href.md) | 0..1 <br/> [uriorcurie](uriorcurie.md) | Reference to the location where the to be included Study-Metadata definition ... | direct |
 
 
 

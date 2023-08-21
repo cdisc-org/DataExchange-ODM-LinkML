@@ -29,7 +29,7 @@ URI: [odm:WorkflowRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [WorkflowOID](WorkflowOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to a WorfkflowDef | direct |
+| [WorkflowOID](WorkflowOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a WorfkflowDef | direct |
 
 
 

@@ -59,16 +59,16 @@ URI: [odm:CodeListItem](http://www.cdisc.org/ns/odm/v2.0/CodeListItem)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [CodedValue](CodedValue.md) | 1..1 <br/> [Value](Value.md) | Value of the codelist item (as it would occur in clinical data) | direct |
-| [Rank](Rank.md) | 0..1 <br/> [Decimal](Decimal.md) | Numeric significance of the CodeListItem relative to others in the CodeList | direct |
-| [Other](Other.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Flag to indicate that the term represents "other" content | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Ordering on the CodeListItems (within a containing CodeListItem) for use when... | direct |
+| [CodedValue](CodedValue.md) | 1..1 <br/> [value](value.md) | Value of the codelist item (as it would occur in clinical data). | direct |
+| [Rank](Rank.md) | 0..1 <br/> [decimal](decimal.md) | Numeric significance of the CodeListItem relative to others in the CodeList. ... | direct |
+| [Other](Other.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Flag to indicate that the term represents "other" content. | direct |
+| [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Ordering on the CodeListItems (within a containing CodeListItem) for use when... | direct |
 | [ExtendedValue](ExtendedValue.md) | 0..1 <br/> [YesOnly](YesOnly.md) |  | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a CommentDef  | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [DecodeRef](DecodeRef.md) | 0..1 <br/> [Decode](Decode.md) |  | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
-| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) |  | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef . | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [DecodeRef](DecodeRef.md) | 0..1 <br/> [Decode](Decode.md) | Decode reference: The displayed value relating to the CodeListItem/@CodedValu... | direct |
+| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
 
 
 
@@ -610,6 +610,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -657,6 +659,10 @@ attributes:
     maximum_cardinality: 1
   DecodeRef:
     name: DecodeRef
+    description: 'Decode reference: The displayed value relating to the CodeListItem/@CodedValue.
+      This is often a label corresponding to a short name or alpha-numeric code. The
+      actual Decode text is provided in a TranslatedText element so that it can be
+      provided in different languages on a case report form or tabular data summary.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -668,6 +674,12 @@ attributes:
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -696,6 +708,9 @@ attributes:
     inlined_as_list: true
   AliasRef:
     name: AliasRef
+    description: 'Alias reference: An Alias provides an additional name for an element.
+      The Context attribute specifies the application domain in which this additional
+      name is relevant.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

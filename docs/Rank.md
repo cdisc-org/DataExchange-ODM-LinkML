@@ -18,7 +18,7 @@ URI: [odm:Rank](http://www.cdisc.org/ns/odm/v2.0/Rank)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[CodeListItem](CodeListItem.md) | Defines an individual member value of a codelist |  yes  |
+[CodeListItem](CodeListItem.md) | Defines an individual member value of a codelist. It may include a display va... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:Rank](http://www.cdisc.org/ns/odm/v2.0/Rank)
 
 ## Properties
 
-* Range: [Decimal](Decimal.md)
+* Range: [decimal](decimal.md)
 
 
 

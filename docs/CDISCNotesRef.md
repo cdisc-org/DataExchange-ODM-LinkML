@@ -1,5 +1,10 @@
 # Slot: CDISCNotesRef
 
+
+_CDISCNotes reference: Explanatory text for the variable._
+
+
+
 URI: [odm:CDISCNotesRef](http://www.cdisc.org/ns/odm/v2.0/CDISCNotesRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:CDISCNotesRef](http://www.cdisc.org/ns/odm/v2.0/CDISCNotesRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study. Item prope... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:CDISCNotesRef](http://www.cdisc.org/ns/odm/v2.0/CDISCNotesRef)
 <details>
 ```yaml
 name: CDISCNotesRef
+description: 'CDISCNotes reference: Explanatory text for the variable.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

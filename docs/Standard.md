@@ -47,13 +47,13 @@ URI: [odm:Standard](http://www.cdisc.org/ns/odm/v2.0/Standard)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the standard | direct |
-| [Name](Name.md) | 1..1 <br/> [StandardName](StandardName.md) | Name of the external standard to which the data conforms | direct |
-| [Type](Type.md) | 1..1 <br/> [StandardType](StandardType.md) | The type of standard | direct |
-| [PublishingSet](PublishingSet.md) | 0..1 <br/> [StandardPublishingSet](StandardPublishingSet.md) | The name of the publishing set that contains the published standard | direct |
-| [Version](Version.md) | 1..1 <br/> [Text](Text.md) | Version of the external standard to which the data conforms | direct |
-| [Status](Status.md) | 1..1 <br/> [StandardStatus](StandardStatus.md) | Publishing status of the standard | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to the unique ID of a CommentDef element that contains the comment ... | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the standard. | direct |
+| [Name](Name.md) | 1..1 <br/> [StandardName](StandardName.md) | Name of the external standard to which the data conforms. | direct |
+| [Type](Type.md) | 1..1 <br/> [StandardType](StandardType.md) | The type of standard. | direct |
+| [PublishingSet](PublishingSet.md) | 0..1 <br/> [StandardPublishingSet](StandardPublishingSet.md) | The name of the publishing set that contains the published standard. | direct |
+| [Version](Version.md) | 1..1 <br/> [text](text.md) | Version of the external standard to which the data conforms. | direct |
+| [Status](Status.md) | 1..1 <br/> [StandardStatus](StandardStatus.md) | Publishing status of the standard. | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a CommentDef element that contains the comment ... | direct |
 
 
 
@@ -225,7 +225,7 @@ slot_usage:
     required: true
   Type:
     name: Type
-    description: 'The type of standard. '
+    description: The type of standard.
     comments:
     - 'Required
 
@@ -441,7 +441,7 @@ slot_usage:
     required: true
   Type:
     name: Type
-    description: 'The type of standard. '
+    description: The type of standard.
     comments:
     - 'Required
 
@@ -651,7 +651,7 @@ attributes:
     required: true
   Type:
     name: Type
-    description: 'The type of standard. '
+    description: The type of standard.
     comments:
     - 'Required
 

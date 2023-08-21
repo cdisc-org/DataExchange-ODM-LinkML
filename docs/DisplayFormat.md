@@ -1,7 +1,7 @@
 # Slot: DisplayFormat
 
 
-_Display format supports data visualization of numeric float and date values. _
+_Display format supports data visualization of numeric float and date values._
 
 
 
@@ -18,7 +18,7 @@ URI: [odm:DisplayFormat](http://www.cdisc.org/ns/odm/v2.0/DisplayFormat)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study. Item prope... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:DisplayFormat](http://www.cdisc.org/ns/odm/v2.0/DisplayFormat)
 
 ## Properties
 
-* Range: [Text](Text.md)
+* Range: [text](text.md)
 
 
 
@@ -55,8 +55,8 @@ URI: [odm:DisplayFormat](http://www.cdisc.org/ns/odm/v2.0/DisplayFormat)
 <details>
 ```yaml
 name: DisplayFormat
-description: 'Display format supports data visualization of numeric float and date
-  values. '
+description: Display format supports data visualization of numeric float and date
+  values.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: DisplayFormat

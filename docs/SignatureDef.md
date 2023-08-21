@@ -41,10 +41,10 @@ URI: [odm:SignatureDef](http://www.cdisc.org/ns/odm/v2.0/SignatureDef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [Methodology](Methodology.md) | 0..1 <br/> [SignMethod](SignMethod.md) | Defines the type of electronic signature, including the meaning as required b... | direct |
-| [MeaningRef](MeaningRef.md) | 0..1 <br/> [Meaning](Meaning.md) |  | direct |
-| [LegalReasonRef](LegalReasonRef.md) | 0..1 <br/> [LegalReason](LegalReason.md) |  | direct |
+| [MeaningRef](MeaningRef.md) | 0..1 <br/> [Meaning](Meaning.md) | Meaning reference: A short name or description for this signature. It should ... | direct |
+| [LegalReasonRef](LegalReasonRef.md) | 0..1 <br/> [LegalReason](LegalReason.md) | LegalReason reference: The responsibility statement associated with a signatu... | direct |
 
 
 
@@ -352,6 +352,9 @@ attributes:
     range: SignMethod
   MeaningRef:
     name: MeaningRef
+    description: 'Meaning reference: A short name or description for this signature.
+      It should reflect the context of the signature and/or the text that appears
+      when the signature is applied in the user interface.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -363,6 +366,9 @@ attributes:
     maximum_cardinality: 1
   LegalReasonRef:
     name: LegalReasonRef
+    description: 'LegalReason reference: The responsibility statement associated with
+      a signature (e.g., "The signer accepts responsibility for the accuracy of this
+      data.").'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

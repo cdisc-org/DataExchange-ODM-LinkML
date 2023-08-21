@@ -18,7 +18,7 @@ URI: [odm:EndOID](http://www.cdisc.org/ns/odm/v2.0/EndOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[WorkflowEnd](WorkflowEnd.md) | A WorkflowEnd references a structural element with which the workflows ends |  yes  |
+[WorkflowEnd](WorkflowEnd.md) | A WorkflowEnd references a structural element with which the workflows ends. |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:EndOID](http://www.cdisc.org/ns/odm/v2.0/EndOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

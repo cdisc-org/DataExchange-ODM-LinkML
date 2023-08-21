@@ -31,7 +31,7 @@ URI: [odm:StudyObjectives](http://www.cdisc.org/ns/odm/v2.0/StudyObjectives)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyObjectiveRef](StudyObjectiveRef.md) | 0..* <br/> [StudyObjective](StudyObjective.md) |  | direct |
+| [StudyObjectiveRef](StudyObjectiveRef.md) | 0..* <br/> [StudyObjective](StudyObjective.md) | StudyObjective reference: None | direct |
 
 
 
@@ -132,6 +132,7 @@ slot_usage:
 attributes:
   StudyObjectiveRef:
     name: StudyObjectiveRef
+    description: 'StudyObjective reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

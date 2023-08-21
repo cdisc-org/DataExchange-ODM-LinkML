@@ -1,7 +1,7 @@
 # Class: Location
 
 
-_A physical location associated with data collection and/or treatment of subjects. _
+_A physical location associated with data collection and/or treatment of subjects._
 
 
 
@@ -55,15 +55,15 @@ URI: [odm:Location](http://www.cdisc.org/ns/odm/v2.0/Location)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human-readable identifier | direct |
-| [Role](Role.md) | 0..1 <br/> [Text](Text.md) | Specifies the role of this location in the study | direct |
-| [OrganizationOID](OrganizationOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to an organization | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [MetaDataVersionRefRef](MetaDataVersionRefRef.md) | 0..* <br/> [MetaDataVersionRef](MetaDataVersionRef.md) |  | direct |
-| [AddressRef](AddressRef.md) | 0..* <br/> [Address](Address.md) |  | direct |
-| [TelecomRef](TelecomRef.md) | 0..* <br/> [Telecom](Telecom.md) |  | direct |
-| [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human-readable identifier. | direct |
+| [Role](Role.md) | 0..1 <br/> [text](text.md) | Specifies the role of this location in the study. | direct |
+| [OrganizationOID](OrganizationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an organization. | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [MetaDataVersionRefRef](MetaDataVersionRefRef.md) | 0..* <br/> [MetaDataVersionRef](MetaDataVersionRef.md) | MetaDataVersionRef reference: A reference to a MetaDataVersion used at the co... | direct |
+| [AddressRef](AddressRef.md) | 0..* <br/> [Address](Address.md) | Address reference: The postal address for a user, location, or organization. | direct |
+| [TelecomRef](TelecomRef.md) | 0..* <br/> [Telecom](Telecom.md) | Telecom reference: The telecommunication contacts points of a user, a locatio... | direct |
+| [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) | Query reference: The Query element represents a request for clarification on ... | direct |
 
 
 
@@ -121,8 +121,8 @@ URI: [odm:Location](http://www.cdisc.org/ns/odm/v2.0/Location)
 <details>
 ```yaml
 name: Location
-description: 'A physical location associated with data collection and/or treatment
-  of subjects. '
+description: A physical location associated with data collection and/or treatment
+  of subjects.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Location
@@ -350,8 +350,8 @@ class_uri: odm:Location
 <details>
 ```yaml
 name: Location
-description: 'A physical location associated with data collection and/or treatment
-  of subjects. '
+description: A physical location associated with data collection and/or treatment
+  of subjects.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Location
@@ -698,6 +698,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -745,6 +747,9 @@ attributes:
     maximum_cardinality: 1
   MetaDataVersionRefRef:
     name: MetaDataVersionRefRef
+    description: 'MetaDataVersionRef reference: A reference to a MetaDataVersion used
+      at the containing Location. The EffectiveDate reflects the possibility that
+      the metadata may change over the course of the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -759,6 +764,7 @@ attributes:
     inlined_as_list: true
   AddressRef:
     name: AddressRef
+    description: 'Address reference: The postal address for a user, location, or organization.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -774,6 +780,8 @@ attributes:
     inlined_as_list: true
   TelecomRef:
     name: TelecomRef
+    description: 'Telecom reference: The telecommunication contacts points of a user,
+      a location, or an organization. The Type attribute designates the type of contact.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -789,6 +797,14 @@ attributes:
     inlined_as_list: true
   QueryRef:
     name: QueryRef
+    description: 'Query reference: The Query element represents a request for clarification
+      on a data item collected for a clinical trial, specifically a request from a
+      sponsor or sponsor’s representative to an investigator to resolve an error or
+      inconsistency discovered during data review. Queries can be created manually
+      by individuals such as site monitors or data managers or automatically by systems.
+      The full text of the Query exists in the Value child element. The optional Name
+      attribute provide the means to provide a short identifier that can be included
+      in listing or user interfaces.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

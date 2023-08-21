@@ -18,8 +18,8 @@ URI: [odm:TargetTransitionOID](http://www.cdisc.org/ns/odm/v2.0/TargetTransition
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[TargetTransition](TargetTransition.md) | Provides a reference to a Transition element |  yes  |
-[DefaultTransition](DefaultTransition.md) | Element NameDefaultTransitionParent ElementsBranchingElement XPath(s)/ODM/Stu... |  yes  |
+[TargetTransition](TargetTransition.md) | Provides a reference to a Transition element. |  yes  |
+[DefaultTransition](DefaultTransition.md) |  |  yes  |
 
 
 
@@ -29,7 +29,7 @@ URI: [odm:TargetTransitionOID](http://www.cdisc.org/ns/odm/v2.0/TargetTransition
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

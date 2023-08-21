@@ -31,7 +31,7 @@ URI: [odm:Standards](http://www.cdisc.org/ns/odm/v2.0/Standards)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StandardRef](StandardRef.md) | 0..* <br/> [Standard](Standard.md) | Definition of a standard referenced in the Define-XML document | direct |
+| [StandardRef](StandardRef.md) | 0..* <br/> [Standard](Standard.md) | Definition of a standard referenced in the Define-XML document. | direct |
 
 
 

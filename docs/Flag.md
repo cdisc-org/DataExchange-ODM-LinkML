@@ -1,7 +1,7 @@
 # Class: Flag
 
 
-_Element NameFlagParent ElementsAnnotationElement XPath(s)/ODM/ReferenceData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/SubjectData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Annotation/FlagElement Textual ValueNoneAttributesNoneChild Elements(FlagValue, FlagType?)Usage/Business Rules_
+_A machine-processable annotation._
 
 
 
@@ -35,8 +35,8 @@ URI: [odm:Flag](http://www.cdisc.org/ns/odm/v2.0/Flag)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [FlagValueRef](FlagValueRef.md) | 0..1 <br/> [FlagValue](FlagValue.md) |  | direct |
-| [FlagTypeRef](FlagTypeRef.md) | 0..1 <br/> [FlagType](FlagType.md) |  | direct |
+| [FlagValueRef](FlagValueRef.md) | 0..1 <br/> [FlagValue](FlagValue.md) | FlagValue reference: The value of the flag. The meaning of this value is typi... | direct |
+| [FlagTypeRef](FlagTypeRef.md) | 0..1 <br/> [FlagType](FlagType.md) | FlagType reference: The type of flag. This determines the purpose and semanti... | direct |
 
 
 
@@ -94,9 +94,7 @@ URI: [odm:Flag](http://www.cdisc.org/ns/odm/v2.0/Flag)
 <details>
 ```yaml
 name: Flag
-description: Element NameFlagParent ElementsAnnotationElement XPath(s)/ODM/ReferenceData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/SubjectData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Annotation/FlagElement
-  Textual ValueNoneAttributesNoneChild Elements(FlagValue, FlagType?)Usage/Business
-  Rules
+description: A machine-processable annotation.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Flag
@@ -126,9 +124,7 @@ class_uri: odm:Flag
 <details>
 ```yaml
 name: Flag
-description: Element NameFlagParent ElementsAnnotationElement XPath(s)/ODM/ReferenceData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/Annotation/Flag/ODM/ReferenceData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/ItemGroupData/ItemData/Annotation/Flag/ODM/ClinicalData/SubjectData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/Annotation/Flag/ODM/ClinicalData/SubjectData/StudyEventData/ItemGroupData/ItemData/Annotation/FlagElement
-  Textual ValueNoneAttributesNoneChild Elements(FlagValue, FlagType?)Usage/Business
-  Rules
+description: A machine-processable annotation.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Flag
@@ -148,6 +144,9 @@ slot_usage:
 attributes:
   FlagValueRef:
     name: FlagValueRef
+    description: 'FlagValue reference: The value of the flag. The meaning of this
+      value is typically dependent on the associated FlagType. The actual value must
+      be a member of the referenced CodeList'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -159,6 +158,8 @@ attributes:
     maximum_cardinality: 1
   FlagTypeRef:
     name: FlagTypeRef
+    description: 'FlagType reference: The type of flag. This determines the purpose
+      and semantics of the flag.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

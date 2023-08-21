@@ -105,27 +105,27 @@ URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | MetaDataVersion name | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a CommentDef element | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [IncludeRef](IncludeRef.md) | 0..1 <br/> [Include](Include.md) |  | direct |
-| [StandardsRef](StandardsRef.md) | 0..1 <br/> [Standards](Standards.md) |  | direct |
-| [AnnotatedCRFRef](AnnotatedCRFRef.md) | 0..1 <br/> [AnnotatedCRF](AnnotatedCRF.md) |  | direct |
-| [SupplementalDocRef](SupplementalDocRef.md) | 0..1 <br/> [SupplementalDoc](SupplementalDoc.md) |  | direct |
-| [ValueListDefRef](ValueListDefRef.md) | 0..* <br/> [ValueListDef](ValueListDef.md) |  | direct |
-| [WhereClauseDefRef](WhereClauseDefRef.md) | 0..* <br/> [WhereClauseDef](WhereClauseDef.md) |  | direct |
-| [ProtocolRef](ProtocolRef.md) | 0..1 <br/> [Protocol](Protocol.md) |  | direct |
-| [WorkflowDefRef](WorkflowDefRef.md) | 0..* <br/> [WorkflowDef](WorkflowDef.md) |  | direct |
-| [StudyEventGroupDefRef](StudyEventGroupDefRef.md) | 0..* <br/> [StudyEventGroupDef](StudyEventGroupDef.md) |  | direct |
-| [StudyEventDefRef](StudyEventDefRef.md) | 0..* <br/> [StudyEventDef](StudyEventDef.md) |  | direct |
-| [ItemGroupDefRef](ItemGroupDefRef.md) | 0..* <br/> [ItemGroupDef](ItemGroupDef.md) |  | direct |
-| [ItemDefRef](ItemDefRef.md) | 0..* <br/> [ItemDef](ItemDef.md) |  | direct |
-| [CodeListRefRef](CodeListRefRef.md) | 0..* <br/> [CodeList](CodeList.md) |  | direct |
-| [ConditionDefRef](ConditionDefRef.md) | 0..* <br/> [ConditionDef](ConditionDef.md) |  | direct |
-| [MethodDefRef](MethodDefRef.md) | 0..* <br/> [MethodDef](MethodDef.md) |  | direct |
-| [CommentDefRef](CommentDefRef.md) | 0..* <br/> [CommentDef](CommentDef.md) |  | direct |
-| [LeafRef](LeafRef.md) | 0..* <br/> [Leaf](Leaf.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | MetaDataVersion name. | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef element. | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [IncludeRef](IncludeRef.md) | 0..1 <br/> [Include](Include.md) | Include reference: The Include metadata element allows a reference to a prior... | direct |
+| [StandardsRef](StandardsRef.md) | 0..1 <br/> [Standards](Standards.md) | Standards reference: The Standards element provides a container for the list ... | direct |
+| [AnnotatedCRFRef](AnnotatedCRFRef.md) | 0..1 <br/> [AnnotatedCRF](AnnotatedCRF.md) | AnnotatedCRF reference: An Annotated Case Report Form (CRF) is a Portable Fil... | direct |
+| [SupplementalDocRef](SupplementalDocRef.md) | 0..1 <br/> [SupplementalDoc](SupplementalDoc.md) | SupplementalDoc reference: Supplemental data definitions | direct |
+| [ValueListDefRef](ValueListDefRef.md) | 0..* <br/> [ValueListDef](ValueListDef.md) | ValueListDef reference: The following table specifies the XML structure for v... | direct |
+| [WhereClauseDefRef](WhereClauseDefRef.md) | 0..* <br/> [WhereClauseDef](WhereClauseDef.md) | WhereClauseDef reference: The WhereClauseDef element specifies a condition. | direct |
+| [ProtocolRef](ProtocolRef.md) | 0..1 <br/> [Protocol](Protocol.md) | Protocol reference: The Protocol element lists the kinds of study events that... | direct |
+| [WorkflowDefRef](WorkflowDefRef.md) | 0..* <br/> [WorkflowDef](WorkflowDef.md) | WorkflowDef reference: A WorkflowDef defines an automated workflow for a stud... | direct |
+| [StudyEventGroupDefRef](StudyEventGroupDefRef.md) | 0..* <br/> [StudyEventGroupDef](StudyEventGroupDef.md) | StudyEventGroupDef reference: StudyEventGroupDef is a study building block th... | direct |
+| [StudyEventDefRef](StudyEventDefRef.md) | 0..* <br/> [StudyEventDef](StudyEventDef.md) | StudyEventDef reference: StudyEventDef represents the definition of an activi... | direct |
+| [ItemGroupDefRef](ItemGroupDefRef.md) | 0..* <br/> [ItemGroupDef](ItemGroupDef.md) | ItemGroupDef reference: An ItemGroupDef describes a type of variable or field... | direct |
+| [ItemDefRef](ItemDefRef.md) | 0..* <br/> [ItemDef](ItemDef.md) | ItemDef reference: An ItemDef describes a type of item that can occur within ... | direct |
+| [CodeListRefRef](CodeListRefRef.md) | 0..* <br/> [CodeList](CodeList.md) | CodeListRef reference: A reference to a CodeList definition. | direct |
+| [ConditionDefRef](ConditionDefRef.md) | 0..* <br/> [ConditionDef](ConditionDef.md) | ConditionDef reference: A ConditionDef defines a boolean condition. | direct |
+| [MethodDefRef](MethodDefRef.md) | 0..* <br/> [MethodDef](MethodDef.md) | MethodDef reference: A MethodDef defines how a data value can be obtained fro... | direct |
+| [CommentDefRef](CommentDefRef.md) | 0..* <br/> [CommentDef](CommentDef.md) | CommentDef reference: The Comment element allows referencing short comments s... | direct |
+| [LeafRef](LeafRef.md) | 0..* <br/> [Leaf](Leaf.md) | Leaf reference: Contains the XLink information referenced by DocumentRef or A... | direct |
 
 
 
@@ -928,6 +928,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -975,6 +977,8 @@ attributes:
     maximum_cardinality: 1
   IncludeRef:
     name: IncludeRef
+    description: 'Include reference: The Include metadata element allows a reference
+      to a prior metadata version.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -986,6 +990,9 @@ attributes:
     maximum_cardinality: 1
   StandardsRef:
     name: StandardsRef
+    description: 'Standards reference: The Standards element provides a container
+      for the list of Standard elements referenced in the MetaDataVersion for the
+      Study..'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -997,6 +1004,9 @@ attributes:
     maximum_cardinality: 1
   AnnotatedCRFRef:
     name: AnnotatedCRFRef
+    description: 'AnnotatedCRF reference: An Annotated Case Report Form (CRF) is a
+      Portable File Format (PDF) document that provides the mapping of data collection
+      fields to the variables or discrete variable values contained within the datasets.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1008,6 +1018,7 @@ attributes:
     maximum_cardinality: 1
   SupplementalDocRef:
     name: SupplementalDocRef
+    description: 'SupplementalDoc reference: Supplemental data definitions'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1019,6 +1030,9 @@ attributes:
     maximum_cardinality: 1
   ValueListDefRef:
     name: ValueListDefRef
+    description: 'ValueListDef reference: The following table specifies the XML structure
+      for valuelist metadata. The ValueListDef element contains ItemRef elements that
+      reference ItemDef elements that provide the value-level metadata details'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1032,6 +1046,8 @@ attributes:
     inlined_as_list: true
   WhereClauseDefRef:
     name: WhereClauseDefRef
+    description: 'WhereClauseDef reference: The WhereClauseDef element specifies a
+      condition.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1045,6 +1061,9 @@ attributes:
     inlined_as_list: true
   ProtocolRef:
     name: ProtocolRef
+    description: 'Protocol reference: The Protocol element lists the kinds of study
+      events that can occur within a specific version of a study. All clinical data
+      must occur within one of these study events.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1056,6 +1075,8 @@ attributes:
     maximum_cardinality: 1
   WorkflowDefRef:
     name: WorkflowDefRef
+    description: 'WorkflowDef reference: A WorkflowDef defines an automated workflow
+      for a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1069,6 +1090,9 @@ attributes:
     inlined_as_list: true
   StudyEventGroupDefRef:
     name: StudyEventGroupDefRef
+    description: 'StudyEventGroupDef reference: StudyEventGroupDef is a study building
+      block that groups a number of smaller building blocks, which can themselves
+      be StudyEventGroups or StudyEvents. It thus allows nesting of building blocks.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1082,6 +1106,11 @@ attributes:
     inlined_as_list: true
   StudyEventDefRef:
     name: StudyEventDefRef
+    description: 'StudyEventDef reference: StudyEventDef represents the definition
+      of an activity in a study where data is collected. For example, a study event
+      may represent a set of item groups that represent data collection instruments
+      to be completed for a subject during a visit in a study. The visit occurs as
+      part of a study workflow, and the workflow is referenced in the study event.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1095,6 +1124,8 @@ attributes:
     inlined_as_list: true
   ItemGroupDefRef:
     name: ItemGroupDefRef
+    description: 'ItemGroupDef reference: An ItemGroupDef describes a type of variable
+      or field grouping that can occur within a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1108,6 +1139,9 @@ attributes:
     inlined_as_list: true
   ItemDefRef:
     name: ItemDefRef
+    description: 'ItemDef reference: An ItemDef describes a type of item that can
+      occur within a study. Item properties include name, datatype, range, or codelist
+      restrictions, and several other properties.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1121,6 +1155,7 @@ attributes:
     inlined_as_list: true
   CodeListRefRef:
     name: CodeListRefRef
+    description: 'CodeListRef reference: A reference to a CodeList definition.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1135,6 +1170,7 @@ attributes:
     inlined_as_list: true
   ConditionDefRef:
     name: ConditionDefRef
+    description: 'ConditionDef reference: A ConditionDef defines a boolean condition.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1148,6 +1184,8 @@ attributes:
     inlined_as_list: true
   MethodDefRef:
     name: MethodDefRef
+    description: 'MethodDef reference: A MethodDef defines how a data value can be
+      obtained from a collection of other data values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1161,6 +1199,10 @@ attributes:
     inlined_as_list: true
   CommentDefRef:
     name: CommentDefRef
+    description: 'CommentDef reference: The Comment element allows referencing short
+      comments self-contained in the XML document or long comments normally included
+      in external documents. For comments included in external documents, the reference
+      could include specific pages of a document where the comments are included.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1174,6 +1216,8 @@ attributes:
     inlined_as_list: true
   LeafRef:
     name: LeafRef
+    description: 'Leaf reference: Contains the XLink information referenced by DocumentRef
+      or ArchiveLocationID'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

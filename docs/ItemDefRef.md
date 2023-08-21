@@ -1,5 +1,10 @@
 # Slot: ItemDefRef
 
+
+_ItemDef reference: An ItemDef describes a type of item that can occur within a study. Item properties include name, datatype, range, or codelist restrictions, and several other properties._
+
+
+
 URI: [odm:ItemDefRef](http://www.cdisc.org/ns/odm/v2.0/ItemDefRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:ItemDefRef](http://www.cdisc.org/ns/odm/v2.0/ItemDefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements |  yes  |
+[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements. ... |  yes  |
 
 
 
@@ -50,6 +55,9 @@ URI: [odm:ItemDefRef](http://www.cdisc.org/ns/odm/v2.0/ItemDefRef)
 <details>
 ```yaml
 name: ItemDefRef
+description: 'ItemDef reference: An ItemDef describes a type of item that can occur
+  within a study. Item properties include name, datatype, range, or codelist restrictions,
+  and several other properties.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

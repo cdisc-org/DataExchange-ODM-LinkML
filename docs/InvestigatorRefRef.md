@@ -1,5 +1,10 @@
 # Slot: InvestigatorRefRef
 
+
+_InvestigatorRef reference: Provides a reference to the user who created the SubjectData record in the source system._
+
+
+
 URI: [odm:InvestigatorRefRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRefRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:InvestigatorRefRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRefRe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SubjectData](SubjectData.md) | Clinical data for a single subject |  yes  |
+[SubjectData](SubjectData.md) | Clinical data for a single subject. |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:InvestigatorRefRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRefRe
 <details>
 ```yaml
 name: InvestigatorRefRef
+description: 'InvestigatorRef reference: Provides a reference to the user who created
+  the SubjectData record in the source system.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

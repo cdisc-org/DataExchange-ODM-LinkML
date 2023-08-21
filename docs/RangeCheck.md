@@ -53,13 +53,13 @@ URI: [odm:RangeCheck](http://www.cdisc.org/ns/odm/v2.0/RangeCheck)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ComparatorRef](ComparatorRef.md) | 0..1 <br/> [Comparator](Comparator.md) | Comparison operator used to compare the item and value(s) | direct |
-| [SoftHard](SoftHard.md) | 0..1 <br/> [SoftOrHard](SoftOrHard.md) | Type of range check | direct |
-| [ItemOID](ItemOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Identifies a variable to compare against | direct |
-| [ErrorMessageRef](ErrorMessageRef.md) | 0..1 <br/> [ErrorMessage](ErrorMessage.md) |  | direct |
-| [MethodSignatureRef](MethodSignatureRef.md) | 0..1 <br/> [MethodSignature](MethodSignature.md) |  | direct |
-| [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) |  | direct |
-| [CheckValueRef](CheckValueRef.md) | 0..* <br/> [CheckValue](CheckValue.md) |  | direct |
+| [ComparatorRef](ComparatorRef.md) | 0..1 <br/> [Comparator](Comparator.md) | Comparison operator used to compare the item and value(s). | direct |
+| [SoftHard](SoftHard.md) | 0..1 <br/> [SoftOrHard](SoftOrHard.md) | Type of range check. Soft indicates that a warning occurs when the RangeCheck... | direct |
+| [ItemOID](ItemOID.md) | 0..1 <br/> [oidref](oidref.md) | Identifies a variable to compare against. | direct |
+| [ErrorMessageRef](ErrorMessageRef.md) | 0..1 <br/> [ErrorMessage](ErrorMessage.md) | ErrorMessage reference: Error message provided to user when the range check f... | direct |
+| [MethodSignatureRef](MethodSignatureRef.md) | 0..1 <br/> [MethodSignature](MethodSignature.md) | MethodSignature reference: A MethodSignature defines the parameters and retur... | direct |
+| [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
+| [CheckValueRef](CheckValueRef.md) | 0..* <br/> [CheckValue](CheckValue.md) | CheckValue reference: A comparison value used in a range check. | direct |
 
 
 
@@ -340,6 +340,8 @@ attributes:
     range: oidref
   ErrorMessageRef:
     name: ErrorMessageRef
+    description: 'ErrorMessage reference: Error message provided to user when the
+      range check fails.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -351,6 +353,10 @@ attributes:
     maximum_cardinality: 1
   MethodSignatureRef:
     name: MethodSignatureRef
+    description: 'MethodSignature reference: A MethodSignature defines the parameters
+      and return values for a method. The MethodSignature improves traceability while
+      enhancing the ability for automation engines to execute a MethodDef''s FormalExpression.
+      Most Methods use one or more input parameters and return one or more values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -364,6 +370,13 @@ attributes:
     maximum_cardinality: 1
   FormalExpressionRef:
     name: FormalExpressionRef
+    description: 'FormalExpression reference: A FormalExpression used within a ConditionDef
+      or a RangeCheck must evaluate to True or False. A FormalExpression referenced
+      within a MethodDef having Type Imputation, Computation, or Transpose must evaluate
+      to the correct DataType for an Item that may be imputed or computed using the
+      Method. A FormalExpression gets parameter and return value definitions from
+      the MethodSignature element. The data types in the MethodSignature parameters
+      and return values must match the corresponding data types in the FormalExpression.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -381,6 +394,7 @@ attributes:
     inlined_as_list: true
   CheckValueRef:
     name: CheckValueRef
+    description: 'CheckValue reference: A comparison value used in a range check.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

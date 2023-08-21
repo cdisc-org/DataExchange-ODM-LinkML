@@ -1,5 +1,10 @@
 # Slot: ImageRef
 
+
+_Image reference: A visual depiction of the user._
+
+
+
 URI: [odm:ImageRef](http://www.cdisc.org/ns/odm/v2.0/ImageRef)
 
 
@@ -50,6 +55,7 @@ URI: [odm:ImageRef](http://www.cdisc.org/ns/odm/v2.0/ImageRef)
 <details>
 ```yaml
 name: ImageRef
+description: 'Image reference: A visual depiction of the user.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

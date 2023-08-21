@@ -18,11 +18,11 @@ URI: [odm:TransactionTypeRef](http://www.cdisc.org/ns/odm/v2.0/TransactionTypeRe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SubjectData](SubjectData.md) | Clinical data for a single subject |  yes  |
-[StudyEventData](StudyEventData.md) | Clinical data for a study event (visit) |  yes  |
+[SubjectData](SubjectData.md) | Clinical data for a single subject. |  yes  |
+[StudyEventData](StudyEventData.md) | Clinical data for a study event (visit). The model supports repeating study e... |  yes  |
 [ItemGroupData](ItemGroupData.md) | Clinical data corresponding to an ItemGroupRef defined in the active MetaData... |  yes  |
 [ItemData](ItemData.md) | The ItemData element is used for transmission of the clinical data for an ite... |  yes  |
-[Annotation](Annotation.md) | A general note about clinical data |  yes  |
+[Annotation](Annotation.md) | A general note about clinical data. If an annotation has both a comment and f... |  yes  |
 
 
 

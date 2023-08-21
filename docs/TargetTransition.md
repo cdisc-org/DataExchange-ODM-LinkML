@@ -31,8 +31,8 @@ URI: [odm:TargetTransition](http://www.cdisc.org/ns/odm/v2.0/TargetTransition)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TargetTransitionOID](TargetTransitionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the Transition that is one of the targets of the branching | direct |
-| [ConditionOID](ConditionOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a ConditionDef defining the condition under which the transition... | direct |
+| [TargetTransitionOID](TargetTransitionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the Transition that is one of the targets of the branching. | direct |
+| [ConditionOID](ConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef defining the condition under which the transition... | direct |
 
 
 

@@ -1,5 +1,10 @@
 # Slot: IntercurrentEventRef
 
+
+_IntercurrentEvent reference: None_
+
+
+
 URI: [odm:IntercurrentEventRef](http://www.cdisc.org/ns/odm/v2.0/IntercurrentEventRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:IntercurrentEventRef](http://www.cdisc.org/ns/odm/v2.0/IntercurrentEve
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEstimand](StudyEstimand.md) | Element NameStudyEstimandParent ElementsStudyEstimandsElement XPath(s)/ODM/St... |  yes  |
+[StudyEstimand](StudyEstimand.md) |  |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:IntercurrentEventRef](http://www.cdisc.org/ns/odm/v2.0/IntercurrentEve
 <details>
 ```yaml
 name: IntercurrentEventRef
+description: 'IntercurrentEvent reference: None'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

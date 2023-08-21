@@ -101,30 +101,30 @@ URI: [odm:ItemGroupDef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the ItemGroupDef element | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable name for the ItemGroupDef | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the ItemGroupDef element. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the ItemGroupDef. | direct |
 | [Repeating](Repeating.md) | 1..1 <br/> [ItemGroupRepeatingType](ItemGroupRepeatingType.md) | The Repeating attribute indicates that the ItemGroup may occur repeatedly wit... | direct |
-| [RepeatingLimit](RepeatingLimit.md) | 0..1 <br/> [PositiveInteger](PositiveInteger.md) | Maximum number of repeats | direct |
-| [IsReferenceData](IsReferenceData.md) | 0..1 <br/> [YesOrNo](YesOrNo.md) | Specifies whether this ItemGroupDef is used for non-subject data | direct |
-| [Structure](Structure.md) | 0..1 <br/> [Text](Text.md) | Description of the level of detail represented by individual records in the I... | direct |
-| [ArchiveLocationID](ArchiveLocationID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to the unique ID of a leaf element that provides the actual locatio... | direct |
-| [DatasetName](DatasetName.md) | 0..1 <br/> [Name](Name.md) | Name of a file containing the ItemGroupData for this ItemGroupDef | direct |
-| [Domain](Domain.md) | 0..1 <br/> [Text](Text.md) | Identifies the scope or CDISC SDTMIG/SENDIG Domain of the ItemGroup data | direct |
-| [Type](Type.md) | 1..1 <br/> [ItemGroupTypeType](ItemGroupTypeType.md) | identifies the type of data structure the ItemGroup represents | direct |
-| [Purpose](Purpose.md) | 0..1 <br/> [Text](Text.md) | Purpose of the ItemGroup | direct |
-| [StandardOID](StandardOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a Standard element | direct |
-| [IsNonStandard](IsNonStandard.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Required for ADaM, SDTM, or SEND if StandardOID is not provided | direct |
-| [HasNoData](HasNoData.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Used to indicate that an ItemGroupDef has no data | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a CommentDef with sponsor provided information related to this I... | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [ClassRef](ClassRef.md) | 0..1 <br/> [Class](Class.md) |  | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
-| [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) |  | direct |
-| [OriginRef](OriginRef.md) | 0..* <br/> [Origin](Origin.md) |  | direct |
-| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) |  | direct |
-| [LeafRef](LeafRef.md) | 0..1 <br/> [Leaf](Leaf.md) |  | direct |
-| [ItemGroupRefRef](ItemGroupRefRef.md) | 0..* <br/> [ItemGroupRef](ItemGroupRef.md) |  | direct |
-| [ItemRefRef](ItemRefRef.md) | 0..* <br/> [ItemRef](ItemRef.md) |  | direct |
+| [RepeatingLimit](RepeatingLimit.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Maximum number of repeats. | direct |
+| [IsReferenceData](IsReferenceData.md) | 0..1 <br/> [YesOrNo](YesOrNo.md) | Specifies whether this ItemGroupDef is used for non-subject data. | direct |
+| [Structure](Structure.md) | 0..1 <br/> [text](text.md) | Description of the level of detail represented by individual records in the I... | direct |
+| [ArchiveLocationID](ArchiveLocationID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a leaf element that provides the actual locatio... | direct |
+| [DatasetName](DatasetName.md) | 0..1 <br/> [name](name.md) | Name of a file containing the ItemGroupData for this ItemGroupDef. The name a... | direct |
+| [Domain](Domain.md) | 0..1 <br/> [text](text.md) | Identifies the scope or CDISC SDTMIG/SENDIG Domain of the ItemGroup data. The... | direct |
+| [Type](Type.md) | 1..1 <br/> [ItemGroupTypeType](ItemGroupTypeType.md) | identifies the type of data structure the ItemGroup represents. Form - a CRF ... | direct |
+| [Purpose](Purpose.md) | 0..1 <br/> [text](text.md) | Purpose of the ItemGroup. | direct |
+| [StandardOID](StandardOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Standard element. | direct |
+| [IsNonStandard](IsNonStandard.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Required for ADaM, SDTM, or SEND if StandardOID is not provided. | direct |
+| [HasNoData](HasNoData.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d... | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef with sponsor provided information related to this I... | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [ClassRef](ClassRef.md) | 0..1 <br/> [Class](Class.md) | Class reference: None | direct |
+| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
+| [OriginRef](OriginRef.md) | 0..* <br/> [Origin](Origin.md) | Origin reference: Origin defines the source metadata, where applicable, for O... | direct |
+| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
+| [LeafRef](LeafRef.md) | 0..1 <br/> [Leaf](Leaf.md) | Leaf reference: Contains the XLink information referenced by DocumentRef or A... | direct |
+| [ItemGroupRefRef](ItemGroupRefRef.md) | 0..* <br/> [ItemGroupRef](ItemGroupRef.md) | ItemGroupRef reference: ItemGroupRef references an ItemGroupDef as it occurs ... | direct |
+| [ItemRefRef](ItemRefRef.md) | 0..* <br/> [ItemRef](ItemRef.md) | ItemRef reference: A reference to an ItemDef as it occurs within a specific I... | direct |
 
 
 
@@ -449,7 +449,7 @@ slot_usage:
     required: true
   Purpose:
     name: Purpose
-    description: 'Purpose of the ItemGroup. '
+    description: Purpose of the ItemGroup.
     comments:
     - 'Optional
 
@@ -911,7 +911,7 @@ slot_usage:
     required: true
   Purpose:
     name: Purpose
-    description: 'Purpose of the ItemGroup. '
+    description: Purpose of the ItemGroup.
     comments:
     - 'Optional
 
@@ -1399,7 +1399,7 @@ attributes:
     required: true
   Purpose:
     name: Purpose
-    description: 'Purpose of the ItemGroup. '
+    description: Purpose of the ItemGroup.
     comments:
     - 'Optional
 
@@ -1499,6 +1499,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1546,6 +1548,7 @@ attributes:
     maximum_cardinality: 1
   ClassRef:
     name: ClassRef
+    description: 'Class reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1557,6 +1560,12 @@ attributes:
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1585,6 +1594,7 @@ attributes:
     inlined_as_list: true
   WorkflowRefRef:
     name: WorkflowRefRef
+    description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1602,6 +1612,11 @@ attributes:
     maximum_cardinality: 1
   OriginRef:
     name: OriginRef
+    description: 'Origin reference: Origin defines the source metadata, where applicable,
+      for ODM ItemRefs or ItemGroupRefs. Origin as a child element replaces the Origin
+      attribute in ODM v1.3 that exists for the ItemDef and ItemGroupDef elements.The
+      Origin element is based on the def:Origin element in Define-XML v2.1 with the
+      Trace-XML v1.0 extension.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1616,6 +1631,9 @@ attributes:
     inlined_as_list: true
   AliasRef:
     name: AliasRef
+    description: 'Alias reference: An Alias provides an additional name for an element.
+      The Context attribute specifies the application domain in which this additional
+      name is relevant.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1636,6 +1654,8 @@ attributes:
     inlined_as_list: true
   LeafRef:
     name: LeafRef
+    description: 'Leaf reference: Contains the XLink information referenced by DocumentRef
+      or ArchiveLocationID'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1648,6 +1668,12 @@ attributes:
     maximum_cardinality: 1
   ItemGroupRefRef:
     name: ItemGroupRefRef
+    description: 'ItemGroupRef reference: ItemGroupRef references an ItemGroupDef
+      as it occurs within a specific StudyEventDef or ItemGroupDef. The list of ItemGroupRefs
+      identifies the types of item groups that are allowed to occur within this type
+      of studyevent or (nested) item group. The ItemGroupRefs within a single StudyEventDef
+      or ItemGroupDef must not have duplicate ItemGroupOID or OrderNumber attribute
+      values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1662,6 +1688,9 @@ attributes:
     inlined_as_list: true
   ItemRefRef:
     name: ItemRefRef
+    description: 'ItemRef reference: A reference to an ItemDef as it occurs within
+      a specific ItemGroupDef. The list of ItemRefs identifies the types of items
+      that are allowed to occur within this type of item group.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

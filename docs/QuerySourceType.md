@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Source_
+
+
+
 URI: [QuerySourceType](QuerySourceType)
 
 ## Permissible Values
@@ -21,7 +26,7 @@ URI: [QuerySourceType](QuerySourceType)
 
 | Name | Description |
 | ---  | --- |
-| [Source](Source.md) | Origin of the Query |
+| [Source](Source.md) | Origin of the Query. |
 
 
 
@@ -49,6 +54,7 @@ URI: [QuerySourceType](QuerySourceType)
 <details>
 ```yaml
 name: QuerySourceType
+description: Enumeration used in Source
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

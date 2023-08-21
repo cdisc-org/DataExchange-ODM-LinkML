@@ -31,7 +31,7 @@ URI: [odm:StudyIndications](http://www.cdisc.org/ns/odm/v2.0/StudyIndications)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyIndicationRef](StudyIndicationRef.md) | 0..* <br/> [StudyIndication](StudyIndication.md) |  | direct |
+| [StudyIndicationRef](StudyIndicationRef.md) | 0..* <br/> [StudyIndication](StudyIndication.md) | StudyIndication reference: This element describes a study indication (e.g., c... | direct |
 
 
 
@@ -132,6 +132,11 @@ slot_usage:
 attributes:
   StudyIndicationRef:
     name: StudyIndicationRef
+    description: 'StudyIndication reference: This element describes a study indication
+      (e.g., condition, disease) for the clinical study. The human-readable description
+      is provided in the Description element. The Coding element can be used to provide
+      a machine-readable code for the indication (e.g., SNOMED-CT code 26929004 for
+      "Alzheimer''s disease").'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

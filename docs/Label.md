@@ -19,7 +19,7 @@ URI: [odm:Label](http://www.cdisc.org/ns/odm/v2.0/Label)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [Resource](Resource.md) | Describes an external resource used as the source for the parent ItemGroup or... |  yes  |
-[Coding](Coding.md) | Coding references a symbol from a defined code system |  yes  |
+[Coding](Coding.md) | Coding references a symbol from a defined code system. It uses a code defined... |  yes  |
 
 
 
@@ -29,7 +29,7 @@ URI: [odm:Label](http://www.cdisc.org/ns/odm/v2.0/Label)
 
 ## Properties
 
-* Range: [Text](Text.md)
+* Range: [text](text.md)
 
 
 

@@ -1,5 +1,10 @@
 # Slot: SiteRefRef
 
+
+_SiteRef reference: lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType is Transactional._
+
+
+
 URI: [odm:SiteRefRef](http://www.cdisc.org/ns/odm/v2.0/SiteRefRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:SiteRefRef](http://www.cdisc.org/ns/odm/v2.0/SiteRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SubjectData](SubjectData.md) | Clinical data for a single subject |  yes  |
+[SubjectData](SubjectData.md) | Clinical data for a single subject. |  yes  |
 
 
 
@@ -50,6 +55,10 @@ URI: [odm:SiteRefRef](http://www.cdisc.org/ns/odm/v2.0/SiteRefRef)
 <details>
 ```yaml
 name: SiteRefRef
+description: 'SiteRef reference: lement NameSiteRefParent ElementsSubjectDataElement
+  XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild
+  ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType
+  is Transactional.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

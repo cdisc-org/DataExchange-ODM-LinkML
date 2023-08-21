@@ -1,5 +1,10 @@
 # Slot: WorkflowEndRef
 
+
+_WorkflowEnd reference: A WorkflowEnd references a structural element with which the workflows ends._
+
+
+
 URI: [odm:WorkflowEndRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowEndRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:WorkflowEndRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowEndRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[WorkflowDef](WorkflowDef.md) | A WorkflowDef defines an automated workflow for a study |  yes  |
+[WorkflowDef](WorkflowDef.md) | A WorkflowDef defines an automated workflow for a study. |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:WorkflowEndRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowEndRef)
 <details>
 ```yaml
 name: WorkflowEndRef
+description: 'WorkflowEnd reference: A WorkflowEnd references a structural element
+  with which the workflows ends.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

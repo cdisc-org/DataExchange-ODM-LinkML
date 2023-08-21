@@ -29,7 +29,7 @@ URI: [odm:ValueListRef](http://www.cdisc.org/ns/odm/v2.0/ValueListRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ValueListOID](ValueListOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the unique ID of a ValueListDef element that provides value-leve... | direct |
+| [ValueListOID](ValueListOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a ValueListDef element that provides value-leve... | direct |
 
 
 
@@ -99,8 +99,8 @@ slots:
 slot_usage:
   ValueListOID:
     name: ValueListOID
-    description: 'Reference to the unique ID of a ValueListDef element that provides
-      value-level metadata. '
+    description: Reference to the unique ID of a ValueListDef element that provides
+      value-level metadata.
     comments:
     - 'Required
 
@@ -131,8 +131,8 @@ see_also:
 slot_usage:
   ValueListOID:
     name: ValueListOID
-    description: 'Reference to the unique ID of a ValueListDef element that provides
-      value-level metadata. '
+    description: Reference to the unique ID of a ValueListDef element that provides
+      value-level metadata.
     comments:
     - 'Required
 
@@ -146,8 +146,8 @@ slot_usage:
 attributes:
   ValueListOID:
     name: ValueListOID
-    description: 'Reference to the unique ID of a ValueListDef element that provides
-      value-level metadata. '
+    description: Reference to the unique ID of a ValueListDef element that provides
+      value-level metadata.
     comments:
     - 'Required
 

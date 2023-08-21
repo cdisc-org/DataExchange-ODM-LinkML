@@ -28,7 +28,7 @@ URI: [odm:Path](http://www.cdisc.org/ns/odm/v2.0/Path)
 
 ## Properties
 
-* Range: [Text](Text.md)
+* Range: [text](text.md)
 
 
 

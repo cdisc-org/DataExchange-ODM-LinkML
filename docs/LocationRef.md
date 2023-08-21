@@ -29,7 +29,7 @@ URI: [odm:LocationRef](http://www.cdisc.org/ns/odm/v2.0/LocationRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [LocationOID](LocationOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to a Location definition | direct |
+| [LocationOID](LocationOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a Location definition. | direct |
 
 
 
@@ -104,7 +104,7 @@ slot_usage:
       range:oidref
 
       Must match the OID for an AdminData/Location element and the LocationOID for
-      the UserRef element contained within the AuditRecord or Signature. '
+      the UserRef element contained within the AuditRecord or Signature.'
     domain_of:
     - User
     - Organization
@@ -136,7 +136,7 @@ slot_usage:
       range:oidref
 
       Must match the OID for an AdminData/Location element and the LocationOID for
-      the UserRef element contained within the AuditRecord or Signature. '
+      the UserRef element contained within the AuditRecord or Signature.'
     domain_of:
     - User
     - Organization
@@ -154,7 +154,7 @@ attributes:
       range:oidref
 
       Must match the OID for an AdminData/Location element and the LocationOID for
-      the UserRef element contained within the AuditRecord or Signature. '
+      the UserRef element contained within the AuditRecord or Signature.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: LocationOID

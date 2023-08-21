@@ -1,5 +1,10 @@
 # Slot: ItemDataRef
 
+
+_ItemData reference: The ItemData element is used for transmission of the clinical data for an item. The model does not support repeating items within a single item group._
+
+
+
 URI: [odm:ItemDataRef](http://www.cdisc.org/ns/odm/v2.0/ItemDataRef)
 
 
@@ -50,6 +55,9 @@ URI: [odm:ItemDataRef](http://www.cdisc.org/ns/odm/v2.0/ItemDataRef)
 <details>
 ```yaml
 name: ItemDataRef
+description: 'ItemData reference: The ItemData element is used for transmission of
+  the clinical data for an item. The model does not support repeating items within
+  a single item group.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

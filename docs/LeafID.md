@@ -18,7 +18,7 @@ URI: [odm:LeafID](http://www.cdisc.org/ns/odm/v2.0/LeafID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[DocumentRef](DocumentRef.md) | Links to a leaf element with the location of the document |  yes  |
+[DocumentRef](DocumentRef.md) | Links to a leaf element with the location of the document. |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:LeafID](http://www.cdisc.org/ns/odm/v2.0/LeafID)
 
 ## Properties
 
-* Range: [Oid](Oid.md)
+* Range: [oid](oid.md)
 
 
 

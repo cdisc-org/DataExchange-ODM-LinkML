@@ -1,7 +1,7 @@
 # Slot: SeqNum
 
 
-_When more than 1 Value element exists this attribute uniquely identifies each Value and defines the order of a Value in a list of Values. _
+_When more than 1 Value element exists this attribute uniquely identifies each Value and defines the order of a Value in a list of Values._
 
 
 
@@ -18,8 +18,8 @@ URI: [odm:SeqNum](http://www.cdisc.org/ns/odm/v2.0/SeqNum)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Annotation](Annotation.md) | A general note about clinical data |  yes  |
-[Value](Value.md) | The data collected for an item |  yes  |
+[Annotation](Annotation.md) | A general note about clinical data. If an annotation has both a comment and f... |  yes  |
+[Value](Value.md) | The data collected for an item. This data is represented according to DataTyp... |  yes  |
 
 
 
@@ -29,7 +29,7 @@ URI: [odm:SeqNum](http://www.cdisc.org/ns/odm/v2.0/SeqNum)
 
 ## Properties
 
-* Range: [PositiveInteger](PositiveInteger.md)
+* Range: [positiveInteger](positiveInteger.md)
 
 
 
@@ -56,8 +56,8 @@ URI: [odm:SeqNum](http://www.cdisc.org/ns/odm/v2.0/SeqNum)
 <details>
 ```yaml
 name: SeqNum
-description: 'When more than 1 Value element exists this attribute uniquely identifies
-  each Value and defines the order of a Value in a list of Values. '
+description: When more than 1 Value element exists this attribute uniquely identifies
+  each Value and defines the order of a Value in a list of Values.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SeqNum

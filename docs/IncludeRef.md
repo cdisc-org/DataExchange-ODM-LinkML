@@ -1,5 +1,10 @@
 # Slot: IncludeRef
 
+
+_Include reference: The Include metadata element allows a reference to a prior metadata version._
+
+
+
 URI: [odm:IncludeRef](http://www.cdisc.org/ns/odm/v2.0/IncludeRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:IncludeRef](http://www.cdisc.org/ns/odm/v2.0/IncludeRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements |  yes  |
+[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements. ... |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:IncludeRef](http://www.cdisc.org/ns/odm/v2.0/IncludeRef)
 <details>
 ```yaml
 name: IncludeRef
+description: 'Include reference: The Include metadata element allows a reference to
+  a prior metadata version.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

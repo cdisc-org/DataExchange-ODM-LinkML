@@ -31,8 +31,8 @@ URI: [odm:WorkflowEnd](http://www.cdisc.org/ns/odm/v2.0/WorkflowEnd)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [EndOID](EndOID.md) | 1..1 <br/> [Oidref](Oidref.md) | Reference to the definition of the structural element that ends the workflow | direct |
-| [_content](_content.md) | 0..1 <br/> [Text](Text.md) | multi-line text content from between XML tags | direct |
+| [EndOID](EndOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the definition of the structural element that ends the workflow.... | direct |
+| [_content](_content.md) | 0..1 <br/> [text](text.md) | multi-line text content from between XML tags | direct |
 
 
 

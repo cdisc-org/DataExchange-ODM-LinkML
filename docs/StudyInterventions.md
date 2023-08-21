@@ -1,7 +1,7 @@
 # Class: StudyInterventions
 
 
-_The StudyInterventions element is a container element for individual StudyIntervention elements.Element NameStudyInterventionsParent Element(s)ProtocolElement XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyInterventionsElement Text ValueNoneAttributesNoneChild Elements(StudyIntervention+)Usage/Business Rules_
+_The StudyInterventions element is a container element for individual StudyIntervention elements._
 
 
 
@@ -31,7 +31,7 @@ URI: [odm:StudyInterventions](http://www.cdisc.org/ns/odm/v2.0/StudyIntervention
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyInterventionRefRef](StudyInterventionRefRef.md) | 0..* <br/> [StudyIntervention](StudyIntervention.md) |  | direct |
+| [StudyInterventionRefRef](StudyInterventionRefRef.md) | 0..* <br/> [StudyIntervention](StudyIntervention.md) | StudyInterventionRef reference: None | direct |
 
 
 
@@ -90,9 +90,7 @@ URI: [odm:StudyInterventions](http://www.cdisc.org/ns/odm/v2.0/StudyIntervention
 ```yaml
 name: StudyInterventions
 description: The StudyInterventions element is a container element for individual
-  StudyIntervention elements.Element NameStudyInterventionsParent Element(s)ProtocolElement
-  XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyInterventionsElement Text ValueNoneAttributesNoneChild
-  Elements(StudyIntervention+)Usage/Business Rules
+  StudyIntervention elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventions
@@ -119,9 +117,7 @@ class_uri: odm:StudyInterventions
 ```yaml
 name: StudyInterventions
 description: The StudyInterventions element is a container element for individual
-  StudyIntervention elements.Element NameStudyInterventionsParent Element(s)ProtocolElement
-  XPath(s)/ODM/Study/MetaDataVersion/Protocol/StudyInterventionsElement Text ValueNoneAttributesNoneChild
-  Elements(StudyIntervention+)Usage/Business Rules
+  StudyIntervention elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventions
@@ -138,6 +134,7 @@ slot_usage:
 attributes:
   StudyInterventionRefRef:
     name: StudyInterventionRefRef
+    description: 'StudyInterventionRef reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

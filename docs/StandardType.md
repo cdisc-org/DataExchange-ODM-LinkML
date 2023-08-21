@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Type_
+
+
+
 URI: [StandardType](StandardType)
 
 ## Permissible Values
@@ -18,7 +23,7 @@ URI: [StandardType](StandardType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) | The type of standard |
+| [Type](Type.md) | The type of standard. |
 
 
 
@@ -52,6 +57,7 @@ URI: [StandardType](StandardType)
 ```yaml
 name: StandardType
 conforms_to: nci:ExtCodeID:C170451
+description: Enumeration used in Type
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 aliases:
 - C170451

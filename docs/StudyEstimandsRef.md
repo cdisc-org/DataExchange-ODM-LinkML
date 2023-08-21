@@ -1,5 +1,10 @@
 # Slot: StudyEstimandsRef
 
+
+_StudyEstimands reference: None_
+
+
+
 URI: [odm:StudyEstimandsRef](http://www.cdisc.org/ns/odm/v2.0/StudyEstimandsRef)
 
 
@@ -50,6 +55,7 @@ URI: [odm:StudyEstimandsRef](http://www.cdisc.org/ns/odm/v2.0/StudyEstimandsRef)
 <details>
 ```yaml
 name: StudyEstimandsRef
+description: 'StudyEstimands reference: None'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

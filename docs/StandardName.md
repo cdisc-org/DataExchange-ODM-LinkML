@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Name_
+
+
+
 URI: [StandardName](StandardName)
 
 ## Permissible Values
@@ -24,7 +29,7 @@ URI: [StandardName](StandardName)
 
 | Name | Description |
 | ---  | --- |
-| [Name](Name.md) | Name of the external standard to which the data conforms |
+| [Name](Name.md) | Name of the external standard to which the data conforms. |
 
 
 
@@ -58,6 +63,7 @@ URI: [StandardName](StandardName)
 ```yaml
 name: StandardName
 conforms_to: nci:ExtCodeID:C170452
+description: Enumeration used in Name
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 aliases:
 - C170452

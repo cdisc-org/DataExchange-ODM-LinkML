@@ -1,5 +1,10 @@
 # Slot: DateTimeStampRef
 
+
+_DateTimeStamp reference: None_
+
+
+
 URI: [odm:DateTimeStampRef](http://www.cdisc.org/ns/odm/v2.0/DateTimeStampRef)
 
 
@@ -14,7 +19,7 @@ URI: [odm:DateTimeStampRef](http://www.cdisc.org/ns/odm/v2.0/DateTimeStampRef)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [AuditRecord](AuditRecord.md) | An AuditRecord carries information pertaining to the creation, deletion, or m... |  yes  |
-[Signature](Signature.md) | An electronic signature applies to a collection of clinical data |  yes  |
+[Signature](Signature.md) | An electronic signature applies to a collection of clinical data. This indica... |  yes  |
 
 
 
@@ -51,6 +56,7 @@ URI: [odm:DateTimeStampRef](http://www.cdisc.org/ns/odm/v2.0/DateTimeStampRef)
 <details>
 ```yaml
 name: DateTimeStampRef
+description: 'DateTimeStamp reference: None'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

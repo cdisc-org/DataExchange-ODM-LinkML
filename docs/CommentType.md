@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in SponsorOrSite_
+
+
+
 URI: [CommentType](CommentType)
 
 ## Permissible Values
@@ -18,8 +23,8 @@ URI: [CommentType](CommentType)
 
 | Name | Description |
 | ---  | --- |
-| [SponsorOrSite](SponsorOrSite.md) | Source of the comment |
-| [SponsorOrSite](SponsorOrSite.md) | Source of the comment |
+| [SponsorOrSite](SponsorOrSite.md) | Source of the comment. |
+| [SponsorOrSite](SponsorOrSite.md) | Source of the comment. |
 
 
 
@@ -47,6 +52,7 @@ URI: [CommentType](CommentType)
 <details>
 ```yaml
 name: CommentType
+description: Enumeration used in SponsorOrSite
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

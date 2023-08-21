@@ -1,5 +1,10 @@
 # Slot: LeafRef
 
+
+_Leaf reference: Contains the XLink information referenced by DocumentRef or ArchiveLocationID_
+
+
+
 URI: [odm:LeafRef](http://www.cdisc.org/ns/odm/v2.0/LeafRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:LeafRef](http://www.cdisc.org/ns/odm/v2.0/LeafRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements |  yes  |
+[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements. ... |  yes  |
 [ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
 
 
@@ -51,6 +56,8 @@ URI: [odm:LeafRef](http://www.cdisc.org/ns/odm/v2.0/LeafRef)
 <details>
 ```yaml
 name: LeafRef
+description: 'Leaf reference: Contains the XLink information referenced by DocumentRef
+  or ArchiveLocationID'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

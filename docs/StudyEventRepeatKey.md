@@ -18,8 +18,8 @@ URI: [odm:StudyEventRepeatKey](http://www.cdisc.org/ns/odm/v2.0/StudyEventRepeat
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEventData](StudyEventData.md) | Clinical data for a study event (visit) |  yes  |
-[KeySet](KeySet.md) | A KeySet references a single entity (e |  yes  |
+[StudyEventData](StudyEventData.md) | Clinical data for a study event (visit). The model supports repeating study e... |  yes  |
+[KeySet](KeySet.md) | A KeySet references a single entity (e.g., a study, a subject, a study event)... |  yes  |
 
 
 
@@ -29,7 +29,7 @@ URI: [odm:StudyEventRepeatKey](http://www.cdisc.org/ns/odm/v2.0/StudyEventRepeat
 
 ## Properties
 
-* Range: [RepeatKey](RepeatKey.md)
+* Range: [repeatKey](repeatKey.md)
 
 
 

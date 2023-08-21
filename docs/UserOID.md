@@ -19,7 +19,7 @@ URI: [odm:UserOID](http://www.cdisc.org/ns/odm/v2.0/UserOID)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [InvestigatorRef](InvestigatorRef.md) | Provides a reference to the user who created the SubjectData record in the so... |  yes  |
-[UserRef](UserRef.md) | Element NameUserRefParent ElementsAuditRecord, SignatureElement XPath(s)/ODM/... |  yes  |
+[UserRef](UserRef.md) |  |  yes  |
 
 
 
@@ -29,7 +29,7 @@ URI: [odm:UserOID](http://www.cdisc.org/ns/odm/v2.0/UserOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

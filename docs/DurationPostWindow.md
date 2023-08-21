@@ -1,5 +1,10 @@
 # Slot: DurationPostWindow
 
+
+_Defines the amount of time by which the targetted duration may be increased._
+
+
+
 URI: [odm:DurationPostWindow](http://www.cdisc.org/ns/odm/v2.0/DurationPostWindow)
 
 
@@ -13,7 +18,7 @@ URI: [odm:DurationPostWindow](http://www.cdisc.org/ns/odm/v2.0/DurationPostWindo
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[DurationTimingConstraint](DurationTimingConstraint.md) |  |  yes  |
+[DurationTimingConstraint](DurationTimingConstraint.md) | The DurationTimingConstraint constrains the duration of an activity represent... |  yes  |
 
 
 
@@ -23,7 +28,7 @@ URI: [odm:DurationPostWindow](http://www.cdisc.org/ns/odm/v2.0/DurationPostWindo
 
 ## Properties
 
-* Range: [DurationDatetime](DurationDatetime.md)
+* Range: [durationDatetime](durationDatetime.md)
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:DurationPostWindow](http://www.cdisc.org/ns/odm/v2.0/DurationPostWindo
 <details>
 ```yaml
 name: DurationPostWindow
+description: Defines the amount of time by which the targetted duration may be increased.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: DurationPostWindow

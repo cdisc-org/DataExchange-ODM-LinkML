@@ -63,17 +63,17 @@ URI: [odm:StudyEventDef](http://www.cdisc.org/ns/odm/v2.0/StudyEventDef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the StudyEventDef element | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable-name for the study event | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEventDef element. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable-name for the study event. | direct |
 | [Repeating](Repeating.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | The Repeating flag indicates when this type of study event can occur repeated... | direct |
-| [Type](Type.md) | 1..1 <br/> [EventType](EventType.md) | Specifies the StudyEvent Type | direct |
-| [Category](Category.md) | 0..1 <br/> [Text](Text.md) | The Category attribute is typically used to indicate the study phase appropri... | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a sponsor comment or external document relevant to this StudyEve... | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [ItemGroupRefRef](ItemGroupRefRef.md) | 0..* <br/> [ItemGroupRef](ItemGroupRef.md) |  | direct |
-| [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) |  | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
-| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) |  | direct |
+| [Type](Type.md) | 1..1 <br/> [EventType](EventType.md) | Specifies the StudyEvent Type. The study protocol document usually specifies ... | direct |
+| [Category](Category.md) | 0..1 <br/> [text](text.md) | The Category attribute is typically used to indicate the study phase appropri... | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a sponsor comment or external document relevant to this StudyEve... | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [ItemGroupRefRef](ItemGroupRefRef.md) | 0..* <br/> [ItemGroupRef](ItemGroupRef.md) | ItemGroupRef reference: ItemGroupRef references an ItemGroupDef as it occurs ... | direct |
+| [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
+| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
 
 
 
@@ -923,6 +923,8 @@ attributes:
     range: oidref
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -970,6 +972,12 @@ attributes:
     maximum_cardinality: 1
   ItemGroupRefRef:
     name: ItemGroupRefRef
+    description: 'ItemGroupRef reference: ItemGroupRef references an ItemGroupDef
+      as it occurs within a specific StudyEventDef or ItemGroupDef. The list of ItemGroupRefs
+      identifies the types of item groups that are allowed to occur within this type
+      of studyevent or (nested) item group. The ItemGroupRefs within a single StudyEventDef
+      or ItemGroupDef must not have duplicate ItemGroupOID or OrderNumber attribute
+      values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -984,6 +992,7 @@ attributes:
     inlined_as_list: true
   WorkflowRefRef:
     name: WorkflowRefRef
+    description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1001,6 +1010,12 @@ attributes:
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -1029,6 +1044,9 @@ attributes:
     inlined_as_list: true
   AliasRef:
     name: AliasRef
+    description: 'Alias reference: An Alias provides an additional name for an element.
+      The Context attribute specifies the application domain in which this additional
+      name is relevant.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

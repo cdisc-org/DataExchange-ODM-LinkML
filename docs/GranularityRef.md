@@ -18,7 +18,7 @@ URI: [odm:GranularityRef](http://www.cdisc.org/ns/odm/v2.0/GranularityRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents. The ODM element is the top-level (root) eleme... |  yes  |
 
 
 

@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Source_
+
+
+
 URI: [OriginSource](OriginSource)
 
 ## Permissible Values
@@ -20,7 +25,7 @@ URI: [OriginSource](OriginSource)
 
 | Name | Description |
 | ---  | --- |
-| [Source](Source.md) | I ndicates the party responsible for the data's origin type |
+| [Source](Source.md) | I ndicates the party responsible for the data's origin type. |
 
 
 
@@ -48,6 +53,7 @@ URI: [OriginSource](OriginSource)
 <details>
 ```yaml
 name: OriginSource
+description: Enumeration used in Source
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

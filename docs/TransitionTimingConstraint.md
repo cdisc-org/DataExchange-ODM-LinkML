@@ -49,15 +49,15 @@ URI: [odm:TransitionTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/Transitio
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human-readable name | direct |
-| [TransitionOID](TransitionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the workflow Transition on which the timing constraint must be exe... | direct |
-| [MethodOID](MethodOID.md) | 0..1 <br/> [Oidref](Oidref.md) | R eferences a MethodDef that returns a durationDatetime | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human-readable name. | direct |
+| [TransitionOID](TransitionOID.md) | 1..1 <br/> [oidref](oidref.md) | References the workflow Transition on which the timing constraint must be exe... | direct |
+| [MethodOID](MethodOID.md) | 0..1 <br/> [oidref](oidref.md) | R eferences a MethodDef that returns a durationDatetime. Use of a method allo... | direct |
 | [Type](Type.md) | 0..1 <br/> [RelativeTimingConstraintType](RelativeTimingConstraintType.md) | Defines how the timing is to be defined between the two activities, starting ... | direct |
-| [TimepointTarget](TimepointTarget.md) | 1..1 <br/> [DurationDatetime](DurationDatetime.md) | The planned time between the 2 activities defined by the transition in the wo... | direct |
-| [TimepointPreWindow](TimepointPreWindow.md) | 0..1 <br/> [DurationDatetime](DurationDatetime.md) | Specifies the amount of time prior to the TimepointTarget, the time between t... | direct |
-| [TimepointPostWindow](TimepointPostWindow.md) | 0..1 <br/> [DurationDatetime](DurationDatetime.md) | Specifies the amount of time after the TimepointTarget, the time between the ... | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
+| [TimepointTarget](TimepointTarget.md) | 1..1 <br/> [durationDatetime](durationDatetime.md) | The planned time between the 2 activities defined by the transition in the wo... | direct |
+| [TimepointPreWindow](TimepointPreWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Specifies the amount of time prior to the TimepointTarget, the time between t... | direct |
+| [TimepointPostWindow](TimepointPostWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Specifies the amount of time after the TimepointTarget, the time between the ... | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
 
 
@@ -873,6 +873,8 @@ attributes:
     range: durationDatetime
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

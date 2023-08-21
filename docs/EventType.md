@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Type_
+
+
+
 URI: [EventType](EventType)
 
 ## Permissible Values
@@ -19,7 +24,7 @@ URI: [EventType](EventType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) | Specifies the StudyEvent Type |
+| [Type](Type.md) | Specifies the StudyEvent Type. The study protocol document usually specifies ... |
 
 
 
@@ -47,6 +52,7 @@ URI: [EventType](EventType)
 <details>
 ```yaml
 name: EventType
+description: Enumeration used in Type
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

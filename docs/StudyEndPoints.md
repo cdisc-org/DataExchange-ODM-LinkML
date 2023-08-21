@@ -31,7 +31,7 @@ URI: [odm:StudyEndPoints](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoints)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEndPointRefRef](StudyEndPointRefRef.md) | 0..* <br/> [StudyEndPoint](StudyEndPoint.md) |  | direct |
+| [StudyEndPointRefRef](StudyEndPointRefRef.md) | 0..* <br/> [StudyEndPoint](StudyEndPoint.md) | StudyEndPointRef reference: Go to start of metadata | direct |
 
 
 
@@ -134,6 +134,7 @@ slot_usage:
 attributes:
   StudyEndPointRefRef:
     name: StudyEndPointRefRef
+    description: 'StudyEndPointRef reference: Go to start of metadata'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

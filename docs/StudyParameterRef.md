@@ -1,5 +1,10 @@
 # Slot: StudyParameterRef
 
+
+_StudyParameter reference: A StudyParameter defines a study design parameter for which the value or values are delivered in the ParameterValue child element or elements._
+
+
+
 URI: [odm:StudyParameterRef](http://www.cdisc.org/ns/odm/v2.0/StudyParameterRef)
 
 
@@ -50,6 +55,9 @@ URI: [odm:StudyParameterRef](http://www.cdisc.org/ns/odm/v2.0/StudyParameterRef)
 <details>
 ```yaml
 name: StudyParameterRef
+description: 'StudyParameter reference: A StudyParameter defines a study design parameter
+  for which the value or values are delivered in the ParameterValue child element
+  or elements.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

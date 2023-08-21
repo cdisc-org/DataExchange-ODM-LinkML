@@ -19,7 +19,7 @@ URI: [odm:ItemGroupRepeatKey](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRepeatKe
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [ItemGroupData](ItemGroupData.md) | Clinical data corresponding to an ItemGroupRef defined in the active MetaData... |  yes  |
-[KeySet](KeySet.md) | A KeySet references a single entity (e |  yes  |
+[KeySet](KeySet.md) | A KeySet references a single entity (e.g., a study, a subject, a study event)... |  yes  |
 
 
 
@@ -29,7 +29,7 @@ URI: [odm:ItemGroupRepeatKey](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRepeatKe
 
 ## Properties
 
-* Range: [RepeatKey](RepeatKey.md)
+* Range: [repeatKey](repeatKey.md)
 
 
 

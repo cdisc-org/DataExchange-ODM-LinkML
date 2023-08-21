@@ -18,7 +18,7 @@ URI: [odm:KeySequence](http://www.cdisc.org/ns/odm/v2.0/KeySequence)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef. The li... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:KeySequence](http://www.cdisc.org/ns/odm/v2.0/KeySequence)
 
 ## Properties
 
-* Range: [PositiveInteger](PositiveInteger.md)
+* Range: [positiveInteger](positiveInteger.md)
 
 
 

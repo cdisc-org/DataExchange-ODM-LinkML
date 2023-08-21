@@ -30,7 +30,7 @@ URI: [odm:TimepointPostWindow](http://www.cdisc.org/ns/odm/v2.0/TimepointPostWin
 
 ## Properties
 
-* Range: [DurationDatetime](DurationDatetime.md)
+* Range: [durationDatetime](durationDatetime.md)
 
 
 

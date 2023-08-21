@@ -18,7 +18,7 @@ URI: [odm:Title](http://www.cdisc.org/ns/odm/v2.0/Title)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[PDFPageRef](PDFPageRef.md) | This element is the container for CRF page references |  yes  |
+[PDFPageRef](PDFPageRef.md) | This element is the container for CRF page references. |  yes  |
 [Leaf](Leaf.md) | Contains the XLink information referenced by DocumentRef or ArchiveLocationID |  yes  |
 
 
@@ -29,7 +29,7 @@ URI: [odm:Title](http://www.cdisc.org/ns/odm/v2.0/Title)
 
 ## Properties
 
-* Range: [Text](Text.md)
+* Range: [text](text.md)
 
 
 

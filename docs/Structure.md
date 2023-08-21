@@ -28,7 +28,7 @@ URI: [odm:Structure](http://www.cdisc.org/ns/odm/v2.0/Structure)
 
 ## Properties
 
-* Range: [Text](Text.md)
+* Range: [text](text.md)
 
 
 

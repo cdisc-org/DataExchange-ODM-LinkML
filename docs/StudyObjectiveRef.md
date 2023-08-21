@@ -1,5 +1,10 @@
 # Slot: StudyObjectiveRef
 
+
+_StudyObjective reference: None_
+
+
+
 URI: [odm:StudyObjectiveRef](http://www.cdisc.org/ns/odm/v2.0/StudyObjectiveRef)
 
 
@@ -50,6 +55,7 @@ URI: [odm:StudyObjectiveRef](http://www.cdisc.org/ns/odm/v2.0/StudyObjectiveRef)
 <details>
 ```yaml
 name: StudyObjectiveRef
+description: 'StudyObjective reference: None'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

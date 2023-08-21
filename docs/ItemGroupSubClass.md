@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in Name_
+
+
+
 URI: [ItemGroupSubClass](ItemGroupSubClass)
 
 ## Permissible Values
@@ -48,6 +53,7 @@ URI: [ItemGroupSubClass](ItemGroupSubClass)
 <details>
 ```yaml
 name: ItemGroupSubClass
+description: Enumeration used in Name
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

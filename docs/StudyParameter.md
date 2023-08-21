@@ -41,11 +41,11 @@ URI: [odm:StudyParameter](http://www.cdisc.org/ns/odm/v2.0/StudyParameter)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for StudyParameter | direct |
-| [Term](Term.md) | 1..1 <br/> [Name](Name.md) | Longer name | direct |
-| [ShortName](ShortName.md) | 0..1 <br/> [Name](Name.md) | Short name or code for the parameter | direct |
-| [ParameterValueRef](ParameterValueRef.md) | 0..1 <br/> [ParameterValue](ParameterValue.md) |  | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for StudyParameter. Note a StudyParameter can be referenced... | direct |
+| [Term](Term.md) | 1..1 <br/> [name](name.md) | Longer name. Provides the full name of the parameter. | direct |
+| [ShortName](ShortName.md) | 0..1 <br/> [name](name.md) | Short name or code for the parameter. | direct |
+| [ParameterValueRef](ParameterValueRef.md) | 0..1 <br/> [ParameterValue](ParameterValue.md) | ParameterValue reference: This element contains the value of the study parame... | direct |
+| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
 
 
@@ -448,6 +448,8 @@ attributes:
     range: name
   ParameterValueRef:
     name: ParameterValueRef
+    description: 'ParameterValue reference: This element contains the value of the
+      study parameter as text content.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -459,6 +461,12 @@ attributes:
     maximum_cardinality: 1
   CodingRef:
     name: CodingRef
+    description: 'Coding reference: Coding references a symbol from a defined code
+      system. It uses a code defined in a terminology system to associate semantics
+      with a given term, codelist, variable, or group of variables. The presence of
+      a Coding element associates a meaning to its parent element. Including multiple
+      Coding elements for a given parent indicates synonymous meanings provided by
+      different code systems or code system versions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

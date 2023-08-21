@@ -45,11 +45,11 @@ URI: [odm:AdminData](http://www.cdisc.org/ns/odm/v2.0/AdminData)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 0..1 <br/> [Oidref](Oidref.md) | Reference to a Study  | direct |
-| [UserRefRef](UserRefRef.md) | 0..* <br/> [User](User.md) |  | direct |
-| [OrganizationRef](OrganizationRef.md) | 0..* <br/> [Organization](Organization.md) |  | direct |
-| [LocationRefRef](LocationRefRef.md) | 0..* <br/> [Location](Location.md) |  | direct |
-| [SignatureDefRef](SignatureDefRef.md) | 0..* <br/> [SignatureDef](SignatureDef.md) |  | direct |
+| [StudyOID](StudyOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Study . | direct |
+| [UserRefRef](UserRefRef.md) | 0..* <br/> [User](User.md) | UserRef reference: None | direct |
+| [OrganizationRef](OrganizationRef.md) | 0..* <br/> [Organization](Organization.md) | Organization reference: An organization can reference a parent organization. ... | direct |
+| [LocationRefRef](LocationRefRef.md) | 0..* <br/> [Location](Location.md) | LocationRef reference: A reference to the user's physical location. | direct |
+| [SignatureDefRef](SignatureDefRef.md) | 0..* <br/> [SignatureDef](SignatureDef.md) | SignatureDef reference: Provides Metadata for signatures included in the /ODM... | direct |
 
 
 
@@ -127,7 +127,7 @@ slot_usage:
 
       range:oidref
 
-      Must match the OID for a /ODM/Study element. '
+      Must match the OID for a /ODM/Study element.'
     domain_of:
     - Include
     - SourceItem
@@ -198,7 +198,7 @@ slot_usage:
 
       range:oidref
 
-      Must match the OID for a /ODM/Study element. '
+      Must match the OID for a /ODM/Study element.'
     domain_of:
     - Include
     - SourceItem
@@ -254,7 +254,7 @@ attributes:
 
       range:oidref
 
-      Must match the OID for a /ODM/Study element. '
+      Must match the OID for a /ODM/Study element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyOID
@@ -271,6 +271,7 @@ attributes:
     range: oidref
   UserRefRef:
     name: UserRefRef
+    description: 'UserRef reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -286,6 +287,9 @@ attributes:
     inlined_as_list: true
   OrganizationRef:
     name: OrganizationRef
+    description: 'Organization reference: An organization can reference a parent organization.
+      Users may be associated with an Organization. An Organization may be associated
+      with a Location. A User, Location, or Organization may have an address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -299,6 +303,7 @@ attributes:
     inlined_as_list: true
   LocationRefRef:
     name: LocationRefRef
+    description: 'LocationRef reference: A reference to the user''s physical location.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -314,6 +319,8 @@ attributes:
     inlined_as_list: true
   SignatureDefRef:
     name: SignatureDefRef
+    description: 'SignatureDef reference: Provides Metadata for signatures included
+      in the /ODM/ClinicalData.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

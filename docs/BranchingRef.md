@@ -1,5 +1,10 @@
 # Slot: BranchingRef
 
+
+_Branching reference: This element describes the branching in a workflow from a source (start) structural element to 2 or more target structural elements, over a Transition element._
+
+
+
 URI: [odm:BranchingRef](http://www.cdisc.org/ns/odm/v2.0/BranchingRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:BranchingRef](http://www.cdisc.org/ns/odm/v2.0/BranchingRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[WorkflowDef](WorkflowDef.md) | A WorkflowDef defines an automated workflow for a study |  yes  |
+[WorkflowDef](WorkflowDef.md) | A WorkflowDef defines an automated workflow for a study. |  yes  |
 
 
 
@@ -50,6 +55,9 @@ URI: [odm:BranchingRef](http://www.cdisc.org/ns/odm/v2.0/BranchingRef)
 <details>
 ```yaml
 name: BranchingRef
+description: 'Branching reference: This element describes the branching in a workflow
+  from a source (start) structural element to 2 or more target structural elements,
+  over a Transition element.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

@@ -1,5 +1,10 @@
 # Slot: GeoPositionRef
 
+
+_GeoPosition reference: The geographical position using the World Geodetic System WGS84._
+
+
+
 URI: [odm:GeoPositionRef](http://www.cdisc.org/ns/odm/v2.0/GeoPositionRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:GeoPositionRef](http://www.cdisc.org/ns/odm/v2.0/GeoPositionRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Address](Address.md) | The postal address for a user, location, or organization |  yes  |
+[Address](Address.md) | The postal address for a user, location, or organization. |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:GeoPositionRef](http://www.cdisc.org/ns/odm/v2.0/GeoPositionRef)
 <details>
 ```yaml
 name: GeoPositionRef
+description: 'GeoPosition reference: The geographical position using the World Geodetic
+  System WGS84.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

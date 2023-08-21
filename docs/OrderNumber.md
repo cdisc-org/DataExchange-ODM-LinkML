@@ -21,8 +21,8 @@ URI: [odm:OrderNumber](http://www.cdisc.org/ns/odm/v2.0/OrderNumber)
 [StudyEventGroupRef](StudyEventGroupRef.md) | This element references a StudyEventGroupDef as it occurs within a specific v... |  yes  |
 [StudyEventRef](StudyEventRef.md) | This element references a StudyEventDef as it occurs within a specific versio... |  yes  |
 [ItemGroupRef](ItemGroupRef.md) | ItemGroupRef references an ItemGroupDef as it occurs within a specific StudyE... |  yes  |
-[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
-[CodeListItem](CodeListItem.md) | Defines an individual member value of a codelist |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef. The li... |  yes  |
+[CodeListItem](CodeListItem.md) | Defines an individual member value of a codelist. It may include a display va... |  yes  |
 [Parameter](Parameter.md) | The Parameter element represents a method parameter used as part of a MethodS... |  yes  |
 [ReturnValue](ReturnValue.md) | The ReturnValue element represents a return value used as part of a MethodSig... |  yes  |
 [StudyEndPointRef](StudyEndPointRef.md) | Go to start of metadata |  yes  |
@@ -35,7 +35,7 @@ URI: [odm:OrderNumber](http://www.cdisc.org/ns/odm/v2.0/OrderNumber)
 
 ## Properties
 
-* Range: [PositiveInteger](PositiveInteger.md)
+* Range: [positiveInteger](positiveInteger.md)
 
 
 

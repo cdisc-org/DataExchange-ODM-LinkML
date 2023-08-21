@@ -1,5 +1,10 @@
 # Slot: WorkflowRefRef
 
+
+_WorkflowRef reference: The WorkflowRef references a workflow definition_
+
+
+
 URI: [odm:WorkflowRefRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRefRef)
 
 
@@ -18,7 +23,7 @@ URI: [odm:WorkflowRefRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRefRef)
 [ItemGroupDef](ItemGroupDef.md) | An ItemGroupDef describes a type of variable or field grouping that can occur... |  yes  |
 [Protocol](Protocol.md) | The Protocol element lists the kinds of study events that can occur within a ... |  yes  |
 [StudyStructure](StudyStructure.md) | The StudyStructure element describes the general structure of a clinical stud... |  yes  |
-[Arm](Arm.md) | An Arm element provides the declaration of a study arm |  yes  |
+[Arm](Arm.md) | An Arm element provides the declaration of a study arm. Arms do not have any ... |  yes  |
 [ExceptionEvent](ExceptionEvent.md) | An ExceptionEvent describes an event that occurs suddenly in a study and that... |  yes  |
 
 
@@ -56,6 +61,7 @@ URI: [odm:WorkflowRefRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRefRef)
 <details>
 ```yaml
 name: WorkflowRefRef
+description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

@@ -18,7 +18,7 @@ URI: [odm:TargetOID](http://www.cdisc.org/ns/odm/v2.0/TargetOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Transition](Transition.md) | A Transition defines a link between 2 structural elements in a workflow |  yes  |
+[Transition](Transition.md) | A Transition defines a link between 2 structural elements in a workflow. When... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:TargetOID](http://www.cdisc.org/ns/odm/v2.0/TargetOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

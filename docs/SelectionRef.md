@@ -1,5 +1,10 @@
 # Slot: SelectionRef
 
+
+_Selection reference: Template for machine-readable/executable expression for retrieving the data or information from an external resource._
+
+
+
 URI: [odm:SelectionRef](http://www.cdisc.org/ns/odm/v2.0/SelectionRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:SelectionRef](http://www.cdisc.org/ns/odm/v2.0/SelectionRef)
 <details>
 ```yaml
 name: SelectionRef
+description: 'Selection reference: Template for machine-readable/executable expression
+  for retrieving the data or information from an external resource.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

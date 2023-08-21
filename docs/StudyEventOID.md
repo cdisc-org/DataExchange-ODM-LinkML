@@ -20,8 +20,8 @@ URI: [odm:StudyEventOID](http://www.cdisc.org/ns/odm/v2.0/StudyEventOID)
 | --- | --- | --- |
 [StudyEventRef](StudyEventRef.md) | This element references a StudyEventDef as it occurs within a specific versio... |  yes  |
 [AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) | The element AbsoluteTimingConstraint is used to specify when an activity, rep... |  yes  |
-[StudyEventData](StudyEventData.md) | Clinical data for a study event (visit) |  yes  |
-[KeySet](KeySet.md) | A KeySet references a single entity (e |  yes  |
+[StudyEventData](StudyEventData.md) | Clinical data for a study event (visit). The model supports repeating study e... |  yes  |
+[KeySet](KeySet.md) | A KeySet references a single entity (e.g., a study, a subject, a study event)... |  yes  |
 
 
 
@@ -31,7 +31,7 @@ URI: [odm:StudyEventOID](http://www.cdisc.org/ns/odm/v2.0/StudyEventOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

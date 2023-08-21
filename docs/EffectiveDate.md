@@ -18,7 +18,7 @@ URI: [odm:EffectiveDate](http://www.cdisc.org/ns/odm/v2.0/EffectiveDate)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MetaDataVersionRef](MetaDataVersionRef.md) | A reference to a MetaDataVersion used at the containing Location |  yes  |
+[MetaDataVersionRef](MetaDataVersionRef.md) | A reference to a MetaDataVersion used at the containing Location. The Effecti... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:EffectiveDate](http://www.cdisc.org/ns/odm/v2.0/EffectiveDate)
 
 ## Properties
 
-* Range: [Date](Date.md)
+* Range: [date](date.md)
 
 
 

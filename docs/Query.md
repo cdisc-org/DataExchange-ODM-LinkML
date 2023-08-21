@@ -55,15 +55,15 @@ URI: [odm:Query](http://www.cdisc.org/ns/odm/v2.0/Query)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Query unique identifier | direct |
-| [Source](Source.md) | 1..1 <br/> [QuerySourceType](QuerySourceType.md) | Origin of the Query | direct |
-| [Target](Target.md) | 0..1 <br/> [Text](Text.md) | Element upon which the Query is raised | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Query unique identifier | direct |
+| [Source](Source.md) | 1..1 <br/> [QuerySourceType](QuerySourceType.md) | Origin of the Query. | direct |
+| [Target](Target.md) | 0..1 <br/> [text](text.md) | Element upon which the Query is raised. The parent element is the Target when... | direct |
 | [Type](Type.md) | 0..1 <br/> [QueryType](QueryType.md) | Indicates whether Is the Query was raised manually by a user or automatically... | direct |
 | [State](State.md) | 1..1 <br/> [QueryStateType](QueryStateType.md) | Status of the Query | direct |
-| [LastUpdateDatetime](LastUpdateDatetime.md) | 1..1 <br/> [Datetime](Datetime.md) | When was this Query updated? Will correspond to the creation date or the last... | direct |
-| [Name](Name.md) | 0..1 <br/> [Name](Name.md) | Name for a query that can be used to identify the query in a listing or user ... | direct |
-| [ValueRef](ValueRef.md) | 0..1 <br/> [Value](Value.md) | Human-readable designation of the trial phase | direct |
-| [AuditRecordRef](AuditRecordRef.md) | 0..* <br/> [AuditRecord](AuditRecord.md) |  | direct |
+| [LastUpdateDatetime](LastUpdateDatetime.md) | 1..1 <br/> [datetime](datetime.md) | When was this Query updated? Will correspond to the creation date or the last... | direct |
+| [Name](Name.md) | 0..1 <br/> [name](name.md) | Name for a query that can be used to identify the query in a listing or user ... | direct |
+| [ValueRef](ValueRef.md) | 0..1 <br/> [Value](Value.md) | Human-readable designation of the trial phase. | direct |
+| [AuditRecordRef](AuditRecordRef.md) | 0..* <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
 
 
 
@@ -202,8 +202,8 @@ slot_usage:
     required: true
   Target:
     name: Target
-    description: 'Element upon which the Query is raised. The parent element is the
-      Target when the Target attribute is omitted. '
+    description: Element upon which the Query is raised. The parent element is the
+      Target when the Target attribute is omitted.
     comments:
     - Optional
     domain_of:
@@ -389,8 +389,8 @@ slot_usage:
     required: true
   Target:
     name: Target
-    description: 'Element upon which the Query is raised. The parent element is the
-      Target when the Target attribute is omitted. '
+    description: Element upon which the Query is raised. The parent element is the
+      Target when the Target attribute is omitted.
     comments:
     - Optional
     domain_of:
@@ -565,8 +565,8 @@ attributes:
     required: true
   Target:
     name: Target
-    description: 'Element upon which the Query is raised. The parent element is the
-      Target when the Target attribute is omitted. '
+    description: Element upon which the Query is raised. The parent element is the
+      Target when the Target attribute is omitted.
     comments:
     - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -690,6 +690,12 @@ attributes:
     maximum_cardinality: 1
   AuditRecordRef:
     name: AuditRecordRef
+    description: 'AuditRecord reference: An AuditRecord carries information pertaining
+      to the creation, deletion, or modification of clinical data. This information
+      includes who performed that action, and where, when, and why that action was
+      performed.AuditRecord information describes a change to clinical data, but is
+      not itself clinical data. The value of some clinical data can always be changed
+      by a subsequent transaction, but history cannot be changed, only added to.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

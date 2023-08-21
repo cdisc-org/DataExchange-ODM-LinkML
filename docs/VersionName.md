@@ -18,7 +18,7 @@ URI: [odm:VersionName](http://www.cdisc.org/ns/odm/v2.0/VersionName)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Study](Study.md) | This element collects static structural information about an individual study |  yes  |
+[Study](Study.md) | This element collects static structural information about an individual study... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:VersionName](http://www.cdisc.org/ns/odm/v2.0/VersionName)
 
 ## Properties
 
-* Range: [Name](Name.md)
+* Range: [name](name.md)
 
 
 

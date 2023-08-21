@@ -29,7 +29,7 @@ URI: [odm:Selection](http://www.cdisc.org/ns/odm/v2.0/Selection)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Path](Path.md) | 1..1 <br/> [Text](Text.md) | Provides the machine-executable instruction or template for it to obtain the ... | direct |
+| [Path](Path.md) | 1..1 <br/> [text](text.md) | Provides the machine-executable instruction or template for it to obtain the ... | direct |
 
 
 

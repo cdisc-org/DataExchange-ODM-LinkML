@@ -1,5 +1,10 @@
 # Slot: WhereClauseRefRef
 
+
+_WhereClauseRef reference: The WhereClauseRef references the WhereClauseDef element that describes the conditions under which the variable values are defined by the referenced ItemDef._
+
+
+
 URI: [odm:WhereClauseRefRef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseRefRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:WhereClauseRefRef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseRefRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef. The li... |  yes  |
 
 
 
@@ -50,6 +55,9 @@ URI: [odm:WhereClauseRefRef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseRefRef)
 <details>
 ```yaml
 name: WhereClauseRefRef
+description: 'WhereClauseRef reference: The WhereClauseRef references the WhereClauseDef
+  element that describes the conditions under which the variable values are defined
+  by the referenced ItemDef.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

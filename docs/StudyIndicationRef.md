@@ -1,5 +1,10 @@
 # Slot: StudyIndicationRef
 
+
+_StudyIndication reference: This element describes a study indication (e.g., condition, disease) for the clinical study. The human-readable description is provided in the Description element. The Coding element can be used to provide a machine-readable code for the indication (e.g., SNOMED-CT code 26929004 for "Alzheimer's disease")._
+
+
+
 URI: [odm:StudyIndicationRef](http://www.cdisc.org/ns/odm/v2.0/StudyIndicationRef)
 
 
@@ -50,6 +55,11 @@ URI: [odm:StudyIndicationRef](http://www.cdisc.org/ns/odm/v2.0/StudyIndicationRe
 <details>
 ```yaml
 name: StudyIndicationRef
+description: 'StudyIndication reference: This element describes a study indication
+  (e.g., condition, disease) for the clinical study. The human-readable description
+  is provided in the Description element. The Coding element can be used to provide
+  a machine-readable code for the indication (e.g., SNOMED-CT code 26929004 for "Alzheimer''s
+  disease").'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

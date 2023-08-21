@@ -18,7 +18,7 @@ URI: [odm:leafID](http://www.cdisc.org/ns/odm/v2.0/leafID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata |  yes  |
+[SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata. |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:leafID](http://www.cdisc.org/ns/odm/v2.0/leafID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 * Required: True
 

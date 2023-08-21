@@ -18,8 +18,8 @@ URI: [odm:Role](http://www.cdisc.org/ns/odm/v2.0/Role)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
-[Organization](Organization.md) | An organization can reference a parent organization |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef. The li... |  yes  |
+[Organization](Organization.md) | An organization can reference a parent organization. Users may be associated ... |  yes  |
 [Location](Location.md) | A physical location associated with data collection and/or treatment of subje... |  yes  |
 
 
@@ -30,7 +30,7 @@ URI: [odm:Role](http://www.cdisc.org/ns/odm/v2.0/Role)
 
 ## Properties
 
-* Range: [Text](Text.md)
+* Range: [text](text.md)
 
 
 

@@ -1,7 +1,7 @@
 # Class: GeoPosition
 
 
-_The geographical position using the World Geodetic System WGS84. _
+_The geographical position using the World Geodetic System WGS84._
 
 
 
@@ -33,9 +33,9 @@ URI: [odm:GeoPosition](http://www.cdisc.org/ns/odm/v2.0/GeoPosition)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Longitude](Longitude.md) | 0..1 <br/> [Decimal](Decimal.md) | Longitude component of geoposition coordinates in decimal degrees | direct |
-| [Latitude](Latitude.md) | 0..1 <br/> [Decimal](Decimal.md) | Latitude component of geoposition coordinate in decimal degrees degrees | direct |
-| [Altitude](Altitude.md) | 0..1 <br/> [Decimal](Decimal.md) | Height above sea level in meters | direct |
+| [Longitude](Longitude.md) | 0..1 <br/> [decimal](decimal.md) | Longitude component of geoposition coordinates in decimal degrees. May requir... | direct |
+| [Latitude](Latitude.md) | 0..1 <br/> [decimal](decimal.md) | Latitude component of geoposition coordinate in decimal degrees degrees. May ... | direct |
+| [Altitude](Altitude.md) | 0..1 <br/> [decimal](decimal.md) | Height above sea level in meters. | direct |
 
 
 
@@ -93,7 +93,7 @@ URI: [odm:GeoPosition](http://www.cdisc.org/ns/odm/v2.0/GeoPosition)
 <details>
 ```yaml
 name: GeoPosition
-description: 'The geographical position using the World Geodetic System WGS84. '
+description: The geographical position using the World Geodetic System WGS84.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/GeoPosition
@@ -115,8 +115,8 @@ slot_usage:
     range: decimal
   Latitude:
     name: Latitude
-    description: 'Latitude component of geoposition coordinate in decimal degrees
-      degrees. May require conversion from degrees, minutes, seconds format. '
+    description: Latitude component of geoposition coordinate in decimal degrees degrees.
+      May require conversion from degrees, minutes, seconds format.
     comments:
     - 'Optional
 
@@ -144,7 +144,7 @@ class_uri: odm:GeoPosition
 <details>
 ```yaml
 name: GeoPosition
-description: 'The geographical position using the World Geodetic System WGS84. '
+description: The geographical position using the World Geodetic System WGS84.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/GeoPosition
@@ -162,8 +162,8 @@ slot_usage:
     range: decimal
   Latitude:
     name: Latitude
-    description: 'Latitude component of geoposition coordinate in decimal degrees
-      degrees. May require conversion from degrees, minutes, seconds format. '
+    description: Latitude component of geoposition coordinate in decimal degrees degrees.
+      May require conversion from degrees, minutes, seconds format.
     comments:
     - 'Optional
 
@@ -199,8 +199,8 @@ attributes:
     range: decimal
   Latitude:
     name: Latitude
-    description: 'Latitude component of geoposition coordinate in decimal degrees
-      degrees. May require conversion from degrees, minutes, seconds format. '
+    description: Latitude component of geoposition coordinate in decimal degrees degrees.
+      May require conversion from degrees, minutes, seconds format.
     comments:
     - 'Optional
 

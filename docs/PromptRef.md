@@ -1,5 +1,10 @@
 # Slot: PromptRef
 
+
+_Prompt reference: A prompt text shown to a human user when prompted to provide data for an item on paper or on a screen. The Prompt is a short version of the question._
+
+
+
 URI: [odm:PromptRef](http://www.cdisc.org/ns/odm/v2.0/PromptRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:PromptRef](http://www.cdisc.org/ns/odm/v2.0/PromptRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study |  yes  |
+[ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study. Item prope... |  yes  |
 
 
 
@@ -50,6 +55,9 @@ URI: [odm:PromptRef](http://www.cdisc.org/ns/odm/v2.0/PromptRef)
 <details>
 ```yaml
 name: PromptRef
+description: 'Prompt reference: A prompt text shown to a human user when prompted
+  to provide data for an item on paper or on a screen. The Prompt is a short version
+  of the question.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

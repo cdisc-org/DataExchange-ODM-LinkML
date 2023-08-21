@@ -28,7 +28,7 @@ URI: [odm:ArchiveLocationID](http://www.cdisc.org/ns/odm/v2.0/ArchiveLocationID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

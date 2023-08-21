@@ -19,8 +19,8 @@ URI: [odm:ID](http://www.cdisc.org/ns/odm/v2.0/ID)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [Leaf](Leaf.md) | Contains the XLink information referenced by DocumentRef or ArchiveLocationID |  yes  |
-[Signature](Signature.md) | An electronic signature applies to a collection of clinical data |  yes  |
-[Annotation](Annotation.md) | A general note about clinical data |  yes  |
+[Signature](Signature.md) | An electronic signature applies to a collection of clinical data. This indica... |  yes  |
+[Annotation](Annotation.md) | A general note about clinical data. If an annotation has both a comment and f... |  yes  |
 
 
 
@@ -30,7 +30,7 @@ URI: [odm:ID](http://www.cdisc.org/ns/odm/v2.0/ID)
 
 ## Properties
 
-* Range: [Oid](Oid.md)
+* Range: [oid](oid.md)
 
 * Required: True
 

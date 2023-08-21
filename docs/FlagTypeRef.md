@@ -1,5 +1,10 @@
 # Slot: FlagTypeRef
 
+
+_FlagType reference: The type of flag. This determines the purpose and semantics of the flag._
+
+
+
 URI: [odm:FlagTypeRef](http://www.cdisc.org/ns/odm/v2.0/FlagTypeRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:FlagTypeRef](http://www.cdisc.org/ns/odm/v2.0/FlagTypeRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Flag](Flag.md) | Element NameFlagParent ElementsAnnotationElement XPath(s)/ODM/ReferenceData/A... |  yes  |
+[Flag](Flag.md) | A machine-processable annotation. |  yes  |
 
 
 
@@ -50,6 +55,8 @@ URI: [odm:FlagTypeRef](http://www.cdisc.org/ns/odm/v2.0/FlagTypeRef)
 <details>
 ```yaml
 name: FlagTypeRef
+description: 'FlagType reference: The type of flag. This determines the purpose and
+  semantics of the flag.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

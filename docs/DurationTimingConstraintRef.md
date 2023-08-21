@@ -1,5 +1,10 @@
 # Slot: DurationTimingConstraintRef
 
+
+_DurationTimingConstraint reference: The DurationTimingConstraint constrains the duration of an activity represented by a study, epoch, StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef. It is used to constrain the duration of the visit, activity, or any other structural element._
+
+
+
 URI: [odm:DurationTimingConstraintRef](http://www.cdisc.org/ns/odm/v2.0/DurationTimingConstraintRef)
 
 
@@ -50,6 +55,10 @@ URI: [odm:DurationTimingConstraintRef](http://www.cdisc.org/ns/odm/v2.0/Duration
 <details>
 ```yaml
 name: DurationTimingConstraintRef
+description: 'DurationTimingConstraint reference: The DurationTimingConstraint constrains
+  the duration of an activity represented by a study, epoch, StudyEventGroupDef, StudyEventDef,
+  ItemGroupDef, or ItemDef. It is used to constrain the duration of the visit, activity,
+  or any other structural element.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

@@ -18,9 +18,9 @@ URI: [odm:Level](http://www.cdisc.org/ns/odm/v2.0/Level)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyObjective](StudyObjective.md) | Element NameStudyObjectiveParent ElementStudyObjectivesElement XPath(s)/ODM/S... |  yes  |
+[StudyObjective](StudyObjective.md) |  |  yes  |
 [StudyEndPoint](StudyEndPoint.md) | A study end point reflects an outcome measure of interest that is statistical... |  yes  |
-[StudyEstimand](StudyEstimand.md) | Element NameStudyEstimandParent ElementsStudyEstimandsElement XPath(s)/ODM/St... |  yes  |
+[StudyEstimand](StudyEstimand.md) |  |  yes  |
 
 
 
@@ -30,7 +30,7 @@ URI: [odm:Level](http://www.cdisc.org/ns/odm/v2.0/Level)
 
 ## Properties
 
-* Range: [String](String.md)
+* Range: [string](string.md)
 
 
 

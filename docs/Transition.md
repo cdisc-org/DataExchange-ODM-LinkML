@@ -1,7 +1,7 @@
 # Class: Transition
 
 
-_A Transition defines a link between 2 structural elements in a workflow. When the execution of the transition is dependent upon a timing constraint that is either directly defined or calculated, a TransitionTimingConstraint must be defined, referencing the current Transition. _
+_A Transition defines a link between 2 structural elements in a workflow. When the execution of the transition is dependent upon a timing constraint that is either directly defined or calculated, a TransitionTimingConstraint must be defined, referencing the current Transition._
 
 
 
@@ -39,12 +39,12 @@ URI: [odm:Transition](http://www.cdisc.org/ns/odm/v2.0/Transition)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for the Transition element | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable name for the transition between two structural elements in a W... | direct |
-| [SourceOID](SourceOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the definition of the source structural element for the transition | direct |
-| [TargetOID](TargetOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the definition of the target structural element for the transition | direct |
-| [StartConditionOID](StartConditionOID.md) | 0..1 <br/> [Oidref](Oidref.md) | The StartConditionOID references a ConditionDef specifying a condition that m... | direct |
-| [EndConditionOID](EndConditionOID.md) | 0..1 <br/> [Oidref](Oidref.md) | The EndConditionOID references a ConditionDef defining the condition under wh... | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Transition element. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the transition between two structural elements in a W... | direct |
+| [SourceOID](SourceOID.md) | 1..1 <br/> [oidref](oidref.md) | References the definition of the source structural element for the transition... | direct |
+| [TargetOID](TargetOID.md) | 1..1 <br/> [oidref](oidref.md) | References the definition of the target structural element for the transition... | direct |
+| [StartConditionOID](StartConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | The StartConditionOID references a ConditionDef specifying a condition that m... | direct |
+| [EndConditionOID](EndConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | The EndConditionOID references a ConditionDef defining the condition under wh... | direct |
 
 
 
@@ -102,10 +102,10 @@ URI: [odm:Transition](http://www.cdisc.org/ns/odm/v2.0/Transition)
 <details>
 ```yaml
 name: Transition
-description: 'A Transition defines a link between 2 structural elements in a workflow.
+description: A Transition defines a link between 2 structural elements in a workflow.
   When the execution of the transition is dependent upon a timing constraint that
   is either directly defined or calculated, a TransitionTimingConstraint must be defined,
-  referencing the current Transition. '
+  referencing the current Transition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Transition
@@ -220,9 +220,13 @@ slot_usage:
       transition. The structural element may be a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef, or Branching element.
     comments:
-    - "Required\nrange:oidref \nThe SourceOID must match the OID attribute of a StudyEventGroupDef,\
-      \ StudyEventDef, ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion\
-      \ parent element of the WorkflowDef ."
+    - 'Required
+
+      range:oidref
+
+      The SourceOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
+      ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
+      element of the WorkflowDef .'
     domain_of:
     - Transition
     range: oidref
@@ -290,10 +294,10 @@ class_uri: odm:Transition
 <details>
 ```yaml
 name: Transition
-description: 'A Transition defines a link between 2 structural elements in a workflow.
+description: A Transition defines a link between 2 structural elements in a workflow.
   When the execution of the transition is dependent upon a timing constraint that
   is either directly defined or calculated, a TransitionTimingConstraint must be defined,
-  referencing the current Transition. '
+  referencing the current Transition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Transition
@@ -401,9 +405,13 @@ slot_usage:
       transition. The structural element may be a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef, or Branching element.
     comments:
-    - "Required\nrange:oidref \nThe SourceOID must match the OID attribute of a StudyEventGroupDef,\
-      \ StudyEventDef, ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion\
-      \ parent element of the WorkflowDef ."
+    - 'Required
+
+      range:oidref
+
+      The SourceOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
+      ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
+      element of the WorkflowDef .'
     domain_of:
     - Transition
     range: oidref
@@ -574,9 +582,13 @@ attributes:
       transition. The structural element may be a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef, or Branching element.
     comments:
-    - "Required\nrange:oidref \nThe SourceOID must match the OID attribute of a StudyEventGroupDef,\
-      \ StudyEventDef, ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion\
-      \ parent element of the WorkflowDef ."
+    - 'Required
+
+      range:oidref
+
+      The SourceOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
+      ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
+      element of the WorkflowDef .'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SourceOID

@@ -19,7 +19,7 @@ URI: [odm:ref](http://www.cdisc.org/ns/odm/v2.0/ref)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [ExternalCodeLib](ExternalCodeLib.md) | The ExternalCodeLib element references a FormalExpression in an external code... |  yes  |
-[Coding](Coding.md) | Coding references a symbol from a defined code system |  yes  |
+[Coding](Coding.md) | Coding references a symbol from a defined code system. It uses a code defined... |  yes  |
 
 
 
@@ -29,7 +29,7 @@ URI: [odm:ref](http://www.cdisc.org/ns/odm/v2.0/ref)
 
 ## Properties
 
-* Range: [String](String.md)
+* Range: [string](string.md)
 
 
 

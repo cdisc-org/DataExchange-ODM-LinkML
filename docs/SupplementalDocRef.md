@@ -1,5 +1,10 @@
 # Slot: SupplementalDocRef
 
+
+_SupplementalDoc reference: Supplemental data definitions_
+
+
+
 URI: [odm:SupplementalDocRef](http://www.cdisc.org/ns/odm/v2.0/SupplementalDocRef)
 
 
@@ -13,7 +18,7 @@ URI: [odm:SupplementalDocRef](http://www.cdisc.org/ns/odm/v2.0/SupplementalDocRe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements |  yes  |
+[MetaDataVersion](MetaDataVersion.md) | The metadata for a study is defined in a series of MetaDataVersion elements. ... |  yes  |
 
 
 
@@ -50,6 +55,7 @@ URI: [odm:SupplementalDocRef](http://www.cdisc.org/ns/odm/v2.0/SupplementalDocRe
 <details>
 ```yaml
 name: SupplementalDocRef
+description: 'SupplementalDoc reference: Supplemental data definitions'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

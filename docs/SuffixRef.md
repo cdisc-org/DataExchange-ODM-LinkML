@@ -1,5 +1,10 @@
 # Slot: SuffixRef
 
+
+_Suffix reference: This element may include credentials, or suffixes (e.g., Jr., III)._
+
+
+
 URI: [odm:SuffixRef](http://www.cdisc.org/ns/odm/v2.0/SuffixRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:SuffixRef](http://www.cdisc.org/ns/odm/v2.0/SuffixRef)
 <details>
 ```yaml
 name: SuffixRef
+description: 'Suffix reference: This element may include credentials, or suffixes
+  (e.g., Jr., III).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

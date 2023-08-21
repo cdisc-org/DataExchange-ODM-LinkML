@@ -55,14 +55,14 @@ URI: [odm:ClinicalData](http://www.cdisc.org/ns/odm/v2.0/ClinicalData)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the Study that uses the data nested within this element | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [Oidref](Oidref.md) | References the MetaDataVersion (within the above Study) that governs the data... | direct |
-| [SubjectDataRef](SubjectDataRef.md) | 0..* <br/> [SubjectData](SubjectData.md) |  | direct |
-| [ItemGroupDataRef](ItemGroupDataRef.md) | 0..* <br/> [ItemGroupData](ItemGroupData.md) |  | direct |
-| [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) |  | direct |
-| [AuditRecordRef](AuditRecordRef.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) |  | direct |
-| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) |  | direct |
-| [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) |  | direct |
+| [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the Study that uses the data nested within this element. | direct |
+| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | References the MetaDataVersion (within the above Study) that governs the data... | direct |
+| [SubjectDataRef](SubjectDataRef.md) | 0..* <br/> [SubjectData](SubjectData.md) | SubjectData reference: Clinical data for a single subject. | direct |
+| [ItemGroupDataRef](ItemGroupDataRef.md) | 0..* <br/> [ItemGroupData](ItemGroupData.md) | ItemGroupData reference: Clinical data corresponding to an ItemGroupRef defin... | direct |
+| [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) | Query reference: The Query element represents a request for clarification on ... | direct |
+| [AuditRecordRef](AuditRecordRef.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
+| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: None | direct |
+| [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
 
 
@@ -425,6 +425,7 @@ attributes:
     required: true
   SubjectDataRef:
     name: SubjectDataRef
+    description: 'SubjectData reference: Clinical data for a single subject.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -438,6 +439,8 @@ attributes:
     inlined_as_list: true
   ItemGroupDataRef:
     name: ItemGroupDataRef
+    description: 'ItemGroupData reference: Clinical data corresponding to an ItemGroupRef
+      defined in the active MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -454,6 +457,14 @@ attributes:
     inlined_as_list: true
   QueryRef:
     name: QueryRef
+    description: 'Query reference: The Query element represents a request for clarification
+      on a data item collected for a clinical trial, specifically a request from a
+      sponsor or sponsor’s representative to an investigator to resolve an error or
+      inconsistency discovered during data review. Queries can be created manually
+      by individuals such as site monitors or data managers or automatically by systems.
+      The full text of the Query exists in the Value child element. The optional Name
+      attribute provide the means to provide a short identifier that can be included
+      in listing or user interfaces.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -472,6 +483,12 @@ attributes:
     inlined_as_list: true
   AuditRecordRef:
     name: AuditRecordRef
+    description: 'AuditRecord reference: An AuditRecord carries information pertaining
+      to the creation, deletion, or modification of clinical data. This information
+      includes who performed that action, and where, when, and why that action was
+      performed.AuditRecord information describes a change to clinical data, but is
+      not itself clinical data. The value of some clinical data can always be changed
+      by a subsequent transaction, but history cannot be changed, only added to.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -489,6 +506,7 @@ attributes:
     maximum_cardinality: 1
   SignatureRefRef:
     name: SignatureRefRef
+    description: 'SignatureRef reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -506,6 +524,9 @@ attributes:
     maximum_cardinality: 1
   AnnotationRef:
     name: AnnotationRef
+    description: 'Annotation reference: A general note about clinical data. If an
+      annotation has both a comment and flags, the flags should be related to the
+      comment.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

@@ -1,5 +1,10 @@
 # Slot: StudyEndPointsRef
 
+
+_StudyEndPoints reference: Go to start of metadata_
+
+
+
 URI: [odm:StudyEndPointsRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointsRef)
 
 
@@ -50,6 +55,7 @@ URI: [odm:StudyEndPointsRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointsRef)
 <details>
 ```yaml
 name: StudyEndPointsRef
+description: 'StudyEndPoints reference: Go to start of metadata'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

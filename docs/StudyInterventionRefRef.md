@@ -1,5 +1,10 @@
 # Slot: StudyInterventionRefRef
 
+
+_StudyInterventionRef reference: None_
+
+
+
 URI: [odm:StudyInterventionRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventionRefRef)
 
 
@@ -14,7 +19,7 @@ URI: [odm:StudyInterventionRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterve
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [StudyInterventions](StudyInterventions.md) | The StudyInterventions element is a container element for individual StudyInt... |  yes  |
-[StudyEstimand](StudyEstimand.md) | Element NameStudyEstimandParent ElementsStudyEstimandsElement XPath(s)/ODM/St... |  yes  |
+[StudyEstimand](StudyEstimand.md) |  |  yes  |
 
 
 
@@ -51,6 +56,7 @@ URI: [odm:StudyInterventionRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterve
 <details>
 ```yaml
 name: StudyInterventionRefRef
+description: 'StudyInterventionRef reference: None'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

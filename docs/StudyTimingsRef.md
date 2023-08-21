@@ -1,5 +1,10 @@
 # Slot: StudyTimingsRef
 
+
+_StudyTimings reference: The StudyTimings element is a container element for individual StudyTiming elements._
+
+
+
 URI: [odm:StudyTimingsRef](http://www.cdisc.org/ns/odm/v2.0/StudyTimingsRef)
 
 
@@ -50,6 +55,8 @@ URI: [odm:StudyTimingsRef](http://www.cdisc.org/ns/odm/v2.0/StudyTimingsRef)
 <details>
 ```yaml
 name: StudyTimingsRef
+description: 'StudyTimings reference: The StudyTimings element is a container element
+  for individual StudyTiming elements.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

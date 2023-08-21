@@ -149,8 +149,8 @@ slot_usage:
     required: true
   ParentClass:
     name: ParentClass
-    description: 'For a nested or multilevel SubClass, the ParentClass attribute is
-      used to define the hierarchy. '
+    description: For a nested or multilevel SubClass, the ParentClass attribute is
+      used to define the hierarchy.
     comments:
     - 'Optional
 
@@ -224,8 +224,8 @@ slot_usage:
     required: true
   ParentClass:
     name: ParentClass
-    description: 'For a nested or multilevel SubClass, the ParentClass attribute is
-      used to define the hierarchy. '
+    description: For a nested or multilevel SubClass, the ParentClass attribute is
+      used to define the hierarchy.
     comments:
     - 'Optional
 
@@ -289,8 +289,8 @@ attributes:
     required: true
   ParentClass:
     name: ParentClass
-    description: 'For a nested or multilevel SubClass, the ParentClass attribute is
-      used to define the hierarchy. '
+    description: For a nested or multilevel SubClass, the ParentClass attribute is
+      used to define the hierarchy.
     comments:
     - 'Optional
 

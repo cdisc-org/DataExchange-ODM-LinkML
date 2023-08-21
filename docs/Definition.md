@@ -31,7 +31,7 @@ URI: [odm:Definition](http://www.cdisc.org/ns/odm/v2.0/Definition)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) |  | direct |
+| [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... | direct |
 
 
 
@@ -148,6 +148,10 @@ slot_usage:
 attributes:
   TranslatedTextRef:
     name: TranslatedTextRef
+    description: 'TranslatedText reference: Human-readable text that is appropriate
+      for a particular language. TranslatedText elements typically occur in a series,
+      presenting a set of alternative textual renditions for different languages and
+      types.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

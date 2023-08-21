@@ -47,12 +47,12 @@ URI: [odm:StudyTiming](http://www.cdisc.org/ns/odm/v2.0/StudyTiming)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [Oid](Oid.md) | Unique identifier for a StudyTiming element | direct |
-| [Name](Name.md) | 1..1 <br/> [Name](Name.md) | Human readable identifier for a StudyTiming element | direct |
-| [AbsoluteTimingConstraintRef](AbsoluteTimingConstraintRef.md) | 0..* <br/> [AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) |  | direct |
-| [RelativeTimingConstraintRef](RelativeTimingConstraintRef.md) | 0..* <br/> [RelativeTimingConstraint](RelativeTimingConstraint.md) |  | direct |
-| [TransitionTimingConstraintRef](TransitionTimingConstraintRef.md) | 0..* <br/> [TransitionTimingConstraint](TransitionTimingConstraint.md) |  | direct |
-| [DurationTimingConstraintRef](DurationTimingConstraintRef.md) | 0..* <br/> [DurationTimingConstraint](DurationTimingConstraint.md) |  | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for a StudyTiming element. | direct |
+| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable identifier for a StudyTiming element. | direct |
+| [AbsoluteTimingConstraintRef](AbsoluteTimingConstraintRef.md) | 0..* <br/> [AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) | AbsoluteTimingConstraint reference: The element AbsoluteTimingConstraint is u... | direct |
+| [RelativeTimingConstraintRef](RelativeTimingConstraintRef.md) | 0..* <br/> [RelativeTimingConstraint](RelativeTimingConstraint.md) | RelativeTimingConstraint reference: The RelativeTimingConstraint element desc... | direct |
+| [TransitionTimingConstraintRef](TransitionTimingConstraintRef.md) | 0..* <br/> [TransitionTimingConstraint](TransitionTimingConstraint.md) | TransitionTimingConstraint reference: The TransitionTimingConstraint element ... | direct |
+| [DurationTimingConstraintRef](DurationTimingConstraintRef.md) | 0..* <br/> [DurationTimingConstraint](DurationTimingConstraint.md) | DurationTimingConstraint reference: The DurationTimingConstraint constrains t... | direct |
 
 
 
@@ -513,6 +513,9 @@ attributes:
     required: true
   AbsoluteTimingConstraintRef:
     name: AbsoluteTimingConstraintRef
+    description: 'AbsoluteTimingConstraint reference: The element AbsoluteTimingConstraint
+      is used to specify when an activity, represented by either a StudyEventGroup
+      or StudyEvent, can take place.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -526,6 +529,10 @@ attributes:
     inlined_as_list: true
   RelativeTimingConstraintRef:
     name: RelativeTimingConstraintRef
+    description: 'RelativeTimingConstraint reference: The RelativeTimingConstraint
+      element describes a relative timing constraint between 2 activities or groups
+      of activities, represented by StudyEventGroups, StudyEvents, ItemGroups, or
+      Items.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -539,6 +546,11 @@ attributes:
     inlined_as_list: true
   TransitionTimingConstraintRef:
     name: TransitionTimingConstraintRef
+    description: 'TransitionTimingConstraint reference: The TransitionTimingConstraint
+      element defines a timing constraint on a transition between structural elements
+      as defined in a workflow. As such, it is a non-blocking constraint. This means
+      that the transition is set on hold as long as the timing condition is not fulfilled,
+      and is executed as soon as the timing condition is fulfilled.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -552,6 +564,10 @@ attributes:
     inlined_as_list: true
   DurationTimingConstraintRef:
     name: DurationTimingConstraintRef
+    description: 'DurationTimingConstraint reference: The DurationTimingConstraint
+      constrains the duration of an activity represented by a study, epoch, StudyEventGroupDef,
+      StudyEventDef, ItemGroupDef, or ItemDef. It is used to constrain the duration
+      of the visit, activity, or any other structural element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

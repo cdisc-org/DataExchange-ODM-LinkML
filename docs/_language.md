@@ -18,7 +18,7 @@ URI: [odm:_language](http://www.cdisc.org/ns/odm/v2.0/_language)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[TranslatedText](TranslatedText.md) | Human-readable text that is appropriate for a particular language |  yes  |
+[TranslatedText](TranslatedText.md) | Human-readable text that is appropriate for a particular language. Translated... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:_language](http://www.cdisc.org/ns/odm/v2.0/_language)
 
 ## Properties
 
-* Range: [LanguageType](LanguageType.md)
+* Range: [_languageType](_languageType.md)
 
 
 

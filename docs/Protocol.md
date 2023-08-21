@@ -87,21 +87,21 @@ URI: [odm:Protocol](http://www.cdisc.org/ns/odm/v2.0/Protocol)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) |  | direct |
-| [StudySummaryRef](StudySummaryRef.md) | 0..1 <br/> [StudySummary](StudySummary.md) |  | direct |
-| [StudyStructureRef](StudyStructureRef.md) | 0..1 <br/> [StudyStructure](StudyStructure.md) |  | direct |
-| [TrialPhaseRef](TrialPhaseRef.md) | 0..1 <br/> [TrialPhase](TrialPhase.md) |  | direct |
-| [StudyTimingsRef](StudyTimingsRef.md) | 0..1 <br/> [StudyTimings](StudyTimings.md) |  | direct |
-| [StudyIndicationsRef](StudyIndicationsRef.md) | 0..1 <br/> [StudyIndications](StudyIndications.md) |  | direct |
-| [StudyInterventionsRef](StudyInterventionsRef.md) | 0..1 <br/> [StudyInterventions](StudyInterventions.md) |  | direct |
-| [StudyObjectivesRef](StudyObjectivesRef.md) | 0..1 <br/> [StudyObjectives](StudyObjectives.md) |  | direct |
-| [StudyEndPointsRef](StudyEndPointsRef.md) | 0..1 <br/> [StudyEndPoints](StudyEndPoints.md) |  | direct |
-| [StudyTargetPopulationRefRef](StudyTargetPopulationRefRef.md) | 0..1 <br/> [StudyTargetPopulation](StudyTargetPopulation.md) |  | direct |
-| [StudyEstimandsRef](StudyEstimandsRef.md) | 0..1 <br/> [StudyEstimands](StudyEstimands.md) |  | direct |
-| [InclusionExclusionCriteriaRef](InclusionExclusionCriteriaRef.md) | 0..1 <br/> [InclusionExclusionCriteria](InclusionExclusionCriteria.md) |  | direct |
-| [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | 0..* <br/> [StudyEventGroupRef](StudyEventGroupRef.md) |  | direct |
-| [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) |  | direct |
-| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) |  | direct |
+| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [StudySummaryRef](StudySummaryRef.md) | 0..1 <br/> [StudySummary](StudySummary.md) | StudySummary reference: The StudyParameter element allows to provide a set of... | direct |
+| [StudyStructureRef](StudyStructureRef.md) | 0..1 <br/> [StudyStructure](StudyStructure.md) | StudyStructure reference: The StudyStructure element describes the general st... | direct |
+| [TrialPhaseRef](TrialPhaseRef.md) | 0..1 <br/> [TrialPhase](TrialPhase.md) | TrialPhase reference: The TrialPhase element designates the phase of the stud... | direct |
+| [StudyTimingsRef](StudyTimingsRef.md) | 0..1 <br/> [StudyTimings](StudyTimings.md) | StudyTimings reference: The StudyTimings element is a container element for i... | direct |
+| [StudyIndicationsRef](StudyIndicationsRef.md) | 0..1 <br/> [StudyIndications](StudyIndications.md) | StudyIndications reference: StudyIndications is a container element for indiv... | direct |
+| [StudyInterventionsRef](StudyInterventionsRef.md) | 0..1 <br/> [StudyInterventions](StudyInterventions.md) | StudyInterventions reference: The StudyInterventions element is a container e... | direct |
+| [StudyObjectivesRef](StudyObjectivesRef.md) | 0..1 <br/> [StudyObjectives](StudyObjectives.md) | StudyObjectives reference: The StudyObjectives is a container element for ind... | direct |
+| [StudyEndPointsRef](StudyEndPointsRef.md) | 0..1 <br/> [StudyEndPoints](StudyEndPoints.md) | StudyEndPoints reference: Go to start of metadata | direct |
+| [StudyTargetPopulationRefRef](StudyTargetPopulationRefRef.md) | 0..1 <br/> [StudyTargetPopulation](StudyTargetPopulation.md) | StudyTargetPopulationRef reference: None | direct |
+| [StudyEstimandsRef](StudyEstimandsRef.md) | 0..1 <br/> [StudyEstimands](StudyEstimands.md) | StudyEstimands reference: None | direct |
+| [InclusionExclusionCriteriaRef](InclusionExclusionCriteriaRef.md) | 0..1 <br/> [InclusionExclusionCriteria](InclusionExclusionCriteria.md) | InclusionExclusionCriteria reference: The InclusionExclusionCriteria element ... | direct |
+| [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | 0..* <br/> [StudyEventGroupRef](StudyEventGroupRef.md) | StudyEventGroupRef reference: This element references a StudyEventGroupDef as... | direct |
+| [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
+| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
 
 
 
@@ -494,6 +494,8 @@ slot_usage:
 attributes:
   DescriptionRef:
     name: DescriptionRef
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -541,6 +543,9 @@ attributes:
     maximum_cardinality: 1
   StudySummaryRef:
     name: StudySummaryRef
+    description: 'StudySummary reference: The StudyParameter element allows to provide
+      a set of study design parameters such as anticipated number of subjects, minimum
+      and maximum age of the participants, or planned number of arms.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -552,6 +557,8 @@ attributes:
     maximum_cardinality: 1
   StudyStructureRef:
     name: StudyStructureRef
+    description: 'StudyStructure reference: The StudyStructure element describes the
+      general structure of a clinical study with arms, epochs, and workflows.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -563,6 +570,8 @@ attributes:
     maximum_cardinality: 1
   TrialPhaseRef:
     name: TrialPhaseRef
+    description: 'TrialPhase reference: The TrialPhase element designates the phase
+      of the study in the clinical trial.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -574,6 +583,8 @@ attributes:
     maximum_cardinality: 1
   StudyTimingsRef:
     name: StudyTimingsRef
+    description: 'StudyTimings reference: The StudyTimings element is a container
+      element for individual StudyTiming elements.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -585,6 +596,8 @@ attributes:
     maximum_cardinality: 1
   StudyIndicationsRef:
     name: StudyIndicationsRef
+    description: 'StudyIndications reference: StudyIndications is a container element
+      for individual StudyIndication elements.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -596,6 +609,8 @@ attributes:
     maximum_cardinality: 1
   StudyInterventionsRef:
     name: StudyInterventionsRef
+    description: 'StudyInterventions reference: The StudyInterventions element is
+      a container element for individual StudyIntervention elements.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -607,6 +622,8 @@ attributes:
     maximum_cardinality: 1
   StudyObjectivesRef:
     name: StudyObjectivesRef
+    description: 'StudyObjectives reference: The StudyObjectives is a container element
+      for individual StudyObjective elements.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -618,6 +635,7 @@ attributes:
     maximum_cardinality: 1
   StudyEndPointsRef:
     name: StudyEndPointsRef
+    description: 'StudyEndPoints reference: Go to start of metadata'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -629,6 +647,7 @@ attributes:
     maximum_cardinality: 1
   StudyTargetPopulationRefRef:
     name: StudyTargetPopulationRefRef
+    description: 'StudyTargetPopulationRef reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -641,6 +660,7 @@ attributes:
     maximum_cardinality: 1
   StudyEstimandsRef:
     name: StudyEstimandsRef
+    description: 'StudyEstimands reference: None'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -652,6 +672,12 @@ attributes:
     maximum_cardinality: 1
   InclusionExclusionCriteriaRef:
     name: InclusionExclusionCriteriaRef
+    description: 'InclusionExclusionCriteria reference: The InclusionExclusionCriteria
+      element can contain 2 lists of Criterion elements, represented by the 2 elements
+      InclusionCriteria and ExclusionCriteria. Together, these criteria determine
+      the eligibility of a subject for the study. The actual condition to be evaluated
+      is contained in an ODM ConditionDef, which is referenced by each Criterion‟s
+      ConditionOID attribute.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -663,6 +689,10 @@ attributes:
     maximum_cardinality: 1
   StudyEventGroupRefRef:
     name: StudyEventGroupRefRef
+    description: 'StudyEventGroupRef reference: This element references a StudyEventGroupDef
+      as it occurs within a specific version of a study. The list of StudyEventGroupRefs
+      identifies the types of study group events that are allowed to occur within
+      the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -678,6 +708,7 @@ attributes:
     inlined_as_list: true
   WorkflowRefRef:
     name: WorkflowRefRef
+    description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -695,6 +726,9 @@ attributes:
     maximum_cardinality: 1
   AliasRef:
     name: AliasRef
+    description: 'Alias reference: An Alias provides an additional name for an element.
+      The Context attribute specifies the application domain in which this additional
+      name is relevant.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

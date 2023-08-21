@@ -18,7 +18,7 @@ URI: [odm:CreationDateTime](http://www.cdisc.org/ns/odm/v2.0/CreationDateTime)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents |  yes  |
+[ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents. The ODM element is the top-level (root) eleme... |  yes  |
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:CreationDateTime](http://www.cdisc.org/ns/odm/v2.0/CreationDateTime)
 
 ## Properties
 
-* Range: [Datetime](Datetime.md)
+* Range: [datetime](datetime.md)
 
 
 

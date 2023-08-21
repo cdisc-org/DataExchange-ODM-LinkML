@@ -18,11 +18,11 @@ URI: [odm:ItemOID](http://www.cdisc.org/ns/odm/v2.0/ItemOID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
-[SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata |  yes  |
-[RangeCheck](RangeCheck.md) | A RangeCheck defines a constraint on the value of the enclosing item |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef. The li... |  yes  |
+[SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata. |  yes  |
+[RangeCheck](RangeCheck.md) | A RangeCheck defines a constraint on the value of the enclosing item. It repr... |  yes  |
 [ItemData](ItemData.md) | The ItemData element is used for transmission of the clinical data for an ite... |  yes  |
-[KeySet](KeySet.md) | A KeySet references a single entity (e |  yes  |
+[KeySet](KeySet.md) | A KeySet references a single entity (e.g., a study, a subject, a study event)... |  yes  |
 
 
 
@@ -32,7 +32,7 @@ URI: [odm:ItemOID](http://www.cdisc.org/ns/odm/v2.0/ItemOID)
 
 ## Properties
 
-* Range: [Oidref](Oidref.md)
+* Range: [oidref](oidref.md)
 
 
 

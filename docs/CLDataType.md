@@ -2,6 +2,11 @@
 
 
 
+
+_Enumeration used in DataTypeRef_
+
+
+
 URI: [CLDataType](CLDataType)
 
 ## Permissible Values
@@ -20,7 +25,7 @@ URI: [CLDataType](CLDataType)
 
 | Name | Description |
 | ---  | --- |
-| [DataTypeRef](DataTypeRef.md) | Specifies the DataType for codes defined in this codelist |
+| [DataTypeRef](DataTypeRef.md) | Specifies the DataType for codes defined in this codelist. |
 
 
 
@@ -48,6 +53,7 @@ URI: [CLDataType](CLDataType)
 <details>
 ```yaml
 name: CLDataType
+description: Enumeration used in DataTypeRef
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

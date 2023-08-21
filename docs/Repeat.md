@@ -18,7 +18,7 @@ URI: [odm:Repeat](http://www.cdisc.org/ns/odm/v2.0/Repeat)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef |  yes  |
+[ItemRef](ItemRef.md) | A reference to an ItemDef as it occurs within a specific ItemGroupDef. The li... |  yes  |
 
 
 

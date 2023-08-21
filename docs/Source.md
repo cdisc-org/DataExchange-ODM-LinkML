@@ -29,7 +29,7 @@ URI: [odm:Source](http://www.cdisc.org/ns/odm/v2.0/Source)
 
 ## Properties
 
-* Range: [String](String.md)
+* Range: [string](string.md)
 
 
 
