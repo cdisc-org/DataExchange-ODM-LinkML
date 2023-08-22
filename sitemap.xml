@@ -2956,26 +2956,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cdisc-org.github.io/DataExchange-ODM-LinkML/_content/</loc>
-         <lastmod>2023-08-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdisc-org.github.io/DataExchange-ODM-LinkML/_contentType/</loc>
-         <lastmod>2023-08-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdisc-org.github.io/DataExchange-ODM-LinkML/_language/</loc>
-         <lastmod>2023-08-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdisc-org.github.io/DataExchange-ODM-LinkML/_languageType/</loc>
-         <lastmod>2023-08-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://cdisc-org.github.io/DataExchange-ODM-LinkML/about/</loc>
          <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
@@ -2992,6 +2972,16 @@
     </url>
     <url>
          <loc>https://cdisc-org.github.io/DataExchange-ODM-LinkML/boolean/</loc>
+         <lastmod>2023-08-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-LinkML/content/</loc>
+         <lastmod>2023-08-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-LinkML/contentType/</loc>
          <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3082,6 +3072,16 @@
     </url>
     <url>
          <loc>https://cdisc-org.github.io/DataExchange-ODM-LinkML/intervalDatetime/</loc>
+         <lastmod>2023-08-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-LinkML/language/</loc>
+         <lastmod>2023-08-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdisc-org.github.io/DataExchange-ODM-LinkML/languageType/</loc>
          <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -1,250 +1,193 @@
-
 <!DOCTYPE html>
 
-<html class="no-js" lang="en">
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="https://cdisc-org.github.io/DataExchange-ODM-LinkML/ItemData/" rel="canonical"/>
-<link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.1, mkdocs-material-9.1.21" name="generator"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
 <title>Class: ItemData - DataExchange-ODM-LinkML</title>
-<link href="../assets/stylesheets/main.eebd395e.min.css" rel="stylesheet"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
-<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../css/font-awesome.min.css" rel="stylesheet"/>
+<link href="../css/base.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 </head>
-<body dir="ltr">
-<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#class-itemdata">
-          Skip to content
-        </a>
-</div>
-<div data-md-component="announce">
-</div>
-<header class="md-header md-header--shadow" data-md-component="header">
-<nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="DataExchange-ODM-LinkML" class="md-header__button md-logo" data-md-component="logo" href=".." title="DataExchange-ODM-LinkML">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
-            DataExchange-ODM-LinkML
-          </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
-            
-              Class: ItemData
-            
-          </span>
-</div>
-</div>
-</div>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</label>
-<nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+<body>
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="container">
+<a class="navbar-brand" href="..">DataExchange-ODM-LinkML</a>
+<!-- Expander button -->
+<button class="navbar-toggler" data-target="#navbar-collapse" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
 </button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
-            Initializing search
-          </div>
-<ol class="md-search-result__list" role="presentation"></ol>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="md-header__source">
-<a class="md-source" data-md-component="source" href="https://github.com/cdisc-org/DataExchange-ODM-Linkml" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
-</div>
-<div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-</div>
-</nav>
-</header>
-<div class="md-container" data-md-component="container">
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="DataExchange-ODM-LinkML" class="md-nav__button md-logo" data-md-component="logo" href=".." title="DataExchange-ODM-LinkML">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
-</a>
-    DataExchange-ODM-LinkML
-  </label>
-<div class="md-nav__source">
-<a class="md-source" data-md-component="source" href="https://github.com/cdisc-org/DataExchange-ODM-Linkml" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
-</div>
-<div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-</div>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="..">
-        Index
-      </a>
+<!-- Expanded navigation -->
+<div class="navbar-collapse collapse" id="navbar-collapse">
+<!-- Main navigation -->
+<ul class="nav navbar-nav">
+<li class="navitem">
+<a class="nav-link" href="..">Index</a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../about/">
-        About
-      </a>
+<li class="navitem">
+<a class="nav-link" href="../about/">About</a>
 </li>
 </ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#slots">
-    Slots
-  </a>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" data-target="#mkdocs_search_modal" data-toggle="modal" href="#">
+<i class="fa fa-search"></i> Search
+                            </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usages">
-    Usages
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#see-also">
-    See Also
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#identifier-and-mapping-information">
-    Identifier and Mapping Information
-  </a>
-<nav aria-label="Identifier and Mapping Information" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#schema-source">
-    Schema Source
-  </a>
+<li class="nav-item">
+<a class="nav-link" href="https://github.com/cdisc-org/DataExchange-ODM-Linkml/edit/master/docs/ItemData.md"><i class="fa fa-github"></i> Edit on GitHub</a>
 </li>
 </ul>
-</nav>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+<div class="navbar-header">
+<button class="navbar-toggler collapsed" data-target="#toc-collapse" data-toggle="collapse" title="Table of Contents" type="button">
+<span class="fa fa-angle-down"></span>
+</button>
+</div>
+<div class="navbar-collapse collapse card bg-secondary" id="toc-collapse">
+<ul class="nav flex-column">
+<li class="nav-item" data-level="1"><a class="nav-link" href="#class-itemdata">Class: ItemData</a>
+<ul class="nav flex-column">
+<li class="nav-item" data-level="2"><a class="nav-link" href="#slots">Slots</a>
+<ul class="nav flex-column">
+</ul>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#mappings">
-    Mappings
-  </a>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#usages">Usages</a>
+<ul class="nav flex-column">
+</ul>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#linkml-source">
-    LinkML Source
-  </a>
-<nav aria-label="LinkML Source" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#direct">
-    Direct
-  </a>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#see-also">See Also</a>
+<ul class="nav flex-column">
+</ul>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#induced">
-    Induced
-  </a>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#identifier-and-mapping-information">Identifier and Mapping Information</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#mappings">Mappings</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#linkml-source">LinkML Source</a>
+<ul class="nav flex-column">
+</ul>
 </li>
 </ul>
-</nav>
 </li>
 </ul>
-</nav>
 </div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
+</div></div>
+<div class="col-md-9" role="main">
 <h1 id="class-itemdata">Class: ItemData</h1>
 <p><em>The ItemData element is used for transmission of the clinical data for an item. The model does not support repeating items within a single item group.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ItemData">odm:ItemData</a></p>
-<div class="mermaid"> classDiagram
-    class ItemData
-      ItemData : AnnotationRef
+<pre class="mermaid"><code>erDiagram
+ItemData {
+    oidref ItemOID  
+    TransactionType TransactionTypeRef  
+    YesOnly IsNull  
+}
+Annotation {
+    positiveInteger SeqNum  
+    TransactionType TransactionTypeRef  
+    oid ID  
+}
+Flag {
 
-          ItemData --|&gt; Annotation : AnnotationRef
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Comment {
+    CommentType SponsorOrSite  
+}
+Signature {
+    oid ID  
+}
+DateTimeStamp {
+    datetime content  
+}
+SignatureRef {
+    oidref SignatureOID  
+}
+LocationRef {
+    oidref LocationOID  
+}
+UserRef {
+    oidref UserOID  
+}
+AuditRecord {
+    EditPointType EditPoint  
+    YesOrNo UsedMethod  
+}
+SourceID {
+    text content  
+}
+ReasonForChange {
+    text content  
+}
+Query {
+    oid OID  
+    QuerySourceType Source  
+    text Target  
+    QueryType Type  
+    QueryStateType State  
+    datetime LastUpdateDatetime  
+    name Name  
+}
+Value {
+    positiveInteger SeqNum  
+    text content  
+}
 
-      ItemData : AuditRecordRef
-
-          ItemData --|&gt; AuditRecord : AuditRecordRef
-
-      ItemData : IsNull
-
-          ItemData --|&gt; YesOnly : IsNull
-
-      ItemData : ItemOID
-
-      ItemData : QueryRef
-
-          ItemData --|&gt; Query : QueryRef
-
-      ItemData : SignatureRefRef
-
-          ItemData --|&gt; Signature : SignatureRefRef
-
-      ItemData : TransactionTypeRef
-
-          ItemData --|&gt; TransactionType : TransactionTypeRef
-
-      ItemData : ValueRef
-
-          ItemData --|&gt; Value : ValueRef
-
-
-</div>
+ItemData ||--}o Value : "ValueRef"
+ItemData ||--}o Query : "QueryRef"
+ItemData ||--|o AuditRecord : "AuditRecordRef"
+ItemData ||--|o Signature : "SignatureRefRef"
+ItemData ||--|o Annotation : "AnnotationRef"
+Annotation ||--|o Comment : "CommentRef"
+Annotation ||--}o Coding : "CodingRef"
+Annotation ||--}o Flag : "FlagRef"
+Flag ||--|o FlagValue : "FlagValueRef"
+Flag ||--|o FlagType : "FlagTypeRef"
+Comment ||--}o TranslatedText : "TranslatedTextRef"
+Signature ||--|o UserRef : "UserRefRef"
+Signature ||--|o LocationRef : "LocationRefRef"
+Signature ||--|o SignatureRef : "SignatureRefRef"
+Signature ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o UserRef : "UserRefRef"
+AuditRecord ||--|o LocationRef : "LocationRefRef"
+AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
+AuditRecord ||--|o SourceID : "SourceIDRef"
+Query ||--|o Value : "ValueRef"
+Query ||--}o AuditRecord : "AuditRecordRef"
+</code></pre>
 <!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
 <table>
 <thead>
 <tr>
 <th>Name</th>
-<th>Cardinality and Range</th>
+<th>Cardinality* and Range</th>
 <th>Description</th>
 <th>Inheritance</th>
 </tr>
@@ -300,6 +243,7 @@
 </tr>
 </tbody>
 </table>
+<p><em>* See <a href="https://linkml.io/linkml/schemas/slots.html#slot-cardinality">LinkML documentation</a> for cardinality definitions.</em></p>
 <h2 id="usages">Usages</h2>
 <table>
 <thead>
@@ -351,442 +295,493 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: ItemData
-description: The ItemData element is used for transmission of the clinical data for
-  an item. The model does not support repeating items within a single item group.
-from_schema: http://www.cdisc.org/ns/odm/v2.0
-see_also:
-- https://wiki.cdisc.org/display/ODM2/ItemData
-slots:
-- ItemOID
-- TransactionTypeRef
-- IsNull
-- ValueRef
-- QueryRef
-- AuditRecordRef
-- SignatureRefRef
-- AnnotationRef
-slot_usage:
-  ItemOID:
-    name: ItemOID
-    description: Reference to an ItemDef in the MetaDataVersion identified in the
-      ClinicalData element. The referenced ItemDef defines the DataType of this item.
-      The ItemOID attribute is used to identify a particular item definition. This
-      value uniquely identifies an Item within the containing ItemGroup.
-    comments:
-    - Required
-    domain_of:
-    - ItemRef
-    - SourceItem
-    - RangeCheck
-    - ItemData
-    - KeySet
-    range: oidref
-    required: true
-  TransactionTypeRef:
-    name: TransactionTypeRef
-    description: Records the TransactionType for this ItemData instance in the source
-      system.
-    comments:
-    - Conditional Required on the ItemData element, or one of its ancestor elements,
-      when ODM/@FileType has the value "Transactional".
-    domain_of:
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    - Annotation
-    range: TransactionType
-  IsNull:
-    name: IsNull
-    description: Flag specifying that an item's value is to be set to null. In the
-      interest of creating non-verbose XML instances, one should not use ItemData
-      elements with IsNull set to "Yes" to indicate uncollected data. The better practice
-      is to transmit only collected data. For use cases where data traceability is
-      important, providing ItemData elements with IsNull="Yes" maybe be useful. It
-      is not necessary to provide an ItemData element with IsNull set to "Yes" in
-      cases where the source system would not create a record.
-    comments:
-    - Conditional If the child element ItemData/Value is present, the IsNull attribute
-      must not be set. If IsNull is set, the child element ItemData/Value must not
-      be present.
-    domain_of:
-    - ItemData
-    range: YesOnly
-  ValueRef:
-    name: ValueRef
-    multivalued: true
-    domain_of:
-    - TrialPhase
-    - ParameterValue
-    - Telecom
-    - ItemData
-    - Query
-    range: Value
-    inlined: true
-    inlined_as_list: true
-  QueryRef:
-    name: QueryRef
-    multivalued: true
-    domain_of:
-    - Location
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    range: Query
-    inlined: true
-    inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
-    domain_of:
-    - ReferenceData
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    - Query
-    range: AuditRecord
-    maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
-    domain_of:
-    - ReferenceData
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    - Signature
-    range: Signature
-    maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
-    domain_of:
-    - ReferenceData
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    - Association
-    range: Annotation
-    maximum_cardinality: 1
-class_uri: odm:ItemData
-
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The ItemData element is used for transmission of the clinical data for</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">an item. The model does not support repeating items within a single item group.</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="nt">see_also</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/ODM2/ItemData</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">slots</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemOID</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TransactionTypeRef</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IsNull</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueRef</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QueryRef</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuditRecordRef</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SignatureRefRef</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnnotationRef</span>
+<span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ItemOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemOID</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to an ItemDef in the MetaDataVersion identified in the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData element. The referenced ItemDef defines the DataType of this item.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">The ItemOID attribute is used to identify a particular item definition. This</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value uniquely identifies an Item within the containing ItemGroup.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Required</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemRef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SourceItem</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RangeCheck</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KeySet</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">TransactionTypeRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TransactionTypeRef</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Records the TransactionType for this ItemData instance in the source</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">system.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Conditional Required on the ItemData element, or one of its ancestor elements,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">when ODM/@FileType has the value "Transactional".</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Annotation</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TransactionType</span>
+<span class="w">  </span><span class="nt">IsNull</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IsNull</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Flag specifying that an item's value is to be set to null. In the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">interest of creating non-verbose XML instances, one should not use ItemData</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">elements with IsNull set to "Yes" to indicate uncollected data. The better practice</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is to transmit only collected data. For use cases where data traceability is</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">important, providing ItemData elements with IsNull="Yes" maybe be useful. It</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is not necessary to provide an ItemData element with IsNull set to "Yes" in</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">cases where the source system would not create a record.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Conditional If the child element ItemData/Value is present, the IsNull attribute</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">must not be set. If IsNull is set, the child element ItemData/Value must not</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">be present.</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YesOnly</span>
+<span class="w">  </span><span class="nt">ValueRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueRef</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TrialPhase</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ParameterValue</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Telecom</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Value</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">QueryRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QueryRef</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Location</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">AuditRecordRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuditRecordRef</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReferenceData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuditRecord</span>
+<span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">SignatureRefRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SignatureRefRef</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReferenceData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Signature</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Signature</span>
+<span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">AnnotationRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnnotationRef</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReferenceData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Association</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Annotation</span>
+<span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">odm:ItemData</span>
+</code></pre></div>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: ItemData
-description: The ItemData element is used for transmission of the clinical data for
-  an item. The model does not support repeating items within a single item group.
-from_schema: http://www.cdisc.org/ns/odm/v2.0
-see_also:
-- https://wiki.cdisc.org/display/ODM2/ItemData
-slot_usage:
-  ItemOID:
-    name: ItemOID
-    description: Reference to an ItemDef in the MetaDataVersion identified in the
-      ClinicalData element. The referenced ItemDef defines the DataType of this item.
-      The ItemOID attribute is used to identify a particular item definition. This
-      value uniquely identifies an Item within the containing ItemGroup.
-    comments:
-    - Required
-    domain_of:
-    - ItemRef
-    - SourceItem
-    - RangeCheck
-    - ItemData
-    - KeySet
-    range: oidref
-    required: true
-  TransactionTypeRef:
-    name: TransactionTypeRef
-    description: Records the TransactionType for this ItemData instance in the source
-      system.
-    comments:
-    - Conditional Required on the ItemData element, or one of its ancestor elements,
-      when ODM/@FileType has the value "Transactional".
-    domain_of:
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    - Annotation
-    range: TransactionType
-  IsNull:
-    name: IsNull
-    description: Flag specifying that an item's value is to be set to null. In the
-      interest of creating non-verbose XML instances, one should not use ItemData
-      elements with IsNull set to "Yes" to indicate uncollected data. The better practice
-      is to transmit only collected data. For use cases where data traceability is
-      important, providing ItemData elements with IsNull="Yes" maybe be useful. It
-      is not necessary to provide an ItemData element with IsNull set to "Yes" in
-      cases where the source system would not create a record.
-    comments:
-    - Conditional If the child element ItemData/Value is present, the IsNull attribute
-      must not be set. If IsNull is set, the child element ItemData/Value must not
-      be present.
-    domain_of:
-    - ItemData
-    range: YesOnly
-  ValueRef:
-    name: ValueRef
-    multivalued: true
-    domain_of:
-    - TrialPhase
-    - ParameterValue
-    - Telecom
-    - ItemData
-    - Query
-    range: Value
-    inlined: true
-    inlined_as_list: true
-  QueryRef:
-    name: QueryRef
-    multivalued: true
-    domain_of:
-    - Location
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    range: Query
-    inlined: true
-    inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
-    domain_of:
-    - ReferenceData
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    - Query
-    range: AuditRecord
-    maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
-    domain_of:
-    - ReferenceData
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    - Signature
-    range: Signature
-    maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
-    domain_of:
-    - ReferenceData
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    - Association
-    range: Annotation
-    maximum_cardinality: 1
-attributes:
-  ItemOID:
-    name: ItemOID
-    description: Reference to an ItemDef in the MetaDataVersion identified in the
-      ClinicalData element. The referenced ItemDef defines the DataType of this item.
-      The ItemOID attribute is used to identify a particular item definition. This
-      value uniquely identifies an Item within the containing ItemGroup.
-    comments:
-    - Required
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    alias: ItemOID
-    owner: ItemData
-    domain_of:
-    - ItemRef
-    - SourceItem
-    - RangeCheck
-    - ItemData
-    - KeySet
-    range: oidref
-    required: true
-  TransactionTypeRef:
-    name: TransactionTypeRef
-    description: Records the TransactionType for this ItemData instance in the source
-      system.
-    comments:
-    - Conditional Required on the ItemData element, or one of its ancestor elements,
-      when ODM/@FileType has the value "Transactional".
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    alias: TransactionTypeRef
-    owner: ItemData
-    domain_of:
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    - Annotation
-    range: TransactionType
-  IsNull:
-    name: IsNull
-    description: Flag specifying that an item's value is to be set to null. In the
-      interest of creating non-verbose XML instances, one should not use ItemData
-      elements with IsNull set to "Yes" to indicate uncollected data. The better practice
-      is to transmit only collected data. For use cases where data traceability is
-      important, providing ItemData elements with IsNull="Yes" maybe be useful. It
-      is not necessary to provide an ItemData element with IsNull set to "Yes" in
-      cases where the source system would not create a record.
-    comments:
-    - Conditional If the child element ItemData/Value is present, the IsNull attribute
-      must not be set. If IsNull is set, the child element ItemData/Value must not
-      be present.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    alias: IsNull
-    owner: ItemData
-    domain_of:
-    - ItemData
-    range: YesOnly
-  ValueRef:
-    name: ValueRef
-    description: Human-readable designation of the trial phase.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    multivalued: true
-    identifier: false
-    alias: ValueRef
-    owner: ItemData
-    domain_of:
-    - TrialPhase
-    - ParameterValue
-    - Telecom
-    - ItemData
-    - Query
-    range: Value
-    inlined: true
-    inlined_as_list: true
-  QueryRef:
-    name: QueryRef
-    description: 'Query reference: The Query element represents a request for clarification
-      on a data item collected for a clinical trial, specifically a request from a
-      sponsor or sponsor’s representative to an investigator to resolve an error or
-      inconsistency discovered during data review. Queries can be created manually
-      by individuals such as site monitors or data managers or automatically by systems.
-      The full text of the Query exists in the Value child element. The optional Name
-      attribute provide the means to provide a short identifier that can be included
-      in listing or user interfaces.'
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    multivalued: true
-    identifier: false
-    alias: QueryRef
-    owner: ItemData
-    domain_of:
-    - Location
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    range: Query
-    inlined: true
-    inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
-    description: 'AuditRecord reference: An AuditRecord carries information pertaining
-      to the creation, deletion, or modification of clinical data. This information
-      includes who performed that action, and where, when, and why that action was
-      performed.AuditRecord information describes a change to clinical data, but is
-      not itself clinical data. The value of some clinical data can always be changed
-      by a subsequent transaction, but history cannot be changed, only added to.'
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    identifier: false
-    alias: AuditRecordRef
-    owner: ItemData
-    domain_of:
-    - ReferenceData
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    - Query
-    range: AuditRecord
-    maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
-    description: 'SignatureRef reference: A reference to the signature meaning.'
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    identifier: false
-    alias: SignatureRefRef
-    owner: ItemData
-    domain_of:
-    - ReferenceData
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    - Signature
-    range: Signature
-    maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
-    description: 'Annotation reference: A general note about clinical data. If an
-      annotation has both a comment and flags, the flags should be related to the
-      comment.'
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    identifier: false
-    alias: AnnotationRef
-    owner: ItemData
-    domain_of:
-    - ReferenceData
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
-    - Association
-    range: Annotation
-    maximum_cardinality: 1
-class_uri: odm:ItemData
-
-</code></pre>
-</details>
-</article>
-</div>
-<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
-</div>
-</main>
-<footer class="md-footer">
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
-      Material for MkDocs
-    </a>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The ItemData element is used for transmission of the clinical data for</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">an item. The model does not support repeating items within a single item group.</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="nt">see_also</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/ODM2/ItemData</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ItemOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemOID</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to an ItemDef in the MetaDataVersion identified in the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData element. The referenced ItemDef defines the DataType of this item.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">The ItemOID attribute is used to identify a particular item definition. This</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value uniquely identifies an Item within the containing ItemGroup.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Required</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemRef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SourceItem</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RangeCheck</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KeySet</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">TransactionTypeRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TransactionTypeRef</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Records the TransactionType for this ItemData instance in the source</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">system.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Conditional Required on the ItemData element, or one of its ancestor elements,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">when ODM/@FileType has the value "Transactional".</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Annotation</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TransactionType</span>
+<span class="w">  </span><span class="nt">IsNull</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IsNull</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Flag specifying that an item's value is to be set to null. In the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">interest of creating non-verbose XML instances, one should not use ItemData</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">elements with IsNull set to "Yes" to indicate uncollected data. The better practice</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is to transmit only collected data. For use cases where data traceability is</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">important, providing ItemData elements with IsNull="Yes" maybe be useful. It</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is not necessary to provide an ItemData element with IsNull set to "Yes" in</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">cases where the source system would not create a record.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Conditional If the child element ItemData/Value is present, the IsNull attribute</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">must not be set. If IsNull is set, the child element ItemData/Value must not</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">be present.</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YesOnly</span>
+<span class="w">  </span><span class="nt">ValueRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueRef</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TrialPhase</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ParameterValue</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Telecom</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Value</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">QueryRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QueryRef</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Location</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">AuditRecordRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuditRecordRef</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReferenceData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuditRecord</span>
+<span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">SignatureRefRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SignatureRefRef</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReferenceData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Signature</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Signature</span>
+<span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">AnnotationRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnnotationRef</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReferenceData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Association</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Annotation</span>
+<span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">attributes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ItemOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemOID</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to an ItemDef in the MetaDataVersion identified in the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData element. The referenced ItemDef defines the DataType of this item.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">The ItemOID attribute is used to identify a particular item definition. This</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value uniquely identifies an Item within the containing ItemGroup.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Required</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemOID</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemRef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SourceItem</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RangeCheck</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KeySet</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">TransactionTypeRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TransactionTypeRef</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Records the TransactionType for this ItemData instance in the source</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">system.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Conditional Required on the ItemData element, or one of its ancestor elements,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">when ODM/@FileType has the value "Transactional".</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TransactionTypeRef</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Annotation</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TransactionType</span>
+<span class="w">  </span><span class="nt">IsNull</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IsNull</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Flag specifying that an item's value is to be set to null. In the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">interest of creating non-verbose XML instances, one should not use ItemData</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">elements with IsNull set to "Yes" to indicate uncollected data. The better practice</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is to transmit only collected data. For use cases where data traceability is</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">important, providing ItemData elements with IsNull="Yes" maybe be useful. It</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is not necessary to provide an ItemData element with IsNull set to "Yes" in</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">cases where the source system would not create a record.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Conditional If the child element ItemData/Value is present, the IsNull attribute</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">must not be set. If IsNull is set, the child element ItemData/Value must not</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">be present.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IsNull</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YesOnly</span>
+<span class="w">  </span><span class="nt">ValueRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueRef</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Human-readable designation of the trial phase.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueRef</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TrialPhase</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ParameterValue</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Telecom</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Value</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">QueryRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QueryRef</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Query</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">Query</span><span class="nv"> </span><span class="s">element</span><span class="nv"> </span><span class="s">represents</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">request</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">clarification</span>
+<span class="w">      </span><span class="s">on</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">collected</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">clinical</span><span class="nv"> </span><span class="s">trial,</span><span class="nv"> </span><span class="s">specifically</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">request</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">a</span>
+<span class="w">      </span><span class="s">sponsor</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">sponsor’s</span><span class="nv"> </span><span class="s">representative</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">investigator</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">resolve</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">error</span><span class="nv"> </span><span class="s">or</span>
+<span class="w">      </span><span class="s">inconsistency</span><span class="nv"> </span><span class="s">discovered</span><span class="nv"> </span><span class="s">during</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">review.</span><span class="nv"> </span><span class="s">Queries</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">created</span><span class="nv"> </span><span class="s">manually</span>
+<span class="w">      </span><span class="s">by</span><span class="nv"> </span><span class="s">individuals</span><span class="nv"> </span><span class="s">such</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">site</span><span class="nv"> </span><span class="s">monitors</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">managers</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">automatically</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">systems.</span>
+<span class="w">      </span><span class="s">The</span><span class="nv"> </span><span class="s">full</span><span class="nv"> </span><span class="s">text</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Query</span><span class="nv"> </span><span class="s">exists</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Value</span><span class="nv"> </span><span class="s">child</span><span class="nv"> </span><span class="s">element.</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">optional</span><span class="nv"> </span><span class="s">Name</span>
+<span class="w">      </span><span class="s">attribute</span><span class="nv"> </span><span class="s">provide</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">means</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">provide</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">short</span><span class="nv"> </span><span class="s">identifier</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">included</span>
+<span class="w">      </span><span class="s">in</span><span class="nv"> </span><span class="s">listing</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">user</span><span class="nv"> </span><span class="s">interfaces.'</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QueryRef</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Location</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">AuditRecordRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuditRecordRef</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'AuditRecord</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">An</span><span class="nv"> </span><span class="s">AuditRecord</span><span class="nv"> </span><span class="s">carries</span><span class="nv"> </span><span class="s">information</span><span class="nv"> </span><span class="s">pertaining</span>
+<span class="w">      </span><span class="s">to</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">creation,</span><span class="nv"> </span><span class="s">deletion,</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">modification</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">clinical</span><span class="nv"> </span><span class="s">data.</span><span class="nv"> </span><span class="s">This</span><span class="nv"> </span><span class="s">information</span>
+<span class="w">      </span><span class="s">includes</span><span class="nv"> </span><span class="s">who</span><span class="nv"> </span><span class="s">performed</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">action,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">where,</span><span class="nv"> </span><span class="s">when,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">why</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">action</span><span class="nv"> </span><span class="s">was</span>
+<span class="w">      </span><span class="s">performed.AuditRecord</span><span class="nv"> </span><span class="s">information</span><span class="nv"> </span><span class="s">describes</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">change</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">clinical</span><span class="nv"> </span><span class="s">data,</span><span class="nv"> </span><span class="s">but</span><span class="nv"> </span><span class="s">is</span>
+<span class="w">      </span><span class="s">not</span><span class="nv"> </span><span class="s">itself</span><span class="nv"> </span><span class="s">clinical</span><span class="nv"> </span><span class="s">data.</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">value</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">some</span><span class="nv"> </span><span class="s">clinical</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">always</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">changed</span>
+<span class="w">      </span><span class="s">by</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">subsequent</span><span class="nv"> </span><span class="s">transaction,</span><span class="nv"> </span><span class="s">but</span><span class="nv"> </span><span class="s">history</span><span class="nv"> </span><span class="s">cannot</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">changed,</span><span class="nv"> </span><span class="s">only</span><span class="nv"> </span><span class="s">added</span><span class="nv"> </span><span class="s">to.'</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuditRecordRef</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReferenceData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuditRecord</span>
+<span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">SignatureRefRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SignatureRefRef</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'SignatureRef</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">reference</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">signature</span><span class="nv"> </span><span class="s">meaning.'</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SignatureRefRef</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReferenceData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Signature</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Signature</span>
+<span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">AnnotationRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnnotationRef</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Annotation</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">general</span><span class="nv"> </span><span class="s">note</span><span class="nv"> </span><span class="s">about</span><span class="nv"> </span><span class="s">clinical</span><span class="nv"> </span><span class="s">data.</span><span class="nv"> </span><span class="s">If</span><span class="nv"> </span><span class="s">an</span>
+<span class="w">      </span><span class="s">annotation</span><span class="nv"> </span><span class="s">has</span><span class="nv"> </span><span class="s">both</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">comment</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">flags,</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">flags</span><span class="nv"> </span><span class="s">should</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">related</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">the</span>
+<span class="w">      </span><span class="s">comment.'</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnnotationRef</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReferenceData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClinicalData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubjectData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemData</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Association</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Annotation</span>
+<span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">odm:ItemData</span>
+</code></pre></div>
+</details></div>
 </div>
 </div>
-</div>
+<footer class="col-md-12">
+<hr/>
+<p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
 </footer>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+<script src="../js/base.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js"></script>
+<script src="../js/enable_zoom.js"></script>
+<script src="../search/main.js"></script>
+<div aria-hidden="true" aria-labelledby="searchModalLabel" class="modal" id="mkdocs_search_modal" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="searchModalLabel">Search</h4>
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
 </div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
+<div class="modal-body">
+<p>From here you can search these documents. Enter your search terms below.</p>
+<form>
+<div class="form-group">
+<input class="form-control" id="mkdocs-search-query" placeholder="Search..." title="Type search term here" type="search"/>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.1.0/dist/mermaid.esm.min.mjs"</script>
-<script>mermaidAPI.initialize({});</script></body>
+</form>
+<div data-no-results-text="No results found" id="mkdocs-search-results"></div>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div><div aria-hidden="true" aria-labelledby="keyboardModalLabel" class="modal" id="mkdocs_keyboard_modal" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+</div>
+<div class="modal-body">
+<table class="table">
+<thead>
+<tr>
+<th style="width: 20%;">Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="help shortcut"><kbd>?</kbd></td>
+<td>Open this help</td>
+</tr>
+<tr>
+<td class="next shortcut"><kbd>n</kbd></td>
+<td>Next page</td>
+</tr>
+<tr>
+<td class="prev shortcut"><kbd>p</kbd></td>
+<td>Previous page</td>
+</tr>
+<tr>
+<td class="search shortcut"><kbd>s</kbd></td>
+<td>Search</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+</body>
 </html>

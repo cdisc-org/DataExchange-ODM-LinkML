@@ -1,236 +1,118 @@
-
 <!DOCTYPE html>
 
-<html class="no-js" lang="en">
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="https://cdisc-org.github.io/DataExchange-ODM-LinkML/Coding/" rel="canonical"/>
-<link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.1, mkdocs-material-9.1.21" name="generator"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
 <title>Class: Coding - DataExchange-ODM-LinkML</title>
-<link href="../assets/stylesheets/main.eebd395e.min.css" rel="stylesheet"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
-<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../css/font-awesome.min.css" rel="stylesheet"/>
+<link href="../css/base.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 </head>
-<body dir="ltr">
-<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#class-coding">
-          Skip to content
-        </a>
-</div>
-<div data-md-component="announce">
-</div>
-<header class="md-header md-header--shadow" data-md-component="header">
-<nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="DataExchange-ODM-LinkML" class="md-header__button md-logo" data-md-component="logo" href=".." title="DataExchange-ODM-LinkML">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
-            DataExchange-ODM-LinkML
-          </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
-            
-              Class: Coding
-            
-          </span>
-</div>
-</div>
-</div>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</label>
-<nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+<body>
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="container">
+<a class="navbar-brand" href="..">DataExchange-ODM-LinkML</a>
+<!-- Expander button -->
+<button class="navbar-toggler" data-target="#navbar-collapse" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
 </button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
-            Initializing search
-          </div>
-<ol class="md-search-result__list" role="presentation"></ol>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="md-header__source">
-<a class="md-source" data-md-component="source" href="https://github.com/cdisc-org/DataExchange-ODM-Linkml" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
-</div>
-<div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-</div>
-</nav>
-</header>
-<div class="md-container" data-md-component="container">
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="DataExchange-ODM-LinkML" class="md-nav__button md-logo" data-md-component="logo" href=".." title="DataExchange-ODM-LinkML">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
-</a>
-    DataExchange-ODM-LinkML
-  </label>
-<div class="md-nav__source">
-<a class="md-source" data-md-component="source" href="https://github.com/cdisc-org/DataExchange-ODM-Linkml" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
-</div>
-<div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-</div>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="..">
-        Index
-      </a>
+<!-- Expanded navigation -->
+<div class="navbar-collapse collapse" id="navbar-collapse">
+<!-- Main navigation -->
+<ul class="nav navbar-nav">
+<li class="navitem">
+<a class="nav-link" href="..">Index</a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../about/">
-        About
-      </a>
+<li class="navitem">
+<a class="nav-link" href="../about/">About</a>
 </li>
 </ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#slots">
-    Slots
-  </a>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" data-target="#mkdocs_search_modal" data-toggle="modal" href="#">
+<i class="fa fa-search"></i> Search
+                            </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usages">
-    Usages
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#see-also">
-    See Also
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#identifier-and-mapping-information">
-    Identifier and Mapping Information
-  </a>
-<nav aria-label="Identifier and Mapping Information" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#schema-source">
-    Schema Source
-  </a>
+<li class="nav-item">
+<a class="nav-link" href="https://github.com/cdisc-org/DataExchange-ODM-Linkml/edit/master/docs/Coding.md"><i class="fa fa-github"></i> Edit on GitHub</a>
 </li>
 </ul>
-</nav>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+<div class="navbar-header">
+<button class="navbar-toggler collapsed" data-target="#toc-collapse" data-toggle="collapse" title="Table of Contents" type="button">
+<span class="fa fa-angle-down"></span>
+</button>
+</div>
+<div class="navbar-collapse collapse card bg-secondary" id="toc-collapse">
+<ul class="nav flex-column">
+<li class="nav-item" data-level="1"><a class="nav-link" href="#class-coding">Class: Coding</a>
+<ul class="nav flex-column">
+<li class="nav-item" data-level="2"><a class="nav-link" href="#slots">Slots</a>
+<ul class="nav flex-column">
+</ul>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#mappings">
-    Mappings
-  </a>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#usages">Usages</a>
+<ul class="nav flex-column">
+</ul>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#linkml-source">
-    LinkML Source
-  </a>
-<nav aria-label="LinkML Source" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#direct">
-    Direct
-  </a>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#see-also">See Also</a>
+<ul class="nav flex-column">
+</ul>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#induced">
-    Induced
-  </a>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#identifier-and-mapping-information">Identifier and Mapping Information</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#mappings">Mappings</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-level="2"><a class="nav-link" href="#linkml-source">LinkML Source</a>
+<ul class="nav flex-column">
+</ul>
 </li>
 </ul>
-</nav>
 </li>
 </ul>
-</nav>
 </div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
+</div></div>
+<div class="col-md-9" role="main">
 <h1 id="class-coding">Class: Coding</h1>
 <p><em>Coding references a symbol from a defined code system. It uses a code defined in a terminology system to associate semantics with a given term, codelist, variable, or group of variables. The presence of a Coding element associates a meaning to its parent element. Including multiple Coding elements for a given parent indicates synonymous meanings provided by different code systems or code system versions.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Coding">odm:Coding</a></p>
-<div class="mermaid"> classDiagram
-    class Coding
-      Coding : CodeRef
-
-      Coding : CommentOID
-
-      Coding : href
-
-      Coding : Label
-
-      Coding : ref
-
-      Coding : System
-
-      Coding : SystemName
-
-      Coding : SystemVersion
+<pre class="mermaid"><code>erDiagram
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
 
 
-</div>
+</code></pre>
 <!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
 <table>
 <thead>
 <tr>
 <th>Name</th>
-<th>Cardinality and Range</th>
+<th>Cardinality* and Range</th>
 <th>Description</th>
 <th>Inheritance</th>
 </tr>
@@ -286,6 +168,7 @@
 </tr>
 </tbody>
 </table>
+<p><em>* See <a href="https://linkml.io/linkml/schemas/slots.html#slot-cardinality">LinkML documentation</a> for cardinality definitions.</em></p>
 <h2 id="usages">Usages</h2>
 <table>
 <thead>
@@ -427,428 +310,479 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: Coding
-description: Coding references a symbol from a defined code system. It uses a code
-  defined in a terminology system to associate semantics with a given term, codelist,
-  variable, or group of variables. The presence of a Coding element associates a meaning
-  to its parent element. Including multiple Coding elements for a given parent indicates
-  synonymous meanings provided by different code systems or code system versions.
-from_schema: http://www.cdisc.org/ns/odm/v2.0
-see_also:
-- https://wiki.cdisc.org/display/ODM2/Coding
-slots:
-- CodeRef
-- System
-- SystemName
-- SystemVersion
-- Label
-- href
-- ref
-- CommentOID
-slot_usage:
-  CodeRef:
-    name: CodeRef
-    description: A string pattern that identifies a concept as defined by the code
-      system.
-    comments:
-    - 'Optional
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding references a symbol from a defined code system. It uses a code</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">defined in a terminology system to associate semantics with a given term, codelist,</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">variable, or group of variables. The presence of a Coding element associates a meaning</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">to its parent element. Including multiple Coding elements for a given parent indicates</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">synonymous meanings provided by different code systems or code system versions.</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="nt">see_also</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/ODM2/Coding</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">slots</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeRef</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">System</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SystemName</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SystemVersion</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Label</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">href</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ref</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CommentOID</span>
+<span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">CodeRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeRef</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A string pattern that identifies a concept as defined by the code</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">system.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: text
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text</span>
 
-      When not provided, all codes in the code system are allowed. For example, when
-      referencing the complete set of codes from the MedDRA code system.'
-    domain_of:
-    - FormalExpression
-    - Coding
-    range: text
-  System:
-    name: System
-    description: Identifies the code system that defines the code. If the code is
-      taken from a code system resource then the URL for the code system should be
-      used.
-    comments:
-    - 'Required
+<span class="w">      </span><span class="s">When</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">provided,</span><span class="nv"> </span><span class="s">all</span><span class="nv"> </span><span class="s">codes</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">system</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">allowed.</span><span class="nv"> </span><span class="s">For</span><span class="nv"> </span><span class="s">example,</span><span class="nv"> </span><span class="s">when</span>
+<span class="w">      </span><span class="s">referencing</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">complete</span><span class="nv"> </span><span class="s">set</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">codes</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">MedDRA</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">system.'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FormalExpression</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">  </span><span class="nt">System</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">System</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Identifies the code system that defines the code. If the code is</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">taken from a code system resource then the URL for the code system should be</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">used.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
 
-      range: URI'
-    domain_of:
-    - Coding
-    range: uriorcurie
-    required: true
-  SystemName:
-    name: SystemName
-    description: Human readable name for the code system.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">URI'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">SystemName</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SystemName</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Human readable name for the code system.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: text'
-    domain_of:
-    - Coding
-    range: text
-  SystemVersion:
-    name: SystemVersion
-    description: Identifies the version of the code system
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">  </span><span class="nt">SystemVersion</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SystemVersion</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Identifies the version of the code system</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: text'
-    domain_of:
-    - Coding
-    range: text
-  Label:
-    name: Label
-    description: Used to link the value to a named MethodDef parameter.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">  </span><span class="nt">Label</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Label</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Used to link the value to a named MethodDef parameter.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: text'
-    domain_of:
-    - Resource
-    - Coding
-    range: text
-  href:
-    name: href
-    description: URI reference to the Code definition.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Resource</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">  </span><span class="nt">href</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">href</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">URI reference to the Code definition.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: URI'
-    domain_of:
-    - Leaf
-    - Include
-    - ExternalCodeLib
-    - Image
-    - Coding
-    range: uriorcurie
-  ref:
-    name: ref
-    description: Reference to a local instance of the code system.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">URI'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Leaf</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Include</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExternalCodeLib</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Image</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">  </span><span class="nt">ref</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ref</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to a local instance of the code system.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: URI'
-    domain_of:
-    - ExternalCodeLib
-    - Coding
-    range: uriorcurie
-  CommentOID:
-    name: CommentOID
-    description: Reference to a CommentDef that provides the rationale for the use
-      of the Concept.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">URI'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExternalCodeLib</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">  </span><span class="nt">CommentOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CommentOID</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to a CommentDef that provides the rationale for the use</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of the Concept.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: oidref
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">oidref</span>
 
-      Must match the OID attribute of a CommentDef element within in this Study/MetaDataVersion.'
-    domain_of:
-    - MetaDataVersion
-    - Standard
-    - WhereClauseDef
-    - StudyEventGroupDef
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - MethodDef
-    - ConditionDef
-    - Coding
-    range: text
-class_uri: odm:Coding
-
-</code></pre>
+<span class="w">      </span><span class="s">Must</span><span class="nv"> </span><span class="s">match</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">attribute</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">CommentDef</span><span class="nv"> </span><span class="s">element</span><span class="nv"> </span><span class="s">within</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">Study/MetaDataVersion.'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WhereClauseDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventGroupDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeList</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeListItem</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MethodDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConditionDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">odm:Coding</span>
+</code></pre></div>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: Coding
-description: Coding references a symbol from a defined code system. It uses a code
-  defined in a terminology system to associate semantics with a given term, codelist,
-  variable, or group of variables. The presence of a Coding element associates a meaning
-  to its parent element. Including multiple Coding elements for a given parent indicates
-  synonymous meanings provided by different code systems or code system versions.
-from_schema: http://www.cdisc.org/ns/odm/v2.0
-see_also:
-- https://wiki.cdisc.org/display/ODM2/Coding
-slot_usage:
-  CodeRef:
-    name: CodeRef
-    description: A string pattern that identifies a concept as defined by the code
-      system.
-    comments:
-    - 'Optional
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding references a symbol from a defined code system. It uses a code</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">defined in a terminology system to associate semantics with a given term, codelist,</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">variable, or group of variables. The presence of a Coding element associates a meaning</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">to its parent element. Including multiple Coding elements for a given parent indicates</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">synonymous meanings provided by different code systems or code system versions.</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="nt">see_also</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/ODM2/Coding</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">CodeRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeRef</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A string pattern that identifies a concept as defined by the code</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">system.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: text
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text</span>
 
-      When not provided, all codes in the code system are allowed. For example, when
-      referencing the complete set of codes from the MedDRA code system.'
-    domain_of:
-    - FormalExpression
-    - Coding
-    range: text
-  System:
-    name: System
-    description: Identifies the code system that defines the code. If the code is
-      taken from a code system resource then the URL for the code system should be
-      used.
-    comments:
-    - 'Required
+<span class="w">      </span><span class="s">When</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">provided,</span><span class="nv"> </span><span class="s">all</span><span class="nv"> </span><span class="s">codes</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">system</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">allowed.</span><span class="nv"> </span><span class="s">For</span><span class="nv"> </span><span class="s">example,</span><span class="nv"> </span><span class="s">when</span>
+<span class="w">      </span><span class="s">referencing</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">complete</span><span class="nv"> </span><span class="s">set</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">codes</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">MedDRA</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">system.'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FormalExpression</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">  </span><span class="nt">System</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">System</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Identifies the code system that defines the code. If the code is</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">taken from a code system resource then the URL for the code system should be</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">used.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
 
-      range: URI'
-    domain_of:
-    - Coding
-    range: uriorcurie
-    required: true
-  SystemName:
-    name: SystemName
-    description: Human readable name for the code system.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">URI'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">SystemName</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SystemName</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Human readable name for the code system.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: text'
-    domain_of:
-    - Coding
-    range: text
-  SystemVersion:
-    name: SystemVersion
-    description: Identifies the version of the code system
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">  </span><span class="nt">SystemVersion</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SystemVersion</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Identifies the version of the code system</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: text'
-    domain_of:
-    - Coding
-    range: text
-  Label:
-    name: Label
-    description: Used to link the value to a named MethodDef parameter.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">  </span><span class="nt">Label</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Label</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Used to link the value to a named MethodDef parameter.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: text'
-    domain_of:
-    - Resource
-    - Coding
-    range: text
-  href:
-    name: href
-    description: URI reference to the Code definition.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Resource</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">  </span><span class="nt">href</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">href</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">URI reference to the Code definition.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: URI'
-    domain_of:
-    - Leaf
-    - Include
-    - ExternalCodeLib
-    - Image
-    - Coding
-    range: uriorcurie
-  ref:
-    name: ref
-    description: Reference to a local instance of the code system.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">URI'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Leaf</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Include</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExternalCodeLib</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Image</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">  </span><span class="nt">ref</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ref</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to a local instance of the code system.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: URI'
-    domain_of:
-    - ExternalCodeLib
-    - Coding
-    range: uriorcurie
-  CommentOID:
-    name: CommentOID
-    description: Reference to a CommentDef that provides the rationale for the use
-      of the Concept.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">URI'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExternalCodeLib</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">  </span><span class="nt">CommentOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CommentOID</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to a CommentDef that provides the rationale for the use</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of the Concept.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: oidref
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">oidref</span>
 
-      Must match the OID attribute of a CommentDef element within in this Study/MetaDataVersion.'
-    domain_of:
-    - MetaDataVersion
-    - Standard
-    - WhereClauseDef
-    - StudyEventGroupDef
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - MethodDef
-    - ConditionDef
-    - Coding
-    range: text
-attributes:
-  CodeRef:
-    name: CodeRef
-    description: A string pattern that identifies a concept as defined by the code
-      system.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">Must</span><span class="nv"> </span><span class="s">match</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">attribute</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">CommentDef</span><span class="nv"> </span><span class="s">element</span><span class="nv"> </span><span class="s">within</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">Study/MetaDataVersion.'</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WhereClauseDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventGroupDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeList</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeListItem</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MethodDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConditionDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="nt">attributes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">CodeRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeRef</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A string pattern that identifies a concept as defined by the code</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">system.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: text
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text</span>
 
-      When not provided, all codes in the code system are allowed. For example, when
-      referencing the complete set of codes from the MedDRA code system.'
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    identifier: false
-    alias: CodeRef
-    owner: Coding
-    domain_of:
-    - FormalExpression
-    - Coding
-    range: text
-  System:
-    name: System
-    description: Identifies the code system that defines the code. If the code is
-      taken from a code system resource then the URL for the code system should be
-      used.
-    comments:
-    - 'Required
+<span class="w">      </span><span class="s">When</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">provided,</span><span class="nv"> </span><span class="s">all</span><span class="nv"> </span><span class="s">codes</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">system</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">allowed.</span><span class="nv"> </span><span class="s">For</span><span class="nv"> </span><span class="s">example,</span><span class="nv"> </span><span class="s">when</span>
+<span class="w">      </span><span class="s">referencing</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">complete</span><span class="nv"> </span><span class="s">set</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">codes</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">MedDRA</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">system.'</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeRef</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FormalExpression</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">  </span><span class="nt">System</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">System</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Identifies the code system that defines the code. If the code is</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">taken from a code system resource then the URL for the code system should be</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">used.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
 
-      range: URI'
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    alias: System
-    owner: Coding
-    domain_of:
-    - Coding
-    range: uriorcurie
-    required: true
-  SystemName:
-    name: SystemName
-    description: Human readable name for the code system.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">URI'</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">System</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">SystemName</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SystemName</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Human readable name for the code system.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: text'
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    alias: SystemName
-    owner: Coding
-    domain_of:
-    - Coding
-    range: text
-  SystemVersion:
-    name: SystemVersion
-    description: Identifies the version of the code system
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text'</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SystemName</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">  </span><span class="nt">SystemVersion</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SystemVersion</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Identifies the version of the code system</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: text'
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    alias: SystemVersion
-    owner: Coding
-    domain_of:
-    - Coding
-    range: text
-  Label:
-    name: Label
-    description: Used to link the value to a named MethodDef parameter.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text'</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SystemVersion</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">  </span><span class="nt">Label</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Label</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Used to link the value to a named MethodDef parameter.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: text'
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    alias: Label
-    owner: Coding
-    domain_of:
-    - Resource
-    - Coding
-    range: text
-  href:
-    name: href
-    description: URI reference to the Code definition.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text'</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Label</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Resource</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">  </span><span class="nt">href</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">href</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">URI reference to the Code definition.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: URI'
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    alias: href
-    owner: Coding
-    domain_of:
-    - Leaf
-    - Include
-    - ExternalCodeLib
-    - Image
-    - Coding
-    range: uriorcurie
-  ref:
-    name: ref
-    description: Reference to a local instance of the code system.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">URI'</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">href</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Leaf</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Include</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExternalCodeLib</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Image</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">  </span><span class="nt">ref</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ref</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to a local instance of the code system.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: URI'
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    alias: ref
-    owner: Coding
-    domain_of:
-    - ExternalCodeLib
-    - Coding
-    range: uriorcurie
-  CommentOID:
-    name: CommentOID
-    description: Reference to a CommentDef that provides the rationale for the use
-      of the Concept.
-    comments:
-    - 'Optional
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">URI'</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ref</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExternalCodeLib</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">  </span><span class="nt">CommentOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CommentOID</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to a CommentDef that provides the rationale for the use</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of the Concept.</span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Optional</span>
 
-      range: oidref
+<span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">oidref</span>
 
-      Must match the OID attribute of a CommentDef element within in this Study/MetaDataVersion.'
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    rank: 1000
-    alias: CommentOID
-    owner: Coding
-    domain_of:
-    - MetaDataVersion
-    - Standard
-    - WhereClauseDef
-    - StudyEventGroupDef
-    - StudyEventDef
-    - ItemGroupDef
-    - ItemDef
-    - CodeList
-    - CodeListItem
-    - MethodDef
-    - ConditionDef
-    - Coding
-    range: text
-class_uri: odm:Coding
-
-</code></pre>
-</details>
-</article>
-</div>
-<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
-</div>
-</main>
-<footer class="md-footer">
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
-      Material for MkDocs
-    </a>
+<span class="w">      </span><span class="s">Must</span><span class="nv"> </span><span class="s">match</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">attribute</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">CommentDef</span><span class="nv"> </span><span class="s">element</span><span class="nv"> </span><span class="s">within</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">Study/MetaDataVersion.'</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CommentOID</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WhereClauseDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventGroupDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEventDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemGroupDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ItemDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeList</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeListItem</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MethodDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConditionDef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">odm:Coding</span>
+</code></pre></div>
+</details></div>
 </div>
 </div>
-</div>
+<footer class="col-md-12">
+<hr/>
+<p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
 </footer>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+<script src="../js/base.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js"></script>
+<script src="../js/enable_zoom.js"></script>
+<script src="../search/main.js"></script>
+<div aria-hidden="true" aria-labelledby="searchModalLabel" class="modal" id="mkdocs_search_modal" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="searchModalLabel">Search</h4>
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
 </div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
+<div class="modal-body">
+<p>From here you can search these documents. Enter your search terms below.</p>
+<form>
+<div class="form-group">
+<input class="form-control" id="mkdocs-search-query" placeholder="Search..." title="Type search term here" type="search"/>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.1.0/dist/mermaid.esm.min.mjs"</script>
-<script>mermaidAPI.initialize({});</script></body>
+</form>
+<div data-no-results-text="No results found" id="mkdocs-search-results"></div>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div><div aria-hidden="true" aria-labelledby="keyboardModalLabel" class="modal" id="mkdocs_keyboard_modal" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+</div>
+<div class="modal-body">
+<table class="table">
+<thead>
+<tr>
+<th style="width: 20%;">Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="help shortcut"><kbd>?</kbd></td>
+<td>Open this help</td>
+</tr>
+<tr>
+<td class="next shortcut"><kbd>n</kbd></td>
+<td>Next page</td>
+</tr>
+<tr>
+<td class="prev shortcut"><kbd>p</kbd></td>
+<td>Previous page</td>
+</tr>
+<tr>
+<td class="search shortcut"><kbd>s</kbd></td>
+<td>Search</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+</body>
 </html>
