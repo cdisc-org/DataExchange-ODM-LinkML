@@ -312,7 +312,7 @@
 
 
 <h1 id="slot-conditionoid">Slot: ConditionOID</h1>
-<p><em>Reference to a ConditionDef defining the condition under which the transition must be executed</em></p>
+<p><em>Reference to a ConditionDef defining the condition under which the transition must be executed. The ConditionOID references a ConditionDef element defining a condition that needs to be evaluated at the time of entering the branching state. When the condition evaluates to true, the branch is entered.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ConditionOID">odm:ConditionOID</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -328,17 +328,12 @@
 <tbody>
 <tr>
 <td><a href="../TargetTransition/">TargetTransition</a></td>
-<td>Provides a reference to a Transition element.</td>
+<td>TargetTransition provides a reference to a Transition element that is the tar...</td>
 <td>yes</td>
 </tr>
 <tr>
 <td><a href="../Criterion/">Criterion</a></td>
 <td>The Criterion represents either an inclusion or an exclusion criterion, depen...</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../ExceptionEvent/">ExceptionEvent</a></td>
-<td>An ExceptionEvent describes an event that occurs suddenly in a study and that...</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -357,14 +352,15 @@
 
 <pre><code class="language-yaml">name: ConditionOID
 description: Reference to a ConditionDef defining the condition under which the transition
-  must be executed
+  must be executed. The ConditionOID references a ConditionDef element defining a
+  condition that needs to be evaluated at the time of entering the branching state.
+  When the condition evaluates to true, the branch is entered.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ConditionOID
 domain_of:
 - TargetTransition
 - Criterion
-- ExceptionEvent
 range: oidref
 
 </code></pre>

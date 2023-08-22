@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#odm" class="md-skip">
+        <a href="#cdisc-operational-data-model-v2" class="md-skip">
           Skip to content
         </a>
       
@@ -376,7 +376,8 @@
   
 
 
-<h1 id="odm">odm</h1>
+<h1 id="cdisc-operational-data-model-v2">CDISC Operational Data Model v2</h1>
+<p>ODM is a vendor-neutral, platform-independent format for exchanging and archiving clinical and translational research data, along with their associated metadata, administrative data, reference data, and audit information.</p>
 <p>URI: http://www.cdisc.org/ns/odm/v2.0</p>
 <p>Name: odm</p>
 <h2 id="classes">Classes</h2>
@@ -442,7 +443,7 @@
 </tr>
 <tr>
 <td><a href="Class/">Class</a></td>
-<td>None</td>
+<td>The Class element identifies which predefined Class within the model applies to the definition of the dataset.</td>
 </tr>
 <tr>
 <td><a href="ClinicalData/">ClinicalData</a></td>
@@ -494,7 +495,7 @@
 </tr>
 <tr>
 <td><a href="DateTimeStamp/">DateTimeStamp</a></td>
-<td>None</td>
+<td>Date and time when an action was performed.</td>
 </tr>
 <tr>
 <td><a href="Decode/">Decode</a></td>
@@ -502,7 +503,7 @@
 </tr>
 <tr>
 <td><a href="DefaultTransition/">DefaultTransition</a></td>
-<td>None</td>
+<td>The DefaultTransition references the Transition that needs to be executed when none of the TargetTransitions can be executed.</td>
 </tr>
 <tr>
 <td><a href="Definition/">Definition</a></td>
@@ -521,10 +522,6 @@
 <td>The DurationTimingConstraint constrains the duration of an activity represented by a study, epoch, StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef. It is used to constrain the duration of the visit, activity, or any other structural element.</td>
 </tr>
 <tr>
-<td><a href="EntryCriteria/">EntryCriteria</a></td>
-<td>None</td>
-</tr>
-<tr>
 <td><a href="Epoch/">Epoch</a></td>
 <td>The planned period of subjects' participation in the trial is divided into sequential epochs. Each epoch is a period of time that serves a purpose in the trial as a whole. Epochs cannot overlap. The sequence of the epoch in the study is provided by the SequenceNumber attribute, the first epoch in the study being assigned the sequence number 1. Sequence numbers are subsequent.</td>
 </tr>
@@ -533,16 +530,8 @@
 <td>Error message provided to user when the range check fails.</td>
 </tr>
 <tr>
-<td><a href="ExceptionEvent/">ExceptionEvent</a></td>
-<td>An ExceptionEvent describes an event that occurs suddenly in a study and that was not planned as part of the normal workflow of the study. Examples are adverse events, death of a subject not caused by an adverse event, etc.</td>
-</tr>
-<tr>
 <td><a href="ExclusionCriteria/">ExclusionCriteria</a></td>
 <td>The ExclusionCriteria is a container element for Criterion elements describing exclusion criteria for subjects in the study. When a list is provided, not meeting any of the criteria in the list may lead to exclusion of enrollment in the study.</td>
-</tr>
-<tr>
-<td><a href="ExitCriteria/">ExitCriteria</a></td>
-<td>None</td>
 </tr>
 <tr>
 <td><a href="ExternalCodeLib/">ExternalCodeLib</a></td>
@@ -606,7 +595,7 @@
 </tr>
 <tr>
 <td><a href="IntercurrentEvent/">IntercurrentEvent</a></td>
-<td>None</td>
+<td>The IntercurrentEvent element describes an intercurrent event for an estimand (e.g., treatment discontinuation).</td>
 </tr>
 <tr>
 <td><a href="InvestigatorRef/">InvestigatorRef</a></td>
@@ -766,11 +755,11 @@
 </tr>
 <tr>
 <td><a href="SignatureRef/">SignatureRef</a></td>
-<td>None</td>
+<td>A reference to the signature meaning.</td>
 </tr>
 <tr>
 <td><a href="SiteRef/">SiteRef</a></td>
-<td>lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType is Transactional.</td>
+<td>Provides a reference to the site that the SubjectData record is associated with in the source system.</td>
 </tr>
 <tr>
 <td><a href="SourceID/">SourceID</a></td>
@@ -814,15 +803,15 @@
 </tr>
 <tr>
 <td><a href="StudyEndPoints/">StudyEndPoints</a></td>
-<td>Go to start of metadata</td>
+<td>The StudyEndPoints element is a container element for individual StudyEndPoint elements.</td>
 </tr>
 <tr>
 <td><a href="StudyEstimand/">StudyEstimand</a></td>
-<td>None</td>
+<td>A precise description of the treatment effect reflecting the clinical question posed by a given clinical trial objective. It summarises at a population level what the outcomes would be in the same patients under different treatment conditions being compared.</td>
 </tr>
 <tr>
 <td><a href="StudyEstimands/">StudyEstimands</a></td>
-<td>None</td>
+<td>StudyEstimands is a container element for individual StudyEstimand elements.</td>
 </tr>
 <tr>
 <td><a href="StudyEventData/">StudyEventData</a></td>
@@ -858,7 +847,7 @@
 </tr>
 <tr>
 <td><a href="StudyInterventionRef/">StudyInterventionRef</a></td>
-<td>None</td>
+<td>The StudyInterventionRef references an intervention that is taken as the treatment for the estimand.</td>
 </tr>
 <tr>
 <td><a href="StudyInterventions/">StudyInterventions</a></td>
@@ -866,7 +855,7 @@
 </tr>
 <tr>
 <td><a href="StudyObjective/">StudyObjective</a></td>
-<td>None</td>
+<td>The reason for performing a study in terms of the scientific questions to be answered by the analysis of data collected during the study.</td>
 </tr>
 <tr>
 <td><a href="StudyObjectives/">StudyObjectives</a></td>
@@ -890,7 +879,7 @@
 </tr>
 <tr>
 <td><a href="StudyTargetPopulationRef/">StudyTargetPopulationRef</a></td>
-<td>None</td>
+<td>The StudyTargetPopulationRef references a StudyTargetPopulation to which the estimand applies.</td>
 </tr>
 <tr>
 <td><a href="StudyTiming/">StudyTiming</a></td>
@@ -914,7 +903,7 @@
 </tr>
 <tr>
 <td><a href="SummaryMeasure/">SummaryMeasure</a></td>
-<td>None</td>
+<td>The SummaryMeasure element describes a summary measure for an estimand (e.g., proportion of patients with an improvement).</td>
 </tr>
 <tr>
 <td><a href="SupplementalDoc/">SupplementalDoc</a></td>
@@ -922,11 +911,15 @@
 </tr>
 <tr>
 <td><a href="TargetTransition/">TargetTransition</a></td>
-<td>Provides a reference to a Transition element.</td>
+<td>TargetTransition provides a reference to a Transition element that is the target of a branching.</td>
 </tr>
 <tr>
 <td><a href="Telecom/">Telecom</a></td>
 <td>The telecommunication contacts points of a user, a location, or an organization. The Type attribute designates the type of contact.</td>
+</tr>
+<tr>
+<td><a href="Title/">Title</a></td>
+<td>Text with the label for the document or dataset.</td>
 </tr>
 <tr>
 <td><a href="Transition/">Transition</a></td>
@@ -954,7 +947,7 @@
 </tr>
 <tr>
 <td><a href="UserRef/">UserRef</a></td>
-<td>None</td>
+<td>A reference to information about a specific user of a clinical data collection or data management system.</td>
 </tr>
 <tr>
 <td><a href="Value/">Value</a></td>
@@ -1089,7 +1082,7 @@
 </tr>
 <tr>
 <td><a href="ClassRef/">ClassRef</a></td>
-<td>Class reference: None</td>
+<td>Class reference: The Class element identifies which predefined Class within t...</td>
 </tr>
 <tr>
 <td><a href="ClinicalDataRef/">ClinicalDataRef</a></td>
@@ -1181,7 +1174,7 @@
 </tr>
 <tr>
 <td><a href="DateTimeStampRef/">DateTimeStampRef</a></td>
-<td>DateTimeStamp reference: None</td>
+<td>DateTimeStamp reference: Date and time when an action was performed.</td>
 </tr>
 <tr>
 <td><a href="DecodeRef/">DecodeRef</a></td>
@@ -1189,7 +1182,7 @@
 </tr>
 <tr>
 <td><a href="DefaultTransitionRef/">DefaultTransitionRef</a></td>
-<td>DefaultTransition reference: None</td>
+<td>DefaultTransition reference: The DefaultTransition references the Transition ...</td>
 </tr>
 <tr>
 <td><a href="DefinitionRef/">DefinitionRef</a></td>
@@ -1361,7 +1354,7 @@
 </tr>
 <tr>
 <td><a href="IntercurrentEventRef/">IntercurrentEventRef</a></td>
-<td>IntercurrentEvent reference: None</td>
+<td>IntercurrentEvent reference: The IntercurrentEvent element describes an inter...</td>
 </tr>
 <tr>
 <td><a href="InvestigatorRefRef/">InvestigatorRefRef</a></td>
@@ -1401,7 +1394,7 @@
 </tr>
 <tr>
 <td><a href="ItemGroupOID/">ItemGroupOID</a></td>
-<td>Reference to the ItemGroupDef .</td>
+<td>Reference to the ItemGroupDef.</td>
 </tr>
 <tr>
 <td><a href="ItemGroupRefRef/">ItemGroupRefRef</a></td>
@@ -1413,7 +1406,7 @@
 </tr>
 <tr>
 <td><a href="ItemOID/">ItemOID</a></td>
-<td>Reference to the ItemDef .</td>
+<td>Reference to the ItemDef.</td>
 </tr>
 <tr>
 <td><a href="ItemRefRef/">ItemRefRef</a></td>
@@ -1617,7 +1610,7 @@
 </tr>
 <tr>
 <td><a href="ProtocolName/">ProtocolName</a></td>
-<td>P rotocol identifier or protocol number assigned to the study . It is used by...</td>
+<td>Protocol identifier or protocol number assigned to the study. It is used by t...</td>
 </tr>
 <tr>
 <td><a href="ProtocolRef/">ProtocolRef</a></td>
@@ -1713,15 +1706,15 @@
 </tr>
 <tr>
 <td><a href="SignatureOID/">SignatureOID</a></td>
-<td>Reference to the SignatureDef .</td>
+<td>Reference to the SignatureDef.</td>
 </tr>
 <tr>
 <td><a href="SignatureRefRef/">SignatureRefRef</a></td>
-<td>SignatureRef reference: None</td>
+<td>SignatureRef reference: A reference to the signature meaning.</td>
 </tr>
 <tr>
 <td><a href="SiteRefRef/">SiteRefRef</a></td>
-<td>SiteRef reference: lement NameSiteRefParent ElementsSubjectDataElement XPath(...</td>
+<td>SiteRef reference: Provides a reference to the site that the SubjectData reco...</td>
 </tr>
 <tr>
 <td><a href="SoftHard/">SoftHard</a></td>
@@ -1729,7 +1722,7 @@
 </tr>
 <tr>
 <td><a href="Source/">Source</a></td>
-<td>I ndicates the party responsible for the data's origin type.</td>
+<td>Indicates the party responsible for the data's origin type.</td>
 </tr>
 <tr>
 <td><a href="SourceIDRef/">SourceIDRef</a></td>
@@ -1805,7 +1798,7 @@
 </tr>
 <tr>
 <td><a href="StudyEndPointOID/">StudyEndPointOID</a></td>
-<td>Reference to the StudyEndPoint .</td>
+<td>Reference to the StudyEndPoint.</td>
 </tr>
 <tr>
 <td><a href="StudyEndPointRefRef/">StudyEndPointRefRef</a></td>
@@ -1813,15 +1806,15 @@
 </tr>
 <tr>
 <td><a href="StudyEndPointsRef/">StudyEndPointsRef</a></td>
-<td>StudyEndPoints reference: Go to start of metadata</td>
+<td>StudyEndPoints reference: The StudyEndPoints element is a container element f...</td>
 </tr>
 <tr>
 <td><a href="StudyEstimandRef/">StudyEstimandRef</a></td>
-<td>StudyEstimand reference: None</td>
+<td>StudyEstimand reference: A precise description of the treatment effect reflec...</td>
 </tr>
 <tr>
 <td><a href="StudyEstimandsRef/">StudyEstimandsRef</a></td>
-<td>StudyEstimands reference: None</td>
+<td>StudyEstimands reference: StudyEstimands is a container element for individua...</td>
 </tr>
 <tr>
 <td><a href="StudyEventDataRef/">StudyEventDataRef</a></td>
@@ -1837,7 +1830,7 @@
 </tr>
 <tr>
 <td><a href="StudyEventGroupOID/">StudyEventGroupOID</a></td>
-<td>Reference to the StudyEventGroupDef .</td>
+<td>Reference to the StudyEventGroupDef.</td>
 </tr>
 <tr>
 <td><a href="StudyEventGroupRefRef/">StudyEventGroupRefRef</a></td>
@@ -1845,7 +1838,7 @@
 </tr>
 <tr>
 <td><a href="StudyEventOID/">StudyEventOID</a></td>
-<td>Reference to the StudyEventDef .</td>
+<td>Reference to the StudyEventDef.</td>
 </tr>
 <tr>
 <td><a href="StudyEventRefRef/">StudyEventRefRef</a></td>
@@ -1869,7 +1862,7 @@
 </tr>
 <tr>
 <td><a href="StudyInterventionRefRef/">StudyInterventionRefRef</a></td>
-<td>StudyInterventionRef reference: None</td>
+<td>StudyInterventionRef reference: The StudyInterventionRef references an interv...</td>
 </tr>
 <tr>
 <td><a href="StudyInterventionsRef/">StudyInterventionsRef</a></td>
@@ -1881,7 +1874,7 @@
 </tr>
 <tr>
 <td><a href="StudyObjectiveRef/">StudyObjectiveRef</a></td>
-<td>StudyObjective reference: None</td>
+<td>StudyObjective reference: The reason for performing a study in terms of the s...</td>
 </tr>
 <tr>
 <td><a href="StudyObjectivesRef/">StudyObjectivesRef</a></td>
@@ -1913,7 +1906,7 @@
 </tr>
 <tr>
 <td><a href="StudyTargetPopulationRefRef/">StudyTargetPopulationRefRef</a></td>
-<td>StudyTargetPopulationRef reference: None</td>
+<td>StudyTargetPopulationRef reference: The StudyTargetPopulationRef references a...</td>
 </tr>
 <tr>
 <td><a href="StudyTimingRef/">StudyTimingRef</a></td>
@@ -1945,7 +1938,7 @@
 </tr>
 <tr>
 <td><a href="SummaryMeasureRef/">SummaryMeasureRef</a></td>
-<td>SummaryMeasure reference: None</td>
+<td>SummaryMeasure reference: The SummaryMeasure element describes a summary meas...</td>
 </tr>
 <tr>
 <td><a href="SupplementalDocRef/">SupplementalDocRef</a></td>
@@ -1977,7 +1970,7 @@
 </tr>
 <tr>
 <td><a href="TargetTransitionRef/">TargetTransitionRef</a></td>
-<td>TargetTransition reference: Provides a reference to a Transition element.</td>
+<td>TargetTransition reference: TargetTransition provides a reference to a Transi...</td>
 </tr>
 <tr>
 <td><a href="TelecomRef/">TelecomRef</a></td>
@@ -2008,8 +2001,8 @@
 <td>The planned time between the 2 activities defined by the transition in the wo...</td>
 </tr>
 <tr>
-<td><a href="Title/">Title</a></td>
-<td>Text with the label for the document reference.</td>
+<td><a href="TitleRef/">TitleRef</a></td>
+<td>Text with the label for the document or dataset.</td>
 </tr>
 <tr>
 <td><a href="TransactionTypeRef/">TransactionTypeRef</a></td>
@@ -2057,7 +2050,7 @@
 </tr>
 <tr>
 <td><a href="UserRefRef/">UserRefRef</a></td>
-<td>UserRef reference: None</td>
+<td>UserRef reference: A reference to information about a specific user of a clin...</td>
 </tr>
 <tr>
 <td><a href="UserTypeRef/">UserTypeRef</a></td>
@@ -2296,11 +2289,11 @@
 </tr>
 <tr>
 <td><a href="YesOnly/">YesOnly</a></td>
-<td>Enumeration used in ExtendedValue, IsNonStandard, Other, IsNull, HasNoData, R...</td>
+<td>Enumeration used in Repeat, Other, IsNonStandard, ExtendedValue, HasNoData, I...</td>
 </tr>
 <tr>
 <td><a href="YesOrNo/">YesOrNo</a></td>
-<td>Enumeration used in UsedMethod, IsReferenceData, Repeating, Mandatory</td>
+<td>Enumeration used in Repeating, UsedMethod, IsReferenceData, Mandatory</td>
 </tr>
 </tbody>
 </table>
@@ -2657,10 +2650,6 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="EntryCriteriaElementExtension/">EntryCriteriaElementExtension</a></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="EpochElementExtension/">EpochElementExtension</a></td>
 <td></td>
 </tr>
@@ -2669,19 +2658,11 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="ExceptionEventElementExtension/">ExceptionEventElementExtension</a></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="ExceptionEventGroupDefinition/">ExceptionEventGroupDefinition</a></td>
 <td></td>
 </tr>
 <tr>
 <td><a href="ExclusionCriteriaElementExtension/">ExclusionCriteriaElementExtension</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="ExitCriteriaElementExtension/">ExitCriteriaElementExtension</a></td>
 <td></td>
 </tr>
 <tr>
@@ -2873,10 +2854,6 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="SourceItemsElementExtension/">SourceItemsElementExtension</a></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="StandardElementExtension/">StandardElementExtension</a></td>
 <td></td>
 </tr>
@@ -2893,15 +2870,7 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="StudyEndPointsElementExtension/">StudyEndPointsElementExtension</a></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="StudyEstimandElementExtension/">StudyEstimandElementExtension</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="StudyEstimandsElementExtension/">StudyEstimandsElementExtension</a></td>
 <td></td>
 </tr>
 <tr>
@@ -2933,23 +2902,11 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="StudyIndicationsElementExtension/">StudyIndicationsElementExtension</a></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="StudyInterventionElementExtension/">StudyInterventionElementExtension</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="StudyInterventionsElementExtension/">StudyInterventionsElementExtension</a></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="StudyObjectiveElementExtension/">StudyObjectiveElementExtension</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="StudyObjectivesElementExtension/">StudyObjectivesElementExtension</a></td>
 <td></td>
 </tr>
 <tr>
@@ -2970,10 +2927,6 @@
 </tr>
 <tr>
 <td><a href="StudyTimingElementExtension/">StudyTimingElementExtension</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="StudyTimingsElementExtension/">StudyTimingsElementExtension</a></td>
 <td></td>
 </tr>
 <tr>

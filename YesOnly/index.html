@@ -305,7 +305,7 @@
 
 
 <h1 id="enum-yesonly">Enum: YesOnly</h1>
-<p><em>Enumeration used in ExtendedValue, IsNonStandard, Other, IsNull, HasNoData, Repeat</em></p>
+<p><em>Enumeration used in Repeat, Other, IsNonStandard, ExtendedValue, HasNoData, IsNull</em></p>
 <p>URI: <a href="YesOnly">YesOnly</a></p>
 <p><em>This is a dynamic enum</em></p>
 <h2 id="slots">Slots</h2>
@@ -322,14 +322,6 @@
 <td>Flag specifying that an item's value is to be set to null. In the interest of...</td>
 </tr>
 <tr>
-<td><a href="../ExtendedValue/">ExtendedValue</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="../Other/">Other</a></td>
-<td>Flag to indicate that the Item represents "other" content added to an ItemGro...</td>
-</tr>
-<tr>
 <td><a href="../HasNoData/">HasNoData</a></td>
 <td>Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d...</td>
 </tr>
@@ -338,8 +330,16 @@
 <td>Required for ADaM, SDTM, or SEND if StandardOID is not provided.</td>
 </tr>
 <tr>
+<td><a href="../Other/">Other</a></td>
+<td>Flag to indicate that the Item represents "other" content added to an ItemGro...</td>
+</tr>
+<tr>
 <td><a href="../Repeat/">Repeat</a></td>
 <td>Indicates that the item serves as the item over which repeats are to be perfo...</td>
+</tr>
+<tr>
+<td><a href="../ExtendedValue/">ExtendedValue</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../IsNonStandard/">IsNonStandard</a></td>
@@ -392,8 +392,8 @@
 <details>
 
 <pre><code class="language-yaml">name: YesOnly
-description: Enumeration used in ExtendedValue, IsNonStandard, Other, IsNull, HasNoData,
-  Repeat
+description: Enumeration used in Repeat, Other, IsNonStandard, ExtendedValue, HasNoData,
+  IsNull
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 

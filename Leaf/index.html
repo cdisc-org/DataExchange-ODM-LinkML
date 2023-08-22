@@ -210,7 +210,9 @@
 
       Leaf : ID
 
-      Leaf : Title
+      Leaf : TitleRef
+
+          Leaf --|&gt; Title : TitleRef
 
 
 </div>
@@ -239,8 +241,8 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../Title/">Title</a></td>
-<td>0..1 <br/> <a href="../text/">text</a></td>
+<td><a href="../TitleRef/">TitleRef</a></td>
+<td>0..1 <br/> <a href="../Title/">Title</a></td>
 <td>Text with the label for the document or dataset.</td>
 <td>direct</td>
 </tr>
@@ -311,7 +313,7 @@ see_also:
 slots:
 - ID
 - href
-- Title
+- TitleRef
 slot_usage:
   ID:
     name: ID
@@ -322,7 +324,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:The Leaf ID is based on the XML xs:ID datatype, which is a Non-Colonized
+      enum values: The Leaf ID is based on the XML xs:ID datatype, which is a Non-Colonized
       Name; therefore, ID attributes must start with either a letter or underscore
       (_), and may contain only letters, digits, underscores, hyphens and periods.'
     domain_of:
@@ -342,7 +344,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:xsd:anyURI'
+      range: xsd:anyURI'
     domain_of:
     - Leaf
     - Include
@@ -351,12 +353,13 @@ slot_usage:
     - Coding
     range: uriorcurie
     required: true
-  Title:
-    name: Title
+  TitleRef:
+    name: TitleRef
     description: Text with the label for the document or dataset.
     domain_of:
     - PDFPageRef
     - Leaf
+    range: Title
     maximum_cardinality: 1
 class_uri: odm:Leaf
 
@@ -379,7 +382,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:The Leaf ID is based on the XML xs:ID datatype, which is a Non-Colonized
+      enum values: The Leaf ID is based on the XML xs:ID datatype, which is a Non-Colonized
       Name; therefore, ID attributes must start with either a letter or underscore
       (_), and may contain only letters, digits, underscores, hyphens and periods.'
     domain_of:
@@ -399,7 +402,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:xsd:anyURI'
+      range: xsd:anyURI'
     domain_of:
     - Leaf
     - Include
@@ -408,12 +411,13 @@ slot_usage:
     - Coding
     range: uriorcurie
     required: true
-  Title:
-    name: Title
+  TitleRef:
+    name: TitleRef
     description: Text with the label for the document or dataset.
     domain_of:
     - PDFPageRef
     - Leaf
+    range: Title
     maximum_cardinality: 1
 attributes:
   ID:
@@ -425,7 +429,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:The Leaf ID is based on the XML xs:ID datatype, which is a Non-Colonized
+      enum values: The Leaf ID is based on the XML xs:ID datatype, which is a Non-Colonized
       Name; therefore, ID attributes must start with either a letter or underscore
       (_), and may contain only letters, digits, underscores, hyphens and periods.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -450,7 +454,7 @@ attributes:
     comments:
     - 'Required
 
-      range:xsd:anyURI'
+      range: xsd:anyURI'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: href
@@ -463,17 +467,18 @@ attributes:
     - Coding
     range: uriorcurie
     required: true
-  Title:
-    name: Title
+  TitleRef:
+    name: TitleRef
     description: Text with the label for the document or dataset.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Title
+    identifier: false
+    alias: TitleRef
     owner: Leaf
     domain_of:
     - PDFPageRef
     - Leaf
-    range: text
+    range: Title
     maximum_cardinality: 1
 class_uri: odm:Leaf
 

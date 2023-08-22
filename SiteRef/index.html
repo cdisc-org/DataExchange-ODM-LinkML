@@ -202,7 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-siteref">Class: SiteRef</h1>
-<p><em>lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType is Transactional.</em></p>
+<p><em>Provides a reference to the site that the SubjectData record is associated with in the source system.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/SiteRef">odm:SiteRef</a></p>
 <div class="mermaid"> classDiagram
     class SiteRef
@@ -282,9 +282,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: SiteRef
-description: lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement
-  Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness
-  Rule(s):Must be provided when the /ODM/FileType is Transactional.
+description: Provides a reference to the site that the SubjectData record is associated
+  with in the source system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SiteRef
@@ -297,7 +296,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute value for an AdminData/Location element where the
       AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID.'
@@ -315,9 +314,8 @@ class_uri: odm:SiteRef
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: SiteRef
-description: lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement
-  Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness
-  Rule(s):Must be provided when the /ODM/FileType is Transactional.
+description: Provides a reference to the site that the SubjectData record is associated
+  with in the source system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SiteRef
@@ -328,7 +326,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute value for an AdminData/Location element where the
       AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID.'
@@ -346,7 +344,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute value for an AdminData/Location element where the
       AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID.'

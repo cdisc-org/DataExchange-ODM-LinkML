@@ -212,7 +212,7 @@
 
       PDFPageRef : PageRefs
 
-      PDFPageRef : Title
+      PDFPageRef : TitleRef
 
       PDFPageRef : Type
 
@@ -257,7 +257,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../Title/">Title</a></td>
+<td><a href="../TitleRef/">TitleRef</a></td>
 <td>0..1 <br/> <a href="../text/">text</a></td>
 <td>Alternative label to provide a more specific and descriptive reference to a p...</td>
 <td>direct</td>
@@ -325,7 +325,7 @@ slots:
 - FirstPage
 - LastPage
 - Type
-- Title
+- TitleRef
 slot_usage:
   PageRefs:
     name: PageRefs
@@ -333,7 +333,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - PDFPageRef
     range: text
@@ -344,7 +344,7 @@ slot_usage:
     comments:
     - 'Conditional Required if PageRefs is not provided.
 
-      range:positiveInteger'
+      range: positiveInteger'
     domain_of:
     - PDFPageRef
     range: positiveInteger
@@ -355,7 +355,7 @@ slot_usage:
     comments:
     - 'Conditional Required if PageRefs is not provided.
 
-      range:positiveInteger'
+      range: positiveInteger'
     domain_of:
     - PDFPageRef
     range: positiveInteger
@@ -365,7 +365,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(PhysicalRef | NamedDestination)
+      enum values: (PhysicalRef | NamedDestination)
 
       When Type="NamedDestination", NamedDestinations have to be created within the
       PDF document to be able to link to them via a hyperlink.'
@@ -386,14 +386,14 @@ slot_usage:
     - Query
     range: PDFPageType
     required: true
-  Title:
-    name: Title
+  TitleRef:
+    name: TitleRef
     description: Alternative label to provide a more specific and descriptive reference
       to a page link.
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - PDFPageRef
     - Leaf
@@ -416,7 +416,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - PDFPageRef
     range: text
@@ -427,7 +427,7 @@ slot_usage:
     comments:
     - 'Conditional Required if PageRefs is not provided.
 
-      range:positiveInteger'
+      range: positiveInteger'
     domain_of:
     - PDFPageRef
     range: positiveInteger
@@ -438,7 +438,7 @@ slot_usage:
     comments:
     - 'Conditional Required if PageRefs is not provided.
 
-      range:positiveInteger'
+      range: positiveInteger'
     domain_of:
     - PDFPageRef
     range: positiveInteger
@@ -448,7 +448,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(PhysicalRef | NamedDestination)
+      enum values: (PhysicalRef | NamedDestination)
 
       When Type="NamedDestination", NamedDestinations have to be created within the
       PDF document to be able to link to them via a hyperlink.'
@@ -469,14 +469,14 @@ slot_usage:
     - Query
     range: PDFPageType
     required: true
-  Title:
-    name: Title
+  TitleRef:
+    name: TitleRef
     description: Alternative label to provide a more specific and descriptive reference
       to a page link.
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - PDFPageRef
     - Leaf
@@ -488,7 +488,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: PageRefs
@@ -503,7 +503,7 @@ attributes:
     comments:
     - 'Conditional Required if PageRefs is not provided.
 
-      range:positiveInteger'
+      range: positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: FirstPage
@@ -518,7 +518,7 @@ attributes:
     comments:
     - 'Conditional Required if PageRefs is not provided.
 
-      range:positiveInteger'
+      range: positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: LastPage
@@ -532,7 +532,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:(PhysicalRef | NamedDestination)
+      enum values: (PhysicalRef | NamedDestination)
 
       When Type="NamedDestination", NamedDestinations have to be created within the
       PDF document to be able to link to them via a hyperlink.'
@@ -557,17 +557,18 @@ attributes:
     - Query
     range: PDFPageType
     required: true
-  Title:
-    name: Title
+  TitleRef:
+    name: TitleRef
     description: Alternative label to provide a more specific and descriptive reference
       to a page link.
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Title
+    identifier: false
+    alias: TitleRef
     owner: PDFPageRef
     domain_of:
     - PDFPageRef

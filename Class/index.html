@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-class">Class: Class</h1>
+<p><em>The Class element identifies which predefined Class within the model applies to the definition of the dataset.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Class">odm:Class</a></p>
 <div class="mermaid"> classDiagram
     class Class
@@ -293,6 +294,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Class
+description: The Class element identifies which predefined Class within the model
+  applies to the definition of the dataset.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Class
@@ -306,7 +309,7 @@ slot_usage:
     comments:
     - 'Conditional Required when ODM/@Context="Submission
 
-      range:text
+      range: text
 
       Text must follow CDISC Controlled Terminology for General Observation Class.
       For analysis datasets, if the ItemGroupDef IsNonStandard attribute is used,
@@ -343,7 +346,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -364,6 +366,8 @@ class_uri: odm:Class
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Class
+description: The Class element identifies which predefined Class within the model
+  applies to the definition of the dataset.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Class
@@ -374,7 +378,7 @@ slot_usage:
     comments:
     - 'Conditional Required when ODM/@Context="Submission
 
-      range:text
+      range: text
 
       Text must follow CDISC Controlled Terminology for General Observation Class.
       For analysis datasets, if the ItemGroupDef IsNonStandard attribute is used,
@@ -411,7 +415,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -432,7 +435,7 @@ attributes:
     comments:
     - 'Conditional Required when ODM/@Context="Submission
 
-      range:text
+      range: text
 
       Text must follow CDISC Controlled Terminology for General Observation Class.
       For analysis datasets, if the ItemGroupDef IsNonStandard attribute is used,
@@ -473,7 +476,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query

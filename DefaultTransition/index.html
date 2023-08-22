@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-defaulttransition">Class: DefaultTransition</h1>
+<p><em>The DefaultTransition references the Transition that needs to be executed when none of the TargetTransitions can be executed.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/DefaultTransition">odm:DefaultTransition</a></p>
 <div class="mermaid"> classDiagram
     class DefaultTransition
@@ -281,6 +282,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: DefaultTransition
+description: The DefaultTransition references the Transition that needs to be executed
+  when none of the TargetTransitions can be executed.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DefaultTransition
@@ -293,7 +296,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The TargetTransitionOID attribute must match the OID attribute of a Transition
       element within the WorkflowDef.'
@@ -309,6 +312,8 @@ class_uri: odm:DefaultTransition
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: DefaultTransition
+description: The DefaultTransition references the Transition that needs to be executed
+  when none of the TargetTransitions can be executed.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DefaultTransition
@@ -319,7 +324,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The TargetTransitionOID attribute must match the OID attribute of a Transition
       element within the WorkflowDef.'
@@ -335,7 +340,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The TargetTransitionOID attribute must match the OID attribute of a Transition
       element within the WorkflowDef.'

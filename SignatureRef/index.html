@@ -202,6 +202,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-signatureref">Class: SignatureRef</h1>
+<p><em>A reference to the signature meaning.</em></p>
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/SignatureRef">odm:SignatureRef</a></p>
 <div class="mermaid"> classDiagram
     class SignatureRef
@@ -224,7 +225,7 @@
 <tr>
 <td><a href="../SignatureOID/">SignatureOID</a></td>
 <td>1..1 <br/> <a href="../oidref/">oidref</a></td>
-<td>Reference to the SignatureDef .</td>
+<td>Reference to the SignatureDef.</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -281,6 +282,7 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: SignatureRef
+description: A reference to the signature meaning.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SignatureRef
@@ -289,11 +291,11 @@ slots:
 slot_usage:
   SignatureOID:
     name: SignatureOID
-    description: Reference to the SignatureDef .
+    description: Reference to the SignatureDef.
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - SignatureRef
     range: oidref
@@ -305,17 +307,18 @@ class_uri: odm:SignatureRef
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: SignatureRef
+description: A reference to the signature meaning.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SignatureRef
 slot_usage:
   SignatureOID:
     name: SignatureOID
-    description: Reference to the SignatureDef .
+    description: Reference to the SignatureDef.
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - SignatureRef
     range: oidref
@@ -323,11 +326,11 @@ slot_usage:
 attributes:
   SignatureOID:
     name: SignatureOID
-    description: Reference to the SignatureDef .
+    description: Reference to the SignatureDef.
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SignatureOID
