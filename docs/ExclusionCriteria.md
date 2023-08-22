@@ -104,8 +104,6 @@ slot_usage:
     domain_of:
     - InclusionCriteria
     - ExclusionCriteria
-    - EntryCriteria
-    - ExitCriteria
     range: Criterion
     inlined: true
     inlined_as_list: true
@@ -132,8 +130,6 @@ slot_usage:
     domain_of:
     - InclusionCriteria
     - ExclusionCriteria
-    - EntryCriteria
-    - ExitCriteria
     range: Criterion
     inlined: true
     inlined_as_list: true
@@ -152,8 +148,6 @@ attributes:
     domain_of:
     - InclusionCriteria
     - ExclusionCriteria
-    - EntryCriteria
-    - ExitCriteria
     range: Criterion
     inlined: true
     inlined_as_list: true

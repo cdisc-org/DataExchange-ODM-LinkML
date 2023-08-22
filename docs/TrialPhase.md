@@ -107,7 +107,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(PHASE 0 TRIAL, PHASE I TRIAL, PHASE I/II TRIAL, PHASE II TRIAL,
+      enum values: (PHASE 0 TRIAL, PHASE I TRIAL, PHASE I/II TRIAL, PHASE II TRIAL,
       PHASE II/III TRIAL, PHASE IIA TRIAL, PHASE IIB TRIAL, PHASE III TRIAL, PHASE
       IIIA TRIAL, PHASE IIIB TRIAL, PHASE IV TRIAL, PHASE V TRIAL, NOT APPLICABLE)
 
@@ -158,7 +158,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -186,7 +185,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(PHASE 0 TRIAL, PHASE I TRIAL, PHASE I/II TRIAL, PHASE II TRIAL,
+      enum values: (PHASE 0 TRIAL, PHASE I TRIAL, PHASE I/II TRIAL, PHASE II TRIAL,
       PHASE II/III TRIAL, PHASE IIA TRIAL, PHASE IIB TRIAL, PHASE III TRIAL, PHASE
       IIIA TRIAL, PHASE IIIB TRIAL, PHASE IV TRIAL, PHASE V TRIAL, NOT APPLICABLE)
 
@@ -237,7 +236,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -250,7 +248,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:(PHASE 0 TRIAL, PHASE I TRIAL, PHASE I/II TRIAL, PHASE II TRIAL,
+      enum values: (PHASE 0 TRIAL, PHASE I TRIAL, PHASE I/II TRIAL, PHASE II TRIAL,
       PHASE II/III TRIAL, PHASE IIA TRIAL, PHASE IIB TRIAL, PHASE III TRIAL, PHASE
       IIIA TRIAL, PHASE IIIB TRIAL, PHASE IV TRIAL, PHASE V TRIAL, NOT APPLICABLE)
 
@@ -313,7 +311,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

@@ -148,7 +148,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute for the StudyEventGroupDef must be unique within the study.'
     domain_of:
@@ -183,7 +183,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -197,7 +196,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Name must be unique within the set of StudyEventGroupDef elements for the
       study.'
@@ -233,7 +232,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -245,7 +243,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The ArmOID must match the OID attribute for an Arm element contained in the
       Study/MetaDataVersion.'
@@ -258,7 +256,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The EpochOID must match the OID attribute for an Epoch element contained in
       the Study/MetaDataVersion.'
@@ -271,7 +269,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CommentOID must match the OID attribute for a CommentDef element contained
       in the Study/MetaDataVersion.'
@@ -325,7 +323,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -340,7 +337,6 @@ slot_usage:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
   CodingRef:
@@ -372,7 +368,6 @@ slot_usage:
     domain_of:
     - StudyEventGroupDef
     - Protocol
-    - ExceptionEvent
     range: StudyEventGroupRef
     inlined: true
     inlined_as_list: true
@@ -381,7 +376,6 @@ slot_usage:
     multivalued: true
     domain_of:
     - StudyEventGroupDef
-    - ExceptionEvent
     range: StudyEventRef
     inlined: true
     inlined_as_list: true
@@ -408,7 +402,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute for the StudyEventGroupDef must be unique within the study.'
     domain_of:
@@ -443,7 +437,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -457,7 +450,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Name must be unique within the set of StudyEventGroupDef elements for the
       study.'
@@ -493,7 +486,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -505,7 +497,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The ArmOID must match the OID attribute for an Arm element contained in the
       Study/MetaDataVersion.'
@@ -518,7 +510,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The EpochOID must match the OID attribute for an Epoch element contained in
       the Study/MetaDataVersion.'
@@ -531,7 +523,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CommentOID must match the OID attribute for a CommentDef element contained
       in the Study/MetaDataVersion.'
@@ -585,7 +577,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -600,7 +591,6 @@ slot_usage:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
   CodingRef:
@@ -632,7 +622,6 @@ slot_usage:
     domain_of:
     - StudyEventGroupDef
     - Protocol
-    - ExceptionEvent
     range: StudyEventGroupRef
     inlined: true
     inlined_as_list: true
@@ -641,7 +630,6 @@ slot_usage:
     multivalued: true
     domain_of:
     - StudyEventGroupDef
-    - ExceptionEvent
     range: StudyEventRef
     inlined: true
     inlined_as_list: true
@@ -652,7 +640,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute for the StudyEventGroupDef must be unique within the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -692,7 +680,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -706,7 +693,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Name must be unique within the set of StudyEventGroupDef elements for the
       study.'
@@ -746,7 +733,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -758,7 +744,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The ArmOID must match the OID attribute for an Arm element contained in the
       Study/MetaDataVersion.'
@@ -775,7 +761,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The EpochOID must match the OID attribute for an Epoch element contained in
       the Study/MetaDataVersion.'
@@ -792,7 +778,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CommentOID must match the OID attribute for a CommentDef element contained
       in the Study/MetaDataVersion.'
@@ -857,7 +843,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -878,7 +863,6 @@ attributes:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
   CodingRef:
@@ -930,7 +914,6 @@ attributes:
     domain_of:
     - StudyEventGroupDef
     - Protocol
-    - ExceptionEvent
     range: StudyEventGroupRef
     inlined: true
     inlined_as_list: true
@@ -947,7 +930,6 @@ attributes:
     owner: StudyEventGroupDef
     domain_of:
     - StudyEventGroupDef
-    - ExceptionEvent
     range: StudyEventRef
     inlined: true
     inlined_as_list: true

@@ -1,6 +1,11 @@
 # Class: UserRef
 
 
+_A reference to information about a specific user of a clinical data collection or data management system._
+
+
+
+
 
 URI: [odm:UserRef](http://www.cdisc.org/ns/odm/v2.0/UserRef)
 
@@ -83,6 +88,8 @@ URI: [odm:UserRef](http://www.cdisc.org/ns/odm/v2.0/UserRef)
 <details>
 ```yaml
 name: UserRef
+description: A reference to information about a specific user of a clinical data collection
+  or data management system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/UserRef
@@ -113,6 +120,8 @@ class_uri: odm:UserRef
 <details>
 ```yaml
 name: UserRef
+description: A reference to information about a specific user of a clinical data collection
+  or data management system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/UserRef

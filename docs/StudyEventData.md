@@ -55,13 +55,13 @@ URI: [odm:StudyEventData](http://www.cdisc.org/ns/odm/v2.0/StudyEventData)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEventOID](StudyEventOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey ar... | direct |
+| [StudyEventOID](StudyEventOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventDef. The StudyEventOID and StudyEventRepeatKey are... | direct |
 | [StudyEventRepeatKey](StudyEventRepeatKey.md) | 0..1 <br/> [repeatKey](repeatKey.md) | A key used to distinguish between repeats of the same type of study event for... | direct |
 | [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... | direct |
 | [ItemGroupDataRef](ItemGroupDataRef.md) | 0..* <br/> [ItemGroupData](ItemGroupData.md) | ItemGroupData reference: Clinical data corresponding to an ItemGroupRef defin... | direct |
 | [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) | Query reference: The Query element represents a request for clarification on ... | direct |
 | [AuditRecordRef](AuditRecordRef.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
-| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: None | direct |
+| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: A reference to the signature meaning. | direct |
 | [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
 
@@ -138,7 +138,7 @@ slots:
 slot_usage:
   StudyEventOID:
     name: StudyEventOID
-    description: Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey
+    description: Reference to the StudyEventDef. The StudyEventOID and StudyEventRepeatKey
       are used together to identify a particular study event. This pair of values
       uniquely identifies a StudyEvent within the containing subject. The StudyEventRepeatKey
       is present if and only if the StudyEventDef is repeating.
@@ -267,7 +267,7 @@ see_also:
 slot_usage:
   StudyEventOID:
     name: StudyEventOID
-    description: Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey
+    description: Reference to the StudyEventDef. The StudyEventOID and StudyEventRepeatKey
       are used together to identify a particular study event. This pair of values
       uniquely identifies a StudyEvent within the containing subject. The StudyEventRepeatKey
       is present if and only if the StudyEventDef is repeating.
@@ -380,7 +380,7 @@ slot_usage:
 attributes:
   StudyEventOID:
     name: StudyEventOID
-    description: Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey
+    description: Reference to the StudyEventDef. The StudyEventOID and StudyEventRepeatKey
       are used together to identify a particular study event. This pair of values
       uniquely identifies a StudyEvent within the containing subject. The StudyEventRepeatKey
       is present if and only if the StudyEventDef is repeating.
@@ -511,7 +511,7 @@ attributes:
     maximum_cardinality: 1
   SignatureRefRef:
     name: SignatureRefRef
-    description: 'SignatureRef reference: None'
+    description: 'SignatureRef reference: A reference to the signature meaning.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

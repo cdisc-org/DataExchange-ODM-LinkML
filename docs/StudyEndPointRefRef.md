@@ -18,9 +18,9 @@ URI: [odm:StudyEndPointRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointRef
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyObjective](StudyObjective.md) |  |  yes  |
-[StudyEndPoints](StudyEndPoints.md) | Go to start of metadata |  yes  |
-[StudyEstimand](StudyEstimand.md) |  |  yes  |
+[StudyObjective](StudyObjective.md) | The reason for performing a study in terms of the scientific questions to be ... |  yes  |
+[StudyEndPoints](StudyEndPoints.md) | The StudyEndPoints element is a container element for individual StudyEndPoin... |  yes  |
+[StudyEstimand](StudyEstimand.md) | A precise description of the treatment effect reflecting the clinical questio... |  yes  |
 
 
 

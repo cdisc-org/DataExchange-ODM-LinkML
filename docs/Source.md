@@ -1,7 +1,7 @@
 # Slot: Source
 
 
-_I ndicates the party responsible for the data's origin type._
+_Indicates the party responsible for the data's origin type._
 
 
 
@@ -56,7 +56,7 @@ URI: [odm:Source](http://www.cdisc.org/ns/odm/v2.0/Source)
 <details>
 ```yaml
 name: Source
-description: I ndicates the party responsible for the data's origin type.
+description: Indicates the party responsible for the data's origin type.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Source

@@ -123,7 +123,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The Transition/@OID values must be unique within a study.'
     domain_of:
@@ -158,7 +158,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -173,7 +172,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Transition/@Name must be unique within a study.'
     domain_of:
@@ -208,7 +207,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -222,11 +220,11 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The SourceOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
-      element of the WorkflowDef .'
+      element of the WorkflowDef.'
     domain_of:
     - Transition
     range: oidref
@@ -240,11 +238,11 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The TargetOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
-      element of the WorkflowDef .'
+      element of the WorkflowDef.'
     domain_of:
     - Transition
     range: oidref
@@ -260,10 +258,10 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The StartConditionOID must match the OID attribute of a ConditionDef child element
-      of the MetaDataVersion parent element of the WorkflowDef .'
+      of the MetaDataVersion parent element of the WorkflowDef.'
     domain_of:
     - Transition
     range: oidref
@@ -277,10 +275,10 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The EndConditionOID must match the OID attribute of a ConditionDef child element
-      of the MetaDataVersion parent element of the WorkflowDef .'
+      of the MetaDataVersion parent element of the WorkflowDef.'
     domain_of:
     - Transition
     range: oidref
@@ -308,7 +306,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The Transition/@OID values must be unique within a study.'
     domain_of:
@@ -343,7 +341,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -358,7 +355,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Transition/@Name must be unique within a study.'
     domain_of:
@@ -393,7 +390,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -407,11 +403,11 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The SourceOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
-      element of the WorkflowDef .'
+      element of the WorkflowDef.'
     domain_of:
     - Transition
     range: oidref
@@ -425,11 +421,11 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The TargetOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
-      element of the WorkflowDef .'
+      element of the WorkflowDef.'
     domain_of:
     - Transition
     range: oidref
@@ -445,10 +441,10 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The StartConditionOID must match the OID attribute of a ConditionDef child element
-      of the MetaDataVersion parent element of the WorkflowDef .'
+      of the MetaDataVersion parent element of the WorkflowDef.'
     domain_of:
     - Transition
     range: oidref
@@ -462,10 +458,10 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The EndConditionOID must match the OID attribute of a ConditionDef child element
-      of the MetaDataVersion parent element of the WorkflowDef .'
+      of the MetaDataVersion parent element of the WorkflowDef.'
     domain_of:
     - Transition
     range: oidref
@@ -476,7 +472,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The Transition/@OID values must be unique within a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -516,7 +512,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -531,7 +526,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Transition/@Name must be unique within a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -570,7 +565,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -584,11 +578,11 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The SourceOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
-      element of the WorkflowDef .'
+      element of the WorkflowDef.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SourceOID
@@ -606,11 +600,11 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The TargetOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
-      element of the WorkflowDef .'
+      element of the WorkflowDef.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TargetOID
@@ -630,10 +624,10 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The StartConditionOID must match the OID attribute of a ConditionDef child element
-      of the MetaDataVersion parent element of the WorkflowDef .'
+      of the MetaDataVersion parent element of the WorkflowDef.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StartConditionOID
@@ -651,10 +645,10 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The EndConditionOID must match the OID attribute of a ConditionDef child element
-      of the MetaDataVersion parent element of the WorkflowDef .'
+      of the MetaDataVersion parent element of the WorkflowDef.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: EndConditionOID

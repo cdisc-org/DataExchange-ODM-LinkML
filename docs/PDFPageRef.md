@@ -20,7 +20,7 @@ URI: [odm:PDFPageRef](http://www.cdisc.org/ns/odm/v2.0/PDFPageRef)
         
       PDFPageRef : PageRefs
         
-      PDFPageRef : Title
+      PDFPageRef : TitleRef
         
       PDFPageRef : Type
         
@@ -43,7 +43,7 @@ URI: [odm:PDFPageRef](http://www.cdisc.org/ns/odm/v2.0/PDFPageRef)
 | [FirstPage](FirstPage.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | First page in a range of pages. Note that the way to indicate the range of pa... | direct |
 | [LastPage](LastPage.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Last page in a range of pages. Note that the way to indicate the range of pag... | direct |
 | [Type](Type.md) | 1..1 <br/> [PDFPageType](PDFPageType.md) | Type of page for page reference(s) indicated in the PageRefs attribute | direct |
-| [Title](Title.md) | 0..1 <br/> [text](text.md) | Alternative label to provide a more specific and descriptive reference to a p... | direct |
+| [TitleRef](TitleRef.md) | 0..1 <br/> [text](text.md) | Alternative label to provide a more specific and descriptive reference to a p... | direct |
 
 
 
@@ -110,7 +110,7 @@ slots:
 - FirstPage
 - LastPage
 - Type
-- Title
+- TitleRef
 slot_usage:
   PageRefs:
     name: PageRefs
@@ -118,7 +118,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - PDFPageRef
     range: text
@@ -129,7 +129,7 @@ slot_usage:
     comments:
     - 'Conditional Required if PageRefs is not provided.
 
-      range:positiveInteger'
+      range: positiveInteger'
     domain_of:
     - PDFPageRef
     range: positiveInteger
@@ -140,7 +140,7 @@ slot_usage:
     comments:
     - 'Conditional Required if PageRefs is not provided.
 
-      range:positiveInteger'
+      range: positiveInteger'
     domain_of:
     - PDFPageRef
     range: positiveInteger
@@ -150,7 +150,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(PhysicalRef | NamedDestination)
+      enum values: (PhysicalRef | NamedDestination)
 
       When Type="NamedDestination", NamedDestinations have to be created within the
       PDF document to be able to link to them via a hyperlink.'
@@ -171,14 +171,14 @@ slot_usage:
     - Query
     range: PDFPageType
     required: true
-  Title:
-    name: Title
+  TitleRef:
+    name: TitleRef
     description: Alternative label to provide a more specific and descriptive reference
       to a page link.
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - PDFPageRef
     - Leaf
@@ -204,7 +204,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - PDFPageRef
     range: text
@@ -215,7 +215,7 @@ slot_usage:
     comments:
     - 'Conditional Required if PageRefs is not provided.
 
-      range:positiveInteger'
+      range: positiveInteger'
     domain_of:
     - PDFPageRef
     range: positiveInteger
@@ -226,7 +226,7 @@ slot_usage:
     comments:
     - 'Conditional Required if PageRefs is not provided.
 
-      range:positiveInteger'
+      range: positiveInteger'
     domain_of:
     - PDFPageRef
     range: positiveInteger
@@ -236,7 +236,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(PhysicalRef | NamedDestination)
+      enum values: (PhysicalRef | NamedDestination)
 
       When Type="NamedDestination", NamedDestinations have to be created within the
       PDF document to be able to link to them via a hyperlink.'
@@ -257,14 +257,14 @@ slot_usage:
     - Query
     range: PDFPageType
     required: true
-  Title:
-    name: Title
+  TitleRef:
+    name: TitleRef
     description: Alternative label to provide a more specific and descriptive reference
       to a page link.
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - PDFPageRef
     - Leaf
@@ -276,7 +276,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: PageRefs
@@ -291,7 +291,7 @@ attributes:
     comments:
     - 'Conditional Required if PageRefs is not provided.
 
-      range:positiveInteger'
+      range: positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: FirstPage
@@ -306,7 +306,7 @@ attributes:
     comments:
     - 'Conditional Required if PageRefs is not provided.
 
-      range:positiveInteger'
+      range: positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: LastPage
@@ -320,7 +320,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:(PhysicalRef | NamedDestination)
+      enum values: (PhysicalRef | NamedDestination)
 
       When Type="NamedDestination", NamedDestinations have to be created within the
       PDF document to be able to link to them via a hyperlink.'
@@ -345,17 +345,18 @@ attributes:
     - Query
     range: PDFPageType
     required: true
-  Title:
-    name: Title
+  TitleRef:
+    name: TitleRef
     description: Alternative label to provide a more specific and descriptive reference
       to a page link.
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Title
+    identifier: false
+    alias: TitleRef
     owner: PDFPageRef
     domain_of:
     - PDFPageRef

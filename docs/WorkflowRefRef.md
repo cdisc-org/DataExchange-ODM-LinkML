@@ -24,7 +24,6 @@ URI: [odm:WorkflowRefRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRefRef)
 [Protocol](Protocol.md) | The Protocol element lists the kinds of study events that can occur within a ... |  yes  |
 [StudyStructure](StudyStructure.md) | The StudyStructure element describes the general structure of a clinical stud... |  yes  |
 [Arm](Arm.md) | An Arm element provides the declaration of a study arm. Arms do not have any ... |  yes  |
-[ExceptionEvent](ExceptionEvent.md) | An ExceptionEvent describes an event that occurs suddenly in a study and that... |  yes  |
 
 
 
@@ -73,7 +72,6 @@ domain_of:
 - Protocol
 - StudyStructure
 - Arm
-- ExceptionEvent
 range: WorkflowRef
 
 ```

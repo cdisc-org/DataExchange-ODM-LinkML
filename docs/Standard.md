@@ -131,7 +131,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -164,7 +164,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -178,7 +177,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:t ext
+      range: text
 
       The list of values is conditional to each value of the Standard/@Type attribute.
       The list of allowable values for each Standard/@Type value is provided by an
@@ -217,7 +216,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -229,7 +227,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:t ext
+      range: text
 
       The list of allowable values is provided by a codelist in the CDISC Controlled
       Terminology and is extensible. Users are encouraged to refer to the most recent
@@ -258,7 +256,7 @@ slot_usage:
     comments:
     - 'Conditional Required when Type="CT" Not applicable for other standard types
 
-      enum values:t ext
+      range: text
 
       The list of allowable values is provided by a codelist in the CDISC Controlled
       Terminology and is extensible. Users are encouraged to refer to the most recent
@@ -273,7 +271,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:t ext
+      range: text
 
       The version identifier must match the version identifier used in the standard
       publication.'
@@ -288,7 +286,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:t ext
+      range: text
 
       The list of allowable values is provided by a codelist in the CDISC Controlled
       Terminology and is not extensible. Users are encouraged to refer to the most
@@ -308,7 +306,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:t ext
+      range: text
 
       Must match the OID of a CommentDef in the same MetaDataVersion'
     domain_of:
@@ -347,7 +345,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -380,7 +378,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -394,7 +391,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:t ext
+      range: text
 
       The list of values is conditional to each value of the Standard/@Type attribute.
       The list of allowable values for each Standard/@Type value is provided by an
@@ -433,7 +430,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -445,7 +441,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:t ext
+      range: text
 
       The list of allowable values is provided by a codelist in the CDISC Controlled
       Terminology and is extensible. Users are encouraged to refer to the most recent
@@ -474,7 +470,7 @@ slot_usage:
     comments:
     - 'Conditional Required when Type="CT" Not applicable for other standard types
 
-      enum values:t ext
+      range: text
 
       The list of allowable values is provided by a codelist in the CDISC Controlled
       Terminology and is extensible. Users are encouraged to refer to the most recent
@@ -489,7 +485,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:t ext
+      range: text
 
       The version identifier must match the version identifier used in the standard
       publication.'
@@ -504,7 +500,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:t ext
+      range: text
 
       The list of allowable values is provided by a codelist in the CDISC Controlled
       Terminology and is not extensible. Users are encouraged to refer to the most
@@ -524,7 +520,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:t ext
+      range: text
 
       Must match the OID of a CommentDef in the same MetaDataVersion'
     domain_of:
@@ -548,7 +544,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -586,7 +582,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -600,7 +595,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:t ext
+      range: text
 
       The list of values is conditional to each value of the Standard/@Type attribute.
       The list of allowable values for each Standard/@Type value is provided by an
@@ -643,7 +638,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -655,7 +649,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:t ext
+      range: text
 
       The list of allowable values is provided by a codelist in the CDISC Controlled
       Terminology and is extensible. Users are encouraged to refer to the most recent
@@ -688,7 +682,7 @@ attributes:
     comments:
     - 'Conditional Required when Type="CT" Not applicable for other standard types
 
-      enum values:t ext
+      range: text
 
       The list of allowable values is provided by a codelist in the CDISC Controlled
       Terminology and is extensible. Users are encouraged to refer to the most recent
@@ -707,7 +701,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:t ext
+      range: text
 
       The version identifier must match the version identifier used in the standard
       publication.'
@@ -726,7 +720,7 @@ attributes:
     comments:
     - 'Optional
 
-      enum values:t ext
+      range: text
 
       The list of allowable values is provided by a codelist in the CDISC Controlled
       Terminology and is not extensible. Users are encouraged to refer to the most
@@ -750,7 +744,7 @@ attributes:
     comments:
     - 'Optional
 
-      enum values:t ext
+      range: text
 
       Must match the OID of a CommentDef in the same MetaDataVersion'
     from_schema: http://www.cdisc.org/ns/odm/v2.0

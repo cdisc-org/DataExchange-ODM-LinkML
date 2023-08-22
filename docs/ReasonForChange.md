@@ -126,6 +126,7 @@ attributes:
   owner: ReasonForChange
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

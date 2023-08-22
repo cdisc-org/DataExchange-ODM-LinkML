@@ -74,7 +74,6 @@ URI: [odm:Description](http://www.cdisc.org/ns/odm/v2.0/Description)
 | [DurationTimingConstraint](DurationTimingConstraint.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [WorkflowDef](WorkflowDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [Criterion](Criterion.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [ExceptionEvent](ExceptionEvent.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [Organization](Organization.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [Location](Location.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
 | [ODMFileMetadata](ODMFileMetadata.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |

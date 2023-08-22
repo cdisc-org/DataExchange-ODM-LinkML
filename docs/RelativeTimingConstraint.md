@@ -169,7 +169,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -214,7 +213,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -326,7 +324,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -386,7 +383,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -431,7 +427,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -543,7 +538,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -592,7 +586,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -641,7 +634,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -784,7 +776,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

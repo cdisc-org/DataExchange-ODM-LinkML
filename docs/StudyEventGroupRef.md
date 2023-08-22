@@ -41,7 +41,7 @@ URI: [odm:StudyEventGroupRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupRe
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEventGroupOID](StudyEventGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventGroupDef . | direct |
+| [StudyEventGroupOID](StudyEventGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventGroupDef. | direct |
 | [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEventGroup appears in Metadata display... | direct |
 | [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | Indicator of whether this StudyEventGroup must appear in the study clinical d... | direct |
 | [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef | direct |
@@ -57,7 +57,6 @@ URI: [odm:StudyEventGroupRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupRe
 | ---  | --- | --- | --- |
 | [StudyEventGroupDef](StudyEventGroupDef.md) | [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | range | [StudyEventGroupRef](StudyEventGroupRef.md) |
 | [Protocol](Protocol.md) | [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | range | [StudyEventGroupRef](StudyEventGroupRef.md) |
-| [ExceptionEvent](ExceptionEvent.md) | [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | range | [StudyEventGroupRef](StudyEventGroupRef.md) |
 
 
 
@@ -120,11 +119,11 @@ slots:
 slot_usage:
   StudyEventGroupOID:
     name: StudyEventGroupOID
-    description: Reference to the StudyEventGroupDef .
+    description: Reference to the StudyEventGroupDef.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The StudyEventGroupOID value must match the OID attribute for a StudyEventGroupDef
       in this Study/MetaDataVersion. The StudyEventGroupRefs within a Protocol must
@@ -141,7 +140,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The StudyEventGroupRefs within a Protocol must not have duplicate OrderNumber
       values.'
@@ -162,7 +161,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       When the value is Yes, the data for each subject in the study must include a
       StudyEventData element with this StudyEventGroupOID.'
@@ -179,7 +178,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CollectionExceptionConditionOID value must match the OID attribute for a
       ConditionDef in this Study/MetaDataVersion.'
@@ -225,7 +224,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -250,11 +248,11 @@ see_also:
 slot_usage:
   StudyEventGroupOID:
     name: StudyEventGroupOID
-    description: Reference to the StudyEventGroupDef .
+    description: Reference to the StudyEventGroupDef.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The StudyEventGroupOID value must match the OID attribute for a StudyEventGroupDef
       in this Study/MetaDataVersion. The StudyEventGroupRefs within a Protocol must
@@ -271,7 +269,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The StudyEventGroupRefs within a Protocol must not have duplicate OrderNumber
       values.'
@@ -292,7 +290,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       When the value is Yes, the data for each subject in the study must include a
       StudyEventData element with this StudyEventGroupOID.'
@@ -309,7 +307,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CollectionExceptionConditionOID value must match the OID attribute for a
       ConditionDef in this Study/MetaDataVersion.'
@@ -355,7 +353,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -364,11 +361,11 @@ slot_usage:
 attributes:
   StudyEventGroupOID:
     name: StudyEventGroupOID
-    description: Reference to the StudyEventGroupDef .
+    description: Reference to the StudyEventGroupDef.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The StudyEventGroupOID value must match the OID attribute for a StudyEventGroupDef
       in this Study/MetaDataVersion. The StudyEventGroupRefs within a Protocol must
@@ -389,7 +386,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The StudyEventGroupRefs within a Protocol must not have duplicate OrderNumber
       values.'
@@ -414,7 +411,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       When the value is Yes, the data for each subject in the study must include a
       StudyEventData element with this StudyEventGroupOID.'
@@ -435,7 +432,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CollectionExceptionConditionOID value must match the OID attribute for a
       ConditionDef in this Study/MetaDataVersion.'
@@ -492,7 +489,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

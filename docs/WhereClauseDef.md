@@ -111,7 +111,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -144,7 +144,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -160,7 +159,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:oidref
+      range: oidref
 
       Required when RangeCheck includes ItemOID values that belong to different ItemGroupDef
       elements'
@@ -211,7 +210,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -244,7 +243,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -260,7 +258,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:oidref
+      range: oidref
 
       Required when RangeCheck includes ItemOID values that belong to different ItemGroupDef
       elements'
@@ -297,7 +295,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -335,7 +333,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -351,7 +348,7 @@ attributes:
     comments:
     - 'Conditional
 
-      range:oidref
+      range: oidref
 
       Required when RangeCheck includes ItemOID values that belong to different ItemGroupDef
       elements'

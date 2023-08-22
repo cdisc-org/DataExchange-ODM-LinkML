@@ -116,7 +116,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -149,7 +149,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -161,7 +160,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(text | integer | decimal | float | double | date | time | datetime
+      enum values: (text | integer | decimal | float | double | date | time | datetime
       | string | boolean | double | hexBinary | base64Binary | hexFloat | base64Float
       | partialDate | partialTime | partialDatetime | durationDatetime | intervalDatetime
       | incompleteDatetime | incompleteDate | incompleteTime | URI )'
@@ -178,7 +177,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ItemDef
     - Parameter
@@ -190,7 +189,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:positiveInteger'
+      range: positiveInteger'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -224,7 +223,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -257,7 +256,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -269,7 +267,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(text | integer | decimal | float | double | date | time | datetime
+      enum values: (text | integer | decimal | float | double | date | time | datetime
       | string | boolean | double | hexBinary | base64Binary | hexFloat | base64Float
       | partialDate | partialTime | partialDatetime | durationDatetime | intervalDatetime
       | incompleteDatetime | incompleteDate | incompleteTime | URI )'
@@ -286,7 +284,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ItemDef
     - Parameter
@@ -298,7 +296,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:positiveInteger'
+      range: positiveInteger'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -316,7 +314,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -353,7 +351,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -365,7 +362,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:(text | integer | decimal | float | double | date | time | datetime
+      enum values: (text | integer | decimal | float | double | date | time | datetime
       | string | boolean | double | hexBinary | base64Binary | hexFloat | base64Float
       | partialDate | partialTime | partialDatetime | durationDatetime | intervalDatetime
       | incompleteDatetime | incompleteDate | incompleteTime | URI )'
@@ -386,7 +383,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -403,7 +400,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:positiveInteger'
+      range: positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: OrderNumber

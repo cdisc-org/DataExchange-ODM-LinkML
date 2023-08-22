@@ -158,7 +158,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
     domain_of:
@@ -193,7 +193,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -207,7 +206,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Name attribute must be unique within StudyEventGroupDef and StudyEventDef
       elements within a Study/MetadataVersion.'
@@ -243,7 +242,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -257,7 +255,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:(Yes,No)'
+      range: (Yes,No)'
     domain_of:
     - StudyEventDef
     - ItemGroupDef
@@ -274,7 +272,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:(Scheduled,Unscheduled,Common)'
+      range: (Scheduled,Unscheduled,Common)'
     domain_of:
     - TranslatedText
     - PDFPageRef
@@ -300,7 +298,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - StudyEventDef
     range: text
@@ -311,7 +309,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -362,7 +360,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -386,7 +383,6 @@ slot_usage:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
   CodingRef:
@@ -452,7 +448,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
     domain_of:
@@ -487,7 +483,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -501,7 +496,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Name attribute must be unique within StudyEventGroupDef and StudyEventDef
       elements within a Study/MetadataVersion.'
@@ -537,7 +532,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -551,7 +545,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:(Yes,No)'
+      range: (Yes,No)'
     domain_of:
     - StudyEventDef
     - ItemGroupDef
@@ -568,7 +562,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:(Scheduled,Unscheduled,Common)'
+      range: (Scheduled,Unscheduled,Common)'
     domain_of:
     - TranslatedText
     - PDFPageRef
@@ -594,7 +588,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - StudyEventDef
     range: text
@@ -605,7 +599,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -656,7 +650,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -680,7 +673,6 @@ slot_usage:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
   CodingRef:
@@ -728,7 +720,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -768,7 +760,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -782,7 +773,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Name attribute must be unique within StudyEventGroupDef and StudyEventDef
       elements within a Study/MetadataVersion.'
@@ -822,7 +813,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -836,7 +826,7 @@ attributes:
     comments:
     - 'Required
 
-      range:(Yes,No)'
+      range: (Yes,No)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Repeating
@@ -857,7 +847,7 @@ attributes:
     comments:
     - 'Required
 
-      range:(Scheduled,Unscheduled,Common)'
+      range: (Scheduled,Unscheduled,Common)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Type
@@ -887,7 +877,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Category
@@ -902,7 +892,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref'
+      range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CommentOID
@@ -964,7 +954,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -1005,7 +994,6 @@ attributes:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
   CodingRef:

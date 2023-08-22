@@ -1,7 +1,7 @@
 # Slot: TargetTransitionRef
 
 
-_TargetTransition reference: Provides a reference to a Transition element._
+_TargetTransition reference: TargetTransition provides a reference to a Transition element that is the target of a branching._
 
 
 
@@ -55,7 +55,8 @@ URI: [odm:TargetTransitionRef](http://www.cdisc.org/ns/odm/v2.0/TargetTransition
 <details>
 ```yaml
 name: TargetTransitionRef
-description: 'TargetTransition reference: Provides a reference to a Transition element.'
+description: 'TargetTransition reference: TargetTransition provides a reference to
+  a Transition element that is the target of a branching.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

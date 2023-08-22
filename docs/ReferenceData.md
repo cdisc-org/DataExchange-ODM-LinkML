@@ -51,7 +51,7 @@ URI: [odm:ReferenceData](http://www.cdisc.org/ns/odm/v2.0/ReferenceData)
 | [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | References the MetaDataVersion (within the above Study) for this reference da... | direct |
 | [ItemGroupDataRef](ItemGroupDataRef.md) | 0..* <br/> [ItemGroupData](ItemGroupData.md) | ItemGroupData reference: Clinical data corresponding to an ItemGroupRef defin... | direct |
 | [AuditRecordRef](AuditRecordRef.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
-| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: None | direct |
+| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: A reference to the signature meaning. | direct |
 | [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
 
@@ -131,7 +131,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID of a Study element with a MetaDataVersion OID attribute that
       matches the MetaDataVersionOID.'
@@ -157,7 +157,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID of a MetaDataVersion within a Study element with an OID attribute
       that matches the StudyOID.'
@@ -242,7 +242,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID of a Study element with a MetaDataVersion OID attribute that
       matches the MetaDataVersionOID.'
@@ -268,7 +268,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID of a MetaDataVersion within a Study element with an OID attribute
       that matches the StudyOID.'
@@ -337,7 +337,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID of a Study element with a MetaDataVersion OID attribute that
       matches the MetaDataVersionOID.'
@@ -367,7 +367,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID of a MetaDataVersion within a Study element with an OID attribute
       that matches the StudyOID.'
@@ -428,7 +428,7 @@ attributes:
     maximum_cardinality: 1
   SignatureRefRef:
     name: SignatureRefRef
-    description: 'SignatureRef reference: None'
+    description: 'SignatureRef reference: A reference to the signature meaning.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

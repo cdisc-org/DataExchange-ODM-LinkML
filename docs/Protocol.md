@@ -95,9 +95,9 @@ URI: [odm:Protocol](http://www.cdisc.org/ns/odm/v2.0/Protocol)
 | [StudyIndicationsRef](StudyIndicationsRef.md) | 0..1 <br/> [StudyIndications](StudyIndications.md) | StudyIndications reference: StudyIndications is a container element for indiv... | direct |
 | [StudyInterventionsRef](StudyInterventionsRef.md) | 0..1 <br/> [StudyInterventions](StudyInterventions.md) | StudyInterventions reference: The StudyInterventions element is a container e... | direct |
 | [StudyObjectivesRef](StudyObjectivesRef.md) | 0..1 <br/> [StudyObjectives](StudyObjectives.md) | StudyObjectives reference: The StudyObjectives is a container element for ind... | direct |
-| [StudyEndPointsRef](StudyEndPointsRef.md) | 0..1 <br/> [StudyEndPoints](StudyEndPoints.md) | StudyEndPoints reference: Go to start of metadata | direct |
-| [StudyTargetPopulationRefRef](StudyTargetPopulationRefRef.md) | 0..1 <br/> [StudyTargetPopulation](StudyTargetPopulation.md) | StudyTargetPopulationRef reference: None | direct |
-| [StudyEstimandsRef](StudyEstimandsRef.md) | 0..1 <br/> [StudyEstimands](StudyEstimands.md) | StudyEstimands reference: None | direct |
+| [StudyEndPointsRef](StudyEndPointsRef.md) | 0..1 <br/> [StudyEndPoints](StudyEndPoints.md) | StudyEndPoints reference: The StudyEndPoints element is a container element f... | direct |
+| [StudyTargetPopulationRefRef](StudyTargetPopulationRefRef.md) | 0..1 <br/> [StudyTargetPopulation](StudyTargetPopulation.md) | StudyTargetPopulationRef reference: The StudyTargetPopulationRef references a... | direct |
+| [StudyEstimandsRef](StudyEstimandsRef.md) | 0..1 <br/> [StudyEstimands](StudyEstimands.md) | StudyEstimands reference: StudyEstimands is a container element for individua... | direct |
 | [InclusionExclusionCriteriaRef](InclusionExclusionCriteriaRef.md) | 0..1 <br/> [InclusionExclusionCriteria](InclusionExclusionCriteria.md) | InclusionExclusionCriteria reference: The InclusionExclusionCriteria element ... | direct |
 | [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | 0..* <br/> [StudyEventGroupRef](StudyEventGroupRef.md) | StudyEventGroupRef reference: This element references a StudyEventGroupDef as... | direct |
 | [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
@@ -218,7 +218,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -297,7 +296,6 @@ slot_usage:
     domain_of:
     - StudyEventGroupDef
     - Protocol
-    - ExceptionEvent
     range: StudyEventGroupRef
     inlined: true
     inlined_as_list: true
@@ -310,7 +308,6 @@ slot_usage:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
   AliasRef:
@@ -381,7 +378,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -460,7 +456,6 @@ slot_usage:
     domain_of:
     - StudyEventGroupDef
     - Protocol
-    - ExceptionEvent
     range: StudyEventGroupRef
     inlined: true
     inlined_as_list: true
@@ -473,7 +468,6 @@ slot_usage:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
   AliasRef:
@@ -535,7 +529,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -635,7 +628,8 @@ attributes:
     maximum_cardinality: 1
   StudyEndPointsRef:
     name: StudyEndPointsRef
-    description: 'StudyEndPoints reference: Go to start of metadata'
+    description: 'StudyEndPoints reference: The StudyEndPoints element is a container
+      element for individual StudyEndPoint elements.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -647,7 +641,8 @@ attributes:
     maximum_cardinality: 1
   StudyTargetPopulationRefRef:
     name: StudyTargetPopulationRefRef
-    description: 'StudyTargetPopulationRef reference: None'
+    description: 'StudyTargetPopulationRef reference: The StudyTargetPopulationRef
+      references a StudyTargetPopulation to which the estimand applies.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -660,7 +655,8 @@ attributes:
     maximum_cardinality: 1
   StudyEstimandsRef:
     name: StudyEstimandsRef
-    description: 'StudyEstimands reference: None'
+    description: 'StudyEstimands reference: StudyEstimands is a container element
+      for individual StudyEstimand elements.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -702,7 +698,6 @@ attributes:
     domain_of:
     - StudyEventGroupDef
     - Protocol
-    - ExceptionEvent
     range: StudyEventGroupRef
     inlined: true
     inlined_as_list: true
@@ -721,7 +716,6 @@ attributes:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
   AliasRef:

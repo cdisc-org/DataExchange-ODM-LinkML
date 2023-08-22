@@ -104,7 +104,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     domain_of:
     - Selection
     range: text
@@ -134,7 +134,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     domain_of:
     - Selection
     range: text
@@ -149,7 +149,7 @@ attributes:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Path

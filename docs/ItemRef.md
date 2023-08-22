@@ -75,7 +75,7 @@ URI: [odm:ItemRef](http://www.cdisc.org/ns/odm/v2.0/ItemRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ItemOID](ItemOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the ItemDef . | direct |
+| [ItemOID](ItemOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the ItemDef. | direct |
 | [KeySequence](KeySequence.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates that this item is a key for the enclosing element. It also provides... | direct |
 | [IsNonStandard](IsNonStandard.md) | 0..1 <br/> [YesOnly](YesOnly.md) | A non-standard variable is one that is not defined in the SDTMIG or the under... | direct |
 | [HasNoData](HasNoData.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Used to indicate that an ItemRef that represent a dataset's variable has no d... | direct |
@@ -177,11 +177,11 @@ slots:
 slot_usage:
   ItemOID:
     name: ItemOID
-    description: Reference to the ItemDef .
+    description: Reference to the ItemDef.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for an ItemDef in the Study/MetaDataVersion. The
       ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate ItemOID
@@ -201,7 +201,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate
       KeySequence values.'
@@ -219,7 +219,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:(Yes)'
+      range: (Yes)'
     domain_of:
     - ItemGroupDef
     - ItemRef
@@ -233,7 +233,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:(Yes)
+      range: (Yes)
 
       A comment must be included to explain why no data is present for dataset''s
       variables that were planned for use in the study.'
@@ -247,7 +247,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The MethodOID value must match the OID attribute for a MethodDef in this Study/MetaDataVersion.'
     domain_of:
@@ -262,7 +262,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The sibling ItemRef element will have ItemOID=UnitsItemOID and the UnitsItemOID
       value must match the OID attribute for the ItemDef that defines the units for
@@ -277,7 +277,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:(Yes)
+      range: (Yes)
 
       The corresponding ItemDef must have an associated CodeList containing the items
       over which the repeat is to be performed. There may only be one ItemRef within
@@ -292,7 +292,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:(Yes)'
+      range: (Yes)'
     domain_of:
     - ItemRef
     - CodeListItem
@@ -307,7 +307,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       This attribute must not be present unless the Role attribute is defined.'
     domain_of:
@@ -322,7 +322,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The RoleCodelistOID must match the OID attribute for a CodeList within the Study/MetaDataVersion.
       If Role is defined, RoleCodeListOID is still optional.'
@@ -335,7 +335,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(HR | O | R/C | Cond | Exp | Perm | Req)
+      enum values: (HR | O | R/C | Cond | Exp | Perm | Req)
 
       Reference the appropriate specifications for complete requirements. Example:
       CDASH: "HR", "R/C", "O"; SDTM: "Req", "Exp", "Perm".'
@@ -349,7 +349,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ItemRef
     range: text
@@ -363,7 +363,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate
       OrderNumber values.'
@@ -387,7 +387,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       When the value is "Yes", the data for each subject in the study must include
       an ItemData element with this ItemOID.'
@@ -405,7 +405,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CollectionExceptionConditionOID value must match the OID attribute for a
       ConditionDef in this Study/MetaDataVersion.'
@@ -451,11 +451,11 @@ see_also:
 slot_usage:
   ItemOID:
     name: ItemOID
-    description: Reference to the ItemDef .
+    description: Reference to the ItemDef.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for an ItemDef in the Study/MetaDataVersion. The
       ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate ItemOID
@@ -475,7 +475,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate
       KeySequence values.'
@@ -493,7 +493,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:(Yes)'
+      range: (Yes)'
     domain_of:
     - ItemGroupDef
     - ItemRef
@@ -507,7 +507,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:(Yes)
+      range: (Yes)
 
       A comment must be included to explain why no data is present for dataset''s
       variables that were planned for use in the study.'
@@ -521,7 +521,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The MethodOID value must match the OID attribute for a MethodDef in this Study/MetaDataVersion.'
     domain_of:
@@ -536,7 +536,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The sibling ItemRef element will have ItemOID=UnitsItemOID and the UnitsItemOID
       value must match the OID attribute for the ItemDef that defines the units for
@@ -551,7 +551,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:(Yes)
+      range: (Yes)
 
       The corresponding ItemDef must have an associated CodeList containing the items
       over which the repeat is to be performed. There may only be one ItemRef within
@@ -566,7 +566,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:(Yes)'
+      range: (Yes)'
     domain_of:
     - ItemRef
     - CodeListItem
@@ -581,7 +581,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       This attribute must not be present unless the Role attribute is defined.'
     domain_of:
@@ -596,7 +596,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The RoleCodelistOID must match the OID attribute for a CodeList within the Study/MetaDataVersion.
       If Role is defined, RoleCodeListOID is still optional.'
@@ -609,7 +609,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(HR | O | R/C | Cond | Exp | Perm | Req)
+      enum values: (HR | O | R/C | Cond | Exp | Perm | Req)
 
       Reference the appropriate specifications for complete requirements. Example:
       CDASH: "HR", "R/C", "O"; SDTM: "Req", "Exp", "Perm".'
@@ -623,7 +623,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ItemRef
     range: text
@@ -637,7 +637,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate
       OrderNumber values.'
@@ -661,7 +661,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       When the value is "Yes", the data for each subject in the study must include
       an ItemData element with this ItemOID.'
@@ -679,7 +679,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CollectionExceptionConditionOID value must match the OID attribute for a
       ConditionDef in this Study/MetaDataVersion.'
@@ -709,11 +709,11 @@ slot_usage:
 attributes:
   ItemOID:
     name: ItemOID
-    description: Reference to the ItemDef .
+    description: Reference to the ItemDef.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for an ItemDef in the Study/MetaDataVersion. The
       ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate ItemOID
@@ -737,7 +737,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate
       KeySequence values.'
@@ -759,7 +759,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:(Yes)'
+      range: (Yes)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: IsNonStandard
@@ -777,7 +777,7 @@ attributes:
     comments:
     - 'Conditional
 
-      range:(Yes)
+      range: (Yes)
 
       A comment must be included to explain why no data is present for dataset''s
       variables that were planned for use in the study.'
@@ -795,7 +795,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The MethodOID value must match the OID attribute for a MethodDef in this Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -814,7 +814,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The sibling ItemRef element will have ItemOID=UnitsItemOID and the UnitsItemOID
       value must match the OID attribute for the ItemDef that defines the units for
@@ -833,7 +833,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:(Yes)
+      range: (Yes)
 
       The corresponding ItemDef must have an associated CodeList containing the items
       over which the repeat is to be performed. There may only be one ItemRef within
@@ -852,7 +852,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:(Yes)'
+      range: (Yes)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Other
@@ -871,7 +871,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       This attribute must not be present unless the Role attribute is defined.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -890,7 +890,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The RoleCodelistOID must match the OID attribute for a CodeList within the Study/MetaDataVersion.
       If Role is defined, RoleCodeListOID is still optional.'
@@ -907,7 +907,7 @@ attributes:
     comments:
     - 'Optional
 
-      enum values:(HR | O | R/C | Cond | Exp | Perm | Req)
+      enum values: (HR | O | R/C | Cond | Exp | Perm | Req)
 
       Reference the appropriate specifications for complete requirements. Example:
       CDASH: "HR", "R/C", "O"; SDTM: "Req", "Exp", "Perm".'
@@ -925,7 +925,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: PreSpecifiedValue
@@ -943,7 +943,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The ItemRefs within an ItemGroupDef or ValueListDef must not have duplicate
       OrderNumber values.'
@@ -971,7 +971,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       When the value is "Yes", the data for each subject in the study must include
       an ItemData element with this ItemOID.'
@@ -993,7 +993,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CollectionExceptionConditionOID value must match the OID attribute for a
       ConditionDef in this Study/MetaDataVersion.'

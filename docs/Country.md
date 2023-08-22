@@ -130,6 +130,7 @@ attributes:
   owner: Country
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

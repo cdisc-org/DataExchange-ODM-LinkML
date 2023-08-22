@@ -1,7 +1,7 @@
 # Slot: StudyEstimandsRef
 
 
-_StudyEstimands reference: None_
+_StudyEstimands reference: StudyEstimands is a container element for individual StudyEstimand elements._
 
 
 
@@ -55,7 +55,8 @@ URI: [odm:StudyEstimandsRef](http://www.cdisc.org/ns/odm/v2.0/StudyEstimandsRef)
 <details>
 ```yaml
 name: StudyEstimandsRef
-description: 'StudyEstimands reference: None'
+description: 'StudyEstimands reference: StudyEstimands is a container element for
+  individual StudyEstimand elements.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

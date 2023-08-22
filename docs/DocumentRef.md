@@ -111,7 +111,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:t ext'
+      range: text'
     domain_of:
     - DocumentRef
     range: oid
@@ -148,7 +148,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:t ext'
+      range: text'
     domain_of:
     - DocumentRef
     range: oid
@@ -171,7 +171,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:t ext'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: LeafID

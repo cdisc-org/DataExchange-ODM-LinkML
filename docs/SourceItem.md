@@ -132,7 +132,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID for an ItemDef element. The referenced ItemDef element can
       be in the same ODM document or another ODM document.'
@@ -150,7 +150,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID for an ItemGroupDef element. The referenced ItemGroupDef
       element can be in the same ODM document or another ODM document.'
@@ -167,7 +167,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID of a MetaDataVersion element. The referenced MetaDataVersion
       element can be in the same ODM document or another ODM document. Must be provided
@@ -188,7 +188,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID for an Study element. The referenced Study element can be
       in the same ODM document or another ODM document. Must be provided if the reference
@@ -211,7 +211,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:IDREF
+      range: IDREF
 
       When referencing another ODM document it is necessary to have values for the
       MetaDataVersionOID and StudyOID attributes.'
@@ -226,7 +226,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:name'
+      range: name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -259,7 +259,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -316,7 +315,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID for an ItemDef element. The referenced ItemDef element can
       be in the same ODM document or another ODM document.'
@@ -334,7 +333,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID for an ItemGroupDef element. The referenced ItemGroupDef
       element can be in the same ODM document or another ODM document.'
@@ -351,7 +350,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID of a MetaDataVersion element. The referenced MetaDataVersion
       element can be in the same ODM document or another ODM document. Must be provided
@@ -372,7 +371,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID for an Study element. The referenced Study element can be
       in the same ODM document or another ODM document. Must be provided if the reference
@@ -395,7 +394,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:IDREF
+      range: IDREF
 
       When referencing another ODM document it is necessary to have values for the
       MetaDataVersionOID and StudyOID attributes.'
@@ -410,7 +409,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:name'
+      range: name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -443,7 +442,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -486,7 +484,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID for an ItemDef element. The referenced ItemDef element can
       be in the same ODM document or another ODM document.'
@@ -508,7 +506,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID for an ItemGroupDef element. The referenced ItemGroupDef
       element can be in the same ODM document or another ODM document.'
@@ -529,7 +527,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID of a MetaDataVersion element. The referenced MetaDataVersion
       element can be in the same ODM document or another ODM document. Must be provided
@@ -554,7 +552,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID for an Study element. The referenced Study element can be
       in the same ODM document or another ODM document. Must be provided if the reference
@@ -581,7 +579,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:IDREF
+      range: IDREF
 
       When referencing another ODM document it is necessary to have values for the
       MetaDataVersionOID and StudyOID attributes.'
@@ -602,7 +600,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:name'
+      range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -639,7 +637,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query

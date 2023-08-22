@@ -42,8 +42,10 @@ class ODMLinkMLTransformer():
         """
         self.schema_builder = SchemaBuilder(id = self.namespace, name = self.namespace_prefix)
         self.schema_builder.add_defaults()
+        self.schema_builder.schema.title = 'CDISC Operational Data Model v2'
+        self.schema_builder.schema.description = 'ODM is a vendor-neutral, platform-independent format for exchanging and archiving clinical and translational research data, along with their associated metadata, administrative data, reference data, and audit information.'
         self.schema_builder.schema.prefixes['nci'] = Prefix('nci', 'http://ncicb.nci.nih.gov/xml/odm/EVS/CDISC')
-        self.schema_builder.schema.prefixes['xml'] = Prefix('xml', 'http://ncicb.nci.nih.gov/xml/odm/EVS/CDISC')
+        self.schema_builder.schema.prefixes['xml'] = Prefix('xml', 'http://www.w3.org/XML/1998/namespace')
         self.schema_builder.schema.prefixes['xhtml'] = Prefix('xhtml', 'http://www.w3.org/1999/xhtml')
         self.schema = SchemaView(self.schema_builder.schema)
 
@@ -92,6 +94,7 @@ class ODMLinkMLTransformer():
         clashing_class = self.schema.get_class('ODM')
         if clashing_class:
             clashing_class.name = 'ODMFileMetadata'
+            clashing_class.tree_root = True
             self.schema.add_class(clashing_class)
             self.schema.delete_class('ODM')
 
@@ -105,7 +108,7 @@ class ODMLinkMLTransformer():
         name_map = ['ODMVersion', 'Comparator', 'Context', 'DataType', 'FileType', 'Granularity',
                     'TransactionType', 'UserType', 'Code', 'CodeListRef', 'Definition', 'LocationRef',
                     'MetaDataVersionRef', 'SignatureRef', 'StudyEndPointRef', 'StudyInterventionRef',
-                    'StudyTargetPopulationRef', 'UserRef', 'Value']
+                    'StudyTargetPopulationRef', 'UserRef', 'Value', 'Title']
         if ref in name_map:
             return ref + REFERENCE_SUFFIX
         else:
@@ -662,9 +665,9 @@ class ODMLinkMLTransformer():
                 range = None
                 if data_type and len(data_type.split()) > 1:
                     # TODO: make into enum, check wiki vs XML schema for range
-                    external_comments.append('enum values:' + data_type)
+                    external_comments.append('enum values: ' + data_type)
                 elif data_type:# TODO: check wiki vs XML Schema for range
-                    external_comments.append('range:' + data_type)
+                    external_comments.append('range: ' + data_type)
                     range = data_type
                 rules = slot.get('Business Rule(s)')
                 if rules:

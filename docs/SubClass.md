@@ -106,7 +106,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       Text must follow CDISC Controlled Terminology for SubClass.'
     domain_of:
@@ -141,7 +141,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -154,7 +153,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       Text must follow CDISC Controlled Terminology for Class or SubClass.'
     domain_of:
@@ -181,7 +180,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       Text must follow CDISC Controlled Terminology for SubClass.'
     domain_of:
@@ -216,7 +215,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -229,7 +227,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       Text must follow CDISC Controlled Terminology for Class or SubClass.'
     domain_of:
@@ -242,7 +240,7 @@ attributes:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       Text must follow CDISC Controlled Terminology for SubClass.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -281,7 +279,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -294,7 +291,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       Text must follow CDISC Controlled Terminology for Class or SubClass.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0

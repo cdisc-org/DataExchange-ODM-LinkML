@@ -134,7 +134,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:positiveInteger'
+      range: positiveInteger'
     domain_of:
     - Annotation
     - Value
@@ -145,11 +145,11 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(Insert | Update | Remove | Upsert | Context)
+      enum values: (Insert | Update | Remove | Upsert | Context)
 
       An empty Annotation (one with no annotation value, no comment and no flags)
-      is not allowed unless the TransactionType is Remove . On Update, the entire
-      value of the annotation is replaced.'
+      is not allowed unless the TransactionType is Remove. On Update, the entire value
+      of the annotation is replaced.'
     domain_of:
     - SubjectData
     - StudyEventData
@@ -222,7 +222,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:positiveInteger'
+      range: positiveInteger'
     domain_of:
     - Annotation
     - Value
@@ -233,11 +233,11 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(Insert | Update | Remove | Upsert | Context)
+      enum values: (Insert | Update | Remove | Upsert | Context)
 
       An empty Annotation (one with no annotation value, no comment and no flags)
-      is not allowed unless the TransactionType is Remove . On Update, the entire
-      value of the annotation is replaced.'
+      is not allowed unless the TransactionType is Remove. On Update, the entire value
+      of the annotation is replaced.'
     domain_of:
     - SubjectData
     - StudyEventData
@@ -297,7 +297,7 @@ attributes:
     comments:
     - 'Required
 
-      range:positiveInteger'
+      range: positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SeqNum
@@ -314,11 +314,11 @@ attributes:
     comments:
     - 'Optional
 
-      enum values:(Insert | Update | Remove | Upsert | Context)
+      enum values: (Insert | Update | Remove | Upsert | Context)
 
       An empty Annotation (one with no annotation value, no comment and no flags)
-      is not allowed unless the TransactionType is Remove . On Update, the entire
-      value of the annotation is replaced.'
+      is not allowed unless the TransactionType is Remove. On Update, the entire value
+      of the annotation is replaced.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TransactionTypeRef

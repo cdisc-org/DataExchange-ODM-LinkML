@@ -20,8 +20,6 @@ URI: [odm:CriterionRef](http://www.cdisc.org/ns/odm/v2.0/CriterionRef)
 | --- | --- | --- |
 [InclusionCriteria](InclusionCriteria.md) | The InclusionCriteria is a container element for Criterion elements describin... |  yes  |
 [ExclusionCriteria](ExclusionCriteria.md) | The ExclusionCriteria is a container element for Criterion elements describin... |  yes  |
-[EntryCriteria](EntryCriteria.md) |  |  yes  |
-[ExitCriteria](ExitCriteria.md) |  |  yes  |
 
 
 
@@ -68,8 +66,6 @@ alias: CriterionRef
 domain_of:
 - InclusionCriteria
 - ExclusionCriteria
-- EntryCriteria
-- ExitCriteria
 range: Criterion
 
 ```

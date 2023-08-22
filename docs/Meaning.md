@@ -130,6 +130,7 @@ attributes:
   owner: Meaning
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

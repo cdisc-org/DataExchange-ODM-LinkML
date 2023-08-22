@@ -1,7 +1,7 @@
 # Slot: UserRefRef
 
 
-_UserRef reference: None_
+_UserRef reference: A reference to information about a specific user of a clinical data collection or data management system._
 
 
 
@@ -57,7 +57,8 @@ URI: [odm:UserRefRef](http://www.cdisc.org/ns/odm/v2.0/UserRefRef)
 <details>
 ```yaml
 name: UserRefRef
-description: 'UserRef reference: None'
+description: 'UserRef reference: A reference to information about a specific user
+  of a clinical data collection or data management system.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

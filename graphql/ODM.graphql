@@ -261,11 +261,6 @@ type DurationTimingConstraint
     descriptionRef: Description
   }
 
-type EntryCriteria
-  {
-    criterionRef: [Criterion]
-  }
-
 type Epoch
   {
     oID: Oid!
@@ -279,23 +274,7 @@ type ErrorMessage
     translatedTextRef: [TranslatedText]
   }
 
-type ExceptionEvent
-  {
-    oID: Oid!
-    name: Name!
-    conditionOID: Oidref
-    descriptionRef: Description
-    workflowRefRef: WorkflowRef!
-    studyEventGroupRefRef: StudyEventGroupRef!
-    studyEventRefRef: StudyEventRef!
-  }
-
 type ExclusionCriteria
-  {
-    criterionRef: [Criterion]
-  }
-
-type ExitCriteria
   {
     criterionRef: [Criterion]
   }
@@ -528,7 +507,7 @@ type Leaf
   {
     iD: Oid!
     href: Uriorcurie!
-    title: Text
+    titleRef: Title
   }
 
 type LegalReason
@@ -682,7 +661,7 @@ type PDFPageRef
     firstPage: PositiveInteger
     lastPage: PositiveInteger
     type: PDFPageType!
-    title: Text
+    titleRef: Text
   }
 
 type PostalCode
@@ -1128,6 +1107,12 @@ type Telecom
   {
     telecomType: TelecomTypeType!
     valueRef: Text!
+  }
+
+type Title
+  {
+    content: ContentType
+    range: String
   }
 
 type Transition

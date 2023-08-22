@@ -20,7 +20,7 @@ URI: [odm:LocationOID](http://www.cdisc.org/ns/odm/v2.0/LocationOID)
 | --- | --- | --- |
 [User](User.md) | Information about a specific user of a clinical data collection or data manag... |  yes  |
 [Organization](Organization.md) | An organization can reference a parent organization. Users may be associated ... |  yes  |
-[SiteRef](SiteRef.md) | lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData... |  yes  |
+[SiteRef](SiteRef.md) | Provides a reference to the site that the SubjectData record is associated wi... |  yes  |
 [LocationRef](LocationRef.md) | A reference to the user's physical location. |  yes  |
 
 

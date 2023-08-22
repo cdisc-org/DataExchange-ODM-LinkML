@@ -140,7 +140,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -173,7 +173,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -187,7 +186,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -220,7 +219,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -233,7 +231,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - TransitionTimingConstraint
     range: oidref
@@ -246,7 +244,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute of a MethodDef element in this Study/MetaDataVersion.
       The MethodSignature for the referenced MethodDef must identify the input parameters
@@ -267,7 +265,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(StartToStart, StartToFinish, FinishToStart, FinishToFinish)
+      enum values: (StartToStart, StartToFinish, FinishToStart, FinishToFinish)
 
       If not provided, StartToStart is assumed.'
     domain_of:
@@ -293,7 +291,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be expressed as an ISO 8601 duration. Either the TimepointTarget or the
       MethodOID must be provided - not both. If the value is a "zero time duration"
@@ -311,7 +309,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be expressed as an ISO 8601 duration.'
     domain_of:
@@ -326,7 +324,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be expressed as an ISO 8601 duration.'
     domain_of:
@@ -370,7 +368,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -401,7 +398,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -434,7 +431,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -448,7 +444,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -481,7 +477,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -494,7 +489,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - TransitionTimingConstraint
     range: oidref
@@ -507,7 +502,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute of a MethodDef element in this Study/MetaDataVersion.
       The MethodSignature for the referenced MethodDef must identify the input parameters
@@ -528,7 +523,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(StartToStart, StartToFinish, FinishToStart, FinishToFinish)
+      enum values: (StartToStart, StartToFinish, FinishToStart, FinishToFinish)
 
       If not provided, StartToStart is assumed.'
     domain_of:
@@ -554,7 +549,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be expressed as an ISO 8601 duration. Either the TimepointTarget or the
       MethodOID must be provided - not both. If the value is a "zero time duration"
@@ -572,7 +567,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be expressed as an ISO 8601 duration.'
     domain_of:
@@ -587,7 +582,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be expressed as an ISO 8601 duration.'
     domain_of:
@@ -631,7 +626,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -644,7 +638,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -682,7 +676,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -696,7 +689,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -733,7 +726,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -746,7 +738,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TransitionOID
@@ -763,7 +755,7 @@ attributes:
     comments:
     - 'Conditional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute of a MethodDef element in this Study/MetaDataVersion.
       The MethodSignature for the referenced MethodDef must identify the input parameters
@@ -788,7 +780,7 @@ attributes:
     comments:
     - 'Optional
 
-      enum values:(StartToStart, StartToFinish, FinishToStart, FinishToFinish)
+      enum values: (StartToStart, StartToFinish, FinishToStart, FinishToFinish)
 
       If not provided, StartToStart is assumed.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -818,7 +810,7 @@ attributes:
     comments:
     - 'Conditional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be expressed as an ISO 8601 duration. Either the TimepointTarget or the
       MethodOID must be provided - not both. If the value is a "zero time duration"
@@ -840,7 +832,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be expressed as an ISO 8601 duration.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -859,7 +851,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be expressed as an ISO 8601 duration.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -914,7 +906,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

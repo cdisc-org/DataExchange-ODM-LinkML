@@ -64,7 +64,7 @@ URI: [odm:CodeListItem](http://www.cdisc.org/ns/odm/v2.0/CodeListItem)
 | [Other](Other.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Flag to indicate that the term represents "other" content. | direct |
 | [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Ordering on the CodeListItems (within a containing CodeListItem) for use when... | direct |
 | [ExtendedValue](ExtendedValue.md) | 0..1 <br/> [YesOnly](YesOnly.md) |  | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef . | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef. | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [DecodeRef](DecodeRef.md) | 0..1 <br/> [Decode](Decode.md) | Decode reference: The displayed value relating to the CodeListItem/@CodedValu... | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
@@ -149,7 +149,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     domain_of:
     - CodeListItem
     range: value
@@ -167,7 +167,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:float'
+      range: float'
     domain_of:
     - CodeListItem
     range: decimal
@@ -177,7 +177,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:(Yes)'
+      range: (Yes)'
     domain_of:
     - ItemRef
     - CodeListItem
@@ -190,7 +190,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:integer'
+      range: integer'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -208,11 +208,11 @@ slot_usage:
     range: YesOnly
   CommentOID:
     name: CommentOID
-    description: Reference to a CommentDef .
+    description: Reference to a CommentDef.
     comments:
     - 'Optional
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -263,7 +263,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -335,7 +334,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     domain_of:
     - CodeListItem
     range: value
@@ -353,7 +352,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:float'
+      range: float'
     domain_of:
     - CodeListItem
     range: decimal
@@ -363,7 +362,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:(Yes)'
+      range: (Yes)'
     domain_of:
     - ItemRef
     - CodeListItem
@@ -376,7 +375,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:integer'
+      range: integer'
     domain_of:
     - StudyEventGroupRef
     - StudyEventRef
@@ -394,11 +393,11 @@ slot_usage:
     range: YesOnly
   CommentOID:
     name: CommentOID
-    description: Reference to a CommentDef .
+    description: Reference to a CommentDef.
     comments:
     - 'Optional
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - MetaDataVersion
     - Standard
@@ -449,7 +448,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -506,7 +504,7 @@ attributes:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CodedValue
@@ -528,7 +526,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:float'
+      range: float'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Rank
@@ -542,7 +540,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:(Yes)'
+      range: (Yes)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Other
@@ -559,7 +557,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:integer'
+      range: integer'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: OrderNumber
@@ -585,11 +583,11 @@ attributes:
     range: YesOnly
   CommentOID:
     name: CommentOID
-    description: Reference to a CommentDef .
+    description: Reference to a CommentDef.
     comments:
     - 'Optional
 
-      range:oidref'
+      range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CommentOID
@@ -651,7 +649,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

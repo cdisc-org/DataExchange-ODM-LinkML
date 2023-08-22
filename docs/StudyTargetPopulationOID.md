@@ -13,7 +13,7 @@ URI: [odm:StudyTargetPopulationOID](http://www.cdisc.org/ns/odm/v2.0/StudyTarget
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyTargetPopulationRef](StudyTargetPopulationRef.md) |  |  yes  |
+[StudyTargetPopulationRef](StudyTargetPopulationRef.md) | The StudyTargetPopulationRef references a StudyTargetPopulation to which the ... |  yes  |
 
 
 

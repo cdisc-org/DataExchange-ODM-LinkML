@@ -101,7 +101,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID for an AdminData/Location element and the LocationOID for
       the UserRef element contained within the AuditRecord or Signature.'
@@ -133,7 +133,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID for an AdminData/Location element and the LocationOID for
       the UserRef element contained within the AuditRecord or Signature.'
@@ -151,7 +151,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID for an AdminData/Location element and the LocationOID for
       the UserRef element contained within the AuditRecord or Signature.'

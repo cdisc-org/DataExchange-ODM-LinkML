@@ -1,6 +1,11 @@
 # Class: DefaultTransition
 
 
+_The DefaultTransition references the Transition that needs to be executed when none of the TargetTransitions can be executed._
+
+
+
+
 
 URI: [odm:DefaultTransition](http://www.cdisc.org/ns/odm/v2.0/DefaultTransition)
 
@@ -82,6 +87,8 @@ URI: [odm:DefaultTransition](http://www.cdisc.org/ns/odm/v2.0/DefaultTransition)
 <details>
 ```yaml
 name: DefaultTransition
+description: The DefaultTransition references the Transition that needs to be executed
+  when none of the TargetTransitions can be executed.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DefaultTransition
@@ -94,7 +101,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The TargetTransitionOID attribute must match the OID attribute of a Transition
       element within the WorkflowDef.'
@@ -113,6 +120,8 @@ class_uri: odm:DefaultTransition
 <details>
 ```yaml
 name: DefaultTransition
+description: The DefaultTransition references the Transition that needs to be executed
+  when none of the TargetTransitions can be executed.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DefaultTransition
@@ -123,7 +132,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The TargetTransitionOID attribute must match the OID attribute of a Transition
       element within the WorkflowDef.'
@@ -139,7 +148,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The TargetTransitionOID attribute must match the OID attribute of a Transition
       element within the WorkflowDef.'

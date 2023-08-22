@@ -159,11 +159,6 @@ CREATE TABLE "DocumentRef" (
 	PRIMARY KEY ("LeafID", "PDFPageRefRef")
 );
 
-CREATE TABLE "EntryCriteria" (
-	"CriterionRef" TEXT, 
-	PRIMARY KEY ("CriterionRef")
-);
-
 CREATE TABLE "Epoch" (
 	"OID" TEXT NOT NULL, 
 	"Name" TEXT NOT NULL, 
@@ -177,23 +172,7 @@ CREATE TABLE "ErrorMessage" (
 	PRIMARY KEY ("TranslatedTextRef")
 );
 
-CREATE TABLE "ExceptionEvent" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"ConditionOID" TEXT, 
-	"DescriptionRef" TEXT, 
-	"WorkflowRefRef" TEXT NOT NULL, 
-	"StudyEventGroupRefRef" TEXT NOT NULL, 
-	"StudyEventRefRef" TEXT NOT NULL, 
-	PRIMARY KEY ("OID")
-);
-
 CREATE TABLE "ExclusionCriteria" (
-	"CriterionRef" TEXT, 
-	PRIMARY KEY ("CriterionRef")
-);
-
-CREATE TABLE "ExitCriteria" (
 	"CriterionRef" TEXT, 
 	PRIMARY KEY ("CriterionRef")
 );
@@ -337,7 +316,7 @@ CREATE TABLE "KeySet" (
 CREATE TABLE "Leaf" (
 	"ID" TEXT NOT NULL, 
 	href TEXT NOT NULL, 
-	"Title" TEXT, 
+	"TitleRef" TEXT, 
 	PRIMARY KEY ("ID")
 );
 
@@ -445,8 +424,8 @@ CREATE TABLE "PDFPageRef" (
 	"FirstPage" INTEGER, 
 	"LastPage" INTEGER, 
 	"Type" VARCHAR(16) NOT NULL, 
-	"Title" TEXT, 
-	PRIMARY KEY ("PageRefs", "FirstPage", "LastPage", "Type", "Title")
+	"TitleRef" TEXT, 
+	PRIMARY KEY ("PageRefs", "FirstPage", "LastPage", "Type", "TitleRef")
 );
 
 CREATE TABLE "PostalCode" (
@@ -650,14 +629,6 @@ CREATE TABLE "StudyEventGroupRef" (
 	PRIMARY KEY ("StudyEventGroupOID", "OrderNumber", "Mandatory", "CollectionExceptionConditionOID", "DescriptionRef")
 );
 
-CREATE TABLE "StudyEventRef" (
-	"StudyEventOID" TEXT NOT NULL, 
-	"OrderNumber" INTEGER, 
-	"Mandatory" VARCHAR(3) NOT NULL, 
-	"CollectionExceptionConditionOID" TEXT, 
-	PRIMARY KEY ("StudyEventOID", "OrderNumber", "Mandatory", "CollectionExceptionConditionOID")
-);
-
 CREATE TABLE "StudyIndication" (
 	"OID" TEXT NOT NULL, 
 	"DescriptionRef" TEXT, 
@@ -774,6 +745,12 @@ CREATE TABLE "Telecom" (
 	"TelecomType" VARCHAR(5) NOT NULL, 
 	"ValueRef" TEXT NOT NULL, 
 	PRIMARY KEY ("TelecomType", "ValueRef")
+);
+
+CREATE TABLE "Title" (
+	_content TEXT, 
+	range TEXT, 
+	PRIMARY KEY (_content, range)
 );
 
 CREATE TABLE "TranslatedText" (
@@ -1200,7 +1177,6 @@ CREATE TABLE "StudyEventGroupDef" (
 	"WorkflowRefRef" TEXT, 
 	"CodingRef" TEXT, 
 	"StudyEventGroupRefRef" TEXT, 
-	"StudyEventRefRef" TEXT, 
 	"MetaDataVersion_OID" TEXT, 
 	PRIMARY KEY ("OID"), 
 	FOREIGN KEY("MetaDataVersion_OID") REFERENCES "MetaDataVersion" ("OID")
@@ -1257,6 +1233,16 @@ CREATE TABLE "CodeListItem" (
 	"CodeList_OID" TEXT, 
 	PRIMARY KEY ("CodedValue", "Rank", "Other", "OrderNumber", "ExtendedValue", "CommentOID", "DescriptionRef", "DecodeRef", "CodingRef", "AliasRef", "CodeList_OID"), 
 	FOREIGN KEY("CodeList_OID") REFERENCES "CodeList" ("OID")
+);
+
+CREATE TABLE "StudyEventRef" (
+	"StudyEventOID" TEXT NOT NULL, 
+	"OrderNumber" INTEGER, 
+	"Mandatory" VARCHAR(3) NOT NULL, 
+	"CollectionExceptionConditionOID" TEXT, 
+	"StudyEventGroupDef_OID" TEXT, 
+	PRIMARY KEY ("StudyEventOID", "OrderNumber", "Mandatory", "CollectionExceptionConditionOID", "StudyEventGroupDef_OID"), 
+	FOREIGN KEY("StudyEventGroupDef_OID") REFERENCES "StudyEventGroupDef" ("OID")
 );
 
 CREATE TABLE "Transition" (

@@ -33,10 +33,10 @@ URI: [odm:OID](http://www.cdisc.org/ns/odm/v2.0/OID)
 [CommentDef](CommentDef.md) | The Comment element allows referencing short comments self-contained in the X... |  yes  |
 [StudyIndication](StudyIndication.md) | This element describes a study indication (e.g., condition, disease) for the ... |  yes  |
 [StudyIntervention](StudyIntervention.md) | This element describes a study intervention (e.g., medication, treatment, the... |  yes  |
-[StudyObjective](StudyObjective.md) |  |  yes  |
+[StudyObjective](StudyObjective.md) | The reason for performing a study in terms of the scientific questions to be ... |  yes  |
 [StudyEndPoint](StudyEndPoint.md) | A study end point reflects an outcome measure of interest that is statistical... |  yes  |
 [StudyTargetPopulation](StudyTargetPopulation.md) | The StudyTargetPopulation describes the population targeted for the clinical ... |  yes  |
-[StudyEstimand](StudyEstimand.md) |  |  yes  |
+[StudyEstimand](StudyEstimand.md) | A precise description of the treatment effect reflecting the clinical questio... |  yes  |
 [Arm](Arm.md) | An Arm element provides the declaration of a study arm. Arms do not have any ... |  yes  |
 [Epoch](Epoch.md) | The planned period of subjects' participation in the trial is divided into se... |  yes  |
 [StudyParameter](StudyParameter.md) | A StudyParameter defines a study design parameter for which the value or valu... |  yes  |
@@ -49,7 +49,6 @@ URI: [odm:OID](http://www.cdisc.org/ns/odm/v2.0/OID)
 [Transition](Transition.md) | A Transition defines a link between 2 structural elements in a workflow. When... |  yes  |
 [Branching](Branching.md) | This element describes the branching in a workflow from a source (start) stru... |  yes  |
 [Criterion](Criterion.md) | The Criterion represents either an inclusion or an exclusion criterion, depen... |  yes  |
-[ExceptionEvent](ExceptionEvent.md) | An ExceptionEvent describes an event that occurs suddenly in a study and that... |  yes  |
 [User](User.md) | Information about a specific user of a clinical data collection or data manag... |  yes  |
 [Organization](Organization.md) | An organization can reference a parent organization. Users may be associated ... |  yes  |
 [Location](Location.md) | A physical location associated with data collection and/or treatment of subje... |  yes  |
@@ -130,7 +129,6 @@ domain_of:
 - Transition
 - Branching
 - Criterion
-- ExceptionEvent
 - User
 - Organization
 - Location

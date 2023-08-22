@@ -108,7 +108,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:fileName
+      range: fileName
 
       Either IamgeFileName or href must be present.'
     domain_of:
@@ -120,7 +120,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:text
+      range: text
 
       Either ImageFileName or href must be present.'
     domain_of:
@@ -136,7 +136,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       Use of MimeType from the IANA list: http://www.iana.org/assignments/media-types/media-types.xhtml
       is recommended.'
@@ -164,7 +164,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:fileName
+      range: fileName
 
       Either IamgeFileName or href must be present.'
     domain_of:
@@ -176,7 +176,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:text
+      range: text
 
       Either ImageFileName or href must be present.'
     domain_of:
@@ -192,7 +192,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       Use of MimeType from the IANA list: http://www.iana.org/assignments/media-types/media-types.xhtml
       is recommended.'
@@ -206,7 +206,7 @@ attributes:
     comments:
     - 'Conditional
 
-      range:fileName
+      range: fileName
 
       Either IamgeFileName or href must be present.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -222,7 +222,7 @@ attributes:
     comments:
     - 'Conditional
 
-      range:text
+      range: text
 
       Either ImageFileName or href must be present.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -242,7 +242,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       Use of MimeType from the IANA list: http://www.iana.org/assignments/media-types/media-types.xhtml
       is recommended.'

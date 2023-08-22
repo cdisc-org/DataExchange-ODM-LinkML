@@ -18,7 +18,7 @@ URI: [odm:StudyInterventionOID](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyInterventionRef](StudyInterventionRef.md) |  |  yes  |
+[StudyInterventionRef](StudyInterventionRef.md) | The StudyInterventionRef references an intervention that is taken as the trea... |  yes  |
 
 
 

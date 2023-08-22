@@ -115,7 +115,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -148,7 +148,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -193,7 +192,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -234,7 +232,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -267,7 +265,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -312,7 +309,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -337,7 +333,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -375,7 +371,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -425,7 +420,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

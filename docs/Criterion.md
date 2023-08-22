@@ -57,8 +57,6 @@ URI: [odm:Criterion](http://www.cdisc.org/ns/odm/v2.0/Criterion)
 | ---  | --- | --- | --- |
 | [InclusionCriteria](InclusionCriteria.md) | [CriterionRef](CriterionRef.md) | range | [Criterion](Criterion.md) |
 | [ExclusionCriteria](ExclusionCriteria.md) | [CriterionRef](CriterionRef.md) | range | [Criterion](Criterion.md) |
-| [EntryCriteria](EntryCriteria.md) | [CriterionRef](CriterionRef.md) | range | [Criterion](Criterion.md) |
-| [ExitCriteria](ExitCriteria.md) | [CriterionRef](CriterionRef.md) | range | [Criterion](Criterion.md) |
 
 
 
@@ -155,7 +153,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -200,7 +197,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -216,7 +212,6 @@ slot_usage:
     domain_of:
     - TargetTransition
     - Criterion
-    - ExceptionEvent
     range: oidref
     required: true
   DescriptionRef:
@@ -255,7 +250,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -337,7 +331,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -382,7 +375,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -398,7 +390,6 @@ slot_usage:
     domain_of:
     - TargetTransition
     - Criterion
-    - ExceptionEvent
     range: oidref
     required: true
   DescriptionRef:
@@ -437,7 +428,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -509,7 +499,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -558,7 +547,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -578,7 +566,6 @@ attributes:
     domain_of:
     - TargetTransition
     - Criterion
-    - ExceptionEvent
     range: oidref
     required: true
   DescriptionRef:
@@ -624,7 +611,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

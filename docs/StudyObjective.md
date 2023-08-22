@@ -1,6 +1,11 @@
 # Class: StudyObjective
 
 
+_The reason for performing a study in terms of the scientific questions to be answered by the analysis of data collected during the study._
+
+
+
+
 
 URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
 
@@ -100,6 +105,8 @@ URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
 <details>
 ```yaml
 name: StudyObjective
+description: The reason for performing a study in terms of the scientific questions
+  to be answered by the analysis of data collected during the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyObjective
@@ -116,7 +123,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
     domain_of:
@@ -151,7 +158,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -165,7 +171,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Name attribute must be unique within the StudyObjectives elements within
       a Study/MetadataVersion.'
@@ -201,7 +207,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -213,7 +218,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(Primary | Secondary | Exploratory )
+      enum values: (Primary | Secondary | Exploratory )
 
       These are defined in concordance with the ICH M11 Clinical electronic Structured
       Harmonised Protocol Specification'
@@ -258,7 +263,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -284,6 +288,8 @@ class_uri: odm:StudyObjective
 <details>
 ```yaml
 name: StudyObjective
+description: The reason for performing a study in terms of the scientific questions
+  to be answered by the analysis of data collected during the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyObjective
@@ -294,7 +300,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
     domain_of:
@@ -329,7 +335,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -343,7 +348,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Name attribute must be unique within the StudyObjectives elements within
       a Study/MetadataVersion.'
@@ -379,7 +384,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -391,7 +395,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(Primary | Secondary | Exploratory )
+      enum values: (Primary | Secondary | Exploratory )
 
       These are defined in concordance with the ICH M11 Clinical electronic Structured
       Harmonised Protocol Specification'
@@ -436,7 +440,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -459,7 +462,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -499,7 +502,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -513,7 +515,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Name attribute must be unique within the StudyObjectives elements within
       a Study/MetadataVersion.'
@@ -553,7 +555,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -565,7 +566,7 @@ attributes:
     comments:
     - 'Optional
 
-      enum values:(Primary | Secondary | Exploratory )
+      enum values: (Primary | Secondary | Exploratory )
 
       These are defined in concordance with the ICH M11 Clinical electronic Structured
       Harmonised Protocol Specification'
@@ -621,7 +622,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

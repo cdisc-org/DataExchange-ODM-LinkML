@@ -19,6 +19,7 @@ URI: [odm:_content](http://www.cdisc.org/ns/odm/v2.0/_content)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [TranslatedText](TranslatedText.md) | Human-readable text that is appropriate for a particular language. Translated... |  yes  |
+[Title](Title.md) | Text with the label for the document or dataset. |  no  |
 [CheckValue](CheckValue.md) | A comparison value used in a range check. |  no  |
 [Code](Code.md) | Contains the source code that represents a FormalExpression in a given Contex... |  no  |
 [WorkflowEnd](WorkflowEnd.md) | A WorkflowEnd references a structural element with which the workflows ends. |  yes  |
@@ -37,7 +38,7 @@ URI: [odm:_content](http://www.cdisc.org/ns/odm/v2.0/_content)
 [OtherText](OtherText.md) | Any other text needed as part of a user's postal address. |  no  |
 [Meaning](Meaning.md) | A short name or description for this signature. It should reflect the context... |  no  |
 [LegalReason](LegalReason.md) | The responsibility statement associated with a signature (e.g., "The signer a... |  no  |
-[DateTimeStamp](DateTimeStamp.md) |  |  no  |
+[DateTimeStamp](DateTimeStamp.md) | Date and time when an action was performed. |  no  |
 [ReasonForChange](ReasonForChange.md) | A user-supplied reason for a data change. |  no  |
 [SourceID](SourceID.md) | Information that identifies the source of the data within an originating syst... |  no  |
 [FlagValue](FlagValue.md) | The value of the flag. The meaning of this value is typically dependent on th... |  yes  |
@@ -85,6 +86,7 @@ rank: 1000
 alias: _content
 domain_of:
 - TranslatedText
+- Title
 - CheckValue
 - Code
 - WorkflowEnd

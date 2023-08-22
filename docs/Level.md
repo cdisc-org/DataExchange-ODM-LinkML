@@ -18,9 +18,9 @@ URI: [odm:Level](http://www.cdisc.org/ns/odm/v2.0/Level)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyObjective](StudyObjective.md) |  |  yes  |
+[StudyObjective](StudyObjective.md) | The reason for performing a study in terms of the scientific questions to be ... |  yes  |
 [StudyEndPoint](StudyEndPoint.md) | A study end point reflects an outcome measure of interest that is statistical... |  yes  |
-[StudyEstimand](StudyEstimand.md) |  |  yes  |
+[StudyEstimand](StudyEstimand.md) | A precise description of the treatment effect reflecting the clinical questio... |  yes  |
 
 
 

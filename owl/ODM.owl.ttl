@@ -7,7 +7,7 @@
 @prefix shex: <http://www.w3.org/ns/shex#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xhtml: <http://www.w3.org/1999/xhtml> .
-@prefix xml1: <http://ncicb.nci.nih.gov/xml/odm/EVS/CDISC> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://www.cdisc.org/ns/odm/v2.0> a owl:Ontology ;
@@ -45,12 +45,9 @@
         odm:Description,
         odm:DocumentRef,
         odm:DurationTimingConstraint,
-        odm:EntryCriteria,
         odm:Epoch,
         odm:ErrorMessage,
-        odm:ExceptionEvent,
         odm:ExclusionCriteria,
-        odm:ExitCriteria,
         odm:ExternalCodeLib,
         odm:FamilyName,
         odm:Flag,
@@ -147,6 +144,7 @@
         odm:SupplementalDoc,
         odm:TargetTransition,
         odm:Telecom,
+        odm:Title,
         odm:Transition,
         odm:TransitionTimingConstraint,
         odm:TranslatedText,
@@ -517,7 +515,7 @@ odm:ClassRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "ClassRef" ;
     rdfs:range odm:Class ;
-    skos:definition "Class reference: None" .
+    skos:definition "Class reference: The Class element identifies which predefined Class within the model applies to the definition of the dataset." .
 
 odm:ClinicalDataRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -595,7 +593,7 @@ odm:DefaultTransitionRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "DefaultTransitionRef" ;
     rdfs:range odm:DefaultTransition ;
-    skos:definition "DefaultTransition reference: None" .
+    skos:definition "DefaultTransition reference: The DefaultTransition references the Transition that needs to be executed when none of the TargetTransitions can be executed." .
 
 odm:DisplayFormat a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -804,7 +802,7 @@ odm:IntercurrentEventRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "IntercurrentEventRef" ;
     rdfs:range odm:IntercurrentEvent ;
-    skos:definition "IntercurrentEvent reference: None" .
+    skos:definition "IntercurrentEvent reference: The IntercurrentEvent element describes an intercurrent event for an estimand (e.g., treatment discontinuation)." .
 
 odm:InvestigatorRefRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -932,7 +930,7 @@ odm:Methodology a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "Methodology" ;
     rdfs:range odm:SignMethod ;
-    skos:definition "Defines the type of electronic signature, including the meaning as required by 21 CFR Part 11 ." .
+    skos:definition "Defines the type of electronic signature, including the meaning as required by 21 CFR Part 11." .
 
 odm:MimeType a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -944,13 +942,27 @@ odm:ODMFileMetadata a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ODMFileMetadata" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ODMVersion ;
-            owl:onProperty odm:ODMVersionRef ],
+            owl:onClass odm:Datetime ;
+            owl:onProperty odm:CreationDateTime ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Context ;
-            owl:onProperty odm:ContextRef ],
+            owl:onClass odm:Granularity ;
+            owl:onProperty odm:GranularityRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Text ;
+            owl:onProperty odm:SourceSystem ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Association ;
+            owl:onProperty odm:AssociationRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:AdminData ;
+            owl:onProperty odm:AdminDataRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Datetime ;
+            owl:onProperty odm:AsOfDateTime ],
         [ a owl:Restriction ;
             owl:onClass odm:FileType ;
             owl:onProperty odm:FileTypeRef ;
@@ -960,52 +972,38 @@ odm:ODMFileMetadata a owl:Class,
             owl:onClass odm:Text ;
             owl:onProperty odm:SourceSystemVersion ],
         [ a owl:Restriction ;
+            owl:allValuesFrom odm:ClinicalData ;
+            owl:onProperty odm:ClinicalDataRef ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Text ;
             owl:onProperty odm:Originator ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Datetime ;
-            owl:onProperty odm:AsOfDateTime ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:PriorFileOID ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Granularity ;
-            owl:onProperty odm:GranularityRef ],
+            owl:onClass odm:Context ;
+            owl:onProperty odm:ContextRef ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:Study ;
             owl:onProperty odm:StudyRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:ODMVersion ;
+            owl:onProperty odm:ODMVersionRef ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:ReferenceData ;
             owl:onProperty odm:ReferenceDataRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:SourceSystem ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:ClinicalData ;
-            owl:onProperty odm:ClinicalDataRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Datetime ;
-            owl:onProperty odm:CreationDateTime ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Association ;
-            owl:onProperty odm:AssociationRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:AdminData ;
-            owl:onProperty odm:AdminDataRef ],
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:FileOID ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:PriorFileOID ] ;
     skos:definition "Root element for ODM Documents. The ODM element is the top-level (root) element of each ODM document." ;
     skos:exactMatch odm:ODM .
 
@@ -1115,7 +1113,7 @@ odm:ProtocolName a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "ProtocolName" ;
     rdfs:range odm:Name ;
-    skos:definition "P rotocol identifier or protocol number assigned to the study . It is used by the regulatory authority or clinical trial registry." .
+    skos:definition "Protocol identifier or protocol number assigned to the study. It is used by the regulatory authority or clinical trial registry." .
 
 odm:ProtocolRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -1223,13 +1221,13 @@ odm:SignatureOID a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "SignatureOID" ;
     rdfs:range odm:Oidref ;
-    skos:definition "Reference to the SignatureDef ." .
+    skos:definition "Reference to the SignatureDef." .
 
 odm:SiteRefRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "SiteRefRef" ;
     rdfs:range odm:SiteRef ;
-    skos:definition "SiteRef reference: lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType is Transactional." .
+    skos:definition "SiteRef reference: Provides a reference to the site that the SubjectData record is associated with in the source system." .
 
 odm:SoftHard a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -1337,25 +1335,25 @@ odm:StudyEndPointOID a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "StudyEndPointOID" ;
     rdfs:range odm:Oidref ;
-    skos:definition "Reference to the StudyEndPoint ." .
+    skos:definition "Reference to the StudyEndPoint." .
 
 odm:StudyEndPointsRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "StudyEndPointsRef" ;
     rdfs:range odm:StudyEndPoints ;
-    skos:definition "StudyEndPoints reference: Go to start of metadata" .
+    skos:definition "StudyEndPoints reference: The StudyEndPoints element is a container element for individual StudyEndPoint elements." .
 
 odm:StudyEstimandRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "StudyEstimandRef" ;
     rdfs:range odm:StudyEstimand ;
-    skos:definition "StudyEstimand reference: None" .
+    skos:definition "StudyEstimand reference: A precise description of the treatment effect reflecting the clinical question posed by a given clinical trial objective. It summarises at a population level what the outcomes would be in the same patients under different treatment conditions being compared." .
 
 odm:StudyEstimandsRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "StudyEstimandsRef" ;
     rdfs:range odm:StudyEstimands ;
-    skos:definition "StudyEstimands reference: None" .
+    skos:definition "StudyEstimands reference: StudyEstimands is a container element for individual StudyEstimand elements." .
 
 odm:StudyEventDataRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -1374,6 +1372,12 @@ odm:StudyEventGroupDefRef a owl:ObjectProperty,
     rdfs:label "StudyEventGroupDefRef" ;
     rdfs:range odm:StudyEventGroupDef ;
     skos:definition "StudyEventGroupDef reference: StudyEventGroupDef is a study building block that groups a number of smaller building blocks, which can themselves be StudyEventGroups or StudyEvents. It thus allows nesting of building blocks." .
+
+odm:StudyEventRefRef a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "StudyEventRefRef" ;
+    rdfs:range odm:StudyEventRef ;
+    skos:definition "StudyEventRef reference: This element references a StudyEventDef as it occurs within a specific version of a study. The list of StudyEventRefs identifies the types of study events that are allowed to occur within the study." .
 
 odm:StudyIndicationRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -1409,7 +1413,7 @@ odm:StudyObjectiveRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "StudyObjectiveRef" ;
     rdfs:range odm:StudyObjective ;
-    skos:definition "StudyObjective reference: None" .
+    skos:definition "StudyObjective reference: The reason for performing a study in terms of the scientific questions to be answered by the analysis of data collected during the study." .
 
 odm:StudyObjectivesRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -1486,7 +1490,7 @@ odm:SummaryMeasureRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "SummaryMeasureRef" ;
     rdfs:range odm:SummaryMeasure ;
-    skos:definition "SummaryMeasure reference: None" .
+    skos:definition "SummaryMeasure reference: The SummaryMeasure element describes a summary measure for an estimand (e.g., proportion of patients with an improvement)." .
 
 odm:SupplementalDocRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -1528,7 +1532,7 @@ odm:TargetTransitionRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "TargetTransitionRef" ;
     rdfs:range odm:TargetTransition ;
-    skos:definition "TargetTransition reference: Provides a reference to a Transition element." .
+    skos:definition "TargetTransition reference: TargetTransition provides a reference to a Transition element that is the target of a branching." .
 
 odm:TelecomType a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -2045,6 +2049,12 @@ odm:CodeRef a owl:ObjectProperty,
         owl:Class ;
     rdfs:label "NOTIN" .
 
+odm:ConditionOID a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ConditionOID" ;
+    rdfs:range odm:Oidref ;
+    skos:definition "Reference to a ConditionDef defining the condition under which the transition must be executed. The ConditionOID references a ConditionDef element defining a condition that needs to be evaluated at the time of entering the branching state. When the condition evaluates to true, the branch is entered." .
+
 <http://www.cdisc.org/ns/odm/v2.0/Context#Archive> a odm:Context,
         owl:Class ;
     rdfs:label "Archive" .
@@ -2056,6 +2066,12 @@ odm:CodeRef a owl:ObjectProperty,
 <http://www.cdisc.org/ns/odm/v2.0/Context#Submission> a odm:Context,
         owl:Class ;
     rdfs:label "Submission" .
+
+odm:CriterionRef a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "CriterionRef" ;
+    rdfs:range odm:Criterion ;
+    skos:definition "Criterion reference: The Criterion represents either an inclusion or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria)." .
 
 <http://www.cdisc.org/ns/odm/v2.0/DataType#URI> a odm:DataType,
         owl:Class ;
@@ -2161,7 +2177,7 @@ odm:DateTimeStampRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "DateTimeStampRef" ;
     rdfs:range odm:DateTimeStamp ;
-    skos:definition "DateTimeStamp reference: None" .
+    skos:definition "DateTimeStamp reference: Date and time when an action was performed." .
 
 <http://www.cdisc.org/ns/odm/v2.0/DefCoreType#Cond> a odm:DefCoreType,
         owl:Class ;
@@ -2199,14 +2215,6 @@ odm:DictionaryNameType a owl:Class,
         owl:Class ;
     rdfs:label "Monitoring" .
 
-odm:EntryCriteria a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "EntryCriteria" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom odm:Criterion ;
-            owl:onProperty odm:CriterionRef ] ;
-    skos:exactMatch odm:EntryCriteria .
-
 <http://www.cdisc.org/ns/odm/v2.0/EventType#Common> a odm:EventType,
         owl:Class ;
     rdfs:label "Common" .
@@ -2218,48 +2226,6 @@ odm:EntryCriteria a owl:Class,
 <http://www.cdisc.org/ns/odm/v2.0/EventType#Unscheduled> a odm:EventType,
         owl:Class ;
     rdfs:label "Unscheduled" .
-
-odm:ExceptionEvent a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "ExceptionEvent" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass odm:WorkflowRef ;
-            owl:onProperty odm:WorkflowRefRef ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:ConditionOID ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass odm:StudyEventRef ;
-            owl:onProperty odm:StudyEventRefRef ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass odm:StudyEventGroupRef ;
-            owl:onProperty odm:StudyEventGroupRefRef ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "An ExceptionEvent describes an event that occurs suddenly in a study and that was not planned as part of the normal workflow of the study. Examples are adverse events, death of a subject not caused by an adverse event, etc." ;
-    skos:exactMatch odm:ExceptionEvent .
-
-odm:ExitCriteria a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "ExitCriteria" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom odm:Criterion ;
-            owl:onProperty odm:CriterionRef ] ;
-    skos:exactMatch odm:ExitCriteria .
 
 odm:FileName a owl:Class,
         linkml:TypeDefinition ;
@@ -2363,7 +2329,7 @@ odm:LanguageType a owl:Class,
         linkml:TypeDefinition ;
     rdfs:label "_languageType" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xml1:lang ;
+            owl:onDataRange xml:lang ;
             owl:onProperty linkml:topValue ;
             owl:qualifiedCardinality 1 ] .
 
@@ -2567,7 +2533,7 @@ odm:Source a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "Source" ;
     rdfs:range odm:String ;
-    skos:definition "I ndicates the party responsible for the data's origin type." .
+    skos:definition "Indicates the party responsible for the data's origin type." .
 
 odm:StandardOID a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -2621,13 +2587,13 @@ odm:StudyEventGroupOID a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "StudyEventGroupOID" ;
     rdfs:range odm:Oidref ;
-    skos:definition "Reference to the StudyEventGroupDef ." .
+    skos:definition "Reference to the StudyEventGroupDef." .
 
-odm:StudyEventRefRef a owl:ObjectProperty,
+odm:StudyEventGroupRefRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "StudyEventRefRef" ;
-    rdfs:range odm:StudyEventRef ;
-    skos:definition "StudyEventRef reference: This element references a StudyEventDef as it occurs within a specific version of a study. The list of StudyEventRefs identifies the types of study events that are allowed to occur within the study." .
+    rdfs:label "StudyEventGroupRefRef" ;
+    rdfs:range odm:StudyEventGroupRef ;
+    skos:definition "StudyEventGroupRef reference: This element references a StudyEventGroupDef as it occurs within a specific version of a study. The list of StudyEventGroupRefs identifies the types of study group events that are allowed to occur within the study." .
 
 odm:StudyEventRepeatKey a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -2639,7 +2605,7 @@ odm:StudyInterventionRefRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "StudyInterventionRefRef" ;
     rdfs:range odm:StudyInterventionRef ;
-    skos:definition "StudyInterventionRef reference: None" .
+    skos:definition "StudyInterventionRef reference: The StudyInterventionRef references an intervention that is taken as the treatment for the estimand." .
 
 <http://www.cdisc.org/ns/odm/v2.0/StudyObjectiveLevel#Exploratory> a odm:StudyObjectiveLevel,
         owl:Class ;
@@ -2657,7 +2623,7 @@ odm:StudyTargetPopulationRefRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "StudyTargetPopulationRefRef" ;
     rdfs:range odm:StudyTargetPopulationRef ;
-    skos:definition "StudyTargetPopulationRef reference: None" .
+    skos:definition "StudyTargetPopulationRef reference: The StudyTargetPopulationRef references a StudyTargetPopulation to which the estimand applies." .
 
 odm:TargetTransitionOID a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -2699,11 +2665,11 @@ odm:TimepointTarget a owl:ObjectProperty,
     rdfs:range odm:String ;
     skos:definition "The planned time between the 2 activities defined by the transition in the workflow." .
 
-odm:Title a owl:ObjectProperty,
+odm:TitleRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "Title" ;
-    rdfs:range odm:Text ;
-    skos:definition "Text with the label for the document reference." .
+    rdfs:label "TitleRef" ;
+    rdfs:range odm:Title ;
+    skos:definition "Text with the label for the document or dataset." .
 
 <http://www.cdisc.org/ns/odm/v2.0/TransactionType#Context> a odm:TransactionType,
         owl:Class ;
@@ -2812,23 +2778,20 @@ odm:CodeList a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "CodeList" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:YesOnly ;
-            owl:onProperty odm:IsNonStandard ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Coding ;
-            owl:onProperty odm:CodingRef ],
+            owl:allValuesFrom odm:CodeListItem ;
+            owl:onProperty odm:CodeListItemRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:CommentOID ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:StandardOID ],
+        [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
             owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:CodeListItem ;
-            owl:onProperty odm:CodeListItemRef ],
         [ a owl:Restriction ;
             owl:onClass odm:Name ;
             owl:onProperty odm:Name ;
@@ -2838,16 +2801,19 @@ odm:CodeList a owl:Class,
             owl:onProperty odm:DataTypeRef ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:Alias ;
-            owl:onProperty odm:AliasRef ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:YesOnly ;
+            owl:onProperty odm:IsNonStandard ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Coding ;
+            owl:onProperty odm:CodingRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Description ;
             owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:StandardOID ] ;
+            owl:allValuesFrom odm:Alias ;
+            owl:onProperty odm:AliasRef ] ;
     skos:definition "Defines a discrete set of permitted values for an item, or provides a reference to a codelist or dictionary maintained by an external organization via the Coding element, or a combination of both. Examples provided under Coding." ;
     skos:exactMatch odm:CodeList .
 
@@ -2856,12 +2822,6 @@ odm:CodeListOID a owl:ObjectProperty,
     rdfs:label "CodeListOID" ;
     rdfs:range odm:Oidref ;
     skos:definition "Reference to the CodeList definition that provides the allowable values for ItemData that references the ItemDef." .
-
-odm:ConditionOID a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "ConditionOID" ;
-    rdfs:range odm:Oidref ;
-    skos:definition "Reference to a ConditionDef defining the condition under which the transition must be executed" .
 
 odm:ContextRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -2913,37 +2873,37 @@ odm:Location a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Location" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:OrganizationOID ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:Role ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Telecom ;
-            owl:onProperty odm:TelecomRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Query ;
-            owl:onProperty odm:QueryRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Address ;
-            owl:onProperty odm:AddressRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:MetaDataVersionRef ;
-            owl:onProperty odm:MetaDataVersionRefRef ],
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass odm:Name ;
             owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:allValuesFrom odm:Telecom ;
+            owl:onProperty odm:TelecomRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Text ;
+            owl:onProperty odm:Role ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:MetaDataVersionRef ;
+            owl:onProperty odm:MetaDataVersionRefRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Address ;
+            owl:onProperty odm:AddressRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:OrganizationOID ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Query ;
+            owl:onProperty odm:QueryRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ] ;
     skos:definition "A physical location associated with data collection and/or treatment of subjects." ;
     skos:exactMatch odm:Location .
 
@@ -2957,77 +2917,77 @@ odm:MetaDataVersion a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "MetaDataVersion" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom odm:Leaf ;
-            owl:onProperty odm:LeafRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Standards ;
-            owl:onProperty odm:StandardsRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:ConditionDef ;
-            owl:onProperty odm:ConditionDefRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Protocol ;
-            owl:onProperty odm:ProtocolRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:WhereClauseDef ;
-            owl:onProperty odm:WhereClauseDefRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:WorkflowDef ;
-            owl:onProperty odm:WorkflowDefRef ],
-        [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Include ;
-            owl:onProperty odm:IncludeRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:CommentDef ;
-            owl:onProperty odm:CommentDefRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:CommentOID ],
+            owl:allValuesFrom odm:Leaf ;
+            owl:onProperty odm:LeafRef ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:StudyEventDef ;
             owl:onProperty odm:StudyEventDefRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:SupplementalDoc ;
-            owl:onProperty odm:SupplementalDocRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:StudyEventGroupDef ;
-            owl:onProperty odm:StudyEventGroupDefRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:ItemDef ;
-            owl:onProperty odm:ItemDefRef ],
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:CommentOID ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:AnnotatedCRF ;
             owl:onProperty odm:AnnotatedCRFRef ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:CodeList ;
-            owl:onProperty odm:CodeListRefRef ],
+            owl:allValuesFrom odm:CommentDef ;
+            owl:onProperty odm:CommentDefRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:WorkflowDef ;
+            owl:onProperty odm:WorkflowDefRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:ConditionDef ;
+            owl:onProperty odm:ConditionDefRef ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:ItemGroupDef ;
             owl:onProperty odm:ItemGroupDefRef ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:ValueListDef ;
-            owl:onProperty odm:ValueListDefRef ],
+            owl:allValuesFrom odm:StudyEventGroupDef ;
+            owl:onProperty odm:StudyEventGroupDefRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Include ;
+            owl:onProperty odm:IncludeRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:WhereClauseDef ;
+            owl:onProperty odm:WhereClauseDefRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Protocol ;
+            owl:onProperty odm:ProtocolRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:ItemDef ;
+            owl:onProperty odm:ItemDefRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:CodeList ;
+            owl:onProperty odm:CodeListRefRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:SupplementalDoc ;
+            owl:onProperty odm:SupplementalDocRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Standards ;
+            owl:onProperty odm:StandardsRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Description ;
             owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:MethodDef ;
-            owl:onProperty odm:MethodDefRef ] ;
+            owl:onProperty odm:MethodDefRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:ValueListDef ;
+            owl:onProperty odm:ValueListDefRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "The metadata for a study is defined in a series of MetaDataVersion elements. Through this mechanism (multiple MetaDataVersion elements), the model supports the incremental deployment of \"mid-stream study changes,\" and thus can handle a situation where multiple versions of the metadata are being used simultaneously (e.g., due to delays in IRB approval at various sites)." ;
     skos:exactMatch odm:MetaDataVersion .
 
@@ -3098,28 +3058,28 @@ odm:StudyEndPoint a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "StudyEndPoint" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:StudyEstimandLevel ;
+            owl:onProperty odm:Level ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:FormalExpression ;
             owl:onProperty odm:FormalExpressionRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:StudyEstimandLevel ;
-            owl:onProperty odm:Level ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:StudyEndPointType ;
             owl:onProperty odm:Type ],
         [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ] ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "A study end point reflects an outcome measure of interest that is statistically analyzed to address a particular research question for the study. It typically specifies the type of assessments made; the timing of those assessments; the assessment tools used; and other details, as applicable, such as how multiple assessments within an individual are to be combined." ;
     skos:exactMatch odm:StudyEndPoint .
 
@@ -3129,12 +3089,6 @@ odm:StudyEndPointRefRef a owl:ObjectProperty,
     rdfs:range odm:StudyEndPointRef ;
     skos:definition "StudyEndPointRef reference: Go to start of metadata" .
 
-odm:StudyEventGroupRefRef a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "StudyEventGroupRefRef" ;
-    rdfs:range odm:StudyEventGroupRef ;
-    skos:definition "StudyEventGroupRef reference: This element references a StudyEventGroupDef as it occurs within a specific version of a study. The list of StudyEventGroupRefs identifies the types of study group events that are allowed to occur within the study." .
-
 odm:StudyIntervention a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "StudyIntervention" ;
@@ -3142,13 +3096,13 @@ odm:StudyIntervention a owl:Class,
             owl:allValuesFrom odm:Coding ;
             owl:onProperty odm:CodingRef ],
         [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ] ;
+            owl:onProperty odm:DescriptionRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "This element describes a study intervention (e.g., medication, treatment, therapy) for the clinical study. The human-readable description is provided in the Description element. The Coding element can be used to provide a machine-readable code for the indication (e.g., ATC M01AE01 code for \"Ibuprofen\" when used as a nonsteroidal anti-inflammatory drug)." ;
     skos:exactMatch odm:StudyIntervention .
 
@@ -3156,19 +3110,19 @@ odm:StudyTargetPopulation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "StudyTargetPopulation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
             owl:allValuesFrom odm:Coding ;
             owl:onProperty odm:CodingRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:FormalExpression ;
-            owl:onProperty odm:FormalExpressionRef ],
         [ a owl:Restriction ;
             owl:onClass odm:Name ;
             owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:FormalExpression ;
+            owl:onProperty odm:FormalExpressionRef ],
         [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
@@ -3198,6 +3152,13 @@ odm:User a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "User" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom odm:Address ;
+            owl:onProperty odm:AddressRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:FullName ;
+            owl:onProperty odm:FullNameRef ],
+        [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
             owl:qualifiedCardinality 1 ],
@@ -3207,12 +3168,27 @@ odm:User a owl:Class,
             owl:onProperty odm:GivenNameRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Image ;
-            owl:onProperty odm:ImageRef ],
+            owl:onClass odm:Prefix ;
+            owl:onProperty odm:PrefixRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Telecom ;
+            owl:onProperty odm:TelecomRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:LocationOID ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:OrganizationOID ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Image ;
+            owl:onProperty odm:ImageRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:UserType ;
+            owl:onProperty odm:UserTypeRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:FamilyName ;
@@ -3224,29 +3200,7 @@ odm:User a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Suffix ;
-            owl:onProperty odm:SuffixRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Telecom ;
-            owl:onProperty odm:TelecomRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:UserType ;
-            owl:onProperty odm:UserTypeRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Prefix ;
-            owl:onProperty odm:PrefixRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:FullName ;
-            owl:onProperty odm:FullNameRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Address ;
-            owl:onProperty odm:AddressRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:LocationOID ] ;
+            owl:onProperty odm:SuffixRef ] ;
     skos:definition "Information about a specific user of a clinical data collection or data management system." ;
     skos:exactMatch odm:User .
 
@@ -3254,42 +3208,42 @@ odm:UserRefRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "UserRefRef" ;
     rdfs:range odm:UserRef ;
-    skos:definition "UserRef reference: None" .
+    skos:definition "UserRef reference: A reference to information about a specific user of a clinical data collection or data management system." .
 
 odm:AbsoluteTimingConstraint a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "AbsoluteTimingConstraint" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:DurationDatetime ;
             owl:onProperty odm:TimepointPostWindow ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:DurationDatetime ;
-            owl:onProperty odm:TimepointPreWindow ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:StudyEventGroupOID ],
-        [ a owl:Restriction ;
-            owl:onClass odm:String ;
-            owl:onProperty odm:TimepointTarget ;
-            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:StudyEventOID ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
+            owl:onClass odm:DurationDatetime ;
+            owl:onProperty odm:TimepointPreWindow ],
+        [ a owl:Restriction ;
+            owl:onClass odm:String ;
+            owl:onProperty odm:TimepointTarget ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "The element AbsoluteTimingConstraint is used to specify when an activity, represented by either a StudyEventGroup or StudyEvent, can take place." ;
     skos:exactMatch odm:AbsoluteTimingConstraint .
@@ -3298,21 +3252,21 @@ odm:AdminData a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "AdminData" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom odm:Organization ;
+            owl:onProperty odm:OrganizationRef ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:StudyOID ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:Location ;
-            owl:onProperty odm:LocationRefRef ],
+            owl:allValuesFrom odm:SignatureDef ;
+            owl:onProperty odm:SignatureDefRef ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:User ;
             owl:onProperty odm:UserRefRef ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:SignatureDef ;
-            owl:onProperty odm:SignatureDefRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Organization ;
-            owl:onProperty odm:OrganizationRef ] ;
+            owl:allValuesFrom odm:Location ;
+            owl:onProperty odm:LocationRefRef ] ;
     skos:definition "Administrative information about users, locations, organizations, and electronic signatures." ;
     skos:exactMatch odm:AdminData .
 
@@ -3329,10 +3283,6 @@ odm:Arm a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Arm" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
             owl:qualifiedCardinality 1 ],
@@ -3343,7 +3293,11 @@ odm:Arm a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:WorkflowRef ;
-            owl:onProperty odm:WorkflowRefRef ] ;
+            owl:onProperty odm:WorkflowRefRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ] ;
     skos:definition "An Arm element provides the declaration of a study arm. Arms do not have any ordering relative to one another." ;
     skos:exactMatch odm:Arm .
 
@@ -3360,11 +3314,11 @@ odm:Association a owl:Class,
             owl:onProperty odm:KeySetRef ],
         [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
-            owl:onProperty odm:StudyOID ;
+            owl:onProperty odm:MetaDataVersionOID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
-            owl:onProperty odm:MetaDataVersionOID ;
+            owl:onProperty odm:StudyOID ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "An association permits an annotation to be placed on an ordered pair of entities rather than on just one. The first and second KeySets identify the start and end of the annotated \"link." ;
     skos:exactMatch odm:Association .
@@ -3377,6 +3331,10 @@ odm:Branching a owl:Class,
             owl:onProperty odm:Type ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:allValuesFrom odm:TargetTransition ;
             owl:onProperty odm:TargetTransitionRef ],
         [ a owl:Restriction ;
@@ -3385,11 +3343,7 @@ odm:Branching a owl:Class,
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:DefaultTransition ;
-            owl:onProperty odm:DefaultTransitionRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:onProperty odm:DefaultTransitionRef ] ;
     skos:definition "This element describes the branching in a workflow from a source (start) structural element to 2 or more target structural elements, over a Transition element." ;
     skos:exactMatch odm:Branching .
 
@@ -3443,46 +3397,47 @@ odm:Class a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Class" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom odm:SubClass ;
-            owl:onProperty odm:SubClassRef ],
-        [ a owl:Restriction ;
             owl:onClass odm:ItemGroupClass ;
             owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:SubClass ;
+            owl:onProperty odm:SubClassRef ] ;
+    skos:definition "The Class element identifies which predefined Class within the model applies to the definition of the dataset." ;
     skos:exactMatch odm:Class .
 
 odm:ClinicalData a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ClinicalData" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Signature ;
-            owl:onProperty odm:SignatureRefRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Query ;
-            owl:onProperty odm:QueryRef ],
-        [ a owl:Restriction ;
             owl:allValuesFrom odm:ItemGroupData ;
             owl:onProperty odm:ItemGroupDataRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Annotation ;
-            owl:onProperty odm:AnnotationRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:SubjectData ;
-            owl:onProperty odm:SubjectDataRef ],
+            owl:onClass odm:Signature ;
+            owl:onProperty odm:SignatureRefRef ],
         [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:MetaDataVersionOID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:allValuesFrom odm:SubjectData ;
+            owl:onProperty odm:SubjectDataRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:StudyOID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Annotation ;
+            owl:onProperty odm:AnnotationRef ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:AuditRecord ;
             owl:onProperty odm:AuditRecordRef ],
         [ a owl:Restriction ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:StudyOID ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:allValuesFrom odm:Query ;
+            owl:onProperty odm:QueryRef ] ;
     skos:definition "Clinical data for 1 or more subjects." ;
     skos:exactMatch odm:ClinicalData .
 
@@ -3505,16 +3460,24 @@ odm:CodeListItem a owl:Class,
     rdfs:label "CodeListItem" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Decode ;
-            owl:onProperty odm:DecodeRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Value ;
-            owl:onProperty odm:CodedValue ;
-            owl:qualifiedCardinality 1 ],
+            owl:onClass odm:YesOnly ;
+            owl:onProperty odm:Other ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:CommentOID ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:YesOnly ;
+            owl:onProperty odm:ExtendedValue ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:PositiveInteger ;
+            owl:onProperty odm:OrderNumber ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:Coding ;
             owl:onProperty odm:CodingRef ],
@@ -3523,24 +3486,16 @@ odm:CodeListItem a owl:Class,
             owl:onProperty odm:AliasRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:PositiveInteger ;
-            owl:onProperty odm:OrderNumber ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Decimal ;
             owl:onProperty odm:Rank ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:YesOnly ;
-            owl:onProperty odm:ExtendedValue ],
+            owl:onClass odm:Value ;
+            owl:onProperty odm:CodedValue ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:YesOnly ;
-            owl:onProperty odm:Other ] ;
+            owl:onClass odm:Decode ;
+            owl:onProperty odm:DecodeRef ] ;
     skos:definition "Defines an individual member value of a codelist. It may include a display value in the child Decode element" ;
     skos:exactMatch odm:CodeListItem .
 
@@ -3577,16 +3532,16 @@ odm:CommentDef a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "CommentDef" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Description ;
             owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:DocumentRef ;
-            owl:onProperty odm:DocumentRefRef ] ;
+            owl:onProperty odm:DocumentRefRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "The Comment element allows referencing short comments self-contained in the XML document or long comments normally included in external documents. For comments included in external documents, the reference could include specific pages of a document where the comments are included." ;
     skos:exactMatch odm:CommentDef .
 
@@ -3601,21 +3556,20 @@ odm:ConditionDef a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ConditionDef" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom odm:FormalExpression ;
+            owl:onProperty odm:FormalExpressionRef ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Description ;
             owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:MethodSignature ;
-            owl:onProperty odm:MethodSignatureRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:CommentOID ],
         [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:MethodSignature ;
+            owl:onProperty odm:MethodSignatureRef ],
         [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
@@ -3624,8 +3578,9 @@ odm:ConditionDef a owl:Class,
             owl:allValuesFrom odm:Alias ;
             owl:onProperty odm:AliasRef ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:FormalExpression ;
-            owl:onProperty odm:FormalExpressionRef ] ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "A ConditionDef defines a boolean condition." ;
     skos:exactMatch odm:ConditionDef .
 
@@ -3642,20 +3597,14 @@ odm:Country a owl:Class,
     rdfs:label "Country" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ContentType ;
-            owl:onProperty odm:_content ],
+            owl:onClass odm:String ;
+            owl:onProperty odm:range ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:String ;
-            owl:onProperty odm:range ] ;
+            owl:onClass odm:ContentType ;
+            owl:onProperty odm:_content ] ;
     skos:definition "The country name part of a user's postal address. For CDISC SDTM or trial registry applications, this must be represented by an ISO 3166 3-letter or US-GENC country code (e.g., FRA for France, JPN for Japan)." ;
     skos:exactMatch odm:Country .
-
-odm:CriterionRef a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "CriterionRef" ;
-    rdfs:range odm:Criterion ;
-    skos:definition "Criterion reference: The Criterion represents either an inclusion or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria)." .
 
 odm:DataTypeRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -3689,6 +3638,7 @@ odm:DefaultTransition a owl:Class,
             owl:onClass odm:Oidref ;
             owl:onProperty odm:TargetTransitionOID ;
             owl:qualifiedCardinality 1 ] ;
+    skos:definition "The DefaultTransition references the Transition that needs to be executed when none of the TargetTransitions can be executed." ;
     skos:exactMatch odm:DefaultTransition .
 
 odm:Definition a owl:Class,
@@ -3704,20 +3654,12 @@ odm:DurationTimingConstraint a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "DurationTimingConstraint" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:DurationDatetime ;
+            owl:onProperty odm:DurationPostWindow ],
         [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:StructuralElementOID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass odm:DurationDatetime ;
@@ -3725,12 +3667,20 @@ odm:DurationTimingConstraint a owl:Class,
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:DurationDatetime ;
-            owl:onProperty odm:DurationPreWindow ],
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:DurationDatetime ;
-            owl:onProperty odm:DurationPostWindow ] ;
+            owl:onProperty odm:DurationPreWindow ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "The DurationTimingConstraint constrains the duration of an activity represented by a study, epoch, StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef. It is used to constrain the duration of the visit, activity, or any other structural element." ;
     skos:exactMatch odm:DurationTimingConstraint .
 
@@ -3738,10 +3688,6 @@ odm:Epoch a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Epoch" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
             owl:qualifiedCardinality 1 ],
@@ -3752,7 +3698,11 @@ odm:Epoch a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ] ;
+            owl:onProperty odm:DescriptionRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "The planned period of subjects' participation in the trial is divided into sequential epochs. Each epoch is a period of time that serves a purpose in the trial as a whole. Epochs cannot overlap. The sequence of the epoch in the study is provided by the SequenceNumber attribute, the first epoch in the study being assigned the sequence number 1. Sequence numbers are subsequent." ;
     skos:exactMatch odm:Epoch .
 
@@ -3786,25 +3736,25 @@ odm:ExternalCodeLib a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ExternalCodeLib" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Library ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Text ;
+            owl:onProperty odm:Version ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Text ;
             owl:onProperty odm:ref ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Method ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:Version ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Uriorcurie ;
-            owl:onProperty odm:href ] ;
+            owl:onProperty odm:href ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Library ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Method ] ;
     skos:definition "The ExternalCodeLib element references a FormalExpression in an external code library, such as a file or GitHub. The intention is to make it possible to reference existing code libraries where the code is maintained as well as making it simpler to include longer, more complex FormalExpressions. The Library attribute provides the name of the external library, whereas ref or href provides a reference to the repository that can be used to retrieve the code. The Method attribute provides the name of the method in the file referenced for cases where multiple methods are provided in the source code file. The Version element provides the version of the external FormalExpression code referenced." ;
     skos:exactMatch odm:ExternalCodeLib .
 
@@ -3813,12 +3763,12 @@ odm:FamilyName a owl:Class,
     rdfs:label "FamilyName" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ContentType ;
-            owl:onProperty odm:_content ],
+            owl:onClass odm:String ;
+            owl:onProperty odm:range ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:String ;
-            owl:onProperty odm:range ] ;
+            owl:onClass odm:ContentType ;
+            owl:onProperty odm:_content ] ;
     skos:definition "The user's surname (family name)." ;
     skos:exactMatch odm:FamilyName .
 
@@ -3834,32 +3784,18 @@ odm:Flag a owl:Class,
     rdfs:label "Flag" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:FlagValue ;
-            owl:onProperty odm:FlagValueRef ],
+            owl:onClass odm:FlagType ;
+            owl:onProperty odm:FlagTypeRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:FlagType ;
-            owl:onProperty odm:FlagTypeRef ] ;
+            owl:onClass odm:FlagValue ;
+            owl:onProperty odm:FlagValueRef ] ;
     skos:definition "A machine-processable annotation." ;
     skos:exactMatch odm:Flag .
 
 odm:FlagType a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "FlagType" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:CodeListOID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:_content ] ;
-    skos:definition "The type of flag. This determines the purpose and semantics of the flag." ;
-    skos:exactMatch odm:FlagType .
-
-odm:FlagValue a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "FlagValue" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Name ;
@@ -3868,6 +3804,20 @@ odm:FlagValue a owl:Class,
             owl:onClass odm:Oidref ;
             owl:onProperty odm:CodeListOID ;
             owl:qualifiedCardinality 1 ] ;
+    skos:definition "The type of flag. This determines the purpose and semantics of the flag." ;
+    skos:exactMatch odm:FlagType .
+
+odm:FlagValue a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "FlagValue" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:CodeListOID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:_content ] ;
     skos:definition "The value of the flag. The meaning of this value is typically dependent on the associated FlagType. The actual value must be a member of the referenced CodeList" ;
     skos:exactMatch odm:FlagValue .
 
@@ -3876,12 +3826,12 @@ odm:FullName a owl:Class,
     rdfs:label "FullName" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ContentType ;
-            owl:onProperty odm:_content ],
+            owl:onClass odm:String ;
+            owl:onProperty odm:range ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:String ;
-            owl:onProperty odm:range ] ;
+            owl:onClass odm:ContentType ;
+            owl:onProperty odm:_content ] ;
     skos:definition "The user's full formal name. May be a combination of Prefix, GivenName, FamilyName & Suffix. Intended to be used for display." ;
     skos:exactMatch odm:FullName .
 
@@ -3891,15 +3841,15 @@ odm:GeoPosition a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Decimal ;
-            owl:onProperty odm:Latitude ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Decimal ;
             owl:onProperty odm:Altitude ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Decimal ;
-            owl:onProperty odm:Longitude ] ;
+            owl:onProperty odm:Longitude ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Decimal ;
+            owl:onProperty odm:Latitude ] ;
     skos:definition "The geographical position using the World Geodetic System WGS84." ;
     skos:exactMatch odm:GeoPosition .
 
@@ -3908,12 +3858,12 @@ odm:GivenName a owl:Class,
     rdfs:label "GivenName" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ContentType ;
-            owl:onProperty odm:_content ],
+            owl:onClass odm:String ;
+            owl:onProperty odm:range ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:String ;
-            owl:onProperty odm:range ] ;
+            owl:onClass odm:ContentType ;
+            owl:onProperty odm:_content ] ;
     skos:definition "The user's initial given name or all given names." ;
     skos:exactMatch odm:GivenName .
 
@@ -3962,17 +3912,17 @@ odm:Include a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Include" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Uriorcurie ;
-            owl:onProperty odm:href ],
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:MetaDataVersionOID ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:StudyOID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:MetaDataVersionOID ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Uriorcurie ;
+            owl:onProperty odm:href ] ;
     skos:definition "The Include metadata element allows a reference to a prior metadata version." ;
     skos:exactMatch odm:Include .
 
@@ -3990,12 +3940,12 @@ odm:InclusionExclusionCriteria a owl:Class,
     rdfs:label "InclusionExclusionCriteria" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:InclusionCriteria ;
-            owl:onProperty odm:InclusionCriteriaRef ],
+            owl:onClass odm:ExclusionCriteria ;
+            owl:onProperty odm:ExclusionCriteriaRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ExclusionCriteria ;
-            owl:onProperty odm:ExclusionCriteriaRef ] ;
+            owl:onClass odm:InclusionCriteria ;
+            owl:onProperty odm:InclusionCriteriaRef ] ;
     skos:definition "The InclusionExclusionCriteria element can contain 2 lists of Criterion elements, represented by the 2 elements InclusionCriteria and ExclusionCriteria. Together, these criteria determine the eligibility of a subject for the study. The actual condition to be evaluated is contained in an ODM ConditionDef, which is referenced by each Criterion‟s ConditionOID attribute." ;
     skos:exactMatch odm:InclusionExclusionCriteria .
 
@@ -4006,6 +3956,7 @@ odm:IntercurrentEvent a owl:Class,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Description ;
             owl:onProperty odm:DescriptionRef ] ;
+    skos:definition "The IntercurrentEvent element describes an intercurrent event for an estimand (e.g., treatment discontinuation)." ;
     skos:exactMatch odm:IntercurrentEvent .
 
 odm:InvestigatorRef a owl:Class,
@@ -4023,34 +3974,34 @@ odm:ItemData a owl:Class,
     rdfs:label "ItemData" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:TransactionType ;
-            owl:onProperty odm:TransactionTypeRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Value ;
-            owl:onProperty odm:ValueRef ],
+            owl:onClass odm:YesOnly ;
+            owl:onProperty odm:IsNull ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:AuditRecord ;
             owl:onProperty odm:AuditRecordRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Value ;
+            owl:onProperty odm:ValueRef ],
         [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:ItemOID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:YesOnly ;
-            owl:onProperty odm:IsNull ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Annotation ;
             owl:onProperty odm:AnnotationRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Signature ;
+            owl:onProperty odm:SignatureRefRef ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:Query ;
             owl:onProperty odm:QueryRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Signature ;
-            owl:onProperty odm:SignatureRefRef ] ;
+            owl:onClass odm:TransactionType ;
+            owl:onProperty odm:TransactionTypeRef ] ;
     skos:definition "The ItemData element is used for transmission of the clinical data for an item. The model does not support repeating items within a single item group." ;
     skos:exactMatch odm:ItemData .
 
@@ -4058,21 +4009,37 @@ odm:ItemDef a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ItemDef" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:ImplementationNotes ;
+            owl:onProperty odm:ImplementationNotesRef ],
+        [ a owl:Restriction ;
             owl:onClass odm:Name ;
             owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Definition ;
-            owl:onProperty odm:DefinitionRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ImplementationNotes ;
-            owl:onProperty odm:ImplementationNotesRef ],
+            owl:onClass odm:CodeListRef ;
+            owl:onProperty odm:CodeListRefRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Text ;
-            owl:onProperty odm:DisplayFormat ],
+            owl:onProperty odm:VariableSet ],
+        [ a owl:Restriction ;
+            owl:onClass odm:DataType ;
+            owl:onProperty odm:DataTypeRef ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:CRFCompletionInstructions ;
+            owl:onProperty odm:CRFCompletionInstructionsRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:ValueListRef ;
+            owl:onProperty odm:ValueListRefRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:CDISCNotes ;
@@ -4082,24 +4049,16 @@ odm:ItemDef a owl:Class,
             owl:onClass odm:Description ;
             owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:VariableSet ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:CRFCompletionInstructions ;
-            owl:onProperty odm:CRFCompletionInstructionsRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:DataType ;
-            owl:onProperty odm:DataTypeRef ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:allValuesFrom odm:Alias ;
             owl:onProperty odm:AliasRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:CodeListRef ;
-            owl:onProperty odm:CodeListRefRef ],
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:CommentOID ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:PositiveInteger ;
+            owl:onProperty odm:Length ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Prompt ;
@@ -4109,27 +4068,19 @@ odm:ItemDef a owl:Class,
             owl:onClass odm:Question ;
             owl:onProperty odm:QuestionRef ],
         [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Text ;
+            owl:onProperty odm:DisplayFormat ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:PositiveInteger ;
-            owl:onProperty odm:Length ],
+            owl:onClass odm:Definition ;
+            owl:onProperty odm:DefinitionRef ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:Coding ;
             owl:onProperty odm:CodingRef ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ValueListRef ;
-            owl:onProperty odm:ValueListRefRef ],
-        [ a owl:Restriction ;
             owl:allValuesFrom odm:RangeCheck ;
-            owl:onProperty odm:RangeCheckRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:CommentOID ] ;
+            owl:onProperty odm:RangeCheckRef ] ;
     skos:definition "An ItemDef describes a type of item that can occur within a study. Item properties include name, datatype, range, or codelist restrictions, and several other properties." ;
     skos:exactMatch odm:ItemDef .
 
@@ -4144,15 +4095,50 @@ odm:ItemGroupDef a owl:Class,
     rdfs:label "ItemGroupDef" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:YesOnly ;
-            owl:onProperty odm:IsNonStandard ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:ArchiveLocationID ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:ItemGroupRef ;
-            owl:onProperty odm:ItemGroupRefRef ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:WorkflowRef ;
+            owl:onProperty odm:WorkflowRefRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:ItemGroupTypeType ;
+            owl:onProperty odm:Type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Alias ;
+            owl:onProperty odm:AliasRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:CommentOID ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:PositiveInteger ;
+            owl:onProperty odm:RepeatingLimit ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Class ;
+            owl:onProperty odm:ClassRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:YesOrNo ;
+            owl:onProperty odm:IsReferenceData ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Coding ;
+            owl:onProperty odm:CodingRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:StandardOID ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:YesOnly ;
+            owl:onProperty odm:IsNonStandard ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Text ;
@@ -4163,76 +4149,41 @@ odm:ItemGroupDef a owl:Class,
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:YesOrNo ;
-            owl:onProperty odm:IsReferenceData ],
+            owl:onClass odm:Text ;
+            owl:onProperty odm:Structure ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Leaf ;
-            owl:onProperty odm:LeafRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:DatasetName ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:WorkflowRef ;
-            owl:onProperty odm:WorkflowRefRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:ItemRef ;
-            owl:onProperty odm:ItemRefRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:StandardOID ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:PositiveInteger ;
-            owl:onProperty odm:RepeatingLimit ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Alias ;
-            owl:onProperty odm:AliasRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:YesOnly ;
-            owl:onProperty odm:HasNoData ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Coding ;
-            owl:onProperty odm:CodingRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Class ;
-            owl:onProperty odm:ClassRef ],
+            owl:allValuesFrom odm:Origin ;
+            owl:onProperty odm:OriginRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Text ;
             owl:onProperty odm:Domain ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:DatasetName ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:ItemRef ;
+            owl:onProperty odm:ItemRefRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:ItemGroupRef ;
+            owl:onProperty odm:ItemGroupRefRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Leaf ;
+            owl:onProperty odm:LeafRef ],
+        [ a owl:Restriction ;
             owl:onClass odm:Name ;
             owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:Origin ;
-            owl:onProperty odm:OriginRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:ItemGroupTypeType ;
-            owl:onProperty odm:Type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:CommentOID ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:Structure ] ;
+            owl:onClass odm:YesOnly ;
+            owl:onProperty odm:HasNoData ] ;
     skos:definition "An ItemGroupDef describes a type of variable or field grouping that can occur within a study." ;
     skos:exactMatch odm:ItemGroupDef .
 
@@ -4240,7 +4191,7 @@ odm:ItemGroupOID a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "ItemGroupOID" ;
     rdfs:range odm:Oidref ;
-    skos:definition "Reference to the ItemGroupDef ." .
+    skos:definition "Reference to the ItemGroupDef." .
 
 odm:KeySet a owl:Class,
         linkml:ClassDefinition ;
@@ -4248,35 +4199,35 @@ odm:KeySet a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
-            owl:onProperty odm:MetaDataVersionOID ],
+            owl:onProperty odm:ItemOID ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:StudyEventOID ],
+            owl:onClass odm:RepeatKey ;
+            owl:onProperty odm:StudyEventRepeatKey ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:RepeatKey ;
             owl:onProperty odm:ItemGroupRepeatKey ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:RepeatKey ;
-            owl:onProperty odm:StudyEventRepeatKey ],
-        [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
-            owl:onProperty odm:StudyOID ;
-            owl:qualifiedCardinality 1 ],
+            owl:onProperty odm:MetaDataVersionOID ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:ItemGroupOID ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:StudyEventOID ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:SubjectKey ;
             owl:onProperty odm:SubjectKey ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
-            owl:onProperty odm:ItemOID ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:ItemGroupOID ] ;
+            owl:onProperty odm:StudyOID ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "A KeySet references a single entity (e.g., a study, a subject, a study event). Only those attributes needed to specify the particular entity are required, and all others must be omitted (see Section 2.7, Clinical Data Keys)." ;
     skos:exactMatch odm:KeySet .
 
@@ -4285,12 +4236,12 @@ odm:LegalReason a owl:Class,
     rdfs:label "LegalReason" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:String ;
-            owl:onProperty odm:range ],
+            owl:onClass odm:ContentType ;
+            owl:onProperty odm:_content ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ContentType ;
-            owl:onProperty odm:_content ] ;
+            owl:onClass odm:String ;
+            owl:onProperty odm:range ] ;
     skos:definition "The responsibility statement associated with a signature (e.g., \"The signer accepts responsibility for the accuracy of this data.\")." ;
     skos:exactMatch odm:LegalReason .
 
@@ -4311,12 +4262,12 @@ odm:Meaning a owl:Class,
     rdfs:label "Meaning" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ContentType ;
-            owl:onProperty odm:_content ],
+            owl:onClass odm:String ;
+            owl:onProperty odm:range ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:String ;
-            owl:onProperty odm:range ] ;
+            owl:onClass odm:ContentType ;
+            owl:onProperty odm:_content ] ;
     skos:definition "A short name or description for this signature. It should reflect the context of the signature and/or the text that appears when the signature is applied in the user interface." ;
     skos:exactMatch odm:Meaning .
 
@@ -4325,11 +4276,11 @@ odm:MetaDataVersionRef a owl:Class,
     rdfs:label "MetaDataVersionRef" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
-            owl:onProperty odm:StudyOID ;
+            owl:onProperty odm:MetaDataVersionOID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
-            owl:onProperty odm:MetaDataVersionOID ;
+            owl:onProperty odm:StudyOID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass odm:Date ;
@@ -4342,38 +4293,38 @@ odm:MethodDef a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "MethodDef" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom odm:FormalExpression ;
-            owl:onProperty odm:FormalExpressionRef ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:CommentOID ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:MethodType ;
-            owl:onProperty odm:Type ],
         [ a owl:Restriction ;
             owl:onClass odm:Name ;
             owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:allValuesFrom odm:DocumentRef ;
+            owl:onProperty odm:DocumentRefRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:FormalExpression ;
+            owl:onProperty odm:FormalExpressionRef ],
+        [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:DocumentRef ;
-            owl:onProperty odm:DocumentRefRef ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:MethodSignature ;
+            owl:onProperty odm:MethodSignatureRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:MethodType ;
+            owl:onProperty odm:Type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Description ;
             owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:Alias ;
-            owl:onProperty odm:AliasRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:MethodSignature ;
-            owl:onProperty odm:MethodSignatureRef ] ;
+            owl:onProperty odm:AliasRef ] ;
     skos:definition "A MethodDef defines how a data value can be obtained from a collection of other data values." ;
     skos:exactMatch odm:MethodDef .
 
@@ -4381,25 +4332,28 @@ odm:Organization a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Organization" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:Role ],
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Telecom ;
+            owl:onProperty odm:TelecomRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:PartOfOrganizationOID ],
         [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
             owl:onClass odm:Name ;
             owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:LocationOID ],
         [ a owl:Restriction ;
             owl:onClass odm:OrganizationType ;
             owl:onProperty odm:Type ;
@@ -4408,12 +4362,9 @@ odm:Organization a owl:Class,
             owl:allValuesFrom odm:Address ;
             owl:onProperty odm:AddressRef ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:Telecom ;
-            owl:onProperty odm:TelecomRef ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:LocationOID ] ;
+            owl:onClass odm:Text ;
+            owl:onProperty odm:Role ] ;
     skos:definition "An organization can reference a parent organization. Users may be associated with an Organization. An Organization may be associated with a Location. A User, Location, or Organization may have an address." ;
     skos:exactMatch odm:Organization .
 
@@ -4436,20 +4387,20 @@ odm:PDFPageRef a owl:Class,
     rdfs:label "PDFPageRef" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Text ;
+            owl:onProperty odm:PageRefs ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Text ;
+            owl:onProperty odm:TitleRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:PositiveInteger ;
             owl:onProperty odm:FirstPage ],
         [ a owl:Restriction ;
             owl:onClass odm:PDFPageType ;
             owl:onProperty odm:Type ;
             owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:Title ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:PageRefs ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:PositiveInteger ;
@@ -4465,17 +4416,17 @@ odm:Parameter a owl:Class,
             owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:PositiveInteger ;
-            owl:onProperty odm:OrderNumber ],
+            owl:onClass odm:DataType ;
+            owl:onProperty odm:DataTypeRef ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Text ;
             owl:onProperty odm:DefinitionRef ],
         [ a owl:Restriction ;
-            owl:onClass odm:DataType ;
-            owl:onProperty odm:DataTypeRef ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:PositiveInteger ;
+            owl:onProperty odm:OrderNumber ] ;
     skos:definition "The Parameter element represents a method parameter used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck." ;
     skos:exactMatch odm:Parameter .
 
@@ -4497,12 +4448,12 @@ odm:PostalCode a owl:Class,
     rdfs:label "PostalCode" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ContentType ;
-            owl:onProperty odm:_content ],
+            owl:onClass odm:String ;
+            owl:onProperty odm:range ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:String ;
-            owl:onProperty odm:range ] ;
+            owl:onClass odm:ContentType ;
+            owl:onProperty odm:_content ] ;
     skos:definition "The postal code part of a user's postal address." ;
     skos:exactMatch odm:PostalCode .
 
@@ -4534,50 +4485,20 @@ odm:Protocol a owl:Class,
     rdfs:label "Protocol" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:StudyEndPoints ;
-            owl:onProperty odm:StudyEndPointsRef ],
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:WorkflowRef ;
-            owl:onProperty odm:WorkflowRefRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:StudyStructure ;
-            owl:onProperty odm:StudyStructureRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:StudyIndications ;
-            owl:onProperty odm:StudyIndicationsRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Alias ;
-            owl:onProperty odm:AliasRef ],
+            owl:onClass odm:StudyTimings ;
+            owl:onProperty odm:StudyTimingsRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:StudyInterventions ;
             owl:onProperty odm:StudyInterventionsRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:StudySummary ;
-            owl:onProperty odm:StudySummaryRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:StudyEventGroupRef ;
-            owl:onProperty odm:StudyEventGroupRefRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:TrialPhase ;
-            owl:onProperty odm:TrialPhaseRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:StudyEstimands ;
             owl:onProperty odm:StudyEstimandsRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:StudyTimings ;
-            owl:onProperty odm:StudyTimingsRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:InclusionExclusionCriteria ;
@@ -4587,9 +4508,39 @@ odm:Protocol a owl:Class,
             owl:onClass odm:StudyObjectives ;
             owl:onProperty odm:StudyObjectivesRef ],
         [ a owl:Restriction ;
+            owl:allValuesFrom odm:StudyEventGroupRef ;
+            owl:onProperty odm:StudyEventGroupRefRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Alias ;
+            owl:onProperty odm:AliasRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:StudyEndPoints ;
+            owl:onProperty odm:StudyEndPointsRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:StudyStructure ;
+            owl:onProperty odm:StudyStructureRef ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:StudyTargetPopulation ;
-            owl:onProperty odm:StudyTargetPopulationRefRef ] ;
+            owl:onProperty odm:StudyTargetPopulationRefRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:WorkflowRef ;
+            owl:onProperty odm:WorkflowRefRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:StudySummary ;
+            owl:onProperty odm:StudySummaryRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:TrialPhase ;
+            owl:onProperty odm:TrialPhaseRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:StudyIndications ;
+            owl:onProperty odm:StudyIndicationsRef ] ;
     skos:definition "The Protocol element lists the kinds of study events that can occur within a specific version of a study. All clinical data must occur within one of these study events." ;
     skos:exactMatch odm:Protocol .
 
@@ -4607,12 +4558,12 @@ odm:ReasonForChange a owl:Class,
     rdfs:label "ReasonForChange" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ContentType ;
-            owl:onProperty odm:_content ],
+            owl:onClass odm:String ;
+            owl:onProperty odm:range ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:String ;
-            owl:onProperty odm:range ] ;
+            owl:onClass odm:ContentType ;
+            owl:onProperty odm:_content ] ;
     skos:definition "A user-supplied reason for a data change." ;
     skos:exactMatch odm:ReasonForChange .
 
@@ -4620,28 +4571,28 @@ odm:ReferenceData a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ReferenceData" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:StudyOID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:AuditRecord ;
-            owl:onProperty odm:AuditRecordRef ],
+            owl:onClass odm:Annotation ;
+            owl:onProperty odm:AnnotationRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Signature ;
             owl:onProperty odm:SignatureRefRef ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:ItemGroupData ;
-            owl:onProperty odm:ItemGroupDataRef ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Annotation ;
-            owl:onProperty odm:AnnotationRef ],
+            owl:onClass odm:AuditRecord ;
+            owl:onProperty odm:AuditRecordRef ],
         [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:MetaDataVersionOID ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:StudyOID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:ItemGroupData ;
+            owl:onProperty odm:ItemGroupDataRef ] ;
     skos:definition "Reference data provides information on how to interpret clinical data. For example, reference data might include lab normal ranges. For a study that uses CDISC standards, reference data might include SDTM Trial Design datasets." ;
     skos:exactMatch odm:ReferenceData .
 
@@ -4650,39 +4601,39 @@ odm:RelativeTimingConstraint a owl:Class,
     rdfs:label "RelativeTimingConstraint" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:RelativeTimingConstraintType ;
+            owl:onProperty odm:Type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Description ;
             owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:DurationDatetime ;
             owl:onProperty odm:TimepointPreWindow ],
+        [ a owl:Restriction ;
+            owl:onClass odm:DurationDatetime ;
+            owl:onProperty odm:TimepointRelativeTarget ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:SuccessorOID ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:PredecessorOID ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:SuccessorOID ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:RelativeTimingConstraintType ;
-            owl:onProperty odm:Type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:DurationDatetime ;
             owl:onProperty odm:TimepointPostWindow ],
         [ a owl:Restriction ;
-            owl:onClass odm:DurationDatetime ;
-            owl:onProperty odm:TimepointRelativeTarget ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "The RelativeTimingConstraint element describes a relative timing constraint between 2 activities or groups of activities, represented by StudyEventGroups, StudyEvents, ItemGroups, or Items." ;
     skos:exactMatch odm:RelativeTimingConstraint .
@@ -4691,24 +4642,24 @@ odm:Resource a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Resource" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom odm:Selection ;
-            owl:onProperty odm:SelectionRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:Type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Text ;
             owl:onProperty odm:Attribute ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Text ;
+            owl:onProperty odm:Label ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Selection ;
+            owl:onProperty odm:SelectionRef ],
         [ a owl:Restriction ;
             owl:onClass odm:Name ;
             owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Text ;
-            owl:onProperty odm:Label ] ;
+            owl:onProperty odm:Type ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "Describes an external resource used as the source for the parent ItemGroup or Item." ;
     skos:exactMatch odm:Resource .
 
@@ -4716,21 +4667,21 @@ odm:ReturnValue a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ReturnValue" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:DefinitionRef ],
-        [ a owl:Restriction ;
             owl:onClass odm:DataType ;
             owl:onProperty odm:DataTypeRef ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:PositiveInteger ;
-            owl:onProperty odm:OrderNumber ] ;
+            owl:onProperty odm:OrderNumber ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Text ;
+            owl:onProperty odm:DefinitionRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "The ReturnValue element represents a return value used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck. A return value identifies values passed from the Method to the calling element. A ReturnValue may be computed by a FormalExpression." ;
     skos:exactMatch odm:ReturnValue .
 
@@ -4756,20 +4707,20 @@ odm:SignatureDef a owl:Class,
     rdfs:label "SignatureDef" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Meaning ;
+            owl:onProperty odm:MeaningRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:SignMethod ;
             owl:onProperty odm:Methodology ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Meaning ;
-            owl:onProperty odm:MeaningRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:LegalReason ;
-            owl:onProperty odm:LegalReasonRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:onProperty odm:LegalReasonRef ] ;
     skos:definition "Provides Metadata for signatures included in the /ODM/ClinicalData." ;
     skos:exactMatch odm:SignatureDef .
 
@@ -4780,6 +4731,7 @@ odm:SignatureRef a owl:Class,
             owl:onClass odm:Oidref ;
             owl:onProperty odm:SignatureOID ;
             owl:qualifiedCardinality 1 ] ;
+    skos:definition "A reference to the signature meaning." ;
     skos:exactMatch odm:SignatureRef .
 
 odm:SiteRef a owl:Class,
@@ -4789,7 +4741,7 @@ odm:SiteRef a owl:Class,
             owl:onClass odm:Oidref ;
             owl:onProperty odm:LocationOID ;
             owl:qualifiedCardinality 1 ] ;
-    skos:definition "lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType is Transactional." ;
+    skos:definition "Provides a reference to the site that the SubjectData record is associated with in the source system." ;
     skos:exactMatch odm:SiteRef .
 
 odm:SoftOrHard a owl:Class,
@@ -4804,12 +4756,12 @@ odm:SourceID a owl:Class,
     rdfs:label "SourceID" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:String ;
-            owl:onProperty odm:range ],
+            owl:onClass odm:ContentType ;
+            owl:onProperty odm:_content ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ContentType ;
-            owl:onProperty odm:_content ] ;
+            owl:onClass odm:String ;
+            owl:onProperty odm:range ] ;
     skos:definition "Information that identifies the source of the data within an originating system." ;
     skos:exactMatch odm:SourceID .
 
@@ -4817,13 +4769,23 @@ odm:SourceItem a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "SourceItem" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:leafID ;
-            owl:qualifiedCardinality 1 ],
+            owl:allValuesFrom odm:Coding ;
+            owl:onProperty odm:CodingRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
-            owl:onProperty odm:ItemOID ],
+            owl:onProperty odm:StudyOID ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Resource ;
+            owl:onProperty odm:ResourceRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:leafID ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
@@ -4831,21 +4793,11 @@ odm:SourceItem a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
-            owl:onProperty odm:StudyOID ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Coding ;
-            owl:onProperty odm:CodingRef ],
+            owl:onProperty odm:ItemOID ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
-            owl:onProperty odm:MetaDataVersionOID ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Resource ;
-            owl:onProperty odm:ResourceRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ] ;
+            owl:onProperty odm:MetaDataVersionOID ] ;
     skos:definition "Provides the information needed to identify the source metadata." ;
     skos:exactMatch odm:SourceItem .
 
@@ -4865,32 +4817,32 @@ odm:Standard a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Standard" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:CommentOID ],
+            owl:onClass odm:StandardName ;
+            owl:onProperty odm:Name ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass odm:StandardType ;
             owl:onProperty odm:Type ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:StandardPublishingSet ;
-            owl:onProperty odm:PublishingSet ],
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:CommentOID ],
         [ a owl:Restriction ;
             owl:onClass odm:StandardStatus ;
             owl:onProperty odm:Status ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass odm:StandardName ;
-            owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:StandardPublishingSet ;
+            owl:onProperty odm:PublishingSet ],
         [ a owl:Restriction ;
             owl:onClass odm:Text ;
             owl:onProperty odm:Version ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "The Standard element describes each standard used within the MetaDataVersion element." ;
     skos:exactMatch odm:Standard .
@@ -4936,17 +4888,13 @@ odm:Study a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Study" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Status ],
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Name ;
             owl:onProperty odm:VersionID ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:VersionName ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:MetaDataVersion ;
             owl:onProperty odm:MetaDataVersionRefRef ],
@@ -4955,17 +4903,21 @@ odm:Study a owl:Class,
             owl:onProperty odm:StudyName ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Name ;
-            owl:onProperty odm:ProtocolName ;
-            owl:qualifiedCardinality 1 ],
+            owl:onProperty odm:Status ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Description ;
             owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:ProtocolName ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:VersionName ] ;
     skos:definition "This element collects static structural information about an individual study." ;
     skos:exactMatch odm:Study .
 
@@ -4975,13 +4927,17 @@ odm:StudyEndPoints a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom odm:StudyEndPoint ;
             owl:onProperty odm:StudyEndPointRefRef ] ;
-    skos:definition "Go to start of metadata" ;
+    skos:definition "The StudyEndPoints element is a container element for individual StudyEndPoint elements." ;
     skos:exactMatch odm:StudyEndPoints .
 
 odm:StudyEstimand a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "StudyEstimand" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:onClass odm:Name ;
             owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ],
@@ -4991,6 +4947,10 @@ odm:StudyEstimand a owl:Class,
             owl:onProperty odm:StudyTargetPopulationRefRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:SummaryMeasure ;
+            owl:onProperty odm:SummaryMeasureRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:StudyInterventionRef ;
             owl:onProperty odm:StudyInterventionRefRef ],
         [ a owl:Restriction ;
@@ -4998,24 +4958,17 @@ odm:StudyEstimand a owl:Class,
             owl:onProperty odm:IntercurrentEventRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:StudyEndPointRef ;
+            owl:onProperty odm:StudyEndPointRefRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:StudyEstimandLevel ;
             owl:onProperty odm:Level ],
         [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:SummaryMeasure ;
-            owl:onProperty odm:SummaryMeasureRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:StudyEndPointRef ;
-            owl:onProperty odm:StudyEndPointRefRef ] ;
+            owl:onProperty odm:DescriptionRef ] ;
+    skos:definition "A precise description of the treatment effect reflecting the clinical question posed by a given clinical trial objective. It summarises at a population level what the outcomes would be in the same patients under different treatment conditions being compared." ;
     skos:exactMatch odm:StudyEstimand .
 
 odm:StudyEstimands a owl:Class,
@@ -5024,12 +4977,20 @@ odm:StudyEstimands a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom odm:StudyEstimand ;
             owl:onProperty odm:StudyEstimandRef ] ;
+    skos:definition "StudyEstimands is a container element for individual StudyEstimand elements." ;
     skos:exactMatch odm:StudyEstimands .
 
 odm:StudyEventData a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "StudyEventData" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom odm:Query ;
+            owl:onProperty odm:QueryRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:StudyEventOID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Signature ;
             owl:onProperty odm:SignatureRefRef ],
@@ -5038,27 +4999,20 @@ odm:StudyEventData a owl:Class,
             owl:onClass odm:Annotation ;
             owl:onProperty odm:AnnotationRef ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:ItemGroupData ;
-            owl:onProperty odm:ItemGroupDataRef ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:RepeatKey ;
-            owl:onProperty odm:StudyEventRepeatKey ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:StudyEventOID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Query ;
-            owl:onProperty odm:QueryRef ],
+            owl:onClass odm:TransactionType ;
+            owl:onProperty odm:TransactionTypeRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:AuditRecord ;
             owl:onProperty odm:AuditRecordRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:TransactionType ;
-            owl:onProperty odm:TransactionTypeRef ] ;
+            owl:onClass odm:RepeatKey ;
+            owl:onProperty odm:StudyEventRepeatKey ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:ItemGroupData ;
+            owl:onProperty odm:ItemGroupDataRef ] ;
     skos:definition "Clinical data for a study event (visit). The model supports repeating study events (e.g., when the same set of information is collected for a series of patient visits)." ;
     skos:exactMatch odm:StudyEventData .
 
@@ -5067,8 +5021,34 @@ odm:StudyEventDef a owl:Class,
     rdfs:label "StudyEventDef" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Text ;
+            owl:onProperty odm:Category ],
+        [ a owl:Restriction ;
+            owl:onClass odm:YesOrNo ;
+            owl:onProperty odm:Repeating ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:CommentOID ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Coding ;
+            owl:onProperty odm:CodingRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:ItemGroupRef ;
+            owl:onProperty odm:ItemGroupRefRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:EventType ;
+            owl:onProperty odm:Type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
@@ -5078,34 +5058,8 @@ odm:StudyEventDef a owl:Class,
             owl:onClass odm:WorkflowRef ;
             owl:onProperty odm:WorkflowRefRef ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:Coding ;
-            owl:onProperty odm:CodingRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:Category ],
-        [ a owl:Restriction ;
             owl:allValuesFrom odm:Alias ;
-            owl:onProperty odm:AliasRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:ItemGroupRef ;
-            owl:onProperty odm:ItemGroupRefRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:YesOrNo ;
-            owl:onProperty odm:Repeating ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass odm:EventType ;
-            owl:onProperty odm:Type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ] ;
+            owl:onProperty odm:AliasRef ] ;
     skos:definition "StudyEventDef represents the definition of an activity in a study where data is collected. For example, a study event may represent a set of item groups that represent data collection instruments to be completed for a subject during a visit in a study. The visit occurs as part of a study workflow, and the workflow is referenced in the study event." ;
     skos:exactMatch odm:StudyEventDef .
 
@@ -5113,6 +5067,21 @@ odm:StudyEventGroupDef a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "StudyEventGroupDef" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:WorkflowRef ;
+            owl:onProperty odm:WorkflowRefRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:ArmOID ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:StudyEventRef ;
+            owl:onProperty odm:StudyEventRefRef ],
+        [ a owl:Restriction ;
             owl:allValuesFrom odm:Coding ;
             owl:onProperty odm:CodingRef ],
         [ a owl:Restriction ;
@@ -5120,35 +5089,20 @@ odm:StudyEventGroupDef a owl:Class,
             owl:onClass odm:Description ;
             owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:StudyEventGroupRef ;
-            owl:onProperty odm:StudyEventGroupRefRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:CommentOID ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:ArmOID ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:StudyEventRef ;
-            owl:onProperty odm:StudyEventRefRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:EpochOID ],
         [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:allValuesFrom odm:StudyEventGroupRef ;
+            owl:onProperty odm:StudyEventGroupRefRef ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:WorkflowRef ;
-            owl:onProperty odm:WorkflowRefRef ] ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:EpochOID ] ;
     skos:definition "StudyEventGroupDef is a study building block that groups a number of smaller building blocks, which can themselves be StudyEventGroups or StudyEvents. It thus allows nesting of building blocks." ;
     skos:exactMatch odm:StudyEventGroupDef .
 
@@ -5156,7 +5110,29 @@ odm:StudyEventOID a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "StudyEventOID" ;
     rdfs:range odm:Oidref ;
-    skos:definition "Reference to the StudyEventDef ." .
+    skos:definition "Reference to the StudyEventDef." .
+
+odm:StudyEventRef a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "StudyEventRef" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:StudyEventOID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass odm:YesOrNo ;
+            owl:onProperty odm:Mandatory ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:CollectionExceptionConditionOID ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:PositiveInteger ;
+            owl:onProperty odm:OrderNumber ] ;
+    skos:definition "This element references a StudyEventDef as it occurs within a specific version of a study. The list of StudyEventRefs identifies the types of study events that are allowed to occur within the study." ;
+    skos:exactMatch odm:StudyEventRef .
 
 odm:StudyIndication a owl:Class,
         linkml:ClassDefinition ;
@@ -5166,12 +5142,12 @@ odm:StudyIndication a owl:Class,
             owl:onClass odm:Description ;
             owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
+            owl:allValuesFrom odm:Coding ;
+            owl:onProperty odm:CodingRef ],
+        [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Coding ;
-            owl:onProperty odm:CodingRef ] ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "This element describes a study indication (e.g., condition, disease) for the clinical study. The human-readable description is provided in the Description element. The Coding element can be used to provide a machine-readable code for the indication (e.g., SNOMED-CT code 26929004 for \"Alzheimer's disease\")." ;
     skos:exactMatch odm:StudyIndication .
 
@@ -5191,6 +5167,7 @@ odm:StudyInterventionRef a owl:Class,
             owl:onClass odm:Oidref ;
             owl:onProperty odm:StudyInterventionOID ;
             owl:qualifiedCardinality 1 ] ;
+    skos:definition "The StudyInterventionRef references an intervention that is taken as the treatment for the estimand." ;
     skos:exactMatch odm:StudyInterventionRef .
 
 odm:StudyInterventions a owl:Class,
@@ -5206,16 +5183,12 @@ odm:StudyObjective a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "StudyObjective" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom odm:StudyEndPointRef ;
-            owl:onProperty odm:StudyEndPointRefRef ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:StudyObjectiveLevel ;
             owl:onProperty odm:Level ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
+            owl:allValuesFrom odm:StudyEndPointRef ;
+            owl:onProperty odm:StudyEndPointRefRef ],
         [ a owl:Restriction ;
             owl:onClass odm:Name ;
             owl:onProperty odm:Name ;
@@ -5223,7 +5196,12 @@ odm:StudyObjective a owl:Class,
         [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ] ;
+    skos:definition "The reason for performing a study in terms of the scientific questions to be answered by the analysis of data collected during the study." ;
     skos:exactMatch odm:StudyObjective .
 
 odm:StudyObjectiveLevel a owl:Class,
@@ -5247,10 +5225,6 @@ odm:StudyParameter a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "StudyParameter" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ParameterValue ;
-            owl:onProperty odm:ParameterValueRef ],
-        [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
             owl:qualifiedCardinality 1 ],
@@ -5258,13 +5232,17 @@ odm:StudyParameter a owl:Class,
             owl:allValuesFrom odm:Coding ;
             owl:onProperty odm:CodingRef ],
         [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Term ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:ParameterValue ;
+            owl:onProperty odm:ParameterValueRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Name ;
-            owl:onProperty odm:ShortName ] ;
+            owl:onProperty odm:ShortName ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Term ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "A StudyParameter defines a study design parameter for which the value or values are delivered in the ParameterValue child element or elements." ;
     skos:exactMatch odm:StudyParameter .
 
@@ -5272,19 +5250,19 @@ odm:StudyStructure a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "StudyStructure" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom odm:Arm ;
-            owl:onProperty odm:ArmRef ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Description ;
             owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:WorkflowRef ;
+            owl:onProperty odm:WorkflowRefRef ],
+        [ a owl:Restriction ;
             owl:allValuesFrom odm:Epoch ;
             owl:onProperty odm:EpochRef ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:WorkflowRef ;
-            owl:onProperty odm:WorkflowRefRef ] ;
+            owl:allValuesFrom odm:Arm ;
+            owl:onProperty odm:ArmRef ] ;
     skos:definition "The StudyStructure element describes the general structure of a clinical study with arms, epochs, and workflows." ;
     skos:exactMatch odm:StudyStructure .
 
@@ -5304,6 +5282,7 @@ odm:StudyTargetPopulationRef a owl:Class,
             owl:onClass odm:Oidref ;
             owl:onProperty odm:StudyTargetPopulationOID ;
             owl:qualifiedCardinality 1 ] ;
+    skos:definition "The StudyTargetPopulationRef references a StudyTargetPopulation to which the estimand applies." ;
     skos:exactMatch odm:StudyTargetPopulationRef .
 
 odm:StudyTiming a owl:Class,
@@ -5313,9 +5292,11 @@ odm:StudyTiming a owl:Class,
             owl:allValuesFrom odm:TransitionTimingConstraint ;
             owl:onProperty odm:TransitionTimingConstraintRef ],
         [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
+            owl:allValuesFrom odm:RelativeTimingConstraint ;
+            owl:onProperty odm:RelativeTimingConstraintRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:DurationTimingConstraint ;
+            owl:onProperty odm:DurationTimingConstraintRef ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:AbsoluteTimingConstraint ;
             owl:onProperty odm:AbsoluteTimingConstraintRef ],
@@ -5324,11 +5305,9 @@ odm:StudyTiming a owl:Class,
             owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:RelativeTimingConstraint ;
-            owl:onProperty odm:RelativeTimingConstraintRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:DurationTimingConstraint ;
-            owl:onProperty odm:DurationTimingConstraintRef ] ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "The StudyTiming element defines a timing constraint within the study, which can be an absolute timing constraint (e.g., start of the screening visit must be between 1 January 2022 and 31 December 2022), a relative timing constraint (e.g., visit 2 must be within 30 days after visit 1 with a window of +/- 1 week), a transition timing constraint (i.e., timing constraint on a transition within a defined workflow), or a duration timing constraint (e.g., the duration of visit 2 is planned to take hours with a window of 30 minutes)." ;
     skos:exactMatch odm:StudyTiming .
 
@@ -5359,39 +5338,39 @@ odm:SubjectData a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "SubjectData" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Annotation ;
+            owl:onProperty odm:AnnotationRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Query ;
+            owl:onProperty odm:QueryRef ],
+        [ a owl:Restriction ;
             owl:allValuesFrom odm:StudyEventData ;
             owl:onProperty odm:StudyEventDataRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Annotation ;
-            owl:onProperty odm:AnnotationRef ],
+            owl:onClass odm:SiteRef ;
+            owl:onProperty odm:SiteRefRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Signature ;
+            owl:onProperty odm:SignatureRefRef ],
         [ a owl:Restriction ;
             owl:onClass odm:SubjectKey ;
             owl:onProperty odm:SubjectKey ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:TransactionType ;
-            owl:onProperty odm:TransactionTypeRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:InvestigatorRef ;
             owl:onProperty odm:InvestigatorRefRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:SiteRef ;
-            owl:onProperty odm:SiteRefRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Query ;
-            owl:onProperty odm:QueryRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:AuditRecord ;
             owl:onProperty odm:AuditRecordRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Signature ;
-            owl:onProperty odm:SignatureRefRef ] ;
+            owl:onClass odm:TransactionType ;
+            owl:onProperty odm:TransactionTypeRef ] ;
     skos:definition "Clinical data for a single subject." ;
     skos:exactMatch odm:SubjectData .
 
@@ -5416,6 +5395,7 @@ odm:SummaryMeasure a owl:Class,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Description ;
             owl:onProperty odm:DescriptionRef ] ;
+    skos:definition "The SummaryMeasure element describes a summary measure for an estimand (e.g., proportion of patients with an improvement)." ;
     skos:exactMatch odm:SummaryMeasure .
 
 odm:SupplementalDoc a owl:Class,
@@ -5431,43 +5411,57 @@ odm:TargetTransition a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "TargetTransition" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:TargetTransitionOID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
-            owl:onProperty odm:ConditionOID ] ;
-    skos:definition "Provides a reference to a Transition element." ;
+            owl:onProperty odm:ConditionOID ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:TargetTransitionOID ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "TargetTransition provides a reference to a Transition element that is the target of a branching." ;
     skos:exactMatch odm:TargetTransition .
+
+odm:Title a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Title" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:ContentType ;
+            owl:onProperty odm:_content ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:String ;
+            owl:onProperty odm:range ] ;
+    skos:definition "Text with the label for the document or dataset." ;
+    skos:exactMatch odm:Title .
 
 odm:Transition a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Transition" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:EndConditionOID ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:StartConditionOID ],
+        [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:SourceOID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:TargetOID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:StartConditionOID ] ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "A Transition defines a link between 2 structural elements in a workflow. When the execution of the transition is dependent upon a timing constraint that is either directly defined or calculated, a TransitionTimingConstraint must be defined, referencing the current Transition." ;
     skos:exactMatch odm:Transition .
 
@@ -5479,37 +5473,37 @@ odm:TransitionTimingConstraint a owl:Class,
             owl:onProperty odm:TimepointTarget ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:RelativeTimingConstraintType ;
-            owl:onProperty odm:Type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:MethodOID ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:DurationDatetime ;
-            owl:onProperty odm:TimepointPostWindow ],
-        [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:TransitionOID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:DurationDatetime ;
-            owl:onProperty odm:TimepointPreWindow ],
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:MethodOID ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass odm:Name ;
             owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:DurationDatetime ;
+            owl:onProperty odm:TimepointPostWindow ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:DurationDatetime ;
+            owl:onProperty odm:TimepointPreWindow ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:RelativeTimingConstraintType ;
+            owl:onProperty odm:Type ] ;
     skos:definition "The TransitionTimingConstraint element defines a timing constraint on a transition between structural elements as defined in a workflow. As such, it is a non-blocking constraint. This means that the transition is set on hold as long as the timing condition is not fulfilled, and is executed as soon as the timing condition is fulfilled." ;
     skos:exactMatch odm:TransitionTimingConstraint .
 
@@ -5517,13 +5511,13 @@ odm:TrialPhase a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "TrialPhase" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
             owl:onClass odm:TrialPhaseType ;
             owl:onProperty odm:ValueRef ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ] ;
     skos:definition "The TrialPhase element designates the phase of the study in the clinical trial." ;
     skos:exactMatch odm:TrialPhase .
 
@@ -5532,12 +5526,12 @@ odm:UserName a owl:Class,
     rdfs:label "UserName" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ContentType ;
-            owl:onProperty odm:_content ],
+            owl:onClass odm:String ;
+            owl:onProperty odm:range ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:String ;
-            owl:onProperty odm:range ] ;
+            owl:onClass odm:ContentType ;
+            owl:onProperty odm:_content ] ;
     skos:definition "The user's login identification in the sender's system." ;
     skos:exactMatch odm:UserName .
 
@@ -5545,16 +5539,16 @@ odm:ValueListDef a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ValueListDef" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:OID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:ItemRef ;
-            owl:onProperty odm:ItemRefRef ] ;
+            owl:onProperty odm:ItemRefRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ] ;
     skos:definition "The following table specifies the XML structure for valuelist metadata. The ValueListDef element contains ItemRef elements that reference ItemDef elements that provide the value-level metadata details" ;
     skos:exactMatch odm:ValueListDef .
 
@@ -5572,16 +5566,16 @@ odm:WhereClauseDef a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "WhereClauseDef" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:CommentOID ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:RangeCheck ;
-            owl:onProperty odm:RangeCheckRef ] ;
+            owl:onProperty odm:RangeCheckRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "The WhereClauseDef element specifies a condition." ;
     skos:exactMatch odm:WhereClauseDef .
 
@@ -5599,30 +5593,30 @@ odm:WorkflowDef a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "WorkflowDef" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:WorkflowEnd ;
             owl:onProperty odm:WorkflowEndRef ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:WorkflowStart ;
-            owl:onProperty odm:WorkflowStartRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ;
             owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Transition ;
-            owl:onProperty odm:TransitionRef ],
         [ a owl:Restriction ;
             owl:allValuesFrom odm:Branching ;
             owl:onProperty odm:BranchingRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:WorkflowStart ;
+            owl:onProperty odm:WorkflowStartRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ] ;
+            owl:onProperty odm:DescriptionRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Transition ;
+            owl:onProperty odm:TransitionRef ] ;
     skos:definition "A WorkflowDef defines an automated workflow for a study." ;
     skos:exactMatch odm:WorkflowDef .
 
@@ -5659,17 +5653,43 @@ odm:CLDataType a owl:Class,
         <http://www.cdisc.org/ns/odm/v2.0/CLDataType#string>,
         <http://www.cdisc.org/ns/odm/v2.0/CLDataType#text> .
 
+odm:Criterion a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Criterion" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:ConditionOID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Name ;
+            owl:onProperty odm:Name ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Coding ;
+            owl:onProperty odm:CodingRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ] ;
+    skos:definition "The Criterion represents either an inclusion or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria)." ;
+    skos:exactMatch odm:Criterion .
+
 odm:DateTimeStamp a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "DateTimeStamp" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ContentType ;
-            owl:onProperty odm:_content ],
+            owl:onClass odm:String ;
+            owl:onProperty odm:range ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:String ;
-            owl:onProperty odm:range ] ;
+            owl:onClass odm:ContentType ;
+            owl:onProperty odm:_content ] ;
+    skos:definition "Date and time when an action was performed." ;
     skos:exactMatch odm:DateTimeStamp .
 
 odm:DocumentRefRef a owl:ObjectProperty,
@@ -5696,25 +5716,25 @@ odm:ItemGroupRef a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ItemGroupRef" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass odm:YesOrNo ;
+            owl:onProperty odm:Mandatory ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:PositiveInteger ;
             owl:onProperty odm:OrderNumber ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
-            owl:onProperty odm:MethodOID ],
+            owl:onProperty odm:CollectionExceptionConditionOID ],
         [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:ItemGroupOID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass odm:YesOrNo ;
-            owl:onProperty odm:Mandatory ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
-            owl:onProperty odm:CollectionExceptionConditionOID ] ;
+            owl:onProperty odm:MethodOID ] ;
     skos:definition "ItemGroupRef references an ItemGroupDef as it occurs within a specific StudyEventDef or ItemGroupDef. The list of ItemGroupRefs identifies the types of item groups that are allowed to occur within this type of studyevent or (nested) item group. The ItemGroupRefs within a single StudyEventDef or ItemGroupDef must not have duplicate ItemGroupOID or OrderNumber attribute values." ;
     skos:exactMatch odm:ItemGroupRef .
 
@@ -5740,7 +5760,7 @@ odm:ItemOID a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "ItemOID" ;
     rdfs:range odm:Oidref ;
-    skos:definition "Reference to the ItemDef ." .
+    skos:definition "Reference to the ItemDef." .
 
 odm:ItemRef a owl:Class,
         linkml:ClassDefinition ;
@@ -5748,26 +5768,14 @@ odm:ItemRef a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:PositiveInteger ;
-            owl:onProperty odm:KeySequence ],
+            owl:onProperty odm:OrderNumber ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Origin ;
+            owl:onProperty odm:OriginRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:Role ],
-        [ a owl:Restriction ;
-            owl:onClass odm:YesOrNo ;
-            owl:onProperty odm:Mandatory ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:ItemOID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:CollectionExceptionConditionOID ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:WhereClauseRef ;
-            owl:onProperty odm:WhereClauseRefRef ],
+            owl:onClass odm:YesOnly ;
+            owl:onProperty odm:Repeat ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:YesOnly ;
@@ -5777,13 +5785,17 @@ odm:ItemRef a owl:Class,
             owl:onClass odm:Oidref ;
             owl:onProperty odm:UnitsItemOID ],
         [ a owl:Restriction ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:ItemOID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:RoleCodeListOID ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:YesOnly ;
-            owl:onProperty odm:Repeat ],
+            owl:onClass odm:Text ;
+            owl:onProperty odm:PreSpecifiedValue ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:YesOnly ;
@@ -5791,22 +5803,30 @@ odm:ItemRef a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Text ;
-            owl:onProperty odm:PreSpecifiedValue ],
+            owl:onProperty odm:Role ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:Origin ;
-            owl:onProperty odm:OriginRef ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:CoreType ;
+            owl:onProperty odm:Core ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:PositiveInteger ;
-            owl:onProperty odm:OrderNumber ],
+            owl:onProperty odm:KeySequence ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:CollectionExceptionConditionOID ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:MethodOID ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:CoreType ;
-            owl:onProperty odm:Core ],
+            owl:onClass odm:YesOrNo ;
+            owl:onProperty odm:Mandatory ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:WhereClauseRef ;
+            owl:onProperty odm:WhereClauseRefRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:YesOnly ;
@@ -5822,13 +5842,13 @@ odm:Leaf a owl:Class,
             owl:onProperty odm:href ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Title ;
+            owl:onProperty odm:TitleRef ],
+        [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:ID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:Title ] ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "Contains the XLink information referenced by DocumentRef or ArchiveLocationID" ;
     skos:exactMatch odm:Leaf .
 
@@ -5859,23 +5879,23 @@ odm:Origin a owl:Class,
             owl:onClass odm:SourceItems ;
             owl:onProperty odm:SourceItemsRef ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
+            owl:allValuesFrom odm:DocumentRef ;
+            owl:onProperty odm:DocumentRefRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:OriginSource ;
             owl:onProperty odm:Source ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:DocumentRef ;
-            owl:onProperty odm:DocumentRefRef ],
+            owl:allValuesFrom odm:Coding ;
+            owl:onProperty odm:CodingRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ],
         [ a owl:Restriction ;
             owl:onClass odm:OriginType ;
             owl:onProperty odm:Type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Coding ;
-            owl:onProperty odm:CodingRef ] ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "Origin defines the source metadata, where applicable, for ODM ItemRefs or ItemGroupRefs. Origin as a child element replaces the Origin attribute in ODM v1.3 that exists for the ItemDef and ItemGroupDef elements.The Origin element is based on the def:Origin element in Define-XML v2.1 with the Trace-XML v1.0 extension." ;
     skos:exactMatch odm:Origin .
 
@@ -5892,31 +5912,31 @@ odm:RangeCheck a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "RangeCheck" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom odm:FormalExpression ;
-            owl:onProperty odm:FormalExpressionRef ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:SoftOrHard ;
-            owl:onProperty odm:SoftHard ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:MethodSignature ;
-            owl:onProperty odm:MethodSignatureRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ErrorMessage ;
-            owl:onProperty odm:ErrorMessageRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:CheckValue ;
-            owl:onProperty odm:CheckValueRef ],
+            owl:onClass odm:Comparator ;
+            owl:onProperty odm:ComparatorRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:ItemOID ],
         [ a owl:Restriction ;
+            owl:allValuesFrom odm:CheckValue ;
+            owl:onProperty odm:CheckValueRef ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Comparator ;
-            owl:onProperty odm:ComparatorRef ] ;
+            owl:onClass odm:ErrorMessage ;
+            owl:onProperty odm:ErrorMessageRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:MethodSignature ;
+            owl:onProperty odm:MethodSignatureRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:FormalExpression ;
+            owl:onProperty odm:FormalExpressionRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:SoftOrHard ;
+            owl:onProperty odm:SoftHard ] ;
     skos:definition "A RangeCheck defines a constraint on the value of the enclosing item. It represents an expression that evaluates to True when the ItemData value is valid or False when the ItemData value is invalid. The expression is specified using either Comparator and CheckValue or using FormalExpressions." ;
     skos:exactMatch odm:RangeCheck .
 
@@ -5924,13 +5944,13 @@ odm:StudyEndPointRef a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "StudyEndPointRef" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:PositiveInteger ;
-            owl:onProperty odm:OrderNumber ],
-        [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:StudyEndPointOID ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:PositiveInteger ;
+            owl:onProperty odm:OrderNumber ] ;
     skos:definition "Go to start of metadata" ;
     skos:exactMatch odm:StudyEndPointRef .
 
@@ -5951,27 +5971,31 @@ odm:StudyEstimandLevel a owl:Class,
         <http://www.cdisc.org/ns/odm/v2.0/StudyEstimandLevel#Primary>,
         <http://www.cdisc.org/ns/odm/v2.0/StudyEstimandLevel#Secondary> .
 
-odm:StudyEventRef a owl:Class,
+odm:StudyEventGroupRef a owl:Class,
         linkml:ClassDefinition ;
-    rdfs:label "StudyEventRef" ;
+    rdfs:label "StudyEventGroupRef" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass odm:YesOrNo ;
+            owl:onProperty odm:Mandatory ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Description ;
+            owl:onProperty odm:DescriptionRef ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:CollectionExceptionConditionOID ],
         [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
-            owl:onProperty odm:StudyEventOID ;
+            owl:onProperty odm:StudyEventGroupOID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:PositiveInteger ;
-            owl:onProperty odm:OrderNumber ],
-        [ a owl:Restriction ;
-            owl:onClass odm:YesOrNo ;
-            owl:onProperty odm:Mandatory ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "This element references a StudyEventDef as it occurs within a specific version of a study. The list of StudyEventRefs identifies the types of study events that are allowed to occur within the study." ;
-    skos:exactMatch odm:StudyEventRef .
+            owl:onProperty odm:OrderNumber ] ;
+    skos:definition "This element references a StudyEventGroupDef as it occurs within a specific version of a study. The list of StudyEventGroupRefs identifies the types of study group events that are allowed to occur within the study." ;
+    skos:exactMatch odm:StudyEventGroupRef .
 
 odm:SubjectKey a owl:Class,
         owl:ObjectProperty,
@@ -5999,6 +6023,7 @@ odm:UserRef a owl:Class,
             owl:onClass odm:Oidref ;
             owl:onProperty odm:UserOID ;
             owl:qualifiedCardinality 1 ] ;
+    skos:definition "A reference to information about a specific user of a clinical data collection or data management system." ;
     skos:exactMatch odm:UserRef .
 
 odm:ValueRef a owl:ObjectProperty,
@@ -6034,24 +6059,24 @@ odm:Address a owl:Class,
             owl:onProperty odm:OtherTextRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:HouseNumber ;
-            owl:onProperty odm:HouseNumberRef ],
+            owl:onClass odm:Country ;
+            owl:onProperty odm:CountryRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:StreetName ;
             owl:onProperty odm:StreetNameRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:StateProv ;
-            owl:onProperty odm:StateProvRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:PostalCode ;
             owl:onProperty odm:PostalCodeRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Country ;
-            owl:onProperty odm:CountryRef ],
+            owl:onClass odm:StateProv ;
+            owl:onProperty odm:StateProvRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:HouseNumber ;
+            owl:onProperty odm:HouseNumberRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:GeoPosition ;
@@ -6112,32 +6137,6 @@ odm:RepeatKey a owl:Class,
             owl:onProperty linkml:topValue ;
             owl:qualifiedCardinality 1 ] .
 
-odm:StudyEventGroupRef a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "StudyEventGroupRef" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:StudyEventGroupOID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:CollectionExceptionConditionOID ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:PositiveInteger ;
-            owl:onProperty odm:OrderNumber ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:YesOrNo ;
-            owl:onProperty odm:Mandatory ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "This element references a StudyEventGroupDef as it occurs within a specific version of a study. The list of StudyEventGroupRefs identifies the types of study group events that are allowed to occur within the study." ;
-    skos:exactMatch odm:StudyEventGroupRef .
-
 odm:Telecom a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Telecom" ;
@@ -6152,6 +6151,12 @@ odm:Telecom a owl:Class,
     skos:definition "The telecommunication contacts points of a user, a location, or an organization. The Type attribute designates the type of contact." ;
     skos:exactMatch odm:Telecom .
 
+odm:WorkflowRefRef a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "WorkflowRefRef" ;
+    rdfs:range odm:WorkflowRef ;
+    skos:definition "WorkflowRef reference: The WorkflowRef references a workflow definition" .
+
 odm:AnnotationRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "AnnotationRef" ;
@@ -6164,71 +6169,46 @@ odm:AuditRecordRef a owl:ObjectProperty,
     rdfs:range odm:AuditRecord ;
     skos:definition "AuditRecord reference: An AuditRecord carries information pertaining to the creation, deletion, or modification of clinical data. This information includes who performed that action, and where, when, and why that action was performed.AuditRecord information describes a change to clinical data, but is not itself clinical data. The value of some clinical data can always be changed by a subsequent transaction, but history cannot be changed, only added to." .
 
-odm:Criterion a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "Criterion" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:ConditionOID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Description ;
-            owl:onProperty odm:DescriptionRef ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Name ;
-            owl:onProperty odm:Name ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Coding ;
-            owl:onProperty odm:CodingRef ] ;
-    skos:definition "The Criterion represents either an inclusion or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria)." ;
-    skos:exactMatch odm:Criterion .
-
 odm:ItemGroupData a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ItemGroupData" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom odm:ItemGroupData ;
+            owl:onProperty odm:ItemGroupDataRef ],
+        [ a owl:Restriction ;
             owl:onClass odm:Oidref ;
             owl:onProperty odm:ItemGroupOID ;
             owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Signature ;
-            owl:onProperty odm:SignatureRefRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:PositiveInteger ;
-            owl:onProperty odm:ItemGroupDataSeq ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:AuditRecord ;
-            owl:onProperty odm:AuditRecordRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Query ;
-            owl:onProperty odm:QueryRef ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:ItemData ;
-            owl:onProperty odm:ItemDataRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:TransactionType ;
-            owl:onProperty odm:TransactionTypeRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Annotation ;
             owl:onProperty odm:AnnotationRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:TransactionType ;
+            owl:onProperty odm:TransactionTypeRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:PositiveInteger ;
+            owl:onProperty odm:ItemGroupDataSeq ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:ItemData ;
+            owl:onProperty odm:ItemDataRef ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Query ;
+            owl:onProperty odm:QueryRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Signature ;
+            owl:onProperty odm:SignatureRefRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:RepeatKey ;
             owl:onProperty odm:ItemGroupRepeatKey ],
         [ a owl:Restriction ;
-            owl:allValuesFrom odm:ItemGroupData ;
-            owl:onProperty odm:ItemGroupDataRef ] ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:AuditRecord ;
+            owl:onProperty odm:AuditRecordRef ] ;
     skos:definition "Clinical data corresponding to an ItemGroupRef defined in the active MetaDataVersion." ;
     skos:exactMatch odm:ItemGroupData .
 
@@ -6253,7 +6233,7 @@ odm:SignatureRefRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "SignatureRefRef" ;
     rdfs:range odm:SignatureRef ;
-    skos:definition "SignatureRef reference: None" .
+    skos:definition "SignatureRef reference: A reference to the signature meaning." .
 
 odm:StandardPublishingSet a owl:Class,
         linkml:EnumDefinition ;
@@ -6284,20 +6264,14 @@ odm:Value a owl:Class,
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:_content ],
+            owl:onClass odm:PositiveInteger ;
+            owl:onProperty odm:SeqNum ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:PositiveInteger ;
-            owl:onProperty odm:SeqNum ] ;
+            owl:onClass odm:Text ;
+            owl:onProperty odm:_content ] ;
     skos:definition "The data collected for an item. This data is represented according to DataType attribute of the ItemDef referenced by the ItemOID attribute in the parent ItemData element." ;
     skos:exactMatch odm:Value .
-
-odm:WorkflowRefRef a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "WorkflowRefRef" ;
-    rdfs:range odm:WorkflowRef ;
-    skos:definition "WorkflowRef reference: The WorkflowRef references a workflow definition" .
 
 odm:AliasRef a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -6317,12 +6291,12 @@ odm:DocumentRef a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "DocumentRef" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom odm:PDFPageRef ;
+            owl:onProperty odm:PDFPageRefRef ],
+        [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:LeafID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:PDFPageRef ;
-            owl:onProperty odm:PDFPageRefRef ] ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "Links to a leaf element with the location of the document." ;
     skos:exactMatch odm:DocumentRef .
 
@@ -6331,16 +6305,16 @@ odm:FormalExpression a owl:Class,
     rdfs:label "FormalExpression" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Code ;
+            owl:onProperty odm:CodeRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Text ;
             owl:onProperty odm:ContextRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:ExternalCodeLib ;
-            owl:onProperty odm:ExternalCodeLibRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Code ;
-            owl:onProperty odm:CodeRef ] ;
+            owl:onProperty odm:ExternalCodeLibRef ] ;
     skos:definition "A FormalExpression used within a ConditionDef or a RangeCheck must evaluate to True or False. A FormalExpression referenced within a MethodDef having Type Imputation, Computation, or Transpose must evaluate to the correct DataType for an Item that may be imputed or computed using the Method. A FormalExpression gets parameter and return value definitions from the MethodSignature element. The data types in the MethodSignature parameters and return values must match the corresponding data types in the FormalExpression." ;
     skos:exactMatch odm:FormalExpression .
 
@@ -6365,25 +6339,25 @@ odm:Signature a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Signature" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:SignatureRef ;
-            owl:onProperty odm:SignatureRefRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:DateTimeStamp ;
-            owl:onProperty odm:DateTimeStampRef ],
-        [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:ID ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:UserRef ;
-            owl:onProperty odm:UserRefRef ],
+            owl:onClass odm:SignatureRef ;
+            owl:onProperty odm:SignatureRefRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:LocationRef ;
-            owl:onProperty odm:LocationRefRef ] ;
+            owl:onProperty odm:LocationRefRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:DateTimeStamp ;
+            owl:onProperty odm:DateTimeStampRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:UserRef ;
+            owl:onProperty odm:UserRefRef ] ;
     skos:definition "An electronic signature applies to a collection of clinical data. This indicates that some user accepts legal responsibility for that data. See 21 CFR Part 11. The signature identifies the person signing, the location of signing, the signature meaning (via the referenced SignatureDef), the date and time of signing, and (in the case of a digital signature) an encrypted hash of the included data." ;
     skos:exactMatch odm:Signature .
 
@@ -6426,28 +6400,8 @@ odm:Query a owl:Class,
             owl:onClass odm:Name ;
             owl:onProperty odm:Name ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:Target ],
-        [ a owl:Restriction ;
-            owl:onClass odm:QuerySourceType ;
-            owl:onProperty odm:Source ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass odm:Oid ;
-            owl:onProperty odm:OID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:allValuesFrom odm:AuditRecord ;
             owl:onProperty odm:AuditRecordRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Value ;
-            owl:onProperty odm:ValueRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:QueryType ;
-            owl:onProperty odm:Type ],
         [ a owl:Restriction ;
             owl:onClass odm:QueryStateType ;
             owl:onProperty odm:State ;
@@ -6455,6 +6409,26 @@ odm:Query a owl:Class,
         [ a owl:Restriction ;
             owl:onClass odm:Datetime ;
             owl:onProperty odm:LastUpdateDatetime ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Text ;
+            owl:onProperty odm:Target ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:QueryType ;
+            owl:onProperty odm:Type ],
+        [ a owl:Restriction ;
+            owl:onClass odm:QuerySourceType ;
+            owl:onProperty odm:Source ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Value ;
+            owl:onProperty odm:ValueRef ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Oid ;
+            owl:onProperty odm:OID ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "The Query element represents a request for clarification on a data item collected for a clinical trial, specifically a request from a sponsor or sponsor’s representative to an investigator to resolve an error or inconsistency discovered during data review. Queries can be created manually by individuals such as site monitors or data managers or automatically by systems. The full text of the Query exists in the Value child element. The optional Name attribute provide the means to provide a short identifier that can be included in listing or user interfaces." ;
     skos:exactMatch odm:Query .
@@ -6484,13 +6458,23 @@ odm:TelecomTypeType a owl:Class,
         <http://www.cdisc.org/ns/odm/v2.0/TelecomTypeType#SMS>,
         <http://www.cdisc.org/ns/odm/v2.0/TelecomTypeType#URL> .
 
+odm:WorkflowRef a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "WorkflowRef" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass odm:Oidref ;
+            owl:onProperty odm:WorkflowOID ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "The WorkflowRef references a workflow definition" ;
+    skos:exactMatch odm:WorkflowRef .
+
 odm:Annotation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Annotation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:TransactionType ;
-            owl:onProperty odm:TransactionTypeRef ],
+            owl:onClass odm:PositiveInteger ;
+            owl:onProperty odm:SeqNum ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Comment ;
@@ -6499,16 +6483,16 @@ odm:Annotation a owl:Class,
             owl:allValuesFrom odm:Flag ;
             owl:onProperty odm:FlagRef ],
         [ a owl:Restriction ;
-            owl:onClass odm:PositiveInteger ;
-            owl:onProperty odm:SeqNum ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom odm:Coding ;
-            owl:onProperty odm:CodingRef ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:TransactionType ;
+            owl:onProperty odm:TransactionTypeRef ],
         [ a owl:Restriction ;
             owl:onClass odm:Oid ;
             owl:onProperty odm:ID ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom odm:Coding ;
+            owl:onProperty odm:CodingRef ] ;
     skos:definition "A general note about clinical data. If an annotation has both a comment and flags, the flags should be related to the comment." ;
     skos:exactMatch odm:Annotation .
 
@@ -6517,16 +6501,8 @@ odm:AuditRecord a owl:Class,
     rdfs:label "AuditRecord" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:UserRef ;
-            owl:onProperty odm:UserRefRef ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:EditPointType ;
-            owl:onProperty odm:EditPoint ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:LocationRef ;
-            owl:onProperty odm:LocationRefRef ],
+            owl:onClass odm:ReasonForChange ;
+            owl:onProperty odm:ReasonForChangeRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:YesOrNo ;
@@ -6537,12 +6513,20 @@ odm:AuditRecord a owl:Class,
             owl:onProperty odm:DateTimeStampRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:SourceID ;
-            owl:onProperty odm:SourceIDRef ],
+            owl:onClass odm:EditPointType ;
+            owl:onProperty odm:EditPoint ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:ReasonForChange ;
-            owl:onProperty odm:ReasonForChangeRef ] ;
+            owl:onClass odm:UserRef ;
+            owl:onProperty odm:UserRefRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:LocationRef ;
+            owl:onProperty odm:LocationRefRef ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:SourceID ;
+            owl:onProperty odm:SourceIDRef ] ;
     skos:definition "An AuditRecord carries information pertaining to the creation, deletion, or modification of clinical data. This information includes who performed that action, and where, when, and why that action was performed.AuditRecord information describes a change to clinical data, but is not itself clinical data. The value of some clinical data can always be changed by a subsequent transaction, but history cannot be changed, only added to." ;
     skos:exactMatch odm:AuditRecord .
 
@@ -6564,16 +6548,6 @@ odm:TranslatedTextRef a owl:ObjectProperty,
     rdfs:label "TranslatedTextRef" ;
     rdfs:range odm:TranslatedText ;
     skos:definition "TranslatedText reference: Human-readable text that is appropriate for a particular language. TranslatedText elements typically occur in a series, presenting a set of alternative textual renditions for different languages and types." .
-
-odm:WorkflowRef a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "WorkflowRef" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Oidref ;
-            owl:onProperty odm:WorkflowOID ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "The WorkflowRef references a workflow definition" ;
-    skos:exactMatch odm:WorkflowRef .
 
 odm:Alias a owl:Class,
         linkml:ClassDefinition ;
@@ -6649,17 +6623,17 @@ odm:TranslatedText a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "TranslatedText" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:Type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:ContentType ;
             owl:onProperty odm:_content ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:LanguageType ;
-            owl:onProperty odm:_language ] ;
+            owl:onProperty odm:_language ],
+        [ a owl:Restriction ;
+            owl:onClass odm:Text ;
+            owl:onProperty odm:Type ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "Human-readable text that is appropriate for a particular language. TranslatedText elements typically occur in a series, presenting a set of alternative textual renditions for different languages and types." ;
     skos:exactMatch odm:TranslatedText .
 
@@ -6734,29 +6708,29 @@ odm:Coding a owl:Class,
             owl:onClass odm:Uriorcurie ;
             owl:onProperty odm:href ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Text ;
+            owl:onProperty odm:CommentOID ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass odm:Uriorcurie ;
+            owl:onProperty odm:ref ],
+        [ a owl:Restriction ;
             owl:onClass odm:Uriorcurie ;
             owl:onProperty odm:System ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Text ;
-            owl:onProperty odm:CommentOID ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Text ;
-            owl:onProperty odm:CodeRef ],
+            owl:onProperty odm:SystemVersion ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Text ;
             owl:onProperty odm:Label ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass odm:Uriorcurie ;
-            owl:onProperty odm:ref ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Text ;
-            owl:onProperty odm:SystemVersion ],
+            owl:onProperty odm:CodeRef ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass odm:Text ;
@@ -6776,12 +6750,6 @@ odm:ContentType a owl:Class,
             owl:onDataRange xhtml:div ;
             owl:onProperty linkml:topValue ;
             owl:qualifiedCardinality 1 ] .
-
-odm:_content a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "_content" ;
-    rdfs:range odm:ContentType ;
-    skos:definition "multi-line text content from between XML tags" .
 
 odm:DataType a owl:Class,
         linkml:EnumDefinition ;
@@ -6818,6 +6786,12 @@ odm:PositiveInteger a owl:Class,
             owl:onDataRange odm:positiveInteger ;
             owl:onProperty linkml:topValue ;
             owl:qualifiedCardinality 1 ] .
+
+odm:_content a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "_content" ;
+    rdfs:range odm:ContentType ;
+    skos:definition "multi-line text content from between XML tags" .
 
 odm:String a owl:Class,
         linkml:TypeDefinition ;

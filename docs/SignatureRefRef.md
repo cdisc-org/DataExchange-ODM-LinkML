@@ -1,7 +1,7 @@
 # Slot: SignatureRefRef
 
 
-_SignatureRef reference: None_
+_SignatureRef reference: A reference to the signature meaning._
 
 
 
@@ -61,7 +61,7 @@ URI: [odm:SignatureRefRef](http://www.cdisc.org/ns/odm/v2.0/SignatureRefRef)
 <details>
 ```yaml
 name: SignatureRefRef
-description: 'SignatureRef reference: None'
+description: 'SignatureRef reference: A reference to the signature meaning.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

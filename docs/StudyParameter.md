@@ -122,7 +122,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       Must be unique within the Protocol.'
     domain_of:
@@ -157,7 +157,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -171,7 +170,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       For the CDISC end-to-end use case, when the study parameter will be included
       in the SDTM Trial Summary (TS) domain dataset, the Term will be taken from the
@@ -187,7 +186,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       Must not include white space. For the CDISC end-to-end use case, when the study
       parameter will be included in the SDTM TS domain dataset, the ShortName will
@@ -248,7 +247,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       Must be unique within the Protocol.'
     domain_of:
@@ -283,7 +282,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -297,7 +295,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       For the CDISC end-to-end use case, when the study parameter will be included
       in the SDTM Trial Summary (TS) domain dataset, the Term will be taken from the
@@ -313,7 +311,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       Must not include white space. For the CDISC end-to-end use case, when the study
       parameter will be included in the SDTM TS domain dataset, the ShortName will
@@ -359,7 +357,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       Must be unique within the Protocol.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -399,7 +397,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -413,7 +410,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       For the CDISC end-to-end use case, when the study parameter will be included
       in the SDTM Trial Summary (TS) domain dataset, the Term will be taken from the
@@ -433,7 +430,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       Must not include white space. For the CDISC end-to-end use case, when the study
       parameter will be included in the SDTM TS domain dataset, the ShortName will

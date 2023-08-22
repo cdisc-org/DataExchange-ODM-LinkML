@@ -1,7 +1,7 @@
 # Slot: IntercurrentEventRef
 
 
-_IntercurrentEvent reference: None_
+_IntercurrentEvent reference: The IntercurrentEvent element describes an intercurrent event for an estimand (e.g., treatment discontinuation)._
 
 
 
@@ -18,7 +18,7 @@ URI: [odm:IntercurrentEventRef](http://www.cdisc.org/ns/odm/v2.0/IntercurrentEve
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEstimand](StudyEstimand.md) |  |  yes  |
+[StudyEstimand](StudyEstimand.md) | A precise description of the treatment effect reflecting the clinical questio... |  yes  |
 
 
 
@@ -55,7 +55,8 @@ URI: [odm:IntercurrentEventRef](http://www.cdisc.org/ns/odm/v2.0/IntercurrentEve
 <details>
 ```yaml
 name: IntercurrentEventRef
-description: 'IntercurrentEvent reference: None'
+description: 'IntercurrentEvent reference: The IntercurrentEvent element describes
+  an intercurrent event for an estimand (e.g., treatment discontinuation).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

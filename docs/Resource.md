@@ -121,7 +121,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     domain_of:
     - TranslatedText
     - PDFPageRef
@@ -148,7 +148,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The value must be an existing element name or field name for the specific document
       or message type provided in the Type attribute.'
@@ -184,7 +184,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -201,7 +200,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:name
+      range: name
 
       The Selection child element must correspond to machine-executable instructions
       for extracting the information from the resource.'
@@ -214,7 +213,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - Resource
     - Coding
@@ -251,7 +250,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     domain_of:
     - TranslatedText
     - PDFPageRef
@@ -278,7 +277,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The value must be an existing element name or field name for the specific document
       or message type provided in the Type attribute.'
@@ -314,7 +313,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -331,7 +329,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:name
+      range: name
 
       The Selection child element must correspond to machine-executable instructions
       for extracting the information from the resource.'
@@ -344,7 +342,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - Resource
     - Coding
@@ -366,7 +364,7 @@ attributes:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Type
@@ -397,7 +395,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The value must be an existing element name or field name for the specific document
       or message type provided in the Type attribute.'
@@ -437,7 +435,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -454,7 +451,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:name
+      range: name
 
       The Selection child element must correspond to machine-executable instructions
       for extracting the information from the resource.'
@@ -471,7 +468,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Label

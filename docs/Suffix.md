@@ -126,6 +126,7 @@ attributes:
   owner: Suffix
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

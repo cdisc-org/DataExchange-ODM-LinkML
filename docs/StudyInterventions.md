@@ -31,7 +31,7 @@ URI: [odm:StudyInterventions](http://www.cdisc.org/ns/odm/v2.0/StudyIntervention
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyInterventionRefRef](StudyInterventionRefRef.md) | 0..* <br/> [StudyIntervention](StudyIntervention.md) | StudyInterventionRef reference: None | direct |
+| [StudyInterventionRefRef](StudyInterventionRefRef.md) | 0..* <br/> [StudyIntervention](StudyIntervention.md) | StudyInterventionRef reference: The StudyInterventionRef references an interv... | direct |
 
 
 
@@ -134,7 +134,8 @@ slot_usage:
 attributes:
   StudyInterventionRefRef:
     name: StudyInterventionRefRef
-    description: 'StudyInterventionRef reference: None'
+    description: 'StudyInterventionRef reference: The StudyInterventionRef references
+      an intervention that is taken as the treatment for the estimand.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

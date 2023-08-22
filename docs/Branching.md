@@ -46,8 +46,8 @@ URI: [odm:Branching](http://www.cdisc.org/ns/odm/v2.0/Branching)
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier of the version within the XML document. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | General observation Sub Class. | direct |
 | [Type](Type.md) | 1..1 <br/> [BranchingType](BranchingType.md) | Type of page for page references indicated in the PageRefs attribute. | direct |
-| [TargetTransitionRef](TargetTransitionRef.md) | 0..* <br/> [TargetTransition](TargetTransition.md) | TargetTransition reference: Provides a reference to a Transition element. | direct |
-| [DefaultTransitionRef](DefaultTransitionRef.md) | 0..* <br/> [DefaultTransition](DefaultTransition.md) | DefaultTransition reference: None | direct |
+| [TargetTransitionRef](TargetTransitionRef.md) | 0..* <br/> [TargetTransition](TargetTransition.md) | TargetTransition reference: TargetTransition provides a reference to a Transi... | direct |
+| [DefaultTransitionRef](DefaultTransitionRef.md) | 0..* <br/> [DefaultTransition](DefaultTransition.md) | DefaultTransition reference: The DefaultTransition references the Transition ... | direct |
 
 
 
@@ -122,7 +122,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The Branching/@OID attribute must be unique within the Study/MetaDataVersion.'
     domain_of:
@@ -157,7 +157,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -170,7 +169,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Branching/@Name attribute must be unique within the set of Study/MetaDataVersion/WorkflowDefs'
     domain_of:
@@ -205,7 +204,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -216,7 +214,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Exclusive | Parallel)
+      enum values: (Exclusive | Parallel)
 
       The TargetTransition element must provide a reference to a ConditionDef when
       the value of Type is "Exclusive".'
@@ -274,7 +272,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The Branching/@OID attribute must be unique within the Study/MetaDataVersion.'
     domain_of:
@@ -309,7 +307,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -322,7 +319,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Branching/@Name attribute must be unique within the set of Study/MetaDataVersion/WorkflowDefs'
     domain_of:
@@ -357,7 +354,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -368,7 +364,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Exclusive | Parallel)
+      enum values: (Exclusive | Parallel)
 
       The TargetTransition element must provide a reference to a ConditionDef when
       the value of Type is "Exclusive".'
@@ -412,7 +408,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The Branching/@OID attribute must be unique within the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -452,7 +448,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -466,7 +461,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Branching/@Name attribute must be unique within the set of Study/MetaDataVersion/WorkflowDefs'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -505,7 +500,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -517,7 +511,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:(Exclusive | Parallel)
+      enum values: (Exclusive | Parallel)
 
       The TargetTransition element must provide a reference to a ConditionDef when
       the value of Type is "Exclusive".'
@@ -544,8 +538,8 @@ attributes:
     required: true
   TargetTransitionRef:
     name: TargetTransitionRef
-    description: 'TargetTransition reference: Provides a reference to a Transition
-      element.'
+    description: 'TargetTransition reference: TargetTransition provides a reference
+      to a Transition element that is the target of a branching.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -559,7 +553,9 @@ attributes:
     inlined_as_list: true
   DefaultTransitionRef:
     name: DefaultTransitionRef
-    description: 'DefaultTransition reference: None'
+    description: 'DefaultTransition reference: The DefaultTransition references the
+      Transition that needs to be executed when none of the TargetTransitions can
+      be executed.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

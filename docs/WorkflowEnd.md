@@ -107,7 +107,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The EndOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef or ItemDef child element of the MetaDataVersion parent element
@@ -120,6 +120,7 @@ slot_usage:
     name: _content
     domain_of:
     - TranslatedText
+    - Title
     - CheckValue
     - Code
     - WorkflowEnd
@@ -169,7 +170,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The EndOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef or ItemDef child element of the MetaDataVersion parent element
@@ -182,6 +183,7 @@ slot_usage:
     name: _content
     domain_of:
     - TranslatedText
+    - Title
     - CheckValue
     - Code
     - WorkflowEnd
@@ -216,7 +218,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The EndOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef or ItemDef child element of the MetaDataVersion parent element
@@ -238,6 +240,7 @@ attributes:
     owner: WorkflowEnd
     domain_of:
     - TranslatedText
+    - Title
     - CheckValue
     - Code
     - WorkflowEnd

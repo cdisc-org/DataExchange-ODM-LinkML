@@ -18,8 +18,8 @@ URI: [odm:TargetTransitionOID](http://www.cdisc.org/ns/odm/v2.0/TargetTransition
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[TargetTransition](TargetTransition.md) | Provides a reference to a Transition element. |  yes  |
-[DefaultTransition](DefaultTransition.md) |  |  yes  |
+[TargetTransition](TargetTransition.md) | TargetTransition provides a reference to a Transition element that is the tar... |  yes  |
+[DefaultTransition](DefaultTransition.md) | The DefaultTransition references the Transition that needs to be executed whe... |  yes  |
 
 
 

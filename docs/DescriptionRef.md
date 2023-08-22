@@ -37,12 +37,12 @@ URI: [odm:DescriptionRef](http://www.cdisc.org/ns/odm/v2.0/DescriptionRef)
 [TrialPhase](TrialPhase.md) | The TrialPhase element designates the phase of the study in the clinical tria... |  yes  |
 [StudyIndication](StudyIndication.md) | This element describes a study indication (e.g., condition, disease) for the ... |  yes  |
 [StudyIntervention](StudyIntervention.md) | This element describes a study intervention (e.g., medication, treatment, the... |  yes  |
-[StudyObjective](StudyObjective.md) |  |  yes  |
+[StudyObjective](StudyObjective.md) | The reason for performing a study in terms of the scientific questions to be ... |  yes  |
 [StudyEndPoint](StudyEndPoint.md) | A study end point reflects an outcome measure of interest that is statistical... |  yes  |
 [StudyTargetPopulation](StudyTargetPopulation.md) | The StudyTargetPopulation describes the population targeted for the clinical ... |  yes  |
-[StudyEstimand](StudyEstimand.md) |  |  yes  |
-[IntercurrentEvent](IntercurrentEvent.md) |  |  yes  |
-[SummaryMeasure](SummaryMeasure.md) |  |  yes  |
+[StudyEstimand](StudyEstimand.md) | A precise description of the treatment effect reflecting the clinical questio... |  yes  |
+[IntercurrentEvent](IntercurrentEvent.md) | The IntercurrentEvent element describes an intercurrent event for an estimand... |  yes  |
+[SummaryMeasure](SummaryMeasure.md) | The SummaryMeasure element describes a summary measure for an estimand (e.g.,... |  yes  |
 [Arm](Arm.md) | An Arm element provides the declaration of a study arm. Arms do not have any ... |  yes  |
 [Epoch](Epoch.md) | The planned period of subjects' participation in the trial is divided into se... |  yes  |
 [TransitionTimingConstraint](TransitionTimingConstraint.md) | The TransitionTimingConstraint element defines a timing constraint on a trans... |  yes  |
@@ -51,7 +51,6 @@ URI: [odm:DescriptionRef](http://www.cdisc.org/ns/odm/v2.0/DescriptionRef)
 [DurationTimingConstraint](DurationTimingConstraint.md) | The DurationTimingConstraint constrains the duration of an activity represent... |  yes  |
 [WorkflowDef](WorkflowDef.md) | A WorkflowDef defines an automated workflow for a study. |  yes  |
 [Criterion](Criterion.md) | The Criterion represents either an inclusion or an exclusion criterion, depen... |  yes  |
-[ExceptionEvent](ExceptionEvent.md) | An ExceptionEvent describes an event that occurs suddenly in a study and that... |  yes  |
 [Organization](Organization.md) | An organization can reference a parent organization. Users may be associated ... |  yes  |
 [Location](Location.md) | A physical location associated with data collection and/or treatment of subje... |  yes  |
 [ODMFileMetadata](ODMFileMetadata.md) | Root element for ODM Documents. The ODM element is the top-level (root) eleme... |  yes  |
@@ -131,7 +130,6 @@ domain_of:
 - DurationTimingConstraint
 - WorkflowDef
 - Criterion
-- ExceptionEvent
 - Organization
 - Location
 - ODMFileMetadata

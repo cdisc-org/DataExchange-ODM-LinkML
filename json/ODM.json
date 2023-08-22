@@ -4731,6 +4731,9 @@
       "name": "ImageAttributeExtension"
     },
     {
+      "name": "TelecomAttributeExtension"
+    },
+    {
       "name": "OrganizationAttributeExtension"
     },
     {
@@ -4818,6 +4821,9 @@
       "name": "LeafAttributeExtension"
     },
     {
+      "name": "TitleAttributeExtension"
+    },
+    {
       "name": "PDFPageRefAttributeExtension"
     },
     {
@@ -4860,19 +4866,7 @@
       "name": "WorkflowEndAttributeExtension"
     },
     {
-      "name": "EntryExitCriteriaAttributeExtension"
-    },
-    {
-      "name": "EntryCriteriaAttributeExtension"
-    },
-    {
       "name": "CriterionAttributeExtension"
-    },
-    {
-      "name": "ExitCriteriaAttributeExtension"
-    },
-    {
-      "name": "ExceptionEventAttributeExtension"
     },
     {
       "name": "WorkflowRefAttributeExtension"
@@ -5278,10 +5272,6 @@
       "xs:sequence": null
     },
     {
-      "name": "SourceItemsElementExtension",
-      "xs:sequence": null
-    },
-    {
       "name": "SourceItemElementExtension",
       "xs:sequence": null
     },
@@ -5406,19 +5396,7 @@
       "xs:sequence": null
     },
     {
-      "name": "EntryCriteriaElementExtension",
-      "xs:sequence": null
-    },
-    {
       "name": "CriterionElementExtension",
-      "xs:sequence": null
-    },
-    {
-      "name": "ExitCriteriaElementExtension",
-      "xs:sequence": null
-    },
-    {
-      "name": "ExceptionEventElementExtension",
       "xs:sequence": null
     },
     {
@@ -5442,23 +5420,11 @@
       "xs:sequence": null
     },
     {
-      "name": "StudyIndicationsElementExtension",
-      "xs:sequence": null
-    },
-    {
       "name": "StudyIndicationElementExtension",
       "xs:sequence": null
     },
     {
-      "name": "StudyInterventionsElementExtension",
-      "xs:sequence": null
-    },
-    {
       "name": "StudyInterventionElementExtension",
-      "xs:sequence": null
-    },
-    {
-      "name": "StudyObjectivesElementExtension",
       "xs:sequence": null
     },
     {
@@ -5470,19 +5436,11 @@
       "xs:sequence": null
     },
     {
-      "name": "StudyEndPointsElementExtension",
-      "xs:sequence": null
-    },
-    {
       "name": "StudyEndPointElementExtension",
       "xs:sequence": null
     },
     {
       "name": "StudyTargetPopulationElementExtension",
-      "xs:sequence": null
-    },
-    {
-      "name": "StudyEstimandsElementExtension",
       "xs:sequence": null
     },
     {
@@ -5527,10 +5485,6 @@
     },
     {
       "name": "ParameterValueElementExtension",
-      "xs:sequence": null
-    },
-    {
-      "name": "StudyTimingsElementExtension",
       "xs:sequence": null
     },
     {
@@ -6074,7 +6028,7 @@
         "maxOccurs": 1,
         "minOccurs": 1,
         "xs:element": {
-          "name": "Title",
+          "ref": "Title",
           "minOccurs": 1,
           "maxOccurs": 1,
           "nillable": false,
@@ -6098,6 +6052,21 @@
           "ref": "LeafAttributeExtension"
         }
       ]
+    },
+    {
+      "name": "ODMcomplexTypeDefinition-Title",
+      "abstract": false,
+      "mixed": false,
+      "xs:simpleContent": {
+        "xs:extension": {
+          "base": "text",
+          "xs:attributeGroup": [
+            {
+              "ref": "TitleAttributeExtension"
+            }
+          ]
+        }
+      }
     },
     {
       "name": "ODMcomplexTypeDefinition-Include",
@@ -6746,12 +6715,7 @@
             "maxOccurs": "unbounded",
             "nillable": false
           }
-        ],
-        "xs:group": {
-          "ref": "SourceItemsElementExtension",
-          "minOccurs": 0,
-          "maxOccurs": "unbounded"
-        }
+        ]
       },
       "xs:attributeGroup": [
         {
@@ -7849,11 +7813,6 @@
           "minOccurs": 1,
           "maxOccurs": "unbounded",
           "nillable": false
-        },
-        "xs:group": {
-          "ref": "StudyIndicationsElementExtension",
-          "minOccurs": 0,
-          "maxOccurs": "unbounded"
         }
       },
       "xs:attributeGroup": [
@@ -7910,11 +7869,6 @@
           "minOccurs": 1,
           "maxOccurs": "unbounded",
           "nillable": false
-        },
-        "xs:group": {
-          "ref": "StudyInterventionsElementExtension",
-          "minOccurs": 0,
-          "maxOccurs": "unbounded"
         }
       },
       "xs:attributeGroup": [
@@ -7971,11 +7925,6 @@
           "minOccurs": 1,
           "maxOccurs": "unbounded",
           "nillable": false
-        },
-        "xs:group": {
-          "ref": "StudyObjectivesElementExtension",
-          "minOccurs": 0,
-          "maxOccurs": "unbounded"
         }
       },
       "xs:attributeGroup": [
@@ -8054,11 +8003,6 @@
           "minOccurs": 1,
           "maxOccurs": "unbounded",
           "nillable": false
-        },
-        "xs:group": {
-          "ref": "StudyEndPointsElementExtension",
-          "minOccurs": 0,
-          "maxOccurs": "unbounded"
         }
       },
       "xs:attributeGroup": [
@@ -8157,11 +8101,6 @@
           "minOccurs": 1,
           "maxOccurs": "unbounded",
           "nillable": false
-        },
-        "xs:group": {
-          "ref": "StudyEstimandsElementExtension",
-          "minOccurs": 0,
-          "maxOccurs": "unbounded"
         }
       },
       "xs:attributeGroup": [
@@ -8587,11 +8526,6 @@
           "maxOccurs": "unbounded",
           "minOccurs": 1,
           "nillable": false
-        },
-        "xs:group": {
-          "ref": "StudyTimingsElementExtension",
-          "maxOccurs": 1,
-          "minOccurs": 1
         }
       },
       "xs:attributeGroup": [
@@ -8950,91 +8884,6 @@
           ]
         }
       }
-    },
-    {
-      "name": "ODMcomplexTypeDefinition-EntryCriteria",
-      "abstract": false,
-      "mixed": false,
-      "xs:sequence": {
-        "maxOccurs": 1,
-        "minOccurs": 1,
-        "xs:element": {
-          "ref": "Criterion",
-          "minOccurs": 0,
-          "maxOccurs": "unbounded",
-          "nillable": false
-        },
-        "xs:group": {
-          "ref": "EntryCriteriaElementExtension",
-          "minOccurs": 0,
-          "maxOccurs": "unbounded"
-        }
-      },
-      "xs:attributeGroup": [
-        {
-          "ref": "EntryCriteriaAttributeExtension"
-        }
-      ]
-    },
-    {
-      "name": "ODMcomplexTypeDefinition-ExitCriteria",
-      "abstract": false,
-      "mixed": false,
-      "xs:sequence": {
-        "maxOccurs": 1,
-        "minOccurs": 1,
-        "xs:element": {
-          "ref": "Criterion",
-          "minOccurs": 0,
-          "maxOccurs": "unbounded",
-          "nillable": false
-        },
-        "xs:group": {
-          "ref": "ExitCriteriaElementExtension",
-          "minOccurs": 0,
-          "maxOccurs": "unbounded"
-        }
-      },
-      "xs:attributeGroup": [
-        {
-          "ref": "ExitCriteriaAttributeExtension"
-        }
-      ]
-    },
-    {
-      "name": "ODMcomplexTypeDefinition-ExceptionEvent",
-      "abstract": false,
-      "mixed": false,
-      "xs:sequence": {
-        "maxOccurs": 1,
-        "minOccurs": 1,
-        "xs:element": {
-          "ref": "Description",
-          "minOccurs": 0,
-          "maxOccurs": 1,
-          "nillable": false
-        },
-        "xs:group": [
-          {
-            "ref": "ExceptionEventGroupDefinition",
-            "minOccurs": 1,
-            "maxOccurs": 1
-          },
-          {
-            "ref": "ExceptionEventElementExtension",
-            "minOccurs": 0,
-            "maxOccurs": 1
-          }
-        ]
-      },
-      "xs:attributeGroup": [
-        {
-          "ref": "ExceptionEventAttributeDefinition"
-        },
-        {
-          "ref": "ExceptionEventAttributeExtension"
-        }
-      ]
     },
     {
       "name": "ODMcomplexTypeDefinition-AdminData",
@@ -9455,6 +9304,9 @@
       "xs:attributeGroup": [
         {
           "ref": "TelecomAttributeDefinition"
+        },
+        {
+          "ref": "TelecomAttributeExtension"
         }
       ]
     },
@@ -10689,6 +10541,12 @@
       "nillable": false
     },
     {
+      "name": "Title",
+      "type": "ODMcomplexTypeDefinition-Title",
+      "abstract": false,
+      "nillable": false
+    },
+    {
       "name": "Include",
       "type": "ODMcomplexTypeDefinition-Include",
       "abstract": false,
@@ -11553,24 +11411,6 @@
     {
       "name": "Criterion",
       "type": "ODMcomplexTypeDefinition-Criterion",
-      "abstract": false,
-      "nillable": false
-    },
-    {
-      "name": "EntryCriteria",
-      "type": "ODMcomplexTypeDefinition-EntryCriteria",
-      "abstract": false,
-      "nillable": false
-    },
-    {
-      "name": "ExitCriteria",
-      "type": "ODMcomplexTypeDefinition-ExitCriteria",
-      "abstract": false,
-      "nillable": false
-    },
-    {
-      "name": "ExceptionEvent",
-      "type": "ODMcomplexTypeDefinition-ExceptionEvent",
       "abstract": false,
       "nillable": false
     },

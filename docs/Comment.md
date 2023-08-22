@@ -109,7 +109,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(Sponsor | Site)'
+      enum values: (Sponsor | Site)'
     domain_of:
     - Comment
     range: CommentType
@@ -152,7 +152,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(Sponsor | Site)'
+      enum values: (Sponsor | Site)'
     domain_of:
     - Comment
     range: CommentType
@@ -180,7 +180,7 @@ attributes:
     comments:
     - 'Optional
 
-      enum values:(Sponsor | Site)'
+      enum values: (Sponsor | Site)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SponsorOrSite

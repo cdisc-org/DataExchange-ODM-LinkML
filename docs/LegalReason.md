@@ -128,6 +128,7 @@ attributes:
   owner: LegalReason
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

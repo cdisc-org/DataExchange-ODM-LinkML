@@ -126,6 +126,7 @@ attributes:
   owner: StreetName
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

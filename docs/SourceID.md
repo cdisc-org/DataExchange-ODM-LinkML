@@ -128,6 +128,7 @@ attributes:
   owner: SourceID
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

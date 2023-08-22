@@ -126,6 +126,7 @@ attributes:
   owner: GivenName
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

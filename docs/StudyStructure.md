@@ -151,7 +151,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -182,7 +181,6 @@ slot_usage:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
 class_uri: odm:StudyStructure
@@ -237,7 +235,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -268,7 +265,6 @@ slot_usage:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
 attributes:
@@ -315,7 +311,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -370,7 +365,6 @@ attributes:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
 class_uri: odm:StudyStructure

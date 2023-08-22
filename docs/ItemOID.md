@@ -1,7 +1,7 @@
 # Slot: ItemOID
 
 
-_Reference to the ItemDef ._
+_Reference to the ItemDef._
 
 
 
@@ -59,7 +59,7 @@ URI: [odm:ItemOID](http://www.cdisc.org/ns/odm/v2.0/ItemOID)
 <details>
 ```yaml
 name: ItemOID
-description: Reference to the ItemDef .
+description: Reference to the ItemDef.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ItemOID

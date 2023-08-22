@@ -106,7 +106,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       When there is a Coding child element, the Values will reflect the requirements
       of the referenced coding system.'
@@ -162,7 +162,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       When there is a Coding child element, the Values will reflect the requirements
       of the referenced coding system.'
@@ -204,7 +204,7 @@ attributes:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       When there is a Coding child element, the Values will reflect the requirements
       of the referenced coding system.'

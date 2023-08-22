@@ -105,6 +105,7 @@ message City
   contentType content = 0
   string range = 0
  }
+// The Class element identifies which predefined Class within the model applies to the definition of the dataset.
 message Class
  {
   itemGroupClass name = 0
@@ -217,6 +218,7 @@ message Criterion
   description descriptionRef = 0
  repeated  coding codingRef = 0
  }
+// Date and time when an action was performed.
 message DateTimeStamp
  {
   contentType content = 0
@@ -227,6 +229,7 @@ message Decode
  {
  repeated  translatedText translatedTextRef = 0
  }
+// The DefaultTransition references the Transition that needs to be executed when none of the TargetTransitions can be executed.
 message DefaultTransition
  {
   oidref targetTransitionOID = 0
@@ -258,10 +261,6 @@ message DurationTimingConstraint
   durationDatetime durationPostWindow = 0
   description descriptionRef = 0
  }
-message EntryCriteria
- {
- repeated  criterion criterionRef = 0
- }
 // The planned period of subjects' participation in the trial is divided into sequential epochs. Each epoch is a period of time that serves a purpose in the trial as a whole. Epochs cannot overlap. The sequence of the epoch in the study is provided by the SequenceNumber attribute, the first epoch in the study being assigned the sequence number 1. Sequence numbers are subsequent.
 message Epoch
  {
@@ -275,23 +274,8 @@ message ErrorMessage
  {
  repeated  translatedText translatedTextRef = 0
  }
-// An ExceptionEvent describes an event that occurs suddenly in a study and that was not planned as part of the normal workflow of the study. Examples are adverse events, death of a subject not caused by an adverse event, etc.
-message ExceptionEvent
- {
-  oid oID = 0
-  name name = 0
-  oidref conditionOID = 0
-  description descriptionRef = 0
-  workflowRef workflowRefRef = 0
-  studyEventGroupRef studyEventGroupRefRef = 0
-  studyEventRef studyEventRefRef = 0
- }
 // The ExclusionCriteria is a container element for Criterion elements describing exclusion criteria for subjects in the study. When a list is provided, not meeting any of the criteria in the list may lead to exclusion of enrollment in the study.
 message ExclusionCriteria
- {
- repeated  criterion criterionRef = 0
- }
-message ExitCriteria
  {
  repeated  criterion criterionRef = 0
  }
@@ -390,6 +374,7 @@ message InclusionExclusionCriteria
   inclusionCriteria inclusionCriteriaRef = 0
   exclusionCriteria exclusionCriteriaRef = 0
  }
+// The IntercurrentEvent element describes an intercurrent event for an estimand (e.g., treatment discontinuation).
 message IntercurrentEvent
  {
   description descriptionRef = 0
@@ -523,7 +508,7 @@ message Leaf
  {
   oid iD = 0
   uriorcurie href = 0
-  text title = 0
+  title titleRef = 0
  }
 // The responsibility statement associated with a signature (e.g., "The signer accepts responsibility for the accuracy of this data.").
 message LegalReason
@@ -677,7 +662,7 @@ message PDFPageRef
   positiveInteger firstPage = 0
   positiveInteger lastPage = 0
   pDFPageType type = 0
-  text title = 0
+  text titleRef = 0
  }
 // The postal code part of a user's postal address.
 message PostalCode
@@ -812,11 +797,12 @@ message SignatureDef
   meaning meaningRef = 0
   legalReason legalReasonRef = 0
  }
+// A reference to the signature meaning.
 message SignatureRef
  {
   oidref signatureOID = 0
  }
-// lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType is Transactional.
+// Provides a reference to the site that the SubjectData record is associated with in the source system.
 message SiteRef
  {
   oidref locationOID = 0
@@ -901,11 +887,12 @@ message StudyEndPointRef
   oidref studyEndPointOID = 0
   positiveInteger orderNumber = 0
  }
-// Go to start of metadata
+// The StudyEndPoints element is a container element for individual StudyEndPoint elements.
 message StudyEndPoints
  {
  repeated  studyEndPoint studyEndPointRefRef = 0
  }
+// A precise description of the treatment effect reflecting the clinical question posed by a given clinical trial objective. It summarises at a population level what the outcomes would be in the same patients under different treatment conditions being compared.
 message StudyEstimand
  {
   oid oID = 0
@@ -918,6 +905,7 @@ message StudyEstimand
  repeated  intercurrentEvent intercurrentEventRef = 0
   summaryMeasure summaryMeasureRef = 0
  }
+// StudyEstimands is a container element for individual StudyEstimand elements.
 message StudyEstimands
  {
  repeated  studyEstimand studyEstimandRef = 0
@@ -999,6 +987,7 @@ message StudyIntervention
   description descriptionRef = 0
  repeated  coding codingRef = 0
  }
+// The StudyInterventionRef references an intervention that is taken as the treatment for the estimand.
 message StudyInterventionRef
  {
   oidref studyInterventionOID = 0
@@ -1008,6 +997,7 @@ message StudyInterventions
  {
  repeated  studyIntervention studyInterventionRefRef = 0
  }
+// The reason for performing a study in terms of the scientific questions to be answered by the analysis of data collected during the study.
 message StudyObjective
  {
   oid oID = 0
@@ -1052,6 +1042,7 @@ message StudyTargetPopulation
  repeated  coding codingRef = 0
  repeated  formalExpression formalExpressionRef = 0
  }
+// The StudyTargetPopulationRef references a StudyTargetPopulation to which the estimand applies.
 message StudyTargetPopulationRef
  {
   oidref studyTargetPopulationOID = 0
@@ -1096,6 +1087,7 @@ message Suffix
   contentType content = 0
   string range = 0
  }
+// The SummaryMeasure element describes a summary measure for an estimand (e.g., proportion of patients with an improvement).
 message SummaryMeasure
  {
   description descriptionRef = 0
@@ -1105,7 +1097,7 @@ message SupplementalDoc
  {
  repeated  documentRef documentRefRef = 0
  }
-// Provides a reference to a Transition element.
+// TargetTransition provides a reference to a Transition element that is the target of a branching.
 message TargetTransition
  {
   oidref targetTransitionOID = 0
@@ -1116,6 +1108,12 @@ message Telecom
  {
   telecomTypeType telecomType = 0
   text valueRef = 0
+ }
+// Text with the label for the document or dataset.
+message Title
+ {
+  contentType content = 0
+  string range = 0
  }
 // A Transition defines a link between 2 structural elements in a workflow. When the execution of the transition is dependent upon a timing constraint that is either directly defined or calculated, a TransitionTimingConstraint must be defined, referencing the current Transition.
 message Transition
@@ -1176,6 +1174,7 @@ message UserName
   contentType content = 0
   string range = 0
  }
+// A reference to information about a specific user of a clinical data collection or data management system.
 message UserRef
  {
   oidref userOID = 0

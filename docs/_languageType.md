@@ -7,7 +7,7 @@ _language context for internationalisation and localisation_
 
 
 
-URI: [xml:lang](http://ncicb.nci.nih.gov/xml/odm/EVS/CDISClang)
+URI: [xml:lang](http://www.w3.org/XML/1998/namespacelang)
 
 * [base](https://w3id.org/linkml/base): str
 

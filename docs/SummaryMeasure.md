@@ -1,6 +1,11 @@
 # Class: SummaryMeasure
 
 
+_The SummaryMeasure element describes a summary measure for an estimand (e.g., proportion of patients with an improvement)._
+
+
+
+
 
 URI: [odm:SummaryMeasure](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasure)
 
@@ -84,6 +89,8 @@ URI: [odm:SummaryMeasure](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasure)
 <details>
 ```yaml
 name: SummaryMeasure
+description: The SummaryMeasure element describes a summary measure for an estimand
+  (e.g., proportion of patients with an improvement).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SummaryMeasure
@@ -126,7 +133,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -142,6 +148,8 @@ class_uri: odm:SummaryMeasure
 <details>
 ```yaml
 name: SummaryMeasure
+description: The SummaryMeasure element describes a summary measure for an estimand
+  (e.g., proportion of patients with an improvement).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SummaryMeasure
@@ -182,7 +190,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -232,7 +239,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

@@ -1,7 +1,7 @@
 # Slot: StudyObjectiveRef
 
 
-_StudyObjective reference: None_
+_StudyObjective reference: The reason for performing a study in terms of the scientific questions to be answered by the analysis of data collected during the study._
 
 
 
@@ -55,7 +55,9 @@ URI: [odm:StudyObjectiveRef](http://www.cdisc.org/ns/odm/v2.0/StudyObjectiveRef)
 <details>
 ```yaml
 name: StudyObjectiveRef
-description: 'StudyObjective reference: None'
+description: 'StudyObjective reference: The reason for performing a study in terms
+  of the scientific questions to be answered by the analysis of data collected during
+  the study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

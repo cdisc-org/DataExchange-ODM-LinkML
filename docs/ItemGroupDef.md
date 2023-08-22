@@ -117,7 +117,7 @@ URI: [odm:ItemGroupDef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDef)
 | [HasNoData](HasNoData.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d... | direct |
 | [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef with sponsor provided information related to this I... | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [ClassRef](ClassRef.md) | 0..1 <br/> [Class](Class.md) | Class reference: None | direct |
+| [ClassRef](ClassRef.md) | 0..1 <br/> [Class](Class.md) | Class reference: The Class element identifies which predefined Class within t... | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 | [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
 | [OriginRef](OriginRef.md) | 0..* <br/> [Origin](Origin.md) | Origin reference: Origin defines the source metadata, where applicable, for O... | direct |
@@ -219,7 +219,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
     domain_of:
@@ -254,7 +254,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -268,7 +267,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Name attribute must be unique within set of ItemGroupDef elements within
       a Study/MetadataVersion.'
@@ -304,7 +303,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -313,7 +311,7 @@ slot_usage:
   Repeating:
     name: Repeating
     description: 'The Repeating attribute indicates that the ItemGroup may occur repeatedly
-      within the containing element . Simple - the ItemGroup repeats within the containing
+      within the containing element. Simple - the ItemGroup repeats within the containing
       element and is not bound in any way. Note: It is equivalent to the ODM v1.3.2
       case where Repeating="Yes". Dynamic - ItemGroupData repeats based on values
       in a codelist. There may be multiple occurrences for some codelist items. Static
@@ -322,7 +320,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(No | Simple | Dynamic | Static)
+      enum values: (No | Simple | Dynamic | Static)
 
       For cases where Repeating is set to Dynamic or Static, one ItemRef within the
       ItemGroup must include the Repeat="Yes" attribute to indicate that that specific
@@ -341,7 +339,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       RepeatingLimit can only be used when Repeating="Simple".'
     domain_of:
@@ -353,7 +351,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       Data content for ItemGroupDef elements where the IsReferenceData attribute is
       "Yes" is under the /ODM/ReferenceData element.'
@@ -367,7 +365,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ItemGroupDef
     range: text
@@ -378,7 +376,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       If provided, the value must match the leaf ID attribute of the leaf child element.'
     domain_of:
@@ -392,7 +390,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:name
+      range: name
 
       Could have constraints on individual ODM extensions, such as Define-XML or associated
       CDISC Metadata Guidelines. For example, DatasetName could be defined as sasName
@@ -409,7 +407,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       Usage requirements are based on the applicable CDISC Standard. Could have constraints
       on individual ODM extensions, such as Define-XML or associated CDISC Metadata
@@ -426,7 +424,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Form | Section | Dataset | Concept)
+      enum values: (Form | Section | Dataset | Concept)
 
       Type is an extensible attribute. Type="Section" can only be used when the ItemGroup
       has a top-level ancestor ItemGroup that has Type="Form".'
@@ -453,7 +451,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       Usage requirements are based on the applicable CDISC Standard. Could have constraints
       on individual ODM extensions, such as Define-XML or associated CDISC Metadata
@@ -467,7 +465,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute of a Standard element within this Study/MetaDataVersion/Standards.'
     domain_of:
@@ -480,7 +478,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:Yes
+      range: Yes
 
       Must not be provided when StandardOID is provided.'
     domain_of:
@@ -495,7 +493,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:Yes
+      range: Yes
 
       A comment must be included to explain why no data are present for datasets that
       were planned for use in the study.'
@@ -510,7 +508,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute of a CommentDef element within this Study/MetaDataVersion.'
     domain_of:
@@ -563,7 +561,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -607,7 +604,6 @@ slot_usage:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
   OriginRef:
@@ -681,7 +677,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
     domain_of:
@@ -716,7 +712,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -730,7 +725,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Name attribute must be unique within set of ItemGroupDef elements within
       a Study/MetadataVersion.'
@@ -766,7 +761,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -775,7 +769,7 @@ slot_usage:
   Repeating:
     name: Repeating
     description: 'The Repeating attribute indicates that the ItemGroup may occur repeatedly
-      within the containing element . Simple - the ItemGroup repeats within the containing
+      within the containing element. Simple - the ItemGroup repeats within the containing
       element and is not bound in any way. Note: It is equivalent to the ODM v1.3.2
       case where Repeating="Yes". Dynamic - ItemGroupData repeats based on values
       in a codelist. There may be multiple occurrences for some codelist items. Static
@@ -784,7 +778,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(No | Simple | Dynamic | Static)
+      enum values: (No | Simple | Dynamic | Static)
 
       For cases where Repeating is set to Dynamic or Static, one ItemRef within the
       ItemGroup must include the Repeat="Yes" attribute to indicate that that specific
@@ -803,7 +797,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       RepeatingLimit can only be used when Repeating="Simple".'
     domain_of:
@@ -815,7 +809,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       Data content for ItemGroupDef elements where the IsReferenceData attribute is
       "Yes" is under the /ODM/ReferenceData element.'
@@ -829,7 +823,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ItemGroupDef
     range: text
@@ -840,7 +834,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       If provided, the value must match the leaf ID attribute of the leaf child element.'
     domain_of:
@@ -854,7 +848,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:name
+      range: name
 
       Could have constraints on individual ODM extensions, such as Define-XML or associated
       CDISC Metadata Guidelines. For example, DatasetName could be defined as sasName
@@ -871,7 +865,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       Usage requirements are based on the applicable CDISC Standard. Could have constraints
       on individual ODM extensions, such as Define-XML or associated CDISC Metadata
@@ -888,7 +882,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Form | Section | Dataset | Concept)
+      enum values: (Form | Section | Dataset | Concept)
 
       Type is an extensible attribute. Type="Section" can only be used when the ItemGroup
       has a top-level ancestor ItemGroup that has Type="Form".'
@@ -915,7 +909,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       Usage requirements are based on the applicable CDISC Standard. Could have constraints
       on individual ODM extensions, such as Define-XML or associated CDISC Metadata
@@ -929,7 +923,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute of a Standard element within this Study/MetaDataVersion/Standards.'
     domain_of:
@@ -942,7 +936,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:Yes
+      range: Yes
 
       Must not be provided when StandardOID is provided.'
     domain_of:
@@ -957,7 +951,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:Yes
+      range: Yes
 
       A comment must be included to explain why no data are present for datasets that
       were planned for use in the study.'
@@ -972,7 +966,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute of a CommentDef element within this Study/MetaDataVersion.'
     domain_of:
@@ -1025,7 +1019,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -1069,7 +1062,6 @@ slot_usage:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
   OriginRef:
@@ -1128,7 +1120,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1168,7 +1160,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -1182,7 +1173,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       The Name attribute must be unique within set of ItemGroupDef elements within
       a Study/MetadataVersion.'
@@ -1222,7 +1213,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -1231,7 +1221,7 @@ attributes:
   Repeating:
     name: Repeating
     description: 'The Repeating attribute indicates that the ItemGroup may occur repeatedly
-      within the containing element . Simple - the ItemGroup repeats within the containing
+      within the containing element. Simple - the ItemGroup repeats within the containing
       element and is not bound in any way. Note: It is equivalent to the ODM v1.3.2
       case where Repeating="Yes". Dynamic - ItemGroupData repeats based on values
       in a codelist. There may be multiple occurrences for some codelist items. Static
@@ -1240,7 +1230,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:(No | Simple | Dynamic | Static)
+      enum values: (No | Simple | Dynamic | Static)
 
       For cases where Repeating is set to Dynamic or Static, one ItemRef within the
       ItemGroup must include the Repeat="Yes" attribute to indicate that that specific
@@ -1263,7 +1253,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       RepeatingLimit can only be used when Repeating="Simple".'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1279,7 +1269,7 @@ attributes:
     comments:
     - 'Optional
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       Data content for ItemGroupDef elements where the IsReferenceData attribute is
       "Yes" is under the /ODM/ReferenceData element.'
@@ -1297,7 +1287,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Structure
@@ -1312,7 +1302,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       If provided, the value must match the leaf ID attribute of the leaf child element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1330,7 +1320,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:name
+      range: name
 
       Could have constraints on individual ODM extensions, such as Define-XML or associated
       CDISC Metadata Guidelines. For example, DatasetName could be defined as sasName
@@ -1351,7 +1341,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       Usage requirements are based on the applicable CDISC Standard. Could have constraints
       on individual ODM extensions, such as Define-XML or associated CDISC Metadata
@@ -1372,7 +1362,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:(Form | Section | Dataset | Concept)
+      enum values: (Form | Section | Dataset | Concept)
 
       Type is an extensible attribute. Type="Section" can only be used when the ItemGroup
       has a top-level ancestor ItemGroup that has Type="Form".'
@@ -1403,7 +1393,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       Usage requirements are based on the applicable CDISC Standard. Could have constraints
       on individual ODM extensions, such as Define-XML or associated CDISC Metadata
@@ -1421,7 +1411,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute of a Standard element within this Study/MetaDataVersion/Standards.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1438,7 +1428,7 @@ attributes:
     comments:
     - 'Conditional
 
-      range:Yes
+      range: Yes
 
       Must not be provided when StandardOID is provided.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1457,7 +1447,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:Yes
+      range: Yes
 
       A comment must be included to explain why no data are present for datasets that
       were planned for use in the study.'
@@ -1476,7 +1466,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute of a CommentDef element within this Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -1540,7 +1530,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -1548,7 +1537,8 @@ attributes:
     maximum_cardinality: 1
   ClassRef:
     name: ClassRef
-    description: 'Class reference: None'
+    description: 'Class reference: The Class element identifies which predefined Class
+      within the model applies to the definition of the dataset.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -1607,7 +1597,6 @@ attributes:
     - Protocol
     - StudyStructure
     - Arm
-    - ExceptionEvent
     range: WorkflowRef
     maximum_cardinality: 1
   OriginRef:

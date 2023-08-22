@@ -1,7 +1,7 @@
 # Slot: StudyEndPointsRef
 
 
-_StudyEndPoints reference: Go to start of metadata_
+_StudyEndPoints reference: The StudyEndPoints element is a container element for individual StudyEndPoint elements._
 
 
 
@@ -55,7 +55,8 @@ URI: [odm:StudyEndPointsRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointsRef)
 <details>
 ```yaml
 name: StudyEndPointsRef
-description: 'StudyEndPoints reference: Go to start of metadata'
+description: 'StudyEndPoints reference: The StudyEndPoints element is a container
+  element for individual StudyEndPoint elements.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

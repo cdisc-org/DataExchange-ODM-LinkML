@@ -169,7 +169,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       For each UserRef/@UserOID value in an AuditRecord or Signature element in the
       Clinical Data there must be a User element with a matching OID attribute.'
@@ -205,7 +205,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -219,7 +218,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(Sponsor | Investigator | Subject | Monitor | Data analyst | Care
+      enum values: (Sponsor | Investigator | Subject | Monitor | Data analyst | Care
       provider | Assessor | Lab | Other)
 
       A user can be a member of more than one organization, work or enter data at
@@ -234,7 +233,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for an OrganizationDef element within this AdminData
       element.'
@@ -248,7 +247,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for an OrganizationDef element within this AdminData
       element.'
@@ -342,7 +341,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       For each UserRef/@UserOID value in an AuditRecord or Signature element in the
       Clinical Data there must be a User element with a matching OID attribute.'
@@ -378,7 +377,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -392,7 +390,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(Sponsor | Investigator | Subject | Monitor | Data analyst | Care
+      enum values: (Sponsor | Investigator | Subject | Monitor | Data analyst | Care
       provider | Assessor | Lab | Other)
 
       A user can be a member of more than one organization, work or enter data at
@@ -407,7 +405,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for an OrganizationDef element within this AdminData
       element.'
@@ -421,7 +419,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for an OrganizationDef element within this AdminData
       element.'
@@ -500,7 +498,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       For each UserRef/@UserOID value in an AuditRecord or Signature element in the
       Clinical Data there must be a User element with a matching OID attribute.'
@@ -541,7 +539,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -555,7 +552,7 @@ attributes:
     comments:
     - 'Optional
 
-      enum values:(Sponsor | Investigator | Subject | Monitor | Data analyst | Care
+      enum values: (Sponsor | Investigator | Subject | Monitor | Data analyst | Care
       provider | Assessor | Lab | Other)
 
       A user can be a member of more than one organization, work or enter data at
@@ -574,7 +571,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for an OrganizationDef element within this AdminData
       element.'
@@ -592,7 +589,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for an OrganizationDef element within this AdminData
       element.'

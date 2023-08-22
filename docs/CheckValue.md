@@ -126,6 +126,7 @@ attributes:
   owner: CheckValue
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

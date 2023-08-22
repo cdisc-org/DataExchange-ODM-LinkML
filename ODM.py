@@ -1,9 +1,9 @@
 # Auto generated from ODM.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-08-21T10:02:43
+# Generation date: 2023-08-22T11:56:32
 # Schema: odm
 #
 # id: http://www.cdisc.org/ns/odm/v2.0
-# description:
+# description: ODM is a vendor-neutral, platform-independent format for exchanging and archiving clinical and translational research data, along with their associated metadata, administrative data, reference data, and audit information.
 # license:
 
 import dataclasses
@@ -39,7 +39,7 @@ SHEX = CurieNamespace('shex', 'http://www.w3.org/ns/shex#')
 TEXT = CurieNamespace('text', 'http://example.org/UNKNOWN/text/')
 VALUE = CurieNamespace('value', 'http://example.org/UNKNOWN/value/')
 XHTML = CurieNamespace('xhtml', 'http://www.w3.org/1999/xhtml')
-XML = CurieNamespace('xml', 'http://ncicb.nci.nih.gov/xml/odm/EVS/CDISC')
+XML = CurieNamespace('xml', 'http://www.w3.org/XML/1998/namespace')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = ODM
 
@@ -339,8 +339,8 @@ class ItemGroupClassSubClass(str):
 
 class LanguageType(str):
     """ language context for internationalisation and localisation """
-    type_class_uri = NCI.lang
-    type_class_curie = "nci:lang"
+    type_class_uri = XML.lang
+    type_class_curie = "xml:lang"
     type_name = "_languageType"
     type_model_uri = ODM.LanguageType
 
@@ -611,10 +611,6 @@ class BranchingOID(extended_str):
 
 
 class CriterionOID(extended_str):
-    pass
-
-
-class ExceptionEventOID(extended_str):
     pass
 
 
@@ -924,7 +920,7 @@ class PDFPageRef(YAMLRoot):
     PageRefs: Optional[str] = None
     FirstPage: Optional[int] = None
     LastPage: Optional[int] = None
-    Title: Optional[str] = None
+    TitleRef: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.Type):
@@ -941,8 +937,8 @@ class PDFPageRef(YAMLRoot):
         if self.LastPage is not None and not isinstance(self.LastPage, int):
             self.LastPage = int(self.LastPage)
 
-        if self.Title is not None and not isinstance(self.Title, str):
-            self.Title = str(self.Title)
+        if self.TitleRef is not None and not isinstance(self.TitleRef, str):
+            self.TitleRef = str(self.TitleRef)
 
         super().__post_init__(**kwargs)
 
@@ -961,7 +957,7 @@ class Leaf(YAMLRoot):
 
     ID: Union[str, LeafID] = None
     href: Union[str, URIorCURIE] = None
-    Title: Optional[str] = None
+    TitleRef: Optional[Union[dict, "Title"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.ID):
@@ -974,8 +970,33 @@ class Leaf(YAMLRoot):
         if not isinstance(self.href, URIorCURIE):
             self.href = URIorCURIE(self.href)
 
-        if self.Title is not None and not isinstance(self.Title, str):
-            self.Title = str(self.Title)
+        if self.TitleRef is not None and not isinstance(self.TitleRef, Title):
+            self.TitleRef = Title(**as_dict(self.TitleRef))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Title(YAMLRoot):
+    """
+    Text with the label for the document or dataset.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ODM.Title
+    class_class_curie: ClassVar[str] = "odm:Title"
+    class_name: ClassVar[str] = "Title"
+    class_model_uri: ClassVar[URIRef] = ODM.Title
+
+    _content: Optional[str] = None
+    range: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._content is not None and not isinstance(self._content, str):
+            self._content = str(self._content)
+
+        if self.range is not None and not isinstance(self.range, str):
+            self.range = str(self.range)
 
         super().__post_init__(**kwargs)
 
@@ -1615,6 +1636,9 @@ class ItemGroupDef(YAMLRoot):
 
 @dataclass
 class Class(YAMLRoot):
+    """
+    The Class element identifies which predefined Class within the model applies to the definition of the dataset.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ODM.Class
@@ -3106,6 +3130,10 @@ class StudyObjectives(YAMLRoot):
 
 @dataclass
 class StudyObjective(YAMLRoot):
+    """
+    The reason for performing a study in terms of the scientific questions to be answered by the analysis of data
+    collected during the study.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ODM.StudyObjective
@@ -3173,7 +3201,7 @@ class StudyEndPointRef(YAMLRoot):
 @dataclass
 class StudyEndPoints(YAMLRoot):
     """
-    Go to start of metadata
+    The StudyEndPoints element is a container element for individual StudyEndPoint elements.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -3284,6 +3312,9 @@ class StudyTargetPopulation(YAMLRoot):
 
 @dataclass
 class StudyEstimands(YAMLRoot):
+    """
+    StudyEstimands is a container element for individual StudyEstimand elements.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ODM.StudyEstimands
@@ -3301,6 +3332,11 @@ class StudyEstimands(YAMLRoot):
 
 @dataclass
 class StudyEstimand(YAMLRoot):
+    """
+    A precise description of the treatment effect reflecting the clinical question posed by a given clinical trial
+    objective. It summarises at a population level what the outcomes would be in the same patients under different
+    treatment conditions being compared.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ODM.StudyEstimand
@@ -3428,6 +3464,9 @@ class ExclusionCriteria(YAMLRoot):
 
 @dataclass
 class StudyTargetPopulationRef(YAMLRoot):
+    """
+    The StudyTargetPopulationRef references a StudyTargetPopulation to which the estimand applies.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ODM.StudyTargetPopulationRef
@@ -3448,6 +3487,9 @@ class StudyTargetPopulationRef(YAMLRoot):
 
 @dataclass
 class StudyInterventionRef(YAMLRoot):
+    """
+    The StudyInterventionRef references an intervention that is taken as the treatment for the estimand.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ODM.StudyInterventionRef
@@ -3468,6 +3510,9 @@ class StudyInterventionRef(YAMLRoot):
 
 @dataclass
 class IntercurrentEvent(YAMLRoot):
+    """
+    The IntercurrentEvent element describes an intercurrent event for an estimand (e.g., treatment discontinuation).
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ODM.IntercurrentEvent
@@ -3486,6 +3531,10 @@ class IntercurrentEvent(YAMLRoot):
 
 @dataclass
 class SummaryMeasure(YAMLRoot):
+    """
+    The SummaryMeasure element describes a summary measure for an estimand (e.g., proportion of patients with an
+    improvement).
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ODM.SummaryMeasure
@@ -4166,7 +4215,7 @@ class Branching(YAMLRoot):
 @dataclass
 class TargetTransition(YAMLRoot):
     """
-    Provides a reference to a Transition element.
+    TargetTransition provides a reference to a Transition element that is the target of a branching.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -4192,6 +4241,10 @@ class TargetTransition(YAMLRoot):
 
 @dataclass
 class DefaultTransition(YAMLRoot):
+    """
+    The DefaultTransition references the Transition that needs to be executed when none of the TargetTransitions can
+    be executed.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ODM.DefaultTransition
@@ -4278,96 +4331,6 @@ class Criterion(YAMLRoot):
         if not isinstance(self.CodingRef, list):
             self.CodingRef = [self.CodingRef] if self.CodingRef is not None else []
         self.CodingRef = [v if isinstance(v, Coding) else Coding(**as_dict(v)) for v in self.CodingRef]
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class EntryCriteria(YAMLRoot):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ODM.EntryCriteria
-    class_class_curie: ClassVar[str] = "odm:EntryCriteria"
-    class_name: ClassVar[str] = "EntryCriteria"
-    class_model_uri: ClassVar[URIRef] = ODM.EntryCriteria
-
-    CriterionRef: Optional[Union[Dict[Union[str, CriterionOID], Union[dict, Criterion]], List[Union[dict, Criterion]]]] = empty_dict()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_list(slot_name="CriterionRef", slot_type=Criterion, key_name="OID", keyed=True)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class ExitCriteria(YAMLRoot):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ODM.ExitCriteria
-    class_class_curie: ClassVar[str] = "odm:ExitCriteria"
-    class_name: ClassVar[str] = "ExitCriteria"
-    class_model_uri: ClassVar[URIRef] = ODM.ExitCriteria
-
-    CriterionRef: Optional[Union[Dict[Union[str, CriterionOID], Union[dict, Criterion]], List[Union[dict, Criterion]]]] = empty_dict()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_list(slot_name="CriterionRef", slot_type=Criterion, key_name="OID", keyed=True)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class ExceptionEvent(YAMLRoot):
-    """
-    An ExceptionEvent describes an event that occurs suddenly in a study and that was not planned as part of the
-    normal workflow of the study. Examples are adverse events, death of a subject not caused by an adverse event, etc.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ODM.ExceptionEvent
-    class_class_curie: ClassVar[str] = "odm:ExceptionEvent"
-    class_name: ClassVar[str] = "ExceptionEvent"
-    class_model_uri: ClassVar[URIRef] = ODM.ExceptionEvent
-
-    OID: Union[str, ExceptionEventOID] = None
-    Name: str = None
-    WorkflowRefRef: Union[dict, WorkflowRef] = None
-    StudyEventGroupRefRef: Union[dict, StudyEventGroupRef] = None
-    StudyEventRefRef: Union[dict, StudyEventRef] = None
-    ConditionOID: Optional[str] = None
-    DescriptionRef: Optional[Union[dict, Description]] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.OID):
-            self.MissingRequiredField("OID")
-        if not isinstance(self.OID, ExceptionEventOID):
-            self.OID = ExceptionEventOID(self.OID)
-
-        if self._is_empty(self.Name):
-            self.MissingRequiredField("Name")
-        if not isinstance(self.Name, str):
-            self.Name = str(self.Name)
-
-        if self._is_empty(self.WorkflowRefRef):
-            self.MissingRequiredField("WorkflowRefRef")
-        if not isinstance(self.WorkflowRefRef, WorkflowRef):
-            self.WorkflowRefRef = WorkflowRef(**as_dict(self.WorkflowRefRef))
-
-        if self._is_empty(self.StudyEventGroupRefRef):
-            self.MissingRequiredField("StudyEventGroupRefRef")
-        if not isinstance(self.StudyEventGroupRefRef, StudyEventGroupRef):
-            self.StudyEventGroupRefRef = StudyEventGroupRef(**as_dict(self.StudyEventGroupRefRef))
-
-        if self._is_empty(self.StudyEventRefRef):
-            self.MissingRequiredField("StudyEventRefRef")
-        if not isinstance(self.StudyEventRefRef, StudyEventRef):
-            self.StudyEventRefRef = StudyEventRef(**as_dict(self.StudyEventRefRef))
-
-        if self.ConditionOID is not None and not isinstance(self.ConditionOID, str):
-            self.ConditionOID = str(self.ConditionOID)
-
-        if self.DescriptionRef is not None and not isinstance(self.DescriptionRef, Description):
-            self.DescriptionRef = Description(**as_dict(self.DescriptionRef))
 
         super().__post_init__(**kwargs)
 
@@ -5345,9 +5308,7 @@ class SubjectData(YAMLRoot):
 @dataclass
 class SiteRef(YAMLRoot):
     """
-    lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual
-    ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the
-    /ODM/FileType is Transactional.
+    Provides a reference to the site that the SubjectData record is associated with in the source system.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -5604,6 +5565,9 @@ class AuditRecord(YAMLRoot):
 
 @dataclass
 class UserRef(YAMLRoot):
+    """
+    A reference to information about a specific user of a clinical data collection or data management system.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ODM.UserRef
@@ -5647,6 +5611,9 @@ class LocationRef(YAMLRoot):
 
 @dataclass
 class DateTimeStamp(YAMLRoot):
+    """
+    Date and time when an action was performed.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ODM.DateTimeStamp
@@ -5761,6 +5728,9 @@ class Signature(YAMLRoot):
 
 @dataclass
 class SignatureRef(YAMLRoot):
+    """
+    A reference to the signature meaning.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ODM.SignatureRef
@@ -6640,23 +6610,23 @@ class EditPointType(EnumDefinitionImpl):
 
 class YesOrNo(EnumDefinitionImpl):
     """
-    Enumeration used in IsReferenceData, Repeating, UsedMethod, Mandatory
+    Enumeration used in Repeating, UsedMethod, IsReferenceData, Mandatory
     """
     Yes = PermissibleValue(text="Yes")
     No = PermissibleValue(text="No")
 
     _defn = EnumDefinition(
         name="YesOrNo",
-        description="Enumeration used in IsReferenceData, Repeating, UsedMethod, Mandatory",
+        description="Enumeration used in Repeating, UsedMethod, IsReferenceData, Mandatory",
     )
 
 class YesOnly(EnumDefinitionImpl):
     """
-    Enumeration used in IsNonStandard, Other, IsNull, HasNoData, Repeat, ExtendedValue
+    Enumeration used in Repeat, Other, IsNonStandard, ExtendedValue, HasNoData, IsNull
     """
     _defn = EnumDefinition(
         name="YesOnly",
-        description="Enumeration used in IsNonStandard, Other, IsNull, HasNoData, Repeat, ExtendedValue",
+        description="Enumeration used in Repeat, Other, IsNonStandard, ExtendedValue, HasNoData, IsNull",
     )
 
 class MethodType(EnumDefinitionImpl):
@@ -7101,29 +7071,98 @@ class ItemGroupSubClass(EnumDefinitionImpl):
 class slots:
     pass
 
-slots.SourceSystemVersion = Slot(uri=ODM.SourceSystemVersion, name="SourceSystemVersion", curie=ODM.curie('SourceSystemVersion'),
-                   model_uri=ODM.SourceSystemVersion, domain=None, range=Optional[str])
+slots.StudyEndPointOID = Slot(uri=ODM.StudyEndPointOID, name="StudyEndPointOID", curie=ODM.curie('StudyEndPointOID'),
+                   model_uri=ODM.StudyEndPointOID, domain=None, range=Optional[str])
 
-slots.CodedValue = Slot(uri=ODM.CodedValue, name="CodedValue", curie=ODM.curie('CodedValue'),
-                   model_uri=ODM.CodedValue, domain=None, range=Optional[str])
+slots.TimepointRelativeTarget = Slot(uri=ODM.TimepointRelativeTarget, name="TimepointRelativeTarget", curie=ODM.curie('TimepointRelativeTarget'),
+                   model_uri=ODM.TimepointRelativeTarget, domain=None, range=Optional[str])
 
-slots.StartConditionOID = Slot(uri=ODM.StartConditionOID, name="StartConditionOID", curie=ODM.curie('StartConditionOID'),
-                   model_uri=ODM.StartConditionOID, domain=None, range=Optional[str])
+slots.LeafID = Slot(uri=ODM.LeafID, name="LeafID", curie=ODM.curie('LeafID'),
+                   model_uri=ODM.LeafID, domain=None, range=Optional[str])
 
-slots.SuccessorOID = Slot(uri=ODM.SuccessorOID, name="SuccessorOID", curie=ODM.curie('SuccessorOID'),
-                   model_uri=ODM.SuccessorOID, domain=None, range=Optional[str])
+slots.UserOID = Slot(uri=ODM.UserOID, name="UserOID", curie=ODM.curie('UserOID'),
+                   model_uri=ODM.UserOID, domain=None, range=Optional[str])
 
-slots.Latitude = Slot(uri=ODM.Latitude, name="Latitude", curie=ODM.curie('Latitude'),
-                   model_uri=ODM.Latitude, domain=None, range=Optional[Decimal])
+slots.VersionName = Slot(uri=ODM.VersionName, name="VersionName", curie=ODM.curie('VersionName'),
+                   model_uri=ODM.VersionName, domain=None, range=Optional[str])
+
+slots.ArmOID = Slot(uri=ODM.ArmOID, name="ArmOID", curie=ODM.curie('ArmOID'),
+                   model_uri=ODM.ArmOID, domain=None, range=Optional[str])
+
+slots.EpochOID = Slot(uri=ODM.EpochOID, name="EpochOID", curie=ODM.curie('EpochOID'),
+                   model_uri=ODM.EpochOID, domain=None, range=Optional[str])
+
+slots.MethodOID = Slot(uri=ODM.MethodOID, name="MethodOID", curie=ODM.curie('MethodOID'),
+                   model_uri=ODM.MethodOID, domain=None, range=Optional[str])
+
+slots.IsNull = Slot(uri=ODM.IsNull, name="IsNull", curie=ODM.curie('IsNull'),
+                   model_uri=ODM.IsNull, domain=None, range=Optional[Union[str, "YesOnly"]])
 
 slots.KeySequence = Slot(uri=ODM.KeySequence, name="KeySequence", curie=ODM.curie('KeySequence'),
                    model_uri=ODM.KeySequence, domain=None, range=Optional[int])
 
-slots.UnitsItemOID = Slot(uri=ODM.UnitsItemOID, name="UnitsItemOID", curie=ODM.curie('UnitsItemOID'),
-                   model_uri=ODM.UnitsItemOID, domain=None, range=Optional[str])
+slots.GranularityRef = Slot(uri=ODM.GranularityRef, name="GranularityRef", curie=ODM.curie('GranularityRef'),
+                   model_uri=ODM.GranularityRef, domain=None, range=Optional[Union[str, "Granularity"]])
 
-slots.ValueListOID = Slot(uri=ODM.ValueListOID, name="ValueListOID", curie=ODM.curie('ValueListOID'),
-                   model_uri=ODM.ValueListOID, domain=None, range=Optional[str])
+slots.TransitionOID = Slot(uri=ODM.TransitionOID, name="TransitionOID", curie=ODM.curie('TransitionOID'),
+                   model_uri=ODM.TransitionOID, domain=None, range=Optional[str])
+
+slots.ComparatorRef = Slot(uri=ODM.ComparatorRef, name="ComparatorRef", curie=ODM.curie('ComparatorRef'),
+                   model_uri=ODM.ComparatorRef, domain=None, range=Optional[Union[str, "Comparator"]])
+
+slots.DurationPostWindow = Slot(uri=ODM.DurationPostWindow, name="DurationPostWindow", curie=ODM.curie('DurationPostWindow'),
+                   model_uri=ODM.DurationPostWindow, domain=None, range=Optional[str])
+
+slots.leafID = Slot(uri=ODM.leafID, name="leafID", curie=ODM.curie('leafID'),
+                   model_uri=ODM.leafID, domain=None, range=URIRef)
+
+slots.StartConditionOID = Slot(uri=ODM.StartConditionOID, name="StartConditionOID", curie=ODM.curie('StartConditionOID'),
+                   model_uri=ODM.StartConditionOID, domain=None, range=Optional[str])
+
+slots.FirstPage = Slot(uri=ODM.FirstPage, name="FirstPage", curie=ODM.curie('FirstPage'),
+                   model_uri=ODM.FirstPage, domain=None, range=Optional[int])
+
+slots.SponsorOrSite = Slot(uri=ODM.SponsorOrSite, name="SponsorOrSite", curie=ODM.curie('SponsorOrSite'),
+                   model_uri=ODM.SponsorOrSite, domain=None, range=Optional[Union[str, "CommentType"]])
+
+slots._language = Slot(uri=ODM._language, name="_language", curie=ODM.curie('_language'),
+                   model_uri=ODM._language, domain=None, range=Optional[str])
+
+slots.Level = Slot(uri=ODM.Level, name="Level", curie=ODM.curie('Level'),
+                   model_uri=ODM.Level, domain=None, range=Optional[str])
+
+slots.PublishingSet = Slot(uri=ODM.PublishingSet, name="PublishingSet", curie=ODM.curie('PublishingSet'),
+                   model_uri=ODM.PublishingSet, domain=None, range=Optional[Union[str, "StandardPublishingSet"]])
+
+slots.UsedMethod = Slot(uri=ODM.UsedMethod, name="UsedMethod", curie=ODM.curie('UsedMethod'),
+                   model_uri=ODM.UsedMethod, domain=None, range=Optional[Union[str, "YesOrNo"]])
+
+slots.Dictionary = Slot(uri=ODM.Dictionary, name="Dictionary", curie=ODM.curie('Dictionary'),
+                   model_uri=ODM.Dictionary, domain=None, range=Optional[str])
+
+slots.StudyEventGroupOID = Slot(uri=ODM.StudyEventGroupOID, name="StudyEventGroupOID", curie=ODM.curie('StudyEventGroupOID'),
+                   model_uri=ODM.StudyEventGroupOID, domain=None, range=Optional[str])
+
+slots.CodeListOID = Slot(uri=ODM.CodeListOID, name="CodeListOID", curie=ODM.curie('CodeListOID'),
+                   model_uri=ODM.CodeListOID, domain=None, range=Optional[str])
+
+slots.TargetTransitionOID = Slot(uri=ODM.TargetTransitionOID, name="TargetTransitionOID", curie=ODM.curie('TargetTransitionOID'),
+                   model_uri=ODM.TargetTransitionOID, domain=None, range=Optional[str])
+
+slots.StudyTargetPopulationOID = Slot(uri=ODM.StudyTargetPopulationOID, name="StudyTargetPopulationOID", curie=ODM.curie('StudyTargetPopulationOID'),
+                   model_uri=ODM.StudyTargetPopulationOID, domain=None, range=Optional[str])
+
+slots.HasNoData = Slot(uri=ODM.HasNoData, name="HasNoData", curie=ODM.curie('HasNoData'),
+                   model_uri=ODM.HasNoData, domain=None, range=Optional[Union[str, "YesOnly"]])
+
+slots.PriorFileOID = Slot(uri=ODM.PriorFileOID, name="PriorFileOID", curie=ODM.curie('PriorFileOID'),
+                   model_uri=ODM.PriorFileOID, domain=None, range=Optional[str])
+
+slots.EditPoint = Slot(uri=ODM.EditPoint, name="EditPoint", curie=ODM.curie('EditPoint'),
+                   model_uri=ODM.EditPoint, domain=None, range=Optional[Union[str, "EditPointType"]])
+
+slots.Type = Slot(uri=ODM.Type, name="Type", curie=ODM.curie('Type'),
+                   model_uri=ODM.Type, domain=None, range=Optional[str])
 
 slots.CodeRef = Slot(uri=ODM.CodeRef, name="CodeRef", curie=ODM.curie('CodeRef'),
                    model_uri=ODM.CodeRef, domain=None, range=Optional[Union[dict, Code]])
@@ -7131,188 +7170,128 @@ slots.CodeRef = Slot(uri=ODM.CodeRef, name="CodeRef", curie=ODM.curie('CodeRef')
 slots.Core = Slot(uri=ODM.Core, name="Core", curie=ODM.curie('Core'),
                    model_uri=ODM.Core, domain=None, range=Optional[str])
 
-slots.ODMVersionRef = Slot(uri=ODM.ODMVersionRef, name="ODMVersionRef", curie=ODM.curie('ODMVersionRef'),
-                   model_uri=ODM.ODMVersionRef, domain=None, range=Optional[str])
+slots.StudyInterventionOID = Slot(uri=ODM.StudyInterventionOID, name="StudyInterventionOID", curie=ODM.curie('StudyInterventionOID'),
+                   model_uri=ODM.StudyInterventionOID, domain=None, range=Optional[str])
 
-slots.EffectiveDate = Slot(uri=ODM.EffectiveDate, name="EffectiveDate", curie=ODM.curie('EffectiveDate'),
-                   model_uri=ODM.EffectiveDate, domain=None, range=Optional[Union[str, XSDDate]])
+slots.IsNonStandard = Slot(uri=ODM.IsNonStandard, name="IsNonStandard", curie=ODM.curie('IsNonStandard'),
+                   model_uri=ODM.IsNonStandard, domain=None, range=Optional[Union[str, "YesOnly"]])
 
-slots.Target = Slot(uri=ODM.Target, name="Target", curie=ODM.curie('Target'),
-                   model_uri=ODM.Target, domain=None, range=Optional[str])
-
-slots.LeafID = Slot(uri=ODM.LeafID, name="LeafID", curie=ODM.curie('LeafID'),
-                   model_uri=ODM.LeafID, domain=None, range=Optional[str])
-
-slots.PredecessorOID = Slot(uri=ODM.PredecessorOID, name="PredecessorOID", curie=ODM.curie('PredecessorOID'),
-                   model_uri=ODM.PredecessorOID, domain=None, range=Optional[str])
-
-slots.Status = Slot(uri=ODM.Status, name="Status", curie=ODM.curie('Status'),
-                   model_uri=ODM.Status, domain=None, range=Optional[str])
-
-slots.PublishingSet = Slot(uri=ODM.PublishingSet, name="PublishingSet", curie=ODM.curie('PublishingSet'),
-                   model_uri=ODM.PublishingSet, domain=None, range=Optional[Union[str, "StandardPublishingSet"]])
-
-slots.ItemOID = Slot(uri=ODM.ItemOID, name="ItemOID", curie=ODM.curie('ItemOID'),
-                   model_uri=ODM.ItemOID, domain=None, range=Optional[str])
-
-slots.Longitude = Slot(uri=ODM.Longitude, name="Longitude", curie=ODM.curie('Longitude'),
-                   model_uri=ODM.Longitude, domain=None, range=Optional[Decimal])
-
-slots.UserTypeRef = Slot(uri=ODM.UserTypeRef, name="UserTypeRef", curie=ODM.curie('UserTypeRef'),
-                   model_uri=ODM.UserTypeRef, domain=None, range=Optional[Union[str, "UserType"]])
-
-slots.PartOfOrganizationOID = Slot(uri=ODM.PartOfOrganizationOID, name="PartOfOrganizationOID", curie=ODM.curie('PartOfOrganizationOID'),
-                   model_uri=ODM.PartOfOrganizationOID, domain=None, range=Optional[str])
-
-slots.LastUpdateDatetime = Slot(uri=ODM.LastUpdateDatetime, name="LastUpdateDatetime", curie=ODM.curie('LastUpdateDatetime'),
-                   model_uri=ODM.LastUpdateDatetime, domain=None, range=Optional[Union[str, XSDDateTime]])
-
-slots.StandardOID = Slot(uri=ODM.StandardOID, name="StandardOID", curie=ODM.curie('StandardOID'),
-                   model_uri=ODM.StandardOID, domain=None, range=Optional[str])
-
-slots.StudyEventOID = Slot(uri=ODM.StudyEventOID, name="StudyEventOID", curie=ODM.curie('StudyEventOID'),
-                   model_uri=ODM.StudyEventOID, domain=None, range=Optional[str])
-
-slots.Length = Slot(uri=ODM.Length, name="Length", curie=ODM.curie('Length'),
-                   model_uri=ODM.Length, domain=None, range=Optional[int])
-
-slots.SoftHard = Slot(uri=ODM.SoftHard, name="SoftHard", curie=ODM.curie('SoftHard'),
-                   model_uri=ODM.SoftHard, domain=None, range=Optional[Union[str, "SoftOrHard"]])
-
-slots.HasNoData = Slot(uri=ODM.HasNoData, name="HasNoData", curie=ODM.curie('HasNoData'),
-                   model_uri=ODM.HasNoData, domain=None, range=Optional[Union[str, "YesOnly"]])
-
-slots.StartOID = Slot(uri=ODM.StartOID, name="StartOID", curie=ODM.curie('StartOID'),
-                   model_uri=ODM.StartOID, domain=None, range=Optional[str])
-
-slots.RoleCodeListOID = Slot(uri=ODM.RoleCodeListOID, name="RoleCodeListOID", curie=ODM.curie('RoleCodeListOID'),
-                   model_uri=ODM.RoleCodeListOID, domain=None, range=Optional[str])
-
-slots.TimepointTarget = Slot(uri=ODM.TimepointTarget, name="TimepointTarget", curie=ODM.curie('TimepointTarget'),
-                   model_uri=ODM.TimepointTarget, domain=None, range=Optional[str])
-
-slots.Altitude = Slot(uri=ODM.Altitude, name="Altitude", curie=ODM.curie('Altitude'),
-                   model_uri=ODM.Altitude, domain=None, range=Optional[Decimal])
-
-slots.FileTypeRef = Slot(uri=ODM.FileTypeRef, name="FileTypeRef", curie=ODM.curie('FileTypeRef'),
-                   model_uri=ODM.FileTypeRef, domain=None, range=Optional[Union[str, "FileType"]])
-
-slots.VersionID = Slot(uri=ODM.VersionID, name="VersionID", curie=ODM.curie('VersionID'),
-                   model_uri=ODM.VersionID, domain=None, range=Optional[str])
-
-slots.ArmOID = Slot(uri=ODM.ArmOID, name="ArmOID", curie=ODM.curie('ArmOID'),
-                   model_uri=ODM.ArmOID, domain=None, range=Optional[str])
-
-slots.ValueRef = Slot(uri=ODM.ValueRef, name="ValueRef", curie=ODM.curie('ValueRef'),
-                   model_uri=ODM.ValueRef, domain=None, range=Optional[Union[dict, Value]])
-
-slots.VersionName = Slot(uri=ODM.VersionName, name="VersionName", curie=ODM.curie('VersionName'),
-                   model_uri=ODM.VersionName, domain=None, range=Optional[str])
-
-slots.Term = Slot(uri=ODM.Term, name="Term", curie=ODM.curie('Term'),
-                   model_uri=ODM.Term, domain=None, range=Optional[str])
-
-slots.DataTypeRef = Slot(uri=ODM.DataTypeRef, name="DataTypeRef", curie=ODM.curie('DataTypeRef'),
-                   model_uri=ODM.DataTypeRef, domain=None, range=Optional[str])
-
-slots.UserOID = Slot(uri=ODM.UserOID, name="UserOID", curie=ODM.curie('UserOID'),
-                   model_uri=ODM.UserOID, domain=None, range=Optional[str])
-
-slots.EditPoint = Slot(uri=ODM.EditPoint, name="EditPoint", curie=ODM.curie('EditPoint'),
-                   model_uri=ODM.EditPoint, domain=None, range=Optional[Union[str, "EditPointType"]])
-
-slots.FirstPage = Slot(uri=ODM.FirstPage, name="FirstPage", curie=ODM.curie('FirstPage'),
-                   model_uri=ODM.FirstPage, domain=None, range=Optional[int])
-
-slots.OrderNumber = Slot(uri=ODM.OrderNumber, name="OrderNumber", curie=ODM.curie('OrderNumber'),
-                   model_uri=ODM.OrderNumber, domain=None, range=Optional[int])
-
-slots.OrganizationOID = Slot(uri=ODM.OrganizationOID, name="OrganizationOID", curie=ODM.curie('OrganizationOID'),
-                   model_uri=ODM.OrganizationOID, domain=None, range=Optional[str])
-
-slots.ContextRef = Slot(uri=ODM.ContextRef, name="ContextRef", curie=ODM.curie('ContextRef'),
-                   model_uri=ODM.ContextRef, domain=None, range=Optional[str])
-
-slots.ref = Slot(uri=ODM.ref, name="ref", curie=ODM.curie('ref'),
-                   model_uri=ODM.ref, domain=None, range=Optional[str])
-
-slots.leafID = Slot(uri=ODM.leafID, name="leafID", curie=ODM.curie('leafID'),
-                   model_uri=ODM.leafID, domain=None, range=URIRef)
-
-slots.PriorFileOID = Slot(uri=ODM.PriorFileOID, name="PriorFileOID", curie=ODM.curie('PriorFileOID'),
-                   model_uri=ODM.PriorFileOID, domain=None, range=Optional[str])
-
-slots.Version = Slot(uri=ODM.Version, name="Version", curie=ODM.curie('Version'),
-                   model_uri=ODM.Version, domain=None, range=Optional[str])
-
-slots._language = Slot(uri=ODM._language, name="_language", curie=ODM.curie('_language'),
-                   model_uri=ODM._language, domain=None, range=Optional[str])
-
-slots.RepeatingLimit = Slot(uri=ODM.RepeatingLimit, name="RepeatingLimit", curie=ODM.curie('RepeatingLimit'),
-                   model_uri=ODM.RepeatingLimit, domain=None, range=Optional[int])
-
-slots.ItemGroupDataSeq = Slot(uri=ODM.ItemGroupDataSeq, name="ItemGroupDataSeq", curie=ODM.curie('ItemGroupDataSeq'),
-                   model_uri=ODM.ItemGroupDataSeq, domain=None, range=Optional[int])
-
-slots.CodeListOID = Slot(uri=ODM.CodeListOID, name="CodeListOID", curie=ODM.curie('CodeListOID'),
-                   model_uri=ODM.CodeListOID, domain=None, range=Optional[str])
-
-slots.SystemVersion = Slot(uri=ODM.SystemVersion, name="SystemVersion", curie=ODM.curie('SystemVersion'),
-                   model_uri=ODM.SystemVersion, domain=None, range=Optional[str])
-
-slots.DefinitionRef = Slot(uri=ODM.DefinitionRef, name="DefinitionRef", curie=ODM.curie('DefinitionRef'),
-                   model_uri=ODM.DefinitionRef, domain=None, range=Optional[Union[dict, Definition]])
-
-slots.TimepointRelativeTarget = Slot(uri=ODM.TimepointRelativeTarget, name="TimepointRelativeTarget", curie=ODM.curie('TimepointRelativeTarget'),
-                   model_uri=ODM.TimepointRelativeTarget, domain=None, range=Optional[str])
-
-slots.LastPage = Slot(uri=ODM.LastPage, name="LastPage", curie=ODM.curie('LastPage'),
-                   model_uri=ODM.LastPage, domain=None, range=Optional[int])
+slots.Library = Slot(uri=ODM.Library, name="Library", curie=ODM.curie('Library'),
+                   model_uri=ODM.Library, domain=None, range=Optional[str])
 
 slots.IsReferenceData = Slot(uri=ODM.IsReferenceData, name="IsReferenceData", curie=ODM.curie('IsReferenceData'),
                    model_uri=ODM.IsReferenceData, domain=None, range=Optional[Union[str, "YesOrNo"]])
 
-slots.Domain = Slot(uri=ODM.Domain, name="Domain", curie=ODM.curie('Domain'),
-                   model_uri=ODM.Domain, domain=None, range=Optional[str])
+slots.RepeatingLimit = Slot(uri=ODM.RepeatingLimit, name="RepeatingLimit", curie=ODM.curie('RepeatingLimit'),
+                   model_uri=ODM.RepeatingLimit, domain=None, range=Optional[int])
 
-slots.Purpose = Slot(uri=ODM.Purpose, name="Purpose", curie=ODM.curie('Purpose'),
-                   model_uri=ODM.Purpose, domain=None, range=Optional[str])
-
-slots.ExtendedValue = Slot(uri=ODM.ExtendedValue, name="ExtendedValue", curie=ODM.curie('ExtendedValue'),
-                   model_uri=ODM.ExtendedValue, domain=None, range=Optional[Union[str, "YesOnly"]])
-
-slots.SignatureOID = Slot(uri=ODM.SignatureOID, name="SignatureOID", curie=ODM.curie('SignatureOID'),
-                   model_uri=ODM.SignatureOID, domain=None, range=Optional[str])
-
-slots.Methodology = Slot(uri=ODM.Methodology, name="Methodology", curie=ODM.curie('Methodology'),
-                   model_uri=ODM.Methodology, domain=None, range=Optional[Union[str, "SignMethod"]])
-
-slots.Name = Slot(uri=ODM.Name, name="Name", curie=ODM.curie('Name'),
-                   model_uri=ODM.Name, domain=None, range=Optional[str])
-
-slots.Rank = Slot(uri=ODM.Rank, name="Rank", curie=ODM.curie('Rank'),
-                   model_uri=ODM.Rank, domain=None, range=Optional[Decimal])
-
-slots.EpochOID = Slot(uri=ODM.EpochOID, name="EpochOID", curie=ODM.curie('EpochOID'),
-                   model_uri=ODM.EpochOID, domain=None, range=Optional[str])
-
-slots.StudyTargetPopulationOID = Slot(uri=ODM.StudyTargetPopulationOID, name="StudyTargetPopulationOID", curie=ODM.curie('StudyTargetPopulationOID'),
-                   model_uri=ODM.StudyTargetPopulationOID, domain=None, range=Optional[str])
-
-slots.Category = Slot(uri=ODM.Category, name="Category", curie=ODM.curie('Category'),
-                   model_uri=ODM.Category, domain=None, range=Optional[str])
-
-slots.TelecomType = Slot(uri=ODM.TelecomType, name="TelecomType", curie=ODM.curie('TelecomType'),
-                   model_uri=ODM.TelecomType, domain=None, range=Optional[Union[str, "TelecomTypeType"]])
-
-slots.StudyInterventionOID = Slot(uri=ODM.StudyInterventionOID, name="StudyInterventionOID", curie=ODM.curie('StudyInterventionOID'),
-                   model_uri=ODM.StudyInterventionOID, domain=None, range=Optional[str])
-
-slots.StructuralElementOID = Slot(uri=ODM.StructuralElementOID, name="StructuralElementOID", curie=ODM.curie('StructuralElementOID'),
-                   model_uri=ODM.StructuralElementOID, domain=None, range=Optional[str])
+slots.DataTypeRef = Slot(uri=ODM.DataTypeRef, name="DataTypeRef", curie=ODM.curie('DataTypeRef'),
+                   model_uri=ODM.DataTypeRef, domain=None, range=Optional[str])
 
 slots.ImageFileName = Slot(uri=ODM.ImageFileName, name="ImageFileName", curie=ODM.curie('ImageFileName'),
                    model_uri=ODM.ImageFileName, domain=None, range=Optional[URIorCURIE])
+
+slots.Source = Slot(uri=ODM.Source, name="Source", curie=ODM.curie('Source'),
+                   model_uri=ODM.Source, domain=None, range=Optional[str])
+
+slots.MetaDataVersionOID = Slot(uri=ODM.MetaDataVersionOID, name="MetaDataVersionOID", curie=ODM.curie('MetaDataVersionOID'),
+                   model_uri=ODM.MetaDataVersionOID, domain=None, range=Optional[str])
+
+slots.ShortName = Slot(uri=ODM.ShortName, name="ShortName", curie=ODM.curie('ShortName'),
+                   model_uri=ODM.ShortName, domain=None, range=Optional[str])
+
+slots.ItemGroupOID = Slot(uri=ODM.ItemGroupOID, name="ItemGroupOID", curie=ODM.curie('ItemGroupOID'),
+                   model_uri=ODM.ItemGroupOID, domain=None, range=Optional[str])
+
+slots.Status = Slot(uri=ODM.Status, name="Status", curie=ODM.curie('Status'),
+                   model_uri=ODM.Status, domain=None, range=Optional[str])
+
+slots.SourceOID = Slot(uri=ODM.SourceOID, name="SourceOID", curie=ODM.curie('SourceOID'),
+                   model_uri=ODM.SourceOID, domain=None, range=Optional[str])
+
+slots.ConditionOID = Slot(uri=ODM.ConditionOID, name="ConditionOID", curie=ODM.curie('ConditionOID'),
+                   model_uri=ODM.ConditionOID, domain=None, range=Optional[str])
+
+slots.ValueRef = Slot(uri=ODM.ValueRef, name="ValueRef", curie=ODM.curie('ValueRef'),
+                   model_uri=ODM.ValueRef, domain=None, range=Optional[Union[dict, Value]])
+
+slots.VersionID = Slot(uri=ODM.VersionID, name="VersionID", curie=ODM.curie('VersionID'),
+                   model_uri=ODM.VersionID, domain=None, range=Optional[str])
+
+slots.DefinitionRef = Slot(uri=ODM.DefinitionRef, name="DefinitionRef", curie=ODM.curie('DefinitionRef'),
+                   model_uri=ODM.DefinitionRef, domain=None, range=Optional[Union[dict, Definition]])
+
+slots.State = Slot(uri=ODM.State, name="State", curie=ODM.curie('State'),
+                   model_uri=ODM.State, domain=None, range=Optional[Union[str, "QueryStateType"]])
+
+slots.TitleRef = Slot(uri=ODM.TitleRef, name="TitleRef", curie=ODM.curie('TitleRef'),
+                   model_uri=ODM.TitleRef, domain=None, range=Optional[Union[dict, Title]])
+
+slots.Attribute = Slot(uri=ODM.Attribute, name="Attribute", curie=ODM.curie('Attribute'),
+                   model_uri=ODM.Attribute, domain=None, range=Optional[str])
+
+slots.WhereClauseOID = Slot(uri=ODM.WhereClauseOID, name="WhereClauseOID", curie=ODM.curie('WhereClauseOID'),
+                   model_uri=ODM.WhereClauseOID, domain=None, range=Optional[str])
+
+slots.ArchiveLocationID = Slot(uri=ODM.ArchiveLocationID, name="ArchiveLocationID", curie=ODM.curie('ArchiveLocationID'),
+                   model_uri=ODM.ArchiveLocationID, domain=None, range=Optional[str])
+
+slots.VariableSet = Slot(uri=ODM.VariableSet, name="VariableSet", curie=ODM.curie('VariableSet'),
+                   model_uri=ODM.VariableSet, domain=None, range=Optional[str])
+
+slots.UserTypeRef = Slot(uri=ODM.UserTypeRef, name="UserTypeRef", curie=ODM.curie('UserTypeRef'),
+                   model_uri=ODM.UserTypeRef, domain=None, range=Optional[Union[str, "UserType"]])
+
+slots.SystemVersion = Slot(uri=ODM.SystemVersion, name="SystemVersion", curie=ODM.curie('SystemVersion'),
+                   model_uri=ODM.SystemVersion, domain=None, range=Optional[str])
+
+slots.DisplayFormat = Slot(uri=ODM.DisplayFormat, name="DisplayFormat", curie=ODM.curie('DisplayFormat'),
+                   model_uri=ODM.DisplayFormat, domain=None, range=Optional[str])
+
+slots.Originator = Slot(uri=ODM.Originator, name="Originator", curie=ODM.curie('Originator'),
+                   model_uri=ODM.Originator, domain=None, range=Optional[str])
+
+slots.ParentClass = Slot(uri=ODM.ParentClass, name="ParentClass", curie=ODM.curie('ParentClass'),
+                   model_uri=ODM.ParentClass, domain=None, range=Optional[str])
+
+slots.TimepointTarget = Slot(uri=ODM.TimepointTarget, name="TimepointTarget", curie=ODM.curie('TimepointTarget'),
+                   model_uri=ODM.TimepointTarget, domain=None, range=Optional[str])
+
+slots.ItemGroupRepeatKey = Slot(uri=ODM.ItemGroupRepeatKey, name="ItemGroupRepeatKey", curie=ODM.curie('ItemGroupRepeatKey'),
+                   model_uri=ODM.ItemGroupRepeatKey, domain=None, range=Optional[str])
+
+slots.PredecessorOID = Slot(uri=ODM.PredecessorOID, name="PredecessorOID", curie=ODM.curie('PredecessorOID'),
+                   model_uri=ODM.PredecessorOID, domain=None, range=Optional[str])
+
+slots.CollectionExceptionConditionOID = Slot(uri=ODM.CollectionExceptionConditionOID, name="CollectionExceptionConditionOID", curie=ODM.curie('CollectionExceptionConditionOID'),
+                   model_uri=ODM.CollectionExceptionConditionOID, domain=None, range=Optional[str])
+
+slots.SeqNum = Slot(uri=ODM.SeqNum, name="SeqNum", curie=ODM.curie('SeqNum'),
+                   model_uri=ODM.SeqNum, domain=None, range=Optional[int])
+
+slots.TransactionTypeRef = Slot(uri=ODM.TransactionTypeRef, name="TransactionTypeRef", curie=ODM.curie('TransactionTypeRef'),
+                   model_uri=ODM.TransactionTypeRef, domain=None, range=Optional[Union[str, "TransactionType"]])
+
+slots.TimepointPreWindow = Slot(uri=ODM.TimepointPreWindow, name="TimepointPreWindow", curie=ODM.curie('TimepointPreWindow'),
+                   model_uri=ODM.TimepointPreWindow, domain=None, range=Optional[str])
+
+slots.PartOfOrganizationOID = Slot(uri=ODM.PartOfOrganizationOID, name="PartOfOrganizationOID", curie=ODM.curie('PartOfOrganizationOID'),
+                   model_uri=ODM.PartOfOrganizationOID, domain=None, range=Optional[str])
+
+slots.PreSpecifiedValue = Slot(uri=ODM.PreSpecifiedValue, name="PreSpecifiedValue", curie=ODM.curie('PreSpecifiedValue'),
+                   model_uri=ODM.PreSpecifiedValue, domain=None, range=Optional[str])
+
+slots.OID = Slot(uri=ODM.OID, name="OID", curie=ODM.curie('OID'),
+                   model_uri=ODM.OID, domain=None, range=URIRef)
+
+slots.SequenceNumber = Slot(uri=ODM.SequenceNumber, name="SequenceNumber", curie=ODM.curie('SequenceNumber'),
+                   model_uri=ODM.SequenceNumber, domain=None, range=Optional[int])
+
+slots.MimeType = Slot(uri=ODM.MimeType, name="MimeType", curie=ODM.curie('MimeType'),
+                   model_uri=ODM.MimeType, domain=None, range=Optional[str])
+
+slots.Method = Slot(uri=ODM.Method, name="Method", curie=ODM.curie('Method'),
+                   model_uri=ODM.Method, domain=None, range=Optional[str])
 
 slots.SubjectKey = Slot(uri=ODM.SubjectKey, name="SubjectKey", curie=ODM.curie('SubjectKey'),
                    model_uri=ODM.SubjectKey, domain=None, range=Optional[str])
@@ -7320,218 +7299,209 @@ slots.SubjectKey = Slot(uri=ODM.SubjectKey, name="SubjectKey", curie=ODM.curie('
 slots.CommentOID = Slot(uri=ODM.CommentOID, name="CommentOID", curie=ODM.curie('CommentOID'),
                    model_uri=ODM.CommentOID, domain=None, range=Optional[str])
 
-slots.ConditionOID = Slot(uri=ODM.ConditionOID, name="ConditionOID", curie=ODM.curie('ConditionOID'),
-                   model_uri=ODM.ConditionOID, domain=None, range=Optional[str])
-
-slots.ComparatorRef = Slot(uri=ODM.ComparatorRef, name="ComparatorRef", curie=ODM.curie('ComparatorRef'),
-                   model_uri=ODM.ComparatorRef, domain=None, range=Optional[Union[str, "Comparator"]])
-
-slots.TargetTransitionOID = Slot(uri=ODM.TargetTransitionOID, name="TargetTransitionOID", curie=ODM.curie('TargetTransitionOID'),
-                   model_uri=ODM.TargetTransitionOID, domain=None, range=Optional[str])
-
-slots.SequenceNumber = Slot(uri=ODM.SequenceNumber, name="SequenceNumber", curie=ODM.curie('SequenceNumber'),
-                   model_uri=ODM.SequenceNumber, domain=None, range=Optional[int])
-
-slots.DurationPostWindow = Slot(uri=ODM.DurationPostWindow, name="DurationPostWindow", curie=ODM.curie('DurationPostWindow'),
-                   model_uri=ODM.DurationPostWindow, domain=None, range=Optional[str])
-
-slots.Source = Slot(uri=ODM.Source, name="Source", curie=ODM.curie('Source'),
-                   model_uri=ODM.Source, domain=None, range=Optional[str])
-
-slots.VariableSet = Slot(uri=ODM.VariableSet, name="VariableSet", curie=ODM.curie('VariableSet'),
-                   model_uri=ODM.VariableSet, domain=None, range=Optional[str])
-
-slots.DisplayFormat = Slot(uri=ODM.DisplayFormat, name="DisplayFormat", curie=ODM.curie('DisplayFormat'),
-                   model_uri=ODM.DisplayFormat, domain=None, range=Optional[str])
-
-slots.LocationOID = Slot(uri=ODM.LocationOID, name="LocationOID", curie=ODM.curie('LocationOID'),
-                   model_uri=ODM.LocationOID, domain=None, range=Optional[str])
-
-slots.CollectionExceptionConditionOID = Slot(uri=ODM.CollectionExceptionConditionOID, name="CollectionExceptionConditionOID", curie=ODM.curie('CollectionExceptionConditionOID'),
-                   model_uri=ODM.CollectionExceptionConditionOID, domain=None, range=Optional[str])
-
-slots.StudyOID = Slot(uri=ODM.StudyOID, name="StudyOID", curie=ODM.curie('StudyOID'),
-                   model_uri=ODM.StudyOID, domain=None, range=Optional[str])
-
-slots.WorkflowOID = Slot(uri=ODM.WorkflowOID, name="WorkflowOID", curie=ODM.curie('WorkflowOID'),
-                   model_uri=ODM.WorkflowOID, domain=None, range=Optional[str])
-
-slots.SourceSystem = Slot(uri=ODM.SourceSystem, name="SourceSystem", curie=ODM.curie('SourceSystem'),
-                   model_uri=ODM.SourceSystem, domain=None, range=Optional[str])
-
-slots.Label = Slot(uri=ODM.Label, name="Label", curie=ODM.curie('Label'),
-                   model_uri=ODM.Label, domain=None, range=Optional[str])
-
-slots.StudyEndPointOID = Slot(uri=ODM.StudyEndPointOID, name="StudyEndPointOID", curie=ODM.curie('StudyEndPointOID'),
-                   model_uri=ODM.StudyEndPointOID, domain=None, range=Optional[str])
-
-slots.MethodOID = Slot(uri=ODM.MethodOID, name="MethodOID", curie=ODM.curie('MethodOID'),
-                   model_uri=ODM.MethodOID, domain=None, range=Optional[str])
-
-slots.href = Slot(uri=ODM.href, name="href", curie=ODM.curie('href'),
-                   model_uri=ODM.href, domain=None, range=Optional[str])
-
-slots.AsOfDateTime = Slot(uri=ODM.AsOfDateTime, name="AsOfDateTime", curie=ODM.curie('AsOfDateTime'),
-                   model_uri=ODM.AsOfDateTime, domain=None, range=Optional[Union[str, XSDDateTime]])
-
-slots.Method = Slot(uri=ODM.Method, name="Method", curie=ODM.curie('Method'),
-                   model_uri=ODM.Method, domain=None, range=Optional[str])
-
-slots.StudyEventRepeatKey = Slot(uri=ODM.StudyEventRepeatKey, name="StudyEventRepeatKey", curie=ODM.curie('StudyEventRepeatKey'),
-                   model_uri=ODM.StudyEventRepeatKey, domain=None, range=Optional[str])
-
-slots.StudyName = Slot(uri=ODM.StudyName, name="StudyName", curie=ODM.curie('StudyName'),
-                   model_uri=ODM.StudyName, domain=None, range=Optional[str])
-
-slots.System = Slot(uri=ODM.System, name="System", curie=ODM.curie('System'),
-                   model_uri=ODM.System, domain=None, range=Optional[Union[str, URIorCURIE]])
-
-slots.DatasetName = Slot(uri=ODM.DatasetName, name="DatasetName", curie=ODM.curie('DatasetName'),
-                   model_uri=ODM.DatasetName, domain=None, range=Optional[str])
-
-slots.Repeat = Slot(uri=ODM.Repeat, name="Repeat", curie=ODM.curie('Repeat'),
-                   model_uri=ODM.Repeat, domain=None, range=Optional[Union[str, "YesOnly"]])
-
-slots.ProtocolName = Slot(uri=ODM.ProtocolName, name="ProtocolName", curie=ODM.curie('ProtocolName'),
-                   model_uri=ODM.ProtocolName, domain=None, range=Optional[str])
-
-slots.CreationDateTime = Slot(uri=ODM.CreationDateTime, name="CreationDateTime", curie=ODM.curie('CreationDateTime'),
-                   model_uri=ODM.CreationDateTime, domain=None, range=Optional[Union[str, XSDDateTime]])
-
-slots.TimepointPostWindow = Slot(uri=ODM.TimepointPostWindow, name="TimepointPostWindow", curie=ODM.curie('TimepointPostWindow'),
-                   model_uri=ODM.TimepointPostWindow, domain=None, range=Optional[str])
-
-slots.ParentClass = Slot(uri=ODM.ParentClass, name="ParentClass", curie=ODM.curie('ParentClass'),
-                   model_uri=ODM.ParentClass, domain=None, range=Optional[str])
-
-slots.IsNonStandard = Slot(uri=ODM.IsNonStandard, name="IsNonStandard", curie=ODM.curie('IsNonStandard'),
-                   model_uri=ODM.IsNonStandard, domain=None, range=Optional[Union[str, "YesOnly"]])
-
-slots.ShortName = Slot(uri=ODM.ShortName, name="ShortName", curie=ODM.curie('ShortName'),
-                   model_uri=ODM.ShortName, domain=None, range=Optional[str])
-
-slots.ArchiveLocationID = Slot(uri=ODM.ArchiveLocationID, name="ArchiveLocationID", curie=ODM.curie('ArchiveLocationID'),
-                   model_uri=ODM.ArchiveLocationID, domain=None, range=Optional[str])
-
-slots.StudyEventGroupOID = Slot(uri=ODM.StudyEventGroupOID, name="StudyEventGroupOID", curie=ODM.curie('StudyEventGroupOID'),
-                   model_uri=ODM.StudyEventGroupOID, domain=None, range=Optional[str])
-
-slots.SeqNum = Slot(uri=ODM.SeqNum, name="SeqNum", curie=ODM.curie('SeqNum'),
-                   model_uri=ODM.SeqNum, domain=None, range=Optional[int])
-
-slots.Dictionary = Slot(uri=ODM.Dictionary, name="Dictionary", curie=ODM.curie('Dictionary'),
-                   model_uri=ODM.Dictionary, domain=None, range=Optional[str])
-
-slots.Originator = Slot(uri=ODM.Originator, name="Originator", curie=ODM.curie('Originator'),
-                   model_uri=ODM.Originator, domain=None, range=Optional[str])
-
-slots.DurationTarget = Slot(uri=ODM.DurationTarget, name="DurationTarget", curie=ODM.curie('DurationTarget'),
-                   model_uri=ODM.DurationTarget, domain=None, range=Optional[str])
-
-slots.UsedMethod = Slot(uri=ODM.UsedMethod, name="UsedMethod", curie=ODM.curie('UsedMethod'),
-                   model_uri=ODM.UsedMethod, domain=None, range=Optional[Union[str, "YesOrNo"]])
-
-slots.EndOID = Slot(uri=ODM.EndOID, name="EndOID", curie=ODM.curie('EndOID'),
-                   model_uri=ODM.EndOID, domain=None, range=Optional[str])
-
-slots.ItemGroupRepeatKey = Slot(uri=ODM.ItemGroupRepeatKey, name="ItemGroupRepeatKey", curie=ODM.curie('ItemGroupRepeatKey'),
-                   model_uri=ODM.ItemGroupRepeatKey, domain=None, range=Optional[str])
-
-slots.TransactionTypeRef = Slot(uri=ODM.TransactionTypeRef, name="TransactionTypeRef", curie=ODM.curie('TransactionTypeRef'),
-                   model_uri=ODM.TransactionTypeRef, domain=None, range=Optional[Union[str, "TransactionType"]])
-
-slots.Title = Slot(uri=ODM.Title, name="Title", curie=ODM.curie('Title'),
-                   model_uri=ODM.Title, domain=None, range=Optional[str])
-
-slots.SponsorOrSite = Slot(uri=ODM.SponsorOrSite, name="SponsorOrSite", curie=ODM.curie('SponsorOrSite'),
-                   model_uri=ODM.SponsorOrSite, domain=None, range=Optional[Union[str, "CommentType"]])
-
-slots.ItemGroupOID = Slot(uri=ODM.ItemGroupOID, name="ItemGroupOID", curie=ODM.curie('ItemGroupOID'),
-                   model_uri=ODM.ItemGroupOID, domain=None, range=Optional[str])
-
-slots.Role = Slot(uri=ODM.Role, name="Role", curie=ODM.curie('Role'),
-                   model_uri=ODM.Role, domain=None, range=Optional[str])
-
-slots.Attribute = Slot(uri=ODM.Attribute, name="Attribute", curie=ODM.curie('Attribute'),
-                   model_uri=ODM.Attribute, domain=None, range=Optional[str])
-
-slots.IsNull = Slot(uri=ODM.IsNull, name="IsNull", curie=ODM.curie('IsNull'),
-                   model_uri=ODM.IsNull, domain=None, range=Optional[Union[str, "YesOnly"]])
-
-slots.Path = Slot(uri=ODM.Path, name="Path", curie=ODM.curie('Path'),
-                   model_uri=ODM.Path, domain=None, range=Optional[str])
-
-slots.Other = Slot(uri=ODM.Other, name="Other", curie=ODM.curie('Other'),
-                   model_uri=ODM.Other, domain=None, range=Optional[Union[str, "YesOnly"]])
-
-slots.OID = Slot(uri=ODM.OID, name="OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.OID, domain=None, range=URIRef)
-
-slots.SystemName = Slot(uri=ODM.SystemName, name="SystemName", curie=ODM.curie('SystemName'),
-                   model_uri=ODM.SystemName, domain=None, range=Optional[str])
-
-slots.MetaDataVersionOID = Slot(uri=ODM.MetaDataVersionOID, name="MetaDataVersionOID", curie=ODM.curie('MetaDataVersionOID'),
-                   model_uri=ODM.MetaDataVersionOID, domain=None, range=Optional[str])
-
-slots.WhereClauseOID = Slot(uri=ODM.WhereClauseOID, name="WhereClauseOID", curie=ODM.curie('WhereClauseOID'),
-                   model_uri=ODM.WhereClauseOID, domain=None, range=Optional[str])
-
-slots.State = Slot(uri=ODM.State, name="State", curie=ODM.curie('State'),
-                   model_uri=ODM.State, domain=None, range=Optional[Union[str, "QueryStateType"]])
-
-slots.PreSpecifiedValue = Slot(uri=ODM.PreSpecifiedValue, name="PreSpecifiedValue", curie=ODM.curie('PreSpecifiedValue'),
-                   model_uri=ODM.PreSpecifiedValue, domain=None, range=Optional[str])
-
-slots.Level = Slot(uri=ODM.Level, name="Level", curie=ODM.curie('Level'),
-                   model_uri=ODM.Level, domain=None, range=Optional[str])
-
-slots.Library = Slot(uri=ODM.Library, name="Library", curie=ODM.curie('Library'),
-                   model_uri=ODM.Library, domain=None, range=Optional[str])
-
-slots.TargetOID = Slot(uri=ODM.TargetOID, name="TargetOID", curie=ODM.curie('TargetOID'),
-                   model_uri=ODM.TargetOID, domain=None, range=Optional[str])
-
-slots.PageRefs = Slot(uri=ODM.PageRefs, name="PageRefs", curie=ODM.curie('PageRefs'),
-                   model_uri=ODM.PageRefs, domain=None, range=Optional[str])
-
-slots.SourceOID = Slot(uri=ODM.SourceOID, name="SourceOID", curie=ODM.curie('SourceOID'),
-                   model_uri=ODM.SourceOID, domain=None, range=Optional[str])
+slots.ItemGroupDataSeq = Slot(uri=ODM.ItemGroupDataSeq, name="ItemGroupDataSeq", curie=ODM.curie('ItemGroupDataSeq'),
+                   model_uri=ODM.ItemGroupDataSeq, domain=None, range=Optional[int])
 
 slots.ID = Slot(uri=ODM.ID, name="ID", curie=ODM.curie('ID'),
                    model_uri=ODM.ID, domain=None, range=URIRef)
 
-slots.GranularityRef = Slot(uri=ODM.GranularityRef, name="GranularityRef", curie=ODM.curie('GranularityRef'),
-                   model_uri=ODM.GranularityRef, domain=None, range=Optional[Union[str, "Granularity"]])
+slots.Other = Slot(uri=ODM.Other, name="Other", curie=ODM.curie('Other'),
+                   model_uri=ODM.Other, domain=None, range=Optional[Union[str, "YesOnly"]])
 
-slots.Mandatory = Slot(uri=ODM.Mandatory, name="Mandatory", curie=ODM.curie('Mandatory'),
-                   model_uri=ODM.Mandatory, domain=None, range=Optional[Union[str, "YesOrNo"]])
+slots.Term = Slot(uri=ODM.Term, name="Term", curie=ODM.curie('Term'),
+                   model_uri=ODM.Term, domain=None, range=Optional[str])
 
-slots.Structure = Slot(uri=ODM.Structure, name="Structure", curie=ODM.curie('Structure'),
-                   model_uri=ODM.Structure, domain=None, range=Optional[str])
+slots.Target = Slot(uri=ODM.Target, name="Target", curie=ODM.curie('Target'),
+                   model_uri=ODM.Target, domain=None, range=Optional[str])
 
-slots.MimeType = Slot(uri=ODM.MimeType, name="MimeType", curie=ODM.curie('MimeType'),
-                   model_uri=ODM.MimeType, domain=None, range=Optional[str])
+slots.StandardOID = Slot(uri=ODM.StandardOID, name="StandardOID", curie=ODM.curie('StandardOID'),
+                   model_uri=ODM.StandardOID, domain=None, range=Optional[str])
 
-slots.TransitionOID = Slot(uri=ODM.TransitionOID, name="TransitionOID", curie=ODM.curie('TransitionOID'),
-                   model_uri=ODM.TransitionOID, domain=None, range=Optional[str])
+slots.EndOID = Slot(uri=ODM.EndOID, name="EndOID", curie=ODM.curie('EndOID'),
+                   model_uri=ODM.EndOID, domain=None, range=Optional[str])
 
-slots.DurationPreWindow = Slot(uri=ODM.DurationPreWindow, name="DurationPreWindow", curie=ODM.curie('DurationPreWindow'),
-                   model_uri=ODM.DurationPreWindow, domain=None, range=Optional[str])
-
-slots.EndConditionOID = Slot(uri=ODM.EndConditionOID, name="EndConditionOID", curie=ODM.curie('EndConditionOID'),
-                   model_uri=ODM.EndConditionOID, domain=None, range=Optional[str])
+slots.SourceSystemVersion = Slot(uri=ODM.SourceSystemVersion, name="SourceSystemVersion", curie=ODM.curie('SourceSystemVersion'),
+                   model_uri=ODM.SourceSystemVersion, domain=None, range=Optional[str])
 
 slots.Repeating = Slot(uri=ODM.Repeating, name="Repeating", curie=ODM.curie('Repeating'),
                    model_uri=ODM.Repeating, domain=None, range=Optional[str])
 
-slots.TimepointPreWindow = Slot(uri=ODM.TimepointPreWindow, name="TimepointPreWindow", curie=ODM.curie('TimepointPreWindow'),
-                   model_uri=ODM.TimepointPreWindow, domain=None, range=Optional[str])
+slots.WorkflowOID = Slot(uri=ODM.WorkflowOID, name="WorkflowOID", curie=ODM.curie('WorkflowOID'),
+                   model_uri=ODM.WorkflowOID, domain=None, range=Optional[str])
 
-slots.Type = Slot(uri=ODM.Type, name="Type", curie=ODM.curie('Type'),
-                   model_uri=ODM.Type, domain=None, range=Optional[str])
+slots.Mandatory = Slot(uri=ODM.Mandatory, name="Mandatory", curie=ODM.curie('Mandatory'),
+                   model_uri=ODM.Mandatory, domain=None, range=Optional[Union[str, "YesOrNo"]])
+
+slots.Name = Slot(uri=ODM.Name, name="Name", curie=ODM.curie('Name'),
+                   model_uri=ODM.Name, domain=None, range=Optional[str])
+
+slots.RoleCodeListOID = Slot(uri=ODM.RoleCodeListOID, name="RoleCodeListOID", curie=ODM.curie('RoleCodeListOID'),
+                   model_uri=ODM.RoleCodeListOID, domain=None, range=Optional[str])
+
+slots.Version = Slot(uri=ODM.Version, name="Version", curie=ODM.curie('Version'),
+                   model_uri=ODM.Version, domain=None, range=Optional[str])
+
+slots.SoftHard = Slot(uri=ODM.SoftHard, name="SoftHard", curie=ODM.curie('SoftHard'),
+                   model_uri=ODM.SoftHard, domain=None, range=Optional[Union[str, "SoftOrHard"]])
+
+slots.CodedValue = Slot(uri=ODM.CodedValue, name="CodedValue", curie=ODM.curie('CodedValue'),
+                   model_uri=ODM.CodedValue, domain=None, range=Optional[str])
+
+slots.Label = Slot(uri=ODM.Label, name="Label", curie=ODM.curie('Label'),
+                   model_uri=ODM.Label, domain=None, range=Optional[str])
+
+slots.Role = Slot(uri=ODM.Role, name="Role", curie=ODM.curie('Role'),
+                   model_uri=ODM.Role, domain=None, range=Optional[str])
+
+slots.TelecomType = Slot(uri=ODM.TelecomType, name="TelecomType", curie=ODM.curie('TelecomType'),
+                   model_uri=ODM.TelecomType, domain=None, range=Optional[Union[str, "TelecomTypeType"]])
+
+slots.DurationTarget = Slot(uri=ODM.DurationTarget, name="DurationTarget", curie=ODM.curie('DurationTarget'),
+                   model_uri=ODM.DurationTarget, domain=None, range=Optional[str])
+
+slots.ProtocolName = Slot(uri=ODM.ProtocolName, name="ProtocolName", curie=ODM.curie('ProtocolName'),
+                   model_uri=ODM.ProtocolName, domain=None, range=Optional[str])
+
+slots.StudyOID = Slot(uri=ODM.StudyOID, name="StudyOID", curie=ODM.curie('StudyOID'),
+                   model_uri=ODM.StudyOID, domain=None, range=Optional[str])
+
+slots.Length = Slot(uri=ODM.Length, name="Length", curie=ODM.curie('Length'),
+                   model_uri=ODM.Length, domain=None, range=Optional[int])
+
+slots.Rank = Slot(uri=ODM.Rank, name="Rank", curie=ODM.curie('Rank'),
+                   model_uri=ODM.Rank, domain=None, range=Optional[Decimal])
+
+slots.FileTypeRef = Slot(uri=ODM.FileTypeRef, name="FileTypeRef", curie=ODM.curie('FileTypeRef'),
+                   model_uri=ODM.FileTypeRef, domain=None, range=Optional[Union[str, "FileType"]])
+
+slots.Methodology = Slot(uri=ODM.Methodology, name="Methodology", curie=ODM.curie('Methodology'),
+                   model_uri=ODM.Methodology, domain=None, range=Optional[Union[str, "SignMethod"]])
+
+slots.SourceSystem = Slot(uri=ODM.SourceSystem, name="SourceSystem", curie=ODM.curie('SourceSystem'),
+                   model_uri=ODM.SourceSystem, domain=None, range=Optional[str])
+
+slots.EndConditionOID = Slot(uri=ODM.EndConditionOID, name="EndConditionOID", curie=ODM.curie('EndConditionOID'),
+                   model_uri=ODM.EndConditionOID, domain=None, range=Optional[str])
+
+slots.StartOID = Slot(uri=ODM.StartOID, name="StartOID", curie=ODM.curie('StartOID'),
+                   model_uri=ODM.StartOID, domain=None, range=Optional[str])
+
+slots.SuccessorOID = Slot(uri=ODM.SuccessorOID, name="SuccessorOID", curie=ODM.curie('SuccessorOID'),
+                   model_uri=ODM.SuccessorOID, domain=None, range=Optional[str])
+
+slots.ref = Slot(uri=ODM.ref, name="ref", curie=ODM.curie('ref'),
+                   model_uri=ODM.ref, domain=None, range=Optional[str])
+
+slots.ODMVersionRef = Slot(uri=ODM.ODMVersionRef, name="ODMVersionRef", curie=ODM.curie('ODMVersionRef'),
+                   model_uri=ODM.ODMVersionRef, domain=None, range=Optional[str])
+
+slots.ContextRef = Slot(uri=ODM.ContextRef, name="ContextRef", curie=ODM.curie('ContextRef'),
+                   model_uri=ODM.ContextRef, domain=None, range=Optional[str])
+
+slots.Longitude = Slot(uri=ODM.Longitude, name="Longitude", curie=ODM.curie('Longitude'),
+                   model_uri=ODM.Longitude, domain=None, range=Optional[Decimal])
+
+slots.LocationOID = Slot(uri=ODM.LocationOID, name="LocationOID", curie=ODM.curie('LocationOID'),
+                   model_uri=ODM.LocationOID, domain=None, range=Optional[str])
+
+slots.StudyName = Slot(uri=ODM.StudyName, name="StudyName", curie=ODM.curie('StudyName'),
+                   model_uri=ODM.StudyName, domain=None, range=Optional[str])
+
+slots.Repeat = Slot(uri=ODM.Repeat, name="Repeat", curie=ODM.curie('Repeat'),
+                   model_uri=ODM.Repeat, domain=None, range=Optional[Union[str, "YesOnly"]])
+
+slots.Altitude = Slot(uri=ODM.Altitude, name="Altitude", curie=ODM.curie('Altitude'),
+                   model_uri=ODM.Altitude, domain=None, range=Optional[Decimal])
+
+slots.ExtendedValue = Slot(uri=ODM.ExtendedValue, name="ExtendedValue", curie=ODM.curie('ExtendedValue'),
+                   model_uri=ODM.ExtendedValue, domain=None, range=Optional[Union[str, "YesOnly"]])
+
+slots.AsOfDateTime = Slot(uri=ODM.AsOfDateTime, name="AsOfDateTime", curie=ODM.curie('AsOfDateTime'),
+                   model_uri=ODM.AsOfDateTime, domain=None, range=Optional[Union[str, XSDDateTime]])
+
+slots.EffectiveDate = Slot(uri=ODM.EffectiveDate, name="EffectiveDate", curie=ODM.curie('EffectiveDate'),
+                   model_uri=ODM.EffectiveDate, domain=None, range=Optional[Union[str, XSDDate]])
+
+slots.TimepointPostWindow = Slot(uri=ODM.TimepointPostWindow, name="TimepointPostWindow", curie=ODM.curie('TimepointPostWindow'),
+                   model_uri=ODM.TimepointPostWindow, domain=None, range=Optional[str])
+
+slots.StructuralElementOID = Slot(uri=ODM.StructuralElementOID, name="StructuralElementOID", curie=ODM.curie('StructuralElementOID'),
+                   model_uri=ODM.StructuralElementOID, domain=None, range=Optional[str])
+
+slots.ValueListOID = Slot(uri=ODM.ValueListOID, name="ValueListOID", curie=ODM.curie('ValueListOID'),
+                   model_uri=ODM.ValueListOID, domain=None, range=Optional[str])
+
+slots.LastUpdateDatetime = Slot(uri=ODM.LastUpdateDatetime, name="LastUpdateDatetime", curie=ODM.curie('LastUpdateDatetime'),
+                   model_uri=ODM.LastUpdateDatetime, domain=None, range=Optional[Union[str, XSDDateTime]])
+
+slots.StudyEventOID = Slot(uri=ODM.StudyEventOID, name="StudyEventOID", curie=ODM.curie('StudyEventOID'),
+                   model_uri=ODM.StudyEventOID, domain=None, range=Optional[str])
+
+slots.ItemOID = Slot(uri=ODM.ItemOID, name="ItemOID", curie=ODM.curie('ItemOID'),
+                   model_uri=ODM.ItemOID, domain=None, range=Optional[str])
+
+slots.Category = Slot(uri=ODM.Category, name="Category", curie=ODM.curie('Category'),
+                   model_uri=ODM.Category, domain=None, range=Optional[str])
+
+slots.Domain = Slot(uri=ODM.Domain, name="Domain", curie=ODM.curie('Domain'),
+                   model_uri=ODM.Domain, domain=None, range=Optional[str])
+
+slots.Path = Slot(uri=ODM.Path, name="Path", curie=ODM.curie('Path'),
+                   model_uri=ODM.Path, domain=None, range=Optional[str])
+
+slots.SignatureOID = Slot(uri=ODM.SignatureOID, name="SignatureOID", curie=ODM.curie('SignatureOID'),
+                   model_uri=ODM.SignatureOID, domain=None, range=Optional[str])
+
+slots.OrderNumber = Slot(uri=ODM.OrderNumber, name="OrderNumber", curie=ODM.curie('OrderNumber'),
+                   model_uri=ODM.OrderNumber, domain=None, range=Optional[int])
+
+slots.System = Slot(uri=ODM.System, name="System", curie=ODM.curie('System'),
+                   model_uri=ODM.System, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.TargetOID = Slot(uri=ODM.TargetOID, name="TargetOID", curie=ODM.curie('TargetOID'),
+                   model_uri=ODM.TargetOID, domain=None, range=Optional[str])
+
+slots.Structure = Slot(uri=ODM.Structure, name="Structure", curie=ODM.curie('Structure'),
+                   model_uri=ODM.Structure, domain=None, range=Optional[str])
+
+slots.LastPage = Slot(uri=ODM.LastPage, name="LastPage", curie=ODM.curie('LastPage'),
+                   model_uri=ODM.LastPage, domain=None, range=Optional[int])
+
+slots.SystemName = Slot(uri=ODM.SystemName, name="SystemName", curie=ODM.curie('SystemName'),
+                   model_uri=ODM.SystemName, domain=None, range=Optional[str])
+
+slots.href = Slot(uri=ODM.href, name="href", curie=ODM.curie('href'),
+                   model_uri=ODM.href, domain=None, range=Optional[str])
+
+slots.UnitsItemOID = Slot(uri=ODM.UnitsItemOID, name="UnitsItemOID", curie=ODM.curie('UnitsItemOID'),
+                   model_uri=ODM.UnitsItemOID, domain=None, range=Optional[str])
+
+slots.DatasetName = Slot(uri=ODM.DatasetName, name="DatasetName", curie=ODM.curie('DatasetName'),
+                   model_uri=ODM.DatasetName, domain=None, range=Optional[str])
+
+slots.PageRefs = Slot(uri=ODM.PageRefs, name="PageRefs", curie=ODM.curie('PageRefs'),
+                   model_uri=ODM.PageRefs, domain=None, range=Optional[str])
+
+slots.OrganizationOID = Slot(uri=ODM.OrganizationOID, name="OrganizationOID", curie=ODM.curie('OrganizationOID'),
+                   model_uri=ODM.OrganizationOID, domain=None, range=Optional[str])
+
+slots.Purpose = Slot(uri=ODM.Purpose, name="Purpose", curie=ODM.curie('Purpose'),
+                   model_uri=ODM.Purpose, domain=None, range=Optional[str])
+
+slots.CreationDateTime = Slot(uri=ODM.CreationDateTime, name="CreationDateTime", curie=ODM.curie('CreationDateTime'),
+                   model_uri=ODM.CreationDateTime, domain=None, range=Optional[Union[str, XSDDateTime]])
+
+slots.StudyEventRepeatKey = Slot(uri=ODM.StudyEventRepeatKey, name="StudyEventRepeatKey", curie=ODM.curie('StudyEventRepeatKey'),
+                   model_uri=ODM.StudyEventRepeatKey, domain=None, range=Optional[str])
+
+slots.Latitude = Slot(uri=ODM.Latitude, name="Latitude", curie=ODM.curie('Latitude'),
+                   model_uri=ODM.Latitude, domain=None, range=Optional[Decimal])
 
 slots.FileOID = Slot(uri=ODM.FileOID, name="FileOID", curie=ODM.curie('FileOID'),
                    model_uri=ODM.FileOID, domain=None, range=Optional[str])
+
+slots.DurationPreWindow = Slot(uri=ODM.DurationPreWindow, name="DurationPreWindow", curie=ODM.curie('DurationPreWindow'),
+                   model_uri=ODM.DurationPreWindow, domain=None, range=Optional[str])
 
 slots.TranslatedTextRef = Slot(uri=ODM.TranslatedTextRef, name="TranslatedTextRef", curie=ODM.curie('TranslatedTextRef'),
                    model_uri=ODM.TranslatedTextRef, domain=None, range=Optional[Union[dict, TranslatedText]])
@@ -8070,8 +8040,8 @@ slots.PDFPageRef_LastPage = Slot(uri=ODM.LastPage, name="PDFPageRef_LastPage", c
 slots.PDFPageRef_Type = Slot(uri=ODM.Type, name="PDFPageRef_Type", curie=ODM.curie('Type'),
                    model_uri=ODM.PDFPageRef_Type, domain=PDFPageRef, range=Union[str, "PDFPageType"])
 
-slots.PDFPageRef_Title = Slot(uri=ODM.Title, name="PDFPageRef_Title", curie=ODM.curie('Title'),
-                   model_uri=ODM.PDFPageRef_Title, domain=PDFPageRef, range=Optional[str])
+slots.PDFPageRef_TitleRef = Slot(uri=ODM.TitleRef, name="PDFPageRef_TitleRef", curie=ODM.curie('TitleRef'),
+                   model_uri=ODM.PDFPageRef_TitleRef, domain=PDFPageRef, range=Optional[str])
 
 slots.Leaf_ID = Slot(uri=ODM.ID, name="Leaf_ID", curie=ODM.curie('ID'),
                    model_uri=ODM.Leaf_ID, domain=Leaf, range=Union[str, LeafID])
@@ -8079,8 +8049,11 @@ slots.Leaf_ID = Slot(uri=ODM.ID, name="Leaf_ID", curie=ODM.curie('ID'),
 slots.Leaf_href = Slot(uri=ODM.href, name="Leaf_href", curie=ODM.curie('href'),
                    model_uri=ODM.Leaf_href, domain=Leaf, range=Union[str, URIorCURIE])
 
-slots.Leaf_Title = Slot(uri=ODM.Title, name="Leaf_Title", curie=ODM.curie('Title'),
-                   model_uri=ODM.Leaf_Title, domain=Leaf, range=Optional[str])
+slots.Leaf_TitleRef = Slot(uri=ODM.TitleRef, name="Leaf_TitleRef", curie=ODM.curie('TitleRef'),
+                   model_uri=ODM.Leaf_TitleRef, domain=Leaf, range=Optional[Union[dict, "Title"]])
+
+slots.Title_range = Slot(uri=ODM.range, name="Title_range", curie=ODM.curie('range'),
+                   model_uri=ODM.Title_range, domain=Title, range=Optional[str])
 
 slots.Include_StudyOID = Slot(uri=ODM.StudyOID, name="Include_StudyOID", curie=ODM.curie('StudyOID'),
                    model_uri=ODM.Include_StudyOID, domain=Include, range=str)
@@ -9191,33 +9164,6 @@ slots.Criterion_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="Criterion_De
 
 slots.Criterion_CodingRef = Slot(uri=ODM.CodingRef, name="Criterion_CodingRef", curie=ODM.curie('CodingRef'),
                    model_uri=ODM.Criterion_CodingRef, domain=Criterion, range=Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]])
-
-slots.EntryCriteria_CriterionRef = Slot(uri=ODM.CriterionRef, name="EntryCriteria_CriterionRef", curie=ODM.curie('CriterionRef'),
-                   model_uri=ODM.EntryCriteria_CriterionRef, domain=EntryCriteria, range=Optional[Union[Dict[Union[str, CriterionOID], Union[dict, Criterion]], List[Union[dict, Criterion]]]])
-
-slots.ExitCriteria_CriterionRef = Slot(uri=ODM.CriterionRef, name="ExitCriteria_CriterionRef", curie=ODM.curie('CriterionRef'),
-                   model_uri=ODM.ExitCriteria_CriterionRef, domain=ExitCriteria, range=Optional[Union[Dict[Union[str, CriterionOID], Union[dict, Criterion]], List[Union[dict, Criterion]]]])
-
-slots.ExceptionEvent_OID = Slot(uri=ODM.OID, name="ExceptionEvent_OID", curie=ODM.curie('OID'),
-                   model_uri=ODM.ExceptionEvent_OID, domain=ExceptionEvent, range=Union[str, ExceptionEventOID])
-
-slots.ExceptionEvent_Name = Slot(uri=ODM.Name, name="ExceptionEvent_Name", curie=ODM.curie('Name'),
-                   model_uri=ODM.ExceptionEvent_Name, domain=ExceptionEvent, range=str)
-
-slots.ExceptionEvent_ConditionOID = Slot(uri=ODM.ConditionOID, name="ExceptionEvent_ConditionOID", curie=ODM.curie('ConditionOID'),
-                   model_uri=ODM.ExceptionEvent_ConditionOID, domain=ExceptionEvent, range=Optional[str])
-
-slots.ExceptionEvent_DescriptionRef = Slot(uri=ODM.DescriptionRef, name="ExceptionEvent_DescriptionRef", curie=ODM.curie('DescriptionRef'),
-                   model_uri=ODM.ExceptionEvent_DescriptionRef, domain=ExceptionEvent, range=Optional[Union[dict, Description]])
-
-slots.ExceptionEvent_WorkflowRefRef = Slot(uri=ODM.WorkflowRefRef, name="ExceptionEvent_WorkflowRefRef", curie=ODM.curie('WorkflowRefRef'),
-                   model_uri=ODM.ExceptionEvent_WorkflowRefRef, domain=ExceptionEvent, range=Union[dict, WorkflowRef])
-
-slots.ExceptionEvent_StudyEventGroupRefRef = Slot(uri=ODM.StudyEventGroupRefRef, name="ExceptionEvent_StudyEventGroupRefRef", curie=ODM.curie('StudyEventGroupRefRef'),
-                   model_uri=ODM.ExceptionEvent_StudyEventGroupRefRef, domain=ExceptionEvent, range=Union[dict, StudyEventGroupRef])
-
-slots.ExceptionEvent_StudyEventRefRef = Slot(uri=ODM.StudyEventRefRef, name="ExceptionEvent_StudyEventRefRef", curie=ODM.curie('StudyEventRefRef'),
-                   model_uri=ODM.ExceptionEvent_StudyEventRefRef, domain=ExceptionEvent, range=Union[dict, StudyEventRef])
 
 slots.AdminData_StudyOID = Slot(uri=ODM.StudyOID, name="AdminData_StudyOID", curie=ODM.curie('StudyOID'),
                    model_uri=ODM.AdminData_StudyOID, domain=AdminData, range=Optional[str])

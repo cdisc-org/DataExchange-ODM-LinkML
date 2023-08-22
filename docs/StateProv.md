@@ -126,6 +126,7 @@ attributes:
   owner: StateProv
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

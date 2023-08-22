@@ -126,6 +126,7 @@ attributes:
   owner: City
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

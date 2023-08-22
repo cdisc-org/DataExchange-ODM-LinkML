@@ -129,7 +129,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       Must be unique within the Study.'
     domain_of:
@@ -164,7 +164,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -178,7 +177,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       Must be unique within the set of timing constraints for the Study.'
     domain_of:
@@ -213,7 +212,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -226,7 +224,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID for Study, Epoch, StudyEventGroupDef, StudyEventDef, ItemGroupDef
       or ItemDef. element.'
@@ -242,7 +240,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be a non-negative ISO 8601 duration.'
     domain_of:
@@ -256,7 +254,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be a non-negative ISO 8601 duration.'
     domain_of:
@@ -269,7 +267,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be a non-negative ISO 8601 duration.'
     domain_of:
@@ -311,7 +309,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -341,7 +338,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       Must be unique within the Study.'
     domain_of:
@@ -376,7 +373,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -390,7 +386,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       Must be unique within the set of timing constraints for the Study.'
     domain_of:
@@ -425,7 +421,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -438,7 +433,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID for Study, Epoch, StudyEventGroupDef, StudyEventDef, ItemGroupDef
       or ItemDef. element.'
@@ -454,7 +449,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be a non-negative ISO 8601 duration.'
     domain_of:
@@ -468,7 +463,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be a non-negative ISO 8601 duration.'
     domain_of:
@@ -481,7 +476,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be a non-negative ISO 8601 duration.'
     domain_of:
@@ -523,7 +518,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -536,7 +530,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       Must be unique within the Study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -576,7 +570,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -590,7 +583,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       Must be unique within the set of timing constraints for the Study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -629,7 +622,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -642,7 +634,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID for Study, Epoch, StudyEventGroupDef, StudyEventDef, ItemGroupDef
       or ItemDef. element.'
@@ -662,7 +654,7 @@ attributes:
     comments:
     - 'Required
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be a non-negative ISO 8601 duration.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -680,7 +672,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be a non-negative ISO 8601 duration.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -697,7 +689,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:durationDatetime
+      range: durationDatetime
 
       Must be a non-negative ISO 8601 duration.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -750,7 +742,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

@@ -1,6 +1,11 @@
 # Class: IntercurrentEvent
 
 
+_The IntercurrentEvent element describes an intercurrent event for an estimand (e.g., treatment discontinuation)._
+
+
+
+
 
 URI: [odm:IntercurrentEvent](http://www.cdisc.org/ns/odm/v2.0/IntercurrentEvent)
 
@@ -84,6 +89,8 @@ URI: [odm:IntercurrentEvent](http://www.cdisc.org/ns/odm/v2.0/IntercurrentEvent)
 <details>
 ```yaml
 name: IntercurrentEvent
+description: The IntercurrentEvent element describes an intercurrent event for an
+  estimand (e.g., treatment discontinuation).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/IntercurrentEvent
@@ -126,7 +133,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -142,6 +148,8 @@ class_uri: odm:IntercurrentEvent
 <details>
 ```yaml
 name: IntercurrentEvent
+description: The IntercurrentEvent element describes an intercurrent event for an
+  estimand (e.g., treatment discontinuation).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/IntercurrentEvent
@@ -182,7 +190,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -232,7 +239,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

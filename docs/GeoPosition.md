@@ -109,7 +109,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:decimal'
+      range: decimal'
     domain_of:
     - GeoPosition
     range: decimal
@@ -120,7 +120,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:decimal'
+      range: decimal'
     domain_of:
     - GeoPosition
     range: decimal
@@ -130,7 +130,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:decimal'
+      range: decimal'
     domain_of:
     - GeoPosition
     range: decimal
@@ -156,7 +156,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:decimal'
+      range: decimal'
     domain_of:
     - GeoPosition
     range: decimal
@@ -167,7 +167,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:decimal'
+      range: decimal'
     domain_of:
     - GeoPosition
     range: decimal
@@ -177,7 +177,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:decimal'
+      range: decimal'
     domain_of:
     - GeoPosition
     range: decimal
@@ -189,7 +189,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:decimal'
+      range: decimal'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Longitude
@@ -204,7 +204,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:decimal'
+      range: decimal'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Latitude
@@ -218,7 +218,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:decimal'
+      range: decimal'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Altitude

@@ -49,7 +49,7 @@ URI: [odm:Study](http://www.cdisc.org/ns/odm/v2.0/Study)
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the study. | direct |
 | [StudyName](StudyName.md) | 1..1 <br/> [name](name.md) | Sponsoring organization's internal name for the study. If no internal name is... | direct |
-| [ProtocolName](ProtocolName.md) | 1..1 <br/> [name](name.md) | P rotocol identifier or protocol number assigned to the study . It is used by... | direct |
+| [ProtocolName](ProtocolName.md) | 1..1 <br/> [name](name.md) | Protocol identifier or protocol number assigned to the study . It is used by ... | direct |
 | [VersionID](VersionID.md) | 0..1 <br/> [name](name.md) | Identifier for the specific version of the study in the source system that th... | direct |
 | [VersionName](VersionName.md) | 0..1 <br/> [name](name.md) | Short descriptive label for the version of the study, e.g. "Initial go live" ... | direct |
 | [Status](Status.md) | 0..1 <br/> [name](name.md) | Represents the workflow status for the version of the study with content incl... | direct |
@@ -133,7 +133,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -166,7 +166,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -181,19 +180,19 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     domain_of:
     - Study
     range: name
     required: true
   ProtocolName:
     name: ProtocolName
-    description: P rotocol identifier or protocol number assigned to the study . It
+    description: Protocol identifier or protocol number assigned to the study . It
       is used by the regulatory authority or clinical trial registry.
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     domain_of:
     - Study
     range: name
@@ -205,7 +204,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:name'
+      range: name'
     domain_of:
     - Study
     range: name
@@ -217,7 +216,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:name'
+      range: name'
     domain_of:
     - Study
     range: name
@@ -232,7 +231,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:name'
+      range: name'
     domain_of:
     - Study
     - Standard
@@ -273,7 +272,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -310,7 +308,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -343,7 +341,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -358,19 +355,19 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     domain_of:
     - Study
     range: name
     required: true
   ProtocolName:
     name: ProtocolName
-    description: P rotocol identifier or protocol number assigned to the study . It
+    description: Protocol identifier or protocol number assigned to the study . It
       is used by the regulatory authority or clinical trial registry.
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     domain_of:
     - Study
     range: name
@@ -382,7 +379,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:name'
+      range: name'
     domain_of:
     - Study
     range: name
@@ -394,7 +391,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:name'
+      range: name'
     domain_of:
     - Study
     range: name
@@ -409,7 +406,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:name'
+      range: name'
     domain_of:
     - Study
     - Standard
@@ -450,7 +447,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -472,7 +468,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -510,7 +506,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -525,7 +520,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyName
@@ -536,12 +531,12 @@ attributes:
     required: true
   ProtocolName:
     name: ProtocolName
-    description: P rotocol identifier or protocol number assigned to the study . It
+    description: Protocol identifier or protocol number assigned to the study . It
       is used by the regulatory authority or clinical trial registry.
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ProtocolName
@@ -557,7 +552,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:name'
+      range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: VersionID
@@ -573,7 +568,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:name'
+      range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: VersionName
@@ -592,7 +587,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:name'
+      range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Status
@@ -644,7 +639,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

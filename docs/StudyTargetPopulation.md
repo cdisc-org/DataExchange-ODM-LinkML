@@ -123,7 +123,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
     domain_of:
@@ -158,7 +158,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -172,7 +171,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -205,7 +204,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -247,7 +245,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -310,7 +307,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
     domain_of:
@@ -345,7 +342,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -359,7 +355,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -392,7 +388,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -434,7 +429,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -482,7 +476,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -522,7 +516,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -536,7 +529,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -573,7 +566,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -622,7 +614,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

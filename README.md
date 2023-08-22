@@ -45,6 +45,7 @@ Between these 2 frameworks we can translate ODMv2 data & schemata into helpful r
 - Names in ODM need changing to avoid collisions between Slots/Types/Classes
 - Handling of conditional slot population rules: exactly_one_of, any_of, all_of, none_of
 - Capitalises Type names in documentation and Python outputs (to preserve case-sensitive names, remove camelcase applied to returned values in your installed LinkML source files e.g. `DocumentGenerator.name()`, `DocumentGenerator.link()` from linkml/generators/docgen.py)
+- ER diagram rendered in markdown is too small and not zoomable if number of classes is large `--include-top-level-diagram --diagram-type er_diagram`
 
 # How to generate schemata and documentation from source ODM XML
     git clone https://github.com/cdisc-org/DataExchange-ODM.git
@@ -60,7 +61,7 @@ More detailed relationship and cardinality constraints still need to be ported f
 
 As content is added, refresh documentation and diagrams using `mkdocs` to keep it up to date with the latest batch of generated .md files
 
-    gen-doc ODM.yaml --hierarchical-class-view --directory docs/
+    gen-doc ODM.yaml --directory docs/ --hierarchical-class-view
     mkdocs build
 
 to check the updated documentation changes locally

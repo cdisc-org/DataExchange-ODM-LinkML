@@ -1,7 +1,7 @@
 # Slot: DefaultTransitionRef
 
 
-_DefaultTransition reference: None_
+_DefaultTransition reference: The DefaultTransition references the Transition that needs to be executed when none of the TargetTransitions can be executed._
 
 
 
@@ -55,7 +55,8 @@ URI: [odm:DefaultTransitionRef](http://www.cdisc.org/ns/odm/v2.0/DefaultTransiti
 <details>
 ```yaml
 name: DefaultTransitionRef
-description: 'DefaultTransition reference: None'
+description: 'DefaultTransition reference: The DefaultTransition references the Transition
+  that needs to be executed when none of the TargetTransitions can be executed.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

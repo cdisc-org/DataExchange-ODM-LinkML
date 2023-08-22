@@ -1,6 +1,11 @@
 # Class: StudyInterventionRef
 
 
+_The StudyInterventionRef references an intervention that is taken as the treatment for the estimand._
+
+
+
+
 
 URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventionRef)
 
@@ -82,6 +87,8 @@ URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 <details>
 ```yaml
 name: StudyInterventionRef
+description: The StudyInterventionRef references an intervention that is taken as
+  the treatment for the estimand.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventionRef
@@ -94,7 +101,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - StudyInterventionRef
     range: oidref
@@ -109,6 +116,8 @@ class_uri: odm:StudyInterventionRef
 <details>
 ```yaml
 name: StudyInterventionRef
+description: The StudyInterventionRef references an intervention that is taken as
+  the treatment for the estimand.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventionRef
@@ -119,7 +128,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - StudyInterventionRef
     range: oidref
@@ -131,7 +140,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyInterventionOID

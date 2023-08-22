@@ -104,7 +104,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The valid values for a FlagType are provided by the study sponsor. Must match
       the OID for a CodeList element in the Study/MetaDataVersion.'
@@ -118,6 +118,7 @@ slot_usage:
     name: _content
     domain_of:
     - TranslatedText
+    - Title
     - CheckValue
     - Code
     - WorkflowEnd
@@ -164,7 +165,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The valid values for a FlagType are provided by the study sponsor. Must match
       the OID for a CodeList element in the Study/MetaDataVersion.'
@@ -178,6 +179,7 @@ slot_usage:
     name: _content
     domain_of:
     - TranslatedText
+    - Title
     - CheckValue
     - Code
     - WorkflowEnd
@@ -210,7 +212,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The valid values for a FlagType are provided by the study sponsor. Must match
       the OID for a CodeList element in the Study/MetaDataVersion.'
@@ -233,6 +235,7 @@ attributes:
     owner: FlagType
     domain_of:
     - TranslatedText
+    - Title
     - CheckValue
     - Code
     - WorkflowEnd

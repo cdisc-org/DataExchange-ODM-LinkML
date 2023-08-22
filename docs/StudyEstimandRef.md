@@ -1,7 +1,7 @@
 # Slot: StudyEstimandRef
 
 
-_StudyEstimand reference: None_
+_StudyEstimand reference: A precise description of the treatment effect reflecting the clinical question posed by a given clinical trial objective. It summarises at a population level what the outcomes would be in the same patients under different treatment conditions being compared._
 
 
 
@@ -18,7 +18,7 @@ URI: [odm:StudyEstimandRef](http://www.cdisc.org/ns/odm/v2.0/StudyEstimandRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[StudyEstimands](StudyEstimands.md) |  |  yes  |
+[StudyEstimands](StudyEstimands.md) | StudyEstimands is a container element for individual StudyEstimand elements. |  yes  |
 
 
 
@@ -55,7 +55,10 @@ URI: [odm:StudyEstimandRef](http://www.cdisc.org/ns/odm/v2.0/StudyEstimandRef)
 <details>
 ```yaml
 name: StudyEstimandRef
-description: 'StudyEstimand reference: None'
+description: 'StudyEstimand reference: A precise description of the treatment effect
+  reflecting the clinical question posed by a given clinical trial objective. It summarises
+  at a population level what the outcomes would be in the same patients under different
+  treatment conditions being compared.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

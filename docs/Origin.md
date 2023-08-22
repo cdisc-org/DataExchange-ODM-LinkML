@@ -52,7 +52,7 @@ URI: [odm:Origin](http://www.cdisc.org/ns/odm/v2.0/Origin)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [Type](Type.md) | 1..1 <br/> [OriginType](OriginType.md) | Identifies how the clinical data values were obtained. | direct |
-| [Source](Source.md) | 0..1 <br/> [OriginSource](OriginSource.md) | I ndicates the party responsible for the data's origin type. | direct |
+| [Source](Source.md) | 0..1 <br/> [OriginSource](OriginSource.md) | Indicates the party responsible for the data's origin type. | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [SourceItemsRef](SourceItemsRef.md) | 0..1 <br/> [SourceItems](SourceItems.md) | SourceItems reference: Identifies source items as needed to support automated... | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
@@ -136,7 +136,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       The list of allowable Origin/@Type attribute values is provided as non-extensible
       codelists in the CDISC Controlled Terminology, Define-XML package. * Users are
@@ -161,11 +161,11 @@ slot_usage:
     required: true
   Source:
     name: Source
-    description: I ndicates the party responsible for the data's origin type.
+    description: Indicates the party responsible for the data's origin type.
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       The list of allowable Origin/@Source attribute values is provided in the CDISC
       Controlled Terminology, Define-XML package. * Users are encouraged to refer
@@ -211,7 +211,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -282,7 +281,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       The list of allowable Origin/@Type attribute values is provided as non-extensible
       codelists in the CDISC Controlled Terminology, Define-XML package. * Users are
@@ -307,11 +306,11 @@ slot_usage:
     required: true
   Source:
     name: Source
-    description: I ndicates the party responsible for the data's origin type.
+    description: Indicates the party responsible for the data's origin type.
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       The list of allowable Origin/@Source attribute values is provided in the CDISC
       Controlled Terminology, Define-XML package. * Users are encouraged to refer
@@ -357,7 +356,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -411,7 +409,7 @@ attributes:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       The list of allowable Origin/@Type attribute values is provided as non-extensible
       codelists in the CDISC Controlled Terminology, Define-XML package. * Users are
@@ -440,11 +438,11 @@ attributes:
     required: true
   Source:
     name: Source
-    description: I ndicates the party responsible for the data's origin type.
+    description: Indicates the party responsible for the data's origin type.
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       The list of allowable Origin/@Source attribute values is provided in the CDISC
       Controlled Terminology, Define-XML package. * Users are encouraged to refer
@@ -501,7 +499,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

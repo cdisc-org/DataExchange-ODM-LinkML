@@ -101,7 +101,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for an AdminData/User element where the AdminData/@StudyOID
       matches the ClinicalData/@StudyOID.'
@@ -132,7 +132,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for an AdminData/User element where the AdminData/@StudyOID
       matches the ClinicalData/@StudyOID.'
@@ -148,7 +148,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for an AdminData/User element where the AdminData/@StudyOID
       matches the ClinicalData/@StudyOID.'

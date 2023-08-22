@@ -126,6 +126,7 @@ attributes:
   owner: OtherText
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

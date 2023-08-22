@@ -1,7 +1,7 @@
 # Slot: StudyInterventionRefRef
 
 
-_StudyInterventionRef reference: None_
+_StudyInterventionRef reference: The StudyInterventionRef references an intervention that is taken as the treatment for the estimand._
 
 
 
@@ -19,7 +19,7 @@ URI: [odm:StudyInterventionRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterve
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [StudyInterventions](StudyInterventions.md) | The StudyInterventions element is a container element for individual StudyInt... |  yes  |
-[StudyEstimand](StudyEstimand.md) |  |  yes  |
+[StudyEstimand](StudyEstimand.md) | A precise description of the treatment effect reflecting the clinical questio... |  yes  |
 
 
 
@@ -56,7 +56,8 @@ URI: [odm:StudyInterventionRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterve
 <details>
 ```yaml
 name: StudyInterventionRefRef
-description: 'StudyInterventionRef reference: None'
+description: 'StudyInterventionRef reference: The StudyInterventionRef references
+  an intervention that is taken as the treatment for the estimand.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

@@ -64,11 +64,11 @@ URI: [odm:SubjectData](http://www.cdisc.org/ns/odm/v2.0/SubjectData)
 | [SubjectKey](SubjectKey.md) | 1..1 <br/> [subjectKey](subjectKey.md) | Unique identifier for the Subject. | direct |
 | [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... | direct |
 | [InvestigatorRefRef](InvestigatorRefRef.md) | 0..1 <br/> [InvestigatorRef](InvestigatorRef.md) | InvestigatorRef reference: Provides a reference to the user who created the S... | direct |
-| [SiteRefRef](SiteRefRef.md) | 0..1 <br/> [SiteRef](SiteRef.md) | SiteRef reference: lement NameSiteRefParent ElementsSubjectDataElement XPath(... | direct |
+| [SiteRefRef](SiteRefRef.md) | 0..1 <br/> [SiteRef](SiteRef.md) | SiteRef reference: Provides a reference to the site that the SubjectData reco... | direct |
 | [StudyEventDataRef](StudyEventDataRef.md) | 0..* <br/> [StudyEventData](StudyEventData.md) | StudyEventData reference: Clinical data for a study event (visit). The model ... | direct |
 | [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) | Query reference: The Query element represents a request for clarification on ... | direct |
 | [AuditRecordRef](AuditRecordRef.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
-| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: None | direct |
+| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: A reference to the signature meaning. | direct |
 | [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
 
@@ -148,7 +148,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:subjectKey
+      range: subjectKey
 
       For CDISC SDTM regulatory submission, the SubjectKey value should be the SDTM
       SUBJID variable value.'
@@ -165,7 +165,7 @@ slot_usage:
     - 'Conditional Required when contained within an ODM Transactional file and the
       SubjectData element has no child element content.
 
-      enum values:(Insert | Update | Remove | Upsert | Context)
+      enum values: (Insert | Update | Remove | Upsert | Context)
 
       When importing data from an ODM Snapshot file, the TransactionType attribute
       must not affect the processing of the SubjectData element.'
@@ -266,7 +266,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:subjectKey
+      range: subjectKey
 
       For CDISC SDTM regulatory submission, the SubjectKey value should be the SDTM
       SUBJID variable value.'
@@ -283,7 +283,7 @@ slot_usage:
     - 'Conditional Required when contained within an ODM Transactional file and the
       SubjectData element has no child element content.
 
-      enum values:(Insert | Update | Remove | Upsert | Context)
+      enum values: (Insert | Update | Remove | Upsert | Context)
 
       When importing data from an ODM Snapshot file, the TransactionType attribute
       must not affect the processing of the SubjectData element.'
@@ -370,7 +370,7 @@ attributes:
     comments:
     - 'Required
 
-      range:subjectKey
+      range: subjectKey
 
       For CDISC SDTM regulatory submission, the SubjectKey value should be the SDTM
       SUBJID variable value.'
@@ -391,7 +391,7 @@ attributes:
     - 'Conditional Required when contained within an ODM Transactional file and the
       SubjectData element has no child element content.
 
-      enum values:(Insert | Update | Remove | Upsert | Context)
+      enum values: (Insert | Update | Remove | Upsert | Context)
 
       When importing data from an ODM Snapshot file, the TransactionType attribute
       must not affect the processing of the SubjectData element.'
@@ -421,10 +421,8 @@ attributes:
     maximum_cardinality: 1
   SiteRefRef:
     name: SiteRefRef
-    description: 'SiteRef reference: lement NameSiteRefParent ElementsSubjectDataElement
-      XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild
-      ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType
-      is Transactional.'
+    description: 'SiteRef reference: Provides a reference to the site that the SubjectData
+      record is associated with in the source system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -501,7 +499,7 @@ attributes:
     maximum_cardinality: 1
   SignatureRefRef:
     name: SignatureRefRef
-    description: 'SignatureRef reference: None'
+    description: 'SignatureRef reference: A reference to the signature meaning.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

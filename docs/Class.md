@@ -1,6 +1,11 @@
 # Class: Class
 
 
+_The Class element identifies which predefined Class within the model applies to the definition of the dataset._
+
+
+
+
 
 URI: [odm:Class](http://www.cdisc.org/ns/odm/v2.0/Class)
 
@@ -89,6 +94,8 @@ URI: [odm:Class](http://www.cdisc.org/ns/odm/v2.0/Class)
 <details>
 ```yaml
 name: Class
+description: The Class element identifies which predefined Class within the model
+  applies to the definition of the dataset.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Class
@@ -102,7 +109,7 @@ slot_usage:
     comments:
     - 'Conditional Required when ODM/@Context="Submission
 
-      range:text
+      range: text
 
       Text must follow CDISC Controlled Terminology for General Observation Class.
       For analysis datasets, if the ItemGroupDef IsNonStandard attribute is used,
@@ -139,7 +146,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -163,6 +169,8 @@ class_uri: odm:Class
 <details>
 ```yaml
 name: Class
+description: The Class element identifies which predefined Class within the model
+  applies to the definition of the dataset.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Class
@@ -173,7 +181,7 @@ slot_usage:
     comments:
     - 'Conditional Required when ODM/@Context="Submission
 
-      range:text
+      range: text
 
       Text must follow CDISC Controlled Terminology for General Observation Class.
       For analysis datasets, if the ItemGroupDef IsNonStandard attribute is used,
@@ -210,7 +218,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -231,7 +238,7 @@ attributes:
     comments:
     - 'Conditional Required when ODM/@Context="Submission
 
-      range:text
+      range: text
 
       Text must follow CDISC Controlled Terminology for General Observation Class.
       For analysis datasets, if the ItemGroupDef IsNonStandard attribute is used,
@@ -272,7 +279,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query

@@ -39,7 +39,7 @@ URI: [odm:ItemGroupRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ItemGroupOID](ItemGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the ItemGroupDef . | direct |
+| [ItemGroupOID](ItemGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the ItemGroupDef. | direct |
 | [MethodOID](MethodOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a MethodDef that will provide one or more data rows as output. T... | direct |
 | [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this ItemGroup appears in Metadata displays or d... | direct |
 | [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | The Mandatory flag indicates that the clinical data for an instance of the co... | direct |
@@ -119,11 +119,11 @@ slots:
 slot_usage:
   ItemGroupOID:
     name: ItemGroupOID
-    description: Reference to the ItemGroupDef .
+    description: Reference to the ItemGroupDef.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID atttribute for an ItemGroupDef in the Study/MetaDataVersion.'
     domain_of:
@@ -140,7 +140,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The MethodOID value must match the OID attribute for a MethodDef in this Study/MetaDataVersion.'
     domain_of:
@@ -160,7 +160,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The StudyEventRefs within a StudyEventGroup must not have duplicate OrderNumber
       values'
@@ -183,7 +183,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       When the value is Yes, the data for each subject in the study must include a
       StudyEventData element with this StudyEventOID.'
@@ -202,7 +202,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CollectionExceptionConditionOID value must match the OID attribute for a
       ConditionDef in this Study/MetaDataVersion'
@@ -233,11 +233,11 @@ see_also:
 slot_usage:
   ItemGroupOID:
     name: ItemGroupOID
-    description: Reference to the ItemGroupDef .
+    description: Reference to the ItemGroupDef.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID atttribute for an ItemGroupDef in the Study/MetaDataVersion.'
     domain_of:
@@ -254,7 +254,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The MethodOID value must match the OID attribute for a MethodDef in this Study/MetaDataVersion.'
     domain_of:
@@ -274,7 +274,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The StudyEventRefs within a StudyEventGroup must not have duplicate OrderNumber
       values'
@@ -297,7 +297,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       When the value is Yes, the data for each subject in the study must include a
       StudyEventData element with this StudyEventOID.'
@@ -316,7 +316,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CollectionExceptionConditionOID value must match the OID attribute for a
       ConditionDef in this Study/MetaDataVersion'
@@ -329,11 +329,11 @@ slot_usage:
 attributes:
   ItemGroupOID:
     name: ItemGroupOID
-    description: Reference to the ItemGroupDef .
+    description: Reference to the ItemGroupDef.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID atttribute for an ItemGroupDef in the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -354,7 +354,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The MethodOID value must match the OID attribute for a MethodDef in this Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -378,7 +378,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The StudyEventRefs within a StudyEventGroup must not have duplicate OrderNumber
       values'
@@ -405,7 +405,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       When the value is Yes, the data for each subject in the study must include a
       StudyEventData element with this StudyEventOID.'
@@ -428,7 +428,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CollectionExceptionConditionOID value must match the OID attribute for a
       ConditionDef in this Study/MetaDataVersion'

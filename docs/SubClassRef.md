@@ -18,7 +18,7 @@ URI: [odm:SubClassRef](http://www.cdisc.org/ns/odm/v2.0/SubClassRef)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-[Class](Class.md) |  |  yes  |
+[Class](Class.md) | The Class element identifies which predefined Class within the model applies ... |  yes  |
 
 
 

@@ -112,7 +112,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       Valid values may be defined by users or through schema extensions.'
     domain_of:
@@ -127,7 +127,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       Valid values are dependent on the Context attribute value.'
     domain_of:
@@ -162,7 +162,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -190,7 +189,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       Valid values may be defined by users or through schema extensions.'
     domain_of:
@@ -205,7 +204,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       Valid values are dependent on the Context attribute value.'
     domain_of:
@@ -240,7 +239,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -253,7 +251,7 @@ attributes:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       Valid values may be defined by users or through schema extensions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -272,7 +270,7 @@ attributes:
     comments:
     - 'Required
 
-      range:text
+      range: text
 
       Valid values are dependent on the Context attribute value.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -311,7 +309,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query

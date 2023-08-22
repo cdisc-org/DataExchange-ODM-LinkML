@@ -69,7 +69,7 @@ URI: [odm:ItemGroupData](http://www.cdisc.org/ns/odm/v2.0/ItemGroupData)
 | [ItemGroupDataRef](ItemGroupDataRef.md) | 0..* <br/> [ItemGroupData](ItemGroupData.md) | ItemGroupData reference: Clinical data corresponding to an ItemGroupRef defin... | direct |
 | [ItemDataRef](ItemDataRef.md) | 0..* <br/> [ItemData](ItemData.md) | ItemData reference: The ItemData element is used for transmission of the clin... | direct |
 | [AuditRecordRef](AuditRecordRef.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
-| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: None | direct |
+| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: A reference to the signature meaning. | direct |
 | [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
 
@@ -169,7 +169,7 @@ slot_usage:
       group.
     comments:
     - 'Conditional Required when the Repeating attribute for the ItemGroupDef element
-      is "Yes" .
+      is "Yes".
 
       The values of ItemGroupRepeatKey must be unique within the parent element. The
       ItemGroupRepeatKey is present only if the ItemGroupDef is repeating . For /ODM/ReferenceData/ItemGroupData
@@ -311,7 +311,7 @@ slot_usage:
       group.
     comments:
     - 'Conditional Required when the Repeating attribute for the ItemGroupDef element
-      is "Yes" .
+      is "Yes".
 
       The values of ItemGroupRepeatKey must be unique within the parent element. The
       ItemGroupRepeatKey is present only if the ItemGroupDef is repeating . For /ODM/ReferenceData/ItemGroupData
@@ -442,7 +442,7 @@ attributes:
       group.
     comments:
     - 'Conditional Required when the Repeating attribute for the ItemGroupDef element
-      is "Yes" .
+      is "Yes".
 
       The values of ItemGroupRepeatKey must be unique within the parent element. The
       ItemGroupRepeatKey is present only if the ItemGroupDef is repeating . For /ODM/ReferenceData/ItemGroupData
@@ -576,7 +576,7 @@ attributes:
     maximum_cardinality: 1
   SignatureRefRef:
     name: SignatureRefRef
-    description: 'SignatureRef reference: None'
+    description: 'SignatureRef reference: A reference to the signature meaning.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

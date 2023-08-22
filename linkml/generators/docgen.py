@@ -592,7 +592,7 @@ class DocGenerator(Generator):
         :param class_names:
         :return:
         """
-        if self.diagram_type.value == DiagramType.er_diagram.value:
+        if self.diagram_type.value == DiagramType.er_diagram:
             erdgen = ERDiagramGenerator(self.schemaview.schema, format="mermaid")
             if class_names:
                 return erdgen.serialize_classes(class_names, follow_references=True, max_hops=2)

@@ -1,6 +1,11 @@
 # Class: StudyTargetPopulationRef
 
 
+_The StudyTargetPopulationRef references a StudyTargetPopulation to which the estimand applies._
+
+
+
+
 
 URI: [odm:StudyTargetPopulationRef](http://www.cdisc.org/ns/odm/v2.0/StudyTargetPopulationRef)
 
@@ -82,6 +87,8 @@ URI: [odm:StudyTargetPopulationRef](http://www.cdisc.org/ns/odm/v2.0/StudyTarget
 <details>
 ```yaml
 name: StudyTargetPopulationRef
+description: The StudyTargetPopulationRef references a StudyTargetPopulation to which
+  the estimand applies.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTargetPopulationRef
@@ -104,6 +111,8 @@ class_uri: odm:StudyTargetPopulationRef
 <details>
 ```yaml
 name: StudyTargetPopulationRef
+description: The StudyTargetPopulationRef references a StudyTargetPopulation to which
+  the estimand applies.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTargetPopulationRef

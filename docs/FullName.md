@@ -128,6 +128,7 @@ attributes:
   owner: FullName
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

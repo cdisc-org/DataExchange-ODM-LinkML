@@ -124,7 +124,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     domain_of:
     - ExternalCodeLib
     range: name
@@ -136,7 +136,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ExternalCodeLib
     range: name
@@ -146,7 +146,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - Standard
     - ExternalCodeLib
@@ -158,7 +158,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ExternalCodeLib
     - Coding
@@ -169,7 +169,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:URI'
+      range: URI'
     domain_of:
     - Leaf
     - Include
@@ -206,7 +206,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     domain_of:
     - ExternalCodeLib
     range: name
@@ -218,7 +218,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ExternalCodeLib
     range: name
@@ -228,7 +228,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - Standard
     - ExternalCodeLib
@@ -240,7 +240,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ExternalCodeLib
     - Coding
@@ -251,7 +251,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:URI'
+      range: URI'
     domain_of:
     - Leaf
     - Include
@@ -266,7 +266,7 @@ attributes:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Library
@@ -282,7 +282,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Method
@@ -296,7 +296,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Version
@@ -312,7 +312,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ref
@@ -327,7 +327,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:URI'
+      range: URI'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: href

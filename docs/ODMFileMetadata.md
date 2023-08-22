@@ -179,7 +179,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:( Snapshot | Transactional | Query)'
+      enum values: ( Snapshot | Transactional | Query)'
     domain_of:
     - ODMFileMetadata
     range: FileType
@@ -196,8 +196,8 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:( All | Metadata | AdminData | ReferenceData | AllClinicalData |
-      SingleSite | SingleSubject )'
+      enum values: ( All | Metadata | AdminData | ReferenceData | AllClinicalData
+      | SingleSite | SingleSubject )'
     domain_of:
     - ODMFileMetadata
     range: Granularity
@@ -211,7 +211,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(Archive| Submission | Exchange)'
+      enum values: (Archive| Submission | Exchange)'
     domain_of:
     - Alias
     - FormalExpression
@@ -223,7 +223,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     domain_of:
     - ODMFileMetadata
     range: oid
@@ -234,7 +234,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:datetime'
+      range: datetime'
     domain_of:
     - ODMFileMetadata
     range: datetime
@@ -245,7 +245,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - ODMFileMetadata
     range: oidref
@@ -256,7 +256,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:datetime'
+      range: datetime'
     domain_of:
     - ODMFileMetadata
     range: datetime
@@ -266,7 +266,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:Pattern: 2.0(.(0|([1-9][0-9]*)))?(-([0-9a-zA-Z])+)*'
+      enum values: Pattern: 2.0(.(0|([1-9][0-9]*)))?(-([0-9a-zA-Z])+)*'
     domain_of:
     - ODMFileMetadata
     range: ODMVersion
@@ -276,7 +276,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ODMFileMetadata
     range: text
@@ -287,7 +287,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ODMFileMetadata
     range: text
@@ -297,7 +297,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ODMFileMetadata
     range: text
@@ -337,7 +337,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -384,6 +383,7 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 class_uri: odm:ODM
+tree_root: true
 
 ```
 </details>
@@ -408,7 +408,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:( Snapshot | Transactional | Query)'
+      enum values: ( Snapshot | Transactional | Query)'
     domain_of:
     - ODMFileMetadata
     range: FileType
@@ -425,8 +425,8 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:( All | Metadata | AdminData | ReferenceData | AllClinicalData |
-      SingleSite | SingleSubject )'
+      enum values: ( All | Metadata | AdminData | ReferenceData | AllClinicalData
+      | SingleSite | SingleSubject )'
     domain_of:
     - ODMFileMetadata
     range: Granularity
@@ -440,7 +440,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:(Archive| Submission | Exchange)'
+      enum values: (Archive| Submission | Exchange)'
     domain_of:
     - Alias
     - FormalExpression
@@ -452,7 +452,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     domain_of:
     - ODMFileMetadata
     range: oid
@@ -463,7 +463,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:datetime'
+      range: datetime'
     domain_of:
     - ODMFileMetadata
     range: datetime
@@ -474,7 +474,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - ODMFileMetadata
     range: oidref
@@ -485,7 +485,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:datetime'
+      range: datetime'
     domain_of:
     - ODMFileMetadata
     range: datetime
@@ -495,7 +495,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:Pattern: 2.0(.(0|([1-9][0-9]*)))?(-([0-9a-zA-Z])+)*'
+      enum values: Pattern: 2.0(.(0|([1-9][0-9]*)))?(-([0-9a-zA-Z])+)*'
     domain_of:
     - ODMFileMetadata
     range: ODMVersion
@@ -505,7 +505,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ODMFileMetadata
     range: text
@@ -516,7 +516,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ODMFileMetadata
     range: text
@@ -526,7 +526,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ODMFileMetadata
     range: text
@@ -566,7 +566,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -622,7 +621,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:( Snapshot | Transactional | Query)'
+      enum values: ( Snapshot | Transactional | Query)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: FileTypeRef
@@ -643,8 +642,8 @@ attributes:
     comments:
     - 'Optional
 
-      enum values:( All | Metadata | AdminData | ReferenceData | AllClinicalData |
-      SingleSite | SingleSubject )'
+      enum values: ( All | Metadata | AdminData | ReferenceData | AllClinicalData
+      | SingleSite | SingleSubject )'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: GranularityRef
@@ -662,7 +661,7 @@ attributes:
     comments:
     - 'Optional
 
-      enum values:(Archive| Submission | Exchange)'
+      enum values: (Archive| Submission | Exchange)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ContextRef
@@ -678,7 +677,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: FileOID
@@ -693,7 +692,7 @@ attributes:
     comments:
     - 'Required
 
-      range:datetime'
+      range: datetime'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CreationDateTime
@@ -708,7 +707,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref'
+      range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: PriorFileOID
@@ -723,7 +722,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:datetime'
+      range: datetime'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: AsOfDateTime
@@ -737,7 +736,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:Pattern: 2.0(.(0|([1-9][0-9]*)))?(-([0-9a-zA-Z])+)*'
+      enum values: Pattern: 2.0(.(0|([1-9][0-9]*)))?(-([0-9a-zA-Z])+)*'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ODMVersionRef
@@ -751,7 +750,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Originator
@@ -766,7 +765,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SourceSystem
@@ -780,7 +779,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SourceSystemVersion
@@ -831,7 +830,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -915,6 +913,7 @@ attributes:
     inlined: true
     inlined_as_list: true
 class_uri: odm:ODM
+tree_root: true
 
 ```
 </details>

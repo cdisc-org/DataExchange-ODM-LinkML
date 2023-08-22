@@ -1,7 +1,7 @@
 # Slot: ClassRef
 
 
-_Class reference: None_
+_Class reference: The Class element identifies which predefined Class within the model applies to the definition of the dataset._
 
 
 
@@ -55,7 +55,8 @@ URI: [odm:ClassRef](http://www.cdisc.org/ns/odm/v2.0/ClassRef)
 <details>
 ```yaml
 name: ClassRef
-description: 'Class reference: None'
+description: 'Class reference: The Class element identifies which predefined Class
+  within the model applies to the definition of the dataset.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

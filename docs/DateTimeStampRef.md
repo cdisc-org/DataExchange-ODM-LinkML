@@ -1,7 +1,7 @@
 # Slot: DateTimeStampRef
 
 
-_DateTimeStamp reference: None_
+_DateTimeStamp reference: Date and time when an action was performed._
 
 
 
@@ -56,7 +56,7 @@ URI: [odm:DateTimeStampRef](http://www.cdisc.org/ns/odm/v2.0/DateTimeStampRef)
 <details>
 ```yaml
 name: DateTimeStampRef
-description: 'DateTimeStamp reference: None'
+description: 'DateTimeStamp reference: Date and time when an action was performed.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

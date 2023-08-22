@@ -1,7 +1,7 @@
 # Slot: StudyTargetPopulationRefRef
 
 
-_StudyTargetPopulationRef reference: None_
+_StudyTargetPopulationRef reference: The StudyTargetPopulationRef references a StudyTargetPopulation to which the estimand applies._
 
 
 
@@ -19,7 +19,7 @@ URI: [odm:StudyTargetPopulationRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyTar
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [Protocol](Protocol.md) | The Protocol element lists the kinds of study events that can occur within a ... |  yes  |
-[StudyEstimand](StudyEstimand.md) |  |  yes  |
+[StudyEstimand](StudyEstimand.md) | A precise description of the treatment effect reflecting the clinical questio... |  yes  |
 
 
 
@@ -56,7 +56,8 @@ URI: [odm:StudyTargetPopulationRefRef](http://www.cdisc.org/ns/odm/v2.0/StudyTar
 <details>
 ```yaml
 name: StudyTargetPopulationRefRef
-description: 'StudyTargetPopulationRef reference: None'
+description: 'StudyTargetPopulationRef reference: The StudyTargetPopulationRef references
+  a StudyTargetPopulation to which the estimand applies.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

@@ -110,7 +110,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - Include
     - SourceItem
@@ -128,7 +128,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - Include
     - SourceItem
@@ -145,7 +145,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:date
+      range: date
 
       All data entered following the EffectiveDate must be included in a ClinicalData
       element that references this MetaDataVersionOID.'
@@ -176,7 +176,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - Include
     - SourceItem
@@ -194,7 +194,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - Include
     - SourceItem
@@ -211,7 +211,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:date
+      range: date
 
       All data entered following the EffectiveDate must be included in a ClinicalData
       element that references this MetaDataVersionOID.'
@@ -226,7 +226,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyOID
@@ -248,7 +248,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: MetaDataVersionOID
@@ -269,7 +269,7 @@ attributes:
     comments:
     - 'Required
 
-      range:date
+      range: date
 
       All data entered following the EffectiveDate must be included in a ClinicalData
       element that references this MetaDataVersionOID.'

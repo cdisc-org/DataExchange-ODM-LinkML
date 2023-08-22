@@ -1,6 +1,11 @@
 # Class: DateTimeStamp
 
 
+_Date and time when an action was performed._
+
+
+
+
 
 URI: [odm:DateTimeStamp](http://www.cdisc.org/ns/odm/v2.0/DateTimeStamp)
 
@@ -83,6 +88,7 @@ URI: [odm:DateTimeStamp](http://www.cdisc.org/ns/odm/v2.0/DateTimeStamp)
 <details>
 ```yaml
 name: DateTimeStamp
+description: Date and time when an action was performed.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DateTimeStamp
@@ -103,6 +109,7 @@ class_uri: odm:DateTimeStamp
 <details>
 ```yaml
 name: DateTimeStamp
+description: Date and time when an action was performed.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DateTimeStamp
@@ -120,6 +127,7 @@ attributes:
   owner: DateTimeStamp
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

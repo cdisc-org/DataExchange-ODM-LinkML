@@ -8,6 +8,6 @@
    "text": "http://example.org/UNKNOWN/text/",
    "value": "http://example.org/UNKNOWN/value/",
    "xhtml": "http://www.w3.org/1999/xhtml",
-   "xml": "http://ncicb.nci.nih.gov/xml/odm/EVS/CDISC",
+   "xml": "http://www.w3.org/XML/1998/namespace",
    "xsd": "http://www.w3.org/2001/XMLSchema#"
 }

@@ -31,7 +31,7 @@ URI: [odm:StudyObjectives](http://www.cdisc.org/ns/odm/v2.0/StudyObjectives)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyObjectiveRef](StudyObjectiveRef.md) | 0..* <br/> [StudyObjective](StudyObjective.md) | StudyObjective reference: None | direct |
+| [StudyObjectiveRef](StudyObjectiveRef.md) | 0..* <br/> [StudyObjective](StudyObjective.md) | StudyObjective reference: The reason for performing a study in terms of the s... | direct |
 
 
 
@@ -132,7 +132,9 @@ slot_usage:
 attributes:
   StudyObjectiveRef:
     name: StudyObjectiveRef
-    description: 'StudyObjective reference: None'
+    description: 'StudyObjective reference: The reason for performing a study in terms
+      of the scientific questions to be answered by the analysis of data collected
+      during the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

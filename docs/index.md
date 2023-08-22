@@ -1,6 +1,6 @@
-# odm
+# CDISC Operational Data Model v2
 
-
+ODM is a vendor-neutral, platform-independent format for exchanging and archiving clinical and translational research data, along with their associated metadata, administrative data, reference data, and audit information.
 
 URI: http://www.cdisc.org/ns/odm/v2.0
 
@@ -25,7 +25,7 @@ Name: odm
 | [CDISCNotes](CDISCNotes.md) | Explanatory text for the variable. |
 | [CheckValue](CheckValue.md) | A comparison value used in a range check. |
 | [City](City.md) | The city name part of a user's postal address. |
-| [Class](Class.md) | None |
+| [Class](Class.md) | The Class element identifies which predefined Class within the model applies to the definition of the dataset. |
 | [ClinicalData](ClinicalData.md) | Clinical data for 1 or more subjects. |
 | [Code](Code.md) | Contains the source code that represents a FormalExpression in a given Context. The source code must be executable, and the MethodSignature defines the input parameters and return values for the code. |
 | [CodeList](CodeList.md) | Defines a discrete set of permitted values for an item, or provides a reference to a codelist or dictionary maintained by an external organization via the Coding element, or a combination of both. Examples provided under Coding. |
@@ -38,19 +38,16 @@ Name: odm
 | [Country](Country.md) | The country name part of a user's postal address. For CDISC SDTM or trial registry applications, this must be represented by an ISO 3166 3-letter or US-GENC country code (e.g., FRA for France, JPN for Japan). |
 | [CRFCompletionInstructions](CRFCompletionInstructions.md) | Instructions for the clinical site on how to enter collected information on the CRF. |
 | [Criterion](Criterion.md) | The Criterion represents either an inclusion or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria). |
-| [DateTimeStamp](DateTimeStamp.md) | None |
+| [DateTimeStamp](DateTimeStamp.md) | Date and time when an action was performed. |
 | [Decode](Decode.md) | The displayed value relating to the CodeListItem/@CodedValue. This is often a label corresponding to a short name or alpha-numeric code. The actual Decode text is provided in a TranslatedText element so that it can be provided in different languages on a case report form or tabular data summary. |
-| [DefaultTransition](DefaultTransition.md) | None |
+| [DefaultTransition](DefaultTransition.md) | The DefaultTransition references the Transition that needs to be executed when none of the TargetTransitions can be executed. |
 | [Definition](Definition.md) | Definition of the item. |
 | [Description](Description.md) | A free-text description of the containing metadata component, unless restricted by Business Rules. |
 | [DocumentRef](DocumentRef.md) | Links to a leaf element with the location of the document. |
 | [DurationTimingConstraint](DurationTimingConstraint.md) | The DurationTimingConstraint constrains the duration of an activity represented by a study, epoch, StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef. It is used to constrain the duration of the visit, activity, or any other structural element. |
-| [EntryCriteria](EntryCriteria.md) | None |
 | [Epoch](Epoch.md) | The planned period of subjects' participation in the trial is divided into sequential epochs. Each epoch is a period of time that serves a purpose in the trial as a whole. Epochs cannot overlap. The sequence of the epoch in the study is provided by the SequenceNumber attribute, the first epoch in the study being assigned the sequence number 1. Sequence numbers are subsequent. |
 | [ErrorMessage](ErrorMessage.md) | Error message provided to user when the range check fails. |
-| [ExceptionEvent](ExceptionEvent.md) | An ExceptionEvent describes an event that occurs suddenly in a study and that was not planned as part of the normal workflow of the study. Examples are adverse events, death of a subject not caused by an adverse event, etc. |
 | [ExclusionCriteria](ExclusionCriteria.md) | The ExclusionCriteria is a container element for Criterion elements describing exclusion criteria for subjects in the study. When a list is provided, not meeting any of the criteria in the list may lead to exclusion of enrollment in the study. |
-| [ExitCriteria](ExitCriteria.md) | None |
 | [ExternalCodeLib](ExternalCodeLib.md) | The ExternalCodeLib element references a FormalExpression in an external code library, such as a file or GitHub. The intention is to make it possible to reference existing code libraries where the code is maintained as well as making it simpler to include longer, more complex FormalExpressions. The Library attribute provides the name of the external library, whereas ref or href provides a reference to the repository that can be used to retrieve the code. The Method attribute provides the name of the method in the file referenced for cases where multiple methods are provided in the source code file. The Version element provides the version of the external FormalExpression code referenced. |
 | [FamilyName](FamilyName.md) | The user's surname (family name). |
 | [Flag](Flag.md) | A machine-processable annotation. |
@@ -66,7 +63,7 @@ Name: odm
 | [Include](Include.md) | The Include metadata element allows a reference to a prior metadata version. |
 | [InclusionCriteria](InclusionCriteria.md) | The InclusionCriteria is a container element for Criterion elements describing inclusion criteria for subjects in the study. When a list is provided, subjects must meet each of the criteria in the list in order to enroll in the study. |
 | [InclusionExclusionCriteria](InclusionExclusionCriteria.md) | The InclusionExclusionCriteria element can contain 2 lists of Criterion elements, represented by the 2 elements InclusionCriteria and ExclusionCriteria. Together, these criteria determine the eligibility of a subject for the study. The actual condition to be evaluated is contained in an ODM ConditionDef, which is referenced by each Criterion‟s ConditionOID attribute. |
-| [IntercurrentEvent](IntercurrentEvent.md) | None |
+| [IntercurrentEvent](IntercurrentEvent.md) | The IntercurrentEvent element describes an intercurrent event for an estimand (e.g., treatment discontinuation). |
 | [InvestigatorRef](InvestigatorRef.md) | Provides a reference to the user who created the SubjectData record in the source system. |
 | [ItemData](ItemData.md) | The ItemData element is used for transmission of the clinical data for an item. The model does not support repeating items within a single item group. |
 | [ItemDef](ItemDef.md) | An ItemDef describes a type of item that can occur within a study. Item properties include name, datatype, range, or codelist restrictions, and several other properties. |
@@ -106,8 +103,8 @@ Name: odm
 | [Selection](Selection.md) | Template for machine-readable/executable expression for retrieving the data or information from an external resource. |
 | [Signature](Signature.md) | An electronic signature applies to a collection of clinical data. This indicates that some user accepts legal responsibility for that data. See 21 CFR Part 11. The signature identifies the person signing, the location of signing, the signature meaning (via the referenced SignatureDef), the date and time of signing, and (in the case of a digital signature) an encrypted hash of the included data. |
 | [SignatureDef](SignatureDef.md) | Provides Metadata for signatures included in the /ODM/ClinicalData. |
-| [SignatureRef](SignatureRef.md) | None |
-| [SiteRef](SiteRef.md) | lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType is Transactional. |
+| [SignatureRef](SignatureRef.md) | A reference to the signature meaning. |
+| [SiteRef](SiteRef.md) | Provides a reference to the site that the SubjectData record is associated with in the source system. |
 | [SourceID](SourceID.md) | Information that identifies the source of the data within an originating system. |
 | [SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata. |
 | [SourceItems](SourceItems.md) | Identifies source items as needed to support automated data capture and end-to-end traceability. |
@@ -118,9 +115,9 @@ Name: odm
 | [Study](Study.md) | This element collects static structural information about an individual study. |
 | [StudyEndPoint](StudyEndPoint.md) | A study end point reflects an outcome measure of interest that is statistically analyzed to address a particular research question for the study. It typically specifies the type of assessments made; the timing of those assessments; the assessment tools used; and other details, as applicable, such as how multiple assessments within an individual are to be combined. |
 | [StudyEndPointRef](StudyEndPointRef.md) | Go to start of metadata |
-| [StudyEndPoints](StudyEndPoints.md) | Go to start of metadata |
-| [StudyEstimand](StudyEstimand.md) | None |
-| [StudyEstimands](StudyEstimands.md) | None |
+| [StudyEndPoints](StudyEndPoints.md) | The StudyEndPoints element is a container element for individual StudyEndPoint elements. |
+| [StudyEstimand](StudyEstimand.md) | A precise description of the treatment effect reflecting the clinical question posed by a given clinical trial objective. It summarises at a population level what the outcomes would be in the same patients under different treatment conditions being compared. |
+| [StudyEstimands](StudyEstimands.md) | StudyEstimands is a container element for individual StudyEstimand elements. |
 | [StudyEventData](StudyEventData.md) | Clinical data for a study event (visit). The model supports repeating study events (e.g., when the same set of information is collected for a series of patient visits). |
 | [StudyEventDef](StudyEventDef.md) | StudyEventDef represents the definition of an activity in a study where data is collected. For example, a study event may represent a set of item groups that represent data collection instruments to be completed for a subject during a visit in a study. The visit occurs as part of a study workflow, and the workflow is referenced in the study event. |
 | [StudyEventGroupDef](StudyEventGroupDef.md) | StudyEventGroupDef is a study building block that groups a number of smaller building blocks, which can themselves be StudyEventGroups or StudyEvents. It thus allows nesting of building blocks. |
@@ -129,31 +126,32 @@ Name: odm
 | [StudyIndication](StudyIndication.md) | This element describes a study indication (e.g., condition, disease) for the clinical study. The human-readable description is provided in the Description element. The Coding element can be used to provide a machine-readable code for the indication (e.g., SNOMED-CT code 26929004 for "Alzheimer's disease"). |
 | [StudyIndications](StudyIndications.md) | StudyIndications is a container element for individual StudyIndication elements. |
 | [StudyIntervention](StudyIntervention.md) | This element describes a study intervention (e.g., medication, treatment, therapy) for the clinical study. The human-readable description is provided in the Description element. The Coding element can be used to provide a machine-readable code for the indication (e.g., ATC M01AE01 code for "Ibuprofen" when used as a nonsteroidal anti-inflammatory drug). |
-| [StudyInterventionRef](StudyInterventionRef.md) | None |
+| [StudyInterventionRef](StudyInterventionRef.md) | The StudyInterventionRef references an intervention that is taken as the treatment for the estimand. |
 | [StudyInterventions](StudyInterventions.md) | The StudyInterventions element is a container element for individual StudyIntervention elements. |
-| [StudyObjective](StudyObjective.md) | None |
+| [StudyObjective](StudyObjective.md) | The reason for performing a study in terms of the scientific questions to be answered by the analysis of data collected during the study. |
 | [StudyObjectives](StudyObjectives.md) | The StudyObjectives is a container element for individual StudyObjective elements. |
 | [StudyParameter](StudyParameter.md) | A StudyParameter defines a study design parameter for which the value or values are delivered in the ParameterValue child element or elements. |
 | [StudyStructure](StudyStructure.md) | The StudyStructure element describes the general structure of a clinical study with arms, epochs, and workflows. |
 | [StudySummary](StudySummary.md) | The StudyParameter element allows to provide a set of study design parameters such as anticipated number of subjects, minimum and maximum age of the participants, or planned number of arms. |
 | [StudyTargetPopulation](StudyTargetPopulation.md) | The StudyTargetPopulation describes the population targeted for the clinical study. |
-| [StudyTargetPopulationRef](StudyTargetPopulationRef.md) | None |
+| [StudyTargetPopulationRef](StudyTargetPopulationRef.md) | The StudyTargetPopulationRef references a StudyTargetPopulation to which the estimand applies. |
 | [StudyTiming](StudyTiming.md) | The StudyTiming element defines a timing constraint within the study, which can be an absolute timing constraint (e.g., start of the screening visit must be between 1 January 2022 and 31 December 2022), a relative timing constraint (e.g., visit 2 must be within 30 days after visit 1 with a window of +/- 1 week), a transition timing constraint (i.e., timing constraint on a transition within a defined workflow), or a duration timing constraint (e.g., the duration of visit 2 is planned to take hours with a window of 30 minutes). |
 | [StudyTimings](StudyTimings.md) | The StudyTimings element is a container element for individual StudyTiming elements. |
 | [SubClass](SubClass.md) | This element contains SubClass definitions. |
 | [SubjectData](SubjectData.md) | Clinical data for a single subject. |
 | [Suffix](Suffix.md) | This element may include credentials, or suffixes (e.g., Jr., III). |
-| [SummaryMeasure](SummaryMeasure.md) | None |
+| [SummaryMeasure](SummaryMeasure.md) | The SummaryMeasure element describes a summary measure for an estimand (e.g., proportion of patients with an improvement). |
 | [SupplementalDoc](SupplementalDoc.md) | Supplemental data definitions |
-| [TargetTransition](TargetTransition.md) | Provides a reference to a Transition element. |
+| [TargetTransition](TargetTransition.md) | TargetTransition provides a reference to a Transition element that is the target of a branching. |
 | [Telecom](Telecom.md) | The telecommunication contacts points of a user, a location, or an organization. The Type attribute designates the type of contact. |
+| [Title](Title.md) | Text with the label for the document or dataset. |
 | [Transition](Transition.md) | A Transition defines a link between 2 structural elements in a workflow. When the execution of the transition is dependent upon a timing constraint that is either directly defined or calculated, a TransitionTimingConstraint must be defined, referencing the current Transition. |
 | [TransitionTimingConstraint](TransitionTimingConstraint.md) | The TransitionTimingConstraint element defines a timing constraint on a transition between structural elements as defined in a workflow. As such, it is a non-blocking constraint. This means that the transition is set on hold as long as the timing condition is not fulfilled, and is executed as soon as the timing condition is fulfilled. |
 | [TranslatedText](TranslatedText.md) | Human-readable text that is appropriate for a particular language. TranslatedText elements typically occur in a series, presenting a set of alternative textual renditions for different languages and types. |
 | [TrialPhase](TrialPhase.md) | The TrialPhase element designates the phase of the study in the clinical trial. |
 | [User](User.md) | Information about a specific user of a clinical data collection or data management system. |
 | [UserName](UserName.md) | The user's login identification in the sender's system. |
-| [UserRef](UserRef.md) | None |
+| [UserRef](UserRef.md) | A reference to information about a specific user of a clinical data collection or data management system. |
 | [Value](Value.md) | The data collected for an item. This data is represented according to DataType attribute of the ItemDef referenced by the ItemOID attribute in the parent ItemData element. |
 | [ValueListDef](ValueListDef.md) | The following table specifies the XML structure for valuelist metadata. The ValueListDef element contains ItemRef elements that reference ItemDef elements that provide the value-level metadata details |
 | [ValueListRef](ValueListRef.md) | The ValueListRef element is the OID of the ValueListDef that contains the valuelist definition associated with the variable. If value-level metadata is required for a variable, a ValueListRef element should be provided as a child element on the ItemDef for the variable definition. |
@@ -191,7 +189,7 @@ Name: odm
 | [CDISCNotesRef](CDISCNotesRef.md) | CDISCNotes reference: Explanatory text for the variable. |
 | [CheckValueRef](CheckValueRef.md) | CheckValue reference: A comparison value used in a range check. |
 | [CityRef](CityRef.md) | City reference: The city name part of a user's postal address. |
-| [ClassRef](ClassRef.md) | Class reference: None |
+| [ClassRef](ClassRef.md) | Class reference: The Class element identifies which predefined Class within t... |
 | [ClinicalDataRef](ClinicalDataRef.md) | ClinicalData reference: Clinical data for 1 or more subjects. |
 | [CodedValue](CodedValue.md) | Value of the codelist item (as it would occur in clinical data). |
 | [CodeListItemRef](CodeListItemRef.md) | CodeListItem reference: Defines an individual member value of a codelist. It ... |
@@ -214,9 +212,9 @@ Name: odm
 | [CriterionRef](CriterionRef.md) | Criterion reference: The Criterion represents either an inclusion or an exclu... |
 | [DatasetName](DatasetName.md) | Name of a file containing the ItemGroupData for this ItemGroupDef. The name a... |
 | [DataTypeRef](DataTypeRef.md) | The DataType attribute specifies how the corresponding value |
-| [DateTimeStampRef](DateTimeStampRef.md) | DateTimeStamp reference: None |
+| [DateTimeStampRef](DateTimeStampRef.md) | DateTimeStamp reference: Date and time when an action was performed. |
 | [DecodeRef](DecodeRef.md) | Decode reference: The displayed value relating to the CodeListItem/@CodedValu... |
-| [DefaultTransitionRef](DefaultTransitionRef.md) | DefaultTransition reference: None |
+| [DefaultTransitionRef](DefaultTransitionRef.md) | DefaultTransition reference: The DefaultTransition references the Transition ... |
 | [DefinitionRef](DefinitionRef.md) | A free-text definition of the parameter |
 | [DescriptionRef](DescriptionRef.md) | Description reference: A free-text description of the containing metadata com... |
 | [Dictionary](Dictionary.md) |  |
@@ -259,7 +257,7 @@ Name: odm
 | [IncludeRef](IncludeRef.md) | Include reference: The Include metadata element allows a reference to a prior... |
 | [InclusionCriteriaRef](InclusionCriteriaRef.md) | InclusionCriteria reference: The InclusionCriteria is a container element for... |
 | [InclusionExclusionCriteriaRef](InclusionExclusionCriteriaRef.md) | InclusionExclusionCriteria reference: The InclusionExclusionCriteria element ... |
-| [IntercurrentEventRef](IntercurrentEventRef.md) | IntercurrentEvent reference: None |
+| [IntercurrentEventRef](IntercurrentEventRef.md) | IntercurrentEvent reference: The IntercurrentEvent element describes an inter... |
 | [InvestigatorRefRef](InvestigatorRefRef.md) | InvestigatorRef reference: Provides a reference to the user who created the S... |
 | [IsNonStandard](IsNonStandard.md) | Required for ADaM, SDTM, or SEND if StandardOID is not provided. |
 | [IsNull](IsNull.md) | Flag specifying that an item's value is to be set to null. In the interest of... |
@@ -269,10 +267,10 @@ Name: odm
 | [ItemGroupDataRef](ItemGroupDataRef.md) | ItemGroupData reference: Clinical data corresponding to an ItemGroupRef defin... |
 | [ItemGroupDataSeq](ItemGroupDataSeq.md) | Unique sequence # for each ItemGroupData child element (record) in the contai... |
 | [ItemGroupDefRef](ItemGroupDefRef.md) | ItemGroupDef reference: An ItemGroupDef describes a type of variable or field... |
-| [ItemGroupOID](ItemGroupOID.md) | Reference to the ItemGroupDef . |
+| [ItemGroupOID](ItemGroupOID.md) | Reference to the ItemGroupDef. |
 | [ItemGroupRefRef](ItemGroupRefRef.md) | ItemGroupRef reference: ItemGroupRef references an ItemGroupDef as it occurs ... |
 | [ItemGroupRepeatKey](ItemGroupRepeatKey.md) | A key used to distinguish between repeats of the same type of item group. |
-| [ItemOID](ItemOID.md) | Reference to the ItemDef . |
+| [ItemOID](ItemOID.md) | Reference to the ItemDef. |
 | [ItemRefRef](ItemRefRef.md) | ItemRef reference: A reference to an ItemDef as it occurs within a specific I... |
 | [KeySequence](KeySequence.md) | Indicates that this item is a key for the enclosing element. It also provides... |
 | [KeySetRef](KeySetRef.md) | KeySet reference: A KeySet references a single entity (e.g., a study, a subje... |
@@ -323,7 +321,7 @@ Name: odm
 | [PreSpecifiedValue](PreSpecifiedValue.md) | Prefill value or a default value for a field that is automatically populated. |
 | [PriorFileOID](PriorFileOID.md) | Reference to the previous file (if any) in a series. |
 | [PromptRef](PromptRef.md) | Prompt reference: A prompt text shown to a human user when prompted to provid... |
-| [ProtocolName](ProtocolName.md) | P rotocol identifier or protocol number assigned to the study . It is used by... |
+| [ProtocolName](ProtocolName.md) | Protocol identifier or protocol number assigned to the study. It is used by t... |
 | [ProtocolRef](ProtocolRef.md) | Protocol reference: The Protocol element lists the kinds of study events that... |
 | [PublishingSet](PublishingSet.md) | Set of published files of Standard when Type="CT" (e.g. SDTM, ADaM, SEND, CDA... |
 | [Purpose](Purpose.md) | Purpose of the ItemGroup. |
@@ -347,11 +345,11 @@ Name: odm
 | [SequenceNumber](SequenceNumber.md) | Order of the Epoch |
 | [ShortName](ShortName.md) | Short name or code for the parameter. |
 | [SignatureDefRef](SignatureDefRef.md) | SignatureDef reference: Provides Metadata for signatures included in the /ODM... |
-| [SignatureOID](SignatureOID.md) | Reference to the SignatureDef . |
-| [SignatureRefRef](SignatureRefRef.md) | SignatureRef reference: None |
-| [SiteRefRef](SiteRefRef.md) | SiteRef reference: lement NameSiteRefParent ElementsSubjectDataElement XPath(... |
+| [SignatureOID](SignatureOID.md) | Reference to the SignatureDef. |
+| [SignatureRefRef](SignatureRefRef.md) | SignatureRef reference: A reference to the signature meaning. |
+| [SiteRefRef](SiteRefRef.md) | SiteRef reference: Provides a reference to the site that the SubjectData reco... |
 | [SoftHard](SoftHard.md) | Type of range check. Soft indicates that a warning occurs when the RangeCheck... |
-| [Source](Source.md) | I ndicates the party responsible for the data's origin type. |
+| [Source](Source.md) | Indicates the party responsible for the data's origin type. |
 | [SourceIDRef](SourceIDRef.md) | SourceID reference: Information that identifies the source of the data within... |
 | [SourceItemRef](SourceItemRef.md) | SourceItem reference: Provides the information needed to identify the source ... |
 | [SourceItemsRef](SourceItemsRef.md) | SourceItems reference: Identifies source items as needed to support automated... |
@@ -370,26 +368,26 @@ Name: odm
 | [StreetNameRef](StreetNameRef.md) | StreetName reference: The street name part of a user's postal address. |
 | [StructuralElementOID](StructuralElementOID.md) | OID of a structural element such as a Study, Epoch, StudyEventGroup, StudyEve... |
 | [Structure](Structure.md) | Description of the level of detail represented by individual records in the I... |
-| [StudyEndPointOID](StudyEndPointOID.md) | Reference to the StudyEndPoint . |
+| [StudyEndPointOID](StudyEndPointOID.md) | Reference to the StudyEndPoint. |
 | [StudyEndPointRefRef](StudyEndPointRefRef.md) | StudyEndPointRef reference: Go to start of metadata |
-| [StudyEndPointsRef](StudyEndPointsRef.md) | StudyEndPoints reference: Go to start of metadata |
-| [StudyEstimandRef](StudyEstimandRef.md) | StudyEstimand reference: None |
-| [StudyEstimandsRef](StudyEstimandsRef.md) | StudyEstimands reference: None |
+| [StudyEndPointsRef](StudyEndPointsRef.md) | StudyEndPoints reference: The StudyEndPoints element is a container element f... |
+| [StudyEstimandRef](StudyEstimandRef.md) | StudyEstimand reference: A precise description of the treatment effect reflec... |
+| [StudyEstimandsRef](StudyEstimandsRef.md) | StudyEstimands reference: StudyEstimands is a container element for individua... |
 | [StudyEventDataRef](StudyEventDataRef.md) | StudyEventData reference: Clinical data for a study event (visit). The model ... |
 | [StudyEventDefRef](StudyEventDefRef.md) | StudyEventDef reference: StudyEventDef represents the definition of an activi... |
 | [StudyEventGroupDefRef](StudyEventGroupDefRef.md) | StudyEventGroupDef reference: StudyEventGroupDef is a study building block th... |
-| [StudyEventGroupOID](StudyEventGroupOID.md) | Reference to the StudyEventGroupDef . |
+| [StudyEventGroupOID](StudyEventGroupOID.md) | Reference to the StudyEventGroupDef. |
 | [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | StudyEventGroupRef reference: This element references a StudyEventGroupDef as... |
-| [StudyEventOID](StudyEventOID.md) | Reference to the StudyEventDef . |
+| [StudyEventOID](StudyEventOID.md) | Reference to the StudyEventDef. |
 | [StudyEventRefRef](StudyEventRefRef.md) | StudyEventRef reference: This element references a StudyEventDef as it occurs... |
 | [StudyEventRepeatKey](StudyEventRepeatKey.md) | A key used to distinguish between repeats of the same type of study event for... |
 | [StudyIndicationRef](StudyIndicationRef.md) | StudyIndication reference: This element describes a study indication (e.g., c... |
 | [StudyIndicationsRef](StudyIndicationsRef.md) | StudyIndications reference: StudyIndications is a container element for indiv... |
 | [StudyInterventionOID](StudyInterventionOID.md) | Reference to a StudyIntervention |
-| [StudyInterventionRefRef](StudyInterventionRefRef.md) | StudyInterventionRef reference: None |
+| [StudyInterventionRefRef](StudyInterventionRefRef.md) | StudyInterventionRef reference: The StudyInterventionRef references an interv... |
 | [StudyInterventionsRef](StudyInterventionsRef.md) | StudyInterventions reference: The StudyInterventions element is a container e... |
 | [StudyName](StudyName.md) | Sponsoring organization's internal name for the study. If no internal name is... |
-| [StudyObjectiveRef](StudyObjectiveRef.md) | StudyObjective reference: None |
+| [StudyObjectiveRef](StudyObjectiveRef.md) | StudyObjective reference: The reason for performing a study in terms of the s... |
 | [StudyObjectivesRef](StudyObjectivesRef.md) | StudyObjectives reference: The StudyObjectives is a container element for ind... |
 | [StudyOID](StudyOID.md) | References the Study that provides a prior metadata version. This attribute a... |
 | [StudyParameterRef](StudyParameterRef.md) | StudyParameter reference: A StudyParameter defines a study design parameter f... |
@@ -397,7 +395,7 @@ Name: odm
 | [StudyStructureRef](StudyStructureRef.md) | StudyStructure reference: The StudyStructure element describes the general st... |
 | [StudySummaryRef](StudySummaryRef.md) | StudySummary reference: The StudyParameter element allows to provide a set of... |
 | [StudyTargetPopulationOID](StudyTargetPopulationOID.md) |  |
-| [StudyTargetPopulationRefRef](StudyTargetPopulationRefRef.md) | StudyTargetPopulationRef reference: None |
+| [StudyTargetPopulationRefRef](StudyTargetPopulationRefRef.md) | StudyTargetPopulationRef reference: The StudyTargetPopulationRef references a... |
 | [StudyTimingRef](StudyTimingRef.md) | StudyTiming reference: The StudyTiming element defines a timing constraint wi... |
 | [StudyTimingsRef](StudyTimingsRef.md) | StudyTimings reference: The StudyTimings element is a container element for i... |
 | [SubClassRef](SubClassRef.md) | SubClass reference: This element contains SubClass definitions. |
@@ -405,7 +403,7 @@ Name: odm
 | [SubjectKey](SubjectKey.md) | Unique identifier for the Subject. |
 | [SuccessorOID](SuccessorOID.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs immedi... |
 | [SuffixRef](SuffixRef.md) | Suffix reference: This element may include credentials, or suffixes (e.g., Jr... |
-| [SummaryMeasureRef](SummaryMeasureRef.md) | SummaryMeasure reference: None |
+| [SummaryMeasureRef](SummaryMeasureRef.md) | SummaryMeasure reference: The SummaryMeasure element describes a summary meas... |
 | [SupplementalDocRef](SupplementalDocRef.md) | SupplementalDoc reference: Supplemental data definitions |
 | [System](System.md) | Identifies the code system that defines the code. If the code is taken from a... |
 | [SystemName](SystemName.md) | Human readable name for the code system. |
@@ -413,7 +411,7 @@ Name: odm
 | [Target](Target.md) | Element upon which the Query is raised. The parent element is the Target when... |
 | [TargetOID](TargetOID.md) | References the definition of the target structural element for the transition... |
 | [TargetTransitionOID](TargetTransitionOID.md) | Reference to the Transition that is one of the targets of the branching. |
-| [TargetTransitionRef](TargetTransitionRef.md) | TargetTransition reference: Provides a reference to a Transition element. |
+| [TargetTransitionRef](TargetTransitionRef.md) | TargetTransition reference: TargetTransition provides a reference to a Transi... |
 | [TelecomRef](TelecomRef.md) | Telecom reference: The telecommunication contacts points of a user, a locatio... |
 | [TelecomType](TelecomType.md) |  |
 | [Term](Term.md) | Longer name. Provides the full name of the parameter. |
@@ -421,7 +419,7 @@ Name: odm
 | [TimepointPreWindow](TimepointPreWindow.md) | Specifies the amount of time prior to the TimepointTarget, the time between t... |
 | [TimepointRelativeTarget](TimepointRelativeTarget.md) | The relative timing between two activities or groups of activities. |
 | [TimepointTarget](TimepointTarget.md) | The planned time between the 2 activities defined by the transition in the wo... |
-| [Title](Title.md) | Text with the label for the document reference. |
+| [TitleRef](TitleRef.md) | Text with the label for the document or dataset. |
 | [TransactionTypeRef](TransactionTypeRef.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... |
 | [TransitionOID](TransitionOID.md) | References the workflow Transition on which the timing constraint must be exe... |
 | [TransitionRef](TransitionRef.md) | Transition reference: A Transition defines a link between 2 structural elemen... |
@@ -433,7 +431,7 @@ Name: odm
 | [UsedMethod](UsedMethod.md) | Indicates that the action was made by the system rather than a data entry for... |
 | [UserNameRef](UserNameRef.md) | UserName reference: The user's login identification in the sender's system. |
 | [UserOID](UserOID.md) | Reference to a User definition. |
-| [UserRefRef](UserRefRef.md) | UserRef reference: None |
+| [UserRefRef](UserRefRef.md) | UserRef reference: A reference to information about a specific user of a clin... |
 | [UserTypeRef](UserTypeRef.md) | User's role in the study. |
 | [ValueListDefRef](ValueListDefRef.md) | ValueListDef reference: The following table specifies the XML structure for v... |
 | [ValueListOID](ValueListOID.md) | Reference to the unique ID of a ValueListDef element that provides value-leve... |
@@ -496,8 +494,8 @@ Name: odm
 | [TransactionType](TransactionType.md) | Enumeration used in TransactionTypeRef |
 | [TrialPhaseTypeEnum](TrialPhaseTypeEnum.md) |  |
 | [UserType](UserType.md) | Enumeration used in UserTypeRef |
-| [YesOnly](YesOnly.md) | Enumeration used in ExtendedValue, IsNonStandard, Other, IsNull, HasNoData, R... |
-| [YesOrNo](YesOrNo.md) | Enumeration used in UsedMethod, IsReferenceData, Repeating, Mandatory |
+| [YesOnly](YesOnly.md) | Enumeration used in Repeat, Other, IsNonStandard, ExtendedValue, HasNoData, I... |
+| [YesOrNo](YesOrNo.md) | Enumeration used in Repeating, UsedMethod, IsReferenceData, Mandatory |
 
 
 ## Types
@@ -593,13 +591,10 @@ Name: odm
 | [DescriptionElementExtension](DescriptionElementExtension.md) |  |
 | [DocumentRefElementExtension](DocumentRefElementExtension.md) |  |
 | [DurationTimingConstraintElementExtension](DurationTimingConstraintElementExtension.md) |  |
-| [EntryCriteriaElementExtension](EntryCriteriaElementExtension.md) |  |
 | [EpochElementExtension](EpochElementExtension.md) |  |
 | [ErrorMessageElementExtension](ErrorMessageElementExtension.md) |  |
-| [ExceptionEventElementExtension](ExceptionEventElementExtension.md) |  |
 | [ExceptionEventGroupDefinition](ExceptionEventGroupDefinition.md) |  |
 | [ExclusionCriteriaElementExtension](ExclusionCriteriaElementExtension.md) |  |
-| [ExitCriteriaElementExtension](ExitCriteriaElementExtension.md) |  |
 | [FlagElementExtension](FlagElementExtension.md) |  |
 | [FormalExpressionElementExtension](FormalExpressionElementExtension.md) |  |
 | [GeoPositionElementExtension](GeoPositionElementExtension.md) |  |
@@ -647,14 +642,11 @@ Name: odm
 | [SignatureRefElementExtension](SignatureRefElementExtension.md) |  |
 | [SiteRefElementExtension](SiteRefElementExtension.md) |  |
 | [SourceItemElementExtension](SourceItemElementExtension.md) |  |
-| [SourceItemsElementExtension](SourceItemsElementExtension.md) |  |
 | [StandardElementExtension](StandardElementExtension.md) |  |
 | [StudyElementExtension](StudyElementExtension.md) |  |
 | [StudyEndPointElementExtension](StudyEndPointElementExtension.md) |  |
 | [StudyEndPointRefElementExtension](StudyEndPointRefElementExtension.md) |  |
-| [StudyEndPointsElementExtension](StudyEndPointsElementExtension.md) |  |
 | [StudyEstimandElementExtension](StudyEstimandElementExtension.md) |  |
-| [StudyEstimandsElementExtension](StudyEstimandsElementExtension.md) |  |
 | [StudyEventDataElementExtension](StudyEventDataElementExtension.md) |  |
 | [StudyEventDefElementExtension](StudyEventDefElementExtension.md) |  |
 | [StudyEventDefGroup](StudyEventDefGroup.md) |  |
@@ -662,17 +654,13 @@ Name: odm
 | [StudyEventGroupRefElementExtension](StudyEventGroupRefElementExtension.md) |  |
 | [StudyEventRefElementExtension](StudyEventRefElementExtension.md) |  |
 | [StudyIndicationElementExtension](StudyIndicationElementExtension.md) |  |
-| [StudyIndicationsElementExtension](StudyIndicationsElementExtension.md) |  |
 | [StudyInterventionElementExtension](StudyInterventionElementExtension.md) |  |
-| [StudyInterventionsElementExtension](StudyInterventionsElementExtension.md) |  |
 | [StudyObjectiveElementExtension](StudyObjectiveElementExtension.md) |  |
-| [StudyObjectivesElementExtension](StudyObjectivesElementExtension.md) |  |
 | [StudyParameterElementExtension](StudyParameterElementExtension.md) |  |
 | [StudyStructureElementExtension](StudyStructureElementExtension.md) |  |
 | [StudySummaryElementExtension](StudySummaryElementExtension.md) |  |
 | [StudyTargetPopulationElementExtension](StudyTargetPopulationElementExtension.md) |  |
 | [StudyTimingElementExtension](StudyTimingElementExtension.md) |  |
-| [StudyTimingsElementExtension](StudyTimingsElementExtension.md) |  |
 | [SubjectDataElementExtension](SubjectDataElementExtension.md) |  |
 | [SummaryMeasureElementExtension](SummaryMeasureElementExtension.md) |  |
 | [SupplementalDocElementExtension](SupplementalDocElementExtension.md) |  |

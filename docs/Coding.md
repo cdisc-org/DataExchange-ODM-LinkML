@@ -148,7 +148,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       When not provided, all codes in the code system are allowed. For example, when
       referencing the complete set of codes from the MedDRA code system.'
@@ -164,7 +164,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:URI'
+      range: URI'
     domain_of:
     - Coding
     range: uriorcurie
@@ -175,7 +175,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - Coding
     range: text
@@ -185,7 +185,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - Coding
     range: text
@@ -195,7 +195,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - Resource
     - Coding
@@ -206,7 +206,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:URI'
+      range: URI'
     domain_of:
     - Leaf
     - Include
@@ -220,7 +220,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:URI'
+      range: URI'
     domain_of:
     - ExternalCodeLib
     - Coding
@@ -228,11 +228,11 @@ slot_usage:
   CommentOID:
     name: CommentOID
     description: Reference to a CommentDef that provides the rationale for the use
-      of the Concept .
+      of the Concept.
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute of a CommentDef element within in this Study/MetaDataVersion.'
     domain_of:
@@ -275,7 +275,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       When not provided, all codes in the code system are allowed. For example, when
       referencing the complete set of codes from the MedDRA code system.'
@@ -291,7 +291,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:URI'
+      range: URI'
     domain_of:
     - Coding
     range: uriorcurie
@@ -302,7 +302,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - Coding
     range: text
@@ -312,7 +312,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - Coding
     range: text
@@ -322,7 +322,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - Resource
     - Coding
@@ -333,7 +333,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:URI'
+      range: URI'
     domain_of:
     - Leaf
     - Include
@@ -347,7 +347,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:URI'
+      range: URI'
     domain_of:
     - ExternalCodeLib
     - Coding
@@ -355,11 +355,11 @@ slot_usage:
   CommentOID:
     name: CommentOID
     description: Reference to a CommentDef that provides the rationale for the use
-      of the Concept .
+      of the Concept.
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute of a CommentDef element within in this Study/MetaDataVersion.'
     domain_of:
@@ -384,7 +384,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text
+      range: text
 
       When not provided, all codes in the code system are allowed. For example, when
       referencing the complete set of codes from the MedDRA code system.'
@@ -405,7 +405,7 @@ attributes:
     comments:
     - 'Required
 
-      range:URI'
+      range: URI'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: System
@@ -420,7 +420,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SystemName
@@ -434,7 +434,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SystemVersion
@@ -448,7 +448,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Label
@@ -463,7 +463,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:URI'
+      range: URI'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: href
@@ -481,7 +481,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:URI'
+      range: URI'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ref
@@ -493,11 +493,11 @@ attributes:
   CommentOID:
     name: CommentOID
     description: Reference to a CommentDef that provides the rationale for the use
-      of the Concept .
+      of the Concept.
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute of a CommentDef element within in this Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0

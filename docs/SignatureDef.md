@@ -118,7 +118,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       Must be unique within a study.'
     domain_of:
@@ -153,7 +153,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -164,11 +163,11 @@ slot_usage:
   Methodology:
     name: Methodology
     description: Defines the type of electronic signature, including the meaning as
-      required by 21 CFR Part 11 .
+      required by 21 CFR Part 11.
     comments:
     - 'Optional
 
-      enum values:(Digital | Electronic)
+      enum values: (Digital | Electronic)
 
       If the signature is digital, it is based on cryptography. Otherwise the signature
       is electronic.'
@@ -208,7 +207,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       Must be unique within a study.'
     domain_of:
@@ -243,7 +242,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -254,11 +252,11 @@ slot_usage:
   Methodology:
     name: Methodology
     description: Defines the type of electronic signature, including the meaning as
-      required by 21 CFR Part 11 .
+      required by 21 CFR Part 11.
     comments:
     - 'Optional
 
-      enum values:(Digital | Electronic)
+      enum values: (Digital | Electronic)
 
       If the signature is digital, it is based on cryptography. Otherwise the signature
       is electronic.'
@@ -284,7 +282,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       Must be unique within a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -324,7 +322,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -335,11 +332,11 @@ attributes:
   Methodology:
     name: Methodology
     description: Defines the type of electronic signature, including the meaning as
-      required by 21 CFR Part 11 .
+      required by 21 CFR Part 11.
     comments:
     - 'Optional
 
-      enum values:(Digital | Electronic)
+      enum values: (Digital | Electronic)
 
       If the signature is digital, it is based on cryptography. Otherwise the signature
       is electronic.'

@@ -1,6 +1,11 @@
 # Class: SignatureRef
 
 
+_A reference to the signature meaning._
+
+
+
+
 
 URI: [odm:SignatureRef](http://www.cdisc.org/ns/odm/v2.0/SignatureRef)
 
@@ -24,7 +29,7 @@ URI: [odm:SignatureRef](http://www.cdisc.org/ns/odm/v2.0/SignatureRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SignatureOID](SignatureOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the SignatureDef . | direct |
+| [SignatureOID](SignatureOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the SignatureDef. | direct |
 
 
 
@@ -82,6 +87,7 @@ URI: [odm:SignatureRef](http://www.cdisc.org/ns/odm/v2.0/SignatureRef)
 <details>
 ```yaml
 name: SignatureRef
+description: A reference to the signature meaning.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SignatureRef
@@ -90,11 +96,11 @@ slots:
 slot_usage:
   SignatureOID:
     name: SignatureOID
-    description: Reference to the SignatureDef .
+    description: Reference to the SignatureDef.
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - SignatureRef
     range: oidref
@@ -109,17 +115,18 @@ class_uri: odm:SignatureRef
 <details>
 ```yaml
 name: SignatureRef
+description: A reference to the signature meaning.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SignatureRef
 slot_usage:
   SignatureOID:
     name: SignatureOID
-    description: Reference to the SignatureDef .
+    description: Reference to the SignatureDef.
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - SignatureRef
     range: oidref
@@ -127,11 +134,11 @@ slot_usage:
 attributes:
   SignatureOID:
     name: SignatureOID
-    description: Reference to the SignatureDef .
+    description: Reference to the SignatureDef.
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SignatureOID

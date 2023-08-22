@@ -1,7 +1,7 @@
 # Class: StudyEndPoints
 
 
-_Go to start of metadata_
+_The StudyEndPoints element is a container element for individual StudyEndPoint elements._
 
 
 
@@ -89,7 +89,8 @@ URI: [odm:StudyEndPoints](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoints)
 <details>
 ```yaml
 name: StudyEndPoints
-description: Go to start of metadata
+description: The StudyEndPoints element is a container element for individual StudyEndPoint
+  elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPoints
@@ -116,7 +117,8 @@ class_uri: odm:StudyEndPoints
 <details>
 ```yaml
 name: StudyEndPoints
-description: Go to start of metadata
+description: The StudyEndPoints element is a container element for individual StudyEndPoint
+  elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPoints

@@ -111,7 +111,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - Include
     - SourceItem
@@ -130,7 +130,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - Include
     - SourceItem
@@ -153,7 +153,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:URI'
+      range: URI'
     domain_of:
     - Leaf
     - Include
@@ -185,7 +185,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - Include
     - SourceItem
@@ -204,7 +204,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - Include
     - SourceItem
@@ -227,7 +227,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:URI'
+      range: URI'
     domain_of:
     - Leaf
     - Include
@@ -245,7 +245,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StudyOID
@@ -268,7 +268,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref'
+      range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: MetaDataVersionOID
@@ -295,7 +295,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:URI'
+      range: URI'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: href

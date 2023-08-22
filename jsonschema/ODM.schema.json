@@ -134,11 +134,11 @@
                     "type": "array"
                 },
                 "StudyOID": {
-                    "description": "Reference to a Study .",
+                    "description": "Reference to a Study.",
                     "type": "string"
                 },
                 "UserRefRef": {
-                    "description": "UserRef reference: None",
+                    "description": "UserRef reference: A reference to information about a specific user of a clinical data collection or data management system.",
                     "items": {
                         "$ref": "#/$defs/User"
                     },
@@ -287,7 +287,7 @@
             "properties": {
                 "DateTimeStampRef": {
                     "$ref": "#/$defs/DateTimeStamp",
-                    "description": "DateTimeStamp reference: None"
+                    "description": "DateTimeStamp reference: Date and time when an action was performed."
                 },
                 "EditPoint": {
                     "$ref": "#/$defs/EditPointType",
@@ -311,7 +311,7 @@
                 },
                 "UserRefRef": {
                     "$ref": "#/$defs/UserRef",
-                    "description": "UserRef reference: None"
+                    "description": "UserRef reference: A reference to information about a specific user of a clinical data collection or data management system."
                 }
             },
             "title": "AuditRecord",
@@ -322,7 +322,7 @@
             "description": "This element describes the branching in a workflow from a source (start) structural element to 2 or more target structural elements, over a Transition element.",
             "properties": {
                 "DefaultTransitionRef": {
-                    "description": "DefaultTransition reference: None",
+                    "description": "DefaultTransition reference: The DefaultTransition references the Transition that needs to be executed when none of the TargetTransitions can be executed.",
                     "items": {
                         "$ref": "#/$defs/DefaultTransition"
                     },
@@ -337,7 +337,7 @@
                     "type": "string"
                 },
                 "TargetTransitionRef": {
-                    "description": "TargetTransition reference: Provides a reference to a Transition element.",
+                    "description": "TargetTransition reference: TargetTransition provides a reference to a Transition element that is the target of a branching.",
                     "items": {
                         "$ref": "#/$defs/TargetTransition"
                     },
@@ -432,7 +432,7 @@
         },
         "Class": {
             "additionalProperties": false,
-            "description": "",
+            "description": "The Class element identifies which predefined Class within the model applies to the definition of the dataset.",
             "properties": {
                 "Name": {
                     "$ref": "#/$defs/ItemGroupClass",
@@ -483,7 +483,7 @@
                     "type": "array"
                 },
                 "SignatureRefRef": {
-                    "description": "SignatureRef reference: None",
+                    "description": "SignatureRef reference: A reference to the signature meaning.",
                     "type": "string"
                 },
                 "StudyOID": {
@@ -602,7 +602,7 @@
                     "type": "array"
                 },
                 "CommentOID": {
-                    "description": "Reference to a CommentDef .",
+                    "description": "Reference to a CommentDef.",
                     "type": "string"
                 },
                 "DecodeRef": {
@@ -659,7 +659,7 @@
                     "type": "string"
                 },
                 "CommentOID": {
-                    "description": "Reference to a CommentDef that provides the rationale for the use of the Concept .",
+                    "description": "Reference to a CommentDef that provides the rationale for the use of the Concept.",
                     "type": "string"
                 },
                 "Label": {
@@ -898,7 +898,7 @@
         },
         "DateTimeStamp": {
             "additionalProperties": false,
-            "description": "",
+            "description": "Date and time when an action was performed.",
             "properties": {
                 "_content": {
                     "description": "multi-line text content from between XML tags",
@@ -936,7 +936,7 @@
         },
         "DefaultTransition": {
             "additionalProperties": false,
-            "description": "",
+            "description": "The DefaultTransition references the Transition that needs to be executed when none of the TargetTransitions can be executed.",
             "properties": {
                 "TargetTransitionOID": {
                     "description": "Reference to the Transition that is the default target of the branching.",
@@ -1073,21 +1073,6 @@
             "title": "EditPointType",
             "type": "string"
         },
-        "EntryCriteria": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "CriterionRef": {
-                    "description": "Criterion reference: The Criterion represents either an inclusion or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria).",
-                    "items": {
-                        "$ref": "#/$defs/Criterion"
-                    },
-                    "type": "array"
-                }
-            },
-            "title": "EntryCriteria",
-            "type": "object"
-        },
         "Epoch": {
             "additionalProperties": false,
             "description": "The planned period of subjects' participation in the trial is divided into sequential epochs. Each epoch is a period of time that serves a purpose in the trial as a whole. Epochs cannot overlap. The sequence of the epoch in the study is provided by the SequenceNumber attribute, the first epoch in the study being assigned the sequence number 1. Sequence numbers are subsequent.",
@@ -1142,49 +1127,6 @@
             "title": "EventType",
             "type": "string"
         },
-        "ExceptionEvent": {
-            "additionalProperties": false,
-            "description": "An ExceptionEvent describes an event that occurs suddenly in a study and that was not planned as part of the normal workflow of the study. Examples are adverse events, death of a subject not caused by an adverse event, etc.",
-            "properties": {
-                "ConditionOID": {
-                    "description": "Reference to a ConditionDef defining the condition under which the transition must be executed",
-                    "type": "string"
-                },
-                "DescriptionRef": {
-                    "$ref": "#/$defs/Description",
-                    "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
-                },
-                "Name": {
-                    "description": "General observation Sub Class.",
-                    "type": "string"
-                },
-                "OID": {
-                    "description": "Unique identifier of the version within the XML document.",
-                    "type": "string"
-                },
-                "StudyEventGroupRefRef": {
-                    "$ref": "#/$defs/StudyEventGroupRef",
-                    "description": "StudyEventGroupRef reference: This element references a StudyEventGroupDef as it occurs within a specific version of a study. The list of StudyEventGroupRefs identifies the types of study group events that are allowed to occur within the study."
-                },
-                "StudyEventRefRef": {
-                    "$ref": "#/$defs/StudyEventRef",
-                    "description": "StudyEventRef reference: This element references a StudyEventDef as it occurs within a specific version of a study. The list of StudyEventRefs identifies the types of study events that are allowed to occur within the study."
-                },
-                "WorkflowRefRef": {
-                    "$ref": "#/$defs/WorkflowRef",
-                    "description": "WorkflowRef reference: The WorkflowRef references a workflow definition"
-                }
-            },
-            "required": [
-                "OID",
-                "Name",
-                "WorkflowRefRef",
-                "StudyEventGroupRefRef",
-                "StudyEventRefRef"
-            ],
-            "title": "ExceptionEvent",
-            "type": "object"
-        },
         "ExclusionCriteria": {
             "additionalProperties": false,
             "description": "The ExclusionCriteria is a container element for Criterion elements describing exclusion criteria for subjects in the study. When a list is provided, not meeting any of the criteria in the list may lead to exclusion of enrollment in the study.",
@@ -1198,21 +1140,6 @@
                 }
             },
             "title": "ExclusionCriteria",
-            "type": "object"
-        },
-        "ExitCriteria": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "CriterionRef": {
-                    "description": "Criterion reference: The Criterion represents either an inclusion or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria).",
-                    "items": {
-                        "$ref": "#/$defs/Criterion"
-                    },
-                    "type": "array"
-                }
-            },
-            "title": "ExitCriteria",
             "type": "object"
         },
         "ExternalCodeLib": {
@@ -1503,7 +1430,7 @@
         },
         "IntercurrentEvent": {
             "additionalProperties": false,
-            "description": "",
+            "description": "The IntercurrentEvent element describes an intercurrent event for an estimand (e.g., treatment discontinuation).",
             "properties": {
                 "DescriptionRef": {
                     "$ref": "#/$defs/Description",
@@ -1556,7 +1483,7 @@
                     "type": "array"
                 },
                 "SignatureRefRef": {
-                    "description": "SignatureRef reference: None",
+                    "description": "SignatureRef reference: A reference to the signature meaning.",
                     "type": "string"
                 },
                 "TransactionTypeRef": {
@@ -1743,7 +1670,7 @@
                     "type": "array"
                 },
                 "SignatureRefRef": {
-                    "description": "SignatureRef reference: None",
+                    "description": "SignatureRef reference: A reference to the signature meaning.",
                     "type": "string"
                 },
                 "TransactionTypeRef": {
@@ -1774,7 +1701,7 @@
                 },
                 "ClassRef": {
                     "$ref": "#/$defs/Class",
-                    "description": "Class reference: None"
+                    "description": "Class reference: The Class element identifies which predefined Class within the model applies to the definition of the dataset."
                 },
                 "CodingRef": {
                     "description": "Coding reference: Coding references a symbol from a defined code system. It uses a code defined in a terminology system to associate semantics with a given term, codelist, variable, or group of variables. The presence of a Coding element associates a meaning to its parent element. Including multiple Coding elements for a given parent indicates synonymous meanings provided by different code systems or code system versions.",
@@ -1850,7 +1777,7 @@
                 },
                 "Repeating": {
                     "$ref": "#/$defs/ItemGroupRepeatingType",
-                    "description": "The Repeating attribute indicates that the ItemGroup may occur repeatedly within the containing element . Simple - the ItemGroup repeats within the containing element and is not bound in any way. Note: It is equivalent to the ODM v1.3.2 case where Repeating=\"Yes\". Dynamic - ItemGroupData repeats based on values in a codelist. There may be multiple occurrences for some codelist items. Static - ItemGroupData repeats based on values in a codelist. Only one occurrence may happen for each codelist item."
+                    "description": "The Repeating attribute indicates that the ItemGroup may occur repeatedly within the containing element. Simple - the ItemGroup repeats within the containing element and is not bound in any way. Note: It is equivalent to the ODM v1.3.2 case where Repeating=\"Yes\". Dynamic - ItemGroupData repeats based on values in a codelist. There may be multiple occurrences for some codelist items. Static - ItemGroupData repeats based on values in a codelist. Only one occurrence may happen for each codelist item."
                 },
                 "RepeatingLimit": {
                     "description": "Maximum number of repeats.",
@@ -1891,7 +1818,7 @@
                     "type": "string"
                 },
                 "ItemGroupOID": {
-                    "description": "Reference to the ItemGroupDef .",
+                    "description": "Reference to the ItemGroupDef.",
                     "type": "string"
                 },
                 "Mandatory": {
@@ -1963,7 +1890,7 @@
                     "description": "A non-standard variable is one that is not defined in the SDTMIG or the underlying SDTM model of a standard referenced within the ODM document. Permitted for any ItemRef that represents a non-standard variable in an SDTM or SEND dataset when the ODM Context attribute value is \"Other\" Is not used with an ItemRef that represents a value level metadata for an SDTMIG SUPPQUAL dataset Has no meaning for ADaM, so shall not be used for ADaM variables"
                 },
                 "ItemOID": {
-                    "description": "Reference to the ItemDef .",
+                    "description": "Reference to the ItemDef.",
                     "type": "string"
                 },
                 "KeySequence": {
@@ -2079,9 +2006,9 @@
                     "description": "Unique ID for the Leaf. See Section 2.13, Element Identifiers and References , for OID considerations. Business Rule: Leaf ID attributes must be unique within the ODM document (i.e., there can be no 2 Leaf elements with the same ID attribute).",
                     "type": "string"
                 },
-                "Title": {
-                    "description": "Text with the label for the document or dataset.",
-                    "type": "string"
+                "TitleRef": {
+                    "$ref": "#/$defs/Title",
+                    "description": "Text with the label for the document or dataset."
                 },
                 "href": {
                     "description": "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file. If the file is not located in the same folder as the ODM file, a relative file path should be included. Business Rule: For regulatory submissions to the FDA, the locations specified have to conform to locations allowed in the eCTD, in the Technical Conformance Guide for the relevant regulatory authority and the study data specifications.",
@@ -2642,7 +2569,7 @@
                 },
                 "Source": {
                     "$ref": "#/$defs/OriginSource",
-                    "description": "I ndicates the party responsible for the data's origin type."
+                    "description": "Indicates the party responsible for the data's origin type."
                 },
                 "SourceItemsRef": {
                     "$ref": "#/$defs/SourceItems",
@@ -2713,7 +2640,7 @@
                     "description": "List of PDF pages, separated by spaces. Sample: \"17 20 32",
                     "type": "string"
                 },
-                "Title": {
+                "TitleRef": {
                     "description": "Alternative label to provide a more specific and descriptive reference to a page link.",
                     "type": "string"
                 },
@@ -2847,11 +2774,11 @@
                 },
                 "StudyEndPointsRef": {
                     "$ref": "#/$defs/StudyEndPoints",
-                    "description": "StudyEndPoints reference: Go to start of metadata"
+                    "description": "StudyEndPoints reference: The StudyEndPoints element is a container element for individual StudyEndPoint elements."
                 },
                 "StudyEstimandsRef": {
                     "$ref": "#/$defs/StudyEstimands",
-                    "description": "StudyEstimands reference: None"
+                    "description": "StudyEstimands reference: StudyEstimands is a container element for individual StudyEstimand elements."
                 },
                 "StudyEventGroupRefRef": {
                     "description": "StudyEventGroupRef reference: This element references a StudyEventGroupDef as it occurs within a specific version of a study. The list of StudyEventGroupRefs identifies the types of study group events that are allowed to occur within the study.",
@@ -2881,7 +2808,7 @@
                     "description": "StudySummary reference: The StudyParameter element allows to provide a set of study design parameters such as anticipated number of subjects, minimum and maximum age of the participants, or planned number of arms."
                 },
                 "StudyTargetPopulationRefRef": {
-                    "description": "StudyTargetPopulationRef reference: None",
+                    "description": "StudyTargetPopulationRef reference: The StudyTargetPopulationRef references a StudyTargetPopulation to which the estimand applies.",
                     "type": "string"
                 },
                 "StudyTimingsRef": {
@@ -3081,7 +3008,7 @@
                     "type": "string"
                 },
                 "SignatureRefRef": {
-                    "description": "SignatureRef reference: None",
+                    "description": "SignatureRef reference: A reference to the signature meaning.",
                     "type": "string"
                 },
                 "StudyOID": {
@@ -3249,7 +3176,7 @@
             "properties": {
                 "DateTimeStampRef": {
                     "$ref": "#/$defs/DateTimeStamp",
-                    "description": "DateTimeStamp reference: None"
+                    "description": "DateTimeStamp reference: Date and time when an action was performed."
                 },
                 "ID": {
                     "description": "Unique identifier for the leaf that is referenced.",
@@ -3261,11 +3188,11 @@
                 },
                 "SignatureRefRef": {
                     "$ref": "#/$defs/SignatureRef",
-                    "description": "SignatureRef reference: None"
+                    "description": "SignatureRef reference: A reference to the signature meaning."
                 },
                 "UserRefRef": {
                     "$ref": "#/$defs/UserRef",
-                    "description": "UserRef reference: None"
+                    "description": "UserRef reference: A reference to information about a specific user of a clinical data collection or data management system."
                 }
             },
             "required": [
@@ -3288,7 +3215,7 @@
                 },
                 "Methodology": {
                     "$ref": "#/$defs/SignMethod",
-                    "description": "Defines the type of electronic signature, including the meaning as required by 21 CFR Part 11 ."
+                    "description": "Defines the type of electronic signature, including the meaning as required by 21 CFR Part 11."
                 },
                 "OID": {
                     "description": "Unique identifier.",
@@ -3303,10 +3230,10 @@
         },
         "SignatureRef": {
             "additionalProperties": false,
-            "description": "",
+            "description": "A reference to the signature meaning.",
             "properties": {
                 "SignatureOID": {
-                    "description": "Reference to the SignatureDef .",
+                    "description": "Reference to the SignatureDef.",
                     "type": "string"
                 }
             },
@@ -3318,7 +3245,7 @@
         },
         "SiteRef": {
             "additionalProperties": false,
-            "description": "lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType is Transactional.",
+            "description": "Provides a reference to the site that the SubjectData record is associated with in the source system.",
             "properties": {
                 "LocationOID": {
                     "description": "Reference to a Location definition.",
@@ -3571,7 +3498,7 @@
                     "type": "string"
                 },
                 "ProtocolName": {
-                    "description": "P rotocol identifier or protocol number assigned to the study . It is used by the regulatory authority or clinical trial registry.",
+                    "description": "Protocol identifier or protocol number assigned to the study . It is used by the regulatory authority or clinical trial registry.",
                     "type": "string"
                 },
                 "Status": {
@@ -3647,7 +3574,7 @@
                     "type": "integer"
                 },
                 "StudyEndPointOID": {
-                    "description": "Reference to the StudyEndPoint .",
+                    "description": "Reference to the StudyEndPoint.",
                     "type": "string"
                 }
             },
@@ -3670,7 +3597,7 @@
         },
         "StudyEndPoints": {
             "additionalProperties": false,
-            "description": "Go to start of metadata",
+            "description": "The StudyEndPoints element is a container element for individual StudyEndPoint elements.",
             "properties": {
                 "StudyEndPointRefRef": {
                     "description": "StudyEndPointRef reference: Go to start of metadata",
@@ -3685,14 +3612,14 @@
         },
         "StudyEstimand": {
             "additionalProperties": false,
-            "description": "",
+            "description": "A precise description of the treatment effect reflecting the clinical question posed by a given clinical trial objective. It summarises at a population level what the outcomes would be in the same patients under different treatment conditions being compared.",
             "properties": {
                 "DescriptionRef": {
                     "$ref": "#/$defs/Description",
                     "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
                 },
                 "IntercurrentEventRef": {
-                    "description": "IntercurrentEvent reference: None",
+                    "description": "IntercurrentEvent reference: The IntercurrentEvent element describes an intercurrent event for an estimand (e.g., treatment discontinuation).",
                     "items": {
                         "$ref": "#/$defs/IntercurrentEvent"
                     },
@@ -3716,15 +3643,15 @@
                 },
                 "StudyInterventionRefRef": {
                     "$ref": "#/$defs/StudyInterventionRef",
-                    "description": "StudyInterventionRef reference: None"
+                    "description": "StudyInterventionRef reference: The StudyInterventionRef references an intervention that is taken as the treatment for the estimand."
                 },
                 "StudyTargetPopulationRefRef": {
                     "$ref": "#/$defs/StudyTargetPopulationRef",
-                    "description": "StudyTargetPopulationRef reference: None"
+                    "description": "StudyTargetPopulationRef reference: The StudyTargetPopulationRef references a StudyTargetPopulation to which the estimand applies."
                 },
                 "SummaryMeasureRef": {
                     "$ref": "#/$defs/SummaryMeasure",
-                    "description": "SummaryMeasure reference: None"
+                    "description": "SummaryMeasure reference: The SummaryMeasure element describes a summary measure for an estimand (e.g., proportion of patients with an improvement)."
                 }
             },
             "required": [
@@ -3746,10 +3673,10 @@
         },
         "StudyEstimands": {
             "additionalProperties": false,
-            "description": "",
+            "description": "StudyEstimands is a container element for individual StudyEstimand elements.",
             "properties": {
                 "StudyEstimandRef": {
-                    "description": "StudyEstimand reference: None",
+                    "description": "StudyEstimand reference: A precise description of the treatment effect reflecting the clinical question posed by a given clinical trial objective. It summarises at a population level what the outcomes would be in the same patients under different treatment conditions being compared.",
                     "items": {
                         "$ref": "#/$defs/StudyEstimand"
                     },
@@ -3786,11 +3713,11 @@
                     "type": "array"
                 },
                 "SignatureRefRef": {
-                    "description": "SignatureRef reference: None",
+                    "description": "SignatureRef reference: A reference to the signature meaning.",
                     "type": "string"
                 },
                 "StudyEventOID": {
-                    "description": "Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey are used together to identify a particular study event. This pair of values uniquely identifies a StudyEvent within the containing subject. The StudyEventRepeatKey is present if and only if the StudyEventDef is repeating.",
+                    "description": "Reference to the StudyEventDef. The StudyEventOID and StudyEventRepeatKey are used together to identify a particular study event. This pair of values uniquely identifies a StudyEvent within the containing subject. The StudyEventRepeatKey is present if and only if the StudyEventDef is repeating.",
                     "type": "string"
                 },
                 "StudyEventRepeatKey": {
@@ -3957,7 +3884,7 @@
                     "type": "integer"
                 },
                 "StudyEventGroupOID": {
-                    "description": "Reference to the StudyEventGroupDef .",
+                    "description": "Reference to the StudyEventGroupDef.",
                     "type": "string"
                 }
             },
@@ -3985,7 +3912,7 @@
                     "type": "integer"
                 },
                 "StudyEventOID": {
-                    "description": "Reference to the StudyEventDef .",
+                    "description": "Reference to the StudyEventDef.",
                     "type": "string"
                 }
             },
@@ -4065,7 +3992,7 @@
         },
         "StudyInterventionRef": {
             "additionalProperties": false,
-            "description": "",
+            "description": "The StudyInterventionRef references an intervention that is taken as the treatment for the estimand.",
             "properties": {
                 "StudyInterventionOID": {
                     "description": "Reference to a StudyIntervention",
@@ -4083,7 +4010,7 @@
             "description": "The StudyInterventions element is a container element for individual StudyIntervention elements.",
             "properties": {
                 "StudyInterventionRefRef": {
-                    "description": "StudyInterventionRef reference: None",
+                    "description": "StudyInterventionRef reference: The StudyInterventionRef references an intervention that is taken as the treatment for the estimand.",
                     "items": {
                         "$ref": "#/$defs/StudyIntervention"
                     },
@@ -4095,7 +4022,7 @@
         },
         "StudyObjective": {
             "additionalProperties": false,
-            "description": "",
+            "description": "The reason for performing a study in terms of the scientific questions to be answered by the analysis of data collected during the study.",
             "properties": {
                 "DescriptionRef": {
                     "$ref": "#/$defs/Description",
@@ -4143,7 +4070,7 @@
             "description": "The StudyObjectives is a container element for individual StudyObjective elements.",
             "properties": {
                 "StudyObjectiveRef": {
-                    "description": "StudyObjective reference: None",
+                    "description": "StudyObjective reference: The reason for performing a study in terms of the scientific questions to be answered by the analysis of data collected during the study.",
                     "items": {
                         "$ref": "#/$defs/StudyObjective"
                     },
@@ -4273,7 +4200,7 @@
         },
         "StudyTargetPopulationRef": {
             "additionalProperties": false,
-            "description": "",
+            "description": "The StudyTargetPopulationRef references a StudyTargetPopulation to which the estimand applies.",
             "properties": {
                 "StudyTargetPopulationOID": {
                     "type": "string"
@@ -4391,12 +4318,12 @@
                     "type": "array"
                 },
                 "SignatureRefRef": {
-                    "description": "SignatureRef reference: None",
+                    "description": "SignatureRef reference: A reference to the signature meaning.",
                     "type": "string"
                 },
                 "SiteRefRef": {
                     "$ref": "#/$defs/SiteRef",
-                    "description": "SiteRef reference: lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType is Transactional."
+                    "description": "SiteRef reference: Provides a reference to the site that the SubjectData record is associated with in the source system."
                 },
                 "StudyEventDataRef": {
                     "description": "StudyEventData reference: Clinical data for a study event (visit). The model supports repeating study events (e.g., when the same set of information is collected for a series of patient visits).",
@@ -4434,7 +4361,7 @@
         },
         "SummaryMeasure": {
             "additionalProperties": false,
-            "description": "",
+            "description": "The SummaryMeasure element describes a summary measure for an estimand (e.g., proportion of patients with an improvement).",
             "properties": {
                 "DescriptionRef": {
                     "$ref": "#/$defs/Description",
@@ -4461,10 +4388,10 @@
         },
         "TargetTransition": {
             "additionalProperties": false,
-            "description": "Provides a reference to a Transition element.",
+            "description": "TargetTransition provides a reference to a Transition element that is the target of a branching.",
             "properties": {
                 "ConditionOID": {
-                    "description": "Reference to a ConditionDef defining the condition under which the transition must be executed",
+                    "description": "Reference to a ConditionDef defining the condition under which the transition must be executed. The ConditionOID references a ConditionDef element defining a condition that needs to be evaluated at the time of entering the branching state. When the condition evaluates to true, the branch is entered.",
                     "type": "string"
                 },
                 "TargetTransitionOID": {
@@ -4510,6 +4437,18 @@
             ],
             "title": "TelecomTypeType",
             "type": "string"
+        },
+        "Title": {
+            "additionalProperties": false,
+            "description": "Text with the label for the document or dataset.",
+            "properties": {
+                "_content": {
+                    "description": "multi-line text content from between XML tags",
+                    "type": "string"
+                }
+            },
+            "title": "Title",
+            "type": "object"
         },
         "TransactionType": {
             "description": "Enumeration used in TransactionTypeRef",
@@ -4756,7 +4695,7 @@
         },
         "UserRef": {
             "additionalProperties": false,
-            "description": "",
+            "description": "A reference to information about a specific user of a clinical data collection or data management system.",
             "properties": {
                 "UserOID": {
                     "description": "Reference to the User definition.",
@@ -4982,13 +4921,13 @@
             "type": "object"
         },
         "YesOnly": {
-            "description": "Enumeration used in IsNonStandard, Other, IsNull, HasNoData, Repeat, ExtendedValue",
+            "description": "Enumeration used in Repeat, Other, IsNonStandard, ExtendedValue, HasNoData, IsNull",
             "enum": [],
             "title": "YesOnly",
             "type": "string"
         },
         "YesOrNo": {
-            "description": "Enumeration used in IsReferenceData, Repeating, UsedMethod, Mandatory",
+            "description": "Enumeration used in Repeating, UsedMethod, IsReferenceData, Mandatory",
             "enum": [
                 "Yes",
                 "No"
@@ -5000,7 +4939,100 @@
     "$id": "http://www.cdisc.org/ns/odm/v2.0",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": true,
+    "description": "Root element for ODM Documents. The ODM element is the top-level (root) element of each ODM document.",
     "metamodel_version": "1.7.0",
+    "properties": {
+        "AdminDataRef": {
+            "description": "AdminData reference: Administrative information about users, locations, organizations, and electronic signatures.",
+            "items": {
+                "$ref": "#/$defs/AdminData"
+            },
+            "type": "array"
+        },
+        "AsOfDateTime": {
+            "description": "The date/time at which the source database was queried in order to create this document.",
+            "format": "date-time",
+            "type": "string"
+        },
+        "AssociationRef": {
+            "description": "Association reference: An association permits an annotation to be placed on an ordered pair of entities rather than on just one. The first and second KeySets identify the start and end of the annotated \"link.",
+            "items": {
+                "$ref": "#/$defs/Association"
+            },
+            "type": "array"
+        },
+        "ClinicalDataRef": {
+            "description": "ClinicalData reference: Clinical data for 1 or more subjects.",
+            "items": {
+                "$ref": "#/$defs/ClinicalData"
+            },
+            "type": "array"
+        },
+        "ContextRef": {
+            "$ref": "#/$defs/Context",
+            "description": "Indicates the intended usage of the ODM document. Archive - indicates that the file is intended to meet the requirements of an electronic record as defined in 21 CFR 11. Submission - indicates that the file is intended to be used for regulatory submission. Exchange - indicates that the file was generated to be imported into an ODM compliant system."
+        },
+        "CreationDateTime": {
+            "description": "Time of creation of the file containing the document.",
+            "format": "date-time",
+            "type": "string"
+        },
+        "DescriptionRef": {
+            "$ref": "#/$defs/Description",
+            "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
+        },
+        "FileOID": {
+            "description": "A unique identifier for this file.",
+            "type": "string"
+        },
+        "FileTypeRef": {
+            "$ref": "#/$defs/FileType",
+            "description": "Snapshot means that the document contains only the current state of the data and metadata it describes, and no transactional history. Transactional means that the document may contain more than one instance per data point. Query means the document contains only ClinicalData/Query elements."
+        },
+        "GranularityRef": {
+            "$ref": "#/$defs/Granularity",
+            "description": "Granularity is intended to give the sender a shorthand way to Describes the scope of information in the document, for certain common types of documents. All means the entire study; Metadata means the Study/MetaDataVersion element; AdminData and ReferenceData mean the corresponding elements; AllClinicalData means all of the ClinicalData collected for the study. SingleSite, means all of the Clinical Data for a single study site. SingleSubject means all of the Clinical Data for a single Subject."
+        },
+        "ODMVersionRef": {
+            "description": "The version of the ODM standard used.",
+            "type": "string"
+        },
+        "Originator": {
+            "description": "The organization that generated the ODM file.",
+            "type": "string"
+        },
+        "PriorFileOID": {
+            "description": "Reference to the previous file (if any) in a series.",
+            "type": "string"
+        },
+        "ReferenceDataRef": {
+            "description": "ReferenceData reference: Reference data provides information on how to interpret clinical data. For example, reference data might include lab normal ranges. For a study that uses CDISC standards, reference data might include SDTM Trial Design datasets.",
+            "items": {
+                "$ref": "#/$defs/ReferenceData"
+            },
+            "type": "array"
+        },
+        "SourceSystem": {
+            "description": "The computer system or database management system that is the source of the information in this file.",
+            "type": "string"
+        },
+        "SourceSystemVersion": {
+            "description": "The version of the \"SourceSystem\" above.",
+            "type": "string"
+        },
+        "StudyRef": {
+            "description": "Study reference: This element collects static structural information about an individual study.",
+            "items": {
+                "$ref": "#/$defs/Study"
+            },
+            "type": "array"
+        }
+    },
+    "required": [
+        "FileTypeRef",
+        "FileOID",
+        "CreationDateTime"
+    ],
     "title": "odm",
     "type": "object",
     "version": null

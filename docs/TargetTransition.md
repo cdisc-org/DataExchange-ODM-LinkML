@@ -1,7 +1,7 @@
 # Class: TargetTransition
 
 
-_Provides a reference to a Transition element._
+_TargetTransition provides a reference to a Transition element that is the target of a branching._
 
 
 
@@ -90,7 +90,8 @@ URI: [odm:TargetTransition](http://www.cdisc.org/ns/odm/v2.0/TargetTransition)
 <details>
 ```yaml
 name: TargetTransition
-description: Provides a reference to a Transition element.
+description: TargetTransition provides a reference to a Transition element that is
+  the target of a branching.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TargetTransition
@@ -104,7 +105,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The TargetTransitionOID attibute must match the OID attribute of a Transition
       element in the Study/MetaDataVersion.'
@@ -116,18 +117,19 @@ slot_usage:
   ConditionOID:
     name: ConditionOID
     description: Reference to a ConditionDef defining the condition under which the
-      transition must be executed
+      transition must be executed. The ConditionOID references a ConditionDef element
+      defining a condition that needs to be evaluated at the time of entering the
+      branching state. When the condition evaluates to true, the branch is entered.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The ConditionOID must match the OID attribute of a ConditionDef element in the
       Study/MetaDataVersion.'
     domain_of:
     - TargetTransition
     - Criterion
-    - ExceptionEvent
     range: oidref
 class_uri: odm:TargetTransition
 
@@ -139,7 +141,8 @@ class_uri: odm:TargetTransition
 <details>
 ```yaml
 name: TargetTransition
-description: Provides a reference to a Transition element.
+description: TargetTransition provides a reference to a Transition element that is
+  the target of a branching.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TargetTransition
@@ -150,7 +153,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The TargetTransitionOID attibute must match the OID attribute of a Transition
       element in the Study/MetaDataVersion.'
@@ -162,18 +165,19 @@ slot_usage:
   ConditionOID:
     name: ConditionOID
     description: Reference to a ConditionDef defining the condition under which the
-      transition must be executed
+      transition must be executed. The ConditionOID references a ConditionDef element
+      defining a condition that needs to be evaluated at the time of entering the
+      branching state. When the condition evaluates to true, the branch is entered.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The ConditionOID must match the OID attribute of a ConditionDef element in the
       Study/MetaDataVersion.'
     domain_of:
     - TargetTransition
     - Criterion
-    - ExceptionEvent
     range: oidref
 attributes:
   TargetTransitionOID:
@@ -182,7 +186,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The TargetTransitionOID attibute must match the OID attribute of a Transition
       element in the Study/MetaDataVersion.'
@@ -198,11 +202,13 @@ attributes:
   ConditionOID:
     name: ConditionOID
     description: Reference to a ConditionDef defining the condition under which the
-      transition must be executed
+      transition must be executed. The ConditionOID references a ConditionDef element
+      defining a condition that needs to be evaluated at the time of entering the
+      branching state. When the condition evaluates to true, the branch is entered.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       The ConditionOID must match the OID attribute of a ConditionDef element in the
       Study/MetaDataVersion.'
@@ -213,7 +219,6 @@ attributes:
     domain_of:
     - TargetTransition
     - Criterion
-    - ExceptionEvent
     range: oidref
 class_uri: odm:TargetTransition
 

@@ -121,7 +121,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:xs:language
+      range: xs:language
 
       The schema requires xml:lang to be unique within a parent element for the same
       type. If only one TranslatedText element is provided, the xml:lang is optional.
@@ -139,7 +139,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(text/plain | application/xhtml+xml)
+      enum values: (text/plain | application/xhtml+xml)
 
       A TranslatedText element with plain text with specified type "text/plain" must
       always be present, despite the fact whether other TranslatedText elements with
@@ -172,6 +172,7 @@ slot_usage:
     name: _content
     domain_of:
     - TranslatedText
+    - Title
     - CheckValue
     - Code
     - WorkflowEnd
@@ -223,7 +224,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:xs:language
+      range: xs:language
 
       The schema requires xml:lang to be unique within a parent element for the same
       type. If only one TranslatedText element is provided, the xml:lang is optional.
@@ -241,7 +242,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(text/plain | application/xhtml+xml)
+      enum values: (text/plain | application/xhtml+xml)
 
       A TranslatedText element with plain text with specified type "text/plain" must
       always be present, despite the fact whether other TranslatedText elements with
@@ -274,6 +275,7 @@ slot_usage:
     name: _content
     domain_of:
     - TranslatedText
+    - Title
     - CheckValue
     - Code
     - WorkflowEnd
@@ -309,7 +311,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:xs:language
+      range: xs:language
 
       The schema requires xml:lang to be unique within a parent element for the same
       type. If only one TranslatedText element is provided, the xml:lang is optional.
@@ -331,7 +333,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:(text/plain | application/xhtml+xml)
+      enum values: (text/plain | application/xhtml+xml)
 
       A TranslatedText element with plain text with specified type "text/plain" must
       always be present, despite the fact whether other TranslatedText elements with
@@ -373,6 +375,7 @@ attributes:
     owner: TranslatedText
     domain_of:
     - TranslatedText
+    - Title
     - CheckValue
     - Code
     - WorkflowEnd

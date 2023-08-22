@@ -1,7 +1,7 @@
 # Slot: SiteRefRef
 
 
-_SiteRef reference: lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType is Transactional._
+_SiteRef reference: Provides a reference to the site that the SubjectData record is associated with in the source system._
 
 
 
@@ -55,10 +55,8 @@ URI: [odm:SiteRefRef](http://www.cdisc.org/ns/odm/v2.0/SiteRefRef)
 <details>
 ```yaml
 name: SiteRefRef
-description: 'SiteRef reference: lement NameSiteRefParent ElementsSubjectDataElement
-  XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild
-  ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType
-  is Transactional.'
+description: 'SiteRef reference: Provides a reference to the site that the SubjectData
+  record is associated with in the source system.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: false

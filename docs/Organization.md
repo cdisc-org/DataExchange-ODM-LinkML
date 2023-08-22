@@ -142,7 +142,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       Must be unique within the Organization elements for a study.'
     domain_of:
@@ -177,7 +177,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -191,7 +190,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       Must be unique within the set of Organization elements for a study.'
     domain_of:
@@ -226,7 +225,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -238,7 +236,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ItemRef
     - Organization
@@ -250,7 +248,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Sponsor | Site | CRO | Lab | Other | TechnologyProvider)
+      enum values: (Sponsor | Site | CRO | Lab | Other | TechnologyProvider)
 
       An ODM extension is required if additional Type values are needed.'
     domain_of:
@@ -277,7 +275,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for a Location element for the study.'
     domain_of:
@@ -292,7 +290,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID Organization within the study.'
     domain_of:
@@ -334,7 +332,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -383,7 +380,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       Must be unique within the Organization elements for a study.'
     domain_of:
@@ -418,7 +415,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -432,7 +428,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       Must be unique within the set of Organization elements for a study.'
     domain_of:
@@ -467,7 +463,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -479,7 +474,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     domain_of:
     - ItemRef
     - Organization
@@ -491,7 +486,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Sponsor | Site | CRO | Lab | Other | TechnologyProvider)
+      enum values: (Sponsor | Site | CRO | Lab | Other | TechnologyProvider)
 
       An ODM extension is required if additional Type values are needed.'
     domain_of:
@@ -518,7 +513,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for a Location element for the study.'
     domain_of:
@@ -533,7 +528,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID Organization within the study.'
     domain_of:
@@ -575,7 +570,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -608,7 +602,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid
+      range: oid
 
       Must be unique within the Organization elements for a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -648,7 +642,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -662,7 +655,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name
+      range: name
 
       Must be unique within the set of Organization elements for a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -701,7 +694,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -713,7 +705,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Role
@@ -729,7 +721,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:(Sponsor | Site | CRO | Lab | Other | TechnologyProvider)
+      enum values: (Sponsor | Site | CRO | Lab | Other | TechnologyProvider)
 
       An ODM extension is required if additional Type values are needed.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -760,7 +752,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for a Location element for the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -779,7 +771,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       Must match the OID Organization within the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -832,7 +824,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata

@@ -19,7 +19,7 @@ URI: [odm:UserOID](http://www.cdisc.org/ns/odm/v2.0/UserOID)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 [InvestigatorRef](InvestigatorRef.md) | Provides a reference to the user who created the SubjectData record in the so... |  yes  |
-[UserRef](UserRef.md) |  |  yes  |
+[UserRef](UserRef.md) | A reference to information about a specific user of a clinical data collectio... |  yes  |
 
 
 

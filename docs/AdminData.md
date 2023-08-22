@@ -45,8 +45,8 @@ URI: [odm:AdminData](http://www.cdisc.org/ns/odm/v2.0/AdminData)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Study . | direct |
-| [UserRefRef](UserRefRef.md) | 0..* <br/> [User](User.md) | UserRef reference: None | direct |
+| [StudyOID](StudyOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Study. | direct |
+| [UserRefRef](UserRefRef.md) | 0..* <br/> [User](User.md) | UserRef reference: A reference to information about a specific user of a clin... | direct |
 | [OrganizationRef](OrganizationRef.md) | 0..* <br/> [Organization](Organization.md) | Organization reference: An organization can reference a parent organization. ... | direct |
 | [LocationRefRef](LocationRefRef.md) | 0..* <br/> [Location](Location.md) | LocationRef reference: A reference to the user's physical location. | direct |
 | [SignatureDefRef](SignatureDefRef.md) | 0..* <br/> [SignatureDef](SignatureDef.md) | SignatureDef reference: Provides Metadata for signatures included in the /ODM... | direct |
@@ -121,11 +121,11 @@ slots:
 slot_usage:
   StudyOID:
     name: StudyOID
-    description: Reference to a Study .
+    description: Reference to a Study.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID for a /ODM/Study element.'
     domain_of:
@@ -192,11 +192,11 @@ see_also:
 slot_usage:
   StudyOID:
     name: StudyOID
-    description: Reference to a Study .
+    description: Reference to a Study.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID for a /ODM/Study element.'
     domain_of:
@@ -248,11 +248,11 @@ slot_usage:
 attributes:
   StudyOID:
     name: StudyOID
-    description: Reference to a Study .
+    description: Reference to a Study.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID for a /ODM/Study element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -271,7 +271,8 @@ attributes:
     range: oidref
   UserRefRef:
     name: UserRefRef
-    description: 'UserRef reference: None'
+    description: 'UserRef reference: A reference to information about a specific user
+      of a clinical data collection or data management system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true

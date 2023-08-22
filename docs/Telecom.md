@@ -108,7 +108,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Email | Pager | Phone | Fax | SMS | URL | Other)
+      enum values: (Email | Pager | Phone | Fax | SMS | URL | Other)
 
       Values are aligned with FHIR ContactPoint/System data element.'
     domain_of:
@@ -120,7 +120,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     domain_of:
     - TrialPhase
     - ParameterValue
@@ -150,7 +150,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Email | Pager | Phone | Fax | SMS | URL | Other)
+      enum values: (Email | Pager | Phone | Fax | SMS | URL | Other)
 
       Values are aligned with FHIR ContactPoint/System data element.'
     domain_of:
@@ -162,7 +162,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     domain_of:
     - TrialPhase
     - ParameterValue
@@ -177,7 +177,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:(Email | Pager | Phone | Fax | SMS | URL | Other)
+      enum values: (Email | Pager | Phone | Fax | SMS | URL | Other)
 
       Values are aligned with FHIR ContactPoint/System data element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -194,7 +194,7 @@ attributes:
     comments:
     - 'Required
 
-      range:text'
+      range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

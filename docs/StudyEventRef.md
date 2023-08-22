@@ -37,7 +37,7 @@ URI: [odm:StudyEventRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventRef)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEventOID](StudyEventOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventDef . | direct |
+| [StudyEventOID](StudyEventOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventDef. | direct |
 | [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEventDef appears in Metadata displays ... | direct |
 | [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | The Mandatory flag indicates that the clinical data for the containing MetaDa... | direct |
 | [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
@@ -51,7 +51,6 @@ URI: [odm:StudyEventRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventRef)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [StudyEventGroupDef](StudyEventGroupDef.md) | [StudyEventRefRef](StudyEventRefRef.md) | range | [StudyEventRef](StudyEventRef.md) |
-| [ExceptionEvent](ExceptionEvent.md) | [StudyEventRefRef](StudyEventRefRef.md) | range | [StudyEventRef](StudyEventRef.md) |
 
 
 
@@ -113,11 +112,11 @@ slots:
 slot_usage:
   StudyEventOID:
     name: StudyEventOID
-    description: Reference to the StudyEventDef .
+    description: Reference to the StudyEventDef.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for a StudyEventDef in the Study/MetaDataVersion.'
     domain_of:
@@ -139,7 +138,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The StudyEventRefs within a StudyEventGroup must not have duplicate OrderNumber
       values.'
@@ -163,7 +162,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       The data for each subject in the study must include a StudyEventData element
       with this StudyEventOID, when the value is "Yes".'
@@ -182,7 +181,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CollectionExceptionConditionOID value must match the OID attribute for a
       ConditionDef in this Study/MetaDataVersion.'
@@ -211,11 +210,11 @@ see_also:
 slot_usage:
   StudyEventOID:
     name: StudyEventOID
-    description: Reference to the StudyEventDef .
+    description: Reference to the StudyEventDef.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for a StudyEventDef in the Study/MetaDataVersion.'
     domain_of:
@@ -237,7 +236,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The StudyEventRefs within a StudyEventGroup must not have duplicate OrderNumber
       values.'
@@ -261,7 +260,7 @@ slot_usage:
     comments:
     - 'Required
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       The data for each subject in the study must include a StudyEventData element
       with this StudyEventOID, when the value is "Yes".'
@@ -280,7 +279,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CollectionExceptionConditionOID value must match the OID attribute for a
       ConditionDef in this Study/MetaDataVersion.'
@@ -293,11 +292,11 @@ slot_usage:
 attributes:
   StudyEventOID:
     name: StudyEventOID
-    description: Reference to the StudyEventDef .
+    description: Reference to the StudyEventDef.
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute for a StudyEventDef in the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -323,7 +322,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:positiveInteger
+      range: positiveInteger
 
       The StudyEventRefs within a StudyEventGroup must not have duplicate OrderNumber
       values.'
@@ -351,7 +350,7 @@ attributes:
     comments:
     - 'Required
 
-      enum values:(Yes | No)
+      enum values: (Yes | No)
 
       The data for each subject in the study must include a StudyEventData element
       with this StudyEventOID, when the value is "Yes".'
@@ -374,7 +373,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref
+      range: oidref
 
       The CollectionExceptionConditionOID value must match the OID attribute for a
       ConditionDef in this Study/MetaDataVersion.'

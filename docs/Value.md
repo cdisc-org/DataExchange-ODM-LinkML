@@ -117,6 +117,7 @@ slot_usage:
     name: _content
     domain_of:
     - TranslatedText
+    - Title
     - CheckValue
     - Code
     - WorkflowEnd
@@ -175,6 +176,7 @@ slot_usage:
     name: _content
     domain_of:
     - TranslatedText
+    - Title
     - CheckValue
     - Code
     - WorkflowEnd
@@ -226,6 +228,7 @@ attributes:
     owner: Value
     domain_of:
     - TranslatedText
+    - Title
     - CheckValue
     - Code
     - WorkflowEnd

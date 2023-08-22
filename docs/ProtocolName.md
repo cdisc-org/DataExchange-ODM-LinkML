@@ -1,7 +1,7 @@
 # Slot: ProtocolName
 
 
-_P rotocol identifier or protocol number assigned to the study . It is used by the regulatory authority or clinical trial registry._
+_Protocol identifier or protocol number assigned to the study. It is used by the regulatory authority or clinical trial registry._
 
 
 
@@ -55,8 +55,8 @@ URI: [odm:ProtocolName](http://www.cdisc.org/ns/odm/v2.0/ProtocolName)
 <details>
 ```yaml
 name: ProtocolName
-description: P rotocol identifier or protocol number assigned to the study . It is
-  used by the regulatory authority or clinical trial registry.
+description: Protocol identifier or protocol number assigned to the study. It is used
+  by the regulatory authority or clinical trial registry.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ProtocolName

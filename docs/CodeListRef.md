@@ -101,7 +101,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - CodeListRef
     - FlagValue
@@ -130,7 +130,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - CodeListRef
     - FlagValue
@@ -145,7 +145,7 @@ attributes:
     comments:
     - 'Optional
 
-      range:oidref'
+      range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: CodeListOID

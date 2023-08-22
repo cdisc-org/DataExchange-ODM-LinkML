@@ -126,6 +126,7 @@ attributes:
   owner: PostalCode
   domain_of:
   - TranslatedText
+  - Title
   - CheckValue
   - Code
   - WorkflowEnd

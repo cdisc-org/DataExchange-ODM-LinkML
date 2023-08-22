@@ -1,6 +1,11 @@
 # Class: StudyEstimand
 
 
+_A precise description of the treatment effect reflecting the clinical question posed by a given clinical trial objective. It summarises at a population level what the outcomes would be in the same patients under different treatment conditions being compared._
+
+
+
+
 
 URI: [odm:StudyEstimand](http://www.cdisc.org/ns/odm/v2.0/StudyEstimand)
 
@@ -58,11 +63,11 @@ URI: [odm:StudyEstimand](http://www.cdisc.org/ns/odm/v2.0/StudyEstimand)
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the Study Estimand. | direct |
 | [Level](Level.md) | 0..1 <br/> [StudyEstimandLevel](StudyEstimandLevel.md) | Defined Level for the Study Estimand | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [StudyTargetPopulationRefRef](StudyTargetPopulationRefRef.md) | 0..1 <br/> [StudyTargetPopulationRef](StudyTargetPopulationRef.md) | StudyTargetPopulationRef reference: None | direct |
-| [StudyInterventionRefRef](StudyInterventionRefRef.md) | 0..1 <br/> [StudyInterventionRef](StudyInterventionRef.md) | StudyInterventionRef reference: None | direct |
+| [StudyTargetPopulationRefRef](StudyTargetPopulationRefRef.md) | 0..1 <br/> [StudyTargetPopulationRef](StudyTargetPopulationRef.md) | StudyTargetPopulationRef reference: The StudyTargetPopulationRef references a... | direct |
+| [StudyInterventionRefRef](StudyInterventionRefRef.md) | 0..1 <br/> [StudyInterventionRef](StudyInterventionRef.md) | StudyInterventionRef reference: The StudyInterventionRef references an interv... | direct |
 | [StudyEndPointRefRef](StudyEndPointRefRef.md) | 0..1 <br/> [StudyEndPointRef](StudyEndPointRef.md) | StudyEndPointRef reference: Go to start of metadata | direct |
-| [IntercurrentEventRef](IntercurrentEventRef.md) | 0..* <br/> [IntercurrentEvent](IntercurrentEvent.md) | IntercurrentEvent reference: None | direct |
-| [SummaryMeasureRef](SummaryMeasureRef.md) | 0..1 <br/> [SummaryMeasure](SummaryMeasure.md) | SummaryMeasure reference: None | direct |
+| [IntercurrentEventRef](IntercurrentEventRef.md) | 0..* <br/> [IntercurrentEvent](IntercurrentEvent.md) | IntercurrentEvent reference: The IntercurrentEvent element describes an inter... | direct |
+| [SummaryMeasureRef](SummaryMeasureRef.md) | 0..1 <br/> [SummaryMeasure](SummaryMeasure.md) | SummaryMeasure reference: The SummaryMeasure element describes a summary meas... | direct |
 
 
 
@@ -120,6 +125,10 @@ URI: [odm:StudyEstimand](http://www.cdisc.org/ns/odm/v2.0/StudyEstimand)
 <details>
 ```yaml
 name: StudyEstimand
+description: A precise description of the treatment effect reflecting the clinical
+  question posed by a given clinical trial objective. It summarises at a population
+  level what the outcomes would be in the same patients under different treatment
+  conditions being compared.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEstimand
@@ -140,7 +149,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -173,7 +182,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -187,7 +195,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -220,7 +228,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -232,7 +239,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:( Primary | Secondary | Exploratory )'
+      enum values: ( Primary | Secondary | Exploratory )'
     domain_of:
     - StudyObjective
     - StudyEndPoint
@@ -274,7 +281,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -326,6 +332,10 @@ class_uri: odm:StudyEstimand
 <details>
 ```yaml
 name: StudyEstimand
+description: A precise description of the treatment effect reflecting the clinical
+  question posed by a given clinical trial objective. It summarises at a population
+  level what the outcomes would be in the same patients under different treatment
+  conditions being compared.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEstimand
@@ -336,7 +346,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     domain_of:
     - Study
     - MetaDataVersion
@@ -369,7 +379,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -383,7 +392,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     domain_of:
     - Alias
     - MetaDataVersion
@@ -416,7 +425,6 @@ slot_usage:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -428,7 +436,7 @@ slot_usage:
     comments:
     - 'Optional
 
-      enum values:( Primary | Secondary | Exploratory )'
+      enum values: ( Primary | Secondary | Exploratory )'
     domain_of:
     - StudyObjective
     - StudyEndPoint
@@ -470,7 +478,6 @@ slot_usage:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -519,7 +526,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oid'
+      range: oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
@@ -557,7 +564,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - User
     - Organization
     - Location
@@ -571,7 +577,7 @@ attributes:
     comments:
     - 'Required
 
-      range:name'
+      range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Name
@@ -608,7 +614,6 @@ attributes:
     - Transition
     - Branching
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - Query
@@ -620,7 +625,7 @@ attributes:
     comments:
     - 'Optional
 
-      enum values:( Primary | Secondary | Exploratory )'
+      enum values: ( Primary | Secondary | Exploratory )'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: Level
@@ -673,7 +678,6 @@ attributes:
     - DurationTimingConstraint
     - WorkflowDef
     - Criterion
-    - ExceptionEvent
     - Organization
     - Location
     - ODMFileMetadata
@@ -681,7 +685,8 @@ attributes:
     maximum_cardinality: 1
   StudyTargetPopulationRefRef:
     name: StudyTargetPopulationRefRef
-    description: 'StudyTargetPopulationRef reference: None'
+    description: 'StudyTargetPopulationRef reference: The StudyTargetPopulationRef
+      references a StudyTargetPopulation to which the estimand applies.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -694,7 +699,8 @@ attributes:
     maximum_cardinality: 1
   StudyInterventionRefRef:
     name: StudyInterventionRefRef
-    description: 'StudyInterventionRef reference: None'
+    description: 'StudyInterventionRef reference: The StudyInterventionRef references
+      an intervention that is taken as the treatment for the estimand.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
@@ -721,7 +727,8 @@ attributes:
     maximum_cardinality: 1
   IntercurrentEventRef:
     name: IntercurrentEventRef
-    description: 'IntercurrentEvent reference: None'
+    description: 'IntercurrentEvent reference: The IntercurrentEvent element describes
+      an intercurrent event for an estimand (e.g., treatment discontinuation).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
@@ -735,7 +742,8 @@ attributes:
     inlined_as_list: true
   SummaryMeasureRef:
     name: SummaryMeasureRef
-    description: 'SummaryMeasure reference: None'
+    description: 'SummaryMeasure reference: The SummaryMeasure element describes a
+      summary measure for an estimand (e.g., proportion of patients with an improvement).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false

@@ -140,7 +140,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      enum values:(LT | LE | GT | GE | EQ | NE | IN | NOTIN)'
+      enum values: (LT | LE | GT | GE | EQ | NE | IN | NOTIN)'
     domain_of:
     - RangeCheck
     range: Comparator
@@ -151,7 +151,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      enum values:(Soft | Hard)'
+      enum values: (Soft | Hard)'
     domain_of:
     - RangeCheck
     range: SoftOrHard
@@ -161,7 +161,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - ItemRef
     - SourceItem
@@ -227,7 +227,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      enum values:(LT | LE | GT | GE | EQ | NE | IN | NOTIN)'
+      enum values: (LT | LE | GT | GE | EQ | NE | IN | NOTIN)'
     domain_of:
     - RangeCheck
     range: Comparator
@@ -238,7 +238,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      enum values:(Soft | Hard)'
+      enum values: (Soft | Hard)'
     domain_of:
     - RangeCheck
     range: SoftOrHard
@@ -248,7 +248,7 @@ slot_usage:
     comments:
     - 'Conditional
 
-      range:oidref'
+      range: oidref'
     domain_of:
     - ItemRef
     - SourceItem
@@ -297,7 +297,7 @@ attributes:
     comments:
     - 'Conditional
 
-      enum values:(LT | LE | GT | GE | EQ | NE | IN | NOTIN)'
+      enum values: (LT | LE | GT | GE | EQ | NE | IN | NOTIN)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ComparatorRef
@@ -312,7 +312,7 @@ attributes:
     comments:
     - 'Conditional
 
-      enum values:(Soft | Hard)'
+      enum values: (Soft | Hard)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SoftHard
@@ -326,7 +326,7 @@ attributes:
     comments:
     - 'Conditional
 
-      range:oidref'
+      range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: ItemOID

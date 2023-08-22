@@ -104,7 +104,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID of a ValueListDef in the same MetaDataVersion.'
     domain_of:
@@ -136,7 +136,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID of a ValueListDef in the same MetaDataVersion.'
     domain_of:
@@ -151,7 +151,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID of a ValueListDef in the same MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0

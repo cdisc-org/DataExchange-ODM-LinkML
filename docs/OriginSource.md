@@ -25,7 +25,7 @@ URI: [OriginSource](OriginSource)
 
 | Name | Description |
 | ---  | --- |
-| [Source](Source.md) | I ndicates the party responsible for the data's origin type. |
+| [Source](Source.md) | Indicates the party responsible for the data's origin type. |
 
 
 

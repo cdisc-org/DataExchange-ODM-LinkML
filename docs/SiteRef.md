@@ -1,7 +1,7 @@
 # Class: SiteRef
 
 
-_lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness Rule(s):Must be provided when the /ODM/FileType is Transactional._
+_Provides a reference to the site that the SubjectData record is associated with in the source system._
 
 
 
@@ -87,9 +87,8 @@ URI: [odm:SiteRef](http://www.cdisc.org/ns/odm/v2.0/SiteRef)
 <details>
 ```yaml
 name: SiteRef
-description: lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement
-  Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness
-  Rule(s):Must be provided when the /ODM/FileType is Transactional.
+description: Provides a reference to the site that the SubjectData record is associated
+  with in the source system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SiteRef
@@ -102,7 +101,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute value for an AdminData/Location element where the
       AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID.'
@@ -123,9 +122,8 @@ class_uri: odm:SiteRef
 <details>
 ```yaml
 name: SiteRef
-description: lement NameSiteRefParent ElementsSubjectDataElement XPath(s)/ODM/ClinicalData/SubjectData/SiteRefElement
-  Textual ValueNoneAttributesLocationOIDChild ElementsNoneUsage/Business RulesBusiness
-  Rule(s):Must be provided when the /ODM/FileType is Transactional.
+description: Provides a reference to the site that the SubjectData record is associated
+  with in the source system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SiteRef
@@ -136,7 +134,7 @@ slot_usage:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute value for an AdminData/Location element where the
       AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID.'
@@ -154,7 +152,7 @@ attributes:
     comments:
     - 'Required
 
-      range:oidref
+      range: oidref
 
       Must match the OID attribute value for an AdminData/Location element where the
       AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID.'
