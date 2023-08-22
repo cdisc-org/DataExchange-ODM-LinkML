@@ -1,8 +1,6 @@
 # Class: ItemDef
 
-
 _An ItemDef describes a type of item that can occur within a study. Item properties include name, datatype, range, or codelist restrictions, and several other properties._
-
 
 
 
@@ -10,77 +8,111 @@ _An ItemDef describes a type of item that can occur within a study. Item propert
 URI: [odm:ItemDef](http://www.cdisc.org/ns/odm/v2.0/ItemDef)
 
 
-
 ```mermaid
- classDiagram
-    class ItemDef
-      ItemDef : AliasRef
-        
-          ItemDef --|> Alias : AliasRef
-        
-      ItemDef : CDISCNotesRef
-        
-          ItemDef --|> CDISCNotes : CDISCNotesRef
-        
-      ItemDef : CodeListRefRef
-        
-          ItemDef --|> CodeListRef : CodeListRefRef
-        
-      ItemDef : CodingRef
-        
-          ItemDef --|> Coding : CodingRef
-        
-      ItemDef : CommentOID
-        
-      ItemDef : CRFCompletionInstructionsRef
-        
-          ItemDef --|> CRFCompletionInstructions : CRFCompletionInstructionsRef
-        
-      ItemDef : DataTypeRef
-        
-          ItemDef --|> DataType : DataTypeRef
-        
-      ItemDef : DefinitionRef
-        
-          ItemDef --|> Definition : DefinitionRef
-        
-      ItemDef : DescriptionRef
-        
-          ItemDef --|> Description : DescriptionRef
-        
-      ItemDef : DisplayFormat
-        
-      ItemDef : ImplementationNotesRef
-        
-          ItemDef --|> ImplementationNotes : ImplementationNotesRef
-        
-      ItemDef : Length
-        
-      ItemDef : Name
-        
-      ItemDef : OID
-        
-      ItemDef : PromptRef
-        
-          ItemDef --|> Prompt : PromptRef
-        
-      ItemDef : QuestionRef
-        
-          ItemDef --|> Question : QuestionRef
-        
-      ItemDef : RangeCheckRef
-        
-          ItemDef --|> RangeCheck : RangeCheckRef
-        
-      ItemDef : ValueListRefRef
-        
-          ItemDef --|> ValueListRef : ValueListRefRef
-        
-      ItemDef : VariableSet
-        
-      
-```
+erDiagram
+ItemDef {
+    oid OID  
+    name Name  
+    DataType DataTypeRef  
+    positiveInteger Length  
+    text DisplayFormat  
+    text VariableSet  
+    oidref CommentOID  
+}
+Alias {
+    text ContextRef  
+    text Name  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+ValueListRef {
+    oidref ValueListOID  
+}
+CodeListRef {
+    oidref CodeListOID  
+}
+RangeCheck {
+    Comparator ComparatorRef  
+    SoftOrHard SoftHard  
+    oidref ItemOID  
+}
+CheckValue {
+    value content  
+}
+FormalExpression {
+    text ContextRef  
+}
+MethodSignature {
 
+}
+ErrorMessage {
+
+}
+CDISCNotes {
+
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+ImplementationNotes {
+
+}
+CRFCompletionInstructions {
+
+}
+Prompt {
+
+}
+Question {
+
+}
+Definition {
+
+}
+Description {
+
+}
+
+ItemDef ||--|o Description : "DescriptionRef"
+ItemDef ||--|o Definition : "DefinitionRef"
+ItemDef ||--|o Question : "QuestionRef"
+ItemDef ||--|o Prompt : "PromptRef"
+ItemDef ||--|o CRFCompletionInstructions : "CRFCompletionInstructionsRef"
+ItemDef ||--|o ImplementationNotes : "ImplementationNotesRef"
+ItemDef ||--|o CDISCNotes : "CDISCNotesRef"
+ItemDef ||--}o RangeCheck : "RangeCheckRef"
+ItemDef ||--|o CodeListRef : "CodeListRefRef"
+ItemDef ||--|o ValueListRef : "ValueListRefRef"
+ItemDef ||--}o Coding : "CodingRef"
+ItemDef ||--}o Alias : "AliasRef"
+RangeCheck ||--|o ErrorMessage : "ErrorMessageRef"
+RangeCheck ||--|o MethodSignature : "MethodSignatureRef"
+RangeCheck ||--}o FormalExpression : "FormalExpressionRef"
+RangeCheck ||--}o CheckValue : "CheckValueRef"
+FormalExpression ||--|o Code : "CodeRef"
+FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
+MethodSignature ||--}o Parameter : "ParameterRef"
+MethodSignature ||--}o ReturnValue : "ReturnValueRef"
+ErrorMessage ||--}o TranslatedText : "TranslatedTextRef"
+CDISCNotes ||--}o TranslatedText : "TranslatedTextRef"
+ImplementationNotes ||--}o TranslatedText : "TranslatedTextRef"
+CRFCompletionInstructions ||--}o TranslatedText : "TranslatedTextRef"
+Prompt ||--}o TranslatedText : "TranslatedTextRef"
+Question ||--}o TranslatedText : "TranslatedTextRef"
+Definition ||--}o TranslatedText : "TranslatedTextRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -89,7 +121,7 @@ URI: [odm:ItemDef](http://www.cdisc.org/ns/odm/v2.0/ItemDef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the ItemDef element. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the ItemDef. | direct |
@@ -111,6 +143,7 @@ URI: [odm:ItemDef](http://www.cdisc.org/ns/odm/v2.0/ItemDef)
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 | [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -173,6 +206,7 @@ description: An ItemDef describes a type of item that can occur within a study. 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemDef
+rank: 1000
 slots:
 - OID
 - Name
@@ -511,6 +545,7 @@ description: An ItemDef describes a type of item that can occur within a study. 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemDef
+rank: 1000
 slot_usage:
   OID:
     name: OID

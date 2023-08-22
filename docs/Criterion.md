@@ -1,8 +1,6 @@
 # Class: Criterion
 
-
 _The Criterion represents either an inclusion or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria)._
-
 
 
 
@@ -10,27 +8,37 @@ _The Criterion represents either an inclusion or an exclusion criterion, dependi
 URI: [odm:Criterion](http://www.cdisc.org/ns/odm/v2.0/Criterion)
 
 
-
 ```mermaid
- classDiagram
-    class Criterion
-      Criterion : CodingRef
-        
-          Criterion --|> Coding : CodingRef
-        
-      Criterion : ConditionOID
-        
-      Criterion : DescriptionRef
-        
-          Criterion --|> Description : DescriptionRef
-        
-      Criterion : Name
-        
-      Criterion : OID
-        
-      
-```
+erDiagram
+Criterion {
+    oid OID  
+    name Name  
+    oidref ConditionOID  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+Criterion ||--|o Description : "DescriptionRef"
+Criterion ||--}o Coding : "CodingRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -39,7 +47,7 @@ URI: [odm:Criterion](http://www.cdisc.org/ns/odm/v2.0/Criterion)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Criterion name. | direct |
@@ -47,6 +55,7 @@ URI: [odm:Criterion](http://www.cdisc.org/ns/odm/v2.0/Criterion)
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -109,6 +118,7 @@ description: The Criterion represents either an inclusion or an exclusion criter
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Criterion
+rank: 1000
 slots:
 - OID
 - Name
@@ -293,6 +303,7 @@ description: The Criterion represents either an inclusion or an exclusion criter
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Criterion
+rank: 1000
 slot_usage:
   OID:
     name: OID

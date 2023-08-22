@@ -1,8 +1,6 @@
 # Class: CodeList
 
-
 _Defines a discrete set of permitted values for an item, or provides a reference to a codelist or dictionary maintained by an external organization via the Coding element, or a combination of both. Examples provided under Coding._
-
 
 
 
@@ -10,45 +8,57 @@ _Defines a discrete set of permitted values for an item, or provides a reference
 URI: [odm:CodeList](http://www.cdisc.org/ns/odm/v2.0/CodeList)
 
 
-
 ```mermaid
- classDiagram
-    class CodeList
-      CodeList : AliasRef
-        
-          CodeList --|> Alias : AliasRef
-        
-      CodeList : CodeListItemRef
-        
-          CodeList --|> CodeListItem : CodeListItemRef
-        
-      CodeList : CodingRef
-        
-          CodeList --|> Coding : CodingRef
-        
-      CodeList : CommentOID
-        
-      CodeList : DataTypeRef
-        
-          CodeList --|> CLDataType : DataTypeRef
-        
-      CodeList : DescriptionRef
-        
-          CodeList --|> Description : DescriptionRef
-        
-      CodeList : IsNonStandard
-        
-          CodeList --|> YesOnly : IsNonStandard
-        
-      CodeList : Name
-        
-      CodeList : OID
-        
-      CodeList : StandardOID
-        
-      
-```
+erDiagram
+CodeList {
+    oid OID  
+    name Name  
+    CLDataType DataTypeRef  
+    oidref CommentOID  
+    oidref StandardOID  
+    YesOnly IsNonStandard  
+}
+Alias {
+    text ContextRef  
+    text Name  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+CodeListItem {
+    value CodedValue  
+    decimal Rank  
+    YesOnly Other  
+    positiveInteger OrderNumber  
+    YesOnly ExtendedValue  
+    oidref CommentOID  
+}
+Decode {
 
+}
+Description {
+
+}
+
+CodeList ||--|o Description : "DescriptionRef"
+CodeList ||--}o CodeListItem : "CodeListItemRef"
+CodeList ||--}o Coding : "CodingRef"
+CodeList ||--}o Alias : "AliasRef"
+CodeListItem ||--|o Description : "DescriptionRef"
+CodeListItem ||--|o Decode : "DecodeRef"
+CodeListItem ||--}o Coding : "CodingRef"
+CodeListItem ||--}o Alias : "AliasRef"
+Decode ||--}o TranslatedText : "TranslatedTextRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -57,7 +67,7 @@ URI: [odm:CodeList](http://www.cdisc.org/ns/odm/v2.0/CodeList)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Codelist element. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the Codelist. | direct |
@@ -70,6 +80,7 @@ URI: [odm:CodeList](http://www.cdisc.org/ns/odm/v2.0/CodeList)
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 | [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -132,6 +143,7 @@ description: Defines a discrete set of permitted values for an item, or provides
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CodeList
+rank: 1000
 slots:
 - OID
 - Name
@@ -384,6 +396,7 @@ description: Defines a discrete set of permitted values for an item, or provides
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CodeList
+rank: 1000
 slot_usage:
   OID:
     name: OID

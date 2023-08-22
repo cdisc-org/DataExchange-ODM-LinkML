@@ -1,8 +1,6 @@
 # Class: ValueListRef
 
-
 _The ValueListRef element is the OID of the ValueListDef that contains the valuelist definition associated with the variable. If value-level metadata is required for a variable, a ValueListRef element should be provided as a child element on the ItemDef for the variable definition._
-
 
 
 
@@ -10,15 +8,15 @@ _The ValueListRef element is the OID of the ValueListDef that contains the value
 URI: [odm:ValueListRef](http://www.cdisc.org/ns/odm/v2.0/ValueListRef)
 
 
-
 ```mermaid
- classDiagram
-    class ValueListRef
-      ValueListRef : ValueListOID
-        
-      
-```
+erDiagram
+ValueListRef {
+    oidref ValueListOID  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:ValueListRef](http://www.cdisc.org/ns/odm/v2.0/ValueListRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [ValueListOID](ValueListOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a ValueListDef element that provides value-leve... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -94,6 +93,7 @@ description: The ValueListRef element is the OID of the ValueListDef that contai
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ValueListRef
+rank: 1000
 slots:
 - ValueListOID
 slot_usage:
@@ -128,6 +128,7 @@ description: The ValueListRef element is the OID of the ValueListDef that contai
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ValueListRef
+rank: 1000
 slot_usage:
   ValueListOID:
     name: ValueListOID

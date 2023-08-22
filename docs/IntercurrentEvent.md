@@ -1,8 +1,6 @@
 # Class: IntercurrentEvent
 
-
 _The IntercurrentEvent element describes an intercurrent event for an estimand (e.g., treatment discontinuation)._
-
 
 
 
@@ -10,17 +8,24 @@ _The IntercurrentEvent element describes an intercurrent event for an estimand (
 URI: [odm:IntercurrentEvent](http://www.cdisc.org/ns/odm/v2.0/IntercurrentEvent)
 
 
-
 ```mermaid
- classDiagram
-    class IntercurrentEvent
-      IntercurrentEvent : DescriptionRef
-        
-          IntercurrentEvent --|> Description : DescriptionRef
-        
-      
-```
+erDiagram
+IntercurrentEvent {
 
+}
+Description {
+
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+IntercurrentEvent ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -29,10 +34,11 @@ URI: [odm:IntercurrentEvent](http://www.cdisc.org/ns/odm/v2.0/IntercurrentEvent)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -94,6 +100,7 @@ description: The IntercurrentEvent element describes an intercurrent event for a
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/IntercurrentEvent
+rank: 1000
 slots:
 - DescriptionRef
 slot_usage:
@@ -153,6 +160,7 @@ description: The IntercurrentEvent element describes an intercurrent event for a
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/IntercurrentEvent
+rank: 1000
 slot_usage:
   DescriptionRef:
     name: DescriptionRef

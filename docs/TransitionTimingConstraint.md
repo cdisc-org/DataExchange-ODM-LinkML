@@ -1,8 +1,6 @@
 # Class: TransitionTimingConstraint
 
-
 _The TransitionTimingConstraint element defines a timing constraint on a transition between structural elements as defined in a workflow. As such, it is a non-blocking constraint. This means that the transition is set on hold as long as the timing condition is not fulfilled, and is executed as soon as the timing condition is fulfilled._
-
 
 
 
@@ -10,35 +8,31 @@ _The TransitionTimingConstraint element defines a timing constraint on a transit
 URI: [odm:TransitionTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/TransitionTimingConstraint)
 
 
-
 ```mermaid
- classDiagram
-    class TransitionTimingConstraint
-      TransitionTimingConstraint : DescriptionRef
-        
-          TransitionTimingConstraint --|> Description : DescriptionRef
-        
-      TransitionTimingConstraint : MethodOID
-        
-      TransitionTimingConstraint : Name
-        
-      TransitionTimingConstraint : OID
-        
-      TransitionTimingConstraint : TimepointPostWindow
-        
-      TransitionTimingConstraint : TimepointPreWindow
-        
-      TransitionTimingConstraint : TimepointTarget
-        
-      TransitionTimingConstraint : TransitionOID
-        
-      TransitionTimingConstraint : Type
-        
-          TransitionTimingConstraint --|> RelativeTimingConstraintType : Type
-        
-      
-```
+erDiagram
+TransitionTimingConstraint {
+    oid OID  
+    name Name  
+    oidref TransitionOID  
+    oidref MethodOID  
+    RelativeTimingConstraintType Type  
+    durationDatetime TimepointTarget  
+    durationDatetime TimepointPreWindow  
+    durationDatetime TimepointPostWindow  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+TransitionTimingConstraint ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -47,7 +41,7 @@ URI: [odm:TransitionTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/Transitio
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human-readable name. | direct |
@@ -59,6 +53,7 @@ URI: [odm:TransitionTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/Transitio
 | [TimepointPostWindow](TimepointPostWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Specifies the amount of time after the TimepointTarget, the time between the ... | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -123,6 +118,7 @@ description: The TransitionTimingConstraint element defines a timing constraint 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TransitionTimingConstraint
+rank: 1000
 slots:
 - OID
 - Name
@@ -391,6 +387,7 @@ description: The TransitionTimingConstraint element defines a timing constraint 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TransitionTimingConstraint
+rank: 1000
 slot_usage:
   OID:
     name: OID

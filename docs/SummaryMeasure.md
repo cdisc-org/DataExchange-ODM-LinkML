@@ -1,8 +1,6 @@
 # Class: SummaryMeasure
 
-
 _The SummaryMeasure element describes a summary measure for an estimand (e.g., proportion of patients with an improvement)._
-
 
 
 
@@ -10,17 +8,24 @@ _The SummaryMeasure element describes a summary measure for an estimand (e.g., p
 URI: [odm:SummaryMeasure](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasure)
 
 
-
 ```mermaid
- classDiagram
-    class SummaryMeasure
-      SummaryMeasure : DescriptionRef
-        
-          SummaryMeasure --|> Description : DescriptionRef
-        
-      
-```
+erDiagram
+SummaryMeasure {
 
+}
+Description {
+
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+SummaryMeasure ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -29,10 +34,11 @@ URI: [odm:SummaryMeasure](http://www.cdisc.org/ns/odm/v2.0/SummaryMeasure)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -94,6 +100,7 @@ description: The SummaryMeasure element describes a summary measure for an estim
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SummaryMeasure
+rank: 1000
 slots:
 - DescriptionRef
 slot_usage:
@@ -153,6 +160,7 @@ description: The SummaryMeasure element describes a summary measure for an estim
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SummaryMeasure
+rank: 1000
 slot_usage:
   DescriptionRef:
     name: DescriptionRef

@@ -1,8 +1,6 @@
 # Class: Definition
 
-
 _Definition of the item._
-
 
 
 
@@ -10,17 +8,20 @@ _Definition of the item._
 URI: [odm:Definition](http://www.cdisc.org/ns/odm/v2.0/Definition)
 
 
-
 ```mermaid
- classDiagram
-    class Definition
-      Definition : TranslatedTextRef
-        
-          Definition --|> TranslatedText : TranslatedTextRef
-        
-      
-```
+erDiagram
+Definition {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+Definition ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -29,10 +30,11 @@ URI: [odm:Definition](http://www.cdisc.org/ns/odm/v2.0/Definition)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -93,6 +95,7 @@ description: Definition of the item.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Definition
+rank: 1000
 slots:
 - TranslatedTextRef
 slot_usage:
@@ -127,6 +130,7 @@ description: Definition of the item.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Definition
+rank: 1000
 slot_usage:
   TranslatedTextRef:
     name: TranslatedTextRef

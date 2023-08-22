@@ -1,8 +1,6 @@
 # Class: TranslatedText
 
-
 _Human-readable text that is appropriate for a particular language. TranslatedText elements typically occur in a series, presenting a set of alternative textual renditions for different languages and types._
-
 
 
 
@@ -10,19 +8,17 @@ _Human-readable text that is appropriate for a particular language. TranslatedTe
 URI: [odm:TranslatedText](http://www.cdisc.org/ns/odm/v2.0/TranslatedText)
 
 
-
 ```mermaid
- classDiagram
-    class TranslatedText
-      TranslatedText : _content
-        
-      TranslatedText : _language
-        
-      TranslatedText : Type
-        
-      
-```
+erDiagram
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
 
+
+
+```
 
 
 
@@ -31,12 +27,13 @@ URI: [odm:TranslatedText](http://www.cdisc.org/ns/odm/v2.0/TranslatedText)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [_language](_language.md) | 0..1 <br/> [_languageType](_languageType.md) | Code representing the language of the enclosed text value. Default value depe... | direct |
+| [language](language.md) | 0..1 <br/> [languageType](languageType.md) | Code representing the language of the enclosed text value. Default value depe... | direct |
 | [Type](Type.md) | 1..1 <br/> [text](text.md) | Contains IANA media type of the TranslatedText element contents. | direct |
-| [_content](_content.md) | 0..1 <br/> [_contentType](_contentType.md) | multi-line text content from between XML tags | direct |
+| [content](content.md) | 0..1 <br/> [contentType](contentType.md) | multi-line text content from between XML tags | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -108,13 +105,14 @@ description: Human-readable text that is appropriate for a particular language. 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TranslatedText
+rank: 1000
 slots:
-- _language
+- language
 - Type
-- _content
+- content
 slot_usage:
-  _language:
-    name: _language
+  language:
+    name: language
     description: 'Code representing the language of the enclosed text value. Default
       value depends on locale. Note: The xml:lang attribute is part of the XML standard.
       See IETF Trust, Tags for Identifying Languages'
@@ -132,7 +130,7 @@ slot_usage:
       "en-GB" for British English'
     domain_of:
     - TranslatedText
-    range: _languageType
+    range: languageType
   Type:
     name: Type
     description: Contains IANA media type of the TranslatedText element contents.
@@ -168,8 +166,8 @@ slot_usage:
     - Query
     range: text
     required: true
-  _content:
-    name: _content
+  content:
+    name: content
     domain_of:
     - TranslatedText
     - Title
@@ -197,7 +195,7 @@ slot_usage:
     - FlagValue
     - FlagType
     - Value
-    range: _contentType
+    range: contentType
     maximum_cardinality: 1
 class_uri: odm:TranslatedText
 
@@ -215,9 +213,10 @@ description: Human-readable text that is appropriate for a particular language. 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TranslatedText
+rank: 1000
 slot_usage:
-  _language:
-    name: _language
+  language:
+    name: language
     description: 'Code representing the language of the enclosed text value. Default
       value depends on locale. Note: The xml:lang attribute is part of the XML standard.
       See IETF Trust, Tags for Identifying Languages'
@@ -235,7 +234,7 @@ slot_usage:
       "en-GB" for British English'
     domain_of:
     - TranslatedText
-    range: _languageType
+    range: languageType
   Type:
     name: Type
     description: Contains IANA media type of the TranslatedText element contents.
@@ -271,8 +270,8 @@ slot_usage:
     - Query
     range: text
     required: true
-  _content:
-    name: _content
+  content:
+    name: content
     domain_of:
     - TranslatedText
     - Title
@@ -300,11 +299,11 @@ slot_usage:
     - FlagValue
     - FlagType
     - Value
-    range: _contentType
+    range: contentType
     maximum_cardinality: 1
 attributes:
-  _language:
-    name: _language
+  language:
+    name: language
     description: 'Code representing the language of the enclosed text value. Default
       value depends on locale. Note: The xml:lang attribute is part of the XML standard.
       See IETF Trust, Tags for Identifying Languages'
@@ -322,11 +321,11 @@ attributes:
       "en-GB" for British English'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: _language
+    alias: language
     owner: TranslatedText
     domain_of:
     - TranslatedText
-    range: _languageType
+    range: languageType
   Type:
     name: Type
     description: Contains IANA media type of the TranslatedText element contents.
@@ -366,12 +365,12 @@ attributes:
     - Query
     range: text
     required: true
-  _content:
-    name: _content
+  content:
+    name: content
     description: multi-line text content from between XML tags
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: _content
+    alias: content
     owner: TranslatedText
     domain_of:
     - TranslatedText
@@ -400,7 +399,7 @@ attributes:
     - FlagValue
     - FlagType
     - Value
-    range: _contentType
+    range: contentType
     inlined: true
     maximum_cardinality: 1
 class_uri: odm:TranslatedText

@@ -1,8 +1,6 @@
 # Class: ODMFileMetadata
 
-
 _Root element for ODM Documents. The ODM element is the top-level (root) element of each ODM document._
-
 
 
 
@@ -10,65 +8,209 @@ _Root element for ODM Documents. The ODM element is the top-level (root) element
 URI: [odm:ODM](http://www.cdisc.org/ns/odm/v2.0/ODM)
 
 
-
 ```mermaid
- classDiagram
-    class ODMFileMetadata
-      ODMFileMetadata : AdminDataRef
-        
-          ODMFileMetadata --|> AdminData : AdminDataRef
-        
-      ODMFileMetadata : AsOfDateTime
-        
-      ODMFileMetadata : AssociationRef
-        
-          ODMFileMetadata --|> Association : AssociationRef
-        
-      ODMFileMetadata : ClinicalDataRef
-        
-          ODMFileMetadata --|> ClinicalData : ClinicalDataRef
-        
-      ODMFileMetadata : ContextRef
-        
-          ODMFileMetadata --|> Context : ContextRef
-        
-      ODMFileMetadata : CreationDateTime
-        
-      ODMFileMetadata : DescriptionRef
-        
-          ODMFileMetadata --|> Description : DescriptionRef
-        
-      ODMFileMetadata : FileOID
-        
-      ODMFileMetadata : FileTypeRef
-        
-          ODMFileMetadata --|> FileType : FileTypeRef
-        
-      ODMFileMetadata : GranularityRef
-        
-          ODMFileMetadata --|> Granularity : GranularityRef
-        
-      ODMFileMetadata : ODMVersionRef
-        
-      ODMFileMetadata : Originator
-        
-      ODMFileMetadata : PriorFileOID
-        
-      ODMFileMetadata : ReferenceDataRef
-        
-          ODMFileMetadata --|> ReferenceData : ReferenceDataRef
-        
-      ODMFileMetadata : SourceSystem
-        
-      ODMFileMetadata : SourceSystemVersion
-        
-      ODMFileMetadata : StudyRef
-        
-          ODMFileMetadata --|> Study : StudyRef
-        
-      
-```
+erDiagram
+ODMFileMetadata {
+    FileType FileTypeRef  
+    Granularity GranularityRef  
+    Context ContextRef  
+    oid FileOID  
+    datetime CreationDateTime  
+    oidref PriorFileOID  
+    datetime AsOfDateTime  
+    ODMVersion ODMVersionRef  
+    text Originator  
+    text SourceSystem  
+    text SourceSystemVersion  
+}
+Association {
+    oidref StudyOID  
+    oidref MetaDataVersionOID  
+}
+Annotation {
+    positiveInteger SeqNum  
+    TransactionType TransactionTypeRef  
+    oid ID  
+}
+KeySet {
+    oidref StudyOID  
+    subjectKey SubjectKey  
+    oidref MetaDataVersionOID  
+    oidref StudyEventOID  
+    repeatKey StudyEventRepeatKey  
+    oidref ItemGroupOID  
+    repeatKey ItemGroupRepeatKey  
+    oidref ItemOID  
+}
+ClinicalData {
+    oidref StudyOID  
+    oidref MetaDataVersionOID  
+}
+Signature {
+    oid ID  
+}
+AuditRecord {
+    EditPointType EditPoint  
+    YesOrNo UsedMethod  
+}
+Query {
+    oid OID  
+    QuerySourceType Source  
+    text Target  
+    QueryType Type  
+    QueryStateType State  
+    datetime LastUpdateDatetime  
+    name Name  
+}
+ItemGroupData {
+    oidref ItemGroupOID  
+    repeatKey ItemGroupRepeatKey  
+    TransactionType TransactionTypeRef  
+    positiveInteger ItemGroupDataSeq  
+}
+SubjectData {
+    subjectKey SubjectKey  
+    TransactionType TransactionTypeRef  
+}
+ReferenceData {
+    oidref StudyOID  
+    oidref MetaDataVersionOID  
+}
+AdminData {
+    oidref StudyOID  
+}
+SignatureDef {
+    oid OID  
+    SignMethod Methodology  
+}
+Location {
+    oid OID  
+    name Name  
+    text Role  
+    oidref OrganizationOID  
+}
+Organization {
+    oid OID  
+    name Name  
+    text Role  
+    OrganizationType Type  
+    oidref LocationOID  
+    oidref PartOfOrganizationOID  
+}
+User {
+    oid OID  
+    UserType UserTypeRef  
+    oidref OrganizationOID  
+    oidref LocationOID  
+}
+Study {
+    oid OID  
+    name StudyName  
+    name ProtocolName  
+    name VersionID  
+    name VersionName  
+    name Status  
+}
+MetaDataVersion {
+    oid OID  
+    name Name  
+    oidref CommentOID  
+}
+Description {
 
+}
+
+ODMFileMetadata ||--|o Description : "DescriptionRef"
+ODMFileMetadata ||--}o Study : "StudyRef"
+ODMFileMetadata ||--}o AdminData : "AdminDataRef"
+ODMFileMetadata ||--}o ReferenceData : "ReferenceDataRef"
+ODMFileMetadata ||--}o ClinicalData : "ClinicalDataRef"
+ODMFileMetadata ||--}o Association : "AssociationRef"
+Association ||--|o KeySet : "KeySetRef"
+Association ||--|o Annotation : "AnnotationRef"
+Annotation ||--|o Comment : "CommentRef"
+Annotation ||--}o Coding : "CodingRef"
+Annotation ||--}o Flag : "FlagRef"
+ClinicalData ||--}o SubjectData : "SubjectDataRef"
+ClinicalData ||--}o ItemGroupData : "ItemGroupDataRef"
+ClinicalData ||--}o Query : "QueryRef"
+ClinicalData ||--|o AuditRecord : "AuditRecordRef"
+ClinicalData ||--|o Signature : "SignatureRefRef"
+ClinicalData ||--|o Annotation : "AnnotationRef"
+Signature ||--|o UserRef : "UserRefRef"
+Signature ||--|o LocationRef : "LocationRefRef"
+Signature ||--|o SignatureRef : "SignatureRefRef"
+Signature ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o UserRef : "UserRefRef"
+AuditRecord ||--|o LocationRef : "LocationRefRef"
+AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
+AuditRecord ||--|o SourceID : "SourceIDRef"
+Query ||--|o Value : "ValueRef"
+Query ||--}o AuditRecord : "AuditRecordRef"
+ItemGroupData ||--}o Query : "QueryRef"
+ItemGroupData ||--}o ItemGroupData : "ItemGroupDataRef"
+ItemGroupData ||--}o ItemData : "ItemDataRef"
+ItemGroupData ||--|o AuditRecord : "AuditRecordRef"
+ItemGroupData ||--|o Signature : "SignatureRefRef"
+ItemGroupData ||--|o Annotation : "AnnotationRef"
+SubjectData ||--|o InvestigatorRef : "InvestigatorRefRef"
+SubjectData ||--|o SiteRef : "SiteRefRef"
+SubjectData ||--}o StudyEventData : "StudyEventDataRef"
+SubjectData ||--}o Query : "QueryRef"
+SubjectData ||--|o AuditRecord : "AuditRecordRef"
+SubjectData ||--|o Signature : "SignatureRefRef"
+SubjectData ||--|o Annotation : "AnnotationRef"
+ReferenceData ||--}o ItemGroupData : "ItemGroupDataRef"
+ReferenceData ||--|o AuditRecord : "AuditRecordRef"
+ReferenceData ||--|o Signature : "SignatureRefRef"
+ReferenceData ||--|o Annotation : "AnnotationRef"
+AdminData ||--}o User : "UserRefRef"
+AdminData ||--}o Organization : "OrganizationRef"
+AdminData ||--}o Location : "LocationRefRef"
+AdminData ||--}o SignatureDef : "SignatureDefRef"
+SignatureDef ||--|o Meaning : "MeaningRef"
+SignatureDef ||--|o LegalReason : "LegalReasonRef"
+Location ||--|o Description : "DescriptionRef"
+Location ||--}o MetaDataVersionRef : "MetaDataVersionRefRef"
+Location ||--}o Address : "AddressRef"
+Location ||--}o Telecom : "TelecomRef"
+Location ||--}o Query : "QueryRef"
+Organization ||--|o Description : "DescriptionRef"
+Organization ||--}o Address : "AddressRef"
+Organization ||--}o Telecom : "TelecomRef"
+User ||--|o UserName : "UserNameRef"
+User ||--|o Prefix : "PrefixRef"
+User ||--|o Suffix : "SuffixRef"
+User ||--|o FullName : "FullNameRef"
+User ||--|o GivenName : "GivenNameRef"
+User ||--|o FamilyName : "FamilyNameRef"
+User ||--|o Image : "ImageRef"
+User ||--}o Address : "AddressRef"
+User ||--}o Telecom : "TelecomRef"
+Study ||--|o Description : "DescriptionRef"
+Study ||--}o MetaDataVersion : "MetaDataVersionRefRef"
+MetaDataVersion ||--|o Description : "DescriptionRef"
+MetaDataVersion ||--|o Include : "IncludeRef"
+MetaDataVersion ||--|o Standards : "StandardsRef"
+MetaDataVersion ||--|o AnnotatedCRF : "AnnotatedCRFRef"
+MetaDataVersion ||--|o SupplementalDoc : "SupplementalDocRef"
+MetaDataVersion ||--}o ValueListDef : "ValueListDefRef"
+MetaDataVersion ||--}o WhereClauseDef : "WhereClauseDefRef"
+MetaDataVersion ||--|o Protocol : "ProtocolRef"
+MetaDataVersion ||--}o WorkflowDef : "WorkflowDefRef"
+MetaDataVersion ||--}o StudyEventGroupDef : "StudyEventGroupDefRef"
+MetaDataVersion ||--}o StudyEventDef : "StudyEventDefRef"
+MetaDataVersion ||--}o ItemGroupDef : "ItemGroupDefRef"
+MetaDataVersion ||--}o ItemDef : "ItemDefRef"
+MetaDataVersion ||--}o CodeList : "CodeListRefRef"
+MetaDataVersion ||--}o ConditionDef : "ConditionDefRef"
+MetaDataVersion ||--}o MethodDef : "MethodDefRef"
+MetaDataVersion ||--}o CommentDef : "CommentDefRef"
+MetaDataVersion ||--}o Leaf : "LeafRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -77,7 +219,7 @@ URI: [odm:ODM](http://www.cdisc.org/ns/odm/v2.0/ODM)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [FileTypeRef](FileTypeRef.md) | 1..1 <br/> [FileType](FileType.md) | Snapshot means that the document contains only the current state of the data ... | direct |
 | [GranularityRef](GranularityRef.md) | 0..1 <br/> [Granularity](Granularity.md) | Granularity is intended to give the sender a shorthand way to Describes the s... | direct |
@@ -97,6 +239,7 @@ URI: [odm:ODM](http://www.cdisc.org/ns/odm/v2.0/ODM)
 | [ClinicalDataRef](ClinicalDataRef.md) | 0..* <br/> [ClinicalData](ClinicalData.md) | ClinicalData reference: Clinical data for 1 or more subjects. | direct |
 | [AssociationRef](AssociationRef.md) | 0..* <br/> [Association](Association.md) | Association reference: An association permits an annotation to be placed on a... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -151,6 +294,7 @@ description: Root element for ODM Documents. The ODM element is the top-level (r
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ODM
+rank: 1000
 slots:
 - FileTypeRef
 - GranularityRef
@@ -398,6 +542,7 @@ description: Root element for ODM Documents. The ODM element is the top-level (r
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ODM
+rank: 1000
 slot_usage:
   FileTypeRef:
     name: FileTypeRef

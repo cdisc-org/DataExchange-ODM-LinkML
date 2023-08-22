@@ -1,8 +1,6 @@
 # Class: StudyTargetPopulationRef
 
-
 _The StudyTargetPopulationRef references a StudyTargetPopulation to which the estimand applies._
-
 
 
 
@@ -10,15 +8,15 @@ _The StudyTargetPopulationRef references a StudyTargetPopulation to which the es
 URI: [odm:StudyTargetPopulationRef](http://www.cdisc.org/ns/odm/v2.0/StudyTargetPopulationRef)
 
 
-
 ```mermaid
- classDiagram
-    class StudyTargetPopulationRef
-      StudyTargetPopulationRef : StudyTargetPopulationOID
-        
-      
-```
+erDiagram
+StudyTargetPopulationRef {
+    oidref StudyTargetPopulationOID  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:StudyTargetPopulationRef](http://www.cdisc.org/ns/odm/v2.0/StudyTarget
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyTargetPopulationOID](StudyTargetPopulationOID.md) | 1..1 <br/> [oidref](oidref.md) |  | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -92,6 +91,7 @@ description: The StudyTargetPopulationRef references a StudyTargetPopulation to 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTargetPopulationRef
+rank: 1000
 slots:
 - StudyTargetPopulationOID
 slot_usage:
@@ -116,6 +116,7 @@ description: The StudyTargetPopulationRef references a StudyTargetPopulation to 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTargetPopulationRef
+rank: 1000
 slot_usage:
   StudyTargetPopulationOID:
     name: StudyTargetPopulationOID

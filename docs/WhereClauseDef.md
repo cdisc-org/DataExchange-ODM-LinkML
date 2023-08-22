@@ -1,8 +1,6 @@
 # Class: WhereClauseDef
 
-
 _The WhereClauseDef element specifies a condition._
-
 
 
 
@@ -10,21 +8,42 @@ _The WhereClauseDef element specifies a condition._
 URI: [odm:WhereClauseDef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseDef)
 
 
-
 ```mermaid
- classDiagram
-    class WhereClauseDef
-      WhereClauseDef : CommentOID
-        
-      WhereClauseDef : OID
-        
-      WhereClauseDef : RangeCheckRef
-        
-          WhereClauseDef --|> RangeCheck : RangeCheckRef
-        
-      
-```
+erDiagram
+WhereClauseDef {
+    oid OID  
+    oidref CommentOID  
+}
+RangeCheck {
+    Comparator ComparatorRef  
+    SoftOrHard SoftHard  
+    oidref ItemOID  
+}
+CheckValue {
+    value content  
+}
+FormalExpression {
+    text ContextRef  
+}
+MethodSignature {
 
+}
+ErrorMessage {
+
+}
+
+WhereClauseDef ||--}o RangeCheck : "RangeCheckRef"
+RangeCheck ||--|o ErrorMessage : "ErrorMessageRef"
+RangeCheck ||--|o MethodSignature : "MethodSignatureRef"
+RangeCheck ||--}o FormalExpression : "FormalExpressionRef"
+RangeCheck ||--}o CheckValue : "CheckValueRef"
+FormalExpression ||--|o Code : "CodeRef"
+FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
+MethodSignature ||--}o Parameter : "ParameterRef"
+MethodSignature ||--}o ReturnValue : "ReturnValueRef"
+ErrorMessage ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -33,12 +52,13 @@ URI: [odm:WhereClauseDef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseDef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the WhereClauseDef. See Section 2.13, Element Identifiers and R... | direct |
 | [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a CommentDef that describes how to join the dat... | direct |
 | [RangeCheckRef](RangeCheckRef.md) | 0..* <br/> [RangeCheck](RangeCheck.md) | A WhereClause element defines a condition by using one or more RangeCheck ele... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -99,6 +119,7 @@ description: The WhereClauseDef element specifies a condition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WhereClauseDef
+rank: 1000
 slots:
 - OID
 - CommentOID
@@ -202,6 +223,7 @@ description: The WhereClauseDef element specifies a condition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WhereClauseDef
+rank: 1000
 slot_usage:
   OID:
     name: OID

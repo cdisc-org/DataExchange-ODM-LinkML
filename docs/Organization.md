@@ -1,8 +1,6 @@
 # Class: Organization
 
-
 _An organization can reference a parent organization. Users may be associated with an Organization. An Organization may be associated with a Location. A User, Location, or Organization may have an address._
-
 
 
 
@@ -10,39 +8,72 @@ _An organization can reference a parent organization. Users may be associated wi
 URI: [odm:Organization](http://www.cdisc.org/ns/odm/v2.0/Organization)
 
 
-
 ```mermaid
- classDiagram
-    class Organization
-      Organization : AddressRef
-        
-          Organization --|> Address : AddressRef
-        
-      Organization : DescriptionRef
-        
-          Organization --|> Description : DescriptionRef
-        
-      Organization : LocationOID
-        
-      Organization : Name
-        
-      Organization : OID
-        
-      Organization : PartOfOrganizationOID
-        
-      Organization : Role
-        
-      Organization : TelecomRef
-        
-          Organization --|> Telecom : TelecomRef
-        
-      Organization : Type
-        
-          Organization --|> OrganizationType : Type
-        
-      
-```
+erDiagram
+Organization {
+    oid OID  
+    name Name  
+    text Role  
+    OrganizationType Type  
+    oidref LocationOID  
+    oidref PartOfOrganizationOID  
+}
+Telecom {
+    TelecomTypeType TelecomType  
+    text ValueRef  
+}
+Address {
 
+}
+OtherText {
+    text content  
+}
+GeoPosition {
+    decimal Longitude  
+    decimal Latitude  
+    decimal Altitude  
+}
+PostalCode {
+    text content  
+}
+Country {
+    text content  
+}
+StateProv {
+    text content  
+}
+City {
+    text content  
+}
+HouseNumber {
+    text content  
+}
+StreetName {
+    text content  
+}
+Description {
+
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+Organization ||--|o Description : "DescriptionRef"
+Organization ||--}o Address : "AddressRef"
+Organization ||--}o Telecom : "TelecomRef"
+Address ||--|o StreetName : "StreetNameRef"
+Address ||--|o HouseNumber : "HouseNumberRef"
+Address ||--|o City : "CityRef"
+Address ||--|o StateProv : "StateProvRef"
+Address ||--|o Country : "CountryRef"
+Address ||--|o PostalCode : "PostalCodeRef"
+Address ||--|o GeoPosition : "GeoPositionRef"
+Address ||--|o OtherText : "OtherTextRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -51,7 +82,7 @@ URI: [odm:Organization](http://www.cdisc.org/ns/odm/v2.0/Organization)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the organization. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Formal, human readable name of the organization. | direct |
@@ -63,6 +94,7 @@ URI: [odm:Organization](http://www.cdisc.org/ns/odm/v2.0/Organization)
 | [AddressRef](AddressRef.md) | 0..* <br/> [Address](Address.md) | Address reference: The postal address for a user, location, or organization. | direct |
 | [TelecomRef](TelecomRef.md) | 0..* <br/> [Telecom](Telecom.md) | Telecom reference: The telecommunication contacts points of a user, a locatio... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -125,6 +157,7 @@ description: An organization can reference a parent organization. Users may be a
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Organization
+rank: 1000
 slots:
 - OID
 - Name
@@ -373,6 +406,7 @@ description: An organization can reference a parent organization. Users may be a
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Organization
+rank: 1000
 slot_usage:
   OID:
     name: OID

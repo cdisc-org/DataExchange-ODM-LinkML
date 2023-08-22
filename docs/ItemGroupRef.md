@@ -1,8 +1,6 @@
 # Class: ItemGroupRef
 
-
 _ItemGroupRef references an ItemGroupDef as it occurs within a specific StudyEventDef or ItemGroupDef. The list of ItemGroupRefs identifies the types of item groups that are allowed to occur within this type of studyevent or (nested) item group. The ItemGroupRefs within a single StudyEventDef or ItemGroupDef must not have duplicate ItemGroupOID or OrderNumber attribute values._
-
 
 
 
@@ -10,25 +8,19 @@ _ItemGroupRef references an ItemGroupDef as it occurs within a specific StudyEve
 URI: [odm:ItemGroupRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRef)
 
 
-
 ```mermaid
- classDiagram
-    class ItemGroupRef
-      ItemGroupRef : CollectionExceptionConditionOID
-        
-      ItemGroupRef : ItemGroupOID
-        
-      ItemGroupRef : Mandatory
-        
-          ItemGroupRef --|> YesOrNo : Mandatory
-        
-      ItemGroupRef : MethodOID
-        
-      ItemGroupRef : OrderNumber
-        
-      
-```
+erDiagram
+ItemGroupRef {
+    oidref ItemGroupOID  
+    oidref MethodOID  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
 
+
+
+```
 
 
 
@@ -37,14 +29,15 @@ URI: [odm:ItemGroupRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ItemGroupOID](ItemGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the ItemGroupDef. | direct |
+| [ItemGroupOID](ItemGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the ItemGroupDef . | direct |
 | [MethodOID](MethodOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a MethodDef that will provide one or more data rows as output. T... | direct |
 | [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this ItemGroup appears in Metadata displays or d... | direct |
 | [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | The Mandatory flag indicates that the clinical data for an instance of the co... | direct |
 | [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -110,6 +103,7 @@ description: ItemGroupRef references an ItemGroupDef as it occurs within a speci
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemGroupRef
+rank: 1000
 slots:
 - ItemGroupOID
 - MethodOID
@@ -119,7 +113,7 @@ slots:
 slot_usage:
   ItemGroupOID:
     name: ItemGroupOID
-    description: Reference to the ItemGroupDef.
+    description: Reference to the ItemGroupDef .
     comments:
     - 'Required
 
@@ -230,10 +224,11 @@ description: ItemGroupRef references an ItemGroupDef as it occurs within a speci
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemGroupRef
+rank: 1000
 slot_usage:
   ItemGroupOID:
     name: ItemGroupOID
-    description: Reference to the ItemGroupDef.
+    description: Reference to the ItemGroupDef .
     comments:
     - 'Required
 
@@ -329,7 +324,7 @@ slot_usage:
 attributes:
   ItemGroupOID:
     name: ItemGroupOID
-    description: Reference to the ItemGroupDef.
+    description: Reference to the ItemGroupDef .
     comments:
     - 'Required
 

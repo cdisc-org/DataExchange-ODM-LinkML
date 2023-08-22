@@ -1,7 +1,7 @@
 # Slot: Methodology
 
 
-_Defines the type of electronic signature, including the meaning as required by 21 CFR Part 11._
+_Defines the type of electronic signature, including the meaning as required by 21 CFR Part 11 ._
 
 
 
@@ -56,7 +56,7 @@ URI: [odm:Methodology](http://www.cdisc.org/ns/odm/v2.0/Methodology)
 ```yaml
 name: Methodology
 description: Defines the type of electronic signature, including the meaning as required
-  by 21 CFR Part 11.
+  by 21 CFR Part 11 .
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: Methodology

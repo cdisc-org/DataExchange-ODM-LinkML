@@ -1,8 +1,6 @@
 # Class: ExternalCodeLib
 
-
 _The ExternalCodeLib element references a FormalExpression in an external code library, such as a file or GitHub. The intention is to make it possible to reference existing code libraries where the code is maintained as well as making it simpler to include longer, more complex FormalExpressions. The Library attribute provides the name of the external library, whereas ref or href provides a reference to the repository that can be used to retrieve the code. The Method attribute provides the name of the method in the file referenced for cases where multiple methods are provided in the source code file. The Version element provides the version of the external FormalExpression code referenced._
-
 
 
 
@@ -10,23 +8,19 @@ _The ExternalCodeLib element references a FormalExpression in an external code l
 URI: [odm:ExternalCodeLib](http://www.cdisc.org/ns/odm/v2.0/ExternalCodeLib)
 
 
-
 ```mermaid
- classDiagram
-    class ExternalCodeLib
-      ExternalCodeLib : href
-        
-      ExternalCodeLib : Library
-        
-      ExternalCodeLib : Method
-        
-      ExternalCodeLib : ref
-        
-      ExternalCodeLib : Version
-        
-      
-```
+erDiagram
+ExternalCodeLib {
+    name Library  
+    name Method  
+    text Version  
+    text ref  
+    uriorcurie href  
+}
 
+
+
+```
 
 
 
@@ -35,7 +29,7 @@ URI: [odm:ExternalCodeLib](http://www.cdisc.org/ns/odm/v2.0/ExternalCodeLib)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [Library](Library.md) | 1..1 <br/> [name](name.md) | The name of the external library containing the FormalExpression. | direct |
 | [Method](Method.md) | 0..1 <br/> [name](name.md) | The name of the method or function that contains the FormalExpression code. | direct |
@@ -43,6 +37,7 @@ URI: [odm:ExternalCodeLib](http://www.cdisc.org/ns/odm/v2.0/ExternalCodeLib)
 | [ref](ref.md) | 0..1 <br/> [text](text.md) | Reference to a local instance (e.g. file) of the external library containing ... | direct |
 | [href](href.md) | 0..1 <br/> [uriorcurie](uriorcurie.md) | URL of an external code external library such as GitHub or Bitbucket. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -111,6 +106,7 @@ description: The ExternalCodeLib element references a FormalExpression in an ext
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ExternalCodeLib
+rank: 1000
 slots:
 - Library
 - Method
@@ -199,6 +195,7 @@ description: The ExternalCodeLib element references a FormalExpression in an ext
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ExternalCodeLib
+rank: 1000
 slot_usage:
   Library:
     name: Library

@@ -1,8 +1,6 @@
 # Class: SubjectData
 
-
 _Clinical data for a single subject._
-
 
 
 
@@ -10,47 +8,126 @@ _Clinical data for a single subject._
 URI: [odm:SubjectData](http://www.cdisc.org/ns/odm/v2.0/SubjectData)
 
 
-
 ```mermaid
- classDiagram
-    class SubjectData
-      SubjectData : AnnotationRef
-        
-          SubjectData --|> Annotation : AnnotationRef
-        
-      SubjectData : AuditRecordRef
-        
-          SubjectData --|> AuditRecord : AuditRecordRef
-        
-      SubjectData : InvestigatorRefRef
-        
-          SubjectData --|> InvestigatorRef : InvestigatorRefRef
-        
-      SubjectData : QueryRef
-        
-          SubjectData --|> Query : QueryRef
-        
-      SubjectData : SignatureRefRef
-        
-          SubjectData --|> Signature : SignatureRefRef
-        
-      SubjectData : SiteRefRef
-        
-          SubjectData --|> SiteRef : SiteRefRef
-        
-      SubjectData : StudyEventDataRef
-        
-          SubjectData --|> StudyEventData : StudyEventDataRef
-        
-      SubjectData : SubjectKey
-        
-      SubjectData : TransactionTypeRef
-        
-          SubjectData --|> TransactionType : TransactionTypeRef
-        
-      
-```
+erDiagram
+SubjectData {
+    subjectKey SubjectKey  
+    TransactionType TransactionTypeRef  
+}
+Annotation {
+    positiveInteger SeqNum  
+    TransactionType TransactionTypeRef  
+    oid ID  
+}
+Flag {
 
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Comment {
+    CommentType SponsorOrSite  
+}
+Signature {
+    oid ID  
+}
+DateTimeStamp {
+    datetime content  
+}
+SignatureRef {
+    oidref SignatureOID  
+}
+LocationRef {
+    oidref LocationOID  
+}
+UserRef {
+    oidref UserOID  
+}
+AuditRecord {
+    EditPointType EditPoint  
+    YesOrNo UsedMethod  
+}
+SourceID {
+    text content  
+}
+ReasonForChange {
+    text content  
+}
+Query {
+    oid OID  
+    QuerySourceType Source  
+    text Target  
+    QueryType Type  
+    QueryStateType State  
+    datetime LastUpdateDatetime  
+    name Name  
+}
+Value {
+    positiveInteger SeqNum  
+    text content  
+}
+StudyEventData {
+    oidref StudyEventOID  
+    repeatKey StudyEventRepeatKey  
+    TransactionType TransactionTypeRef  
+}
+ItemGroupData {
+    oidref ItemGroupOID  
+    repeatKey ItemGroupRepeatKey  
+    TransactionType TransactionTypeRef  
+    positiveInteger ItemGroupDataSeq  
+}
+SiteRef {
+    oidref LocationOID  
+}
+InvestigatorRef {
+    oidref UserOID  
+}
+
+SubjectData ||--|o InvestigatorRef : "InvestigatorRefRef"
+SubjectData ||--|o SiteRef : "SiteRefRef"
+SubjectData ||--}o StudyEventData : "StudyEventDataRef"
+SubjectData ||--}o Query : "QueryRef"
+SubjectData ||--|o AuditRecord : "AuditRecordRef"
+SubjectData ||--|o Signature : "SignatureRefRef"
+SubjectData ||--|o Annotation : "AnnotationRef"
+Annotation ||--|o Comment : "CommentRef"
+Annotation ||--}o Coding : "CodingRef"
+Annotation ||--}o Flag : "FlagRef"
+Flag ||--|o FlagValue : "FlagValueRef"
+Flag ||--|o FlagType : "FlagTypeRef"
+Comment ||--}o TranslatedText : "TranslatedTextRef"
+Signature ||--|o UserRef : "UserRefRef"
+Signature ||--|o LocationRef : "LocationRefRef"
+Signature ||--|o SignatureRef : "SignatureRefRef"
+Signature ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o UserRef : "UserRefRef"
+AuditRecord ||--|o LocationRef : "LocationRefRef"
+AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
+AuditRecord ||--|o SourceID : "SourceIDRef"
+Query ||--|o Value : "ValueRef"
+Query ||--}o AuditRecord : "AuditRecordRef"
+StudyEventData ||--}o ItemGroupData : "ItemGroupDataRef"
+StudyEventData ||--}o Query : "QueryRef"
+StudyEventData ||--|o AuditRecord : "AuditRecordRef"
+StudyEventData ||--|o Signature : "SignatureRefRef"
+StudyEventData ||--|o Annotation : "AnnotationRef"
+ItemGroupData ||--}o Query : "QueryRef"
+ItemGroupData ||--}o ItemGroupData : "ItemGroupDataRef"
+ItemGroupData ||--}o ItemData : "ItemDataRef"
+ItemGroupData ||--|o AuditRecord : "AuditRecordRef"
+ItemGroupData ||--|o Signature : "SignatureRefRef"
+ItemGroupData ||--|o Annotation : "AnnotationRef"
+
+```
 
 
 
@@ -59,7 +136,7 @@ URI: [odm:SubjectData](http://www.cdisc.org/ns/odm/v2.0/SubjectData)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [SubjectKey](SubjectKey.md) | 1..1 <br/> [subjectKey](subjectKey.md) | Unique identifier for the Subject. | direct |
 | [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... | direct |
@@ -71,6 +148,7 @@ URI: [odm:SubjectData](http://www.cdisc.org/ns/odm/v2.0/SubjectData)
 | [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: A reference to the signature meaning. | direct |
 | [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -131,6 +209,7 @@ description: Clinical data for a single subject.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SubjectData
+rank: 1000
 slots:
 - SubjectKey
 - TransactionTypeRef
@@ -259,6 +338,7 @@ description: Clinical data for a single subject.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SubjectData
+rank: 1000
 slot_usage:
   SubjectKey:
     name: SubjectKey

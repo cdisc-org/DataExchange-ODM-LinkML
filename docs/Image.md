@@ -1,8 +1,6 @@
 # Class: Image
 
-
 _A visual depiction of the user._
-
 
 
 
@@ -10,19 +8,17 @@ _A visual depiction of the user._
 URI: [odm:Image](http://www.cdisc.org/ns/odm/v2.0/Image)
 
 
-
 ```mermaid
- classDiagram
-    class Image
-      Image : href
-        
-      Image : ImageFileName
-        
-      Image : MimeType
-        
-      
-```
+erDiagram
+Image {
+    fileName ImageFileName  
+    text href  
+    text MimeType  
+}
 
+
+
+```
 
 
 
@@ -31,12 +27,13 @@ URI: [odm:Image](http://www.cdisc.org/ns/odm/v2.0/Image)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [ImageFileName](ImageFileName.md) | 0..1 <br/> [fileName](fileName.md) | The file name of or file path to the picture | direct |
 | [href](href.md) | 0..1 <br/> [text](text.md) | URL of the location of the picture | direct |
 | [MimeType](MimeType.md) | 0..1 <br/> [text](text.md) | Media type of the image | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -97,6 +94,7 @@ description: A visual depiction of the user.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Image
+rank: 1000
 slots:
 - ImageFileName
 - href
@@ -157,6 +155,7 @@ description: A visual depiction of the user.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Image
+rank: 1000
 slot_usage:
   ImageFileName:
     name: ImageFileName

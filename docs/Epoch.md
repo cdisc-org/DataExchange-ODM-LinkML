@@ -1,8 +1,6 @@
 # Class: Epoch
 
-
 _The planned period of subjects' participation in the trial is divided into sequential epochs. Each epoch is a period of time that serves a purpose in the trial as a whole. Epochs cannot overlap. The sequence of the epoch in the study is provided by the SequenceNumber attribute, the first epoch in the study being assigned the sequence number 1. Sequence numbers are subsequent._
-
 
 
 
@@ -10,23 +8,26 @@ _The planned period of subjects' participation in the trial is divided into sequ
 URI: [odm:Epoch](http://www.cdisc.org/ns/odm/v2.0/Epoch)
 
 
-
 ```mermaid
- classDiagram
-    class Epoch
-      Epoch : DescriptionRef
-        
-          Epoch --|> Description : DescriptionRef
-        
-      Epoch : Name
-        
-      Epoch : OID
-        
-      Epoch : SequenceNumber
-        
-      
-```
+erDiagram
+Epoch {
+    oid OID  
+    name Name  
+    positiveInteger SequenceNumber  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+Epoch ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -35,13 +36,14 @@ URI: [odm:Epoch](http://www.cdisc.org/ns/odm/v2.0/Epoch)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Epoch. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name of the study epoch. | direct |
 | [SequenceNumber](SequenceNumber.md) | 1..1 <br/> [positiveInteger](positiveInteger.md) | Order of the Epoch | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -106,6 +108,7 @@ description: The planned period of subjects' participation in the trial is divid
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Epoch
+rank: 1000
 slots:
 - OID
 - Name
@@ -276,6 +279,7 @@ description: The planned period of subjects' participation in the trial is divid
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Epoch
+rank: 1000
 slot_usage:
   OID:
     name: OID

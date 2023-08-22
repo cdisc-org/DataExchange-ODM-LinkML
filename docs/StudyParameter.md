@@ -1,8 +1,6 @@
 # Class: StudyParameter
 
-
 _A StudyParameter defines a study design parameter for which the value or values are delivered in the ParameterValue child element or elements._
-
 
 
 
@@ -10,27 +8,32 @@ _A StudyParameter defines a study design parameter for which the value or values
 URI: [odm:StudyParameter](http://www.cdisc.org/ns/odm/v2.0/StudyParameter)
 
 
-
 ```mermaid
- classDiagram
-    class StudyParameter
-      StudyParameter : CodingRef
-        
-          StudyParameter --|> Coding : CodingRef
-        
-      StudyParameter : OID
-        
-      StudyParameter : ParameterValueRef
-        
-          StudyParameter --|> ParameterValue : ParameterValueRef
-        
-      StudyParameter : ShortName
-        
-      StudyParameter : Term
-        
-      
-```
+erDiagram
+StudyParameter {
+    oid OID  
+    name Term  
+    name ShortName  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+ParameterValue {
+    text ValueRef  
+}
 
+StudyParameter ||--|o ParameterValue : "ParameterValueRef"
+StudyParameter ||--}o Coding : "CodingRef"
+ParameterValue ||--}o Coding : "CodingRef"
+
+```
 
 
 
@@ -39,7 +42,7 @@ URI: [odm:StudyParameter](http://www.cdisc.org/ns/odm/v2.0/StudyParameter)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for StudyParameter. Note a StudyParameter can be referenced... | direct |
 | [Term](Term.md) | 1..1 <br/> [name](name.md) | Longer name. Provides the full name of the parameter. | direct |
@@ -47,6 +50,7 @@ URI: [odm:StudyParameter](http://www.cdisc.org/ns/odm/v2.0/StudyParameter)
 | [ParameterValueRef](ParameterValueRef.md) | 0..1 <br/> [ParameterValue](ParameterValue.md) | ParameterValue reference: This element contains the value of the study parame... | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -108,6 +112,7 @@ description: A StudyParameter defines a study design parameter for which the val
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyParameter
+rank: 1000
 slots:
 - OID
 - Term
@@ -239,6 +244,7 @@ description: A StudyParameter defines a study design parameter for which the val
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyParameter
+rank: 1000
 slot_usage:
   OID:
     name: OID

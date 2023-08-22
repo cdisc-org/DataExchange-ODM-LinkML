@@ -1,8 +1,6 @@
 # Class: CodeListItem
 
-
 _Defines an individual member value of a codelist. It may include a display value in the child Decode element_
-
 
 
 
@@ -10,45 +8,50 @@ _Defines an individual member value of a codelist. It may include a display valu
 URI: [odm:CodeListItem](http://www.cdisc.org/ns/odm/v2.0/CodeListItem)
 
 
-
 ```mermaid
- classDiagram
-    class CodeListItem
-      CodeListItem : AliasRef
-        
-          CodeListItem --|> Alias : AliasRef
-        
-      CodeListItem : CodedValue
-        
-      CodeListItem : CodingRef
-        
-          CodeListItem --|> Coding : CodingRef
-        
-      CodeListItem : CommentOID
-        
-      CodeListItem : DecodeRef
-        
-          CodeListItem --|> Decode : DecodeRef
-        
-      CodeListItem : DescriptionRef
-        
-          CodeListItem --|> Description : DescriptionRef
-        
-      CodeListItem : ExtendedValue
-        
-          CodeListItem --|> YesOnly : ExtendedValue
-        
-      CodeListItem : OrderNumber
-        
-      CodeListItem : Other
-        
-          CodeListItem --|> YesOnly : Other
-        
-      CodeListItem : Rank
-        
-      
-```
+erDiagram
+CodeListItem {
+    value CodedValue  
+    decimal Rank  
+    YesOnly Other  
+    positiveInteger OrderNumber  
+    YesOnly ExtendedValue  
+    oidref CommentOID  
+}
+Alias {
+    text ContextRef  
+    text Name  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Decode {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+Description {
+
+}
+
+CodeListItem ||--|o Description : "DescriptionRef"
+CodeListItem ||--|o Decode : "DecodeRef"
+CodeListItem ||--}o Coding : "CodingRef"
+CodeListItem ||--}o Alias : "AliasRef"
+Decode ||--}o TranslatedText : "TranslatedTextRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -57,19 +60,20 @@ URI: [odm:CodeListItem](http://www.cdisc.org/ns/odm/v2.0/CodeListItem)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [CodedValue](CodedValue.md) | 1..1 <br/> [value](value.md) | Value of the codelist item (as it would occur in clinical data). | direct |
 | [Rank](Rank.md) | 0..1 <br/> [decimal](decimal.md) | Numeric significance of the CodeListItem relative to others in the CodeList. ... | direct |
 | [Other](Other.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Flag to indicate that the term represents "other" content. | direct |
 | [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Ordering on the CodeListItems (within a containing CodeListItem) for use when... | direct |
 | [ExtendedValue](ExtendedValue.md) | 0..1 <br/> [YesOnly](YesOnly.md) |  | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef. | direct |
+| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef . | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [DecodeRef](DecodeRef.md) | 0..1 <br/> [Decode](Decode.md) | Decode reference: The displayed value relating to the CodeListItem/@CodedValu... | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 | [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -131,6 +135,7 @@ description: Defines an individual member value of a codelist. It may include a 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CodeListItem
+rank: 1000
 slots:
 - CodedValue
 - Rank
@@ -208,7 +213,7 @@ slot_usage:
     range: YesOnly
   CommentOID:
     name: CommentOID
-    description: Reference to a CommentDef.
+    description: Reference to a CommentDef .
     comments:
     - 'Optional
 
@@ -327,6 +332,7 @@ description: Defines an individual member value of a codelist. It may include a 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CodeListItem
+rank: 1000
 slot_usage:
   CodedValue:
     name: CodedValue
@@ -393,7 +399,7 @@ slot_usage:
     range: YesOnly
   CommentOID:
     name: CommentOID
-    description: Reference to a CommentDef.
+    description: Reference to a CommentDef .
     comments:
     - 'Optional
 
@@ -583,7 +589,7 @@ attributes:
     range: YesOnly
   CommentOID:
     name: CommentOID
-    description: Reference to a CommentDef.
+    description: Reference to a CommentDef .
     comments:
     - 'Optional
 

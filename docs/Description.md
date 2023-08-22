@@ -1,8 +1,6 @@
 # Class: Description
 
-
 _A free-text description of the containing metadata component, unless restricted by Business Rules._
-
 
 
 
@@ -10,17 +8,20 @@ _A free-text description of the containing metadata component, unless restricted
 URI: [odm:Description](http://www.cdisc.org/ns/odm/v2.0/Description)
 
 
-
 ```mermaid
- classDiagram
-    class Description
-      Description : TranslatedTextRef
-        
-          Description --|> TranslatedText : TranslatedTextRef
-        
-      
-```
+erDiagram
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -29,10 +30,11 @@ URI: [odm:Description](http://www.cdisc.org/ns/odm/v2.0/Description)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -129,6 +131,7 @@ description: A free-text description of the containing metadata component, unles
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Description
+rank: 1000
 slots:
 - TranslatedTextRef
 slot_usage:
@@ -164,6 +167,7 @@ description: A free-text description of the containing metadata component, unles
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Description
+rank: 1000
 slot_usage:
   TranslatedTextRef:
     name: TranslatedTextRef

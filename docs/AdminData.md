@@ -1,8 +1,6 @@
 # Class: AdminData
 
-
 _Administrative information about users, locations, organizations, and electronic signatures._
-
 
 
 
@@ -10,31 +8,125 @@ _Administrative information about users, locations, organizations, and electroni
 URI: [odm:AdminData](http://www.cdisc.org/ns/odm/v2.0/AdminData)
 
 
-
 ```mermaid
- classDiagram
-    class AdminData
-      AdminData : LocationRefRef
-        
-          AdminData --|> Location : LocationRefRef
-        
-      AdminData : OrganizationRef
-        
-          AdminData --|> Organization : OrganizationRef
-        
-      AdminData : SignatureDefRef
-        
-          AdminData --|> SignatureDef : SignatureDefRef
-        
-      AdminData : StudyOID
-        
-      AdminData : UserRefRef
-        
-          AdminData --|> User : UserRefRef
-        
-      
-```
+erDiagram
+AdminData {
+    oidref StudyOID  
+}
+SignatureDef {
+    oid OID  
+    SignMethod Methodology  
+}
+LegalReason {
+    text content  
+}
+Meaning {
+    text content  
+}
+Location {
+    oid OID  
+    name Name  
+    text Role  
+    oidref OrganizationOID  
+}
+Query {
+    oid OID  
+    QuerySourceType Source  
+    text Target  
+    QueryType Type  
+    QueryStateType State  
+    datetime LastUpdateDatetime  
+    name Name  
+}
+Telecom {
+    TelecomTypeType TelecomType  
+    text ValueRef  
+}
+Address {
 
+}
+MetaDataVersionRef {
+    oidref StudyOID  
+    oidref MetaDataVersionOID  
+    date EffectiveDate  
+}
+Description {
+
+}
+Organization {
+    oid OID  
+    name Name  
+    text Role  
+    OrganizationType Type  
+    oidref LocationOID  
+    oidref PartOfOrganizationOID  
+}
+User {
+    oid OID  
+    UserType UserTypeRef  
+    oidref OrganizationOID  
+    oidref LocationOID  
+}
+Image {
+    fileName ImageFileName  
+    text href  
+    text MimeType  
+}
+FamilyName {
+    text content  
+}
+GivenName {
+    text content  
+}
+FullName {
+    text content  
+}
+Suffix {
+    text content  
+}
+Prefix {
+    text content  
+}
+UserName {
+    text content  
+}
+
+AdminData ||--}o User : "UserRefRef"
+AdminData ||--}o Organization : "OrganizationRef"
+AdminData ||--}o Location : "LocationRefRef"
+AdminData ||--}o SignatureDef : "SignatureDefRef"
+SignatureDef ||--|o Meaning : "MeaningRef"
+SignatureDef ||--|o LegalReason : "LegalReasonRef"
+Location ||--|o Description : "DescriptionRef"
+Location ||--}o MetaDataVersionRef : "MetaDataVersionRefRef"
+Location ||--}o Address : "AddressRef"
+Location ||--}o Telecom : "TelecomRef"
+Location ||--}o Query : "QueryRef"
+Query ||--|o Value : "ValueRef"
+Query ||--}o AuditRecord : "AuditRecordRef"
+Address ||--|o StreetName : "StreetNameRef"
+Address ||--|o HouseNumber : "HouseNumberRef"
+Address ||--|o City : "CityRef"
+Address ||--|o StateProv : "StateProvRef"
+Address ||--|o Country : "CountryRef"
+Address ||--|o PostalCode : "PostalCodeRef"
+Address ||--|o GeoPosition : "GeoPositionRef"
+Address ||--|o OtherText : "OtherTextRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+Organization ||--|o Description : "DescriptionRef"
+Organization ||--}o Address : "AddressRef"
+Organization ||--}o Telecom : "TelecomRef"
+User ||--|o UserName : "UserNameRef"
+User ||--|o Prefix : "PrefixRef"
+User ||--|o Suffix : "SuffixRef"
+User ||--|o FullName : "FullNameRef"
+User ||--|o GivenName : "GivenNameRef"
+User ||--|o FamilyName : "FamilyNameRef"
+User ||--|o Image : "ImageRef"
+User ||--}o Address : "AddressRef"
+User ||--}o Telecom : "TelecomRef"
+
+```
 
 
 
@@ -43,14 +135,15 @@ URI: [odm:AdminData](http://www.cdisc.org/ns/odm/v2.0/AdminData)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Study. | direct |
+| [StudyOID](StudyOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Study . | direct |
 | [UserRefRef](UserRefRef.md) | 0..* <br/> [User](User.md) | UserRef reference: A reference to information about a specific user of a clin... | direct |
 | [OrganizationRef](OrganizationRef.md) | 0..* <br/> [Organization](Organization.md) | Organization reference: An organization can reference a parent organization. ... | direct |
 | [LocationRefRef](LocationRefRef.md) | 0..* <br/> [Location](Location.md) | LocationRef reference: A reference to the user's physical location. | direct |
 | [SignatureDefRef](SignatureDefRef.md) | 0..* <br/> [SignatureDef](SignatureDef.md) | SignatureDef reference: Provides Metadata for signatures included in the /ODM... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -112,6 +205,7 @@ description: Administrative information about users, locations, organizations, a
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AdminData
+rank: 1000
 slots:
 - StudyOID
 - UserRefRef
@@ -121,7 +215,7 @@ slots:
 slot_usage:
   StudyOID:
     name: StudyOID
-    description: Reference to a Study.
+    description: Reference to a Study .
     comments:
     - 'Required
 
@@ -189,10 +283,11 @@ description: Administrative information about users, locations, organizations, a
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AdminData
+rank: 1000
 slot_usage:
   StudyOID:
     name: StudyOID
-    description: Reference to a Study.
+    description: Reference to a Study .
     comments:
     - 'Required
 
@@ -248,7 +343,7 @@ slot_usage:
 attributes:
   StudyOID:
     name: StudyOID
-    description: Reference to a Study.
+    description: Reference to a Study .
     comments:
     - 'Required
 

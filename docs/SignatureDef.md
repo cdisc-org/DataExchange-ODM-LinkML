@@ -1,8 +1,6 @@
 # Class: SignatureDef
 
-
 _Provides Metadata for signatures included in the /ODM/ClinicalData._
-
 
 
 
@@ -10,27 +8,23 @@ _Provides Metadata for signatures included in the /ODM/ClinicalData._
 URI: [odm:SignatureDef](http://www.cdisc.org/ns/odm/v2.0/SignatureDef)
 
 
-
 ```mermaid
- classDiagram
-    class SignatureDef
-      SignatureDef : LegalReasonRef
-        
-          SignatureDef --|> LegalReason : LegalReasonRef
-        
-      SignatureDef : MeaningRef
-        
-          SignatureDef --|> Meaning : MeaningRef
-        
-      SignatureDef : Methodology
-        
-          SignatureDef --|> SignMethod : Methodology
-        
-      SignatureDef : OID
-        
-      
-```
+erDiagram
+SignatureDef {
+    oid OID  
+    SignMethod Methodology  
+}
+LegalReason {
+    text content  
+}
+Meaning {
+    text content  
+}
 
+SignatureDef ||--|o Meaning : "MeaningRef"
+SignatureDef ||--|o LegalReason : "LegalReasonRef"
+
+```
 
 
 
@@ -39,13 +33,14 @@ URI: [odm:SignatureDef](http://www.cdisc.org/ns/odm/v2.0/SignatureDef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [Methodology](Methodology.md) | 0..1 <br/> [SignMethod](SignMethod.md) | Defines the type of electronic signature, including the meaning as required b... | direct |
 | [MeaningRef](MeaningRef.md) | 0..1 <br/> [Meaning](Meaning.md) | Meaning reference: A short name or description for this signature. It should ... | direct |
 | [LegalReasonRef](LegalReasonRef.md) | 0..1 <br/> [LegalReason](LegalReason.md) | LegalReason reference: The responsibility statement associated with a signatu... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -106,6 +101,7 @@ description: Provides Metadata for signatures included in the /ODM/ClinicalData.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SignatureDef
+rank: 1000
 slots:
 - OID
 - Methodology
@@ -163,7 +159,7 @@ slot_usage:
   Methodology:
     name: Methodology
     description: Defines the type of electronic signature, including the meaning as
-      required by 21 CFR Part 11.
+      required by 21 CFR Part 11 .
     comments:
     - 'Optional
 
@@ -200,6 +196,7 @@ description: Provides Metadata for signatures included in the /ODM/ClinicalData.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SignatureDef
+rank: 1000
 slot_usage:
   OID:
     name: OID
@@ -252,7 +249,7 @@ slot_usage:
   Methodology:
     name: Methodology
     description: Defines the type of electronic signature, including the meaning as
-      required by 21 CFR Part 11.
+      required by 21 CFR Part 11 .
     comments:
     - 'Optional
 
@@ -332,7 +329,7 @@ attributes:
   Methodology:
     name: Methodology
     description: Defines the type of electronic signature, including the meaning as
-      required by 21 CFR Part 11.
+      required by 21 CFR Part 11 .
     comments:
     - 'Optional
 

@@ -1,8 +1,6 @@
 # Class: Arm
 
-
 _An Arm element provides the declaration of a study arm. Arms do not have any ordering relative to one another._
-
 
 
 
@@ -10,25 +8,29 @@ _An Arm element provides the declaration of a study arm. Arms do not have any or
 URI: [odm:Arm](http://www.cdisc.org/ns/odm/v2.0/Arm)
 
 
-
 ```mermaid
- classDiagram
-    class Arm
-      Arm : DescriptionRef
-        
-          Arm --|> Description : DescriptionRef
-        
-      Arm : Name
-        
-      Arm : OID
-        
-      Arm : WorkflowRefRef
-        
-          Arm --|> WorkflowRef : WorkflowRefRef
-        
-      
-```
+erDiagram
+Arm {
+    oid OID  
+    name Name  
+}
+WorkflowRef {
+    oidref WorkflowOID  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+Arm ||--|o Description : "DescriptionRef"
+Arm ||--|o WorkflowRef : "WorkflowRefRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -37,13 +39,14 @@ URI: [odm:Arm](http://www.cdisc.org/ns/odm/v2.0/Arm)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Arm definition. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name of the study arm. | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -105,6 +108,7 @@ description: An Arm element provides the declaration of a study arm. Arms do not
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Arm
+rank: 1000
 slots:
 - OID
 - Name
@@ -268,6 +272,7 @@ description: An Arm element provides the declaration of a study arm. Arms do not
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Arm
+rank: 1000
 slot_usage:
   OID:
     name: OID

@@ -1,7 +1,7 @@
 # Slot: SignatureOID
 
 
-_Reference to the SignatureDef._
+_Reference to the SignatureDef ._
 
 
 
@@ -55,7 +55,7 @@ URI: [odm:SignatureOID](http://www.cdisc.org/ns/odm/v2.0/SignatureOID)
 <details>
 ```yaml
 name: SignatureOID
-description: Reference to the SignatureDef.
+description: Reference to the SignatureDef .
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: SignatureOID

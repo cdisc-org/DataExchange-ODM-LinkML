@@ -1,8 +1,6 @@
 # Class: MethodSignature
 
-
 _A MethodSignature defines the parameters and return values for a method. The MethodSignature improves traceability while enhancing the ability for automation engines to execute a MethodDef's FormalExpression. Most Methods use one or more input parameters and return one or more values._
-
 
 
 
@@ -10,21 +8,28 @@ _A MethodSignature defines the parameters and return values for a method. The Me
 URI: [odm:MethodSignature](http://www.cdisc.org/ns/odm/v2.0/MethodSignature)
 
 
-
 ```mermaid
- classDiagram
-    class MethodSignature
-      MethodSignature : ParameterRef
-        
-          MethodSignature --|> Parameter : ParameterRef
-        
-      MethodSignature : ReturnValueRef
-        
-          MethodSignature --|> ReturnValue : ReturnValueRef
-        
-      
-```
+erDiagram
+MethodSignature {
 
+}
+ReturnValue {
+    name Name  
+    DataType DataTypeRef  
+    text DefinitionRef  
+    positiveInteger OrderNumber  
+}
+Parameter {
+    name Name  
+    DataType DataTypeRef  
+    text DefinitionRef  
+    positiveInteger OrderNumber  
+}
+
+MethodSignature ||--}o Parameter : "ParameterRef"
+MethodSignature ||--}o ReturnValue : "ReturnValueRef"
+
+```
 
 
 
@@ -33,11 +38,12 @@ URI: [odm:MethodSignature](http://www.cdisc.org/ns/odm/v2.0/MethodSignature)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [ParameterRef](ParameterRef.md) | 0..* <br/> [Parameter](Parameter.md) | Parameter reference: The Parameter element represents a method parameter used... | direct |
 | [ReturnValueRef](ReturnValueRef.md) | 0..* <br/> [ReturnValue](ReturnValue.md) | ReturnValue reference: The ReturnValue element represents a return value used... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -103,6 +109,7 @@ description: A MethodSignature defines the parameters and return values for a me
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MethodSignature
+rank: 1000
 slots:
 - ParameterRef
 - ReturnValueRef
@@ -140,6 +147,7 @@ description: A MethodSignature defines the parameters and return values for a me
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MethodSignature
+rank: 1000
 slot_usage:
   ParameterRef:
     name: ParameterRef

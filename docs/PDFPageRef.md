@@ -1,8 +1,6 @@
 # Class: PDFPageRef
 
-
 _This element is the container for CRF page references._
-
 
 
 
@@ -10,25 +8,19 @@ _This element is the container for CRF page references._
 URI: [odm:PDFPageRef](http://www.cdisc.org/ns/odm/v2.0/PDFPageRef)
 
 
-
 ```mermaid
- classDiagram
-    class PDFPageRef
-      PDFPageRef : FirstPage
-        
-      PDFPageRef : LastPage
-        
-      PDFPageRef : PageRefs
-        
-      PDFPageRef : TitleRef
-        
-      PDFPageRef : Type
-        
-          PDFPageRef --|> PDFPageType : Type
-        
-      
-```
+erDiagram
+PDFPageRef {
+    text PageRefs  
+    positiveInteger FirstPage  
+    positiveInteger LastPage  
+    PDFPageType Type  
+    text TitleRef  
+}
 
+
+
+```
 
 
 
@@ -37,7 +29,7 @@ URI: [odm:PDFPageRef](http://www.cdisc.org/ns/odm/v2.0/PDFPageRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [PageRefs](PageRefs.md) | 0..1 <br/> [text](text.md) | List of PDF pages, separated by spaces. Sample: "17 20 32 | direct |
 | [FirstPage](FirstPage.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | First page in a range of pages. Note that the way to indicate the range of pa... | direct |
@@ -45,6 +37,7 @@ URI: [odm:PDFPageRef](http://www.cdisc.org/ns/odm/v2.0/PDFPageRef)
 | [Type](Type.md) | 1..1 <br/> [PDFPageType](PDFPageType.md) | Type of page for page reference(s) indicated in the PageRefs attribute | direct |
 | [TitleRef](TitleRef.md) | 0..1 <br/> [text](text.md) | Alternative label to provide a more specific and descriptive reference to a p... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -105,6 +98,7 @@ description: This element is the container for CRF page references.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/PDFPageRef
+rank: 1000
 slots:
 - PageRefs
 - FirstPage
@@ -197,6 +191,7 @@ description: This element is the container for CRF page references.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/PDFPageRef
+rank: 1000
 slot_usage:
   PageRefs:
     name: PageRefs

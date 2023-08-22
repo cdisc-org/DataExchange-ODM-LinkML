@@ -1,8 +1,6 @@
 # Class: InclusionExclusionCriteria
 
-
 _The InclusionExclusionCriteria element can contain 2 lists of Criterion elements, represented by the 2 elements InclusionCriteria and ExclusionCriteria. Together, these criteria determine the eligibility of a subject for the study. The actual condition to be evaluated is contained in an ODM ConditionDef, which is referenced by each Criterion‟s ConditionOID attribute._
-
 
 
 
@@ -10,21 +8,31 @@ _The InclusionExclusionCriteria element can contain 2 lists of Criterion element
 URI: [odm:InclusionExclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/InclusionExclusionCriteria)
 
 
-
 ```mermaid
- classDiagram
-    class InclusionExclusionCriteria
-      InclusionExclusionCriteria : ExclusionCriteriaRef
-        
-          InclusionExclusionCriteria --|> ExclusionCriteria : ExclusionCriteriaRef
-        
-      InclusionExclusionCriteria : InclusionCriteriaRef
-        
-          InclusionExclusionCriteria --|> InclusionCriteria : InclusionCriteriaRef
-        
-      
-```
+erDiagram
+InclusionExclusionCriteria {
 
+}
+ExclusionCriteria {
+
+}
+Criterion {
+    oid OID  
+    name Name  
+    oidref ConditionOID  
+}
+InclusionCriteria {
+
+}
+
+InclusionExclusionCriteria ||--|o InclusionCriteria : "InclusionCriteriaRef"
+InclusionExclusionCriteria ||--|o ExclusionCriteria : "ExclusionCriteriaRef"
+ExclusionCriteria ||--}o Criterion : "CriterionRef"
+Criterion ||--|o Description : "DescriptionRef"
+Criterion ||--}o Coding : "CodingRef"
+InclusionCriteria ||--}o Criterion : "CriterionRef"
+
+```
 
 
 
@@ -33,11 +41,12 @@ URI: [odm:InclusionExclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/Inclusion
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [InclusionCriteriaRef](InclusionCriteriaRef.md) | 0..1 <br/> [InclusionCriteria](InclusionCriteria.md) | InclusionCriteria reference: The InclusionCriteria is a container element for... | direct |
 | [ExclusionCriteriaRef](ExclusionCriteriaRef.md) | 0..1 <br/> [ExclusionCriteria](ExclusionCriteria.md) | ExclusionCriteria reference: The ExclusionCriteria is a container element for... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -102,6 +111,7 @@ description: The InclusionExclusionCriteria element can contain 2 lists of Crite
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/InclusionExclusionCriteria
+rank: 1000
 slots:
 - InclusionCriteriaRef
 - ExclusionCriteriaRef
@@ -136,6 +146,7 @@ description: The InclusionExclusionCriteria element can contain 2 lists of Crite
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/InclusionExclusionCriteria
+rank: 1000
 slot_usage:
   InclusionCriteriaRef:
     name: InclusionCriteriaRef

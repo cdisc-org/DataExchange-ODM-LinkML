@@ -1,8 +1,6 @@
 # Class: DefaultTransition
 
-
 _The DefaultTransition references the Transition that needs to be executed when none of the TargetTransitions can be executed._
-
 
 
 
@@ -10,15 +8,15 @@ _The DefaultTransition references the Transition that needs to be executed when 
 URI: [odm:DefaultTransition](http://www.cdisc.org/ns/odm/v2.0/DefaultTransition)
 
 
-
 ```mermaid
- classDiagram
-    class DefaultTransition
-      DefaultTransition : TargetTransitionOID
-        
-      
-```
+erDiagram
+DefaultTransition {
+    oidref TargetTransitionOID  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:DefaultTransition](http://www.cdisc.org/ns/odm/v2.0/DefaultTransition)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [TargetTransitionOID](TargetTransitionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the Transition that is the default target of the branching. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -92,6 +91,7 @@ description: The DefaultTransition references the Transition that needs to be ex
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DefaultTransition
+rank: 1000
 slots:
 - TargetTransitionOID
 slot_usage:
@@ -125,6 +125,7 @@ description: The DefaultTransition references the Transition that needs to be ex
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DefaultTransition
+rank: 1000
 slot_usage:
   TargetTransitionOID:
     name: TargetTransitionOID

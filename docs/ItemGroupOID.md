@@ -1,7 +1,7 @@
 # Slot: ItemGroupOID
 
 
-_Reference to the ItemGroupDef._
+_Reference to the ItemGroupDef ._
 
 
 
@@ -58,7 +58,7 @@ URI: [odm:ItemGroupOID](http://www.cdisc.org/ns/odm/v2.0/ItemGroupOID)
 <details>
 ```yaml
 name: ItemGroupOID
-description: Reference to the ItemGroupDef.
+description: Reference to the ItemGroupDef .
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: ItemGroupOID

@@ -1,8 +1,6 @@
 # Class: FormalExpression
 
-
 _A FormalExpression used within a ConditionDef or a RangeCheck must evaluate to True or False. A FormalExpression referenced within a MethodDef having Type Imputation, Computation, or Transpose must evaluate to the correct DataType for an Item that may be imputed or computed using the Method. A FormalExpression gets parameter and return value definitions from the MethodSignature element. The data types in the MethodSignature parameters and return values must match the corresponding data types in the FormalExpression._
-
 
 
 
@@ -10,23 +8,26 @@ _A FormalExpression used within a ConditionDef or a RangeCheck must evaluate to 
 URI: [odm:FormalExpression](http://www.cdisc.org/ns/odm/v2.0/FormalExpression)
 
 
-
 ```mermaid
- classDiagram
-    class FormalExpression
-      FormalExpression : CodeRef
-        
-          FormalExpression --|> Code : CodeRef
-        
-      FormalExpression : ContextRef
-        
-      FormalExpression : ExternalCodeLibRef
-        
-          FormalExpression --|> ExternalCodeLib : ExternalCodeLibRef
-        
-      
-```
+erDiagram
+FormalExpression {
+    text ContextRef  
+}
+ExternalCodeLib {
+    name Library  
+    name Method  
+    text Version  
+    text ref  
+    uriorcurie href  
+}
+Code {
+    text content  
+}
 
+FormalExpression ||--|o Code : "CodeRef"
+FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
+
+```
 
 
 
@@ -35,12 +36,13 @@ URI: [odm:FormalExpression](http://www.cdisc.org/ns/odm/v2.0/FormalExpression)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [ContextRef](ContextRef.md) | 0..1 <br/> [text](text.md) | A free-form qualifier to suggest an appropriate computer language to be used ... | direct |
 | [CodeRef](CodeRef.md) | 0..1 <br/> [Code](Code.md) | A string pattern that identifies a concept as defined by the code system. | direct |
 | [ExternalCodeLibRef](ExternalCodeLibRef.md) | 0..1 <br/> [ExternalCodeLib](ExternalCodeLib.md) | ExternalCodeLib reference: The ExternalCodeLib element references a FormalExp... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -111,6 +113,7 @@ description: A FormalExpression used within a ConditionDef or a RangeCheck must 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/FormalExpression
+rank: 1000
 slots:
 - ContextRef
 - CodeRef
@@ -162,6 +165,7 @@ description: A FormalExpression used within a ConditionDef or a RangeCheck must 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/FormalExpression
+rank: 1000
 slot_usage:
   ContextRef:
     name: ContextRef

@@ -1,8 +1,6 @@
 # Class: DurationTimingConstraint
 
-
 _The DurationTimingConstraint constrains the duration of an activity represented by a study, epoch, StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef. It is used to constrain the duration of the visit, activity, or any other structural element._
-
 
 
 
@@ -10,29 +8,29 @@ _The DurationTimingConstraint constrains the duration of an activity represented
 URI: [odm:DurationTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/DurationTimingConstraint)
 
 
-
 ```mermaid
- classDiagram
-    class DurationTimingConstraint
-      DurationTimingConstraint : DescriptionRef
-        
-          DurationTimingConstraint --|> Description : DescriptionRef
-        
-      DurationTimingConstraint : DurationPostWindow
-        
-      DurationTimingConstraint : DurationPreWindow
-        
-      DurationTimingConstraint : DurationTarget
-        
-      DurationTimingConstraint : Name
-        
-      DurationTimingConstraint : OID
-        
-      DurationTimingConstraint : StructuralElementOID
-        
-      
-```
+erDiagram
+DurationTimingConstraint {
+    oid OID  
+    name Name  
+    oidref StructuralElementOID  
+    durationDatetime DurationTarget  
+    durationDatetime DurationPreWindow  
+    durationDatetime DurationPostWindow  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+DurationTimingConstraint ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -41,7 +39,7 @@ URI: [odm:DurationTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/DurationTim
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the DurationTimingConstraint. | direct |
@@ -51,6 +49,7 @@ URI: [odm:DurationTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/DurationTim
 | [DurationPostWindow](DurationPostWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Defines the amount of time by which the targetted duration may be increased. | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -114,6 +113,7 @@ description: The DurationTimingConstraint constrains the duration of an activity
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DurationTimingConstraint
+rank: 1000
 slots:
 - OID
 - Name
@@ -331,6 +331,7 @@ description: The DurationTimingConstraint constrains the duration of an activity
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DurationTimingConstraint
+rank: 1000
 slot_usage:
   OID:
     name: OID

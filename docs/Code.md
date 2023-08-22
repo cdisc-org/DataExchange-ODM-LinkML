@@ -1,8 +1,6 @@
 # Class: Code
 
-
 _Contains the source code that represents a FormalExpression in a given Context. The source code must be executable, and the MethodSignature defines the input parameters and return values for the code._
-
 
 
 
@@ -10,15 +8,15 @@ _Contains the source code that represents a FormalExpression in a given Context.
 URI: [odm:Code](http://www.cdisc.org/ns/odm/v2.0/Code)
 
 
-
 ```mermaid
- classDiagram
-    class Code
-      Code : _content
-        
-      
-```
+erDiagram
+Code {
+    text content  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:Code](http://www.cdisc.org/ns/odm/v2.0/Code)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [_content](_content.md) | 0..1 <br/> [_contentType](_contentType.md) | multi-line text content from between XML tags | direct |
+| [content](content.md) | 0..1 <br/> [text](text.md) | multi-line text content from between XML tags | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -93,13 +92,40 @@ description: Contains the source code that represents a FormalExpression in a gi
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Code
+rank: 1000
 slots:
-- _content
+- content
 slot_usage:
-  range:
-    name: range
-    id_prefixes:
-    - text
+  content:
+    name: content
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: text
 class_uri: odm:Code
 
 ```
@@ -116,47 +142,75 @@ description: Contains the source code that represents a FormalExpression in a gi
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Code
+rank: 1000
 slot_usage:
-  range:
-    name: range
-    id_prefixes:
-    - text
+  content:
+    name: content
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: text
 attributes:
-  name: _content
-  description: multi-line text content from between XML tags
-  from_schema: http://www.cdisc.org/ns/odm/v2.0
-  rank: 1000
-  alias: _content
-  owner: Code
-  domain_of:
-  - TranslatedText
-  - Title
-  - CheckValue
-  - Code
-  - WorkflowEnd
-  - UserName
-  - Prefix
-  - Suffix
-  - FullName
-  - GivenName
-  - FamilyName
-  - StreetName
-  - HouseNumber
-  - City
-  - StateProv
-  - Country
-  - PostalCode
-  - OtherText
-  - Meaning
-  - LegalReason
-  - DateTimeStamp
-  - ReasonForChange
-  - SourceID
-  - FlagValue
-  - FlagType
-  - Value
-  range: _contentType
-  inlined: true
+  content:
+    name: content
+    description: multi-line text content from between XML tags
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: content
+    owner: Code
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: text
+    inlined: true
 class_uri: odm:Code
 
 ```

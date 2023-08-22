@@ -1,8 +1,6 @@
 # Class: MethodDef
 
-
 _A MethodDef defines how a data value can be obtained from a collection of other data values._
-
 
 
 
@@ -10,43 +8,78 @@ _A MethodDef defines how a data value can be obtained from a collection of other
 URI: [odm:MethodDef](http://www.cdisc.org/ns/odm/v2.0/MethodDef)
 
 
-
 ```mermaid
- classDiagram
-    class MethodDef
-      MethodDef : AliasRef
-        
-          MethodDef --|> Alias : AliasRef
-        
-      MethodDef : CommentOID
-        
-      MethodDef : DescriptionRef
-        
-          MethodDef --|> Description : DescriptionRef
-        
-      MethodDef : DocumentRefRef
-        
-          MethodDef --|> DocumentRef : DocumentRefRef
-        
-      MethodDef : FormalExpressionRef
-        
-          MethodDef --|> FormalExpression : FormalExpressionRef
-        
-      MethodDef : MethodSignatureRef
-        
-          MethodDef --|> MethodSignature : MethodSignatureRef
-        
-      MethodDef : Name
-        
-      MethodDef : OID
-        
-      MethodDef : Type
-        
-          MethodDef --|> MethodType : Type
-        
-      
-```
+erDiagram
+MethodDef {
+    oid OID  
+    name Name  
+    MethodType Type  
+    oidref CommentOID  
+}
+DocumentRef {
+    oid LeafID  
+}
+PDFPageRef {
+    text PageRefs  
+    positiveInteger FirstPage  
+    positiveInteger LastPage  
+    PDFPageType Type  
+    text TitleRef  
+}
+Alias {
+    text ContextRef  
+    text Name  
+}
+FormalExpression {
+    text ContextRef  
+}
+ExternalCodeLib {
+    name Library  
+    name Method  
+    text Version  
+    text ref  
+    uriorcurie href  
+}
+Code {
+    text content  
+}
+MethodSignature {
 
+}
+ReturnValue {
+    name Name  
+    DataType DataTypeRef  
+    text DefinitionRef  
+    positiveInteger OrderNumber  
+}
+Parameter {
+    name Name  
+    DataType DataTypeRef  
+    text DefinitionRef  
+    positiveInteger OrderNumber  
+}
+Description {
+
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+MethodDef ||--|o Description : "DescriptionRef"
+MethodDef ||--|o MethodSignature : "MethodSignatureRef"
+MethodDef ||--}o FormalExpression : "FormalExpressionRef"
+MethodDef ||--}o Alias : "AliasRef"
+MethodDef ||--}o DocumentRef : "DocumentRefRef"
+DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
+FormalExpression ||--|o Code : "CodeRef"
+FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
+MethodSignature ||--}o Parameter : "ParameterRef"
+MethodSignature ||--}o ReturnValue : "ReturnValueRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -55,7 +88,7 @@ URI: [odm:MethodDef](http://www.cdisc.org/ns/odm/v2.0/MethodDef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifer for the MethodDef element. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the method. | direct |
@@ -67,6 +100,7 @@ URI: [odm:MethodDef](http://www.cdisc.org/ns/odm/v2.0/MethodDef)
 | [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
 | [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -128,6 +162,7 @@ description: A MethodDef defines how a data value can be obtained from a collect
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MethodDef
+rank: 1000
 slots:
 - OID
 - Name
@@ -378,6 +413,7 @@ description: A MethodDef defines how a data value can be obtained from a collect
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MethodDef
+rank: 1000
 slot_usage:
   OID:
     name: OID

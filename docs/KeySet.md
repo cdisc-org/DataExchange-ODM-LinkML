@@ -1,8 +1,6 @@
 # Class: KeySet
 
-
 _A KeySet references a single entity (e.g., a study, a subject, a study event). Only those attributes needed to specify the particular entity are required, and all others must be omitted (see Section 2.7, Clinical Data Keys)._
-
 
 
 
@@ -10,29 +8,22 @@ _A KeySet references a single entity (e.g., a study, a subject, a study event). 
 URI: [odm:KeySet](http://www.cdisc.org/ns/odm/v2.0/KeySet)
 
 
-
 ```mermaid
- classDiagram
-    class KeySet
-      KeySet : ItemGroupOID
-        
-      KeySet : ItemGroupRepeatKey
-        
-      KeySet : ItemOID
-        
-      KeySet : MetaDataVersionOID
-        
-      KeySet : StudyEventOID
-        
-      KeySet : StudyEventRepeatKey
-        
-      KeySet : StudyOID
-        
-      KeySet : SubjectKey
-        
-      
-```
+erDiagram
+KeySet {
+    oidref StudyOID  
+    subjectKey SubjectKey  
+    oidref MetaDataVersionOID  
+    oidref StudyEventOID  
+    repeatKey StudyEventRepeatKey  
+    oidref ItemGroupOID  
+    repeatKey ItemGroupRepeatKey  
+    oidref ItemOID  
+}
 
+
+
+```
 
 
 
@@ -41,7 +32,7 @@ URI: [odm:KeySet](http://www.cdisc.org/ns/odm/v2.0/KeySet)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the StudyOID in an ODM/ClinicalData element. | direct |
 | [SubjectKey](SubjectKey.md) | 0..1 <br/> [subjectKey](subjectKey.md) | Reference to a SubjectKey attribute value for a SubjectData child element of ... | direct |
@@ -52,6 +43,7 @@ URI: [odm:KeySet](http://www.cdisc.org/ns/odm/v2.0/KeySet)
 | [ItemGroupRepeatKey](ItemGroupRepeatKey.md) | 0..1 <br/> [repeatKey](repeatKey.md) | Reference to an ItemGroupRepeatKey attribute value for an ItemGroupData child... | direct |
 | [ItemOID](ItemOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an ItemOID attribute for an ItemData child element of this Clini... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -114,6 +106,7 @@ description: A KeySet references a single entity (e.g., a study, a subject, a st
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/KeySet
+rank: 1000
 slots:
 - StudyOID
 - SubjectKey
@@ -256,6 +249,7 @@ description: A KeySet references a single entity (e.g., a study, a subject, a st
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/KeySet
+rank: 1000
 slot_usage:
   StudyOID:
     name: StudyOID

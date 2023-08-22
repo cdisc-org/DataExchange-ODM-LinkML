@@ -1,8 +1,6 @@
 # Class: StudyTiming
 
-
 _The StudyTiming element defines a timing constraint within the study, which can be an absolute timing constraint (e.g., start of the screening visit must be between 1 January 2022 and 31 December 2022), a relative timing constraint (e.g., visit 2 must be within 30 days after visit 1 with a window of +/- 1 week), a transition timing constraint (i.e., timing constraint on a transition within a defined workflow), or a duration timing constraint (e.g., the duration of visit 2 is planned to take hours with a window of 30 minutes)._
-
 
 
 
@@ -10,33 +8,64 @@ _The StudyTiming element defines a timing constraint within the study, which can
 URI: [odm:StudyTiming](http://www.cdisc.org/ns/odm/v2.0/StudyTiming)
 
 
-
 ```mermaid
- classDiagram
-    class StudyTiming
-      StudyTiming : AbsoluteTimingConstraintRef
-        
-          StudyTiming --|> AbsoluteTimingConstraint : AbsoluteTimingConstraintRef
-        
-      StudyTiming : DurationTimingConstraintRef
-        
-          StudyTiming --|> DurationTimingConstraint : DurationTimingConstraintRef
-        
-      StudyTiming : Name
-        
-      StudyTiming : OID
-        
-      StudyTiming : RelativeTimingConstraintRef
-        
-          StudyTiming --|> RelativeTimingConstraint : RelativeTimingConstraintRef
-        
-      StudyTiming : TransitionTimingConstraintRef
-        
-          StudyTiming --|> TransitionTimingConstraint : TransitionTimingConstraintRef
-        
-      
-```
+erDiagram
+StudyTiming {
+    oid OID  
+    name Name  
+}
+DurationTimingConstraint {
+    oid OID  
+    name Name  
+    oidref StructuralElementOID  
+    durationDatetime DurationTarget  
+    durationDatetime DurationPreWindow  
+    durationDatetime DurationPostWindow  
+}
+Description {
 
+}
+TransitionTimingConstraint {
+    oid OID  
+    name Name  
+    oidref TransitionOID  
+    oidref MethodOID  
+    RelativeTimingConstraintType Type  
+    durationDatetime TimepointTarget  
+    durationDatetime TimepointPreWindow  
+    durationDatetime TimepointPostWindow  
+}
+RelativeTimingConstraint {
+    oid OID  
+    name Name  
+    oidref PredecessorOID  
+    oidref SuccessorOID  
+    RelativeTimingConstraintType Type  
+    durationDatetime TimepointRelativeTarget  
+    durationDatetime TimepointPreWindow  
+    durationDatetime TimepointPostWindow  
+}
+AbsoluteTimingConstraint {
+    oid OID  
+    name Name  
+    oidref StudyEventGroupOID  
+    oidref StudyEventOID  
+    string TimepointTarget  
+    durationDatetime TimepointPreWindow  
+    durationDatetime TimepointPostWindow  
+}
+
+StudyTiming ||--}o AbsoluteTimingConstraint : "AbsoluteTimingConstraintRef"
+StudyTiming ||--}o RelativeTimingConstraint : "RelativeTimingConstraintRef"
+StudyTiming ||--}o TransitionTimingConstraint : "TransitionTimingConstraintRef"
+StudyTiming ||--}o DurationTimingConstraint : "DurationTimingConstraintRef"
+DurationTimingConstraint ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+TransitionTimingConstraint ||--|o Description : "DescriptionRef"
+RelativeTimingConstraint ||--|o Description : "DescriptionRef"
+AbsoluteTimingConstraint ||--|o Description : "DescriptionRef"
+
+```
 
 
 
@@ -45,7 +74,7 @@ URI: [odm:StudyTiming](http://www.cdisc.org/ns/odm/v2.0/StudyTiming)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for a StudyTiming element. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable identifier for a StudyTiming element. | direct |
@@ -54,6 +83,7 @@ URI: [odm:StudyTiming](http://www.cdisc.org/ns/odm/v2.0/StudyTiming)
 | [TransitionTimingConstraintRef](TransitionTimingConstraintRef.md) | 0..* <br/> [TransitionTimingConstraint](TransitionTimingConstraint.md) | TransitionTimingConstraint reference: The TransitionTimingConstraint element ... | direct |
 | [DurationTimingConstraintRef](DurationTimingConstraintRef.md) | 0..* <br/> [DurationTimingConstraint](DurationTimingConstraint.md) | DurationTimingConstraint reference: The DurationTimingConstraint constrains t... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -120,6 +150,7 @@ description: The StudyTiming element defines a timing constraint within the stud
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTiming
+rank: 1000
 slots:
 - OID
 - Name
@@ -274,6 +305,7 @@ description: The StudyTiming element defines a timing constraint within the stud
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTiming
+rank: 1000
 slot_usage:
   OID:
     name: OID

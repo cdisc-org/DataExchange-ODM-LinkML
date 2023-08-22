@@ -1,8 +1,6 @@
 # Class: Value
 
-
 _The data collected for an item. This data is represented according to DataType attribute of the ItemDef referenced by the ItemOID attribute in the parent ItemData element._
-
 
 
 
@@ -10,17 +8,16 @@ _The data collected for an item. This data is represented according to DataType 
 URI: [odm:Value](http://www.cdisc.org/ns/odm/v2.0/Value)
 
 
-
 ```mermaid
- classDiagram
-    class Value
-      Value : _content
-        
-      Value : SeqNum
-        
-      
-```
+erDiagram
+Value {
+    positiveInteger SeqNum  
+    text content  
+}
 
+
+
+```
 
 
 
@@ -29,11 +26,12 @@ URI: [odm:Value](http://www.cdisc.org/ns/odm/v2.0/Value)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [SeqNum](SeqNum.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | When more than 1 Value element exists this attribute uniquely identifies each... | direct |
-| [_content](_content.md) | 0..1 <br/> [text](text.md) | multi-line text content from between XML tags | direct |
+| [content](content.md) | 0..1 <br/> [text](text.md) | multi-line text content from between XML tags | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -97,9 +95,10 @@ description: The data collected for an item. This data is represented according 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Value
+rank: 1000
 slots:
 - SeqNum
-- _content
+- content
 slot_usage:
   SeqNum:
     name: SeqNum
@@ -113,8 +112,8 @@ slot_usage:
     - Annotation
     - Value
     range: positiveInteger
-  _content:
-    name: _content
+  content:
+    name: content
     domain_of:
     - TranslatedText
     - Title
@@ -159,6 +158,7 @@ description: The data collected for an item. This data is represented according 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Value
+rank: 1000
 slot_usage:
   SeqNum:
     name: SeqNum
@@ -172,8 +172,8 @@ slot_usage:
     - Annotation
     - Value
     range: positiveInteger
-  _content:
-    name: _content
+  content:
+    name: content
     domain_of:
     - TranslatedText
     - Title
@@ -219,12 +219,12 @@ attributes:
     - Annotation
     - Value
     range: positiveInteger
-  _content:
-    name: _content
+  content:
+    name: content
     description: multi-line text content from between XML tags
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: _content
+    alias: content
     owner: Value
     domain_of:
     - TranslatedText

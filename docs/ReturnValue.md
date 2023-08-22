@@ -1,8 +1,6 @@
 # Class: ReturnValue
 
-
 _The ReturnValue element represents a return value used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck. A return value identifies values passed from the Method to the calling element. A ReturnValue may be computed by a FormalExpression._
-
 
 
 
@@ -10,23 +8,18 @@ _The ReturnValue element represents a return value used as part of a MethodSigna
 URI: [odm:ReturnValue](http://www.cdisc.org/ns/odm/v2.0/ReturnValue)
 
 
-
 ```mermaid
- classDiagram
-    class ReturnValue
-      ReturnValue : DataTypeRef
-        
-          ReturnValue --|> DataType : DataTypeRef
-        
-      ReturnValue : DefinitionRef
-        
-      ReturnValue : Name
-        
-      ReturnValue : OrderNumber
-        
-      
-```
+erDiagram
+ReturnValue {
+    name Name  
+    DataType DataTypeRef  
+    text DefinitionRef  
+    positiveInteger OrderNumber  
+}
 
+
+
+```
 
 
 
@@ -35,13 +28,14 @@ URI: [odm:ReturnValue](http://www.cdisc.org/ns/odm/v2.0/ReturnValue)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | The return value name. | direct |
 | [DataTypeRef](DataTypeRef.md) | 1..1 <br/> [DataType](DataType.md) | Return value datatype | direct |
 | [DefinitionRef](DefinitionRef.md) | 0..1 <br/> [text](text.md) | A free-text definition of the return value | direct |
 | [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Position of the ReturnValue | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -104,6 +98,7 @@ description: The ReturnValue element represents a return value used as part of a
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ReturnValue
+rank: 1000
 slots:
 - Name
 - DataTypeRef
@@ -216,6 +211,7 @@ description: The ReturnValue element represents a return value used as part of a
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ReturnValue
+rank: 1000
 slot_usage:
   Name:
     name: Name

@@ -1,8 +1,6 @@
 # Class: ItemGroupDef
 
-
 _An ItemGroupDef describes a type of variable or field grouping that can occur within a study._
-
 
 
 
@@ -10,87 +8,116 @@ _An ItemGroupDef describes a type of variable or field grouping that can occur w
 URI: [odm:ItemGroupDef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDef)
 
 
-
 ```mermaid
- classDiagram
-    class ItemGroupDef
-      ItemGroupDef : AliasRef
-        
-          ItemGroupDef --|> Alias : AliasRef
-        
-      ItemGroupDef : ArchiveLocationID
-        
-      ItemGroupDef : ClassRef
-        
-          ItemGroupDef --|> Class : ClassRef
-        
-      ItemGroupDef : CodingRef
-        
-          ItemGroupDef --|> Coding : CodingRef
-        
-      ItemGroupDef : CommentOID
-        
-      ItemGroupDef : DatasetName
-        
-      ItemGroupDef : DescriptionRef
-        
-          ItemGroupDef --|> Description : DescriptionRef
-        
-      ItemGroupDef : Domain
-        
-      ItemGroupDef : HasNoData
-        
-          ItemGroupDef --|> YesOnly : HasNoData
-        
-      ItemGroupDef : IsNonStandard
-        
-          ItemGroupDef --|> YesOnly : IsNonStandard
-        
-      ItemGroupDef : IsReferenceData
-        
-          ItemGroupDef --|> YesOrNo : IsReferenceData
-        
-      ItemGroupDef : ItemGroupRefRef
-        
-          ItemGroupDef --|> ItemGroupRef : ItemGroupRefRef
-        
-      ItemGroupDef : ItemRefRef
-        
-          ItemGroupDef --|> ItemRef : ItemRefRef
-        
-      ItemGroupDef : LeafRef
-        
-          ItemGroupDef --|> Leaf : LeafRef
-        
-      ItemGroupDef : Name
-        
-      ItemGroupDef : OID
-        
-      ItemGroupDef : OriginRef
-        
-          ItemGroupDef --|> Origin : OriginRef
-        
-      ItemGroupDef : Purpose
-        
-      ItemGroupDef : Repeating
-        
-          ItemGroupDef --|> ItemGroupRepeatingType : Repeating
-        
-      ItemGroupDef : RepeatingLimit
-        
-      ItemGroupDef : StandardOID
-        
-      ItemGroupDef : Structure
-        
-      ItemGroupDef : Type
-        
-      ItemGroupDef : WorkflowRefRef
-        
-          ItemGroupDef --|> WorkflowRef : WorkflowRefRef
-        
-      
-```
+erDiagram
+ItemGroupDef {
+    oid OID  
+    name Name  
+    ItemGroupRepeatingType Repeating  
+    positiveInteger RepeatingLimit  
+    YesOrNo IsReferenceData  
+    text Structure  
+    oidref ArchiveLocationID  
+    name DatasetName  
+    text Domain  
+    ItemGroupTypeType Type  
+    text Purpose  
+    oidref StandardOID  
+    YesOnly IsNonStandard  
+    YesOnly HasNoData  
+    oidref CommentOID  
+}
+ItemRef {
+    oidref ItemOID  
+    positiveInteger KeySequence  
+    YesOnly IsNonStandard  
+    YesOnly HasNoData  
+    oidref MethodOID  
+    oidref UnitsItemOID  
+    YesOnly Repeat  
+    YesOnly Other  
+    text Role  
+    oidref RoleCodeListOID  
+    CoreType Core  
+    text PreSpecifiedValue  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
+WhereClauseRef {
+    oidref WhereClauseOID  
+}
+Origin {
+    OriginType Type  
+    OriginSource Source  
+}
+ItemGroupRef {
+    oidref ItemGroupOID  
+    oidref MethodOID  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
+Leaf {
+    oid ID  
+    uriorcurie href  
+}
+Title {
+    text content  
+}
+Alias {
+    text ContextRef  
+    text Name  
+}
+WorkflowRef {
+    oidref WorkflowOID  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Class {
+    ItemGroupClass Name  
+}
+SubClass {
+    ItemGroupSubClass Name  
+    ItemGroupClassSubClass ParentClass  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+ItemGroupDef ||--|o Description : "DescriptionRef"
+ItemGroupDef ||--|o Class : "ClassRef"
+ItemGroupDef ||--}o Coding : "CodingRef"
+ItemGroupDef ||--|o WorkflowRef : "WorkflowRefRef"
+ItemGroupDef ||--}o Origin : "OriginRef"
+ItemGroupDef ||--}o Alias : "AliasRef"
+ItemGroupDef ||--|o Leaf : "LeafRef"
+ItemGroupDef ||--}o ItemGroupRef : "ItemGroupRefRef"
+ItemGroupDef ||--}o ItemRef : "ItemRefRef"
+ItemRef ||--}o Origin : "OriginRef"
+ItemRef ||--}o WhereClauseRef : "WhereClauseRefRef"
+Origin ||--|o Description : "DescriptionRef"
+Origin ||--|o SourceItems : "SourceItemsRef"
+Origin ||--}o Coding : "CodingRef"
+Origin ||--}o DocumentRef : "DocumentRefRef"
+Leaf ||--|o Title : "TitleRef"
+Class ||--}o SubClass : "SubClassRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -99,7 +126,7 @@ URI: [odm:ItemGroupDef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the ItemGroupDef element. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the ItemGroupDef. | direct |
@@ -126,6 +153,7 @@ URI: [odm:ItemGroupDef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDef)
 | [ItemGroupRefRef](ItemGroupRefRef.md) | 0..* <br/> [ItemGroupRef](ItemGroupRef.md) | ItemGroupRef reference: ItemGroupRef references an ItemGroupDef as it occurs ... | direct |
 | [ItemRefRef](ItemRefRef.md) | 0..* <br/> [ItemRef](ItemRef.md) | ItemRef reference: A reference to an ItemDef as it occurs within a specific I... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -187,6 +215,7 @@ description: An ItemGroupDef describes a type of variable or field grouping that
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemGroupDef
+rank: 1000
 slots:
 - OID
 - Name
@@ -311,7 +340,7 @@ slot_usage:
   Repeating:
     name: Repeating
     description: 'The Repeating attribute indicates that the ItemGroup may occur repeatedly
-      within the containing element. Simple - the ItemGroup repeats within the containing
+      within the containing element . Simple - the ItemGroup repeats within the containing
       element and is not bound in any way. Note: It is equivalent to the ODM v1.3.2
       case where Repeating="Yes". Dynamic - ItemGroupData repeats based on values
       in a codelist. There may be multiple occurrences for some codelist items. Static
@@ -670,6 +699,7 @@ description: An ItemGroupDef describes a type of variable or field grouping that
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemGroupDef
+rank: 1000
 slot_usage:
   OID:
     name: OID
@@ -769,7 +799,7 @@ slot_usage:
   Repeating:
     name: Repeating
     description: 'The Repeating attribute indicates that the ItemGroup may occur repeatedly
-      within the containing element. Simple - the ItemGroup repeats within the containing
+      within the containing element . Simple - the ItemGroup repeats within the containing
       element and is not bound in any way. Note: It is equivalent to the ODM v1.3.2
       case where Repeating="Yes". Dynamic - ItemGroupData repeats based on values
       in a codelist. There may be multiple occurrences for some codelist items. Static
@@ -1221,7 +1251,7 @@ attributes:
   Repeating:
     name: Repeating
     description: 'The Repeating attribute indicates that the ItemGroup may occur repeatedly
-      within the containing element. Simple - the ItemGroup repeats within the containing
+      within the containing element . Simple - the ItemGroup repeats within the containing
       element and is not bound in any way. Note: It is equivalent to the ODM v1.3.2
       case where Repeating="Yes". Dynamic - ItemGroupData repeats based on values
       in a codelist. There may be multiple occurrences for some codelist items. Static

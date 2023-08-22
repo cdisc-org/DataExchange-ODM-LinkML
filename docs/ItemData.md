@@ -1,8 +1,6 @@
 # Class: ItemData
 
-
 _The ItemData element is used for transmission of the clinical data for an item. The model does not support repeating items within a single item group._
-
 
 
 
@@ -10,43 +8,97 @@ _The ItemData element is used for transmission of the clinical data for an item.
 URI: [odm:ItemData](http://www.cdisc.org/ns/odm/v2.0/ItemData)
 
 
-
 ```mermaid
- classDiagram
-    class ItemData
-      ItemData : AnnotationRef
-        
-          ItemData --|> Annotation : AnnotationRef
-        
-      ItemData : AuditRecordRef
-        
-          ItemData --|> AuditRecord : AuditRecordRef
-        
-      ItemData : IsNull
-        
-          ItemData --|> YesOnly : IsNull
-        
-      ItemData : ItemOID
-        
-      ItemData : QueryRef
-        
-          ItemData --|> Query : QueryRef
-        
-      ItemData : SignatureRefRef
-        
-          ItemData --|> Signature : SignatureRefRef
-        
-      ItemData : TransactionTypeRef
-        
-          ItemData --|> TransactionType : TransactionTypeRef
-        
-      ItemData : ValueRef
-        
-          ItemData --|> Value : ValueRef
-        
-      
-```
+erDiagram
+ItemData {
+    oidref ItemOID  
+    TransactionType TransactionTypeRef  
+    YesOnly IsNull  
+}
+Annotation {
+    positiveInteger SeqNum  
+    TransactionType TransactionTypeRef  
+    oid ID  
+}
+Flag {
 
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Comment {
+    CommentType SponsorOrSite  
+}
+Signature {
+    oid ID  
+}
+DateTimeStamp {
+    datetime content  
+}
+SignatureRef {
+    oidref SignatureOID  
+}
+LocationRef {
+    oidref LocationOID  
+}
+UserRef {
+    oidref UserOID  
+}
+AuditRecord {
+    EditPointType EditPoint  
+    YesOrNo UsedMethod  
+}
+SourceID {
+    text content  
+}
+ReasonForChange {
+    text content  
+}
+Query {
+    oid OID  
+    QuerySourceType Source  
+    text Target  
+    QueryType Type  
+    QueryStateType State  
+    datetime LastUpdateDatetime  
+    name Name  
+}
+Value {
+    positiveInteger SeqNum  
+    text content  
+}
+
+ItemData ||--}o Value : "ValueRef"
+ItemData ||--}o Query : "QueryRef"
+ItemData ||--|o AuditRecord : "AuditRecordRef"
+ItemData ||--|o Signature : "SignatureRefRef"
+ItemData ||--|o Annotation : "AnnotationRef"
+Annotation ||--|o Comment : "CommentRef"
+Annotation ||--}o Coding : "CodingRef"
+Annotation ||--}o Flag : "FlagRef"
+Flag ||--|o FlagValue : "FlagValueRef"
+Flag ||--|o FlagType : "FlagTypeRef"
+Comment ||--}o TranslatedText : "TranslatedTextRef"
+Signature ||--|o UserRef : "UserRefRef"
+Signature ||--|o LocationRef : "LocationRefRef"
+Signature ||--|o SignatureRef : "SignatureRefRef"
+Signature ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o UserRef : "UserRefRef"
+AuditRecord ||--|o LocationRef : "LocationRefRef"
+AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
+AuditRecord ||--|o SourceID : "SourceIDRef"
+Query ||--|o Value : "ValueRef"
+Query ||--}o AuditRecord : "AuditRecordRef"
+
+```
 
 
 
@@ -55,7 +107,7 @@ URI: [odm:ItemData](http://www.cdisc.org/ns/odm/v2.0/ItemData)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [ItemOID](ItemOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to an ItemDef in the MetaDataVersion identified in the ClinicalData... | direct |
 | [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Records the TransactionType for this ItemData instance in the source system. | direct |
@@ -66,6 +118,7 @@ URI: [odm:ItemData](http://www.cdisc.org/ns/odm/v2.0/ItemData)
 | [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: A reference to the signature meaning. | direct |
 | [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -127,6 +180,7 @@ description: The ItemData element is used for transmission of the clinical data 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemData
+rank: 1000
 slots:
 - ItemOID
 - TransactionTypeRef
@@ -259,6 +313,7 @@ description: The ItemData element is used for transmission of the clinical data 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemData
+rank: 1000
 slot_usage:
   ItemOID:
     name: ItemOID

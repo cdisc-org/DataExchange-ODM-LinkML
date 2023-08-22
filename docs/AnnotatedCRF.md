@@ -1,8 +1,6 @@
 # Class: AnnotatedCRF
 
-
 _An Annotated Case Report Form (CRF) is a Portable File Format (PDF) document that provides the mapping of data collection fields to the variables or discrete variable values contained within the datasets._
-
 
 
 
@@ -10,17 +8,26 @@ _An Annotated Case Report Form (CRF) is a Portable File Format (PDF) document th
 URI: [odm:AnnotatedCRF](http://www.cdisc.org/ns/odm/v2.0/AnnotatedCRF)
 
 
-
 ```mermaid
- classDiagram
-    class AnnotatedCRF
-      AnnotatedCRF : DocumentRefRef
-        
-          AnnotatedCRF --|> DocumentRef : DocumentRefRef
-        
-      
-```
+erDiagram
+AnnotatedCRF {
 
+}
+DocumentRef {
+    oid LeafID  
+}
+PDFPageRef {
+    text PageRefs  
+    positiveInteger FirstPage  
+    positiveInteger LastPage  
+    PDFPageType Type  
+    text TitleRef  
+}
+
+AnnotatedCRF ||--}o DocumentRef : "DocumentRefRef"
+DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
+
+```
 
 
 
@@ -29,10 +36,11 @@ URI: [odm:AnnotatedCRF](http://www.cdisc.org/ns/odm/v2.0/AnnotatedCRF)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | Links to a def:leaf element with the location of the document. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -95,6 +103,7 @@ description: An Annotated Case Report Form (CRF) is a Portable File Format (PDF)
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AnnotatedCRF
+rank: 1000
 slots:
 - DocumentRefRef
 slot_usage:
@@ -127,6 +136,7 @@ description: An Annotated Case Report Form (CRF) is a Portable File Format (PDF)
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AnnotatedCRF
+rank: 1000
 slot_usage:
   DocumentRefRef:
     name: DocumentRefRef

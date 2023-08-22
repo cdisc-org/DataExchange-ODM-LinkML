@@ -1,8 +1,6 @@
 # Class: ParameterValue
 
-
 _This element contains the value of the study parameter as text content._
-
 
 
 
@@ -10,19 +8,25 @@ _This element contains the value of the study parameter as text content._
 URI: [odm:ParameterValue](http://www.cdisc.org/ns/odm/v2.0/ParameterValue)
 
 
-
 ```mermaid
- classDiagram
-    class ParameterValue
-      ParameterValue : CodingRef
-        
-          ParameterValue --|> Coding : CodingRef
-        
-      ParameterValue : ValueRef
-        
-      
-```
+erDiagram
+ParameterValue {
+    text ValueRef  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
 
+ParameterValue ||--}o Coding : "CodingRef"
+
+```
 
 
 
@@ -31,11 +35,12 @@ URI: [odm:ParameterValue](http://www.cdisc.org/ns/odm/v2.0/ParameterValue)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [ValueRef](ValueRef.md) | 1..1 <br/> [text](text.md) | Value for parent StudyParameter/@Term. | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -96,6 +101,7 @@ description: This element contains the value of the study parameter as text cont
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ParameterValue
+rank: 1000
 slots:
 - ValueRef
 - CodingRef
@@ -155,6 +161,7 @@ description: This element contains the value of the study parameter as text cont
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ParameterValue
+rank: 1000
 slot_usage:
   ValueRef:
     name: ValueRef

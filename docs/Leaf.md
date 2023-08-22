@@ -1,8 +1,6 @@
 # Class: Leaf
 
-
 _Contains the XLink information referenced by DocumentRef or ArchiveLocationID_
-
 
 
 
@@ -10,21 +8,19 @@ _Contains the XLink information referenced by DocumentRef or ArchiveLocationID_
 URI: [odm:Leaf](http://www.cdisc.org/ns/odm/v2.0/Leaf)
 
 
-
 ```mermaid
- classDiagram
-    class Leaf
-      Leaf : href
-        
-      Leaf : ID
-        
-      Leaf : TitleRef
-        
-          Leaf --|> Title : TitleRef
-        
-      
-```
+erDiagram
+Leaf {
+    oid ID  
+    uriorcurie href  
+}
+Title {
+    text content  
+}
 
+Leaf ||--|o Title : "TitleRef"
+
+```
 
 
 
@@ -33,12 +29,13 @@ URI: [odm:Leaf](http://www.cdisc.org/ns/odm/v2.0/Leaf)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [ID](ID.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the Leaf. See Section 2.13, Element Identifiers and References ... | direct |
 | [href](href.md) | 1..1 <br/> [uriorcurie](uriorcurie.md) | URL that can be used to identify the location of a document or dataset file r... | direct |
 | [TitleRef](TitleRef.md) | 0..1 <br/> [Title](Title.md) | Text with the label for the document or dataset. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -100,6 +97,7 @@ description: Contains the XLink information referenced by DocumentRef or Archive
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Leaf
+rank: 1000
 slots:
 - ID
 - href
@@ -165,6 +163,7 @@ description: Contains the XLink information referenced by DocumentRef or Archive
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Leaf
+rank: 1000
 slot_usage:
   ID:
     name: ID

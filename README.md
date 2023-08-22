@@ -45,7 +45,7 @@ Between these 2 frameworks we can translate ODMv2 data & schemata into helpful r
 - Names in ODM need changing to avoid collisions between Slots/Types/Classes
 - Handling of conditional slot population rules: exactly_one_of, any_of, all_of, none_of
 - Capitalises Type names in documentation and Python outputs (to preserve case-sensitive names, remove camelcase applied to returned values in your installed LinkML source files e.g. `DocumentGenerator.name()`, `DocumentGenerator.link()` from linkml/generators/docgen.py)
-- ER diagram rendered in markdown is too small and not zoomable if number of classes is large `--include-top-level-diagram --diagram-type er_diagram`
+- ER diagram rendered in markdown is too small and not zoomable if number of classes is large ``
 
 # How to generate schemata and documentation from source ODM XML
     git clone https://github.com/cdisc-org/DataExchange-ODM.git
@@ -61,7 +61,7 @@ More detailed relationship and cardinality constraints still need to be ported f
 
 As content is added, refresh documentation and diagrams using `mkdocs` to keep it up to date with the latest batch of generated .md files
 
-    gen-doc ODM.yaml --directory docs/ --hierarchical-class-view
+    gen-doc ODM.yaml --directory docs/ --template-directory docs/docgen --hierarchical-class-view --include-top-level-diagram --diagram-type er_diagram --sort-by rank
     mkdocs build
 
 to check the updated documentation changes locally
@@ -142,7 +142,7 @@ Each `xs:attributeGroup` member looks like this i.e. the same slot can have a di
 
 * `xs:sequence` contains both self cardinality and relationships/cardinality to other classes
     * `xs:element` is list of relationships `ref` and their cardinalities `minOccurs` (int | 'unbounded'), `maxOccurs`, `nillable`
-        * `mixed` is only applied to TranslatedText since there is content between the XML tags. In non-XML/HTML representations this would be given a key such as `"content"` or `"TranslatedText"`. Flickr use `"_content"` in their style guide to avoid collisions. Because `TranslatedText` is the only example of this in ODMv2 we give the content the attribute `TranslatedText`
+        * `mixed` is only applied to TranslatedText since there is content between the XML tags. In non-XML/HTML representations this would be given a key such as `"content"` or `"TranslatedText"`. Flickr use `"_content"` in their style guide to avoid collisions, but this causes Mermaid diagrams to fail. Because `TranslatedText` is the only example of this in ODMv2 we give the content the attribute `content`
         * `abstract` is false in all cases - there are no purely abstract classes to handle
 
 * `xs:restriction` is rules around type and enumerated values of a slot
@@ -171,7 +171,7 @@ Each `xs:attributeGroup` member looks like this i.e. the same slot can have a di
 
 * `ref` references a named definition or class, e.g. in a relationship cardinality constraint
 
-* `xs:simpleContent` contains `xs:extension` or restrictions on a text-only complextype; or on a simple type with only _content slot if it contains neither attributes nor elements.
+* `xs:simpleContent` contains `xs:extension` or restrictions on a text-only complextype; or on a simple type with only content slot if it contains neither attributes nor elements.
 
 * `xs:extension` consists of `base` and `xs:attributeGroup:[{ref}]` referencing the extension object
 

@@ -1,8 +1,6 @@
 # Class: WorkflowStart
 
-
 _WorkflowStart references a structural element that begins the automated workflow._
-
 
 
 
@@ -10,15 +8,15 @@ _WorkflowStart references a structural element that begins the automated workflo
 URI: [odm:WorkflowStart](http://www.cdisc.org/ns/odm/v2.0/WorkflowStart)
 
 
-
 ```mermaid
- classDiagram
-    class WorkflowStart
-      WorkflowStart : StartOID
-        
-      
-```
+erDiagram
+WorkflowStart {
+    oidref StartOID  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:WorkflowStart](http://www.cdisc.org/ns/odm/v2.0/WorkflowStart)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StartOID](StartOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the definition of the structural element that starts the workflo... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -92,6 +91,7 @@ description: WorkflowStart references a structural element that begins the autom
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowStart
+rank: 1000
 slots:
 - StartOID
 slot_usage:
@@ -107,7 +107,7 @@ slot_usage:
 
       The StartOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef or ItemDef child element of the MetaDataVersion parent element
-      of the WorkflowDef.'
+      of the WorkflowDef .'
     domain_of:
     - WorkflowStart
     range: oidref
@@ -127,6 +127,7 @@ description: WorkflowStart references a structural element that begins the autom
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowStart
+rank: 1000
 slot_usage:
   StartOID:
     name: StartOID
@@ -140,7 +141,7 @@ slot_usage:
 
       The StartOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef or ItemDef child element of the MetaDataVersion parent element
-      of the WorkflowDef.'
+      of the WorkflowDef .'
     domain_of:
     - WorkflowStart
     range: oidref
@@ -158,7 +159,7 @@ attributes:
 
       The StartOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef or ItemDef child element of the MetaDataVersion parent element
-      of the WorkflowDef.'
+      of the WorkflowDef .'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StartOID

@@ -1,8 +1,6 @@
 # Class: ConditionDef
 
-
 _A ConditionDef defines a boolean condition._
-
 
 
 
@@ -10,35 +8,65 @@ _A ConditionDef defines a boolean condition._
 URI: [odm:ConditionDef](http://www.cdisc.org/ns/odm/v2.0/ConditionDef)
 
 
-
 ```mermaid
- classDiagram
-    class ConditionDef
-      ConditionDef : AliasRef
-        
-          ConditionDef --|> Alias : AliasRef
-        
-      ConditionDef : CommentOID
-        
-      ConditionDef : DescriptionRef
-        
-          ConditionDef --|> Description : DescriptionRef
-        
-      ConditionDef : FormalExpressionRef
-        
-          ConditionDef --|> FormalExpression : FormalExpressionRef
-        
-      ConditionDef : MethodSignatureRef
-        
-          ConditionDef --|> MethodSignature : MethodSignatureRef
-        
-      ConditionDef : Name
-        
-      ConditionDef : OID
-        
-      
-```
+erDiagram
+ConditionDef {
+    oid OID  
+    name Name  
+    oidref CommentOID  
+}
+Alias {
+    text ContextRef  
+    text Name  
+}
+FormalExpression {
+    text ContextRef  
+}
+ExternalCodeLib {
+    name Library  
+    name Method  
+    text Version  
+    text ref  
+    uriorcurie href  
+}
+Code {
+    text content  
+}
+MethodSignature {
 
+}
+ReturnValue {
+    name Name  
+    DataType DataTypeRef  
+    text DefinitionRef  
+    positiveInteger OrderNumber  
+}
+Parameter {
+    name Name  
+    DataType DataTypeRef  
+    text DefinitionRef  
+    positiveInteger OrderNumber  
+}
+Description {
+
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+ConditionDef ||--|o Description : "DescriptionRef"
+ConditionDef ||--|o MethodSignature : "MethodSignatureRef"
+ConditionDef ||--}o FormalExpression : "FormalExpressionRef"
+ConditionDef ||--}o Alias : "AliasRef"
+FormalExpression ||--|o Code : "CodeRef"
+FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
+MethodSignature ||--}o Parameter : "ParameterRef"
+MethodSignature ||--}o ReturnValue : "ReturnValueRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -47,7 +75,7 @@ URI: [odm:ConditionDef](http://www.cdisc.org/ns/odm/v2.0/ConditionDef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human-readable name for the Condition. | direct |
@@ -57,6 +85,7 @@ URI: [odm:ConditionDef](http://www.cdisc.org/ns/odm/v2.0/ConditionDef)
 | [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
 | [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -117,6 +146,7 @@ description: A ConditionDef defines a boolean condition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ConditionDef
+rank: 1000
 slots:
 - OID
 - Name
@@ -327,6 +357,7 @@ description: A ConditionDef defines a boolean condition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ConditionDef
+rank: 1000
 slot_usage:
   OID:
     name: OID

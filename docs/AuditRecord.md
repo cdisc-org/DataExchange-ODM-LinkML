@@ -1,8 +1,6 @@
 # Class: AuditRecord
 
-
 _An AuditRecord carries information pertaining to the creation, deletion, or modification of clinical data. This information includes who performed that action, and where, when, and why that action was performed.AuditRecord information describes a change to clinical data, but is not itself clinical data. The value of some clinical data can always be changed by a subsequent transaction, but history cannot be changed, only added to._
-
 
 
 
@@ -10,41 +8,35 @@ _An AuditRecord carries information pertaining to the creation, deletion, or mod
 URI: [odm:AuditRecord](http://www.cdisc.org/ns/odm/v2.0/AuditRecord)
 
 
-
 ```mermaid
- classDiagram
-    class AuditRecord
-      AuditRecord : DateTimeStampRef
-        
-          AuditRecord --|> DateTimeStamp : DateTimeStampRef
-        
-      AuditRecord : EditPoint
-        
-          AuditRecord --|> EditPointType : EditPoint
-        
-      AuditRecord : LocationRefRef
-        
-          AuditRecord --|> LocationRef : LocationRefRef
-        
-      AuditRecord : ReasonForChangeRef
-        
-          AuditRecord --|> ReasonForChange : ReasonForChangeRef
-        
-      AuditRecord : SourceIDRef
-        
-          AuditRecord --|> SourceID : SourceIDRef
-        
-      AuditRecord : UsedMethod
-        
-          AuditRecord --|> YesOrNo : UsedMethod
-        
-      AuditRecord : UserRefRef
-        
-          AuditRecord --|> UserRef : UserRefRef
-        
-      
-```
+erDiagram
+AuditRecord {
+    EditPointType EditPoint  
+    YesOrNo UsedMethod  
+}
+SourceID {
+    text content  
+}
+ReasonForChange {
+    text content  
+}
+DateTimeStamp {
+    datetime content  
+}
+LocationRef {
+    oidref LocationOID  
+}
+UserRef {
+    oidref UserOID  
+}
 
+AuditRecord ||--|o UserRef : "UserRefRef"
+AuditRecord ||--|o LocationRef : "LocationRefRef"
+AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
+AuditRecord ||--|o SourceID : "SourceIDRef"
+
+```
 
 
 
@@ -53,7 +45,7 @@ URI: [odm:AuditRecord](http://www.cdisc.org/ns/odm/v2.0/AuditRecord)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [EditPoint](EditPoint.md) | 0..1 <br/> [EditPointType](EditPointType.md) | Identifies the phase of data processing in which update action occurred. | direct |
 | [UsedMethod](UsedMethod.md) | 0..1 <br/> [YesOrNo](YesOrNo.md) | Indicates that the action was made by the system rather than a data entry for... | direct |
@@ -63,6 +55,7 @@ URI: [odm:AuditRecord](http://www.cdisc.org/ns/odm/v2.0/AuditRecord)
 | [ReasonForChangeRef](ReasonForChangeRef.md) | 0..1 <br/> [ReasonForChange](ReasonForChange.md) | ReasonForChange reference: A user-supplied reason for a data change. | direct |
 | [SourceIDRef](SourceIDRef.md) | 0..1 <br/> [SourceID](SourceID.md) | SourceID reference: Information that identifies the source of the data within... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -134,6 +127,7 @@ description: An AuditRecord carries information pertaining to the creation, dele
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AuditRecord
+rank: 1000
 slots:
 - EditPoint
 - UsedMethod
@@ -214,6 +208,7 @@ description: An AuditRecord carries information pertaining to the creation, dele
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AuditRecord
+rank: 1000
 slot_usage:
   EditPoint:
     name: EditPoint

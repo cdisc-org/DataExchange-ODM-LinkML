@@ -1,8 +1,6 @@
 # Class: StudyIndication
 
-
 _This element describes a study indication (e.g., condition, disease) for the clinical study. The human-readable description is provided in the Description element. The Coding element can be used to provide a machine-readable code for the indication (e.g., SNOMED-CT code 26929004 for "Alzheimer's disease")._
-
 
 
 
@@ -10,23 +8,35 @@ _This element describes a study indication (e.g., condition, disease) for the cl
 URI: [odm:StudyIndication](http://www.cdisc.org/ns/odm/v2.0/StudyIndication)
 
 
-
 ```mermaid
- classDiagram
-    class StudyIndication
-      StudyIndication : CodingRef
-        
-          StudyIndication --|> Coding : CodingRef
-        
-      StudyIndication : DescriptionRef
-        
-          StudyIndication --|> Description : DescriptionRef
-        
-      StudyIndication : OID
-        
-      
-```
+erDiagram
+StudyIndication {
+    oid OID  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+StudyIndication ||--|o Description : "DescriptionRef"
+StudyIndication ||--}o Coding : "CodingRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -35,12 +45,13 @@ URI: [odm:StudyIndication](http://www.cdisc.org/ns/odm/v2.0/StudyIndication)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier of the version within the XML document. | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -104,6 +115,7 @@ description: This element describes a study indication (e.g., condition, disease
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyIndication
+rank: 1000
 slots:
 - OID
 - DescriptionRef
@@ -231,6 +243,7 @@ description: This element describes a study indication (e.g., condition, disease
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyIndication
+rank: 1000
 slot_usage:
   OID:
     name: OID

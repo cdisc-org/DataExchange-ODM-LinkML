@@ -1,8 +1,6 @@
 # Class: StudyEndPointRef
 
-
 _Go to start of metadata_
-
 
 
 
@@ -10,17 +8,16 @@ _Go to start of metadata_
 URI: [odm:StudyEndPointRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointRef)
 
 
-
 ```mermaid
- classDiagram
-    class StudyEndPointRef
-      StudyEndPointRef : OrderNumber
-        
-      StudyEndPointRef : StudyEndPointOID
-        
-      
-```
+erDiagram
+StudyEndPointRef {
+    oidref StudyEndPointOID  
+    positiveInteger OrderNumber  
+}
 
+
+
+```
 
 
 
@@ -29,11 +26,12 @@ URI: [odm:StudyEndPointRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEndPointOID](StudyEndPointOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEndPoint. | direct |
+| [StudyEndPointOID](StudyEndPointOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEndPoint . | direct |
 | [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEndPointRef appears in Metadata displa... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -95,13 +93,14 @@ description: Go to start of metadata
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPointRef
+rank: 1000
 slots:
 - StudyEndPointOID
 - OrderNumber
 slot_usage:
   StudyEndPointOID:
     name: StudyEndPointOID
-    description: Reference to the StudyEndPoint.
+    description: Reference to the StudyEndPoint .
     comments:
     - 'Required
 
@@ -143,10 +142,11 @@ description: Go to start of metadata
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPointRef
+rank: 1000
 slot_usage:
   StudyEndPointOID:
     name: StudyEndPointOID
-    description: Reference to the StudyEndPoint.
+    description: Reference to the StudyEndPoint .
     comments:
     - 'Required
 
@@ -177,7 +177,7 @@ slot_usage:
 attributes:
   StudyEndPointOID:
     name: StudyEndPointOID
-    description: Reference to the StudyEndPoint.
+    description: Reference to the StudyEndPoint .
     comments:
     - 'Required
 

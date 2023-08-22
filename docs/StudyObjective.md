@@ -1,8 +1,6 @@
 # Class: StudyObjective
 
-
 _The reason for performing a study in terms of the scientific questions to be answered by the analysis of data collected during the study._
-
 
 
 
@@ -10,29 +8,31 @@ _The reason for performing a study in terms of the scientific questions to be an
 URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
 
 
-
 ```mermaid
- classDiagram
-    class StudyObjective
-      StudyObjective : DescriptionRef
-        
-          StudyObjective --|> Description : DescriptionRef
-        
-      StudyObjective : Level
-        
-          StudyObjective --|> StudyObjectiveLevel : Level
-        
-      StudyObjective : Name
-        
-      StudyObjective : OID
-        
-      StudyObjective : StudyEndPointRefRef
-        
-          StudyObjective --|> StudyEndPointRef : StudyEndPointRefRef
-        
-      
-```
+erDiagram
+StudyObjective {
+    oid OID  
+    name Name  
+    StudyObjectiveLevel Level  
+}
+StudyEndPointRef {
+    oidref StudyEndPointOID  
+    positiveInteger OrderNumber  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+StudyObjective ||--|o Description : "DescriptionRef"
+StudyObjective ||--}o StudyEndPointRef : "StudyEndPointRefRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -41,7 +41,7 @@ URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyObjective element. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Name of the study objective | direct |
@@ -49,6 +49,7 @@ URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [StudyEndPointRefRef](StudyEndPointRefRef.md) | 0..* <br/> [StudyEndPointRef](StudyEndPointRef.md) | StudyEndPointRef reference: Go to start of metadata | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -110,6 +111,7 @@ description: The reason for performing a study in terms of the scientific questi
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyObjective
+rank: 1000
 slots:
 - OID
 - Name
@@ -293,6 +295,7 @@ description: The reason for performing a study in terms of the scientific questi
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyObjective
+rank: 1000
 slot_usage:
   OID:
     name: OID

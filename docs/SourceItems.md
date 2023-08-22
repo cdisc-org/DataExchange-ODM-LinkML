@@ -1,8 +1,6 @@
 # Class: SourceItems
 
-
 _Identifies source items as needed to support automated data capture and end-to-end traceability._
-
 
 
 
@@ -10,21 +8,43 @@ _Identifies source items as needed to support automated data capture and end-to-
 URI: [odm:SourceItems](http://www.cdisc.org/ns/odm/v2.0/SourceItems)
 
 
-
 ```mermaid
- classDiagram
-    class SourceItems
-      SourceItems : CodingRef
-        
-          SourceItems --|> Coding : CodingRef
-        
-      SourceItems : SourceItemRef
-        
-          SourceItems --|> SourceItem : SourceItemRef
-        
-      
-```
+erDiagram
+SourceItems {
 
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+SourceItem {
+    oidref ItemOID  
+    oidref ItemGroupOID  
+    oidref MetaDataVersionOID  
+    oidref StudyOID  
+    oidref leafID  
+    name Name  
+}
+Resource {
+    text Type  
+    name Name  
+    text Attribute  
+    text Label  
+}
+
+SourceItems ||--}o SourceItem : "SourceItemRef"
+SourceItems ||--}o Coding : "CodingRef"
+SourceItem ||--}o Resource : "ResourceRef"
+SourceItem ||--}o Coding : "CodingRef"
+Resource ||--}o Selection : "SelectionRef"
+
+```
 
 
 
@@ -33,11 +53,12 @@ URI: [odm:SourceItems](http://www.cdisc.org/ns/odm/v2.0/SourceItems)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [SourceItemRef](SourceItemRef.md) | 0..* <br/> [SourceItem](SourceItem.md) | SourceItem reference: Provides the information needed to identify the source ... | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -99,6 +120,7 @@ description: Identifies source items as needed to support automated data capture
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SourceItems
+rank: 1000
 slots:
 - SourceItemRef
 - CodingRef
@@ -149,6 +171,7 @@ description: Identifies source items as needed to support automated data capture
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SourceItems
+rank: 1000
 slot_usage:
   SourceItemRef:
     name: SourceItemRef

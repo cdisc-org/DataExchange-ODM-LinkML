@@ -1,8 +1,6 @@
 # Class: SignatureRef
 
-
 _A reference to the signature meaning._
-
 
 
 
@@ -10,15 +8,15 @@ _A reference to the signature meaning._
 URI: [odm:SignatureRef](http://www.cdisc.org/ns/odm/v2.0/SignatureRef)
 
 
-
 ```mermaid
- classDiagram
-    class SignatureRef
-      SignatureRef : SignatureOID
-        
-      
-```
+erDiagram
+SignatureRef {
+    oidref SignatureOID  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:SignatureRef](http://www.cdisc.org/ns/odm/v2.0/SignatureRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SignatureOID](SignatureOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the SignatureDef. | direct |
+| [SignatureOID](SignatureOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the SignatureDef . | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -91,12 +90,13 @@ description: A reference to the signature meaning.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SignatureRef
+rank: 1000
 slots:
 - SignatureOID
 slot_usage:
   SignatureOID:
     name: SignatureOID
-    description: Reference to the SignatureDef.
+    description: Reference to the SignatureDef .
     comments:
     - 'Required
 
@@ -119,10 +119,11 @@ description: A reference to the signature meaning.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SignatureRef
+rank: 1000
 slot_usage:
   SignatureOID:
     name: SignatureOID
-    description: Reference to the SignatureDef.
+    description: Reference to the SignatureDef .
     comments:
     - 'Required
 
@@ -134,7 +135,7 @@ slot_usage:
 attributes:
   SignatureOID:
     name: SignatureOID
-    description: Reference to the SignatureDef.
+    description: Reference to the SignatureDef .
     comments:
     - 'Required
 

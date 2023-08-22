@@ -1,8 +1,6 @@
 # Class: MetaDataVersion
 
-
 _The metadata for a study is defined in a series of MetaDataVersion elements. Through this mechanism (multiple MetaDataVersion elements), the model supports the incremental deployment of "mid-stream study changes," and thus can handle a situation where multiple versions of the metadata are being used simultaneously (e.g., due to delays in IRB approval at various sites)._
-
 
 
 
@@ -10,91 +8,424 @@ _The metadata for a study is defined in a series of MetaDataVersion elements. Th
 URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
 
 
-
 ```mermaid
- classDiagram
-    class MetaDataVersion
-      MetaDataVersion : AnnotatedCRFRef
-        
-          MetaDataVersion --|> AnnotatedCRF : AnnotatedCRFRef
-        
-      MetaDataVersion : CodeListRefRef
-        
-          MetaDataVersion --|> CodeList : CodeListRefRef
-        
-      MetaDataVersion : CommentDefRef
-        
-          MetaDataVersion --|> CommentDef : CommentDefRef
-        
-      MetaDataVersion : CommentOID
-        
-      MetaDataVersion : ConditionDefRef
-        
-          MetaDataVersion --|> ConditionDef : ConditionDefRef
-        
-      MetaDataVersion : DescriptionRef
-        
-          MetaDataVersion --|> Description : DescriptionRef
-        
-      MetaDataVersion : IncludeRef
-        
-          MetaDataVersion --|> Include : IncludeRef
-        
-      MetaDataVersion : ItemDefRef
-        
-          MetaDataVersion --|> ItemDef : ItemDefRef
-        
-      MetaDataVersion : ItemGroupDefRef
-        
-          MetaDataVersion --|> ItemGroupDef : ItemGroupDefRef
-        
-      MetaDataVersion : LeafRef
-        
-          MetaDataVersion --|> Leaf : LeafRef
-        
-      MetaDataVersion : MethodDefRef
-        
-          MetaDataVersion --|> MethodDef : MethodDefRef
-        
-      MetaDataVersion : Name
-        
-      MetaDataVersion : OID
-        
-      MetaDataVersion : ProtocolRef
-        
-          MetaDataVersion --|> Protocol : ProtocolRef
-        
-      MetaDataVersion : StandardsRef
-        
-          MetaDataVersion --|> Standards : StandardsRef
-        
-      MetaDataVersion : StudyEventDefRef
-        
-          MetaDataVersion --|> StudyEventDef : StudyEventDefRef
-        
-      MetaDataVersion : StudyEventGroupDefRef
-        
-          MetaDataVersion --|> StudyEventGroupDef : StudyEventGroupDefRef
-        
-      MetaDataVersion : SupplementalDocRef
-        
-          MetaDataVersion --|> SupplementalDoc : SupplementalDocRef
-        
-      MetaDataVersion : ValueListDefRef
-        
-          MetaDataVersion --|> ValueListDef : ValueListDefRef
-        
-      MetaDataVersion : WhereClauseDefRef
-        
-          MetaDataVersion --|> WhereClauseDef : WhereClauseDefRef
-        
-      MetaDataVersion : WorkflowDefRef
-        
-          MetaDataVersion --|> WorkflowDef : WorkflowDefRef
-        
-      
-```
+erDiagram
+MetaDataVersion {
+    oid OID  
+    name Name  
+    oidref CommentOID  
+}
+Leaf {
+    oid ID  
+    uriorcurie href  
+}
+Title {
+    text content  
+}
+CommentDef {
+    oid OID  
+}
+DocumentRef {
+    oid LeafID  
+}
+Description {
 
+}
+MethodDef {
+    oid OID  
+    name Name  
+    MethodType Type  
+    oidref CommentOID  
+}
+Alias {
+    text ContextRef  
+    text Name  
+}
+FormalExpression {
+    text ContextRef  
+}
+MethodSignature {
+
+}
+ConditionDef {
+    oid OID  
+    name Name  
+    oidref CommentOID  
+}
+CodeList {
+    oid OID  
+    name Name  
+    CLDataType DataTypeRef  
+    oidref CommentOID  
+    oidref StandardOID  
+    YesOnly IsNonStandard  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+CodeListItem {
+    value CodedValue  
+    decimal Rank  
+    YesOnly Other  
+    positiveInteger OrderNumber  
+    YesOnly ExtendedValue  
+    oidref CommentOID  
+}
+ItemDef {
+    oid OID  
+    name Name  
+    DataType DataTypeRef  
+    positiveInteger Length  
+    text DisplayFormat  
+    text VariableSet  
+    oidref CommentOID  
+}
+ValueListRef {
+    oidref ValueListOID  
+}
+CodeListRef {
+    oidref CodeListOID  
+}
+RangeCheck {
+    Comparator ComparatorRef  
+    SoftOrHard SoftHard  
+    oidref ItemOID  
+}
+CDISCNotes {
+
+}
+ImplementationNotes {
+
+}
+CRFCompletionInstructions {
+
+}
+Prompt {
+
+}
+Question {
+
+}
+Definition {
+
+}
+ItemGroupDef {
+    oid OID  
+    name Name  
+    ItemGroupRepeatingType Repeating  
+    positiveInteger RepeatingLimit  
+    YesOrNo IsReferenceData  
+    text Structure  
+    oidref ArchiveLocationID  
+    name DatasetName  
+    text Domain  
+    ItemGroupTypeType Type  
+    text Purpose  
+    oidref StandardOID  
+    YesOnly IsNonStandard  
+    YesOnly HasNoData  
+    oidref CommentOID  
+}
+ItemRef {
+    oidref ItemOID  
+    positiveInteger KeySequence  
+    YesOnly IsNonStandard  
+    YesOnly HasNoData  
+    oidref MethodOID  
+    oidref UnitsItemOID  
+    YesOnly Repeat  
+    YesOnly Other  
+    text Role  
+    oidref RoleCodeListOID  
+    CoreType Core  
+    text PreSpecifiedValue  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
+ItemGroupRef {
+    oidref ItemGroupOID  
+    oidref MethodOID  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
+Origin {
+    OriginType Type  
+    OriginSource Source  
+}
+WorkflowRef {
+    oidref WorkflowOID  
+}
+Class {
+    ItemGroupClass Name  
+}
+StudyEventDef {
+    oid OID  
+    name Name  
+    YesOrNo Repeating  
+    EventType Type  
+    text Category  
+    oidref CommentOID  
+}
+StudyEventGroupDef {
+    oid OID  
+    name Name  
+    oidref ArmOID  
+    oidref EpochOID  
+    oidref CommentOID  
+}
+StudyEventRef {
+    oidref StudyEventOID  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
+StudyEventGroupRef {
+    oidref StudyEventGroupOID  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
+WorkflowDef {
+    oid OID  
+    name Name  
+}
+Branching {
+    oid OID  
+    name Name  
+    BranchingType Type  
+}
+Transition {
+    oid OID  
+    name Name  
+    oidref SourceOID  
+    oidref TargetOID  
+    oidref StartConditionOID  
+    oidref EndConditionOID  
+}
+WorkflowEnd {
+    oidref EndOID  
+    text content  
+}
+WorkflowStart {
+    oidref StartOID  
+}
+Protocol {
+
+}
+InclusionExclusionCriteria {
+
+}
+StudyEstimands {
+
+}
+StudyTargetPopulation {
+    oid OID  
+    name Name  
+}
+StudyEndPoints {
+
+}
+StudyObjectives {
+
+}
+StudyInterventions {
+
+}
+StudyIndications {
+
+}
+StudyTimings {
+
+}
+TrialPhase {
+    TrialPhaseType ValueRef  
+}
+StudyStructure {
+
+}
+StudySummary {
+
+}
+WhereClauseDef {
+    oid OID  
+    oidref CommentOID  
+}
+ValueListDef {
+    oid OID  
+}
+SupplementalDoc {
+
+}
+AnnotatedCRF {
+
+}
+Standards {
+
+}
+Standard {
+    oid OID  
+    StandardName Name  
+    StandardType Type  
+    StandardPublishingSet PublishingSet  
+    text Version  
+    StandardStatus Status  
+    oidref CommentOID  
+}
+Include {
+    oidref StudyOID  
+    oidref MetaDataVersionOID  
+    uriorcurie href  
+}
+
+MetaDataVersion ||--|o Description : "DescriptionRef"
+MetaDataVersion ||--|o Include : "IncludeRef"
+MetaDataVersion ||--|o Standards : "StandardsRef"
+MetaDataVersion ||--|o AnnotatedCRF : "AnnotatedCRFRef"
+MetaDataVersion ||--|o SupplementalDoc : "SupplementalDocRef"
+MetaDataVersion ||--}o ValueListDef : "ValueListDefRef"
+MetaDataVersion ||--}o WhereClauseDef : "WhereClauseDefRef"
+MetaDataVersion ||--|o Protocol : "ProtocolRef"
+MetaDataVersion ||--}o WorkflowDef : "WorkflowDefRef"
+MetaDataVersion ||--}o StudyEventGroupDef : "StudyEventGroupDefRef"
+MetaDataVersion ||--}o StudyEventDef : "StudyEventDefRef"
+MetaDataVersion ||--}o ItemGroupDef : "ItemGroupDefRef"
+MetaDataVersion ||--}o ItemDef : "ItemDefRef"
+MetaDataVersion ||--}o CodeList : "CodeListRefRef"
+MetaDataVersion ||--}o ConditionDef : "ConditionDefRef"
+MetaDataVersion ||--}o MethodDef : "MethodDefRef"
+MetaDataVersion ||--}o CommentDef : "CommentDefRef"
+MetaDataVersion ||--}o Leaf : "LeafRef"
+Leaf ||--|o Title : "TitleRef"
+CommentDef ||--|o Description : "DescriptionRef"
+CommentDef ||--}o DocumentRef : "DocumentRefRef"
+DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+MethodDef ||--|o Description : "DescriptionRef"
+MethodDef ||--|o MethodSignature : "MethodSignatureRef"
+MethodDef ||--}o FormalExpression : "FormalExpressionRef"
+MethodDef ||--}o Alias : "AliasRef"
+MethodDef ||--}o DocumentRef : "DocumentRefRef"
+FormalExpression ||--|o Code : "CodeRef"
+FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
+MethodSignature ||--}o Parameter : "ParameterRef"
+MethodSignature ||--}o ReturnValue : "ReturnValueRef"
+ConditionDef ||--|o Description : "DescriptionRef"
+ConditionDef ||--|o MethodSignature : "MethodSignatureRef"
+ConditionDef ||--}o FormalExpression : "FormalExpressionRef"
+ConditionDef ||--}o Alias : "AliasRef"
+CodeList ||--|o Description : "DescriptionRef"
+CodeList ||--}o CodeListItem : "CodeListItemRef"
+CodeList ||--}o Coding : "CodingRef"
+CodeList ||--}o Alias : "AliasRef"
+CodeListItem ||--|o Description : "DescriptionRef"
+CodeListItem ||--|o Decode : "DecodeRef"
+CodeListItem ||--}o Coding : "CodingRef"
+CodeListItem ||--}o Alias : "AliasRef"
+ItemDef ||--|o Description : "DescriptionRef"
+ItemDef ||--|o Definition : "DefinitionRef"
+ItemDef ||--|o Question : "QuestionRef"
+ItemDef ||--|o Prompt : "PromptRef"
+ItemDef ||--|o CRFCompletionInstructions : "CRFCompletionInstructionsRef"
+ItemDef ||--|o ImplementationNotes : "ImplementationNotesRef"
+ItemDef ||--|o CDISCNotes : "CDISCNotesRef"
+ItemDef ||--}o RangeCheck : "RangeCheckRef"
+ItemDef ||--|o CodeListRef : "CodeListRefRef"
+ItemDef ||--|o ValueListRef : "ValueListRefRef"
+ItemDef ||--}o Coding : "CodingRef"
+ItemDef ||--}o Alias : "AliasRef"
+RangeCheck ||--|o ErrorMessage : "ErrorMessageRef"
+RangeCheck ||--|o MethodSignature : "MethodSignatureRef"
+RangeCheck ||--}o FormalExpression : "FormalExpressionRef"
+RangeCheck ||--}o CheckValue : "CheckValueRef"
+CDISCNotes ||--}o TranslatedText : "TranslatedTextRef"
+ImplementationNotes ||--}o TranslatedText : "TranslatedTextRef"
+CRFCompletionInstructions ||--}o TranslatedText : "TranslatedTextRef"
+Prompt ||--}o TranslatedText : "TranslatedTextRef"
+Question ||--}o TranslatedText : "TranslatedTextRef"
+Definition ||--}o TranslatedText : "TranslatedTextRef"
+ItemGroupDef ||--|o Description : "DescriptionRef"
+ItemGroupDef ||--|o Class : "ClassRef"
+ItemGroupDef ||--}o Coding : "CodingRef"
+ItemGroupDef ||--|o WorkflowRef : "WorkflowRefRef"
+ItemGroupDef ||--}o Origin : "OriginRef"
+ItemGroupDef ||--}o Alias : "AliasRef"
+ItemGroupDef ||--|o Leaf : "LeafRef"
+ItemGroupDef ||--}o ItemGroupRef : "ItemGroupRefRef"
+ItemGroupDef ||--}o ItemRef : "ItemRefRef"
+ItemRef ||--}o Origin : "OriginRef"
+ItemRef ||--}o WhereClauseRef : "WhereClauseRefRef"
+Origin ||--|o Description : "DescriptionRef"
+Origin ||--|o SourceItems : "SourceItemsRef"
+Origin ||--}o Coding : "CodingRef"
+Origin ||--}o DocumentRef : "DocumentRefRef"
+Class ||--}o SubClass : "SubClassRef"
+StudyEventDef ||--|o Description : "DescriptionRef"
+StudyEventDef ||--}o ItemGroupRef : "ItemGroupRefRef"
+StudyEventDef ||--|o WorkflowRef : "WorkflowRefRef"
+StudyEventDef ||--}o Coding : "CodingRef"
+StudyEventDef ||--}o Alias : "AliasRef"
+StudyEventGroupDef ||--|o Description : "DescriptionRef"
+StudyEventGroupDef ||--|o WorkflowRef : "WorkflowRefRef"
+StudyEventGroupDef ||--}o Coding : "CodingRef"
+StudyEventGroupDef ||--}o StudyEventGroupRef : "StudyEventGroupRefRef"
+StudyEventGroupDef ||--}o StudyEventRef : "StudyEventRefRef"
+StudyEventGroupRef ||--|o Description : "DescriptionRef"
+WorkflowDef ||--|o Description : "DescriptionRef"
+WorkflowDef ||--|o WorkflowStart : "WorkflowStartRef"
+WorkflowDef ||--}o WorkflowEnd : "WorkflowEndRef"
+WorkflowDef ||--}o Transition : "TransitionRef"
+WorkflowDef ||--}o Branching : "BranchingRef"
+Branching ||--}o TargetTransition : "TargetTransitionRef"
+Branching ||--}o DefaultTransition : "DefaultTransitionRef"
+Protocol ||--|o Description : "DescriptionRef"
+Protocol ||--|o StudySummary : "StudySummaryRef"
+Protocol ||--|o StudyStructure : "StudyStructureRef"
+Protocol ||--|o TrialPhase : "TrialPhaseRef"
+Protocol ||--|o StudyTimings : "StudyTimingsRef"
+Protocol ||--|o StudyIndications : "StudyIndicationsRef"
+Protocol ||--|o StudyInterventions : "StudyInterventionsRef"
+Protocol ||--|o StudyObjectives : "StudyObjectivesRef"
+Protocol ||--|o StudyEndPoints : "StudyEndPointsRef"
+Protocol ||--|o StudyTargetPopulation : "StudyTargetPopulationRefRef"
+Protocol ||--|o StudyEstimands : "StudyEstimandsRef"
+Protocol ||--|o InclusionExclusionCriteria : "InclusionExclusionCriteriaRef"
+Protocol ||--}o StudyEventGroupRef : "StudyEventGroupRefRef"
+Protocol ||--|o WorkflowRef : "WorkflowRefRef"
+Protocol ||--}o Alias : "AliasRef"
+InclusionExclusionCriteria ||--|o InclusionCriteria : "InclusionCriteriaRef"
+InclusionExclusionCriteria ||--|o ExclusionCriteria : "ExclusionCriteriaRef"
+StudyEstimands ||--}o StudyEstimand : "StudyEstimandRef"
+StudyTargetPopulation ||--|o Description : "DescriptionRef"
+StudyTargetPopulation ||--}o Coding : "CodingRef"
+StudyTargetPopulation ||--}o FormalExpression : "FormalExpressionRef"
+StudyEndPoints ||--}o StudyEndPoint : "StudyEndPointRefRef"
+StudyObjectives ||--}o StudyObjective : "StudyObjectiveRef"
+StudyInterventions ||--}o StudyIntervention : "StudyInterventionRefRef"
+StudyIndications ||--}o StudyIndication : "StudyIndicationRef"
+StudyTimings ||--}o StudyTiming : "StudyTimingRef"
+TrialPhase ||--|o Description : "DescriptionRef"
+StudyStructure ||--|o Description : "DescriptionRef"
+StudyStructure ||--}o Arm : "ArmRef"
+StudyStructure ||--}o Epoch : "EpochRef"
+StudyStructure ||--|o WorkflowRef : "WorkflowRefRef"
+StudySummary ||--}o StudyParameter : "StudyParameterRef"
+WhereClauseDef ||--}o RangeCheck : "RangeCheckRef"
+ValueListDef ||--|o Description : "DescriptionRef"
+ValueListDef ||--}o ItemRef : "ItemRefRef"
+SupplementalDoc ||--}o DocumentRef : "DocumentRefRef"
+AnnotatedCRF ||--}o DocumentRef : "DocumentRefRef"
+Standards ||--}o Standard : "StandardRef"
+
+```
 
 
 
@@ -103,7 +434,7 @@ URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | MetaDataVersion name. | direct |
@@ -127,6 +458,7 @@ URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
 | [CommentDefRef](CommentDefRef.md) | 0..* <br/> [CommentDef](CommentDef.md) | CommentDef reference: The Comment element allows referencing short comments s... | direct |
 | [LeafRef](LeafRef.md) | 0..* <br/> [Leaf](Leaf.md) | Leaf reference: Contains the XLink information referenced by DocumentRef or A... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -191,6 +523,7 @@ description: The metadata for a study is defined in a series of MetaDataVersion 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MetaDataVersion
+rank: 1000
 slots:
 - OID
 - Name
@@ -512,6 +845,7 @@ description: The metadata for a study is defined in a series of MetaDataVersion 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MetaDataVersion
+rank: 1000
 slot_usage:
   OID:
     name: OID

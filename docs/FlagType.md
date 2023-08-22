@@ -1,8 +1,6 @@
 # Class: FlagType
 
-
 _The type of flag. This determines the purpose and semantics of the flag._
-
 
 
 
@@ -10,17 +8,16 @@ _The type of flag. This determines the purpose and semantics of the flag._
 URI: [odm:FlagType](http://www.cdisc.org/ns/odm/v2.0/FlagType)
 
 
-
 ```mermaid
- classDiagram
-    class FlagType
-      FlagType : _content
-        
-      FlagType : CodeListOID
-        
-      
-```
+erDiagram
+FlagType {
+    oidref CodeListOID  
+    name content  
+}
 
+
+
+```
 
 
 
@@ -29,11 +26,12 @@ URI: [odm:FlagType](http://www.cdisc.org/ns/odm/v2.0/FlagType)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [CodeListOID](CodeListOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the CodeList definition. | direct |
-| [_content](_content.md) | 0..1 <br/> [name](name.md) | multi-line text content from between XML tags | direct |
+| [content](content.md) | 0..1 <br/> [name](name.md) | multi-line text content from between XML tags | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -94,9 +92,10 @@ description: The type of flag. This determines the purpose and semantics of the 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/FlagType
+rank: 1000
 slots:
 - CodeListOID
-- _content
+- content
 slot_usage:
   CodeListOID:
     name: CodeListOID
@@ -114,8 +113,8 @@ slot_usage:
     - FlagType
     range: oidref
     required: true
-  _content:
-    name: _content
+  content:
+    name: content
     domain_of:
     - TranslatedText
     - Title
@@ -158,6 +157,7 @@ description: The type of flag. This determines the purpose and semantics of the 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/FlagType
+rank: 1000
 slot_usage:
   CodeListOID:
     name: CodeListOID
@@ -175,8 +175,8 @@ slot_usage:
     - FlagType
     range: oidref
     required: true
-  _content:
-    name: _content
+  content:
+    name: content
     domain_of:
     - TranslatedText
     - Title
@@ -226,12 +226,12 @@ attributes:
     - FlagType
     range: oidref
     required: true
-  _content:
-    name: _content
+  content:
+    name: content
     description: multi-line text content from between XML tags
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: _content
+    alias: content
     owner: FlagType
     domain_of:
     - TranslatedText

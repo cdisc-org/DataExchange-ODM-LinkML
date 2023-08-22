@@ -1,8 +1,6 @@
 # Class: Telecom
 
-
 _The telecommunication contacts points of a user, a location, or an organization. The Type attribute designates the type of contact._
-
 
 
 
@@ -10,19 +8,16 @@ _The telecommunication contacts points of a user, a location, or an organization
 URI: [odm:Telecom](http://www.cdisc.org/ns/odm/v2.0/Telecom)
 
 
-
 ```mermaid
- classDiagram
-    class Telecom
-      Telecom : TelecomType
-        
-          Telecom --|> TelecomTypeType : TelecomType
-        
-      Telecom : ValueRef
-        
-      
-```
+erDiagram
+Telecom {
+    TelecomTypeType TelecomType  
+    text ValueRef  
+}
 
+
+
+```
 
 
 
@@ -31,11 +26,12 @@ URI: [odm:Telecom](http://www.cdisc.org/ns/odm/v2.0/Telecom)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [TelecomType](TelecomType.md) | 1..1 <br/> [TelecomTypeType](TelecomTypeType.md) |  | direct |
 | [ValueRef](ValueRef.md) | 1..1 <br/> [text](text.md) | Human-readable designation of the trial phase. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -99,6 +95,7 @@ description: The telecommunication contacts points of a user, a location, or an 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Telecom
+rank: 1000
 slots:
 - TelecomType
 - ValueRef
@@ -144,6 +141,7 @@ description: The telecommunication contacts points of a user, a location, or an 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Telecom
+rank: 1000
 slot_usage:
   TelecomType:
     name: TelecomType

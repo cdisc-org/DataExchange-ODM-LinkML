@@ -1,8 +1,6 @@
 # Class: Parameter
 
-
 _The Parameter element represents a method parameter used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck._
-
 
 
 
@@ -10,23 +8,18 @@ _The Parameter element represents a method parameter used as part of a MethodSig
 URI: [odm:Parameter](http://www.cdisc.org/ns/odm/v2.0/Parameter)
 
 
-
 ```mermaid
- classDiagram
-    class Parameter
-      Parameter : DataTypeRef
-        
-          Parameter --|> DataType : DataTypeRef
-        
-      Parameter : DefinitionRef
-        
-      Parameter : Name
-        
-      Parameter : OrderNumber
-        
-      
-```
+erDiagram
+Parameter {
+    name Name  
+    DataType DataTypeRef  
+    text DefinitionRef  
+    positiveInteger OrderNumber  
+}
 
+
+
+```
 
 
 
@@ -35,13 +28,14 @@ URI: [odm:Parameter](http://www.cdisc.org/ns/odm/v2.0/Parameter)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | The parameter name - typically the name of an ItemDef referenced in the ItemG... | direct |
 | [DataTypeRef](DataTypeRef.md) | 1..1 <br/> [DataType](DataType.md) | Parameter datatype. | direct |
 | [DefinitionRef](DefinitionRef.md) | 0..1 <br/> [text](text.md) | A free-text definition of the parameter | direct |
 | [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Position of the Parameter in the MethodSignature | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -103,6 +97,7 @@ description: The Parameter element represents a method parameter used as part of
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Parameter
+rank: 1000
 slots:
 - Name
 - DataTypeRef
@@ -215,6 +210,7 @@ description: The Parameter element represents a method parameter used as part of
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Parameter
+rank: 1000
 slot_usage:
   Name:
     name: Name

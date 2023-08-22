@@ -1,8 +1,6 @@
 # Class: DocumentRef
 
-
 _Links to a leaf element with the location of the document._
-
 
 
 
@@ -10,19 +8,22 @@ _Links to a leaf element with the location of the document._
 URI: [odm:DocumentRef](http://www.cdisc.org/ns/odm/v2.0/DocumentRef)
 
 
-
 ```mermaid
- classDiagram
-    class DocumentRef
-      DocumentRef : LeafID
-        
-      DocumentRef : PDFPageRefRef
-        
-          DocumentRef --|> PDFPageRef : PDFPageRefRef
-        
-      
-```
+erDiagram
+DocumentRef {
+    oid LeafID  
+}
+PDFPageRef {
+    text PageRefs  
+    positiveInteger FirstPage  
+    positiveInteger LastPage  
+    PDFPageType Type  
+    text TitleRef  
+}
 
+DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
+
+```
 
 
 
@@ -31,11 +32,12 @@ URI: [odm:DocumentRef](http://www.cdisc.org/ns/odm/v2.0/DocumentRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [LeafID](LeafID.md) | 1..1 <br/> [oid](oid.md) | Reference to the unique ID of the Leaf element that contains the location of ... | direct |
 | [PDFPageRefRef](PDFPageRefRef.md) | 0..* <br/> [PDFPageRef](PDFPageRef.md) | The PDFPageRef element is a container for page references in a PDF file. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -100,6 +102,7 @@ description: Links to a leaf element with the location of the document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DocumentRef
+rank: 1000
 slots:
 - LeafID
 - PDFPageRefRef
@@ -140,6 +143,7 @@ description: Links to a leaf element with the location of the document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DocumentRef
+rank: 1000
 slot_usage:
   LeafID:
     name: LeafID

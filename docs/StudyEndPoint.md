@@ -1,8 +1,6 @@
 # Class: StudyEndPoint
 
-
 _A study end point reflects an outcome measure of interest that is statistically analyzed to address a particular research question for the study. It typically specifies the type of assessments made; the timing of those assessments; the assessment tools used; and other details, as applicable, such as how multiple assessments within an individual are to be combined._
-
 
 
 
@@ -10,33 +8,43 @@ _A study end point reflects an outcome measure of interest that is statistically
 URI: [odm:StudyEndPoint](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoint)
 
 
-
 ```mermaid
- classDiagram
-    class StudyEndPoint
-      StudyEndPoint : DescriptionRef
-        
-          StudyEndPoint --|> Description : DescriptionRef
-        
-      StudyEndPoint : FormalExpressionRef
-        
-          StudyEndPoint --|> FormalExpression : FormalExpressionRef
-        
-      StudyEndPoint : Level
-        
-          StudyEndPoint --|> StudyEstimandLevel : Level
-        
-      StudyEndPoint : Name
-        
-      StudyEndPoint : OID
-        
-      StudyEndPoint : Type
-        
-          StudyEndPoint --|> StudyEndPointType : Type
-        
-      
-```
+erDiagram
+StudyEndPoint {
+    oid OID  
+    name Name  
+    StudyEndPointType Type  
+    StudyEstimandLevel Level  
+}
+FormalExpression {
+    text ContextRef  
+}
+ExternalCodeLib {
+    name Library  
+    name Method  
+    text Version  
+    text ref  
+    uriorcurie href  
+}
+Code {
+    text content  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+StudyEndPoint ||--|o Description : "DescriptionRef"
+StudyEndPoint ||--}o FormalExpression : "FormalExpressionRef"
+FormalExpression ||--|o Code : "CodeRef"
+FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -45,7 +53,7 @@ URI: [odm:StudyEndPoint](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoint)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEndPoint element | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable identifier for the StudyEndPoint element. | direct |
@@ -54,6 +62,7 @@ URI: [odm:StudyEndPoint](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoint)
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -118,6 +127,7 @@ description: A study end point reflects an outcome measure of interest that is s
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPoint
+rank: 1000
 slots:
 - OID
 - Name
@@ -342,6 +352,7 @@ description: A study end point reflects an outcome measure of interest that is s
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPoint
+rank: 1000
 slot_usage:
   OID:
     name: OID

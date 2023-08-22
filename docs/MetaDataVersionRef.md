@@ -1,8 +1,6 @@
 # Class: MetaDataVersionRef
 
-
 _A reference to a MetaDataVersion used at the containing Location. The EffectiveDate reflects the possibility that the metadata may change over the course of the study._
-
 
 
 
@@ -10,19 +8,17 @@ _A reference to a MetaDataVersion used at the containing Location. The Effective
 URI: [odm:MetaDataVersionRef](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersionRef)
 
 
-
 ```mermaid
- classDiagram
-    class MetaDataVersionRef
-      MetaDataVersionRef : EffectiveDate
-        
-      MetaDataVersionRef : MetaDataVersionOID
-        
-      MetaDataVersionRef : StudyOID
-        
-      
-```
+erDiagram
+MetaDataVersionRef {
+    oidref StudyOID  
+    oidref MetaDataVersionOID  
+    date EffectiveDate  
+}
 
+
+
+```
 
 
 
@@ -31,12 +27,13 @@ URI: [odm:MetaDataVersionRef](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersionRe
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the Study that uses this metadata version. | direct |
 | [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | References the MetaDataVersion (within the above Study). | direct |
 | [EffectiveDate](EffectiveDate.md) | 1..1 <br/> [date](date.md) | Datetime stamp when this MetaDataVersion was published at this location. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -99,6 +96,7 @@ description: A reference to a MetaDataVersion used at the containing Location. T
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MetaDataVersionRef
+rank: 1000
 slots:
 - StudyOID
 - MetaDataVersionOID
@@ -169,6 +167,7 @@ description: A reference to a MetaDataVersion used at the containing Location. T
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/MetaDataVersionRef
+rank: 1000
 slot_usage:
   StudyOID:
     name: StudyOID

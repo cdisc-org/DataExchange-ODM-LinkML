@@ -1,11 +1,11 @@
-# Slot: _language
+# Slot: language
 
 
 _language context for internationalisation and localisation_
 
 
 
-URI: [odm:_language](http://www.cdisc.org/ns/odm/v2.0/_language)
+URI: [odm:language](http://www.cdisc.org/ns/odm/v2.0/language)
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:_language](http://www.cdisc.org/ns/odm/v2.0/_language)
 
 ## Properties
 
-* Range: [_languageType](_languageType.md)
+* Range: [languageType](languageType.md)
 
 
 
@@ -54,14 +54,14 @@ URI: [odm:_language](http://www.cdisc.org/ns/odm/v2.0/_language)
 
 <details>
 ```yaml
-name: _language
+name: language
 description: language context for internationalisation and localisation
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-alias: _language
+alias: language
 domain_of:
 - TranslatedText
-range: _languageType
+range: languageType
 
 ```
 </details>

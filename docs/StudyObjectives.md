@@ -1,8 +1,6 @@
 # Class: StudyObjectives
 
-
 _The StudyObjectives is a container element for individual StudyObjective elements._
-
 
 
 
@@ -10,17 +8,30 @@ _The StudyObjectives is a container element for individual StudyObjective elemen
 URI: [odm:StudyObjectives](http://www.cdisc.org/ns/odm/v2.0/StudyObjectives)
 
 
-
 ```mermaid
- classDiagram
-    class StudyObjectives
-      StudyObjectives : StudyObjectiveRef
-        
-          StudyObjectives --|> StudyObjective : StudyObjectiveRef
-        
-      
-```
+erDiagram
+StudyObjectives {
 
+}
+StudyObjective {
+    oid OID  
+    name Name  
+    StudyObjectiveLevel Level  
+}
+StudyEndPointRef {
+    oidref StudyEndPointOID  
+    positiveInteger OrderNumber  
+}
+Description {
+
+}
+
+StudyObjectives ||--}o StudyObjective : "StudyObjectiveRef"
+StudyObjective ||--|o Description : "DescriptionRef"
+StudyObjective ||--}o StudyEndPointRef : "StudyEndPointRefRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -29,10 +40,11 @@ URI: [odm:StudyObjectives](http://www.cdisc.org/ns/odm/v2.0/StudyObjectives)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyObjectiveRef](StudyObjectiveRef.md) | 0..* <br/> [StudyObjective](StudyObjective.md) | StudyObjective reference: The reason for performing a study in terms of the s... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -94,6 +106,7 @@ description: The StudyObjectives is a container element for individual StudyObje
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyObjectives
+rank: 1000
 slots:
 - StudyObjectiveRef
 slot_usage:
@@ -120,6 +133,7 @@ description: The StudyObjectives is a container element for individual StudyObje
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyObjectives
+rank: 1000
 slot_usage:
   StudyObjectiveRef:
     name: StudyObjectiveRef

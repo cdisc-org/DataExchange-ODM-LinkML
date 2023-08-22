@@ -1,8 +1,6 @@
 # Class: InclusionCriteria
 
-
 _The InclusionCriteria is a container element for Criterion elements describing inclusion criteria for subjects in the study. When a list is provided, subjects must meet each of the criteria in the list in order to enroll in the study._
-
 
 
 
@@ -10,17 +8,36 @@ _The InclusionCriteria is a container element for Criterion elements describing 
 URI: [odm:InclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/InclusionCriteria)
 
 
-
 ```mermaid
- classDiagram
-    class InclusionCriteria
-      InclusionCriteria : CriterionRef
-        
-          InclusionCriteria --|> Criterion : CriterionRef
-        
-      
-```
+erDiagram
+InclusionCriteria {
 
+}
+Criterion {
+    oid OID  
+    name Name  
+    oidref ConditionOID  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Description {
+
+}
+
+InclusionCriteria ||--}o Criterion : "CriterionRef"
+Criterion ||--|o Description : "DescriptionRef"
+Criterion ||--}o Coding : "CodingRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -29,10 +46,11 @@ URI: [odm:InclusionCriteria](http://www.cdisc.org/ns/odm/v2.0/InclusionCriteria)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [CriterionRef](CriterionRef.md) | 0..* <br/> [Criterion](Criterion.md) | Criterion reference: The Criterion represents either an inclusion or an exclu... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -95,6 +113,7 @@ description: The InclusionCriteria is a container element for Criterion elements
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/InclusionCriteria
+rank: 1000
 slots:
 - CriterionRef
 slot_usage:
@@ -123,6 +142,7 @@ description: The InclusionCriteria is a container element for Criterion elements
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/InclusionCriteria
+rank: 1000
 slot_usage:
   CriterionRef:
     name: CriterionRef

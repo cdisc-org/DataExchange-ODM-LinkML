@@ -1,8 +1,6 @@
 # Class: Address
 
-
 _The postal address for a user, location, or organization._
-
 
 
 
@@ -10,45 +8,48 @@ _The postal address for a user, location, or organization._
 URI: [odm:Address](http://www.cdisc.org/ns/odm/v2.0/Address)
 
 
-
 ```mermaid
- classDiagram
-    class Address
-      Address : CityRef
-        
-          Address --|> City : CityRef
-        
-      Address : CountryRef
-        
-          Address --|> Country : CountryRef
-        
-      Address : GeoPositionRef
-        
-          Address --|> GeoPosition : GeoPositionRef
-        
-      Address : HouseNumberRef
-        
-          Address --|> HouseNumber : HouseNumberRef
-        
-      Address : OtherTextRef
-        
-          Address --|> OtherText : OtherTextRef
-        
-      Address : PostalCodeRef
-        
-          Address --|> PostalCode : PostalCodeRef
-        
-      Address : StateProvRef
-        
-          Address --|> StateProv : StateProvRef
-        
-      Address : StreetNameRef
-        
-          Address --|> StreetName : StreetNameRef
-        
-      
-```
+erDiagram
+Address {
 
+}
+OtherText {
+    text content  
+}
+GeoPosition {
+    decimal Longitude  
+    decimal Latitude  
+    decimal Altitude  
+}
+PostalCode {
+    text content  
+}
+Country {
+    text content  
+}
+StateProv {
+    text content  
+}
+City {
+    text content  
+}
+HouseNumber {
+    text content  
+}
+StreetName {
+    text content  
+}
+
+Address ||--|o StreetName : "StreetNameRef"
+Address ||--|o HouseNumber : "HouseNumberRef"
+Address ||--|o City : "CityRef"
+Address ||--|o StateProv : "StateProvRef"
+Address ||--|o Country : "CountryRef"
+Address ||--|o PostalCode : "PostalCodeRef"
+Address ||--|o GeoPosition : "GeoPositionRef"
+Address ||--|o OtherText : "OtherTextRef"
+
+```
 
 
 
@@ -57,7 +58,7 @@ URI: [odm:Address](http://www.cdisc.org/ns/odm/v2.0/Address)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StreetNameRef](StreetNameRef.md) | 0..1 <br/> [StreetName](StreetName.md) | StreetName reference: The street name part of a user's postal address. | direct |
 | [HouseNumberRef](HouseNumberRef.md) | 0..1 <br/> [HouseNumber](HouseNumber.md) | HouseNumber reference: The house number part of a user's postal address. | direct |
@@ -68,6 +69,7 @@ URI: [odm:Address](http://www.cdisc.org/ns/odm/v2.0/Address)
 | [GeoPositionRef](GeoPositionRef.md) | 0..1 <br/> [GeoPosition](GeoPosition.md) | GeoPosition reference: The geographical position using the World Geodetic Sys... | direct |
 | [OtherTextRef](OtherTextRef.md) | 0..1 <br/> [OtherText](OtherText.md) | OtherText reference: Any other text needed as part of a user's postal address... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -130,6 +132,7 @@ description: The postal address for a user, location, or organization.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Address
+rank: 1000
 slots:
 - StreetNameRef
 - HouseNumberRef
@@ -202,6 +205,7 @@ description: The postal address for a user, location, or organization.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Address
+rank: 1000
 slot_usage:
   StreetNameRef:
     name: StreetNameRef

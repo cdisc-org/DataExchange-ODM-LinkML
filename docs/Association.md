@@ -1,8 +1,6 @@
 # Class: Association
 
-
 _An association permits an annotation to be placed on an ordered pair of entities rather than on just one. The first and second KeySets identify the start and end of the annotated "link._
-
 
 
 
@@ -10,25 +8,54 @@ _An association permits an annotation to be placed on an ordered pair of entitie
 URI: [odm:Association](http://www.cdisc.org/ns/odm/v2.0/Association)
 
 
-
 ```mermaid
- classDiagram
-    class Association
-      Association : AnnotationRef
-        
-          Association --|> Annotation : AnnotationRef
-        
-      Association : KeySetRef
-        
-          Association --|> KeySet : KeySetRef
-        
-      Association : MetaDataVersionOID
-        
-      Association : StudyOID
-        
-      
-```
+erDiagram
+Association {
+    oidref StudyOID  
+    oidref MetaDataVersionOID  
+}
+Annotation {
+    positiveInteger SeqNum  
+    TransactionType TransactionTypeRef  
+    oid ID  
+}
+Flag {
 
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Comment {
+    CommentType SponsorOrSite  
+}
+KeySet {
+    oidref StudyOID  
+    subjectKey SubjectKey  
+    oidref MetaDataVersionOID  
+    oidref StudyEventOID  
+    repeatKey StudyEventRepeatKey  
+    oidref ItemGroupOID  
+    repeatKey ItemGroupRepeatKey  
+    oidref ItemOID  
+}
+
+Association ||--|o KeySet : "KeySetRef"
+Association ||--|o Annotation : "AnnotationRef"
+Annotation ||--|o Comment : "CommentRef"
+Annotation ||--}o Coding : "CodingRef"
+Annotation ||--}o Flag : "FlagRef"
+Flag ||--|o FlagValue : "FlagValueRef"
+Flag ||--|o FlagType : "FlagTypeRef"
+Comment ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -37,7 +64,7 @@ URI: [odm:Association](http://www.cdisc.org/ns/odm/v2.0/Association)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to an ODM Study element. | direct |
 | [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a MetaDataVersion element. | direct |
@@ -45,6 +72,7 @@ URI: [odm:Association](http://www.cdisc.org/ns/odm/v2.0/Association)
 | [KeySetRef](KeySetRef.md) | 0..1 <br/> [KeySet](KeySet.md) | KeySet reference: A KeySet references a single entity (e.g., a study, a subje... | direct |
 | [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -107,6 +135,7 @@ description: An association permits an annotation to be placed on an ordered pai
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Association
+rank: 1000
 slots:
 - StudyOID
 - MetaDataVersionOID
@@ -179,6 +208,7 @@ description: An association permits an annotation to be placed on an ordered pai
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Association
+rank: 1000
 slot_usage:
   StudyOID:
     name: StudyOID

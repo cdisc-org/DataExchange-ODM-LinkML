@@ -1,8 +1,6 @@
 # Class: SourceItem
 
-
 _Provides the information needed to identify the source metadata._
-
 
 
 
@@ -10,33 +8,41 @@ _Provides the information needed to identify the source metadata._
 URI: [odm:SourceItem](http://www.cdisc.org/ns/odm/v2.0/SourceItem)
 
 
-
 ```mermaid
- classDiagram
-    class SourceItem
-      SourceItem : CodingRef
-        
-          SourceItem --|> Coding : CodingRef
-        
-      SourceItem : ItemGroupOID
-        
-      SourceItem : ItemOID
-        
-      SourceItem : leafID
-        
-      SourceItem : MetaDataVersionOID
-        
-      SourceItem : Name
-        
-      SourceItem : ResourceRef
-        
-          SourceItem --|> Resource : ResourceRef
-        
-      SourceItem : StudyOID
-        
-      
-```
+erDiagram
+SourceItem {
+    oidref ItemOID  
+    oidref ItemGroupOID  
+    oidref MetaDataVersionOID  
+    oidref StudyOID  
+    oidref leafID  
+    name Name  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Resource {
+    text Type  
+    name Name  
+    text Attribute  
+    text Label  
+}
+Selection {
+    text Path  
+}
 
+SourceItem ||--}o Resource : "ResourceRef"
+SourceItem ||--}o Coding : "CodingRef"
+Resource ||--}o Selection : "SelectionRef"
+
+```
 
 
 
@@ -45,7 +51,7 @@ URI: [odm:SourceItem](http://www.cdisc.org/ns/odm/v2.0/SourceItem)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [ItemOID](ItemOID.md) | 0..1 <br/> [oidref](oidref.md) | References the ItemDef that provides the variable metadata. | direct |
 | [ItemGroupOID](ItemGroupOID.md) | 0..1 <br/> [oidref](oidref.md) | References the ItemGroupDef that provides the ItemGroup or dataset metadata. | direct |
@@ -56,6 +62,7 @@ URI: [odm:SourceItem](http://www.cdisc.org/ns/odm/v2.0/SourceItem)
 | [ResourceRef](ResourceRef.md) | 0..* <br/> [Resource](Resource.md) | Resource reference: Describes an external resource used as the source for the... | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -116,6 +123,7 @@ description: Provides the information needed to identify the source metadata.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SourceItem
+rank: 1000
 slots:
 - ItemOID
 - ItemGroupOID
@@ -308,6 +316,7 @@ description: Provides the information needed to identify the source metadata.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SourceItem
+rank: 1000
 slot_usage:
   ItemOID:
     name: ItemOID

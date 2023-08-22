@@ -1,8 +1,6 @@
 # Class: Standards
 
-
 _The Standards element provides a container for the list of Standard elements referenced in the MetaDataVersion for the Study.._
-
 
 
 
@@ -10,17 +8,24 @@ _The Standards element provides a container for the list of Standard elements re
 URI: [odm:Standards](http://www.cdisc.org/ns/odm/v2.0/Standards)
 
 
-
 ```mermaid
- classDiagram
-    class Standards
-      Standards : StandardRef
-        
-          Standards --|> Standard : StandardRef
-        
-      
-```
+erDiagram
+Standards {
 
+}
+Standard {
+    oid OID  
+    StandardName Name  
+    StandardType Type  
+    StandardPublishingSet PublishingSet  
+    text Version  
+    StandardStatus Status  
+    oidref CommentOID  
+}
+
+Standards ||--}o Standard : "StandardRef"
+
+```
 
 
 
@@ -29,10 +34,11 @@ URI: [odm:Standards](http://www.cdisc.org/ns/odm/v2.0/Standards)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StandardRef](StandardRef.md) | 0..* <br/> [Standard](Standard.md) | Definition of a standard referenced in the Define-XML document. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -94,6 +100,7 @@ description: The Standards element provides a container for the list of Standard
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Standards
+rank: 1000
 slots:
 - StandardRef
 slot_usage:
@@ -121,6 +128,7 @@ description: The Standards element provides a container for the list of Standard
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Standards
+rank: 1000
 slot_usage:
   StandardRef:
     name: StandardRef

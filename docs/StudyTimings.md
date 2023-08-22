@@ -1,8 +1,6 @@
 # Class: StudyTimings
 
-
 _The StudyTimings element is a container element for individual StudyTiming elements._
-
 
 
 
@@ -10,17 +8,64 @@ _The StudyTimings element is a container element for individual StudyTiming elem
 URI: [odm:StudyTimings](http://www.cdisc.org/ns/odm/v2.0/StudyTimings)
 
 
-
 ```mermaid
- classDiagram
-    class StudyTimings
-      StudyTimings : StudyTimingRef
-        
-          StudyTimings --|> StudyTiming : StudyTimingRef
-        
-      
-```
+erDiagram
+StudyTimings {
 
+}
+StudyTiming {
+    oid OID  
+    name Name  
+}
+DurationTimingConstraint {
+    oid OID  
+    name Name  
+    oidref StructuralElementOID  
+    durationDatetime DurationTarget  
+    durationDatetime DurationPreWindow  
+    durationDatetime DurationPostWindow  
+}
+TransitionTimingConstraint {
+    oid OID  
+    name Name  
+    oidref TransitionOID  
+    oidref MethodOID  
+    RelativeTimingConstraintType Type  
+    durationDatetime TimepointTarget  
+    durationDatetime TimepointPreWindow  
+    durationDatetime TimepointPostWindow  
+}
+RelativeTimingConstraint {
+    oid OID  
+    name Name  
+    oidref PredecessorOID  
+    oidref SuccessorOID  
+    RelativeTimingConstraintType Type  
+    durationDatetime TimepointRelativeTarget  
+    durationDatetime TimepointPreWindow  
+    durationDatetime TimepointPostWindow  
+}
+AbsoluteTimingConstraint {
+    oid OID  
+    name Name  
+    oidref StudyEventGroupOID  
+    oidref StudyEventOID  
+    string TimepointTarget  
+    durationDatetime TimepointPreWindow  
+    durationDatetime TimepointPostWindow  
+}
+
+StudyTimings ||--}o StudyTiming : "StudyTimingRef"
+StudyTiming ||--}o AbsoluteTimingConstraint : "AbsoluteTimingConstraintRef"
+StudyTiming ||--}o RelativeTimingConstraint : "RelativeTimingConstraintRef"
+StudyTiming ||--}o TransitionTimingConstraint : "TransitionTimingConstraintRef"
+StudyTiming ||--}o DurationTimingConstraint : "DurationTimingConstraintRef"
+DurationTimingConstraint ||--|o Description : "DescriptionRef"
+TransitionTimingConstraint ||--|o Description : "DescriptionRef"
+RelativeTimingConstraint ||--|o Description : "DescriptionRef"
+AbsoluteTimingConstraint ||--|o Description : "DescriptionRef"
+
+```
 
 
 
@@ -29,10 +74,11 @@ URI: [odm:StudyTimings](http://www.cdisc.org/ns/odm/v2.0/StudyTimings)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyTimingRef](StudyTimingRef.md) | 0..* <br/> [StudyTiming](StudyTiming.md) | StudyTiming reference: The StudyTiming element defines a timing constraint wi... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -94,6 +140,7 @@ description: The StudyTimings element is a container element for individual Stud
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTimings
+rank: 1000
 slots:
 - StudyTimingRef
 slot_usage:
@@ -120,6 +167,7 @@ description: The StudyTimings element is a container element for individual Stud
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTimings
+rank: 1000
 slot_usage:
   StudyTimingRef:
     name: StudyTimingRef

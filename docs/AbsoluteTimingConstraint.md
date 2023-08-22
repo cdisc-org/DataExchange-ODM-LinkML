@@ -1,8 +1,6 @@
 # Class: AbsoluteTimingConstraint
 
-
 _The element AbsoluteTimingConstraint is used to specify when an activity, represented by either a StudyEventGroup or StudyEvent, can take place._
-
 
 
 
@@ -10,31 +8,30 @@ _The element AbsoluteTimingConstraint is used to specify when an activity, repre
 URI: [odm:AbsoluteTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/AbsoluteTimingConstraint)
 
 
-
 ```mermaid
- classDiagram
-    class AbsoluteTimingConstraint
-      AbsoluteTimingConstraint : DescriptionRef
-        
-          AbsoluteTimingConstraint --|> Description : DescriptionRef
-        
-      AbsoluteTimingConstraint : Name
-        
-      AbsoluteTimingConstraint : OID
-        
-      AbsoluteTimingConstraint : StudyEventGroupOID
-        
-      AbsoluteTimingConstraint : StudyEventOID
-        
-      AbsoluteTimingConstraint : TimepointPostWindow
-        
-      AbsoluteTimingConstraint : TimepointPreWindow
-        
-      AbsoluteTimingConstraint : TimepointTarget
-        
-      
-```
+erDiagram
+AbsoluteTimingConstraint {
+    oid OID  
+    name Name  
+    oidref StudyEventGroupOID  
+    oidref StudyEventOID  
+    string TimepointTarget  
+    durationDatetime TimepointPreWindow  
+    durationDatetime TimepointPostWindow  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+AbsoluteTimingConstraint ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -43,7 +40,7 @@ URI: [odm:AbsoluteTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/AbsoluteTim
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name. | direct |
@@ -54,6 +51,7 @@ URI: [odm:AbsoluteTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/AbsoluteTim
 | [TimepointPostWindow](TimepointPostWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Specifies the amount of time after the TimepointTarget that the activity can ... | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -115,6 +113,7 @@ description: The element AbsoluteTimingConstraint is used to specify when an act
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AbsoluteTimingConstraint
+rank: 1000
 slots:
 - OID
 - Name
@@ -348,6 +347,7 @@ description: The element AbsoluteTimingConstraint is used to specify when an act
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/AbsoluteTimingConstraint
+rank: 1000
 slot_usage:
   OID:
     name: OID

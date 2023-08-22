@@ -1,8 +1,6 @@
 # Class: Transition
 
-
 _A Transition defines a link between 2 structural elements in a workflow. When the execution of the transition is dependent upon a timing constraint that is either directly defined or calculated, a TransitionTimingConstraint must be defined, referencing the current Transition._
-
 
 
 
@@ -10,25 +8,20 @@ _A Transition defines a link between 2 structural elements in a workflow. When t
 URI: [odm:Transition](http://www.cdisc.org/ns/odm/v2.0/Transition)
 
 
-
 ```mermaid
- classDiagram
-    class Transition
-      Transition : EndConditionOID
-        
-      Transition : Name
-        
-      Transition : OID
-        
-      Transition : SourceOID
-        
-      Transition : StartConditionOID
-        
-      Transition : TargetOID
-        
-      
-```
+erDiagram
+Transition {
+    oid OID  
+    name Name  
+    oidref SourceOID  
+    oidref TargetOID  
+    oidref StartConditionOID  
+    oidref EndConditionOID  
+}
 
+
+
+```
 
 
 
@@ -37,7 +30,7 @@ URI: [odm:Transition](http://www.cdisc.org/ns/odm/v2.0/Transition)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Transition element. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the transition between two structural elements in a W... | direct |
@@ -46,6 +39,7 @@ URI: [odm:Transition](http://www.cdisc.org/ns/odm/v2.0/Transition)
 | [StartConditionOID](StartConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | The StartConditionOID references a ConditionDef specifying a condition that m... | direct |
 | [EndConditionOID](EndConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | The EndConditionOID references a ConditionDef defining the condition under wh... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -109,6 +103,7 @@ description: A Transition defines a link between 2 structural elements in a work
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Transition
+rank: 1000
 slots:
 - OID
 - Name
@@ -224,7 +219,7 @@ slot_usage:
 
       The SourceOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
-      element of the WorkflowDef.'
+      element of the WorkflowDef .'
     domain_of:
     - Transition
     range: oidref
@@ -242,7 +237,7 @@ slot_usage:
 
       The TargetOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
-      element of the WorkflowDef.'
+      element of the WorkflowDef .'
     domain_of:
     - Transition
     range: oidref
@@ -261,7 +256,7 @@ slot_usage:
       range: oidref
 
       The StartConditionOID must match the OID attribute of a ConditionDef child element
-      of the MetaDataVersion parent element of the WorkflowDef.'
+      of the MetaDataVersion parent element of the WorkflowDef .'
     domain_of:
     - Transition
     range: oidref
@@ -278,7 +273,7 @@ slot_usage:
       range: oidref
 
       The EndConditionOID must match the OID attribute of a ConditionDef child element
-      of the MetaDataVersion parent element of the WorkflowDef.'
+      of the MetaDataVersion parent element of the WorkflowDef .'
     domain_of:
     - Transition
     range: oidref
@@ -299,6 +294,7 @@ description: A Transition defines a link between 2 structural elements in a work
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Transition
+rank: 1000
 slot_usage:
   OID:
     name: OID
@@ -407,7 +403,7 @@ slot_usage:
 
       The SourceOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
-      element of the WorkflowDef.'
+      element of the WorkflowDef .'
     domain_of:
     - Transition
     range: oidref
@@ -425,7 +421,7 @@ slot_usage:
 
       The TargetOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
-      element of the WorkflowDef.'
+      element of the WorkflowDef .'
     domain_of:
     - Transition
     range: oidref
@@ -444,7 +440,7 @@ slot_usage:
       range: oidref
 
       The StartConditionOID must match the OID attribute of a ConditionDef child element
-      of the MetaDataVersion parent element of the WorkflowDef.'
+      of the MetaDataVersion parent element of the WorkflowDef .'
     domain_of:
     - Transition
     range: oidref
@@ -461,7 +457,7 @@ slot_usage:
       range: oidref
 
       The EndConditionOID must match the OID attribute of a ConditionDef child element
-      of the MetaDataVersion parent element of the WorkflowDef.'
+      of the MetaDataVersion parent element of the WorkflowDef .'
     domain_of:
     - Transition
     range: oidref
@@ -582,7 +578,7 @@ attributes:
 
       The SourceOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
-      element of the WorkflowDef.'
+      element of the WorkflowDef .'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: SourceOID
@@ -604,7 +600,7 @@ attributes:
 
       The TargetOID must match the OID attribute of a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef or Branching child element of the MetaDataVersion parent
-      element of the WorkflowDef.'
+      element of the WorkflowDef .'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: TargetOID
@@ -627,7 +623,7 @@ attributes:
       range: oidref
 
       The StartConditionOID must match the OID attribute of a ConditionDef child element
-      of the MetaDataVersion parent element of the WorkflowDef.'
+      of the MetaDataVersion parent element of the WorkflowDef .'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: StartConditionOID
@@ -648,7 +644,7 @@ attributes:
       range: oidref
 
       The EndConditionOID must match the OID attribute of a ConditionDef child element
-      of the MetaDataVersion parent element of the WorkflowDef.'
+      of the MetaDataVersion parent element of the WorkflowDef .'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: EndConditionOID

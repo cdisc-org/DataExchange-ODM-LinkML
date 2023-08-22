@@ -1,8 +1,6 @@
 # Class: StudyEndPoints
 
-
 _The StudyEndPoints element is a container element for individual StudyEndPoint elements._
-
 
 
 
@@ -10,17 +8,32 @@ _The StudyEndPoints element is a container element for individual StudyEndPoint 
 URI: [odm:StudyEndPoints](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoints)
 
 
-
 ```mermaid
- classDiagram
-    class StudyEndPoints
-      StudyEndPoints : StudyEndPointRefRef
-        
-          StudyEndPoints --|> StudyEndPoint : StudyEndPointRefRef
-        
-      
-```
+erDiagram
+StudyEndPoints {
 
+}
+StudyEndPoint {
+    oid OID  
+    name Name  
+    StudyEndPointType Type  
+    StudyEstimandLevel Level  
+}
+FormalExpression {
+    text ContextRef  
+}
+Description {
+
+}
+
+StudyEndPoints ||--}o StudyEndPoint : "StudyEndPointRefRef"
+StudyEndPoint ||--|o Description : "DescriptionRef"
+StudyEndPoint ||--}o FormalExpression : "FormalExpressionRef"
+FormalExpression ||--|o Code : "CodeRef"
+FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -29,10 +42,11 @@ URI: [odm:StudyEndPoints](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoints)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyEndPointRefRef](StudyEndPointRefRef.md) | 0..* <br/> [StudyEndPoint](StudyEndPoint.md) | StudyEndPointRef reference: Go to start of metadata | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -94,6 +108,7 @@ description: The StudyEndPoints element is a container element for individual St
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPoints
+rank: 1000
 slots:
 - StudyEndPointRefRef
 slot_usage:
@@ -122,6 +137,7 @@ description: The StudyEndPoints element is a container element for individual St
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEndPoints
+rank: 1000
 slot_usage:
   StudyEndPointRefRef:
     name: StudyEndPointRefRef

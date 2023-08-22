@@ -1,8 +1,6 @@
 # Class: Signature
 
-
 _An electronic signature applies to a collection of clinical data. This indicates that some user accepts legal responsibility for that data. See 21 CFR Part 11. The signature identifies the person signing, the location of signing, the signature meaning (via the referenced SignatureDef), the date and time of signing, and (in the case of a digital signature) an encrypted hash of the included data._
-
 
 
 
@@ -10,31 +8,30 @@ _An electronic signature applies to a collection of clinical data. This indicate
 URI: [odm:Signature](http://www.cdisc.org/ns/odm/v2.0/Signature)
 
 
-
 ```mermaid
- classDiagram
-    class Signature
-      Signature : DateTimeStampRef
-        
-          Signature --|> DateTimeStamp : DateTimeStampRef
-        
-      Signature : ID
-        
-      Signature : LocationRefRef
-        
-          Signature --|> LocationRef : LocationRefRef
-        
-      Signature : SignatureRefRef
-        
-          Signature --|> SignatureRef : SignatureRefRef
-        
-      Signature : UserRefRef
-        
-          Signature --|> UserRef : UserRefRef
-        
-      
-```
+erDiagram
+Signature {
+    oid ID  
+}
+DateTimeStamp {
+    datetime content  
+}
+SignatureRef {
+    oidref SignatureOID  
+}
+LocationRef {
+    oidref LocationOID  
+}
+UserRef {
+    oidref UserOID  
+}
 
+Signature ||--|o UserRef : "UserRefRef"
+Signature ||--|o LocationRef : "LocationRefRef"
+Signature ||--|o SignatureRef : "SignatureRefRef"
+Signature ||--|o DateTimeStamp : "DateTimeStampRef"
+
+```
 
 
 
@@ -43,7 +40,7 @@ URI: [odm:Signature](http://www.cdisc.org/ns/odm/v2.0/Signature)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [ID](ID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the leaf that is referenced. | direct |
 | [UserRefRef](UserRefRef.md) | 0..1 <br/> [UserRef](UserRef.md) | UserRef reference: A reference to information about a specific user of a clin... | direct |
@@ -51,6 +48,7 @@ URI: [odm:Signature](http://www.cdisc.org/ns/odm/v2.0/Signature)
 | [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [SignatureRef](SignatureRef.md) | SignatureRef reference: A reference to the signature meaning. | direct |
 | [DateTimeStampRef](DateTimeStampRef.md) | 0..1 <br/> [DateTimeStamp](DateTimeStamp.md) | DateTimeStamp reference: Date and time when an action was performed. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -120,6 +118,7 @@ description: An electronic signature applies to a collection of clinical data. T
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Signature
+rank: 1000
 slots:
 - ID
 - UserRefRef
@@ -187,6 +186,7 @@ description: An electronic signature applies to a collection of clinical data. T
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Signature
+rank: 1000
 slot_usage:
   ID:
     name: ID

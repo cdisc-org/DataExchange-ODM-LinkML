@@ -1,8 +1,6 @@
 # Class: Annotation
 
-
 _A general note about clinical data. If an annotation has both a comment and flags, the flags should be related to the comment._
-
 
 
 
@@ -10,33 +8,51 @@ _A general note about clinical data. If an annotation has both a comment and fla
 URI: [odm:Annotation](http://www.cdisc.org/ns/odm/v2.0/Annotation)
 
 
-
 ```mermaid
- classDiagram
-    class Annotation
-      Annotation : CodingRef
-        
-          Annotation --|> Coding : CodingRef
-        
-      Annotation : CommentRef
-        
-          Annotation --|> Comment : CommentRef
-        
-      Annotation : FlagRef
-        
-          Annotation --|> Flag : FlagRef
-        
-      Annotation : ID
-        
-      Annotation : SeqNum
-        
-      Annotation : TransactionTypeRef
-        
-          Annotation --|> TransactionType : TransactionTypeRef
-        
-      
-```
+erDiagram
+Annotation {
+    positiveInteger SeqNum  
+    TransactionType TransactionTypeRef  
+    oid ID  
+}
+Flag {
 
+}
+FlagType {
+    oidref CodeListOID  
+    name content  
+}
+FlagValue {
+    oidref CodeListOID  
+    name content  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Comment {
+    CommentType SponsorOrSite  
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+Annotation ||--|o Comment : "CommentRef"
+Annotation ||--}o Coding : "CodingRef"
+Annotation ||--}o Flag : "FlagRef"
+Flag ||--|o FlagValue : "FlagValueRef"
+Flag ||--|o FlagType : "FlagTypeRef"
+Comment ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -45,7 +61,7 @@ URI: [odm:Annotation](http://www.cdisc.org/ns/odm/v2.0/Annotation)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [SeqNum](SeqNum.md) | 1..1 <br/> [positiveInteger](positiveInteger.md) | When more than 1 Value element exists this attribute uniquely identifies each... | direct |
 | [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... | direct |
@@ -54,6 +70,7 @@ URI: [odm:Annotation](http://www.cdisc.org/ns/odm/v2.0/Annotation)
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 | [FlagRef](FlagRef.md) | 0..* <br/> [Flag](Flag.md) | Flag reference: A machine-processable annotation. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -121,6 +138,7 @@ description: A general note about clinical data. If an annotation has both a com
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Annotation
+rank: 1000
 slots:
 - SeqNum
 - TransactionTypeRef
@@ -216,6 +234,7 @@ description: A general note about clinical data. If an annotation has both a com
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Annotation
+rank: 1000
 slot_usage:
   SeqNum:
     name: SeqNum

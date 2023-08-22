@@ -1,8 +1,6 @@
 # Class: Protocol
 
-
 _The Protocol element lists the kinds of study events that can occur within a specific version of a study. All clinical data must occur within one of these study events._
-
 
 
 
@@ -10,73 +8,184 @@ _The Protocol element lists the kinds of study events that can occur within a sp
 URI: [odm:Protocol](http://www.cdisc.org/ns/odm/v2.0/Protocol)
 
 
-
 ```mermaid
- classDiagram
-    class Protocol
-      Protocol : AliasRef
-        
-          Protocol --|> Alias : AliasRef
-        
-      Protocol : DescriptionRef
-        
-          Protocol --|> Description : DescriptionRef
-        
-      Protocol : InclusionExclusionCriteriaRef
-        
-          Protocol --|> InclusionExclusionCriteria : InclusionExclusionCriteriaRef
-        
-      Protocol : StudyEndPointsRef
-        
-          Protocol --|> StudyEndPoints : StudyEndPointsRef
-        
-      Protocol : StudyEstimandsRef
-        
-          Protocol --|> StudyEstimands : StudyEstimandsRef
-        
-      Protocol : StudyEventGroupRefRef
-        
-          Protocol --|> StudyEventGroupRef : StudyEventGroupRefRef
-        
-      Protocol : StudyIndicationsRef
-        
-          Protocol --|> StudyIndications : StudyIndicationsRef
-        
-      Protocol : StudyInterventionsRef
-        
-          Protocol --|> StudyInterventions : StudyInterventionsRef
-        
-      Protocol : StudyObjectivesRef
-        
-          Protocol --|> StudyObjectives : StudyObjectivesRef
-        
-      Protocol : StudyStructureRef
-        
-          Protocol --|> StudyStructure : StudyStructureRef
-        
-      Protocol : StudySummaryRef
-        
-          Protocol --|> StudySummary : StudySummaryRef
-        
-      Protocol : StudyTargetPopulationRefRef
-        
-          Protocol --|> StudyTargetPopulation : StudyTargetPopulationRefRef
-        
-      Protocol : StudyTimingsRef
-        
-          Protocol --|> StudyTimings : StudyTimingsRef
-        
-      Protocol : TrialPhaseRef
-        
-          Protocol --|> TrialPhase : TrialPhaseRef
-        
-      Protocol : WorkflowRefRef
-        
-          Protocol --|> WorkflowRef : WorkflowRefRef
-        
-      
-```
+erDiagram
+Protocol {
 
+}
+Alias {
+    text ContextRef  
+    text Name  
+}
+WorkflowRef {
+    oidref WorkflowOID  
+}
+StudyEventGroupRef {
+    oidref StudyEventGroupOID  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
+Description {
+
+}
+InclusionExclusionCriteria {
+
+}
+ExclusionCriteria {
+
+}
+InclusionCriteria {
+
+}
+StudyEstimands {
+
+}
+StudyEstimand {
+    oid OID  
+    name Name  
+    StudyEstimandLevel Level  
+}
+StudyTargetPopulation {
+    oid OID  
+    name Name  
+}
+FormalExpression {
+    text ContextRef  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+StudyEndPoints {
+
+}
+StudyEndPoint {
+    oid OID  
+    name Name  
+    StudyEndPointType Type  
+    StudyEstimandLevel Level  
+}
+StudyObjectives {
+
+}
+StudyObjective {
+    oid OID  
+    name Name  
+    StudyObjectiveLevel Level  
+}
+StudyInterventions {
+
+}
+StudyIntervention {
+    oid OID  
+}
+StudyIndications {
+
+}
+StudyIndication {
+    oid OID  
+}
+StudyTimings {
+
+}
+StudyTiming {
+    oid OID  
+    name Name  
+}
+TrialPhase {
+    TrialPhaseType ValueRef  
+}
+StudyStructure {
+
+}
+Epoch {
+    oid OID  
+    name Name  
+    positiveInteger SequenceNumber  
+}
+Arm {
+    oid OID  
+    name Name  
+}
+StudySummary {
+
+}
+StudyParameter {
+    oid OID  
+    name Term  
+    name ShortName  
+}
+
+Protocol ||--|o Description : "DescriptionRef"
+Protocol ||--|o StudySummary : "StudySummaryRef"
+Protocol ||--|o StudyStructure : "StudyStructureRef"
+Protocol ||--|o TrialPhase : "TrialPhaseRef"
+Protocol ||--|o StudyTimings : "StudyTimingsRef"
+Protocol ||--|o StudyIndications : "StudyIndicationsRef"
+Protocol ||--|o StudyInterventions : "StudyInterventionsRef"
+Protocol ||--|o StudyObjectives : "StudyObjectivesRef"
+Protocol ||--|o StudyEndPoints : "StudyEndPointsRef"
+Protocol ||--|o StudyTargetPopulation : "StudyTargetPopulationRefRef"
+Protocol ||--|o StudyEstimands : "StudyEstimandsRef"
+Protocol ||--|o InclusionExclusionCriteria : "InclusionExclusionCriteriaRef"
+Protocol ||--}o StudyEventGroupRef : "StudyEventGroupRefRef"
+Protocol ||--|o WorkflowRef : "WorkflowRefRef"
+Protocol ||--}o Alias : "AliasRef"
+StudyEventGroupRef ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+InclusionExclusionCriteria ||--|o InclusionCriteria : "InclusionCriteriaRef"
+InclusionExclusionCriteria ||--|o ExclusionCriteria : "ExclusionCriteriaRef"
+ExclusionCriteria ||--}o Criterion : "CriterionRef"
+InclusionCriteria ||--}o Criterion : "CriterionRef"
+StudyEstimands ||--}o StudyEstimand : "StudyEstimandRef"
+StudyEstimand ||--|o Description : "DescriptionRef"
+StudyEstimand ||--|o StudyTargetPopulationRef : "StudyTargetPopulationRefRef"
+StudyEstimand ||--|o StudyInterventionRef : "StudyInterventionRefRef"
+StudyEstimand ||--|o StudyEndPointRef : "StudyEndPointRefRef"
+StudyEstimand ||--}o IntercurrentEvent : "IntercurrentEventRef"
+StudyEstimand ||--|o SummaryMeasure : "SummaryMeasureRef"
+StudyTargetPopulation ||--|o Description : "DescriptionRef"
+StudyTargetPopulation ||--}o Coding : "CodingRef"
+StudyTargetPopulation ||--}o FormalExpression : "FormalExpressionRef"
+FormalExpression ||--|o Code : "CodeRef"
+FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
+StudyEndPoints ||--}o StudyEndPoint : "StudyEndPointRefRef"
+StudyEndPoint ||--|o Description : "DescriptionRef"
+StudyEndPoint ||--}o FormalExpression : "FormalExpressionRef"
+StudyObjectives ||--}o StudyObjective : "StudyObjectiveRef"
+StudyObjective ||--|o Description : "DescriptionRef"
+StudyObjective ||--}o StudyEndPointRef : "StudyEndPointRefRef"
+StudyInterventions ||--}o StudyIntervention : "StudyInterventionRefRef"
+StudyIntervention ||--|o Description : "DescriptionRef"
+StudyIntervention ||--}o Coding : "CodingRef"
+StudyIndications ||--}o StudyIndication : "StudyIndicationRef"
+StudyIndication ||--|o Description : "DescriptionRef"
+StudyIndication ||--}o Coding : "CodingRef"
+StudyTimings ||--}o StudyTiming : "StudyTimingRef"
+StudyTiming ||--}o AbsoluteTimingConstraint : "AbsoluteTimingConstraintRef"
+StudyTiming ||--}o RelativeTimingConstraint : "RelativeTimingConstraintRef"
+StudyTiming ||--}o TransitionTimingConstraint : "TransitionTimingConstraintRef"
+StudyTiming ||--}o DurationTimingConstraint : "DurationTimingConstraintRef"
+TrialPhase ||--|o Description : "DescriptionRef"
+StudyStructure ||--|o Description : "DescriptionRef"
+StudyStructure ||--}o Arm : "ArmRef"
+StudyStructure ||--}o Epoch : "EpochRef"
+StudyStructure ||--|o WorkflowRef : "WorkflowRefRef"
+Epoch ||--|o Description : "DescriptionRef"
+Arm ||--|o Description : "DescriptionRef"
+Arm ||--|o WorkflowRef : "WorkflowRefRef"
+StudySummary ||--}o StudyParameter : "StudyParameterRef"
+StudyParameter ||--|o ParameterValue : "ParameterValueRef"
+StudyParameter ||--}o Coding : "CodingRef"
+
+```
 
 
 
@@ -85,7 +194,7 @@ URI: [odm:Protocol](http://www.cdisc.org/ns/odm/v2.0/Protocol)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [StudySummaryRef](StudySummaryRef.md) | 0..1 <br/> [StudySummary](StudySummary.md) | StudySummary reference: The StudyParameter element allows to provide a set of... | direct |
@@ -103,6 +212,7 @@ URI: [odm:Protocol](http://www.cdisc.org/ns/odm/v2.0/Protocol)
 | [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
 | [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -165,6 +275,7 @@ description: The Protocol element lists the kinds of study events that can occur
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Protocol
+rank: 1000
 slots:
 - DescriptionRef
 - StudySummaryRef
@@ -341,6 +452,7 @@ description: The Protocol element lists the kinds of study events that can occur
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Protocol
+rank: 1000
 slot_usage:
   DescriptionRef:
     name: DescriptionRef

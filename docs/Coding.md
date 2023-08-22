@@ -1,8 +1,6 @@
 # Class: Coding
 
-
 _Coding references a symbol from a defined code system. It uses a code defined in a terminology system to associate semantics with a given term, codelist, variable, or group of variables. The presence of a Coding element associates a meaning to its parent element. Including multiple Coding elements for a given parent indicates synonymous meanings provided by different code systems or code system versions._
-
 
 
 
@@ -10,29 +8,22 @@ _Coding references a symbol from a defined code system. It uses a code defined i
 URI: [odm:Coding](http://www.cdisc.org/ns/odm/v2.0/Coding)
 
 
-
 ```mermaid
- classDiagram
-    class Coding
-      Coding : CodeRef
-        
-      Coding : CommentOID
-        
-      Coding : href
-        
-      Coding : Label
-        
-      Coding : ref
-        
-      Coding : System
-        
-      Coding : SystemName
-        
-      Coding : SystemVersion
-        
-      
-```
+erDiagram
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
 
+
+
+```
 
 
 
@@ -41,7 +32,7 @@ URI: [odm:Coding](http://www.cdisc.org/ns/odm/v2.0/Coding)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [CodeRef](CodeRef.md) | 0..1 <br/> [text](text.md) | A string pattern that identifies a concept as defined by the code system. | direct |
 | [System](System.md) | 1..1 <br/> [uriorcurie](uriorcurie.md) | Identifies the code system that defines the code. If the code is taken from a... | direct |
@@ -52,6 +43,7 @@ URI: [odm:Coding](http://www.cdisc.org/ns/odm/v2.0/Coding)
 | [ref](ref.md) | 0..1 <br/> [uriorcurie](uriorcurie.md) | Reference to a local instance of the code system. | direct |
 | [CommentOID](CommentOID.md) | 0..1 <br/> [text](text.md) | Reference to a CommentDef that provides the rationale for the use of the Conc... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -131,6 +123,7 @@ description: Coding references a symbol from a defined code system. It uses a co
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Coding
+rank: 1000
 slots:
 - CodeRef
 - System
@@ -267,6 +260,7 @@ description: Coding references a symbol from a defined code system. It uses a co
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Coding
+rank: 1000
 slot_usage:
   CodeRef:
     name: CodeRef

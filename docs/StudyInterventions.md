@@ -1,8 +1,6 @@
 # Class: StudyInterventions
 
-
 _The StudyInterventions element is a container element for individual StudyIntervention elements._
-
 
 
 
@@ -10,17 +8,34 @@ _The StudyInterventions element is a container element for individual StudyInter
 URI: [odm:StudyInterventions](http://www.cdisc.org/ns/odm/v2.0/StudyInterventions)
 
 
-
 ```mermaid
- classDiagram
-    class StudyInterventions
-      StudyInterventions : StudyInterventionRefRef
-        
-          StudyInterventions --|> StudyIntervention : StudyInterventionRefRef
-        
-      
-```
+erDiagram
+StudyInterventions {
 
+}
+StudyIntervention {
+    oid OID  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Description {
+
+}
+
+StudyInterventions ||--}o StudyIntervention : "StudyInterventionRefRef"
+StudyIntervention ||--|o Description : "DescriptionRef"
+StudyIntervention ||--}o Coding : "CodingRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -29,10 +44,11 @@ URI: [odm:StudyInterventions](http://www.cdisc.org/ns/odm/v2.0/StudyIntervention
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyInterventionRefRef](StudyInterventionRefRef.md) | 0..* <br/> [StudyIntervention](StudyIntervention.md) | StudyInterventionRef reference: The StudyInterventionRef references an interv... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -94,6 +110,7 @@ description: The StudyInterventions element is a container element for individua
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventions
+rank: 1000
 slots:
 - StudyInterventionRefRef
 slot_usage:
@@ -121,6 +138,7 @@ description: The StudyInterventions element is a container element for individua
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventions
+rank: 1000
 slot_usage:
   StudyInterventionRefRef:
     name: StudyInterventionRefRef

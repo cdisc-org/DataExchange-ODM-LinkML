@@ -1,8 +1,6 @@
 # Class: StudyIntervention
 
-
 _This element describes a study intervention (e.g., medication, treatment, therapy) for the clinical study. The human-readable description is provided in the Description element. The Coding element can be used to provide a machine-readable code for the indication (e.g., ATC M01AE01 code for "Ibuprofen" when used as a nonsteroidal anti-inflammatory drug)._
-
 
 
 
@@ -10,23 +8,35 @@ _This element describes a study intervention (e.g., medication, treatment, thera
 URI: [odm:StudyIntervention](http://www.cdisc.org/ns/odm/v2.0/StudyIntervention)
 
 
-
 ```mermaid
- classDiagram
-    class StudyIntervention
-      StudyIntervention : CodingRef
-        
-          StudyIntervention --|> Coding : CodingRef
-        
-      StudyIntervention : DescriptionRef
-        
-          StudyIntervention --|> Description : DescriptionRef
-        
-      StudyIntervention : OID
-        
-      
-```
+erDiagram
+StudyIntervention {
+    oid OID  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+StudyIntervention ||--|o Description : "DescriptionRef"
+StudyIntervention ||--}o Coding : "CodingRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -35,12 +45,13 @@ URI: [odm:StudyIntervention](http://www.cdisc.org/ns/odm/v2.0/StudyIntervention)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier of the version within the XML document. | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -105,6 +116,7 @@ description: This element describes a study intervention (e.g., medication, trea
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyIntervention
+rank: 1000
 slots:
 - OID
 - DescriptionRef
@@ -233,6 +245,7 @@ description: This element describes a study intervention (e.g., medication, trea
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyIntervention
+rank: 1000
 slot_usage:
   OID:
     name: OID

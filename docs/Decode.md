@@ -1,8 +1,6 @@
 # Class: Decode
 
-
 _The displayed value relating to the CodeListItem/@CodedValue. This is often a label corresponding to a short name or alpha-numeric code. The actual Decode text is provided in a TranslatedText element so that it can be provided in different languages on a case report form or tabular data summary._
-
 
 
 
@@ -10,17 +8,20 @@ _The displayed value relating to the CodeListItem/@CodedValue. This is often a l
 URI: [odm:Decode](http://www.cdisc.org/ns/odm/v2.0/Decode)
 
 
-
 ```mermaid
- classDiagram
-    class Decode
-      Decode : TranslatedTextRef
-        
-          Decode --|> TranslatedText : TranslatedTextRef
-        
-      
-```
+erDiagram
+Decode {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+Decode ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -29,10 +30,11 @@ URI: [odm:Decode](http://www.cdisc.org/ns/odm/v2.0/Decode)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -96,6 +98,7 @@ description: The displayed value relating to the CodeListItem/@CodedValue. This 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Decode
+rank: 1000
 slots:
 - TranslatedTextRef
 slot_usage:
@@ -133,6 +136,7 @@ description: The displayed value relating to the CodeListItem/@CodedValue. This 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Decode
+rank: 1000
 slot_usage:
   TranslatedTextRef:
     name: TranslatedTextRef

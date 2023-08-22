@@ -1,8 +1,6 @@
 # Class: StudyEventRef
 
-
 _This element references a StudyEventDef as it occurs within a specific version of a study. The list of StudyEventRefs identifies the types of study events that are allowed to occur within the study._
-
 
 
 
@@ -10,23 +8,18 @@ _This element references a StudyEventDef as it occurs within a specific version 
 URI: [odm:StudyEventRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventRef)
 
 
-
 ```mermaid
- classDiagram
-    class StudyEventRef
-      StudyEventRef : CollectionExceptionConditionOID
-        
-      StudyEventRef : Mandatory
-        
-          StudyEventRef --|> YesOrNo : Mandatory
-        
-      StudyEventRef : OrderNumber
-        
-      StudyEventRef : StudyEventOID
-        
-      
-```
+erDiagram
+StudyEventRef {
+    oidref StudyEventOID  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
 
+
+
+```
 
 
 
@@ -35,13 +28,14 @@ URI: [odm:StudyEventRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEventOID](StudyEventOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventDef. | direct |
+| [StudyEventOID](StudyEventOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventDef . | direct |
 | [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEventDef appears in Metadata displays ... | direct |
 | [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | The Mandatory flag indicates that the clinical data for the containing MetaDa... | direct |
 | [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -104,6 +98,7 @@ description: This element references a StudyEventDef as it occurs within a speci
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventRef
+rank: 1000
 slots:
 - StudyEventOID
 - OrderNumber
@@ -112,7 +107,7 @@ slots:
 slot_usage:
   StudyEventOID:
     name: StudyEventOID
-    description: Reference to the StudyEventDef.
+    description: Reference to the StudyEventDef .
     comments:
     - 'Required
 
@@ -207,10 +202,11 @@ description: This element references a StudyEventDef as it occurs within a speci
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventRef
+rank: 1000
 slot_usage:
   StudyEventOID:
     name: StudyEventOID
-    description: Reference to the StudyEventDef.
+    description: Reference to the StudyEventDef .
     comments:
     - 'Required
 
@@ -292,7 +288,7 @@ slot_usage:
 attributes:
   StudyEventOID:
     name: StudyEventOID
-    description: Reference to the StudyEventDef.
+    description: Reference to the StudyEventDef .
     comments:
     - 'Required
 

@@ -1,4 +1,4 @@
-# Type: _languageType
+# Type: languageType
 
 
 

@@ -1,8 +1,6 @@
 # Class: CheckValue
 
-
 _A comparison value used in a range check._
-
 
 
 
@@ -10,15 +8,15 @@ _A comparison value used in a range check._
 URI: [odm:CheckValue](http://www.cdisc.org/ns/odm/v2.0/CheckValue)
 
 
-
 ```mermaid
- classDiagram
-    class CheckValue
-      CheckValue : _content
-        
-      
-```
+erDiagram
+CheckValue {
+    value content  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:CheckValue](http://www.cdisc.org/ns/odm/v2.0/CheckValue)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [_content](_content.md) | 0..1 <br/> [_contentType](_contentType.md) | multi-line text content from between XML tags | direct |
+| [content](content.md) | 0..1 <br/> [value](value.md) | multi-line text content from between XML tags | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -91,13 +90,40 @@ description: A comparison value used in a range check.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CheckValue
+rank: 1000
 slots:
-- _content
+- content
 slot_usage:
-  range:
-    name: range
-    id_prefixes:
-    - value
+  content:
+    name: content
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: value
 class_uri: odm:CheckValue
 
 ```
@@ -112,47 +138,75 @@ description: A comparison value used in a range check.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CheckValue
+rank: 1000
 slot_usage:
-  range:
-    name: range
-    id_prefixes:
-    - value
+  content:
+    name: content
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: value
 attributes:
-  name: _content
-  description: multi-line text content from between XML tags
-  from_schema: http://www.cdisc.org/ns/odm/v2.0
-  rank: 1000
-  alias: _content
-  owner: CheckValue
-  domain_of:
-  - TranslatedText
-  - Title
-  - CheckValue
-  - Code
-  - WorkflowEnd
-  - UserName
-  - Prefix
-  - Suffix
-  - FullName
-  - GivenName
-  - FamilyName
-  - StreetName
-  - HouseNumber
-  - City
-  - StateProv
-  - Country
-  - PostalCode
-  - OtherText
-  - Meaning
-  - LegalReason
-  - DateTimeStamp
-  - ReasonForChange
-  - SourceID
-  - FlagValue
-  - FlagType
-  - Value
-  range: _contentType
-  inlined: true
+  content:
+    name: content
+    description: multi-line text content from between XML tags
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: content
+    owner: CheckValue
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: value
+    inlined: true
 class_uri: odm:CheckValue
 
 ```

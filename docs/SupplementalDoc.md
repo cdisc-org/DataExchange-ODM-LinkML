@@ -1,8 +1,6 @@
 # Class: SupplementalDoc
 
-
 _Supplemental data definitions_
-
 
 
 
@@ -10,17 +8,26 @@ _Supplemental data definitions_
 URI: [odm:SupplementalDoc](http://www.cdisc.org/ns/odm/v2.0/SupplementalDoc)
 
 
-
 ```mermaid
- classDiagram
-    class SupplementalDoc
-      SupplementalDoc : DocumentRefRef
-        
-          SupplementalDoc --|> DocumentRef : DocumentRefRef
-        
-      
-```
+erDiagram
+SupplementalDoc {
 
+}
+DocumentRef {
+    oid LeafID  
+}
+PDFPageRef {
+    text PageRefs  
+    positiveInteger FirstPage  
+    positiveInteger LastPage  
+    PDFPageType Type  
+    text TitleRef  
+}
+
+SupplementalDoc ||--}o DocumentRef : "DocumentRefRef"
+DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
+
+```
 
 
 
@@ -29,10 +36,11 @@ URI: [odm:SupplementalDoc](http://www.cdisc.org/ns/odm/v2.0/SupplementalDoc)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | Links to a leaf element with the location of the document. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -93,6 +101,7 @@ description: Supplemental data definitions
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SupplementalDoc
+rank: 1000
 slots:
 - DocumentRefRef
 slot_usage:
@@ -123,6 +132,7 @@ description: Supplemental data definitions
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SupplementalDoc
+rank: 1000
 slot_usage:
   DocumentRefRef:
     name: DocumentRefRef

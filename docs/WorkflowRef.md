@@ -1,8 +1,6 @@
 # Class: WorkflowRef
 
-
 _The WorkflowRef references a workflow definition_
-
 
 
 
@@ -10,15 +8,15 @@ _The WorkflowRef references a workflow definition_
 URI: [odm:WorkflowRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRef)
 
 
-
 ```mermaid
- classDiagram
-    class WorkflowRef
-      WorkflowRef : WorkflowOID
-        
-      
-```
+erDiagram
+WorkflowRef {
+    oidref WorkflowOID  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:WorkflowRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [WorkflowOID](WorkflowOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a WorfkflowDef | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -96,6 +95,7 @@ description: The WorkflowRef references a workflow definition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowRef
+rank: 1000
 slots:
 - WorkflowOID
 slot_usage:
@@ -126,6 +126,7 @@ description: The WorkflowRef references a workflow definition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowRef
+rank: 1000
 slot_usage:
   WorkflowOID:
     name: WorkflowOID

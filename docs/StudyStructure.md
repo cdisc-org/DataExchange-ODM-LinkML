@@ -1,8 +1,6 @@
 # Class: StudyStructure
 
-
 _The StudyStructure element describes the general structure of a clinical study with arms, epochs, and workflows._
-
 
 
 
@@ -10,29 +8,37 @@ _The StudyStructure element describes the general structure of a clinical study 
 URI: [odm:StudyStructure](http://www.cdisc.org/ns/odm/v2.0/StudyStructure)
 
 
-
 ```mermaid
- classDiagram
-    class StudyStructure
-      StudyStructure : ArmRef
-        
-          StudyStructure --|> Arm : ArmRef
-        
-      StudyStructure : DescriptionRef
-        
-          StudyStructure --|> Description : DescriptionRef
-        
-      StudyStructure : EpochRef
-        
-          StudyStructure --|> Epoch : EpochRef
-        
-      StudyStructure : WorkflowRefRef
-        
-          StudyStructure --|> WorkflowRef : WorkflowRefRef
-        
-      
-```
+erDiagram
+StudyStructure {
 
+}
+WorkflowRef {
+    oidref WorkflowOID  
+}
+Epoch {
+    oid OID  
+    name Name  
+    positiveInteger SequenceNumber  
+}
+Description {
+
+}
+Arm {
+    oid OID  
+    name Name  
+}
+
+StudyStructure ||--|o Description : "DescriptionRef"
+StudyStructure ||--}o Arm : "ArmRef"
+StudyStructure ||--}o Epoch : "EpochRef"
+StudyStructure ||--|o WorkflowRef : "WorkflowRefRef"
+Epoch ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+Arm ||--|o Description : "DescriptionRef"
+Arm ||--|o WorkflowRef : "WorkflowRefRef"
+
+```
 
 
 
@@ -41,13 +47,14 @@ URI: [odm:StudyStructure](http://www.cdisc.org/ns/odm/v2.0/StudyStructure)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [ArmRef](ArmRef.md) | 0..* <br/> [Arm](Arm.md) | Arm reference: An Arm element provides the declaration of a study arm. Arms d... | direct |
 | [EpochRef](EpochRef.md) | 0..* <br/> [Epoch](Epoch.md) | Epoch reference: The planned period of subjects' participation in the trial i... | direct |
 | [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -109,6 +116,7 @@ description: The StudyStructure element describes the general structure of a cli
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyStructure
+rank: 1000
 slots:
 - DescriptionRef
 - ArmRef
@@ -198,6 +206,7 @@ description: The StudyStructure element describes the general structure of a cli
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyStructure
+rank: 1000
 slot_usage:
   DescriptionRef:
     name: DescriptionRef

@@ -1,8 +1,6 @@
 # Class: Origin
 
-
 _Origin defines the source metadata, where applicable, for ODM ItemRefs or ItemGroupRefs. Origin as a child element replaces the Origin attribute in ODM v1.3 that exists for the ItemDef and ItemGroupDef elements.The Origin element is based on the def:Origin element in Define-XML v2.1 with the Trace-XML v1.0 extension._
-
 
 
 
@@ -10,37 +8,64 @@ _Origin defines the source metadata, where applicable, for ODM ItemRefs or ItemG
 URI: [odm:Origin](http://www.cdisc.org/ns/odm/v2.0/Origin)
 
 
-
 ```mermaid
- classDiagram
-    class Origin
-      Origin : CodingRef
-        
-          Origin --|> Coding : CodingRef
-        
-      Origin : DescriptionRef
-        
-          Origin --|> Description : DescriptionRef
-        
-      Origin : DocumentRefRef
-        
-          Origin --|> DocumentRef : DocumentRefRef
-        
-      Origin : Source
-        
-          Origin --|> OriginSource : Source
-        
-      Origin : SourceItemsRef
-        
-          Origin --|> SourceItems : SourceItemsRef
-        
-      Origin : Type
-        
-          Origin --|> OriginType : Type
-        
-      
-```
+erDiagram
+Origin {
+    OriginType Type  
+    OriginSource Source  
+}
+DocumentRef {
+    oid LeafID  
+}
+PDFPageRef {
+    text PageRefs  
+    positiveInteger FirstPage  
+    positiveInteger LastPage  
+    PDFPageType Type  
+    text TitleRef  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+SourceItems {
 
+}
+SourceItem {
+    oidref ItemOID  
+    oidref ItemGroupOID  
+    oidref MetaDataVersionOID  
+    oidref StudyOID  
+    oidref leafID  
+    name Name  
+}
+Description {
+
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+Origin ||--|o Description : "DescriptionRef"
+Origin ||--|o SourceItems : "SourceItemsRef"
+Origin ||--}o Coding : "CodingRef"
+Origin ||--}o DocumentRef : "DocumentRefRef"
+DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
+SourceItems ||--}o SourceItem : "SourceItemRef"
+SourceItems ||--}o Coding : "CodingRef"
+SourceItem ||--}o Resource : "ResourceRef"
+SourceItem ||--}o Coding : "CodingRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -49,7 +74,7 @@ URI: [odm:Origin](http://www.cdisc.org/ns/odm/v2.0/Origin)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [Type](Type.md) | 1..1 <br/> [OriginType](OriginType.md) | Identifies how the clinical data values were obtained. | direct |
 | [Source](Source.md) | 0..1 <br/> [OriginSource](OriginSource.md) | Indicates the party responsible for the data's origin type. | direct |
@@ -58,6 +83,7 @@ URI: [odm:Origin](http://www.cdisc.org/ns/odm/v2.0/Origin)
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 | [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -122,6 +148,7 @@ description: Origin defines the source metadata, where applicable, for ODM ItemR
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Origin
+rank: 1000
 slots:
 - Type
 - Source
@@ -274,6 +301,7 @@ description: Origin defines the source metadata, where applicable, for ODM ItemR
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Origin
+rank: 1000
 slot_usage:
   Type:
     name: Type

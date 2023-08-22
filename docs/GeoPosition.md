@@ -1,8 +1,6 @@
 # Class: GeoPosition
 
-
 _The geographical position using the World Geodetic System WGS84._
-
 
 
 
@@ -10,19 +8,17 @@ _The geographical position using the World Geodetic System WGS84._
 URI: [odm:GeoPosition](http://www.cdisc.org/ns/odm/v2.0/GeoPosition)
 
 
-
 ```mermaid
- classDiagram
-    class GeoPosition
-      GeoPosition : Altitude
-        
-      GeoPosition : Latitude
-        
-      GeoPosition : Longitude
-        
-      
-```
+erDiagram
+GeoPosition {
+    decimal Longitude  
+    decimal Latitude  
+    decimal Altitude  
+}
 
+
+
+```
 
 
 
@@ -31,12 +27,13 @@ URI: [odm:GeoPosition](http://www.cdisc.org/ns/odm/v2.0/GeoPosition)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [Longitude](Longitude.md) | 0..1 <br/> [decimal](decimal.md) | Longitude component of geoposition coordinates in decimal degrees. May requir... | direct |
 | [Latitude](Latitude.md) | 0..1 <br/> [decimal](decimal.md) | Latitude component of geoposition coordinate in decimal degrees degrees. May ... | direct |
 | [Altitude](Altitude.md) | 0..1 <br/> [decimal](decimal.md) | Height above sea level in meters. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -97,6 +94,7 @@ description: The geographical position using the World Geodetic System WGS84.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/GeoPosition
+rank: 1000
 slots:
 - Longitude
 - Latitude
@@ -148,6 +146,7 @@ description: The geographical position using the World Geodetic System WGS84.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/GeoPosition
+rank: 1000
 slot_usage:
   Longitude:
     name: Longitude

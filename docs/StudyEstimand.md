@@ -1,8 +1,6 @@
 # Class: StudyEstimand
 
-
 _A precise description of the treatment effect reflecting the clinical question posed by a given clinical trial objective. It summarises at a population level what the outcomes would be in the same patients under different treatment conditions being compared._
-
 
 
 
@@ -10,45 +8,44 @@ _A precise description of the treatment effect reflecting the clinical question 
 URI: [odm:StudyEstimand](http://www.cdisc.org/ns/odm/v2.0/StudyEstimand)
 
 
-
 ```mermaid
- classDiagram
-    class StudyEstimand
-      StudyEstimand : DescriptionRef
-        
-          StudyEstimand --|> Description : DescriptionRef
-        
-      StudyEstimand : IntercurrentEventRef
-        
-          StudyEstimand --|> IntercurrentEvent : IntercurrentEventRef
-        
-      StudyEstimand : Level
-        
-          StudyEstimand --|> StudyEstimandLevel : Level
-        
-      StudyEstimand : Name
-        
-      StudyEstimand : OID
-        
-      StudyEstimand : StudyEndPointRefRef
-        
-          StudyEstimand --|> StudyEndPointRef : StudyEndPointRefRef
-        
-      StudyEstimand : StudyInterventionRefRef
-        
-          StudyEstimand --|> StudyInterventionRef : StudyInterventionRefRef
-        
-      StudyEstimand : StudyTargetPopulationRefRef
-        
-          StudyEstimand --|> StudyTargetPopulationRef : StudyTargetPopulationRefRef
-        
-      StudyEstimand : SummaryMeasureRef
-        
-          StudyEstimand --|> SummaryMeasure : SummaryMeasureRef
-        
-      
-```
+erDiagram
+StudyEstimand {
+    oid OID  
+    name Name  
+    StudyEstimandLevel Level  
+}
+SummaryMeasure {
 
+}
+Description {
+
+}
+IntercurrentEvent {
+
+}
+StudyEndPointRef {
+    oidref StudyEndPointOID  
+    positiveInteger OrderNumber  
+}
+StudyInterventionRef {
+    oidref StudyInterventionOID  
+}
+StudyTargetPopulationRef {
+    oidref StudyTargetPopulationOID  
+}
+
+StudyEstimand ||--|o Description : "DescriptionRef"
+StudyEstimand ||--|o StudyTargetPopulationRef : "StudyTargetPopulationRefRef"
+StudyEstimand ||--|o StudyInterventionRef : "StudyInterventionRefRef"
+StudyEstimand ||--|o StudyEndPointRef : "StudyEndPointRefRef"
+StudyEstimand ||--}o IntercurrentEvent : "IntercurrentEventRef"
+StudyEstimand ||--|o SummaryMeasure : "SummaryMeasureRef"
+SummaryMeasure ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+IntercurrentEvent ||--|o Description : "DescriptionRef"
+
+```
 
 
 
@@ -57,7 +54,7 @@ URI: [odm:StudyEstimand](http://www.cdisc.org/ns/odm/v2.0/StudyEstimand)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEstimand element. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the Study Estimand. | direct |
@@ -69,6 +66,7 @@ URI: [odm:StudyEstimand](http://www.cdisc.org/ns/odm/v2.0/StudyEstimand)
 | [IntercurrentEventRef](IntercurrentEventRef.md) | 0..* <br/> [IntercurrentEvent](IntercurrentEvent.md) | IntercurrentEvent reference: The IntercurrentEvent element describes an inter... | direct |
 | [SummaryMeasureRef](SummaryMeasureRef.md) | 0..1 <br/> [SummaryMeasure](SummaryMeasure.md) | SummaryMeasure reference: The SummaryMeasure element describes a summary meas... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -132,6 +130,7 @@ description: A precise description of the treatment effect reflecting the clinic
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEstimand
+rank: 1000
 slots:
 - OID
 - Name
@@ -339,6 +338,7 @@ description: A precise description of the treatment effect reflecting the clinic
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEstimand
+rank: 1000
 slot_usage:
   OID:
     name: OID

@@ -1,8 +1,6 @@
 # Class: ItemGroupData
 
-
 _Clinical data corresponding to an ItemGroupRef defined in the active MetaDataVersion._
-
 
 
 
@@ -10,47 +8,109 @@ _Clinical data corresponding to an ItemGroupRef defined in the active MetaDataVe
 URI: [odm:ItemGroupData](http://www.cdisc.org/ns/odm/v2.0/ItemGroupData)
 
 
-
 ```mermaid
- classDiagram
-    class ItemGroupData
-      ItemGroupData : AnnotationRef
-        
-          ItemGroupData --|> Annotation : AnnotationRef
-        
-      ItemGroupData : AuditRecordRef
-        
-          ItemGroupData --|> AuditRecord : AuditRecordRef
-        
-      ItemGroupData : ItemDataRef
-        
-          ItemGroupData --|> ItemData : ItemDataRef
-        
-      ItemGroupData : ItemGroupDataRef
-        
-          ItemGroupData --|> ItemGroupData : ItemGroupDataRef
-        
-      ItemGroupData : ItemGroupDataSeq
-        
-      ItemGroupData : ItemGroupOID
-        
-      ItemGroupData : ItemGroupRepeatKey
-        
-      ItemGroupData : QueryRef
-        
-          ItemGroupData --|> Query : QueryRef
-        
-      ItemGroupData : SignatureRefRef
-        
-          ItemGroupData --|> Signature : SignatureRefRef
-        
-      ItemGroupData : TransactionTypeRef
-        
-          ItemGroupData --|> TransactionType : TransactionTypeRef
-        
-      
-```
+erDiagram
+ItemGroupData {
+    oidref ItemGroupOID  
+    repeatKey ItemGroupRepeatKey  
+    TransactionType TransactionTypeRef  
+    positiveInteger ItemGroupDataSeq  
+}
+Annotation {
+    positiveInteger SeqNum  
+    TransactionType TransactionTypeRef  
+    oid ID  
+}
+Flag {
 
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Comment {
+    CommentType SponsorOrSite  
+}
+Signature {
+    oid ID  
+}
+DateTimeStamp {
+    datetime content  
+}
+SignatureRef {
+    oidref SignatureOID  
+}
+LocationRef {
+    oidref LocationOID  
+}
+UserRef {
+    oidref UserOID  
+}
+AuditRecord {
+    EditPointType EditPoint  
+    YesOrNo UsedMethod  
+}
+SourceID {
+    text content  
+}
+ReasonForChange {
+    text content  
+}
+ItemData {
+    oidref ItemOID  
+    TransactionType TransactionTypeRef  
+    YesOnly IsNull  
+}
+Query {
+    oid OID  
+    QuerySourceType Source  
+    text Target  
+    QueryType Type  
+    QueryStateType State  
+    datetime LastUpdateDatetime  
+    name Name  
+}
+Value {
+    positiveInteger SeqNum  
+    text content  
+}
+
+ItemGroupData ||--}o Query : "QueryRef"
+ItemGroupData ||--}o ItemGroupData : "ItemGroupDataRef"
+ItemGroupData ||--}o ItemData : "ItemDataRef"
+ItemGroupData ||--|o AuditRecord : "AuditRecordRef"
+ItemGroupData ||--|o Signature : "SignatureRefRef"
+ItemGroupData ||--|o Annotation : "AnnotationRef"
+Annotation ||--|o Comment : "CommentRef"
+Annotation ||--}o Coding : "CodingRef"
+Annotation ||--}o Flag : "FlagRef"
+Flag ||--|o FlagValue : "FlagValueRef"
+Flag ||--|o FlagType : "FlagTypeRef"
+Comment ||--}o TranslatedText : "TranslatedTextRef"
+Signature ||--|o UserRef : "UserRefRef"
+Signature ||--|o LocationRef : "LocationRefRef"
+Signature ||--|o SignatureRef : "SignatureRefRef"
+Signature ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o UserRef : "UserRefRef"
+AuditRecord ||--|o LocationRef : "LocationRefRef"
+AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
+AuditRecord ||--|o SourceID : "SourceIDRef"
+ItemData ||--}o Value : "ValueRef"
+ItemData ||--}o Query : "QueryRef"
+ItemData ||--|o AuditRecord : "AuditRecordRef"
+ItemData ||--|o Signature : "SignatureRefRef"
+ItemData ||--|o Annotation : "AnnotationRef"
+Query ||--|o Value : "ValueRef"
+Query ||--}o AuditRecord : "AuditRecordRef"
+
+```
 
 
 
@@ -59,7 +119,7 @@ URI: [odm:ItemGroupData](http://www.cdisc.org/ns/odm/v2.0/ItemGroupData)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [ItemGroupOID](ItemGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to an ItemGroupDef for the MetaDataVersion identified in the Clinic... | direct |
 | [ItemGroupRepeatKey](ItemGroupRepeatKey.md) | 0..1 <br/> [repeatKey](repeatKey.md) | A key used to distinguish between repeats of the same type of item group. | direct |
@@ -72,6 +132,7 @@ URI: [odm:ItemGroupData](http://www.cdisc.org/ns/odm/v2.0/ItemGroupData)
 | [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: A reference to the signature meaning. | direct |
 | [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -136,6 +197,7 @@ description: Clinical data corresponding to an ItemGroupRef defined in the activ
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemGroupData
+rank: 1000
 slots:
 - ItemGroupOID
 - ItemGroupRepeatKey
@@ -172,7 +234,7 @@ slot_usage:
       is "Yes".
 
       The values of ItemGroupRepeatKey must be unique within the parent element. The
-      ItemGroupRepeatKey is present only if the ItemGroupDef is repeating . For /ODM/ReferenceData/ItemGroupData
+      ItemGroupRepeatKey is present only if the ItemGroupDef is repeating. For /ODM/ReferenceData/ItemGroupData
       , the ItemGroupOID and ItemGroupRepeatKey pair must be unique.'
     domain_of:
     - ItemGroupData
@@ -289,6 +351,7 @@ description: Clinical data corresponding to an ItemGroupRef defined in the activ
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemGroupData
+rank: 1000
 slot_usage:
   ItemGroupOID:
     name: ItemGroupOID
@@ -314,7 +377,7 @@ slot_usage:
       is "Yes".
 
       The values of ItemGroupRepeatKey must be unique within the parent element. The
-      ItemGroupRepeatKey is present only if the ItemGroupDef is repeating . For /ODM/ReferenceData/ItemGroupData
+      ItemGroupRepeatKey is present only if the ItemGroupDef is repeating. For /ODM/ReferenceData/ItemGroupData
       , the ItemGroupOID and ItemGroupRepeatKey pair must be unique.'
     domain_of:
     - ItemGroupData
@@ -445,7 +508,7 @@ attributes:
       is "Yes".
 
       The values of ItemGroupRepeatKey must be unique within the parent element. The
-      ItemGroupRepeatKey is present only if the ItemGroupDef is repeating . For /ODM/ReferenceData/ItemGroupData
+      ItemGroupRepeatKey is present only if the ItemGroupDef is repeating. For /ODM/ReferenceData/ItemGroupData
       , the ItemGroupOID and ItemGroupRepeatKey pair must be unique.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000

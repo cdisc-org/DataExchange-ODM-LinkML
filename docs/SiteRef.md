@@ -1,8 +1,6 @@
 # Class: SiteRef
 
-
 _Provides a reference to the site that the SubjectData record is associated with in the source system._
-
 
 
 
@@ -10,15 +8,15 @@ _Provides a reference to the site that the SubjectData record is associated with
 URI: [odm:SiteRef](http://www.cdisc.org/ns/odm/v2.0/SiteRef)
 
 
-
 ```mermaid
- classDiagram
-    class SiteRef
-      SiteRef : LocationOID
-        
-      
-```
+erDiagram
+SiteRef {
+    oidref LocationOID  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:SiteRef](http://www.cdisc.org/ns/odm/v2.0/SiteRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [LocationOID](LocationOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a Location definition. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -92,6 +91,7 @@ description: Provides a reference to the site that the SubjectData record is ass
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SiteRef
+rank: 1000
 slots:
 - LocationOID
 slot_usage:
@@ -127,6 +127,7 @@ description: Provides a reference to the site that the SubjectData record is ass
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SiteRef
+rank: 1000
 slot_usage:
   LocationOID:
     name: LocationOID

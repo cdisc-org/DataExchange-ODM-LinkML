@@ -1,8 +1,6 @@
 # Class: ErrorMessage
 
-
 _Error message provided to user when the range check fails._
-
 
 
 
@@ -10,17 +8,20 @@ _Error message provided to user when the range check fails._
 URI: [odm:ErrorMessage](http://www.cdisc.org/ns/odm/v2.0/ErrorMessage)
 
 
-
 ```mermaid
- classDiagram
-    class ErrorMessage
-      ErrorMessage : TranslatedTextRef
-        
-          ErrorMessage --|> TranslatedText : TranslatedTextRef
-        
-      
-```
+erDiagram
+ErrorMessage {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+ErrorMessage ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -29,10 +30,11 @@ URI: [odm:ErrorMessage](http://www.cdisc.org/ns/odm/v2.0/ErrorMessage)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -93,6 +95,7 @@ description: Error message provided to user when the range check fails.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ErrorMessage
+rank: 1000
 slots:
 - TranslatedTextRef
 slot_usage:
@@ -127,6 +130,7 @@ description: Error message provided to user when the range check fails.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ErrorMessage
+rank: 1000
 slot_usage:
   TranslatedTextRef:
     name: TranslatedTextRef

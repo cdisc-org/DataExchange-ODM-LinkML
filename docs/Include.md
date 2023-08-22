@@ -1,8 +1,6 @@
 # Class: Include
 
-
 _The Include metadata element allows a reference to a prior metadata version._
-
 
 
 
@@ -10,19 +8,17 @@ _The Include metadata element allows a reference to a prior metadata version._
 URI: [odm:Include](http://www.cdisc.org/ns/odm/v2.0/Include)
 
 
-
 ```mermaid
- classDiagram
-    class Include
-      Include : href
-        
-      Include : MetaDataVersionOID
-        
-      Include : StudyOID
-        
-      
-```
+erDiagram
+Include {
+    oidref StudyOID  
+    oidref MetaDataVersionOID  
+    uriorcurie href  
+}
 
+
+
+```
 
 
 
@@ -31,12 +27,13 @@ URI: [odm:Include](http://www.cdisc.org/ns/odm/v2.0/Include)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the Study that provides a prior metadata version. This attribute a... | direct |
 | [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | References a prior MetaDataVersion within the Study referenced by the StudyOI... | direct |
 | [href](href.md) | 0..1 <br/> [uriorcurie](uriorcurie.md) | Reference to the location where the to be included Study-Metadata definition ... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -97,6 +94,7 @@ description: The Include metadata element allows a reference to a prior metadata
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Include
+rank: 1000
 slots:
 - StudyOID
 - MetaDataVersionOID
@@ -175,6 +173,7 @@ description: The Include metadata element allows a reference to a prior metadata
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Include
+rank: 1000
 slot_usage:
   StudyOID:
     name: StudyOID

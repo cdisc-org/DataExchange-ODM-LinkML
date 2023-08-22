@@ -1,8 +1,6 @@
 # Class: Resource
 
-
 _Describes an external resource used as the source for the parent ItemGroup or Item._
-
 
 
 
@@ -10,25 +8,21 @@ _Describes an external resource used as the source for the parent ItemGroup or I
 URI: [odm:Resource](http://www.cdisc.org/ns/odm/v2.0/Resource)
 
 
-
 ```mermaid
- classDiagram
-    class Resource
-      Resource : Attribute
-        
-      Resource : Label
-        
-      Resource : Name
-        
-      Resource : SelectionRef
-        
-          Resource --|> Selection : SelectionRef
-        
-      Resource : Type
-        
-      
-```
+erDiagram
+Resource {
+    text Type  
+    name Name  
+    text Attribute  
+    text Label  
+}
+Selection {
+    text Path  
+}
 
+Resource ||--}o Selection : "SelectionRef"
+
+```
 
 
 
@@ -37,7 +31,7 @@ URI: [odm:Resource](http://www.cdisc.org/ns/odm/v2.0/Resource)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [Type](Type.md) | 1..1 <br/> [text](text.md) | Categorization of external resources. Examples include: "ODM", "HL7-FHIR", "H... | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | The human readable identifier of the element or field in the external resourc... | direct |
@@ -45,6 +39,7 @@ URI: [odm:Resource](http://www.cdisc.org/ns/odm/v2.0/Resource)
 | [Label](Label.md) | 0..1 <br/> [text](text.md) | Used to link the value to a named MethodDef parameter. | direct |
 | [SelectionRef](SelectionRef.md) | 0..* <br/> [Selection](Selection.md) | Selection reference: Template for machine-readable/executable expression for ... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -106,6 +101,7 @@ description: Describes an external resource used as the source for the parent It
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Resource
+rank: 1000
 slots:
 - Type
 - Name
@@ -241,6 +237,7 @@ description: Describes an external resource used as the source for the parent It
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Resource
+rank: 1000
 slot_usage:
   Type:
     name: Type

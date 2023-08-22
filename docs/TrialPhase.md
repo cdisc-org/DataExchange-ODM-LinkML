@@ -1,8 +1,6 @@
 # Class: TrialPhase
 
-
 _The TrialPhase element designates the phase of the study in the clinical trial._
-
 
 
 
@@ -10,19 +8,24 @@ _The TrialPhase element designates the phase of the study in the clinical trial.
 URI: [odm:TrialPhase](http://www.cdisc.org/ns/odm/v2.0/TrialPhase)
 
 
-
 ```mermaid
- classDiagram
-    class TrialPhase
-      TrialPhase : DescriptionRef
-        
-          TrialPhase --|> Description : DescriptionRef
-        
-      TrialPhase : ValueRef
-        
-      
-```
+erDiagram
+TrialPhase {
+    TrialPhaseType ValueRef  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+TrialPhase ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -31,11 +34,12 @@ URI: [odm:TrialPhase](http://www.cdisc.org/ns/odm/v2.0/TrialPhase)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [ValueRef](ValueRef.md) | 1..1 <br/> [TrialPhaseType](TrialPhaseType.md) | Human-readable designation of the trial phase. | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -97,6 +101,7 @@ description: The TrialPhase element designates the phase of the study in the cli
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TrialPhase
+rank: 1000
 slots:
 - ValueRef
 - DescriptionRef
@@ -178,6 +183,7 @@ description: The TrialPhase element designates the phase of the study in the cli
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TrialPhase
+rank: 1000
 slot_usage:
   ValueRef:
     name: ValueRef

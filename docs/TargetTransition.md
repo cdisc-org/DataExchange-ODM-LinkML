@@ -1,8 +1,6 @@
 # Class: TargetTransition
 
-
 _TargetTransition provides a reference to a Transition element that is the target of a branching._
-
 
 
 
@@ -10,17 +8,16 @@ _TargetTransition provides a reference to a Transition element that is the targe
 URI: [odm:TargetTransition](http://www.cdisc.org/ns/odm/v2.0/TargetTransition)
 
 
-
 ```mermaid
- classDiagram
-    class TargetTransition
-      TargetTransition : ConditionOID
-        
-      TargetTransition : TargetTransitionOID
-        
-      
-```
+erDiagram
+TargetTransition {
+    oidref TargetTransitionOID  
+    oidref ConditionOID  
+}
 
+
+
+```
 
 
 
@@ -29,11 +26,12 @@ URI: [odm:TargetTransition](http://www.cdisc.org/ns/odm/v2.0/TargetTransition)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [TargetTransitionOID](TargetTransitionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the Transition that is one of the targets of the branching. | direct |
 | [ConditionOID](ConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef defining the condition under which the transition... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -95,6 +93,7 @@ description: TargetTransition provides a reference to a Transition element that 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TargetTransition
+rank: 1000
 slots:
 - TargetTransitionOID
 - ConditionOID
@@ -146,6 +145,7 @@ description: TargetTransition provides a reference to a Transition element that 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/TargetTransition
+rank: 1000
 slot_usage:
   TargetTransitionOID:
     name: TargetTransitionOID

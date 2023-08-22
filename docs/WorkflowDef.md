@@ -1,8 +1,6 @@
 # Class: WorkflowDef
 
-
 _A WorkflowDef defines an automated workflow for a study._
-
 
 
 
@@ -10,37 +8,58 @@ _A WorkflowDef defines an automated workflow for a study._
 URI: [odm:WorkflowDef](http://www.cdisc.org/ns/odm/v2.0/WorkflowDef)
 
 
-
 ```mermaid
- classDiagram
-    class WorkflowDef
-      WorkflowDef : BranchingRef
-        
-          WorkflowDef --|> Branching : BranchingRef
-        
-      WorkflowDef : DescriptionRef
-        
-          WorkflowDef --|> Description : DescriptionRef
-        
-      WorkflowDef : Name
-        
-      WorkflowDef : OID
-        
-      WorkflowDef : TransitionRef
-        
-          WorkflowDef --|> Transition : TransitionRef
-        
-      WorkflowDef : WorkflowEndRef
-        
-          WorkflowDef --|> WorkflowEnd : WorkflowEndRef
-        
-      WorkflowDef : WorkflowStartRef
-        
-          WorkflowDef --|> WorkflowStart : WorkflowStartRef
-        
-      
-```
+erDiagram
+WorkflowDef {
+    oid OID  
+    name Name  
+}
+Branching {
+    oid OID  
+    name Name  
+    BranchingType Type  
+}
+DefaultTransition {
+    oidref TargetTransitionOID  
+}
+TargetTransition {
+    oidref TargetTransitionOID  
+    oidref ConditionOID  
+}
+Transition {
+    oid OID  
+    name Name  
+    oidref SourceOID  
+    oidref TargetOID  
+    oidref StartConditionOID  
+    oidref EndConditionOID  
+}
+WorkflowEnd {
+    oidref EndOID  
+    text content  
+}
+WorkflowStart {
+    oidref StartOID  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+WorkflowDef ||--|o Description : "DescriptionRef"
+WorkflowDef ||--|o WorkflowStart : "WorkflowStartRef"
+WorkflowDef ||--}o WorkflowEnd : "WorkflowEndRef"
+WorkflowDef ||--}o Transition : "TransitionRef"
+WorkflowDef ||--}o Branching : "BranchingRef"
+Branching ||--}o TargetTransition : "TargetTransitionRef"
+Branching ||--}o DefaultTransition : "DefaultTransitionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -49,7 +68,7 @@ URI: [odm:WorkflowDef](http://www.cdisc.org/ns/odm/v2.0/WorkflowDef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the workflow. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable label for the workflow. | direct |
@@ -59,6 +78,7 @@ URI: [odm:WorkflowDef](http://www.cdisc.org/ns/odm/v2.0/WorkflowDef)
 | [TransitionRef](TransitionRef.md) | 0..* <br/> [Transition](Transition.md) | Transition reference: A Transition defines a link between 2 structural elemen... | direct |
 | [BranchingRef](BranchingRef.md) | 0..* <br/> [Branching](Branching.md) | Branching reference: This element describes the branching in a workflow from ... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -119,6 +139,7 @@ description: A WorkflowDef defines an automated workflow for a study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowDef
+rank: 1000
 slots:
 - OID
 - Name
@@ -307,6 +328,7 @@ description: A WorkflowDef defines an automated workflow for a study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowDef
+rank: 1000
 slot_usage:
   OID:
     name: OID

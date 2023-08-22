@@ -1,8 +1,6 @@
 # Class: CommentDef
 
-
 _The Comment element allows referencing short comments self-contained in the XML document or long comments normally included in external documents. For comments included in external documents, the reference could include specific pages of a document where the comments are included._
-
 
 
 
@@ -10,23 +8,36 @@ _The Comment element allows referencing short comments self-contained in the XML
 URI: [odm:CommentDef](http://www.cdisc.org/ns/odm/v2.0/CommentDef)
 
 
-
 ```mermaid
- classDiagram
-    class CommentDef
-      CommentDef : DescriptionRef
-        
-          CommentDef --|> Description : DescriptionRef
-        
-      CommentDef : DocumentRefRef
-        
-          CommentDef --|> DocumentRef : DocumentRefRef
-        
-      CommentDef : OID
-        
-      
-```
+erDiagram
+CommentDef {
+    oid OID  
+}
+DocumentRef {
+    oid LeafID  
+}
+PDFPageRef {
+    text PageRefs  
+    positiveInteger FirstPage  
+    positiveInteger LastPage  
+    PDFPageType Type  
+    text TitleRef  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+CommentDef ||--|o Description : "DescriptionRef"
+CommentDef ||--}o DocumentRef : "DocumentRefRef"
+DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -35,12 +46,13 @@ URI: [odm:CommentDef](http://www.cdisc.org/ns/odm/v2.0/CommentDef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Text of the comment. | direct |
 | [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -104,6 +116,7 @@ description: The Comment element allows referencing short comments self-containe
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CommentDef
+rank: 1000
 slots:
 - OID
 - DescriptionRef
@@ -228,6 +241,7 @@ description: The Comment element allows referencing short comments self-containe
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CommentDef
+rank: 1000
 slot_usage:
   OID:
     name: OID

@@ -1,8 +1,6 @@
 # Class: RelativeTimingConstraint
 
-
 _The RelativeTimingConstraint element describes a relative timing constraint between 2 activities or groups of activities, represented by StudyEventGroups, StudyEvents, ItemGroups, or Items._
-
 
 
 
@@ -10,35 +8,31 @@ _The RelativeTimingConstraint element describes a relative timing constraint bet
 URI: [odm:RelativeTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/RelativeTimingConstraint)
 
 
-
 ```mermaid
- classDiagram
-    class RelativeTimingConstraint
-      RelativeTimingConstraint : DescriptionRef
-        
-          RelativeTimingConstraint --|> Description : DescriptionRef
-        
-      RelativeTimingConstraint : Name
-        
-      RelativeTimingConstraint : OID
-        
-      RelativeTimingConstraint : PredecessorOID
-        
-      RelativeTimingConstraint : SuccessorOID
-        
-      RelativeTimingConstraint : TimepointPostWindow
-        
-      RelativeTimingConstraint : TimepointPreWindow
-        
-      RelativeTimingConstraint : TimepointRelativeTarget
-        
-      RelativeTimingConstraint : Type
-        
-          RelativeTimingConstraint --|> RelativeTimingConstraintType : Type
-        
-      
-```
+erDiagram
+RelativeTimingConstraint {
+    oid OID  
+    name Name  
+    oidref PredecessorOID  
+    oidref SuccessorOID  
+    RelativeTimingConstraintType Type  
+    durationDatetime TimepointRelativeTarget  
+    durationDatetime TimepointPreWindow  
+    durationDatetime TimepointPostWindow  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+RelativeTimingConstraint ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -47,7 +41,7 @@ URI: [odm:RelativeTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/RelativeTim
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name. | direct |
@@ -59,6 +53,7 @@ URI: [odm:RelativeTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/RelativeTim
 | [TimepointPostWindow](TimepointPostWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Adds an upper bound to a time window for the RelativeTimepointTarget. | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -121,6 +116,7 @@ description: The RelativeTimingConstraint element describes a relative timing co
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/RelativeTimingConstraint
+rank: 1000
 slots:
 - OID
 - Name
@@ -345,6 +341,7 @@ description: The RelativeTimingConstraint element describes a relative timing co
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/RelativeTimingConstraint
+rank: 1000
 slot_usage:
   OID:
     name: OID

@@ -36,7 +36,7 @@ def connect() -> dict:
 
 def scrape_wiki_content(
     element,
-    url_prefix = 'https://wiki.cdisc.org/display/ODM2/',
+    url_prefix = 'https://wiki.cdisc.org/display/PUB/',
     headers = None
     ) -> dict:
 

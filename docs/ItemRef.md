@@ -1,8 +1,6 @@
 # Class: ItemRef
 
-
 _A reference to an ItemDef as it occurs within a specific ItemGroupDef. The list of ItemRefs identifies the types of items that are allowed to occur within this type of item group._
-
 
 
 
@@ -10,61 +8,64 @@ _A reference to an ItemDef as it occurs within a specific ItemGroupDef. The list
 URI: [odm:ItemRef](http://www.cdisc.org/ns/odm/v2.0/ItemRef)
 
 
-
 ```mermaid
- classDiagram
-    class ItemRef
-      ItemRef : CollectionExceptionConditionOID
-        
-      ItemRef : Core
-        
-      ItemRef : HasNoData
-        
-          ItemRef --|> YesOnly : HasNoData
-        
-      ItemRef : IsNonStandard
-        
-          ItemRef --|> YesOnly : IsNonStandard
-        
-      ItemRef : ItemOID
-        
-      ItemRef : KeySequence
-        
-      ItemRef : Mandatory
-        
-          ItemRef --|> YesOrNo : Mandatory
-        
-      ItemRef : MethodOID
-        
-      ItemRef : OrderNumber
-        
-      ItemRef : OriginRef
-        
-          ItemRef --|> Origin : OriginRef
-        
-      ItemRef : Other
-        
-          ItemRef --|> YesOnly : Other
-        
-      ItemRef : PreSpecifiedValue
-        
-      ItemRef : Repeat
-        
-          ItemRef --|> YesOnly : Repeat
-        
-      ItemRef : Role
-        
-      ItemRef : RoleCodeListOID
-        
-      ItemRef : UnitsItemOID
-        
-      ItemRef : WhereClauseRefRef
-        
-          ItemRef --|> WhereClauseRef : WhereClauseRefRef
-        
-      
-```
+erDiagram
+ItemRef {
+    oidref ItemOID  
+    positiveInteger KeySequence  
+    YesOnly IsNonStandard  
+    YesOnly HasNoData  
+    oidref MethodOID  
+    oidref UnitsItemOID  
+    YesOnly Repeat  
+    YesOnly Other  
+    text Role  
+    oidref RoleCodeListOID  
+    CoreType Core  
+    text PreSpecifiedValue  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
+WhereClauseRef {
+    oidref WhereClauseOID  
+}
+Origin {
+    OriginType Type  
+    OriginSource Source  
+}
+DocumentRef {
+    oid LeafID  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+SourceItems {
 
+}
+Description {
+
+}
+
+ItemRef ||--}o Origin : "OriginRef"
+ItemRef ||--}o WhereClauseRef : "WhereClauseRefRef"
+Origin ||--|o Description : "DescriptionRef"
+Origin ||--|o SourceItems : "SourceItemsRef"
+Origin ||--}o Coding : "CodingRef"
+Origin ||--}o DocumentRef : "DocumentRefRef"
+DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
+SourceItems ||--}o SourceItem : "SourceItemRef"
+SourceItems ||--}o Coding : "CodingRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -73,9 +74,9 @@ URI: [odm:ItemRef](http://www.cdisc.org/ns/odm/v2.0/ItemRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ItemOID](ItemOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the ItemDef. | direct |
+| [ItemOID](ItemOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the ItemDef . | direct |
 | [KeySequence](KeySequence.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates that this item is a key for the enclosing element. It also provides... | direct |
 | [IsNonStandard](IsNonStandard.md) | 0..1 <br/> [YesOnly](YesOnly.md) | A non-standard variable is one that is not defined in the SDTMIG or the under... | direct |
 | [HasNoData](HasNoData.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Used to indicate that an ItemRef that represent a dataset's variable has no d... | direct |
@@ -93,6 +94,7 @@ URI: [odm:ItemRef](http://www.cdisc.org/ns/odm/v2.0/ItemRef)
 | [OriginRef](OriginRef.md) | 0..* <br/> [Origin](Origin.md) | Origin reference: Origin defines the source metadata, where applicable, for O... | direct |
 | [WhereClauseRefRef](WhereClauseRefRef.md) | 0..* <br/> [WhereClauseRef](WhereClauseRef.md) | WhereClauseRef reference: The WhereClauseRef references the WhereClauseDef el... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -156,6 +158,7 @@ description: A reference to an ItemDef as it occurs within a specific ItemGroupD
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemRef
+rank: 1000
 slots:
 - ItemOID
 - KeySequence
@@ -177,7 +180,7 @@ slots:
 slot_usage:
   ItemOID:
     name: ItemOID
-    description: Reference to the ItemDef.
+    description: Reference to the ItemDef .
     comments:
     - 'Required
 
@@ -448,10 +451,11 @@ description: A reference to an ItemDef as it occurs within a specific ItemGroupD
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ItemRef
+rank: 1000
 slot_usage:
   ItemOID:
     name: ItemOID
-    description: Reference to the ItemDef.
+    description: Reference to the ItemDef .
     comments:
     - 'Required
 
@@ -709,7 +713,7 @@ slot_usage:
 attributes:
   ItemOID:
     name: ItemOID
-    description: Reference to the ItemDef.
+    description: Reference to the ItemDef .
     comments:
     - 'Required
 

@@ -1,8 +1,6 @@
 # Class: StudyEstimands
 
-
 _StudyEstimands is a container element for individual StudyEstimand elements._
-
 
 
 
@@ -10,17 +8,48 @@ _StudyEstimands is a container element for individual StudyEstimand elements._
 URI: [odm:StudyEstimands](http://www.cdisc.org/ns/odm/v2.0/StudyEstimands)
 
 
-
 ```mermaid
- classDiagram
-    class StudyEstimands
-      StudyEstimands : StudyEstimandRef
-        
-          StudyEstimands --|> StudyEstimand : StudyEstimandRef
-        
-      
-```
+erDiagram
+StudyEstimands {
 
+}
+StudyEstimand {
+    oid OID  
+    name Name  
+    StudyEstimandLevel Level  
+}
+SummaryMeasure {
+
+}
+IntercurrentEvent {
+
+}
+StudyEndPointRef {
+    oidref StudyEndPointOID  
+    positiveInteger OrderNumber  
+}
+StudyInterventionRef {
+    oidref StudyInterventionOID  
+}
+StudyTargetPopulationRef {
+    oidref StudyTargetPopulationOID  
+}
+Description {
+
+}
+
+StudyEstimands ||--}o StudyEstimand : "StudyEstimandRef"
+StudyEstimand ||--|o Description : "DescriptionRef"
+StudyEstimand ||--|o StudyTargetPopulationRef : "StudyTargetPopulationRefRef"
+StudyEstimand ||--|o StudyInterventionRef : "StudyInterventionRefRef"
+StudyEstimand ||--|o StudyEndPointRef : "StudyEndPointRefRef"
+StudyEstimand ||--}o IntercurrentEvent : "IntercurrentEventRef"
+StudyEstimand ||--|o SummaryMeasure : "SummaryMeasureRef"
+SummaryMeasure ||--|o Description : "DescriptionRef"
+IntercurrentEvent ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -29,10 +58,11 @@ URI: [odm:StudyEstimands](http://www.cdisc.org/ns/odm/v2.0/StudyEstimands)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyEstimandRef](StudyEstimandRef.md) | 0..* <br/> [StudyEstimand](StudyEstimand.md) | StudyEstimand reference: A precise description of the treatment effect reflec... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -93,6 +123,7 @@ description: StudyEstimands is a container element for individual StudyEstimand 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEstimands
+rank: 1000
 slots:
 - StudyEstimandRef
 slot_usage:
@@ -118,6 +149,7 @@ description: StudyEstimands is a container element for individual StudyEstimand 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEstimands
+rank: 1000
 slot_usage:
   StudyEstimandRef:
     name: StudyEstimandRef

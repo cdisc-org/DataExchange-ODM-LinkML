@@ -1,8 +1,6 @@
 # Class: StudyEventData
 
-
 _Clinical data for a study event (visit). The model supports repeating study events (e.g., when the same set of information is collected for a series of patient visits)._
-
 
 
 
@@ -10,41 +8,119 @@ _Clinical data for a study event (visit). The model supports repeating study eve
 URI: [odm:StudyEventData](http://www.cdisc.org/ns/odm/v2.0/StudyEventData)
 
 
-
 ```mermaid
- classDiagram
-    class StudyEventData
-      StudyEventData : AnnotationRef
-        
-          StudyEventData --|> Annotation : AnnotationRef
-        
-      StudyEventData : AuditRecordRef
-        
-          StudyEventData --|> AuditRecord : AuditRecordRef
-        
-      StudyEventData : ItemGroupDataRef
-        
-          StudyEventData --|> ItemGroupData : ItemGroupDataRef
-        
-      StudyEventData : QueryRef
-        
-          StudyEventData --|> Query : QueryRef
-        
-      StudyEventData : SignatureRefRef
-        
-          StudyEventData --|> Signature : SignatureRefRef
-        
-      StudyEventData : StudyEventOID
-        
-      StudyEventData : StudyEventRepeatKey
-        
-      StudyEventData : TransactionTypeRef
-        
-          StudyEventData --|> TransactionType : TransactionTypeRef
-        
-      
-```
+erDiagram
+StudyEventData {
+    oidref StudyEventOID  
+    repeatKey StudyEventRepeatKey  
+    TransactionType TransactionTypeRef  
+}
+Annotation {
+    positiveInteger SeqNum  
+    TransactionType TransactionTypeRef  
+    oid ID  
+}
+Flag {
 
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Comment {
+    CommentType SponsorOrSite  
+}
+Signature {
+    oid ID  
+}
+DateTimeStamp {
+    datetime content  
+}
+SignatureRef {
+    oidref SignatureOID  
+}
+LocationRef {
+    oidref LocationOID  
+}
+UserRef {
+    oidref UserOID  
+}
+AuditRecord {
+    EditPointType EditPoint  
+    YesOrNo UsedMethod  
+}
+SourceID {
+    text content  
+}
+ReasonForChange {
+    text content  
+}
+Query {
+    oid OID  
+    QuerySourceType Source  
+    text Target  
+    QueryType Type  
+    QueryStateType State  
+    datetime LastUpdateDatetime  
+    name Name  
+}
+Value {
+    positiveInteger SeqNum  
+    text content  
+}
+ItemGroupData {
+    oidref ItemGroupOID  
+    repeatKey ItemGroupRepeatKey  
+    TransactionType TransactionTypeRef  
+    positiveInteger ItemGroupDataSeq  
+}
+ItemData {
+    oidref ItemOID  
+    TransactionType TransactionTypeRef  
+    YesOnly IsNull  
+}
+
+StudyEventData ||--}o ItemGroupData : "ItemGroupDataRef"
+StudyEventData ||--}o Query : "QueryRef"
+StudyEventData ||--|o AuditRecord : "AuditRecordRef"
+StudyEventData ||--|o Signature : "SignatureRefRef"
+StudyEventData ||--|o Annotation : "AnnotationRef"
+Annotation ||--|o Comment : "CommentRef"
+Annotation ||--}o Coding : "CodingRef"
+Annotation ||--}o Flag : "FlagRef"
+Flag ||--|o FlagValue : "FlagValueRef"
+Flag ||--|o FlagType : "FlagTypeRef"
+Comment ||--}o TranslatedText : "TranslatedTextRef"
+Signature ||--|o UserRef : "UserRefRef"
+Signature ||--|o LocationRef : "LocationRefRef"
+Signature ||--|o SignatureRef : "SignatureRefRef"
+Signature ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o UserRef : "UserRefRef"
+AuditRecord ||--|o LocationRef : "LocationRefRef"
+AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
+AuditRecord ||--|o SourceID : "SourceIDRef"
+Query ||--|o Value : "ValueRef"
+Query ||--}o AuditRecord : "AuditRecordRef"
+ItemGroupData ||--}o Query : "QueryRef"
+ItemGroupData ||--}o ItemGroupData : "ItemGroupDataRef"
+ItemGroupData ||--}o ItemData : "ItemDataRef"
+ItemGroupData ||--|o AuditRecord : "AuditRecordRef"
+ItemGroupData ||--|o Signature : "SignatureRefRef"
+ItemGroupData ||--|o Annotation : "AnnotationRef"
+ItemData ||--}o Value : "ValueRef"
+ItemData ||--}o Query : "QueryRef"
+ItemData ||--|o AuditRecord : "AuditRecordRef"
+ItemData ||--|o Signature : "SignatureRefRef"
+ItemData ||--|o Annotation : "AnnotationRef"
+
+```
 
 
 
@@ -53,9 +129,9 @@ URI: [odm:StudyEventData](http://www.cdisc.org/ns/odm/v2.0/StudyEventData)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEventOID](StudyEventOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventDef. The StudyEventOID and StudyEventRepeatKey are... | direct |
+| [StudyEventOID](StudyEventOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey ar... | direct |
 | [StudyEventRepeatKey](StudyEventRepeatKey.md) | 0..1 <br/> [repeatKey](repeatKey.md) | A key used to distinguish between repeats of the same type of study event for... | direct |
 | [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... | direct |
 | [ItemGroupDataRef](ItemGroupDataRef.md) | 0..* <br/> [ItemGroupData](ItemGroupData.md) | ItemGroupData reference: Clinical data corresponding to an ItemGroupRef defin... | direct |
@@ -64,6 +140,7 @@ URI: [odm:StudyEventData](http://www.cdisc.org/ns/odm/v2.0/StudyEventData)
 | [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: A reference to the signature meaning. | direct |
 | [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -126,6 +203,7 @@ description: Clinical data for a study event (visit). The model supports repeati
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventData
+rank: 1000
 slots:
 - StudyEventOID
 - StudyEventRepeatKey
@@ -138,7 +216,7 @@ slots:
 slot_usage:
   StudyEventOID:
     name: StudyEventOID
-    description: Reference to the StudyEventDef. The StudyEventOID and StudyEventRepeatKey
+    description: Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey
       are used together to identify a particular study event. This pair of values
       uniquely identifies a StudyEvent within the containing subject. The StudyEventRepeatKey
       is present if and only if the StudyEventDef is repeating.
@@ -264,10 +342,11 @@ description: Clinical data for a study event (visit). The model supports repeati
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventData
+rank: 1000
 slot_usage:
   StudyEventOID:
     name: StudyEventOID
-    description: Reference to the StudyEventDef. The StudyEventOID and StudyEventRepeatKey
+    description: Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey
       are used together to identify a particular study event. This pair of values
       uniquely identifies a StudyEvent within the containing subject. The StudyEventRepeatKey
       is present if and only if the StudyEventDef is repeating.
@@ -380,7 +459,7 @@ slot_usage:
 attributes:
   StudyEventOID:
     name: StudyEventOID
-    description: Reference to the StudyEventDef. The StudyEventOID and StudyEventRepeatKey
+    description: Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey
       are used together to identify a particular study event. This pair of values
       uniquely identifies a StudyEvent within the containing subject. The StudyEventRepeatKey
       is present if and only if the StudyEventDef is repeating.

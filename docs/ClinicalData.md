@@ -1,8 +1,6 @@
 # Class: ClinicalData
 
-
 _Clinical data for 1 or more subjects._
-
 
 
 
@@ -10,41 +8,146 @@ _Clinical data for 1 or more subjects._
 URI: [odm:ClinicalData](http://www.cdisc.org/ns/odm/v2.0/ClinicalData)
 
 
-
 ```mermaid
- classDiagram
-    class ClinicalData
-      ClinicalData : AnnotationRef
-        
-          ClinicalData --|> Annotation : AnnotationRef
-        
-      ClinicalData : AuditRecordRef
-        
-          ClinicalData --|> AuditRecord : AuditRecordRef
-        
-      ClinicalData : ItemGroupDataRef
-        
-          ClinicalData --|> ItemGroupData : ItemGroupDataRef
-        
-      ClinicalData : MetaDataVersionOID
-        
-      ClinicalData : QueryRef
-        
-          ClinicalData --|> Query : QueryRef
-        
-      ClinicalData : SignatureRefRef
-        
-          ClinicalData --|> Signature : SignatureRefRef
-        
-      ClinicalData : StudyOID
-        
-      ClinicalData : SubjectDataRef
-        
-          ClinicalData --|> SubjectData : SubjectDataRef
-        
-      
-```
+erDiagram
+ClinicalData {
+    oidref StudyOID  
+    oidref MetaDataVersionOID  
+}
+Annotation {
+    positiveInteger SeqNum  
+    TransactionType TransactionTypeRef  
+    oid ID  
+}
+Flag {
 
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Comment {
+    CommentType SponsorOrSite  
+}
+Signature {
+    oid ID  
+}
+DateTimeStamp {
+    datetime content  
+}
+SignatureRef {
+    oidref SignatureOID  
+}
+LocationRef {
+    oidref LocationOID  
+}
+UserRef {
+    oidref UserOID  
+}
+AuditRecord {
+    EditPointType EditPoint  
+    YesOrNo UsedMethod  
+}
+SourceID {
+    text content  
+}
+ReasonForChange {
+    text content  
+}
+Query {
+    oid OID  
+    QuerySourceType Source  
+    text Target  
+    QueryType Type  
+    QueryStateType State  
+    datetime LastUpdateDatetime  
+    name Name  
+}
+Value {
+    positiveInteger SeqNum  
+    text content  
+}
+ItemGroupData {
+    oidref ItemGroupOID  
+    repeatKey ItemGroupRepeatKey  
+    TransactionType TransactionTypeRef  
+    positiveInteger ItemGroupDataSeq  
+}
+ItemData {
+    oidref ItemOID  
+    TransactionType TransactionTypeRef  
+    YesOnly IsNull  
+}
+SubjectData {
+    subjectKey SubjectKey  
+    TransactionType TransactionTypeRef  
+}
+StudyEventData {
+    oidref StudyEventOID  
+    repeatKey StudyEventRepeatKey  
+    TransactionType TransactionTypeRef  
+}
+SiteRef {
+    oidref LocationOID  
+}
+InvestigatorRef {
+    oidref UserOID  
+}
+
+ClinicalData ||--}o SubjectData : "SubjectDataRef"
+ClinicalData ||--}o ItemGroupData : "ItemGroupDataRef"
+ClinicalData ||--}o Query : "QueryRef"
+ClinicalData ||--|o AuditRecord : "AuditRecordRef"
+ClinicalData ||--|o Signature : "SignatureRefRef"
+ClinicalData ||--|o Annotation : "AnnotationRef"
+Annotation ||--|o Comment : "CommentRef"
+Annotation ||--}o Coding : "CodingRef"
+Annotation ||--}o Flag : "FlagRef"
+Flag ||--|o FlagValue : "FlagValueRef"
+Flag ||--|o FlagType : "FlagTypeRef"
+Comment ||--}o TranslatedText : "TranslatedTextRef"
+Signature ||--|o UserRef : "UserRefRef"
+Signature ||--|o LocationRef : "LocationRefRef"
+Signature ||--|o SignatureRef : "SignatureRefRef"
+Signature ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o UserRef : "UserRefRef"
+AuditRecord ||--|o LocationRef : "LocationRefRef"
+AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
+AuditRecord ||--|o SourceID : "SourceIDRef"
+Query ||--|o Value : "ValueRef"
+Query ||--}o AuditRecord : "AuditRecordRef"
+ItemGroupData ||--}o Query : "QueryRef"
+ItemGroupData ||--}o ItemGroupData : "ItemGroupDataRef"
+ItemGroupData ||--}o ItemData : "ItemDataRef"
+ItemGroupData ||--|o AuditRecord : "AuditRecordRef"
+ItemGroupData ||--|o Signature : "SignatureRefRef"
+ItemGroupData ||--|o Annotation : "AnnotationRef"
+ItemData ||--}o Value : "ValueRef"
+ItemData ||--}o Query : "QueryRef"
+ItemData ||--|o AuditRecord : "AuditRecordRef"
+ItemData ||--|o Signature : "SignatureRefRef"
+ItemData ||--|o Annotation : "AnnotationRef"
+SubjectData ||--|o InvestigatorRef : "InvestigatorRefRef"
+SubjectData ||--|o SiteRef : "SiteRefRef"
+SubjectData ||--}o StudyEventData : "StudyEventDataRef"
+SubjectData ||--}o Query : "QueryRef"
+SubjectData ||--|o AuditRecord : "AuditRecordRef"
+SubjectData ||--|o Signature : "SignatureRefRef"
+SubjectData ||--|o Annotation : "AnnotationRef"
+StudyEventData ||--}o ItemGroupData : "ItemGroupDataRef"
+StudyEventData ||--}o Query : "QueryRef"
+StudyEventData ||--|o AuditRecord : "AuditRecordRef"
+StudyEventData ||--|o Signature : "SignatureRefRef"
+StudyEventData ||--|o Annotation : "AnnotationRef"
+
+```
 
 
 
@@ -53,7 +156,7 @@ URI: [odm:ClinicalData](http://www.cdisc.org/ns/odm/v2.0/ClinicalData)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the Study that uses the data nested within this element. | direct |
 | [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | References the MetaDataVersion (within the above Study) that governs the data... | direct |
@@ -64,6 +167,7 @@ URI: [odm:ClinicalData](http://www.cdisc.org/ns/odm/v2.0/ClinicalData)
 | [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: A reference to the signature meaning. | direct |
 | [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -124,6 +228,7 @@ description: Clinical data for 1 or more subjects.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ClinicalData
+rank: 1000
 slots:
 - StudyOID
 - MetaDataVersionOID
@@ -259,6 +364,7 @@ description: Clinical data for 1 or more subjects.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ClinicalData
+rank: 1000
 slot_usage:
   StudyOID:
     name: StudyOID

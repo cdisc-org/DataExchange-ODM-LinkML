@@ -1,8 +1,6 @@
 # Class: Standard
 
-
 _The Standard element describes each standard used within the MetaDataVersion element._
-
 
 
 
@@ -10,33 +8,21 @@ _The Standard element describes each standard used within the MetaDataVersion el
 URI: [odm:Standard](http://www.cdisc.org/ns/odm/v2.0/Standard)
 
 
-
 ```mermaid
- classDiagram
-    class Standard
-      Standard : CommentOID
-        
-      Standard : Name
-        
-          Standard --|> StandardName : Name
-        
-      Standard : OID
-        
-      Standard : PublishingSet
-        
-          Standard --|> StandardPublishingSet : PublishingSet
-        
-      Standard : Status
-        
-      Standard : Type
-        
-          Standard --|> StandardType : Type
-        
-      Standard : Version
-        
-      
-```
+erDiagram
+Standard {
+    oid OID  
+    StandardName Name  
+    StandardType Type  
+    StandardPublishingSet PublishingSet  
+    text Version  
+    StandardStatus Status  
+    oidref CommentOID  
+}
 
+
+
+```
 
 
 
@@ -45,7 +31,7 @@ URI: [odm:Standard](http://www.cdisc.org/ns/odm/v2.0/Standard)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the standard. | direct |
 | [Name](Name.md) | 1..1 <br/> [StandardName](StandardName.md) | Name of the external standard to which the data conforms. | direct |
@@ -55,6 +41,7 @@ URI: [odm:Standard](http://www.cdisc.org/ns/odm/v2.0/Standard)
 | [Status](Status.md) | 1..1 <br/> [StandardStatus](StandardStatus.md) | Publishing status of the standard. | direct |
 | [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a CommentDef element that contains the comment ... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -116,6 +103,7 @@ description: The Standard element describes each standard used within the MetaDa
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Standard
+rank: 1000
 slots:
 - OID
 - Name
@@ -338,6 +326,7 @@ description: The Standard element describes each standard used within the MetaDa
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Standard
+rank: 1000
 slot_usage:
   OID:
     name: OID

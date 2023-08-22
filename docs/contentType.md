@@ -1,4 +1,4 @@
-# Type: _contentType
+# Type: contentType
 
 
 

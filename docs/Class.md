@@ -1,8 +1,6 @@
 # Class: Class
 
-
 _The Class element identifies which predefined Class within the model applies to the definition of the dataset._
-
 
 
 
@@ -10,21 +8,19 @@ _The Class element identifies which predefined Class within the model applies to
 URI: [odm:Class](http://www.cdisc.org/ns/odm/v2.0/Class)
 
 
-
 ```mermaid
- classDiagram
-    class Class
-      Class : Name
-        
-          Class --|> ItemGroupClass : Name
-        
-      Class : SubClassRef
-        
-          Class --|> SubClass : SubClassRef
-        
-      
-```
+erDiagram
+Class {
+    ItemGroupClass Name  
+}
+SubClass {
+    ItemGroupSubClass Name  
+    ItemGroupClassSubClass ParentClass  
+}
 
+Class ||--}o SubClass : "SubClassRef"
+
+```
 
 
 
@@ -33,11 +29,12 @@ URI: [odm:Class](http://www.cdisc.org/ns/odm/v2.0/Class)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [Name](Name.md) | 1..1 <br/> [ItemGroupClass](ItemGroupClass.md) | Name of the Class | direct |
 | [SubClassRef](SubClassRef.md) | 0..* <br/> [SubClass](SubClass.md) | SubClass reference: This element contains SubClass definitions. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -99,6 +96,7 @@ description: The Class element identifies which predefined Class within the mode
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Class
+rank: 1000
 slots:
 - Name
 - SubClassRef
@@ -174,6 +172,7 @@ description: The Class element identifies which predefined Class within the mode
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Class
+rank: 1000
 slot_usage:
   Name:
     name: Name

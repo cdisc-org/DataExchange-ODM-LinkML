@@ -1,8 +1,6 @@
 # Class: RangeCheck
 
-
 _A RangeCheck defines a constraint on the value of the enclosing item. It represents an expression that evaluates to True when the ItemData value is valid or False when the ItemData value is invalid. The expression is specified using either Comparator and CheckValue or using FormalExpressions._
-
 
 
 
@@ -10,39 +8,64 @@ _A RangeCheck defines a constraint on the value of the enclosing item. It repres
 URI: [odm:RangeCheck](http://www.cdisc.org/ns/odm/v2.0/RangeCheck)
 
 
-
 ```mermaid
- classDiagram
-    class RangeCheck
-      RangeCheck : CheckValueRef
-        
-          RangeCheck --|> CheckValue : CheckValueRef
-        
-      RangeCheck : ComparatorRef
-        
-          RangeCheck --|> Comparator : ComparatorRef
-        
-      RangeCheck : ErrorMessageRef
-        
-          RangeCheck --|> ErrorMessage : ErrorMessageRef
-        
-      RangeCheck : FormalExpressionRef
-        
-          RangeCheck --|> FormalExpression : FormalExpressionRef
-        
-      RangeCheck : ItemOID
-        
-      RangeCheck : MethodSignatureRef
-        
-          RangeCheck --|> MethodSignature : MethodSignatureRef
-        
-      RangeCheck : SoftHard
-        
-          RangeCheck --|> SoftOrHard : SoftHard
-        
-      
-```
+erDiagram
+RangeCheck {
+    Comparator ComparatorRef  
+    SoftOrHard SoftHard  
+    oidref ItemOID  
+}
+CheckValue {
+    value content  
+}
+FormalExpression {
+    text ContextRef  
+}
+ExternalCodeLib {
+    name Library  
+    name Method  
+    text Version  
+    text ref  
+    uriorcurie href  
+}
+Code {
+    text content  
+}
+MethodSignature {
 
+}
+ReturnValue {
+    name Name  
+    DataType DataTypeRef  
+    text DefinitionRef  
+    positiveInteger OrderNumber  
+}
+Parameter {
+    name Name  
+    DataType DataTypeRef  
+    text DefinitionRef  
+    positiveInteger OrderNumber  
+}
+ErrorMessage {
+
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+RangeCheck ||--|o ErrorMessage : "ErrorMessageRef"
+RangeCheck ||--|o MethodSignature : "MethodSignatureRef"
+RangeCheck ||--}o FormalExpression : "FormalExpressionRef"
+RangeCheck ||--}o CheckValue : "CheckValueRef"
+FormalExpression ||--|o Code : "CodeRef"
+FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
+MethodSignature ||--}o Parameter : "ParameterRef"
+MethodSignature ||--}o ReturnValue : "ReturnValueRef"
+ErrorMessage ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -51,7 +74,7 @@ URI: [odm:RangeCheck](http://www.cdisc.org/ns/odm/v2.0/RangeCheck)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [ComparatorRef](ComparatorRef.md) | 0..1 <br/> [Comparator](Comparator.md) | Comparison operator used to compare the item and value(s). | direct |
 | [SoftHard](SoftHard.md) | 0..1 <br/> [SoftOrHard](SoftOrHard.md) | Type of range check. Soft indicates that a warning occurs when the RangeCheck... | direct |
@@ -61,6 +84,7 @@ URI: [odm:RangeCheck](http://www.cdisc.org/ns/odm/v2.0/RangeCheck)
 | [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
 | [CheckValueRef](CheckValueRef.md) | 0..* <br/> [CheckValue](CheckValue.md) | CheckValue reference: A comparison value used in a range check. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -125,6 +149,7 @@ description: A RangeCheck defines a constraint on the value of the enclosing ite
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/RangeCheck
+rank: 1000
 slots:
 - ComparatorRef
 - SoftHard
@@ -220,6 +245,7 @@ description: A RangeCheck defines a constraint on the value of the enclosing ite
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/RangeCheck
+rank: 1000
 slot_usage:
   ComparatorRef:
     name: ComparatorRef

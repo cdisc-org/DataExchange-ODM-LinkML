@@ -1,8 +1,6 @@
 # Class: Selection
 
-
 _Template for machine-readable/executable expression for retrieving the data or information from an external resource._
-
 
 
 
@@ -10,15 +8,15 @@ _Template for machine-readable/executable expression for retrieving the data or 
 URI: [odm:Selection](http://www.cdisc.org/ns/odm/v2.0/Selection)
 
 
-
 ```mermaid
- classDiagram
-    class Selection
-      Selection : Path
-        
-      
-```
+erDiagram
+Selection {
+    text Path  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:Selection](http://www.cdisc.org/ns/odm/v2.0/Selection)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [Path](Path.md) | 1..1 <br/> [text](text.md) | Provides the machine-executable instruction or template for it to obtain the ... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -92,6 +91,7 @@ description: Template for machine-readable/executable expression for retrieving 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Selection
+rank: 1000
 slots:
 - Path
 slot_usage:
@@ -124,6 +124,7 @@ description: Template for machine-readable/executable expression for retrieving 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Selection
+rank: 1000
 slot_usage:
   Path:
     name: Path

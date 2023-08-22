@@ -1,8 +1,6 @@
 # Class: InvestigatorRef
 
-
 _Provides a reference to the user who created the SubjectData record in the source system._
-
 
 
 
@@ -10,15 +8,15 @@ _Provides a reference to the user who created the SubjectData record in the sour
 URI: [odm:InvestigatorRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRef)
 
 
-
 ```mermaid
- classDiagram
-    class InvestigatorRef
-      InvestigatorRef : UserOID
-        
-      
-```
+erDiagram
+InvestigatorRef {
+    oidref UserOID  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:InvestigatorRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [UserOID](UserOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a User definition. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -92,6 +91,7 @@ description: Provides a reference to the user who created the SubjectData record
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/InvestigatorRef
+rank: 1000
 slots:
 - UserOID
 slot_usage:
@@ -125,6 +125,7 @@ description: Provides a reference to the user who created the SubjectData record
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/InvestigatorRef
+rank: 1000
 slot_usage:
   UserOID:
     name: UserOID

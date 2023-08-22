@@ -1,8 +1,6 @@
 # Class: Branching
 
-
 _This element describes the branching in a workflow from a source (start) structural element to 2 or more target structural elements, over a Transition element._
-
 
 
 
@@ -10,29 +8,25 @@ _This element describes the branching in a workflow from a source (start) struct
 URI: [odm:Branching](http://www.cdisc.org/ns/odm/v2.0/Branching)
 
 
-
 ```mermaid
- classDiagram
-    class Branching
-      Branching : DefaultTransitionRef
-        
-          Branching --|> DefaultTransition : DefaultTransitionRef
-        
-      Branching : Name
-        
-      Branching : OID
-        
-      Branching : TargetTransitionRef
-        
-          Branching --|> TargetTransition : TargetTransitionRef
-        
-      Branching : Type
-        
-          Branching --|> BranchingType : Type
-        
-      
-```
+erDiagram
+Branching {
+    oid OID  
+    name Name  
+    BranchingType Type  
+}
+DefaultTransition {
+    oidref TargetTransitionOID  
+}
+TargetTransition {
+    oidref TargetTransitionOID  
+    oidref ConditionOID  
+}
 
+Branching ||--}o TargetTransition : "TargetTransitionRef"
+Branching ||--}o DefaultTransition : "DefaultTransitionRef"
+
+```
 
 
 
@@ -41,7 +35,7 @@ URI: [odm:Branching](http://www.cdisc.org/ns/odm/v2.0/Branching)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier of the version within the XML document. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | General observation Sub Class. | direct |
@@ -49,6 +43,7 @@ URI: [odm:Branching](http://www.cdisc.org/ns/odm/v2.0/Branching)
 | [TargetTransitionRef](TargetTransitionRef.md) | 0..* <br/> [TargetTransition](TargetTransition.md) | TargetTransition reference: TargetTransition provides a reference to a Transi... | direct |
 | [DefaultTransitionRef](DefaultTransitionRef.md) | 0..* <br/> [DefaultTransition](DefaultTransition.md) | DefaultTransition reference: The DefaultTransition references the Transition ... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -110,6 +105,7 @@ description: This element describes the branching in a workflow from a source (s
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Branching
+rank: 1000
 slots:
 - OID
 - Name
@@ -266,6 +262,7 @@ description: This element describes the branching in a workflow from a source (s
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Branching
+rank: 1000
 slot_usage:
   OID:
     name: OID

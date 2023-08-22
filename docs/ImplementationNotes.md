@@ -1,8 +1,6 @@
 # Class: ImplementationNotes
 
-
 _Further information, such as rationale and implementation instructions, on how to implement the CRF data collection fields._
-
 
 
 
@@ -10,17 +8,20 @@ _Further information, such as rationale and implementation instructions, on how 
 URI: [odm:ImplementationNotes](http://www.cdisc.org/ns/odm/v2.0/ImplementationNotes)
 
 
-
 ```mermaid
- classDiagram
-    class ImplementationNotes
-      ImplementationNotes : TranslatedTextRef
-        
-          ImplementationNotes --|> TranslatedText : TranslatedTextRef
-        
-      
-```
+erDiagram
+ImplementationNotes {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+ImplementationNotes ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -29,10 +30,11 @@ URI: [odm:ImplementationNotes](http://www.cdisc.org/ns/odm/v2.0/ImplementationNo
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -94,6 +96,7 @@ description: Further information, such as rationale and implementation instructi
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ImplementationNotes
+rank: 1000
 slots:
 - TranslatedTextRef
 slot_usage:
@@ -129,6 +132,7 @@ description: Further information, such as rationale and implementation instructi
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ImplementationNotes
+rank: 1000
 slot_usage:
   TranslatedTextRef:
     name: TranslatedTextRef

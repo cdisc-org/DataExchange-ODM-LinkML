@@ -1,8 +1,6 @@
 # Class: StudyEventGroupRef
 
-
 _This element references a StudyEventGroupDef as it occurs within a specific version of a study. The list of StudyEventGroupRefs identifies the types of study group events that are allowed to occur within the study._
-
 
 
 
@@ -10,27 +8,27 @@ _This element references a StudyEventGroupDef as it occurs within a specific ver
 URI: [odm:StudyEventGroupRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupRef)
 
 
-
 ```mermaid
- classDiagram
-    class StudyEventGroupRef
-      StudyEventGroupRef : CollectionExceptionConditionOID
-        
-      StudyEventGroupRef : DescriptionRef
-        
-          StudyEventGroupRef --|> Description : DescriptionRef
-        
-      StudyEventGroupRef : Mandatory
-        
-          StudyEventGroupRef --|> YesOrNo : Mandatory
-        
-      StudyEventGroupRef : OrderNumber
-        
-      StudyEventGroupRef : StudyEventGroupOID
-        
-      
-```
+erDiagram
+StudyEventGroupRef {
+    oidref StudyEventGroupOID  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+StudyEventGroupRef ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -39,14 +37,15 @@ URI: [odm:StudyEventGroupRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupRe
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEventGroupOID](StudyEventGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventGroupDef. | direct |
+| [StudyEventGroupOID](StudyEventGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventGroupDef . | direct |
 | [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEventGroup appears in Metadata display... | direct |
 | [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | Indicator of whether this StudyEventGroup must appear in the study clinical d... | direct |
 | [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -110,6 +109,7 @@ description: This element references a StudyEventGroupDef as it occurs within a 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventGroupRef
+rank: 1000
 slots:
 - StudyEventGroupOID
 - OrderNumber
@@ -119,7 +119,7 @@ slots:
 slot_usage:
   StudyEventGroupOID:
     name: StudyEventGroupOID
-    description: Reference to the StudyEventGroupDef.
+    description: Reference to the StudyEventGroupDef .
     comments:
     - 'Required
 
@@ -245,10 +245,11 @@ description: This element references a StudyEventGroupDef as it occurs within a 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventGroupRef
+rank: 1000
 slot_usage:
   StudyEventGroupOID:
     name: StudyEventGroupOID
-    description: Reference to the StudyEventGroupDef.
+    description: Reference to the StudyEventGroupDef .
     comments:
     - 'Required
 
@@ -361,7 +362,7 @@ slot_usage:
 attributes:
   StudyEventGroupOID:
     name: StudyEventGroupOID
-    description: Reference to the StudyEventGroupDef.
+    description: Reference to the StudyEventGroupDef .
     comments:
     - 'Required
 

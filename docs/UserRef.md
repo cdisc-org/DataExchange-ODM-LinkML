@@ -1,8 +1,6 @@
 # Class: UserRef
 
-
 _A reference to information about a specific user of a clinical data collection or data management system._
-
 
 
 
@@ -10,15 +8,15 @@ _A reference to information about a specific user of a clinical data collection 
 URI: [odm:UserRef](http://www.cdisc.org/ns/odm/v2.0/UserRef)
 
 
-
 ```mermaid
- classDiagram
-    class UserRef
-      UserRef : UserOID
-        
-      
-```
+erDiagram
+UserRef {
+    oidref UserOID  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:UserRef](http://www.cdisc.org/ns/odm/v2.0/UserRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [UserOID](UserOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the User definition. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -93,6 +92,7 @@ description: A reference to information about a specific user of a clinical data
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/UserRef
+rank: 1000
 slots:
 - UserOID
 slot_usage:
@@ -125,6 +125,7 @@ description: A reference to information about a specific user of a clinical data
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/UserRef
+rank: 1000
 slot_usage:
   UserOID:
     name: UserOID

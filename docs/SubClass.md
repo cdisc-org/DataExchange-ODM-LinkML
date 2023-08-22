@@ -1,8 +1,6 @@
 # Class: SubClass
 
-
 _This element contains SubClass definitions._
-
 
 
 
@@ -10,19 +8,16 @@ _This element contains SubClass definitions._
 URI: [odm:SubClass](http://www.cdisc.org/ns/odm/v2.0/SubClass)
 
 
-
 ```mermaid
- classDiagram
-    class SubClass
-      SubClass : Name
-        
-          SubClass --|> ItemGroupSubClass : Name
-        
-      SubClass : ParentClass
-        
-      
-```
+erDiagram
+SubClass {
+    ItemGroupSubClass Name  
+    ItemGroupClassSubClass ParentClass  
+}
 
+
+
+```
 
 
 
@@ -31,11 +26,12 @@ URI: [odm:SubClass](http://www.cdisc.org/ns/odm/v2.0/SubClass)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [Name](Name.md) | 1..1 <br/> [ItemGroupSubClass](ItemGroupSubClass.md) | Name of the SubClass | direct |
 | [ParentClass](ParentClass.md) | 0..1 <br/> [ItemGroupClassSubClass](ItemGroupClassSubClass.md) | For a nested or multilevel SubClass, the ParentClass attribute is used to def... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -96,6 +92,7 @@ description: This element contains SubClass definitions.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SubClass
+rank: 1000
 slots:
 - Name
 - ParentClass
@@ -173,6 +170,7 @@ description: This element contains SubClass definitions.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/SubClass
+rank: 1000
 slot_usage:
   Name:
     name: Name

@@ -1,8 +1,6 @@
 # Class: User
 
-
 _Information about a specific user of a clinical data collection or data management system._
-
 
 
 
@@ -10,59 +8,90 @@ _Information about a specific user of a clinical data collection or data managem
 URI: [odm:User](http://www.cdisc.org/ns/odm/v2.0/User)
 
 
-
 ```mermaid
- classDiagram
-    class User
-      User : AddressRef
-        
-          User --|> Address : AddressRef
-        
-      User : FamilyNameRef
-        
-          User --|> FamilyName : FamilyNameRef
-        
-      User : FullNameRef
-        
-          User --|> FullName : FullNameRef
-        
-      User : GivenNameRef
-        
-          User --|> GivenName : GivenNameRef
-        
-      User : ImageRef
-        
-          User --|> Image : ImageRef
-        
-      User : LocationOID
-        
-      User : OID
-        
-      User : OrganizationOID
-        
-      User : PrefixRef
-        
-          User --|> Prefix : PrefixRef
-        
-      User : SuffixRef
-        
-          User --|> Suffix : SuffixRef
-        
-      User : TelecomRef
-        
-          User --|> Telecom : TelecomRef
-        
-      User : UserNameRef
-        
-          User --|> UserName : UserNameRef
-        
-      User : UserTypeRef
-        
-          User --|> UserType : UserTypeRef
-        
-      
-```
+erDiagram
+User {
+    oid OID  
+    UserType UserTypeRef  
+    oidref OrganizationOID  
+    oidref LocationOID  
+}
+Telecom {
+    TelecomTypeType TelecomType  
+    text ValueRef  
+}
+Address {
 
+}
+OtherText {
+    text content  
+}
+GeoPosition {
+    decimal Longitude  
+    decimal Latitude  
+    decimal Altitude  
+}
+PostalCode {
+    text content  
+}
+Country {
+    text content  
+}
+StateProv {
+    text content  
+}
+City {
+    text content  
+}
+HouseNumber {
+    text content  
+}
+StreetName {
+    text content  
+}
+Image {
+    fileName ImageFileName  
+    text href  
+    text MimeType  
+}
+FamilyName {
+    text content  
+}
+GivenName {
+    text content  
+}
+FullName {
+    text content  
+}
+Suffix {
+    text content  
+}
+Prefix {
+    text content  
+}
+UserName {
+    text content  
+}
+
+User ||--|o UserName : "UserNameRef"
+User ||--|o Prefix : "PrefixRef"
+User ||--|o Suffix : "SuffixRef"
+User ||--|o FullName : "FullNameRef"
+User ||--|o GivenName : "GivenNameRef"
+User ||--|o FamilyName : "FamilyNameRef"
+User ||--|o Image : "ImageRef"
+User ||--}o Address : "AddressRef"
+User ||--}o Telecom : "TelecomRef"
+Address ||--|o StreetName : "StreetNameRef"
+Address ||--|o HouseNumber : "HouseNumberRef"
+Address ||--|o City : "CityRef"
+Address ||--|o StateProv : "StateProvRef"
+Address ||--|o Country : "CountryRef"
+Address ||--|o PostalCode : "PostalCodeRef"
+Address ||--|o GeoPosition : "GeoPositionRef"
+Address ||--|o OtherText : "OtherTextRef"
+
+```
 
 
 
@@ -71,7 +100,7 @@ URI: [odm:User](http://www.cdisc.org/ns/odm/v2.0/User)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Business Rules | direct |
 | [UserTypeRef](UserTypeRef.md) | 0..1 <br/> [UserType](UserType.md) | User's role in the study. | direct |
@@ -87,6 +116,7 @@ URI: [odm:User](http://www.cdisc.org/ns/odm/v2.0/User)
 | [AddressRef](AddressRef.md) | 0..* <br/> [Address](Address.md) | Address reference: The postal address for a user, location, or organization. | direct |
 | [TelecomRef](TelecomRef.md) | 0..* <br/> [Telecom](Telecom.md) | Telecom reference: The telecommunication contacts points of a user, a locatio... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -148,6 +178,7 @@ description: Information about a specific user of a clinical data collection or 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/User
+rank: 1000
 slots:
 - OID
 - UserTypeRef
@@ -334,6 +365,7 @@ description: Information about a specific user of a clinical data collection or 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/User
+rank: 1000
 slot_usage:
   OID:
     name: OID

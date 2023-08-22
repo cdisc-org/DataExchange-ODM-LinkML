@@ -1,8 +1,6 @@
 # Class: StudyEventGroupDef
 
-
 _StudyEventGroupDef is a study building block that groups a number of smaller building blocks, which can themselves be StudyEventGroups or StudyEvents. It thus allows nesting of building blocks._
-
 
 
 
@@ -10,43 +8,53 @@ _StudyEventGroupDef is a study building block that groups a number of smaller bu
 URI: [odm:StudyEventGroupDef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupDef)
 
 
-
 ```mermaid
- classDiagram
-    class StudyEventGroupDef
-      StudyEventGroupDef : ArmOID
-        
-      StudyEventGroupDef : CodingRef
-        
-          StudyEventGroupDef --|> Coding : CodingRef
-        
-      StudyEventGroupDef : CommentOID
-        
-      StudyEventGroupDef : DescriptionRef
-        
-          StudyEventGroupDef --|> Description : DescriptionRef
-        
-      StudyEventGroupDef : EpochOID
-        
-      StudyEventGroupDef : Name
-        
-      StudyEventGroupDef : OID
-        
-      StudyEventGroupDef : StudyEventGroupRefRef
-        
-          StudyEventGroupDef --|> StudyEventGroupRef : StudyEventGroupRefRef
-        
-      StudyEventGroupDef : StudyEventRefRef
-        
-          StudyEventGroupDef --|> StudyEventRef : StudyEventRefRef
-        
-      StudyEventGroupDef : WorkflowRefRef
-        
-          StudyEventGroupDef --|> WorkflowRef : WorkflowRefRef
-        
-      
-```
+erDiagram
+StudyEventGroupDef {
+    oid OID  
+    name Name  
+    oidref ArmOID  
+    oidref EpochOID  
+    oidref CommentOID  
+}
+StudyEventRef {
+    oidref StudyEventOID  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
+StudyEventGroupRef {
+    oidref StudyEventGroupOID  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
+Description {
 
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+WorkflowRef {
+    oidref WorkflowOID  
+}
+
+StudyEventGroupDef ||--|o Description : "DescriptionRef"
+StudyEventGroupDef ||--|o WorkflowRef : "WorkflowRefRef"
+StudyEventGroupDef ||--}o Coding : "CodingRef"
+StudyEventGroupDef ||--}o StudyEventGroupRef : "StudyEventGroupRefRef"
+StudyEventGroupDef ||--}o StudyEventRef : "StudyEventRefRef"
+StudyEventGroupRef ||--|o Description : "DescriptionRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -55,7 +63,7 @@ URI: [odm:StudyEventGroupDef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupDe
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEventGroupDef element. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable identifier for the StudyEventGroupDef element. | direct |
@@ -68,6 +76,7 @@ URI: [odm:StudyEventGroupDef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupDe
 | [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | 0..* <br/> [StudyEventGroupRef](StudyEventGroupRef.md) | StudyEventGroupRef reference: This element references a StudyEventGroupDef as... | direct |
 | [StudyEventRefRef](StudyEventRefRef.md) | 0..* <br/> [StudyEventRef](StudyEventRef.md) | StudyEventRef reference: This element references a StudyEventDef as it occurs... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -130,6 +139,7 @@ description: StudyEventGroupDef is a study building block that groups a number o
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventGroupDef
+rank: 1000
 slots:
 - OID
 - Name
@@ -395,6 +405,7 @@ description: StudyEventGroupDef is a study building block that groups a number o
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventGroupDef
+rank: 1000
 slot_usage:
   OID:
     name: OID

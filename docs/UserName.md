@@ -1,8 +1,6 @@
 # Class: UserName
 
-
 _The user's login identification in the sender's system._
-
 
 
 
@@ -10,15 +8,15 @@ _The user's login identification in the sender's system._
 URI: [odm:UserName](http://www.cdisc.org/ns/odm/v2.0/UserName)
 
 
-
 ```mermaid
- classDiagram
-    class UserName
-      UserName : _content
-        
-      
-```
+erDiagram
+UserName {
+    text content  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:UserName](http://www.cdisc.org/ns/odm/v2.0/UserName)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [_content](_content.md) | 0..1 <br/> [_contentType](_contentType.md) | multi-line text content from between XML tags | direct |
+| [content](content.md) | 0..1 <br/> [text](text.md) | multi-line text content from between XML tags | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -91,13 +90,40 @@ description: The user's login identification in the sender's system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/UserName
+rank: 1000
 slots:
-- _content
+- content
 slot_usage:
-  range:
-    name: range
-    id_prefixes:
-    - text
+  content:
+    name: content
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: text
 class_uri: odm:UserName
 
 ```
@@ -112,47 +138,75 @@ description: The user's login identification in the sender's system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/UserName
+rank: 1000
 slot_usage:
-  range:
-    name: range
-    id_prefixes:
-    - text
+  content:
+    name: content
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: text
 attributes:
-  name: _content
-  description: multi-line text content from between XML tags
-  from_schema: http://www.cdisc.org/ns/odm/v2.0
-  rank: 1000
-  alias: _content
-  owner: UserName
-  domain_of:
-  - TranslatedText
-  - Title
-  - CheckValue
-  - Code
-  - WorkflowEnd
-  - UserName
-  - Prefix
-  - Suffix
-  - FullName
-  - GivenName
-  - FamilyName
-  - StreetName
-  - HouseNumber
-  - City
-  - StateProv
-  - Country
-  - PostalCode
-  - OtherText
-  - Meaning
-  - LegalReason
-  - DateTimeStamp
-  - ReasonForChange
-  - SourceID
-  - FlagValue
-  - FlagType
-  - Value
-  range: _contentType
-  inlined: true
+  content:
+    name: content
+    description: multi-line text content from between XML tags
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: content
+    owner: UserName
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: text
+    inlined: true
 class_uri: odm:UserName
 
 ```

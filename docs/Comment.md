@@ -1,8 +1,6 @@
 # Class: Comment
 
-
 _A free-text (uninterpreted) comment about clinical data. The comment may have come from the sponsor or the clinical site._
-
 
 
 
@@ -10,21 +8,20 @@ _A free-text (uninterpreted) comment about clinical data. The comment may have c
 URI: [odm:Comment](http://www.cdisc.org/ns/odm/v2.0/Comment)
 
 
-
 ```mermaid
- classDiagram
-    class Comment
-      Comment : SponsorOrSite
-        
-          Comment --|> CommentType : SponsorOrSite
-        
-      Comment : TranslatedTextRef
-        
-          Comment --|> TranslatedText : TranslatedTextRef
-        
-      
-```
+erDiagram
+Comment {
+    CommentType SponsorOrSite  
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
 
+Comment ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -33,11 +30,12 @@ URI: [odm:Comment](http://www.cdisc.org/ns/odm/v2.0/Comment)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [SponsorOrSite](SponsorOrSite.md) | 0..1 <br/> [CommentType](CommentType.md) | Source of the comment. | direct |
 | [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -99,6 +97,7 @@ description: A free-text (uninterpreted) comment about clinical data. The commen
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Comment
+rank: 1000
 slots:
 - SponsorOrSite
 - TranslatedTextRef
@@ -145,6 +144,7 @@ description: A free-text (uninterpreted) comment about clinical data. The commen
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Comment
+rank: 1000
 slot_usage:
   SponsorOrSite:
     name: SponsorOrSite

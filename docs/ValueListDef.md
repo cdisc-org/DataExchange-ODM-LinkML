@@ -1,8 +1,6 @@
 # Class: ValueListDef
 
-
 _The following table specifies the XML structure for valuelist metadata. The ValueListDef element contains ItemRef elements that reference ItemDef elements that provide the value-level metadata details_
-
 
 
 
@@ -10,23 +8,55 @@ _The following table specifies the XML structure for valuelist metadata. The Val
 URI: [odm:ValueListDef](http://www.cdisc.org/ns/odm/v2.0/ValueListDef)
 
 
-
 ```mermaid
- classDiagram
-    class ValueListDef
-      ValueListDef : DescriptionRef
-        
-          ValueListDef --|> Description : DescriptionRef
-        
-      ValueListDef : ItemRefRef
-        
-          ValueListDef --|> ItemRef : ItemRefRef
-        
-      ValueListDef : OID
-        
-      
-```
+erDiagram
+ValueListDef {
+    oid OID  
+}
+ItemRef {
+    oidref ItemOID  
+    positiveInteger KeySequence  
+    YesOnly IsNonStandard  
+    YesOnly HasNoData  
+    oidref MethodOID  
+    oidref UnitsItemOID  
+    YesOnly Repeat  
+    YesOnly Other  
+    text Role  
+    oidref RoleCodeListOID  
+    CoreType Core  
+    text PreSpecifiedValue  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
+WhereClauseRef {
+    oidref WhereClauseOID  
+}
+Origin {
+    OriginType Type  
+    OriginSource Source  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+ValueListDef ||--|o Description : "DescriptionRef"
+ValueListDef ||--}o ItemRef : "ItemRefRef"
+ItemRef ||--}o Origin : "OriginRef"
+ItemRef ||--}o WhereClauseRef : "WhereClauseRefRef"
+Origin ||--|o Description : "DescriptionRef"
+Origin ||--|o SourceItems : "SourceItemsRef"
+Origin ||--}o Coding : "CodingRef"
+Origin ||--}o DocumentRef : "DocumentRefRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -35,12 +65,13 @@ URI: [odm:ValueListDef](http://www.cdisc.org/ns/odm/v2.0/ValueListDef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the Value List See Section 2.13, Element Identifiers and Refere... | direct |
 | [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description of the value list. | direct |
 | [ItemRefRef](ItemRefRef.md) | 0..* <br/> [ItemRef](ItemRef.md) | The ItemRef element contains the reference to the value attributes definition... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -103,6 +134,7 @@ description: The following table specifies the XML structure for valuelist metad
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ValueListDef
+rank: 1000
 slots:
 - OID
 - DescriptionRef
@@ -224,6 +256,7 @@ description: The following table specifies the XML structure for valuelist metad
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ValueListDef
+rank: 1000
 slot_usage:
   OID:
     name: OID

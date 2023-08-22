@@ -1,8 +1,6 @@
 # Class: WorkflowEnd
 
-
 _A WorkflowEnd references a structural element with which the workflows ends._
-
 
 
 
@@ -10,17 +8,16 @@ _A WorkflowEnd references a structural element with which the workflows ends._
 URI: [odm:WorkflowEnd](http://www.cdisc.org/ns/odm/v2.0/WorkflowEnd)
 
 
-
 ```mermaid
- classDiagram
-    class WorkflowEnd
-      WorkflowEnd : _content
-        
-      WorkflowEnd : EndOID
-        
-      
-```
+erDiagram
+WorkflowEnd {
+    oidref EndOID  
+    text content  
+}
 
+
+
+```
 
 
 
@@ -29,11 +26,12 @@ URI: [odm:WorkflowEnd](http://www.cdisc.org/ns/odm/v2.0/WorkflowEnd)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [EndOID](EndOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the definition of the structural element that ends the workflow.... | direct |
-| [_content](_content.md) | 0..1 <br/> [text](text.md) | multi-line text content from between XML tags | direct |
+| [content](content.md) | 0..1 <br/> [text](text.md) | multi-line text content from between XML tags | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -95,9 +93,10 @@ description: A WorkflowEnd references a structural element with which the workfl
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowEnd
+rank: 1000
 slots:
 - EndOID
-- _content
+- content
 slot_usage:
   EndOID:
     name: EndOID
@@ -116,8 +115,8 @@ slot_usage:
     - WorkflowEnd
     range: oidref
     required: true
-  _content:
-    name: _content
+  content:
+    name: content
     domain_of:
     - TranslatedText
     - Title
@@ -161,6 +160,7 @@ description: A WorkflowEnd references a structural element with which the workfl
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WorkflowEnd
+rank: 1000
 slot_usage:
   EndOID:
     name: EndOID
@@ -179,8 +179,8 @@ slot_usage:
     - WorkflowEnd
     range: oidref
     required: true
-  _content:
-    name: _content
+  content:
+    name: content
     domain_of:
     - TranslatedText
     - Title
@@ -231,12 +231,12 @@ attributes:
     - WorkflowEnd
     range: oidref
     required: true
-  _content:
-    name: _content
+  content:
+    name: content
     description: multi-line text content from between XML tags
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: _content
+    alias: content
     owner: WorkflowEnd
     domain_of:
     - TranslatedText

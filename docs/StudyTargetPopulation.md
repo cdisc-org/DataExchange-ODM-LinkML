@@ -1,8 +1,6 @@
 # Class: StudyTargetPopulation
 
-
 _The StudyTargetPopulation describes the population targeted for the clinical study._
-
 
 
 
@@ -10,29 +8,52 @@ _The StudyTargetPopulation describes the population targeted for the clinical st
 URI: [odm:StudyTargetPopulation](http://www.cdisc.org/ns/odm/v2.0/StudyTargetPopulation)
 
 
-
 ```mermaid
- classDiagram
-    class StudyTargetPopulation
-      StudyTargetPopulation : CodingRef
-        
-          StudyTargetPopulation --|> Coding : CodingRef
-        
-      StudyTargetPopulation : DescriptionRef
-        
-          StudyTargetPopulation --|> Description : DescriptionRef
-        
-      StudyTargetPopulation : FormalExpressionRef
-        
-          StudyTargetPopulation --|> FormalExpression : FormalExpressionRef
-        
-      StudyTargetPopulation : Name
-        
-      StudyTargetPopulation : OID
-        
-      
-```
+erDiagram
+StudyTargetPopulation {
+    oid OID  
+    name Name  
+}
+FormalExpression {
+    text ContextRef  
+}
+ExternalCodeLib {
+    name Library  
+    name Method  
+    text Version  
+    text ref  
+    uriorcurie href  
+}
+Code {
+    text content  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+StudyTargetPopulation ||--|o Description : "DescriptionRef"
+StudyTargetPopulation ||--}o Coding : "CodingRef"
+StudyTargetPopulation ||--}o FormalExpression : "FormalExpressionRef"
+FormalExpression ||--|o Code : "CodeRef"
+FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -41,7 +62,7 @@ URI: [odm:StudyTargetPopulation](http://www.cdisc.org/ns/odm/v2.0/StudyTargetPop
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyTargetPopulation element. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the StudyTargetPopulation. | direct |
@@ -49,6 +70,7 @@ URI: [odm:StudyTargetPopulation](http://www.cdisc.org/ns/odm/v2.0/StudyTargetPop
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 | [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -110,6 +132,7 @@ description: The StudyTargetPopulation describes the population targeted for the
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTargetPopulation
+rank: 1000
 slots:
 - OID
 - Name
@@ -300,6 +323,7 @@ description: The StudyTargetPopulation describes the population targeted for the
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyTargetPopulation
+rank: 1000
 slot_usage:
   OID:
     name: OID

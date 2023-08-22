@@ -1,8 +1,6 @@
 # Class: Query
 
-
 _The Query element represents a request for clarification on a data item collected for a clinical trial, specifically a request from a sponsor or sponsor’s representative to an investigator to resolve an error or inconsistency discovered during data review. Queries can be created manually by individuals such as site monitors or data managers or automatically by systems. The full text of the Query exists in the Value child element. The optional Name attribute provide the means to provide a short identifier that can be included in listing or user interfaces._
-
 
 
 
@@ -10,41 +8,50 @@ _The Query element represents a request for clarification on a data item collect
 URI: [odm:Query](http://www.cdisc.org/ns/odm/v2.0/Query)
 
 
-
 ```mermaid
- classDiagram
-    class Query
-      Query : AuditRecordRef
-        
-          Query --|> AuditRecord : AuditRecordRef
-        
-      Query : LastUpdateDatetime
-        
-      Query : Name
-        
-      Query : OID
-        
-      Query : Source
-        
-          Query --|> QuerySourceType : Source
-        
-      Query : State
-        
-          Query --|> QueryStateType : State
-        
-      Query : Target
-        
-      Query : Type
-        
-          Query --|> QueryType : Type
-        
-      Query : ValueRef
-        
-          Query --|> Value : ValueRef
-        
-      
-```
+erDiagram
+Query {
+    oid OID  
+    QuerySourceType Source  
+    text Target  
+    QueryType Type  
+    QueryStateType State  
+    datetime LastUpdateDatetime  
+    name Name  
+}
+AuditRecord {
+    EditPointType EditPoint  
+    YesOrNo UsedMethod  
+}
+SourceID {
+    text content  
+}
+ReasonForChange {
+    text content  
+}
+DateTimeStamp {
+    datetime content  
+}
+LocationRef {
+    oidref LocationOID  
+}
+UserRef {
+    oidref UserOID  
+}
+Value {
+    positiveInteger SeqNum  
+    text content  
+}
 
+Query ||--|o Value : "ValueRef"
+Query ||--}o AuditRecord : "AuditRecordRef"
+AuditRecord ||--|o UserRef : "UserRefRef"
+AuditRecord ||--|o LocationRef : "LocationRefRef"
+AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
+AuditRecord ||--|o SourceID : "SourceIDRef"
+
+```
 
 
 
@@ -53,7 +60,7 @@ URI: [odm:Query](http://www.cdisc.org/ns/odm/v2.0/Query)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Query unique identifier | direct |
 | [Source](Source.md) | 1..1 <br/> [QuerySourceType](QuerySourceType.md) | Origin of the Query. | direct |
@@ -65,6 +72,7 @@ URI: [odm:Query](http://www.cdisc.org/ns/odm/v2.0/Query)
 | [ValueRef](ValueRef.md) | 0..1 <br/> [Value](Value.md) | Human-readable designation of the trial phase. | direct |
 | [AuditRecordRef](AuditRecordRef.md) | 0..* <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -136,6 +144,7 @@ description: The Query element represents a request for clarification on a data 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Query
+rank: 1000
 slots:
 - OID
 - Source
@@ -331,6 +340,7 @@ description: The Query element represents a request for clarification on a data 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Query
+rank: 1000
 slot_usage:
   OID:
     name: OID

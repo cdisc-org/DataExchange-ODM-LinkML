@@ -1,8 +1,6 @@
 # Class: StudyEventDef
 
-
 _StudyEventDef represents the definition of an activity in a study where data is collected. For example, a study event may represent a set of item groups that represent data collection instruments to be completed for a subject during a visit in a study. The visit occurs as part of a study workflow, and the workflow is referenced in the study event._
-
 
 
 
@@ -10,49 +8,57 @@ _StudyEventDef represents the definition of an activity in a study where data is
 URI: [odm:StudyEventDef](http://www.cdisc.org/ns/odm/v2.0/StudyEventDef)
 
 
-
 ```mermaid
- classDiagram
-    class StudyEventDef
-      StudyEventDef : AliasRef
-        
-          StudyEventDef --|> Alias : AliasRef
-        
-      StudyEventDef : Category
-        
-      StudyEventDef : CodingRef
-        
-          StudyEventDef --|> Coding : CodingRef
-        
-      StudyEventDef : CommentOID
-        
-      StudyEventDef : DescriptionRef
-        
-          StudyEventDef --|> Description : DescriptionRef
-        
-      StudyEventDef : ItemGroupRefRef
-        
-          StudyEventDef --|> ItemGroupRef : ItemGroupRefRef
-        
-      StudyEventDef : Name
-        
-      StudyEventDef : OID
-        
-      StudyEventDef : Repeating
-        
-          StudyEventDef --|> YesOrNo : Repeating
-        
-      StudyEventDef : Type
-        
-          StudyEventDef --|> EventType : Type
-        
-      StudyEventDef : WorkflowRefRef
-        
-          StudyEventDef --|> WorkflowRef : WorkflowRefRef
-        
-      
-```
+erDiagram
+StudyEventDef {
+    oid OID  
+    name Name  
+    YesOrNo Repeating  
+    EventType Type  
+    text Category  
+    oidref CommentOID  
+}
+Alias {
+    text ContextRef  
+    text Name  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+WorkflowRef {
+    oidref WorkflowOID  
+}
+ItemGroupRef {
+    oidref ItemGroupOID  
+    oidref MethodOID  
+    positiveInteger OrderNumber  
+    YesOrNo Mandatory  
+    oidref CollectionExceptionConditionOID  
+}
+Description {
 
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+StudyEventDef ||--|o Description : "DescriptionRef"
+StudyEventDef ||--}o ItemGroupRef : "ItemGroupRefRef"
+StudyEventDef ||--|o WorkflowRef : "WorkflowRefRef"
+StudyEventDef ||--}o Coding : "CodingRef"
+StudyEventDef ||--}o Alias : "AliasRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -61,7 +67,7 @@ URI: [odm:StudyEventDef](http://www.cdisc.org/ns/odm/v2.0/StudyEventDef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEventDef element. | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable-name for the study event. | direct |
@@ -75,6 +81,7 @@ URI: [odm:StudyEventDef](http://www.cdisc.org/ns/odm/v2.0/StudyEventDef)
 | [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 | [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -139,6 +146,7 @@ description: StudyEventDef represents the definition of an activity in a study w
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventDef
+rank: 1000
 slots:
 - OID
 - Name
@@ -441,6 +449,7 @@ description: StudyEventDef represents the definition of an activity in a study w
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyEventDef
+rank: 1000
 slot_usage:
   OID:
     name: OID

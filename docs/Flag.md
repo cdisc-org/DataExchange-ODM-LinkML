@@ -1,8 +1,6 @@
 # Class: Flag
 
-
 _A machine-processable annotation._
-
 
 
 
@@ -10,21 +8,24 @@ _A machine-processable annotation._
 URI: [odm:Flag](http://www.cdisc.org/ns/odm/v2.0/Flag)
 
 
-
 ```mermaid
- classDiagram
-    class Flag
-      Flag : FlagTypeRef
-        
-          Flag --|> FlagType : FlagTypeRef
-        
-      Flag : FlagValueRef
-        
-          Flag --|> FlagValue : FlagValueRef
-        
-      
-```
+erDiagram
+Flag {
 
+}
+FlagType {
+    oidref CodeListOID  
+    name content  
+}
+FlagValue {
+    oidref CodeListOID  
+    name content  
+}
+
+Flag ||--|o FlagValue : "FlagValueRef"
+Flag ||--|o FlagType : "FlagTypeRef"
+
+```
 
 
 
@@ -33,11 +34,12 @@ URI: [odm:Flag](http://www.cdisc.org/ns/odm/v2.0/Flag)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [FlagValueRef](FlagValueRef.md) | 0..1 <br/> [FlagValue](FlagValue.md) | FlagValue reference: The value of the flag. The meaning of this value is typi... | direct |
 | [FlagTypeRef](FlagTypeRef.md) | 0..1 <br/> [FlagType](FlagType.md) | FlagType reference: The type of flag. This determines the purpose and semanti... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -98,6 +100,7 @@ description: A machine-processable annotation.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Flag
+rank: 1000
 slots:
 - FlagValueRef
 - FlagTypeRef
@@ -128,6 +131,7 @@ description: A machine-processable annotation.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Flag
+rank: 1000
 slot_usage:
   FlagValueRef:
     name: FlagValueRef

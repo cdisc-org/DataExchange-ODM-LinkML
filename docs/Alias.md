@@ -1,8 +1,6 @@
 # Class: Alias
 
-
 _An Alias provides an additional name for an element. The Context attribute specifies the application domain in which this additional name is relevant._
-
 
 
 
@@ -10,17 +8,16 @@ _An Alias provides an additional name for an element. The Context attribute spec
 URI: [odm:Alias](http://www.cdisc.org/ns/odm/v2.0/Alias)
 
 
-
 ```mermaid
- classDiagram
-    class Alias
-      Alias : ContextRef
-        
-      Alias : Name
-        
-      
-```
+erDiagram
+Alias {
+    text ContextRef  
+    text Name  
+}
 
+
+
+```
 
 
 
@@ -29,11 +26,12 @@ URI: [odm:Alias](http://www.cdisc.org/ns/odm/v2.0/Alias)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [ContextRef](ContextRef.md) | 1..1 <br/> [text](text.md) | Identifies applicable domain or scope of the mapping. | direct |
 | [Name](Name.md) | 1..1 <br/> [text](text.md) | Alternate name of the parent element. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -102,6 +100,7 @@ description: An Alias provides an additional name for an element. The Context at
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Alias
+rank: 1000
 slots:
 - ContextRef
 - Name
@@ -182,6 +181,7 @@ description: An Alias provides an additional name for an element. The Context at
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Alias
+rank: 1000
 slot_usage:
   ContextRef:
     name: ContextRef

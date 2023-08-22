@@ -1,8 +1,6 @@
 # Class: StudyIndications
 
-
 _StudyIndications is a container element for individual StudyIndication elements._
-
 
 
 
@@ -10,17 +8,34 @@ _StudyIndications is a container element for individual StudyIndication elements
 URI: [odm:StudyIndications](http://www.cdisc.org/ns/odm/v2.0/StudyIndications)
 
 
-
 ```mermaid
- classDiagram
-    class StudyIndications
-      StudyIndications : StudyIndicationRef
-        
-          StudyIndications --|> StudyIndication : StudyIndicationRef
-        
-      
-```
+erDiagram
+StudyIndications {
 
+}
+StudyIndication {
+    oid OID  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Description {
+
+}
+
+StudyIndications ||--}o StudyIndication : "StudyIndicationRef"
+StudyIndication ||--|o Description : "DescriptionRef"
+StudyIndication ||--}o Coding : "CodingRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -29,10 +44,11 @@ URI: [odm:StudyIndications](http://www.cdisc.org/ns/odm/v2.0/StudyIndications)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyIndicationRef](StudyIndicationRef.md) | 0..* <br/> [StudyIndication](StudyIndication.md) | StudyIndication reference: This element describes a study indication (e.g., c... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -94,6 +110,7 @@ description: StudyIndications is a container element for individual StudyIndicat
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyIndications
+rank: 1000
 slots:
 - StudyIndicationRef
 slot_usage:
@@ -120,6 +137,7 @@ description: StudyIndications is a container element for individual StudyIndicat
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyIndications
+rank: 1000
 slot_usage:
   StudyIndicationRef:
     name: StudyIndicationRef

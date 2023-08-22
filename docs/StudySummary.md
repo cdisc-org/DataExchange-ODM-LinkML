@@ -1,8 +1,6 @@
 # Class: StudySummary
 
-
 _The StudyParameter element allows to provide a set of study design parameters such as anticipated number of subjects, minimum and maximum age of the participants, or planned number of arms._
-
 
 
 
@@ -10,17 +8,36 @@ _The StudyParameter element allows to provide a set of study design parameters s
 URI: [odm:StudySummary](http://www.cdisc.org/ns/odm/v2.0/StudySummary)
 
 
-
 ```mermaid
- classDiagram
-    class StudySummary
-      StudySummary : StudyParameterRef
-        
-          StudySummary --|> StudyParameter : StudyParameterRef
-        
-      
-```
+erDiagram
+StudySummary {
 
+}
+StudyParameter {
+    oid OID  
+    name Term  
+    name ShortName  
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+ParameterValue {
+    text ValueRef  
+}
+
+StudySummary ||--}o StudyParameter : "StudyParameterRef"
+StudyParameter ||--|o ParameterValue : "ParameterValueRef"
+StudyParameter ||--}o Coding : "CodingRef"
+ParameterValue ||--}o Coding : "CodingRef"
+
+```
 
 
 
@@ -29,10 +46,11 @@ URI: [odm:StudySummary](http://www.cdisc.org/ns/odm/v2.0/StudySummary)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyParameterRef](StudyParameterRef.md) | 0..* <br/> [StudyParameter](StudyParameter.md) | StudyParameter reference: A StudyParameter defines a study design parameter f... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -95,6 +113,7 @@ description: The StudyParameter element allows to provide a set of study design 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudySummary
+rank: 1000
 slots:
 - StudyParameterRef
 slot_usage:
@@ -122,6 +141,7 @@ description: The StudyParameter element allows to provide a set of study design 
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudySummary
+rank: 1000
 slot_usage:
   StudyParameterRef:
     name: StudyParameterRef

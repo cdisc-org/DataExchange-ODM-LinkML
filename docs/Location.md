@@ -1,8 +1,6 @@
 # Class: Location
 
-
 _A physical location associated with data collection and/or treatment of subjects._
-
 
 
 
@@ -10,41 +8,101 @@ _A physical location associated with data collection and/or treatment of subject
 URI: [odm:Location](http://www.cdisc.org/ns/odm/v2.0/Location)
 
 
-
 ```mermaid
- classDiagram
-    class Location
-      Location : AddressRef
-        
-          Location --|> Address : AddressRef
-        
-      Location : DescriptionRef
-        
-          Location --|> Description : DescriptionRef
-        
-      Location : MetaDataVersionRefRef
-        
-          Location --|> MetaDataVersionRef : MetaDataVersionRefRef
-        
-      Location : Name
-        
-      Location : OID
-        
-      Location : OrganizationOID
-        
-      Location : QueryRef
-        
-          Location --|> Query : QueryRef
-        
-      Location : Role
-        
-      Location : TelecomRef
-        
-          Location --|> Telecom : TelecomRef
-        
-      
-```
+erDiagram
+Location {
+    oid OID  
+    name Name  
+    text Role  
+    oidref OrganizationOID  
+}
+Query {
+    oid OID  
+    QuerySourceType Source  
+    text Target  
+    QueryType Type  
+    QueryStateType State  
+    datetime LastUpdateDatetime  
+    name Name  
+}
+AuditRecord {
+    EditPointType EditPoint  
+    YesOrNo UsedMethod  
+}
+Value {
+    positiveInteger SeqNum  
+    text content  
+}
+Telecom {
+    TelecomTypeType TelecomType  
+    text ValueRef  
+}
+Address {
 
+}
+OtherText {
+    text content  
+}
+GeoPosition {
+    decimal Longitude  
+    decimal Latitude  
+    decimal Altitude  
+}
+PostalCode {
+    text content  
+}
+Country {
+    text content  
+}
+StateProv {
+    text content  
+}
+City {
+    text content  
+}
+HouseNumber {
+    text content  
+}
+StreetName {
+    text content  
+}
+MetaDataVersionRef {
+    oidref StudyOID  
+    oidref MetaDataVersionOID  
+    date EffectiveDate  
+}
+Description {
+
+}
+TranslatedText {
+    languageType language  
+    text Type  
+    contentType content  
+}
+
+Location ||--|o Description : "DescriptionRef"
+Location ||--}o MetaDataVersionRef : "MetaDataVersionRefRef"
+Location ||--}o Address : "AddressRef"
+Location ||--}o Telecom : "TelecomRef"
+Location ||--}o Query : "QueryRef"
+Query ||--|o Value : "ValueRef"
+Query ||--}o AuditRecord : "AuditRecordRef"
+AuditRecord ||--|o UserRef : "UserRefRef"
+AuditRecord ||--|o LocationRef : "LocationRefRef"
+AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
+AuditRecord ||--|o SourceID : "SourceIDRef"
+Address ||--|o StreetName : "StreetNameRef"
+Address ||--|o HouseNumber : "HouseNumberRef"
+Address ||--|o City : "CityRef"
+Address ||--|o StateProv : "StateProvRef"
+Address ||--|o Country : "CountryRef"
+Address ||--|o PostalCode : "PostalCodeRef"
+Address ||--|o GeoPosition : "GeoPositionRef"
+Address ||--|o OtherText : "OtherTextRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
+
+```
 
 
 
@@ -53,7 +111,7 @@ URI: [odm:Location](http://www.cdisc.org/ns/odm/v2.0/Location)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier | direct |
 | [Name](Name.md) | 1..1 <br/> [name](name.md) | Human-readable identifier. | direct |
@@ -65,6 +123,7 @@ URI: [odm:Location](http://www.cdisc.org/ns/odm/v2.0/Location)
 | [TelecomRef](TelecomRef.md) | 0..* <br/> [Telecom](Telecom.md) | Telecom reference: The telecommunication contacts points of a user, a locatio... | direct |
 | [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) | Query reference: The Query element represents a request for clarification on ... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -126,6 +185,7 @@ description: A physical location associated with data collection and/or treatmen
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Location
+rank: 1000
 slots:
 - OID
 - Name
@@ -352,6 +412,7 @@ description: A physical location associated with data collection and/or treatmen
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/Location
+rank: 1000
 slot_usage:
   OID:
     name: OID

@@ -1,8 +1,6 @@
 # Class: StudyInterventionRef
 
-
 _The StudyInterventionRef references an intervention that is taken as the treatment for the estimand._
-
 
 
 
@@ -10,15 +8,15 @@ _The StudyInterventionRef references an intervention that is taken as the treatm
 URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventionRef)
 
 
-
 ```mermaid
- classDiagram
-    class StudyInterventionRef
-      StudyInterventionRef : StudyInterventionOID
-        
-      
-```
+erDiagram
+StudyInterventionRef {
+    oidref StudyInterventionOID  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyInterventionOID](StudyInterventionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a StudyIntervention | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -92,6 +91,7 @@ description: The StudyInterventionRef references an intervention that is taken a
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventionRef
+rank: 1000
 slots:
 - StudyInterventionOID
 slot_usage:
@@ -121,6 +121,7 @@ description: The StudyInterventionRef references an intervention that is taken a
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/StudyInterventionRef
+rank: 1000
 slot_usage:
   StudyInterventionOID:
     name: StudyInterventionOID

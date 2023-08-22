@@ -1,8 +1,6 @@
 # Class: LocationRef
 
-
 _A reference to the user's physical location._
-
 
 
 
@@ -10,15 +8,15 @@ _A reference to the user's physical location._
 URI: [odm:LocationRef](http://www.cdisc.org/ns/odm/v2.0/LocationRef)
 
 
-
 ```mermaid
- classDiagram
-    class LocationRef
-      LocationRef : LocationOID
-        
-      
-```
+erDiagram
+LocationRef {
+    oidref LocationOID  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:LocationRef](http://www.cdisc.org/ns/odm/v2.0/LocationRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [LocationOID](LocationOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a Location definition. | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -92,6 +91,7 @@ description: A reference to the user's physical location.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/LocationRef
+rank: 1000
 slots:
 - LocationOID
 slot_usage:
@@ -126,6 +126,7 @@ description: A reference to the user's physical location.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/LocationRef
+rank: 1000
 slot_usage:
   LocationOID:
     name: LocationOID

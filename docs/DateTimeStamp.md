@@ -1,8 +1,6 @@
 # Class: DateTimeStamp
 
-
 _Date and time when an action was performed._
-
 
 
 
@@ -10,15 +8,15 @@ _Date and time when an action was performed._
 URI: [odm:DateTimeStamp](http://www.cdisc.org/ns/odm/v2.0/DateTimeStamp)
 
 
-
 ```mermaid
- classDiagram
-    class DateTimeStamp
-      DateTimeStamp : _content
-        
-      
-```
+erDiagram
+DateTimeStamp {
+    datetime content  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:DateTimeStamp](http://www.cdisc.org/ns/odm/v2.0/DateTimeStamp)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [_content](_content.md) | 0..1 <br/> [_contentType](_contentType.md) | multi-line text content from between XML tags | direct |
+| [content](content.md) | 0..1 <br/> [datetime](datetime.md) | multi-line text content from between XML tags | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -92,13 +91,40 @@ description: Date and time when an action was performed.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DateTimeStamp
+rank: 1000
 slots:
-- _content
+- content
 slot_usage:
-  range:
-    name: range
-    id_prefixes:
-    - datetime
+  content:
+    name: content
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: datetime
 class_uri: odm:DateTimeStamp
 
 ```
@@ -113,47 +139,75 @@ description: Date and time when an action was performed.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/DateTimeStamp
+rank: 1000
 slot_usage:
-  range:
-    name: range
-    id_prefixes:
-    - datetime
+  content:
+    name: content
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: datetime
 attributes:
-  name: _content
-  description: multi-line text content from between XML tags
-  from_schema: http://www.cdisc.org/ns/odm/v2.0
-  rank: 1000
-  alias: _content
-  owner: DateTimeStamp
-  domain_of:
-  - TranslatedText
-  - Title
-  - CheckValue
-  - Code
-  - WorkflowEnd
-  - UserName
-  - Prefix
-  - Suffix
-  - FullName
-  - GivenName
-  - FamilyName
-  - StreetName
-  - HouseNumber
-  - City
-  - StateProv
-  - Country
-  - PostalCode
-  - OtherText
-  - Meaning
-  - LegalReason
-  - DateTimeStamp
-  - ReasonForChange
-  - SourceID
-  - FlagValue
-  - FlagType
-  - Value
-  range: _contentType
-  inlined: true
+  content:
+    name: content
+    description: multi-line text content from between XML tags
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: content
+    owner: DateTimeStamp
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: datetime
+    inlined: true
 class_uri: odm:DateTimeStamp
 
 ```

@@ -1,8 +1,6 @@
 # Class: WhereClauseRef
 
-
 _The WhereClauseRef references the WhereClauseDef element that describes the conditions under which the variable values are defined by the referenced ItemDef._
-
 
 
 
@@ -10,15 +8,15 @@ _The WhereClauseRef references the WhereClauseDef element that describes the con
 URI: [odm:WhereClauseRef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseRef)
 
 
-
 ```mermaid
- classDiagram
-    class WhereClauseRef
-      WhereClauseRef : WhereClauseOID
-        
-      
-```
+erDiagram
+WhereClauseRef {
+    oidref WhereClauseOID  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:WhereClauseRef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [WhereClauseOID](WhereClauseOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a WhereClauseDef element | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -92,6 +91,7 @@ description: The WhereClauseRef references the WhereClauseDef element that descr
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WhereClauseRef
+rank: 1000
 slots:
 - WhereClauseOID
 slot_usage:
@@ -121,6 +121,7 @@ description: The WhereClauseRef references the WhereClauseDef element that descr
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/WhereClauseRef
+rank: 1000
 slot_usage:
   WhereClauseOID:
     name: WhereClauseOID

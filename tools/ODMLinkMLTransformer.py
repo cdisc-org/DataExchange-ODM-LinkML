@@ -8,8 +8,8 @@ from linkml_runtime.utils.schemaview import SchemaView
 import scraper
 
 # Names for unnamed XML elements
-CONTENT_KEY = '_content'
-LANGUAGE_KEY = '_language'
+CONTENT_KEY = 'content'
+LANGUAGE_KEY = 'language'
 # Suffixes added as needed to avoid collisions between class/type/slot/enum names
 REFERENCE_SUFFIX = 'Ref'
 TYPE_SUFFIX = 'Type'

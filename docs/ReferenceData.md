@@ -1,8 +1,6 @@
 # Class: ReferenceData
 
-
 _Reference data provides information on how to interpret clinical data. For example, reference data might include lab normal ranges. For a study that uses CDISC standards, reference data might include SDTM Trial Design datasets._
-
 
 
 
@@ -10,33 +8,113 @@ _Reference data provides information on how to interpret clinical data. For exam
 URI: [odm:ReferenceData](http://www.cdisc.org/ns/odm/v2.0/ReferenceData)
 
 
-
 ```mermaid
- classDiagram
-    class ReferenceData
-      ReferenceData : AnnotationRef
-        
-          ReferenceData --|> Annotation : AnnotationRef
-        
-      ReferenceData : AuditRecordRef
-        
-          ReferenceData --|> AuditRecord : AuditRecordRef
-        
-      ReferenceData : ItemGroupDataRef
-        
-          ReferenceData --|> ItemGroupData : ItemGroupDataRef
-        
-      ReferenceData : MetaDataVersionOID
-        
-      ReferenceData : SignatureRefRef
-        
-          ReferenceData --|> Signature : SignatureRefRef
-        
-      ReferenceData : StudyOID
-        
-      
-```
+erDiagram
+ReferenceData {
+    oidref StudyOID  
+    oidref MetaDataVersionOID  
+}
+Annotation {
+    positiveInteger SeqNum  
+    TransactionType TransactionTypeRef  
+    oid ID  
+}
+Flag {
 
+}
+Coding {
+    text CodeRef  
+    uriorcurie System  
+    text SystemName  
+    text SystemVersion  
+    text Label  
+    uriorcurie href  
+    uriorcurie ref  
+    text CommentOID  
+}
+Comment {
+    CommentType SponsorOrSite  
+}
+Signature {
+    oid ID  
+}
+DateTimeStamp {
+    datetime content  
+}
+SignatureRef {
+    oidref SignatureOID  
+}
+LocationRef {
+    oidref LocationOID  
+}
+UserRef {
+    oidref UserOID  
+}
+AuditRecord {
+    EditPointType EditPoint  
+    YesOrNo UsedMethod  
+}
+SourceID {
+    text content  
+}
+ReasonForChange {
+    text content  
+}
+ItemGroupData {
+    oidref ItemGroupOID  
+    repeatKey ItemGroupRepeatKey  
+    TransactionType TransactionTypeRef  
+    positiveInteger ItemGroupDataSeq  
+}
+ItemData {
+    oidref ItemOID  
+    TransactionType TransactionTypeRef  
+    YesOnly IsNull  
+}
+Query {
+    oid OID  
+    QuerySourceType Source  
+    text Target  
+    QueryType Type  
+    QueryStateType State  
+    datetime LastUpdateDatetime  
+    name Name  
+}
+
+ReferenceData ||--}o ItemGroupData : "ItemGroupDataRef"
+ReferenceData ||--|o AuditRecord : "AuditRecordRef"
+ReferenceData ||--|o Signature : "SignatureRefRef"
+ReferenceData ||--|o Annotation : "AnnotationRef"
+Annotation ||--|o Comment : "CommentRef"
+Annotation ||--}o Coding : "CodingRef"
+Annotation ||--}o Flag : "FlagRef"
+Flag ||--|o FlagValue : "FlagValueRef"
+Flag ||--|o FlagType : "FlagTypeRef"
+Comment ||--}o TranslatedText : "TranslatedTextRef"
+Signature ||--|o UserRef : "UserRefRef"
+Signature ||--|o LocationRef : "LocationRefRef"
+Signature ||--|o SignatureRef : "SignatureRefRef"
+Signature ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o UserRef : "UserRefRef"
+AuditRecord ||--|o LocationRef : "LocationRefRef"
+AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
+AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
+AuditRecord ||--|o SourceID : "SourceIDRef"
+ItemGroupData ||--}o Query : "QueryRef"
+ItemGroupData ||--}o ItemGroupData : "ItemGroupDataRef"
+ItemGroupData ||--}o ItemData : "ItemDataRef"
+ItemGroupData ||--|o AuditRecord : "AuditRecordRef"
+ItemGroupData ||--|o Signature : "SignatureRefRef"
+ItemGroupData ||--|o Annotation : "AnnotationRef"
+ItemData ||--}o Value : "ValueRef"
+ItemData ||--}o Query : "QueryRef"
+ItemData ||--|o AuditRecord : "AuditRecordRef"
+ItemData ||--|o Signature : "SignatureRefRef"
+ItemData ||--|o Annotation : "AnnotationRef"
+Query ||--|o Value : "ValueRef"
+Query ||--}o AuditRecord : "AuditRecordRef"
+
+```
 
 
 
@@ -45,7 +123,7 @@ URI: [odm:ReferenceData](http://www.cdisc.org/ns/odm/v2.0/ReferenceData)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the Study that defines the metadata for this reference data. | direct |
 | [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | References the MetaDataVersion (within the above Study) for this reference da... | direct |
@@ -54,6 +132,7 @@ URI: [odm:ReferenceData](http://www.cdisc.org/ns/odm/v2.0/ReferenceData)
 | [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: A reference to the signature meaning. | direct |
 | [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -116,6 +195,7 @@ description: Reference data provides information on how to interpret clinical da
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ReferenceData
+rank: 1000
 slots:
 - StudyOID
 - MetaDataVersionOID
@@ -234,6 +314,7 @@ description: Reference data provides information on how to interpret clinical da
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/ReferenceData
+rank: 1000
 slot_usage:
   StudyOID:
     name: StudyOID

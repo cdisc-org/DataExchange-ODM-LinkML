@@ -1,7 +1,7 @@
 # Slot: StudyEventGroupOID
 
 
-_Reference to the StudyEventGroupDef._
+_Reference to the StudyEventGroupDef ._
 
 
 
@@ -56,7 +56,7 @@ URI: [odm:StudyEventGroupOID](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupOI
 <details>
 ```yaml
 name: StudyEventGroupOID
-description: Reference to the StudyEventGroupDef.
+description: Reference to the StudyEventGroupDef .
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: StudyEventGroupOID

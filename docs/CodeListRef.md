@@ -1,8 +1,6 @@
 # Class: CodeListRef
 
-
 _A reference to a CodeList definition._
-
 
 
 
@@ -10,15 +8,15 @@ _A reference to a CodeList definition._
 URI: [odm:CodeListRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRef)
 
 
-
 ```mermaid
- classDiagram
-    class CodeListRef
-      CodeListRef : CodeListOID
-        
-      
-```
+erDiagram
+CodeListRef {
+    oidref CodeListOID  
+}
 
+
+
+```
 
 
 
@@ -27,10 +25,11 @@ URI: [odm:CodeListRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRef)
 
 ## Slots
 
-| Name | Cardinality and Range | Description | Inheritance |
+| Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [CodeListOID](CodeListOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the CodeList definition that provides the allowable values for I... | direct |
 
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
 
@@ -91,6 +90,7 @@ description: A reference to a CodeList definition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CodeListRef
+rank: 1000
 slots:
 - CodeListOID
 slot_usage:
@@ -122,6 +122,7 @@ description: A reference to a CodeList definition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/ODM2/CodeListRef
+rank: 1000
 slot_usage:
   CodeListOID:
     name: CodeListOID
