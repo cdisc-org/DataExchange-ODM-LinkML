@@ -51,7 +51,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/MetaDataVersionRef](https://wiki.cdisc.org/display/ODM2/MetaDataVersionRef)
+* [https://wiki.cdisc.org/display/PUB/MetaDataVersionRef](https://wiki.cdisc.org/display/PUB/MetaDataVersionRef)
 
 ## Identifier and Mapping Information
 
@@ -95,7 +95,7 @@ description: A reference to a MetaDataVersion used at the containing Location. T
   of the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/MetaDataVersionRef
+- https://wiki.cdisc.org/display/PUB/MetaDataVersionRef
 rank: 1000
 slots:
 - StudyOID
@@ -166,7 +166,7 @@ description: A reference to a MetaDataVersion used at the containing Location. T
   of the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/MetaDataVersionRef
+- https://wiki.cdisc.org/display/PUB/MetaDataVersionRef
 rank: 1000
 slot_usage:
   StudyOID:

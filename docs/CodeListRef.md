@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/CodeListRef](https://wiki.cdisc.org/display/ODM2/CodeListRef)
+* [https://wiki.cdisc.org/display/PUB/CodeListRef](https://wiki.cdisc.org/display/PUB/CodeListRef)
 
 ## Identifier and Mapping Information
 
@@ -89,7 +89,7 @@ name: CodeListRef
 description: A reference to a CodeList definition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/CodeListRef
+- https://wiki.cdisc.org/display/PUB/CodeListRef
 rank: 1000
 slots:
 - CodeListOID
@@ -121,7 +121,7 @@ name: CodeListRef
 description: A reference to a CodeList definition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/CodeListRef
+- https://wiki.cdisc.org/display/PUB/CodeListRef
 rank: 1000
 slot_usage:
   CodeListOID:

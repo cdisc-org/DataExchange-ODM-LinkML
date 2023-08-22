@@ -52,7 +52,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/WorkflowRef](https://wiki.cdisc.org/display/ODM2/WorkflowRef)
+* [https://wiki.cdisc.org/display/PUB/WorkflowRef](https://wiki.cdisc.org/display/PUB/WorkflowRef)
 
 ## Identifier and Mapping Information
 
@@ -94,7 +94,7 @@ name: WorkflowRef
 description: The WorkflowRef references a workflow definition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/WorkflowRef
+- https://wiki.cdisc.org/display/PUB/WorkflowRef
 rank: 1000
 slots:
 - WorkflowOID
@@ -125,7 +125,7 @@ name: WorkflowRef
 description: The WorkflowRef references a workflow definition
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/WorkflowRef
+- https://wiki.cdisc.org/display/PUB/WorkflowRef
 rank: 1000
 slot_usage:
   WorkflowOID:

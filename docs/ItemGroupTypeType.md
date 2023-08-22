@@ -3,7 +3,7 @@
 
 
 
-_https://wiki.cdisc.org/display/ODM2/Data+Formats_
+_https://wiki.cdisc.org/display/PUB/Data+Formats_
 
 
 
@@ -23,7 +23,7 @@ URI: [odm:ItemGroupTypeType](http://www.cdisc.org/ns/odm/v2.0/ItemGroupTypeType)
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Data+Formats](https://wiki.cdisc.org/display/ODM2/Data+Formats)
+* [https://wiki.cdisc.org/display/PUB/Data+Formats](https://wiki.cdisc.org/display/PUB/Data+Formats)
 
 ## Identifier and Mapping Information
 

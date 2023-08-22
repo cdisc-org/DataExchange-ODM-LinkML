@@ -87,7 +87,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Description](https://wiki.cdisc.org/display/ODM2/Description)
+* [https://wiki.cdisc.org/display/PUB/Description](https://wiki.cdisc.org/display/PUB/Description)
 
 ## Identifier and Mapping Information
 
@@ -130,7 +130,7 @@ description: A free-text description of the containing metadata component, unles
   restricted by Business Rules.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Description
+- https://wiki.cdisc.org/display/PUB/Description
 rank: 1000
 slots:
 - TranslatedTextRef
@@ -166,7 +166,7 @@ description: A free-text description of the containing metadata component, unles
   restricted by Business Rules.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Description
+- https://wiki.cdisc.org/display/PUB/Description
 rank: 1000
 slot_usage:
   TranslatedTextRef:

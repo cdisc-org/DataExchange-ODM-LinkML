@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyTargetPopulationRef](https://wiki.cdisc.org/display/ODM2/StudyTargetPopulationRef)
+* [https://wiki.cdisc.org/display/PUB/StudyTargetPopulationRef](https://wiki.cdisc.org/display/PUB/StudyTargetPopulationRef)
 
 ## Identifier and Mapping Information
 
@@ -90,7 +90,7 @@ description: The StudyTargetPopulationRef references a StudyTargetPopulation to 
   the estimand applies.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyTargetPopulationRef
+- https://wiki.cdisc.org/display/PUB/StudyTargetPopulationRef
 rank: 1000
 slots:
 - StudyTargetPopulationOID
@@ -115,7 +115,7 @@ description: The StudyTargetPopulationRef references a StudyTargetPopulation to 
   the estimand applies.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyTargetPopulationRef
+- https://wiki.cdisc.org/display/PUB/StudyTargetPopulationRef
 rank: 1000
 slot_usage:
   StudyTargetPopulationOID:

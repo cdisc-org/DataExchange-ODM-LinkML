@@ -80,7 +80,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyEstimands](https://wiki.cdisc.org/display/ODM2/StudyEstimands)
+* [https://wiki.cdisc.org/display/PUB/StudyEstimands](https://wiki.cdisc.org/display/PUB/StudyEstimands)
 
 ## Identifier and Mapping Information
 
@@ -122,7 +122,7 @@ name: StudyEstimands
 description: StudyEstimands is a container element for individual StudyEstimand elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyEstimands
+- https://wiki.cdisc.org/display/PUB/StudyEstimands
 rank: 1000
 slots:
 - StudyEstimandRef
@@ -148,7 +148,7 @@ name: StudyEstimands
 description: StudyEstimands is a container element for individual StudyEstimand elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyEstimands
+- https://wiki.cdisc.org/display/PUB/StudyEstimands
 rank: 1000
 slot_usage:
   StudyEstimandRef:

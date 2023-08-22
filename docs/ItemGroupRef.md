@@ -56,7 +56,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ItemGroupRef](https://wiki.cdisc.org/display/ODM2/ItemGroupRef)
+* [https://wiki.cdisc.org/display/PUB/ItemGroupRef](https://wiki.cdisc.org/display/PUB/ItemGroupRef)
 
 ## Identifier and Mapping Information
 
@@ -102,7 +102,7 @@ description: ItemGroupRef references an ItemGroupDef as it occurs within a speci
   not have duplicate ItemGroupOID or OrderNumber attribute values.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ItemGroupRef
+- https://wiki.cdisc.org/display/PUB/ItemGroupRef
 rank: 1000
 slots:
 - ItemGroupOID
@@ -223,7 +223,7 @@ description: ItemGroupRef references an ItemGroupDef as it occurs within a speci
   not have duplicate ItemGroupOID or OrderNumber attribute values.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ItemGroupRef
+- https://wiki.cdisc.org/display/PUB/ItemGroupRef
 rank: 1000
 slot_usage:
   ItemGroupOID:

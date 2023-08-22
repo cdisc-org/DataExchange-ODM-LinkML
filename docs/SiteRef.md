@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/SiteRef](https://wiki.cdisc.org/display/ODM2/SiteRef)
+* [https://wiki.cdisc.org/display/PUB/SiteRef](https://wiki.cdisc.org/display/PUB/SiteRef)
 
 ## Identifier and Mapping Information
 
@@ -90,7 +90,7 @@ description: Provides a reference to the site that the SubjectData record is ass
   with in the source system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SiteRef
+- https://wiki.cdisc.org/display/PUB/SiteRef
 rank: 1000
 slots:
 - LocationOID
@@ -126,7 +126,7 @@ description: Provides a reference to the site that the SubjectData record is ass
   with in the source system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SiteRef
+- https://wiki.cdisc.org/display/PUB/SiteRef
 rank: 1000
 slot_usage:
   LocationOID:

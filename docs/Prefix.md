@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Prefix](https://wiki.cdisc.org/display/ODM2/Prefix)
+* [https://wiki.cdisc.org/display/PUB/Prefix](https://wiki.cdisc.org/display/PUB/Prefix)
 
 ## Identifier and Mapping Information
 
@@ -89,7 +89,7 @@ name: Prefix
 description: Title or other prefix. Maps to FHIR HumanName.prefix (https://www.hl7.org/fhir/datatypes.html#humanname).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Prefix
+- https://wiki.cdisc.org/display/PUB/Prefix
 rank: 1000
 slots:
 - content
@@ -137,7 +137,7 @@ name: Prefix
 description: Title or other prefix. Maps to FHIR HumanName.prefix (https://www.hl7.org/fhir/datatypes.html#humanname).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Prefix
+- https://wiki.cdisc.org/display/PUB/Prefix
 rank: 1000
 slot_usage:
   content:

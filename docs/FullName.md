@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/FullName](https://wiki.cdisc.org/display/ODM2/FullName)
+* [https://wiki.cdisc.org/display/PUB/FullName](https://wiki.cdisc.org/display/PUB/FullName)
 
 ## Identifier and Mapping Information
 
@@ -90,7 +90,7 @@ description: The user's full formal name. May be a combination of Prefix, GivenN
   FamilyName & Suffix. Intended to be used for display.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/FullName
+- https://wiki.cdisc.org/display/PUB/FullName
 rank: 1000
 slots:
 - content
@@ -139,7 +139,7 @@ description: The user's full formal name. May be a combination of Prefix, GivenN
   FamilyName & Suffix. Intended to be used for display.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/FullName
+- https://wiki.cdisc.org/display/PUB/FullName
 rank: 1000
 slot_usage:
   content:

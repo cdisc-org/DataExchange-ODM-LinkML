@@ -150,7 +150,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ReferenceData](https://wiki.cdisc.org/display/ODM2/ReferenceData)
+* [https://wiki.cdisc.org/display/PUB/ReferenceData](https://wiki.cdisc.org/display/PUB/ReferenceData)
 
 ## Identifier and Mapping Information
 
@@ -194,7 +194,7 @@ description: Reference data provides information on how to interpret clinical da
   CDISC standards, reference data might include SDTM Trial Design datasets.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ReferenceData
+- https://wiki.cdisc.org/display/PUB/ReferenceData
 rank: 1000
 slots:
 - StudyOID
@@ -313,7 +313,7 @@ description: Reference data provides information on how to interpret clinical da
   CDISC standards, reference data might include SDTM Trial Design datasets.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ReferenceData
+- https://wiki.cdisc.org/display/PUB/ReferenceData
 rank: 1000
 slot_usage:
   StudyOID:

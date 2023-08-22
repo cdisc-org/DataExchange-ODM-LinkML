@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Country](https://wiki.cdisc.org/display/ODM2/Country)
+* [https://wiki.cdisc.org/display/PUB/Country](https://wiki.cdisc.org/display/PUB/Country)
 
 ## Identifier and Mapping Information
 
@@ -91,7 +91,7 @@ description: The country name part of a user's postal address. For CDISC SDTM or
   country code (e.g., FRA for France, JPN for Japan).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Country
+- https://wiki.cdisc.org/display/PUB/Country
 rank: 1000
 slots:
 - content
@@ -141,7 +141,7 @@ description: The country name part of a user's postal address. For CDISC SDTM or
   country code (e.g., FRA for France, JPN for Japan).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Country
+- https://wiki.cdisc.org/display/PUB/Country
 rank: 1000
 slot_usage:
   content:

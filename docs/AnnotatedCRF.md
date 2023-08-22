@@ -58,7 +58,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/AnnotatedCRF](https://wiki.cdisc.org/display/ODM2/AnnotatedCRF)
+* [https://wiki.cdisc.org/display/PUB/AnnotatedCRF](https://wiki.cdisc.org/display/PUB/AnnotatedCRF)
 
 ## Identifier and Mapping Information
 
@@ -102,7 +102,7 @@ description: An Annotated Case Report Form (CRF) is a Portable File Format (PDF)
   variable values contained within the datasets.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/AnnotatedCRF
+- https://wiki.cdisc.org/display/PUB/AnnotatedCRF
 rank: 1000
 slots:
 - DocumentRefRef
@@ -135,7 +135,7 @@ description: An Annotated Case Report Form (CRF) is a Portable File Format (PDF)
   variable values contained within the datasets.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/AnnotatedCRF
+- https://wiki.cdisc.org/display/PUB/AnnotatedCRF
 rank: 1000
 slot_usage:
   DocumentRefRef:

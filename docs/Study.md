@@ -255,7 +255,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Study](https://wiki.cdisc.org/display/ODM2/Study)
+* [https://wiki.cdisc.org/display/PUB/Study](https://wiki.cdisc.org/display/PUB/Study)
 
 ## Identifier and Mapping Information
 
@@ -298,7 +298,7 @@ description: This element collects static structural information about an indivi
   study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Study
+- https://wiki.cdisc.org/display/PUB/Study
 rank: 1000
 slots:
 - OID
@@ -483,7 +483,7 @@ description: This element collects static structural information about an indivi
   study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Study
+- https://wiki.cdisc.org/display/PUB/Study
 rank: 1000
 slot_usage:
   OID:

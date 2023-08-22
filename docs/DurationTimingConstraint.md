@@ -67,7 +67,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/DurationTimingConstraint](https://wiki.cdisc.org/display/ODM2/DurationTimingConstraint)
+* [https://wiki.cdisc.org/display/PUB/DurationTimingConstraint](https://wiki.cdisc.org/display/PUB/DurationTimingConstraint)
 
 ## Identifier and Mapping Information
 
@@ -112,7 +112,7 @@ description: The DurationTimingConstraint constrains the duration of an activity
   element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/DurationTimingConstraint
+- https://wiki.cdisc.org/display/PUB/DurationTimingConstraint
 rank: 1000
 slots:
 - OID
@@ -330,7 +330,7 @@ description: The DurationTimingConstraint constrains the duration of an activity
   element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/DurationTimingConstraint
+- https://wiki.cdisc.org/display/PUB/DurationTimingConstraint
 rank: 1000
 slot_usage:
   OID:

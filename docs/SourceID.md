@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/SourceID](https://wiki.cdisc.org/display/ODM2/SourceID)
+* [https://wiki.cdisc.org/display/PUB/SourceID](https://wiki.cdisc.org/display/PUB/SourceID)
 
 ## Identifier and Mapping Information
 
@@ -90,7 +90,7 @@ description: Information that identifies the source of the data within an origin
   system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SourceID
+- https://wiki.cdisc.org/display/PUB/SourceID
 rank: 1000
 slots:
 - content
@@ -139,7 +139,7 @@ description: Information that identifies the source of the data within an origin
   system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SourceID
+- https://wiki.cdisc.org/display/PUB/SourceID
 rank: 1000
 slot_usage:
   content:

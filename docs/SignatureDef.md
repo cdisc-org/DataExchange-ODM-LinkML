@@ -58,7 +58,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/SignatureDef](https://wiki.cdisc.org/display/ODM2/SignatureDef)
+* [https://wiki.cdisc.org/display/PUB/SignatureDef](https://wiki.cdisc.org/display/PUB/SignatureDef)
 
 ## Identifier and Mapping Information
 
@@ -100,7 +100,7 @@ name: SignatureDef
 description: Provides Metadata for signatures included in the /ODM/ClinicalData.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SignatureDef
+- https://wiki.cdisc.org/display/PUB/SignatureDef
 rank: 1000
 slots:
 - OID
@@ -195,7 +195,7 @@ name: SignatureDef
 description: Provides Metadata for signatures included in the /ODM/ClinicalData.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SignatureDef
+- https://wiki.cdisc.org/display/PUB/SignatureDef
 rank: 1000
 slot_usage:
   OID:

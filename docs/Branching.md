@@ -61,7 +61,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Branching](https://wiki.cdisc.org/display/ODM2/Branching)
+* [https://wiki.cdisc.org/display/PUB/Branching](https://wiki.cdisc.org/display/PUB/Branching)
 
 ## Identifier and Mapping Information
 
@@ -104,7 +104,7 @@ description: This element describes the branching in a workflow from a source (s
   structural element to 2 or more target structural elements, over a Transition element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Branching
+- https://wiki.cdisc.org/display/PUB/Branching
 rank: 1000
 slots:
 - OID
@@ -261,7 +261,7 @@ description: This element describes the branching in a workflow from a source (s
   structural element to 2 or more target structural elements, over a Transition element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Branching
+- https://wiki.cdisc.org/display/PUB/Branching
 rank: 1000
 slot_usage:
   OID:

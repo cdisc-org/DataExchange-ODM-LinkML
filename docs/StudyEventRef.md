@@ -53,7 +53,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyEventRef](https://wiki.cdisc.org/display/ODM2/StudyEventRef)
+* [https://wiki.cdisc.org/display/PUB/StudyEventRef](https://wiki.cdisc.org/display/PUB/StudyEventRef)
 
 ## Identifier and Mapping Information
 
@@ -97,7 +97,7 @@ description: This element references a StudyEventDef as it occurs within a speci
   that are allowed to occur within the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyEventRef
+- https://wiki.cdisc.org/display/PUB/StudyEventRef
 rank: 1000
 slots:
 - StudyEventOID
@@ -201,7 +201,7 @@ description: This element references a StudyEventDef as it occurs within a speci
   that are allowed to occur within the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyEventRef
+- https://wiki.cdisc.org/display/PUB/StudyEventRef
 rank: 1000
 slot_usage:
   StudyEventOID:

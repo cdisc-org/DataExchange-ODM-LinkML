@@ -76,7 +76,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/WhereClauseDef](https://wiki.cdisc.org/display/ODM2/WhereClauseDef)
+* [https://wiki.cdisc.org/display/PUB/WhereClauseDef](https://wiki.cdisc.org/display/PUB/WhereClauseDef)
 
 ## Identifier and Mapping Information
 
@@ -118,7 +118,7 @@ name: WhereClauseDef
 description: The WhereClauseDef element specifies a condition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/WhereClauseDef
+- https://wiki.cdisc.org/display/PUB/WhereClauseDef
 rank: 1000
 slots:
 - OID
@@ -222,7 +222,7 @@ name: WhereClauseDef
 description: The WhereClauseDef element specifies a condition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/WhereClauseDef
+- https://wiki.cdisc.org/display/PUB/WhereClauseDef
 rank: 1000
 slot_usage:
   OID:

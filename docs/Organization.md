@@ -112,7 +112,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Organization](https://wiki.cdisc.org/display/ODM2/Organization)
+* [https://wiki.cdisc.org/display/PUB/Organization](https://wiki.cdisc.org/display/PUB/Organization)
 
 ## Identifier and Mapping Information
 
@@ -156,7 +156,7 @@ description: An organization can reference a parent organization. Users may be a
   Location, or Organization may have an address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Organization
+- https://wiki.cdisc.org/display/PUB/Organization
 rank: 1000
 slots:
 - OID
@@ -405,7 +405,7 @@ description: An organization can reference a parent organization. Users may be a
   Location, or Organization may have an address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Organization
+- https://wiki.cdisc.org/display/PUB/Organization
 rank: 1000
 slot_usage:
   OID:

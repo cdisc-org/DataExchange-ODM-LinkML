@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StateProv](https://wiki.cdisc.org/display/ODM2/StateProv)
+* [https://wiki.cdisc.org/display/PUB/StateProv](https://wiki.cdisc.org/display/PUB/StateProv)
 
 ## Identifier and Mapping Information
 
@@ -89,7 +89,7 @@ name: StateProv
 description: The state or province name part of a user's postal address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StateProv
+- https://wiki.cdisc.org/display/PUB/StateProv
 rank: 1000
 slots:
 - content
@@ -137,7 +137,7 @@ name: StateProv
 description: The state or province name part of a user's postal address.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StateProv
+- https://wiki.cdisc.org/display/PUB/StateProv
 rank: 1000
 slot_usage:
   content:

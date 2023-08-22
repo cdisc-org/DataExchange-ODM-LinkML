@@ -66,15 +66,13 @@ CREATE TABLE "CDISCNotes" (
 );
 
 CREATE TABLE "CheckValue" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "City" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "Class" (
@@ -84,9 +82,8 @@ CREATE TABLE "Class" (
 );
 
 CREATE TABLE "Code" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "CodeListRef" (
@@ -113,9 +110,8 @@ CREATE TABLE "Comment" (
 );
 
 CREATE TABLE "Country" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "CRFCompletionInstructions" (
@@ -133,9 +129,8 @@ CREATE TABLE "Criterion" (
 );
 
 CREATE TABLE "DateTimeStamp" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content DATETIME, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "Decode" (
@@ -187,21 +182,20 @@ CREATE TABLE "ExternalCodeLib" (
 );
 
 CREATE TABLE "FamilyName" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "FlagType" (
 	"CodeListOID" TEXT NOT NULL, 
-	_content TEXT, 
-	PRIMARY KEY ("CodeListOID", _content)
+	content TEXT, 
+	PRIMARY KEY ("CodeListOID", content)
 );
 
 CREATE TABLE "FlagValue" (
 	"CodeListOID" TEXT NOT NULL, 
-	_content TEXT, 
-	PRIMARY KEY ("CodeListOID", _content)
+	content TEXT, 
+	PRIMARY KEY ("CodeListOID", content)
 );
 
 CREATE TABLE "FormalExpression" (
@@ -212,9 +206,8 @@ CREATE TABLE "FormalExpression" (
 );
 
 CREATE TABLE "FullName" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "GeoPosition" (
@@ -225,15 +218,13 @@ CREATE TABLE "GeoPosition" (
 );
 
 CREATE TABLE "GivenName" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "HouseNumber" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "Image" (
@@ -321,9 +312,8 @@ CREATE TABLE "Leaf" (
 );
 
 CREATE TABLE "LegalReason" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "Location" (
@@ -344,9 +334,8 @@ CREATE TABLE "LocationRef" (
 );
 
 CREATE TABLE "Meaning" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "MethodSignature" (
@@ -400,9 +389,8 @@ CREATE TABLE "Origin" (
 );
 
 CREATE TABLE "OtherText" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "Parameter" (
@@ -429,15 +417,13 @@ CREATE TABLE "PDFPageRef" (
 );
 
 CREATE TABLE "PostalCode" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "Prefix" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "Prompt" (
@@ -475,9 +461,8 @@ CREATE TABLE "RangeCheck" (
 );
 
 CREATE TABLE "ReasonForChange" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "ReturnValue" (
@@ -521,9 +506,8 @@ CREATE TABLE "SiteRef" (
 );
 
 CREATE TABLE "SourceID" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "SourceItem" (
@@ -560,15 +544,13 @@ CREATE TABLE "Standards" (
 );
 
 CREATE TABLE "StateProv" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "StreetName" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "Study" (
@@ -726,9 +708,8 @@ CREATE TABLE "SubClass" (
 );
 
 CREATE TABLE "Suffix" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "SummaryMeasure" (
@@ -748,16 +729,15 @@ CREATE TABLE "Telecom" (
 );
 
 CREATE TABLE "Title" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "TranslatedText" (
-	_language TEXT, 
+	language TEXT, 
 	"Type" TEXT NOT NULL, 
-	_content TEXT, 
-	PRIMARY KEY (_language, "Type", _content)
+	content TEXT, 
+	PRIMARY KEY (language, "Type", content)
 );
 
 CREATE TABLE "TrialPhase" (
@@ -784,9 +764,8 @@ CREATE TABLE "User" (
 );
 
 CREATE TABLE "UserName" (
-	_content TEXT, 
-	range TEXT, 
-	PRIMARY KEY (_content, range)
+	content TEXT, 
+	PRIMARY KEY (content)
 );
 
 CREATE TABLE "UserRef" (
@@ -796,8 +775,8 @@ CREATE TABLE "UserRef" (
 
 CREATE TABLE "Value" (
 	"SeqNum" INTEGER, 
-	_content TEXT, 
-	PRIMARY KEY ("SeqNum", _content)
+	content TEXT, 
+	PRIMARY KEY ("SeqNum", content)
 );
 
 CREATE TABLE "ValueListRef" (
@@ -1259,9 +1238,9 @@ CREATE TABLE "Transition" (
 
 CREATE TABLE "WorkflowEnd" (
 	"EndOID" TEXT NOT NULL, 
-	_content TEXT, 
+	content TEXT, 
 	"WorkflowDef_OID" TEXT, 
-	PRIMARY KEY ("EndOID", _content, "WorkflowDef_OID"), 
+	PRIMARY KEY ("EndOID", content, "WorkflowDef_OID"), 
 	FOREIGN KEY("WorkflowDef_OID") REFERENCES "WorkflowDef" ("OID")
 );
 

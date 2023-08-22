@@ -89,7 +89,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ValueListDef](https://wiki.cdisc.org/display/ODM2/ValueListDef)
+* [https://wiki.cdisc.org/display/PUB/ValueListDef](https://wiki.cdisc.org/display/PUB/ValueListDef)
 
 ## Identifier and Mapping Information
 
@@ -133,7 +133,7 @@ description: The following table specifies the XML structure for valuelist metad
   that provide the value-level metadata details
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ValueListDef
+- https://wiki.cdisc.org/display/PUB/ValueListDef
 rank: 1000
 slots:
 - OID
@@ -255,7 +255,7 @@ description: The following table specifies the XML structure for valuelist metad
   that provide the value-level metadata details
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ValueListDef
+- https://wiki.cdisc.org/display/PUB/ValueListDef
 rank: 1000
 slot_usage:
   OID:

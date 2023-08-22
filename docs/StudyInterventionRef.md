@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyInterventionRef](https://wiki.cdisc.org/display/ODM2/StudyInterventionRef)
+* [https://wiki.cdisc.org/display/PUB/StudyInterventionRef](https://wiki.cdisc.org/display/PUB/StudyInterventionRef)
 
 ## Identifier and Mapping Information
 
@@ -90,7 +90,7 @@ description: The StudyInterventionRef references an intervention that is taken a
   the treatment for the estimand.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyInterventionRef
+- https://wiki.cdisc.org/display/PUB/StudyInterventionRef
 rank: 1000
 slots:
 - StudyInterventionOID
@@ -120,7 +120,7 @@ description: The StudyInterventionRef references an intervention that is taken a
   the treatment for the estimand.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyInterventionRef
+- https://wiki.cdisc.org/display/PUB/StudyInterventionRef
 rank: 1000
 slot_usage:
   StudyInterventionOID:

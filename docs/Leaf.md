@@ -54,7 +54,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Leaf](https://wiki.cdisc.org/display/ODM2/Leaf)
+* [https://wiki.cdisc.org/display/PUB/Leaf](https://wiki.cdisc.org/display/PUB/Leaf)
 
 ## Identifier and Mapping Information
 
@@ -96,7 +96,7 @@ name: Leaf
 description: Contains the XLink information referenced by DocumentRef or ArchiveLocationID
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Leaf
+- https://wiki.cdisc.org/display/PUB/Leaf
 rank: 1000
 slots:
 - ID
@@ -162,7 +162,7 @@ name: Leaf
 description: Contains the XLink information referenced by DocumentRef or ArchiveLocationID
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Leaf
+- https://wiki.cdisc.org/display/PUB/Leaf
 rank: 1000
 slot_usage:
   ID:

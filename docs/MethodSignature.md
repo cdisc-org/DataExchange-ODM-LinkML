@@ -63,7 +63,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/MethodSignature](https://wiki.cdisc.org/display/ODM2/MethodSignature)
+* [https://wiki.cdisc.org/display/PUB/MethodSignature](https://wiki.cdisc.org/display/PUB/MethodSignature)
 
 ## Identifier and Mapping Information
 
@@ -108,7 +108,7 @@ description: A MethodSignature defines the parameters and return values for a me
   input parameters and return one or more values.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/MethodSignature
+- https://wiki.cdisc.org/display/PUB/MethodSignature
 rank: 1000
 slots:
 - ParameterRef
@@ -146,7 +146,7 @@ description: A MethodSignature defines the parameters and return values for a me
   input parameters and return one or more values.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/MethodSignature
+- https://wiki.cdisc.org/display/PUB/MethodSignature
 rank: 1000
 slot_usage:
   ParameterRef:

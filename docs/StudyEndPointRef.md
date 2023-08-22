@@ -50,7 +50,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyEndPointRef](https://wiki.cdisc.org/display/ODM2/StudyEndPointRef)
+* [https://wiki.cdisc.org/display/PUB/StudyEndPointRef](https://wiki.cdisc.org/display/PUB/StudyEndPointRef)
 
 ## Identifier and Mapping Information
 
@@ -92,7 +92,7 @@ name: StudyEndPointRef
 description: Go to start of metadata
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyEndPointRef
+- https://wiki.cdisc.org/display/PUB/StudyEndPointRef
 rank: 1000
 slots:
 - StudyEndPointOID
@@ -141,7 +141,7 @@ name: StudyEndPointRef
 description: Go to start of metadata
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyEndPointRef
+- https://wiki.cdisc.org/display/PUB/StudyEndPointRef
 rank: 1000
 slot_usage:
   StudyEndPointOID:

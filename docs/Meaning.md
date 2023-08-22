@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Meaning](https://wiki.cdisc.org/display/ODM2/Meaning)
+* [https://wiki.cdisc.org/display/PUB/Meaning](https://wiki.cdisc.org/display/PUB/Meaning)
 
 ## Identifier and Mapping Information
 
@@ -91,7 +91,7 @@ description: A short name or description for this signature. It should reflect t
   in the user interface.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Meaning
+- https://wiki.cdisc.org/display/PUB/Meaning
 rank: 1000
 slots:
 - content
@@ -141,7 +141,7 @@ description: A short name or description for this signature. It should reflect t
   in the user interface.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Meaning
+- https://wiki.cdisc.org/display/PUB/Meaning
 rank: 1000
 slot_usage:
   content:

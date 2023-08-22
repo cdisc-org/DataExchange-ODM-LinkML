@@ -52,7 +52,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Class](https://wiki.cdisc.org/display/ODM2/Class)
+* [https://wiki.cdisc.org/display/PUB/Class](https://wiki.cdisc.org/display/PUB/Class)
 
 ## Identifier and Mapping Information
 
@@ -95,7 +95,7 @@ description: The Class element identifies which predefined Class within the mode
   applies to the definition of the dataset.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Class
+- https://wiki.cdisc.org/display/PUB/Class
 rank: 1000
 slots:
 - Name
@@ -171,7 +171,7 @@ description: The Class element identifies which predefined Class within the mode
   applies to the definition of the dataset.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Class
+- https://wiki.cdisc.org/display/PUB/Class
 rank: 1000
 slot_usage:
   Name:

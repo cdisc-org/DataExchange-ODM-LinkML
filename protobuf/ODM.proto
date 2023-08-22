@@ -96,14 +96,12 @@ message CDISCNotes
 // A comparison value used in a range check.
 message CheckValue
  {
-  contentType content = 0
-  string range = 0
+  value content = 0
  }
 // The city name part of a user's postal address.
 message City
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // The Class element identifies which predefined Class within the model applies to the definition of the dataset.
 message Class
@@ -126,8 +124,7 @@ message ClinicalData
 // Contains the source code that represents a FormalExpression in a given Context. The source code must be executable, and the MethodSignature defines the input parameters and return values for the code.
 message Code
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // Defines a discrete set of permitted values for an item, or provides a reference to a codelist or dictionary maintained by an external organization via the Coding element, or a combination of both. Examples provided under Coding.
 message CodeList
@@ -201,8 +198,7 @@ message ConditionDef
 // The country name part of a user's postal address. For CDISC SDTM or trial registry applications, this must be represented by an ISO 3166 3-letter or US-GENC country code (e.g., FRA for France, JPN for Japan).
 message Country
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // Instructions for the clinical site on how to enter collected information on the CRF.
 message CRFCompletionInstructions
@@ -221,8 +217,7 @@ message Criterion
 // Date and time when an action was performed.
 message DateTimeStamp
  {
-  contentType content = 0
-  string range = 0
+  datetime content = 0
  }
 // The displayed value relating to the CodeListItem/@CodedValue. This is often a label corresponding to a short name or alpha-numeric code. The actual Decode text is provided in a TranslatedText element so that it can be provided in different languages on a case report form or tabular data summary.
 message Decode
@@ -291,8 +286,7 @@ message ExternalCodeLib
 // The user's surname (family name).
 message FamilyName
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // A machine-processable annotation.
 message Flag
@@ -322,8 +316,7 @@ message FormalExpression
 // The user's full formal name. May be a combination of Prefix, GivenName, FamilyName & Suffix. Intended to be used for display.
 message FullName
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // The geographical position using the World Geodetic System WGS84.
 message GeoPosition
@@ -335,14 +328,12 @@ message GeoPosition
 // The user's initial given name or all given names.
 message GivenName
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // The house number part of a user's postal address.
 message HouseNumber
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // A visual depiction of the user.
 message Image
@@ -513,8 +504,7 @@ message Leaf
 // The responsibility statement associated with a signature (e.g., "The signer accepts responsibility for the accuracy of this data.").
 message LegalReason
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // A physical location associated with data collection and/or treatment of subjects.
 message Location
@@ -537,8 +527,7 @@ message LocationRef
 // A short name or description for this signature. It should reflect the context of the signature and/or the text that appears when the signature is applied in the user interface.
 message Meaning
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // The metadata for a study is defined in a series of MetaDataVersion elements. Through this mechanism (multiple MetaDataVersion elements), the model supports the incremental deployment of "mid-stream study changes," and thus can handle a situation where multiple versions of the metadata are being used simultaneously (e.g., due to delays in IRB approval at various sites).
 message MetaDataVersion
@@ -638,8 +627,7 @@ message Origin
 // Any other text needed as part of a user's postal address.
 message OtherText
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // The Parameter element represents a method parameter used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck.
 message Parameter
@@ -667,14 +655,12 @@ message PDFPageRef
 // The postal code part of a user's postal address.
 message PostalCode
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // Title or other prefix. Maps to FHIR HumanName.prefix (https://www.hl7.org/fhir/datatypes.html#humanname).
 message Prefix
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // A prompt text shown to a human user when prompted to provide data for an item on paper or on a screen. The Prompt is a short version of the question.
 message Prompt
@@ -732,8 +718,7 @@ message RangeCheck
 // A user-supplied reason for a data change.
 message ReasonForChange
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // Reference data provides information on how to interpret clinical data. For example, reference data might include lab normal ranges. For a study that uses CDISC standards, reference data might include SDTM Trial Design datasets.
 message ReferenceData
@@ -810,8 +795,7 @@ message SiteRef
 // Information that identifies the source of the data within an originating system.
 message SourceID
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // Provides the information needed to identify the source metadata.
 message SourceItem
@@ -850,14 +834,12 @@ message Standards
 // The state or province name part of a user's postal address.
 message StateProv
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // The street name part of a user's postal address.
 message StreetName
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // This element collects static structural information about an individual study.
 message Study
@@ -1084,8 +1066,7 @@ message SubjectData
 // This element may include credentials, or suffixes (e.g., Jr., III).
 message Suffix
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // The SummaryMeasure element describes a summary measure for an estimand (e.g., proportion of patients with an improvement).
 message SummaryMeasure
@@ -1112,8 +1093,7 @@ message Telecom
 // Text with the label for the document or dataset.
 message Title
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // A Transition defines a link between 2 structural elements in a workflow. When the execution of the transition is dependent upon a timing constraint that is either directly defined or calculated, a TransitionTimingConstraint must be defined, referencing the current Transition.
 message Transition
@@ -1171,8 +1151,7 @@ message User
 // The user's login identification in the sender's system.
 message UserName
  {
-  contentType content = 0
-  string range = 0
+  text content = 0
  }
 // A reference to information about a specific user of a clinical data collection or data management system.
 message UserRef

@@ -66,7 +66,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyInterventions](https://wiki.cdisc.org/display/ODM2/StudyInterventions)
+* [https://wiki.cdisc.org/display/PUB/StudyInterventions](https://wiki.cdisc.org/display/PUB/StudyInterventions)
 
 ## Identifier and Mapping Information
 
@@ -109,7 +109,7 @@ description: The StudyInterventions element is a container element for individua
   StudyIntervention elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyInterventions
+- https://wiki.cdisc.org/display/PUB/StudyInterventions
 rank: 1000
 slots:
 - StudyInterventionRefRef
@@ -137,7 +137,7 @@ description: The StudyInterventions element is a container element for individua
   StudyIntervention elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyInterventions
+- https://wiki.cdisc.org/display/PUB/StudyInterventions
 rank: 1000
 slot_usage:
   StudyInterventionRefRef:

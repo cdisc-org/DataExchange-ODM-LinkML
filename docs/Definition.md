@@ -52,7 +52,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Definition](https://wiki.cdisc.org/display/ODM2/Definition)
+* [https://wiki.cdisc.org/display/PUB/Definition](https://wiki.cdisc.org/display/PUB/Definition)
 
 ## Identifier and Mapping Information
 
@@ -94,7 +94,7 @@ name: Definition
 description: Definition of the item.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Definition
+- https://wiki.cdisc.org/display/PUB/Definition
 rank: 1000
 slots:
 - TranslatedTextRef
@@ -129,7 +129,7 @@ name: Definition
 description: Definition of the item.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Definition
+- https://wiki.cdisc.org/display/PUB/Definition
 rank: 1000
 slot_usage:
   TranslatedTextRef:

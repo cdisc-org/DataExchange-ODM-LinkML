@@ -23,7 +23,7 @@ URI: [odm:CoreType](http://www.cdisc.org/ns/odm/v2.0/CoreType)
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Data+Formats](https://wiki.cdisc.org/display/ODM2/Data+Formats)
+* [https://wiki.cdisc.org/display/PUB/Data+Formats](https://wiki.cdisc.org/display/PUB/Data+Formats)
 
 ## Identifier and Mapping Information
 

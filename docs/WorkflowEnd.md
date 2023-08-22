@@ -49,7 +49,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/WorkflowEnd](https://wiki.cdisc.org/display/ODM2/WorkflowEnd)
+* [https://wiki.cdisc.org/display/PUB/WorkflowEnd](https://wiki.cdisc.org/display/PUB/WorkflowEnd)
 
 ## Identifier and Mapping Information
 
@@ -92,7 +92,7 @@ description: A WorkflowEnd references a structural element with which the workfl
   ends.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/WorkflowEnd
+- https://wiki.cdisc.org/display/PUB/WorkflowEnd
 rank: 1000
 slots:
 - EndOID
@@ -159,7 +159,7 @@ description: A WorkflowEnd references a structural element with which the workfl
   ends.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/WorkflowEnd
+- https://wiki.cdisc.org/display/PUB/WorkflowEnd
 rank: 1000
 slot_usage:
   EndOID:

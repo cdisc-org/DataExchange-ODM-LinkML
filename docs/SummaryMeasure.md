@@ -56,7 +56,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/SummaryMeasure](https://wiki.cdisc.org/display/ODM2/SummaryMeasure)
+* [https://wiki.cdisc.org/display/PUB/SummaryMeasure](https://wiki.cdisc.org/display/PUB/SummaryMeasure)
 
 ## Identifier and Mapping Information
 
@@ -99,7 +99,7 @@ description: The SummaryMeasure element describes a summary measure for an estim
   (e.g., proportion of patients with an improvement).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SummaryMeasure
+- https://wiki.cdisc.org/display/PUB/SummaryMeasure
 rank: 1000
 slots:
 - DescriptionRef
@@ -159,7 +159,7 @@ description: The SummaryMeasure element describes a summary measure for an estim
   (e.g., proportion of patients with an improvement).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SummaryMeasure
+- https://wiki.cdisc.org/display/PUB/SummaryMeasure
 rank: 1000
 slot_usage:
   DescriptionRef:

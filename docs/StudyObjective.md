@@ -67,7 +67,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyObjective](https://wiki.cdisc.org/display/ODM2/StudyObjective)
+* [https://wiki.cdisc.org/display/PUB/StudyObjective](https://wiki.cdisc.org/display/PUB/StudyObjective)
 
 ## Identifier and Mapping Information
 
@@ -110,7 +110,7 @@ description: The reason for performing a study in terms of the scientific questi
   to be answered by the analysis of data collected during the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyObjective
+- https://wiki.cdisc.org/display/PUB/StudyObjective
 rank: 1000
 slots:
 - OID
@@ -294,7 +294,7 @@ description: The reason for performing a study in terms of the scientific questi
   to be answered by the analysis of data collected during the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyObjective
+- https://wiki.cdisc.org/display/PUB/StudyObjective
 rank: 1000
 slot_usage:
   OID:

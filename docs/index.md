@@ -3,6 +3,7 @@
 ODM is a vendor-neutral, platform-independent format for exchanging and archiving clinical and translational research data, along with their associated metadata, administrative data, reference data, and audit information.
 
 URI: http://www.cdisc.org/ns/odm/v2.0
+
 Name: odm
 
 
@@ -32,35 +33,6 @@ Annotation {
     TransactionType TransactionTypeRef  
     oid ID  
 }
-Flag {
-
-}
-FlagType {
-    oidref CodeListOID  
-    name content  
-}
-FlagValue {
-    oidref CodeListOID  
-    name content  
-}
-Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
-    uriorcurie href  
-    uriorcurie ref  
-    text CommentOID  
-}
-Comment {
-    CommentType SponsorOrSite  
-}
-TranslatedText {
-    languageType language  
-    text Type  
-    contentType content  
-}
 KeySet {
     oidref StudyOID  
     subjectKey SubjectKey  
@@ -78,27 +50,9 @@ ClinicalData {
 Signature {
     oid ID  
 }
-DateTimeStamp {
-    datetime content  
-}
-SignatureRef {
-    oidref SignatureOID  
-}
-LocationRef {
-    oidref LocationOID  
-}
-UserRef {
-    oidref UserOID  
-}
 AuditRecord {
     EditPointType EditPoint  
     YesOrNo UsedMethod  
-}
-SourceID {
-    text content  
-}
-ReasonForChange {
-    text content  
 }
 Query {
     oid OID  
@@ -109,35 +63,15 @@ Query {
     datetime LastUpdateDatetime  
     name Name  
 }
-Value {
-    positiveInteger SeqNum  
-    text content  
-}
 ItemGroupData {
     oidref ItemGroupOID  
     repeatKey ItemGroupRepeatKey  
     TransactionType TransactionTypeRef  
     positiveInteger ItemGroupDataSeq  
 }
-ItemData {
-    oidref ItemOID  
-    TransactionType TransactionTypeRef  
-    YesOnly IsNull  
-}
 SubjectData {
     subjectKey SubjectKey  
     TransactionType TransactionTypeRef  
-}
-StudyEventData {
-    oidref StudyEventOID  
-    repeatKey StudyEventRepeatKey  
-    TransactionType TransactionTypeRef  
-}
-SiteRef {
-    oidref LocationOID  
-}
-InvestigatorRef {
-    oidref UserOID  
 }
 ReferenceData {
     oidref StudyOID  
@@ -150,58 +84,11 @@ SignatureDef {
     oid OID  
     SignMethod Methodology  
 }
-LegalReason {
-    text content  
-}
-Meaning {
-    text content  
-}
 Location {
     oid OID  
     name Name  
     text Role  
     oidref OrganizationOID  
-}
-Telecom {
-    TelecomTypeType TelecomType  
-    text ValueRef  
-}
-Address {
-
-}
-OtherText {
-    text content  
-}
-GeoPosition {
-    decimal Longitude  
-    decimal Latitude  
-    decimal Altitude  
-}
-PostalCode {
-    text content  
-}
-Country {
-    text content  
-}
-StateProv {
-    text content  
-}
-City {
-    text content  
-}
-HouseNumber {
-    text content  
-}
-StreetName {
-    text content  
-}
-MetaDataVersionRef {
-    oidref StudyOID  
-    oidref MetaDataVersionOID  
-    date EffectiveDate  
-}
-Description {
-
 }
 Organization {
     oid OID  
@@ -217,29 +104,6 @@ User {
     oidref OrganizationOID  
     oidref LocationOID  
 }
-Image {
-    fileName ImageFileName  
-    text href  
-    text MimeType  
-}
-FamilyName {
-    text content  
-}
-GivenName {
-    text content  
-}
-FullName {
-    text content  
-}
-Suffix {
-    text content  
-}
-Prefix {
-    text content  
-}
-UserName {
-    text content  
-}
 Study {
     oid OID  
     name StudyName  
@@ -253,441 +117,8 @@ MetaDataVersion {
     name Name  
     oidref CommentOID  
 }
-Leaf {
-    oid ID  
-    uriorcurie href  
-}
-Title {
-    text content  
-}
-CommentDef {
-    oid OID  
-}
-DocumentRef {
-    oid LeafID  
-}
-PDFPageRef {
-    text PageRefs  
-    positiveInteger FirstPage  
-    positiveInteger LastPage  
-    PDFPageType Type  
-    text TitleRef  
-}
-MethodDef {
-    oid OID  
-    name Name  
-    MethodType Type  
-    oidref CommentOID  
-}
-Alias {
-    text ContextRef  
-    text Name  
-}
-FormalExpression {
-    text ContextRef  
-}
-ExternalCodeLib {
-    name Library  
-    name Method  
-    text Version  
-    text ref  
-    uriorcurie href  
-}
-Code {
-    text content  
-}
-MethodSignature {
+Description {
 
-}
-ReturnValue {
-    name Name  
-    DataType DataTypeRef  
-    text DefinitionRef  
-    positiveInteger OrderNumber  
-}
-Parameter {
-    name Name  
-    DataType DataTypeRef  
-    text DefinitionRef  
-    positiveInteger OrderNumber  
-}
-ConditionDef {
-    oid OID  
-    name Name  
-    oidref CommentOID  
-}
-CodeList {
-    oid OID  
-    name Name  
-    CLDataType DataTypeRef  
-    oidref CommentOID  
-    oidref StandardOID  
-    YesOnly IsNonStandard  
-}
-CodeListItem {
-    value CodedValue  
-    decimal Rank  
-    YesOnly Other  
-    positiveInteger OrderNumber  
-    YesOnly ExtendedValue  
-    oidref CommentOID  
-}
-Decode {
-
-}
-ItemDef {
-    oid OID  
-    name Name  
-    DataType DataTypeRef  
-    positiveInteger Length  
-    text DisplayFormat  
-    text VariableSet  
-    oidref CommentOID  
-}
-ValueListRef {
-    oidref ValueListOID  
-}
-CodeListRef {
-    oidref CodeListOID  
-}
-RangeCheck {
-    Comparator ComparatorRef  
-    SoftOrHard SoftHard  
-    oidref ItemOID  
-}
-CheckValue {
-    value content  
-}
-ErrorMessage {
-
-}
-CDISCNotes {
-
-}
-ImplementationNotes {
-
-}
-CRFCompletionInstructions {
-
-}
-Prompt {
-
-}
-Question {
-
-}
-Definition {
-
-}
-ItemGroupDef {
-    oid OID  
-    name Name  
-    ItemGroupRepeatingType Repeating  
-    positiveInteger RepeatingLimit  
-    YesOrNo IsReferenceData  
-    text Structure  
-    oidref ArchiveLocationID  
-    name DatasetName  
-    text Domain  
-    ItemGroupTypeType Type  
-    text Purpose  
-    oidref StandardOID  
-    YesOnly IsNonStandard  
-    YesOnly HasNoData  
-    oidref CommentOID  
-}
-ItemRef {
-    oidref ItemOID  
-    positiveInteger KeySequence  
-    YesOnly IsNonStandard  
-    YesOnly HasNoData  
-    oidref MethodOID  
-    oidref UnitsItemOID  
-    YesOnly Repeat  
-    YesOnly Other  
-    text Role  
-    oidref RoleCodeListOID  
-    CoreType Core  
-    text PreSpecifiedValue  
-    positiveInteger OrderNumber  
-    YesOrNo Mandatory  
-    oidref CollectionExceptionConditionOID  
-}
-WhereClauseRef {
-    oidref WhereClauseOID  
-}
-Origin {
-    OriginType Type  
-    OriginSource Source  
-}
-SourceItems {
-
-}
-SourceItem {
-    oidref ItemOID  
-    oidref ItemGroupOID  
-    oidref MetaDataVersionOID  
-    oidref StudyOID  
-    oidref leafID  
-    name Name  
-}
-Resource {
-    text Type  
-    name Name  
-    text Attribute  
-    text Label  
-}
-Selection {
-    text Path  
-}
-ItemGroupRef {
-    oidref ItemGroupOID  
-    oidref MethodOID  
-    positiveInteger OrderNumber  
-    YesOrNo Mandatory  
-    oidref CollectionExceptionConditionOID  
-}
-WorkflowRef {
-    oidref WorkflowOID  
-}
-Class {
-    ItemGroupClass Name  
-}
-SubClass {
-    ItemGroupSubClass Name  
-    ItemGroupClassSubClass ParentClass  
-}
-StudyEventDef {
-    oid OID  
-    name Name  
-    YesOrNo Repeating  
-    EventType Type  
-    text Category  
-    oidref CommentOID  
-}
-StudyEventGroupDef {
-    oid OID  
-    name Name  
-    oidref ArmOID  
-    oidref EpochOID  
-    oidref CommentOID  
-}
-StudyEventRef {
-    oidref StudyEventOID  
-    positiveInteger OrderNumber  
-    YesOrNo Mandatory  
-    oidref CollectionExceptionConditionOID  
-}
-StudyEventGroupRef {
-    oidref StudyEventGroupOID  
-    positiveInteger OrderNumber  
-    YesOrNo Mandatory  
-    oidref CollectionExceptionConditionOID  
-}
-WorkflowDef {
-    oid OID  
-    name Name  
-}
-Branching {
-    oid OID  
-    name Name  
-    BranchingType Type  
-}
-DefaultTransition {
-    oidref TargetTransitionOID  
-}
-TargetTransition {
-    oidref TargetTransitionOID  
-    oidref ConditionOID  
-}
-Transition {
-    oid OID  
-    name Name  
-    oidref SourceOID  
-    oidref TargetOID  
-    oidref StartConditionOID  
-    oidref EndConditionOID  
-}
-WorkflowEnd {
-    oidref EndOID  
-    text content  
-}
-WorkflowStart {
-    oidref StartOID  
-}
-Protocol {
-
-}
-InclusionExclusionCriteria {
-
-}
-ExclusionCriteria {
-
-}
-Criterion {
-    oid OID  
-    name Name  
-    oidref ConditionOID  
-}
-InclusionCriteria {
-
-}
-StudyEstimands {
-
-}
-StudyEstimand {
-    oid OID  
-    name Name  
-    StudyEstimandLevel Level  
-}
-SummaryMeasure {
-
-}
-IntercurrentEvent {
-
-}
-StudyEndPointRef {
-    oidref StudyEndPointOID  
-    positiveInteger OrderNumber  
-}
-StudyInterventionRef {
-    oidref StudyInterventionOID  
-}
-StudyTargetPopulationRef {
-    oidref StudyTargetPopulationOID  
-}
-StudyTargetPopulation {
-    oid OID  
-    name Name  
-}
-StudyEndPoints {
-
-}
-StudyEndPoint {
-    oid OID  
-    name Name  
-    StudyEndPointType Type  
-    StudyEstimandLevel Level  
-}
-StudyObjectives {
-
-}
-StudyObjective {
-    oid OID  
-    name Name  
-    StudyObjectiveLevel Level  
-}
-StudyInterventions {
-
-}
-StudyIntervention {
-    oid OID  
-}
-StudyIndications {
-
-}
-StudyIndication {
-    oid OID  
-}
-StudyTimings {
-
-}
-StudyTiming {
-    oid OID  
-    name Name  
-}
-DurationTimingConstraint {
-    oid OID  
-    name Name  
-    oidref StructuralElementOID  
-    durationDatetime DurationTarget  
-    durationDatetime DurationPreWindow  
-    durationDatetime DurationPostWindow  
-}
-TransitionTimingConstraint {
-    oid OID  
-    name Name  
-    oidref TransitionOID  
-    oidref MethodOID  
-    RelativeTimingConstraintType Type  
-    durationDatetime TimepointTarget  
-    durationDatetime TimepointPreWindow  
-    durationDatetime TimepointPostWindow  
-}
-RelativeTimingConstraint {
-    oid OID  
-    name Name  
-    oidref PredecessorOID  
-    oidref SuccessorOID  
-    RelativeTimingConstraintType Type  
-    durationDatetime TimepointRelativeTarget  
-    durationDatetime TimepointPreWindow  
-    durationDatetime TimepointPostWindow  
-}
-AbsoluteTimingConstraint {
-    oid OID  
-    name Name  
-    oidref StudyEventGroupOID  
-    oidref StudyEventOID  
-    string TimepointTarget  
-    durationDatetime TimepointPreWindow  
-    durationDatetime TimepointPostWindow  
-}
-TrialPhase {
-    TrialPhaseType ValueRef  
-}
-StudyStructure {
-
-}
-Epoch {
-    oid OID  
-    name Name  
-    positiveInteger SequenceNumber  
-}
-Arm {
-    oid OID  
-    name Name  
-}
-StudySummary {
-
-}
-StudyParameter {
-    oid OID  
-    name Term  
-    name ShortName  
-}
-ParameterValue {
-    text ValueRef  
-}
-WhereClauseDef {
-    oid OID  
-    oidref CommentOID  
-}
-ValueListDef {
-    oid OID  
-}
-SupplementalDoc {
-
-}
-AnnotatedCRF {
-
-}
-Standards {
-
-}
-Standard {
-    oid OID  
-    StandardName Name  
-    StandardType Type  
-    StandardPublishingSet PublishingSet  
-    text Version  
-    StandardStatus Status  
-    oidref CommentOID  
-}
-Include {
-    oidref StudyOID  
-    oidref MetaDataVersionOID  
-    uriorcurie href  
 }
 
 ODMFileMetadata ||--|o Description : "DescriptionRef"
@@ -701,9 +132,6 @@ Association ||--|o Annotation : "AnnotationRef"
 Annotation ||--|o Comment : "CommentRef"
 Annotation ||--}o Coding : "CodingRef"
 Annotation ||--}o Flag : "FlagRef"
-Flag ||--|o FlagValue : "FlagValueRef"
-Flag ||--|o FlagType : "FlagTypeRef"
-Comment ||--}o TranslatedText : "TranslatedTextRef"
 ClinicalData ||--}o SubjectData : "SubjectDataRef"
 ClinicalData ||--}o ItemGroupData : "ItemGroupDataRef"
 ClinicalData ||--}o Query : "QueryRef"
@@ -727,11 +155,6 @@ ItemGroupData ||--}o ItemData : "ItemDataRef"
 ItemGroupData ||--|o AuditRecord : "AuditRecordRef"
 ItemGroupData ||--|o Signature : "SignatureRefRef"
 ItemGroupData ||--|o Annotation : "AnnotationRef"
-ItemData ||--}o Value : "ValueRef"
-ItemData ||--}o Query : "QueryRef"
-ItemData ||--|o AuditRecord : "AuditRecordRef"
-ItemData ||--|o Signature : "SignatureRefRef"
-ItemData ||--|o Annotation : "AnnotationRef"
 SubjectData ||--|o InvestigatorRef : "InvestigatorRefRef"
 SubjectData ||--|o SiteRef : "SiteRefRef"
 SubjectData ||--}o StudyEventData : "StudyEventDataRef"
@@ -739,11 +162,6 @@ SubjectData ||--}o Query : "QueryRef"
 SubjectData ||--|o AuditRecord : "AuditRecordRef"
 SubjectData ||--|o Signature : "SignatureRefRef"
 SubjectData ||--|o Annotation : "AnnotationRef"
-StudyEventData ||--}o ItemGroupData : "ItemGroupDataRef"
-StudyEventData ||--}o Query : "QueryRef"
-StudyEventData ||--|o AuditRecord : "AuditRecordRef"
-StudyEventData ||--|o Signature : "SignatureRefRef"
-StudyEventData ||--|o Annotation : "AnnotationRef"
 ReferenceData ||--}o ItemGroupData : "ItemGroupDataRef"
 ReferenceData ||--|o AuditRecord : "AuditRecordRef"
 ReferenceData ||--|o Signature : "SignatureRefRef"
@@ -759,15 +177,6 @@ Location ||--}o MetaDataVersionRef : "MetaDataVersionRefRef"
 Location ||--}o Address : "AddressRef"
 Location ||--}o Telecom : "TelecomRef"
 Location ||--}o Query : "QueryRef"
-Address ||--|o StreetName : "StreetNameRef"
-Address ||--|o HouseNumber : "HouseNumberRef"
-Address ||--|o City : "CityRef"
-Address ||--|o StateProv : "StateProvRef"
-Address ||--|o Country : "CountryRef"
-Address ||--|o PostalCode : "PostalCodeRef"
-Address ||--|o GeoPosition : "GeoPositionRef"
-Address ||--|o OtherText : "OtherTextRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
 Organization ||--|o Description : "DescriptionRef"
 Organization ||--}o Address : "AddressRef"
 Organization ||--}o Telecom : "TelecomRef"
@@ -800,168 +209,9 @@ MetaDataVersion ||--}o ConditionDef : "ConditionDefRef"
 MetaDataVersion ||--}o MethodDef : "MethodDefRef"
 MetaDataVersion ||--}o CommentDef : "CommentDefRef"
 MetaDataVersion ||--}o Leaf : "LeafRef"
-Leaf ||--|o Title : "TitleRef"
-CommentDef ||--|o Description : "DescriptionRef"
-CommentDef ||--}o DocumentRef : "DocumentRefRef"
-DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
-MethodDef ||--|o Description : "DescriptionRef"
-MethodDef ||--|o MethodSignature : "MethodSignatureRef"
-MethodDef ||--}o FormalExpression : "FormalExpressionRef"
-MethodDef ||--}o Alias : "AliasRef"
-MethodDef ||--}o DocumentRef : "DocumentRefRef"
-FormalExpression ||--|o Code : "CodeRef"
-FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
-MethodSignature ||--}o Parameter : "ParameterRef"
-MethodSignature ||--}o ReturnValue : "ReturnValueRef"
-ConditionDef ||--|o Description : "DescriptionRef"
-ConditionDef ||--|o MethodSignature : "MethodSignatureRef"
-ConditionDef ||--}o FormalExpression : "FormalExpressionRef"
-ConditionDef ||--}o Alias : "AliasRef"
-CodeList ||--|o Description : "DescriptionRef"
-CodeList ||--}o CodeListItem : "CodeListItemRef"
-CodeList ||--}o Coding : "CodingRef"
-CodeList ||--}o Alias : "AliasRef"
-CodeListItem ||--|o Description : "DescriptionRef"
-CodeListItem ||--|o Decode : "DecodeRef"
-CodeListItem ||--}o Coding : "CodingRef"
-CodeListItem ||--}o Alias : "AliasRef"
-Decode ||--}o TranslatedText : "TranslatedTextRef"
-ItemDef ||--|o Description : "DescriptionRef"
-ItemDef ||--|o Definition : "DefinitionRef"
-ItemDef ||--|o Question : "QuestionRef"
-ItemDef ||--|o Prompt : "PromptRef"
-ItemDef ||--|o CRFCompletionInstructions : "CRFCompletionInstructionsRef"
-ItemDef ||--|o ImplementationNotes : "ImplementationNotesRef"
-ItemDef ||--|o CDISCNotes : "CDISCNotesRef"
-ItemDef ||--}o RangeCheck : "RangeCheckRef"
-ItemDef ||--|o CodeListRef : "CodeListRefRef"
-ItemDef ||--|o ValueListRef : "ValueListRefRef"
-ItemDef ||--}o Coding : "CodingRef"
-ItemDef ||--}o Alias : "AliasRef"
-RangeCheck ||--|o ErrorMessage : "ErrorMessageRef"
-RangeCheck ||--|o MethodSignature : "MethodSignatureRef"
-RangeCheck ||--}o FormalExpression : "FormalExpressionRef"
-RangeCheck ||--}o CheckValue : "CheckValueRef"
-ErrorMessage ||--}o TranslatedText : "TranslatedTextRef"
-CDISCNotes ||--}o TranslatedText : "TranslatedTextRef"
-ImplementationNotes ||--}o TranslatedText : "TranslatedTextRef"
-CRFCompletionInstructions ||--}o TranslatedText : "TranslatedTextRef"
-Prompt ||--}o TranslatedText : "TranslatedTextRef"
-Question ||--}o TranslatedText : "TranslatedTextRef"
-Definition ||--}o TranslatedText : "TranslatedTextRef"
-ItemGroupDef ||--|o Description : "DescriptionRef"
-ItemGroupDef ||--|o Class : "ClassRef"
-ItemGroupDef ||--}o Coding : "CodingRef"
-ItemGroupDef ||--|o WorkflowRef : "WorkflowRefRef"
-ItemGroupDef ||--}o Origin : "OriginRef"
-ItemGroupDef ||--}o Alias : "AliasRef"
-ItemGroupDef ||--|o Leaf : "LeafRef"
-ItemGroupDef ||--}o ItemGroupRef : "ItemGroupRefRef"
-ItemGroupDef ||--}o ItemRef : "ItemRefRef"
-ItemRef ||--}o Origin : "OriginRef"
-ItemRef ||--}o WhereClauseRef : "WhereClauseRefRef"
-Origin ||--|o Description : "DescriptionRef"
-Origin ||--|o SourceItems : "SourceItemsRef"
-Origin ||--}o Coding : "CodingRef"
-Origin ||--}o DocumentRef : "DocumentRefRef"
-SourceItems ||--}o SourceItem : "SourceItemRef"
-SourceItems ||--}o Coding : "CodingRef"
-SourceItem ||--}o Resource : "ResourceRef"
-SourceItem ||--}o Coding : "CodingRef"
-Resource ||--}o Selection : "SelectionRef"
-Class ||--}o SubClass : "SubClassRef"
-StudyEventDef ||--|o Description : "DescriptionRef"
-StudyEventDef ||--}o ItemGroupRef : "ItemGroupRefRef"
-StudyEventDef ||--|o WorkflowRef : "WorkflowRefRef"
-StudyEventDef ||--}o Coding : "CodingRef"
-StudyEventDef ||--}o Alias : "AliasRef"
-StudyEventGroupDef ||--|o Description : "DescriptionRef"
-StudyEventGroupDef ||--|o WorkflowRef : "WorkflowRefRef"
-StudyEventGroupDef ||--}o Coding : "CodingRef"
-StudyEventGroupDef ||--}o StudyEventGroupRef : "StudyEventGroupRefRef"
-StudyEventGroupDef ||--}o StudyEventRef : "StudyEventRefRef"
-StudyEventGroupRef ||--|o Description : "DescriptionRef"
-WorkflowDef ||--|o Description : "DescriptionRef"
-WorkflowDef ||--|o WorkflowStart : "WorkflowStartRef"
-WorkflowDef ||--}o WorkflowEnd : "WorkflowEndRef"
-WorkflowDef ||--}o Transition : "TransitionRef"
-WorkflowDef ||--}o Branching : "BranchingRef"
-Branching ||--}o TargetTransition : "TargetTransitionRef"
-Branching ||--}o DefaultTransition : "DefaultTransitionRef"
-Protocol ||--|o Description : "DescriptionRef"
-Protocol ||--|o StudySummary : "StudySummaryRef"
-Protocol ||--|o StudyStructure : "StudyStructureRef"
-Protocol ||--|o TrialPhase : "TrialPhaseRef"
-Protocol ||--|o StudyTimings : "StudyTimingsRef"
-Protocol ||--|o StudyIndications : "StudyIndicationsRef"
-Protocol ||--|o StudyInterventions : "StudyInterventionsRef"
-Protocol ||--|o StudyObjectives : "StudyObjectivesRef"
-Protocol ||--|o StudyEndPoints : "StudyEndPointsRef"
-Protocol ||--|o StudyTargetPopulation : "StudyTargetPopulationRefRef"
-Protocol ||--|o StudyEstimands : "StudyEstimandsRef"
-Protocol ||--|o InclusionExclusionCriteria : "InclusionExclusionCriteriaRef"
-Protocol ||--}o StudyEventGroupRef : "StudyEventGroupRefRef"
-Protocol ||--|o WorkflowRef : "WorkflowRefRef"
-Protocol ||--}o Alias : "AliasRef"
-InclusionExclusionCriteria ||--|o InclusionCriteria : "InclusionCriteriaRef"
-InclusionExclusionCriteria ||--|o ExclusionCriteria : "ExclusionCriteriaRef"
-ExclusionCriteria ||--}o Criterion : "CriterionRef"
-Criterion ||--|o Description : "DescriptionRef"
-Criterion ||--}o Coding : "CodingRef"
-InclusionCriteria ||--}o Criterion : "CriterionRef"
-StudyEstimands ||--}o StudyEstimand : "StudyEstimandRef"
-StudyEstimand ||--|o Description : "DescriptionRef"
-StudyEstimand ||--|o StudyTargetPopulationRef : "StudyTargetPopulationRefRef"
-StudyEstimand ||--|o StudyInterventionRef : "StudyInterventionRefRef"
-StudyEstimand ||--|o StudyEndPointRef : "StudyEndPointRefRef"
-StudyEstimand ||--}o IntercurrentEvent : "IntercurrentEventRef"
-StudyEstimand ||--|o SummaryMeasure : "SummaryMeasureRef"
-SummaryMeasure ||--|o Description : "DescriptionRef"
-IntercurrentEvent ||--|o Description : "DescriptionRef"
-StudyTargetPopulation ||--|o Description : "DescriptionRef"
-StudyTargetPopulation ||--}o Coding : "CodingRef"
-StudyTargetPopulation ||--}o FormalExpression : "FormalExpressionRef"
-StudyEndPoints ||--}o StudyEndPoint : "StudyEndPointRefRef"
-StudyEndPoint ||--|o Description : "DescriptionRef"
-StudyEndPoint ||--}o FormalExpression : "FormalExpressionRef"
-StudyObjectives ||--}o StudyObjective : "StudyObjectiveRef"
-StudyObjective ||--|o Description : "DescriptionRef"
-StudyObjective ||--}o StudyEndPointRef : "StudyEndPointRefRef"
-StudyInterventions ||--}o StudyIntervention : "StudyInterventionRefRef"
-StudyIntervention ||--|o Description : "DescriptionRef"
-StudyIntervention ||--}o Coding : "CodingRef"
-StudyIndications ||--}o StudyIndication : "StudyIndicationRef"
-StudyIndication ||--|o Description : "DescriptionRef"
-StudyIndication ||--}o Coding : "CodingRef"
-StudyTimings ||--}o StudyTiming : "StudyTimingRef"
-StudyTiming ||--}o AbsoluteTimingConstraint : "AbsoluteTimingConstraintRef"
-StudyTiming ||--}o RelativeTimingConstraint : "RelativeTimingConstraintRef"
-StudyTiming ||--}o TransitionTimingConstraint : "TransitionTimingConstraintRef"
-StudyTiming ||--}o DurationTimingConstraint : "DurationTimingConstraintRef"
-DurationTimingConstraint ||--|o Description : "DescriptionRef"
-TransitionTimingConstraint ||--|o Description : "DescriptionRef"
-RelativeTimingConstraint ||--|o Description : "DescriptionRef"
-AbsoluteTimingConstraint ||--|o Description : "DescriptionRef"
-TrialPhase ||--|o Description : "DescriptionRef"
-StudyStructure ||--|o Description : "DescriptionRef"
-StudyStructure ||--}o Arm : "ArmRef"
-StudyStructure ||--}o Epoch : "EpochRef"
-StudyStructure ||--|o WorkflowRef : "WorkflowRefRef"
-Epoch ||--|o Description : "DescriptionRef"
-Arm ||--|o Description : "DescriptionRef"
-Arm ||--|o WorkflowRef : "WorkflowRefRef"
-StudySummary ||--}o StudyParameter : "StudyParameterRef"
-StudyParameter ||--|o ParameterValue : "ParameterValueRef"
-StudyParameter ||--}o Coding : "CodingRef"
-ParameterValue ||--}o Coding : "CodingRef"
-WhereClauseDef ||--}o RangeCheck : "RangeCheckRef"
-ValueListDef ||--|o Description : "DescriptionRef"
-ValueListDef ||--}o ItemRef : "ItemRefRef"
-SupplementalDoc ||--}o DocumentRef : "DocumentRefRef"
-AnnotatedCRF ||--}o DocumentRef : "DocumentRefRef"
-Standards ||--}o Standard : "StandardRef"
+Description ||--}o TranslatedText : "TranslatedTextRef"
 
-``` 
+```
 
 
 ## Classes
@@ -1125,150 +375,150 @@ _Slots (aka attributes, fields, columns, properties) can be associated with clas
  
 | Slot | Description |
 | --- | --- |
-| [Rank](Rank.md) | Numeric significance of the CodeListItem relative to others in the CodeList. ... |
-| [DefinitionRef](DefinitionRef.md) | A free-text definition of the parameter |
-| [IsReferenceData](IsReferenceData.md) | Specifies whether this ItemGroupDef is used for non-subject data. |
-| [Altitude](Altitude.md) | Height above sea level in meters. |
-| [StructuralElementOID](StructuralElementOID.md) | OID of a structural element such as a Study, Epoch, StudyEventGroup, StudyEve... |
-| [SoftHard](SoftHard.md) | Type of range check. Soft indicates that a warning occurs when the RangeCheck... |
-| [MimeType](MimeType.md) | Media type of the image |
-| [EffectiveDate](EffectiveDate.md) | Datetime stamp when this MetaDataVersion was published at this location. |
-| [ODMVersionRef](ODMVersionRef.md) | The version of the ODM standard used. |
-| [GranularityRef](GranularityRef.md) | Granularity is intended to give the sender a shorthand way to Describes the s... |
-| [SubjectKey](SubjectKey.md) | Unique identifier for the Subject. |
-| [Structure](Structure.md) | Description of the level of detail represented by individual records in the I... |
-| [language](language.md) | language context for internationalisation and localisation |
-| [Attribute](Attribute.md) | Field provided by the Name attribute where the data or information can be obt... |
-| [System](System.md) | Identifies the code system that defines the code. If the code is taken from a... |
-| [VariableSet](VariableSet.md) | ADaM variable set, e.g. Dose, Analysis Parameter, Treatment Timing. |
-| [SeqNum](SeqNum.md) | When more than 1 Value element exists this attribute uniquely identifies each... |
-| [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | Reference to a ConditionDef |
-| [WhereClauseOID](WhereClauseOID.md) | Reference to the unique ID of a WhereClauseDef element |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | References a prior MetaDataVersion within the Study referenced by the StudyOI... |
-| [VersionID](VersionID.md) | Identifier for the specific version of the study in the source system that th... |
-| [StudyEventOID](StudyEventOID.md) | Reference to the StudyEventDef . |
-| [StudyTargetPopulationOID](StudyTargetPopulationOID.md) |  |
-| [SponsorOrSite](SponsorOrSite.md) | Source of the comment. |
-| [HasNoData](HasNoData.md) | Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d... |
-| [DataTypeRef](DataTypeRef.md) | The DataType attribute specifies how the corresponding value |
-| [SourceSystemVersion](SourceSystemVersion.md) | The version of the "SourceSystem" above. |
-| [PublishingSet](PublishingSet.md) | Set of published files of Standard when Type="CT" (e.g. SDTM, ADaM, SEND, CDA... |
-| [LeafID](LeafID.md) | Unique identifier for the Leaf element with the document location. |
-| [Purpose](Purpose.md) | Purpose of the ItemGroup. |
-| [ValueRef](ValueRef.md) | Human-readable designation of the trial phase. |
-| [WorkflowOID](WorkflowOID.md) | Reference to a WorfkflowDef |
-| [CodeListOID](CodeListOID.md) | Reference to the CodeList definition that provides the allowable values for I... |
-| [ContextRef](ContextRef.md) | Identifies applicable domain or scope of the mapping. |
-| [Source](Source.md) | Indicates the party responsible for the data's origin type. |
-| [PriorFileOID](PriorFileOID.md) | Reference to the previous file (if any) in a series. |
-| [SignatureOID](SignatureOID.md) | Reference to the SignatureDef . |
-| [TimepointRelativeTarget](TimepointRelativeTarget.md) | The relative timing between two activities or groups of activities. |
-| [UsedMethod](UsedMethod.md) | Indicates that the action was made by the system rather than a data entry for... |
-| [DurationTarget](DurationTarget.md) | Constrains the duration of an activity represented by a Study, Epoch, StudyEv... |
-| [TargetTransitionOID](TargetTransitionOID.md) | Reference to the Transition that is one of the targets of the branching. |
-| [UserTypeRef](UserTypeRef.md) | User's role in the study. |
-| [PreSpecifiedValue](PreSpecifiedValue.md) | Prefill value or a default value for a field that is automatically populated. |
-| [Length](Length.md) | The Length attribute is optional when DataType is text, string, |
-| [LastPage](LastPage.md) | Last page in a range of pages. |
-| [TransactionTypeRef](TransactionTypeRef.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... |
-| [Target](Target.md) | Element upon which the Query is raised. The parent element is the Target when... |
-| [Mandatory](Mandatory.md) | Indicator of whether this StudyEventGroup must appear in the study clinical d... |
-| [EndOID](EndOID.md) | Reference to the definition of the structural element that ends the workflow.... |
-| [ImageFileName](ImageFileName.md) | The file name of or file path to the picture |
-| [RoleCodeListOID](RoleCodeListOID.md) | Reference to a CodeList that defines the allowable values of Role for the Stu... |
-| [ProtocolName](ProtocolName.md) | Protocol identifier or protocol number assigned to the study. It is used by t... |
-| [CodedValue](CodedValue.md) | Value of the codelist item (as it would occur in clinical data). |
-| [LocationOID](LocationOID.md) | Reference to a Location element. |
-| [TimepointTarget](TimepointTarget.md) | The planned time between the 2 activities defined by the transition in the wo... |
-| [DurationPreWindow](DurationPreWindow.md) | Defines the amount of time by which the targetted duration may be reduced. |
-| [Latitude](Latitude.md) | Latitude component of geoposition coordinate in decimal degrees degrees. May ... |
-| [Version](Version.md) | Version of Standard. |
-| [href](href.md) | URL that can be used to identify the location of a document or dataset file r... |
-| [Type](Type.md) | Type of page for page references indicated in the PageRefs attribute. |
-| [StudyName](StudyName.md) | Sponsoring organization's internal name for the study. If no internal name is... |
-| [TitleRef](TitleRef.md) | Text with the label for the document or dataset. |
-| [Role](Role.md) | The Role for the referenced ItemDef. The Role attribute provides a single rol... |
-| [State](State.md) | Status of the Query |
-| [SourceSystem](SourceSystem.md) | The computer system or database management system that is the source of the i... |
-| [Other](Other.md) | Flag to indicate that the Item represents "other" content added to an ItemGro... |
-| [Method](Method.md) | The name of the method or function that contains the FormalExpression code. |
-| [VersionName](VersionName.md) | Short descriptive label for the version of the study, e.g. "Initial go live" ... |
-| [leafID](leafID.md) | References a leaf element that provides a reference to another ODM document. ... |
-| [Path](Path.md) | Provides the machine-executable instruction or template for it to obtain the ... |
-| [SystemName](SystemName.md) | Human readable name for the code system. |
-| [EditPoint](EditPoint.md) | Identifies the phase of data processing in which update action occurred. |
-| [ItemOID](ItemOID.md) | Reference to the ItemDef . |
-| [StartOID](StartOID.md) | Reference to the definition of the structural element that starts the workflo... |
-| [ItemGroupDataSeq](ItemGroupDataSeq.md) | Unique sequence # for each ItemGroupData child element (record) in the contai... |
-| [AsOfDateTime](AsOfDateTime.md) | The date/time at which the source database was queried in order to create thi... |
-| [ref](ref.md) | Reference to a local instance (e.g. file) of the external library containing ... |
-| [ID](ID.md) | Unique identifier for the leaf that is referenced. |
-| [StudyEventGroupOID](StudyEventGroupOID.md) | Reference to the StudyEventGroupDef . |
-| [Name](Name.md) | General observation Sub Class. |
-| [TargetOID](TargetOID.md) | References the definition of the target structural element for the transition... |
-| [Repeating](Repeating.md) | The Repeating flag indicates when this type of study event can occur repeated... |
-| [CodeRef](CodeRef.md) | A string pattern that identifies a concept as defined by the code system. |
-| [SourceOID](SourceOID.md) | References the definition of the source structural element for the transition... |
-| [ValueListOID](ValueListOID.md) | Reference to the unique ID of a ValueListDef element that provides value-leve... |
-| [EpochOID](EpochOID.md) | Reference to an Epoch element defined in the study. |
-| [CreationDateTime](CreationDateTime.md) | Time of creation of the file containing the document. |
-| [ShortName](ShortName.md) | Short name or code for the parameter. |
-| [Status](Status.md) | Status of Standard. |
-| [ItemGroupRepeatKey](ItemGroupRepeatKey.md) | A key used to distinguish between repeats of the same type of item group. |
-| [TransitionOID](TransitionOID.md) | References the workflow Transition on which the timing constraint must be exe... |
-| [SequenceNumber](SequenceNumber.md) | Order of the Epoch |
-| [ConditionOID](ConditionOID.md) | Reference to a ConditionDef defining the condition under which the transition... |
-| [ArchiveLocationID](ArchiveLocationID.md) | Reference to the unique ID of a leaf element that provides the actual locatio... |
-| [Library](Library.md) | The name of the external library containing the FormalExpression. |
-| [EndConditionOID](EndConditionOID.md) | The EndConditionOID references a ConditionDef defining the condition under wh... |
-| [CommentOID](CommentOID.md) | The Comment identifier that this value refers to. Needed when the WhereClause... |
-| [StudyOID](StudyOID.md) | References the Study that provides a prior metadata version. This attribute a... |
-| [DatasetName](DatasetName.md) | Name of a file containing the ItemGroupData for this ItemGroupDef. The name a... |
-| [OrderNumber](OrderNumber.md) | Indicates the order in which this StudyEventGroup appears in Metadata display... |
-| [ParentClass](ParentClass.md) | Parent class of the Sub Class |
 | [IsNull](IsNull.md) | Flag specifying that an item's value is to be set to null. In the interest of... |
-| [OrganizationOID](OrganizationOID.md) | Reference to an Organization elment. |
-| [UnitsItemOID](UnitsItemOID.md) | Reference to a sibling ItemRef element that represents the unit specification... |
-| [Repeat](Repeat.md) | Indicates that the item serves as the item over which repeats are to be perfo... |
-| [RepeatingLimit](RepeatingLimit.md) | Maximum number of repeats. |
-| [Domain](Domain.md) | Identifies the scope or CDISC SDTMIG/SENDIG Domain of the ItemGroup data. The... |
-| [Methodology](Methodology.md) | Defines the type of electronic signature, including the meaning as required b... |
-| [Level](Level.md) | Defined level for the Study Objective |
-| [Term](Term.md) | Longer name. Provides the full name of the parameter. |
-| [StandardOID](StandardOID.md) | Reference to a Standard element. |
-| [StartConditionOID](StartConditionOID.md) | The StartConditionOID references a ConditionDef specifying a condition that m... |
-| [OID](OID.md) | Unique identifier of the version within the XML document. |
-| [PartOfOrganizationOID](PartOfOrganizationOID.md) | Reference to a parent organization. |
-| [StudyInterventionOID](StudyInterventionOID.md) | Reference to a StudyIntervention |
-| [ExtendedValue](ExtendedValue.md) |  |
-| [PageRefs](PageRefs.md) | List of PDF pages separated by a space. |
+| [Mandatory](Mandatory.md) | Indicator of whether this StudyEventGroup must appear in the study clinical d... |
+| [Role](Role.md) | The Role for the referenced ItemDef. The Role attribute provides a single rol... |
 | [Longitude](Longitude.md) | Longitude component of geoposition coordinates in decimal degrees. May requir... |
-| [StudyEndPointOID](StudyEndPointOID.md) | Reference to the StudyEndPoint . |
-| [DurationPostWindow](DurationPostWindow.md) | Defines the amount of time by which the targetted duration may be increased. |
-| [DisplayFormat](DisplayFormat.md) | Display format supports data visualization of numeric float and date values. |
-| [FirstPage](FirstPage.md) | First page in a range of pages. |
-| [Category](Category.md) | The Category attribute is typically used to indicate the study phase appropri... |
+| [OID](OID.md) | Unique identifier of the version within the XML document. |
+| [leafID](leafID.md) | References a leaf element that provides a reference to another ODM document. ... |
+| [CodeRef](CodeRef.md) | A string pattern that identifies a concept as defined by the code system. |
+| [SignatureOID](SignatureOID.md) | Reference to the SignatureDef . |
 | [FileOID](FileOID.md) | A unique identifier for this file. |
-| [Core](Core.md) | CDASH, ADaM, SDTM, and SEND Core designations. |
-| [LastUpdateDatetime](LastUpdateDatetime.md) | When was this Query updated? Will correspond to the creation date or the last... |
-| [UserOID](UserOID.md) | Reference to a User definition. |
-| [SuccessorOID](SuccessorOID.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs immedi... |
-| [Originator](Originator.md) | The organization that generated the ODM file. |
 | [SystemVersion](SystemVersion.md) | Identifies the version of the code system |
-| [IsNonStandard](IsNonStandard.md) | Required for ADaM, SDTM, or SEND if StandardOID is not provided. |
-| [ItemGroupOID](ItemGroupOID.md) | Reference to the ItemGroupDef . |
-| [ArmOID](ArmOID.md) | Reference to an Arm element defined in the study. |
-| [MethodOID](MethodOID.md) | Reference to a MethodDef that will provide one or more data rows as output. T... |
-| [PredecessorOID](PredecessorOID.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that occurs immed... |
-| [Label](Label.md) | Used to link the value to a named MethodDef parameter. |
-| [TimepointPostWindow](TimepointPostWindow.md) | Specifies the amount of time after the TimepointTarget, the time between the ... |
-| [TelecomType](TelecomType.md) |  |
-| [Dictionary](Dictionary.md) |  |
-| [KeySequence](KeySequence.md) | Indicates that this item is a key for the enclosing element. It also provides... |
-| [FileTypeRef](FileTypeRef.md) | Snapshot means that the document contains only the current state of the data ... |
-| [ComparatorRef](ComparatorRef.md) | Comparison operator used to compare the item and value(s). |
+| [ContextRef](ContextRef.md) | Identifies applicable domain or scope of the mapping. |
+| [TitleRef](TitleRef.md) | Text with the label for the document or dataset. |
+| [PriorFileOID](PriorFileOID.md) | Reference to the previous file (if any) in a series. |
+| [Altitude](Altitude.md) | Height above sea level in meters. |
+| [MimeType](MimeType.md) | Media type of the image |
+| [TransactionTypeRef](TransactionTypeRef.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... |
+| [EndConditionOID](EndConditionOID.md) | The EndConditionOID references a ConditionDef defining the condition under wh... |
+| [Repeating](Repeating.md) | The Repeating flag indicates when this type of study event can occur repeated... |
+| [Attribute](Attribute.md) | Field provided by the Name attribute where the data or information can be obt... |
+| [DatasetName](DatasetName.md) | Name of a file containing the ItemGroupData for this ItemGroupDef. The name a... |
+| [Level](Level.md) | Defined level for the Study Objective |
+| [Length](Length.md) | The Length attribute is optional when DataType is text, string, |
+| [PartOfOrganizationOID](PartOfOrganizationOID.md) | Reference to a parent organization. |
+| [Latitude](Latitude.md) | Latitude component of geoposition coordinate in decimal degrees degrees. May ... |
 | [StudyEventRepeatKey](StudyEventRepeatKey.md) | A key used to distinguish between repeats of the same type of study event for... |
+| [SourceOID](SourceOID.md) | References the definition of the source structural element for the transition... |
+| [Target](Target.md) | Element upon which the Query is raised. The parent element is the Target when... |
+| [ShortName](ShortName.md) | Short name or code for the parameter. |
+| [ArmOID](ArmOID.md) | Reference to an Arm element defined in the study. |
+| [ProtocolName](ProtocolName.md) | Protocol identifier or protocol number assigned to the study. It is used by t... |
+| [Source](Source.md) | Indicates the party responsible for the data's origin type. |
+| [ItemGroupRepeatKey](ItemGroupRepeatKey.md) | A key used to distinguish between repeats of the same type of item group. |
+| [Purpose](Purpose.md) | Purpose of the ItemGroup. |
+| [SoftHard](SoftHard.md) | Type of range check. Soft indicates that a warning occurs when the RangeCheck... |
+| [UserOID](UserOID.md) | Reference to a User definition. |
+| [Name](Name.md) | General observation Sub Class. |
+| [ItemGroupOID](ItemGroupOID.md) | Reference to the ItemGroupDef . |
+| [CommentOID](CommentOID.md) | The Comment identifier that this value refers to. Needed when the WhereClause... |
+| [DurationTarget](DurationTarget.md) | Constrains the duration of an activity represented by a Study, Epoch, StudyEv... |
+| [Term](Term.md) | Longer name. Provides the full name of the parameter. |
+| [DataTypeRef](DataTypeRef.md) | The DataType attribute specifies how the corresponding value |
+| [StudyEventOID](StudyEventOID.md) | Reference to the StudyEventDef . |
+| [Label](Label.md) | Used to link the value to a named MethodDef parameter. |
+| [EndOID](EndOID.md) | Reference to the definition of the structural element that ends the workflow.... |
+| [SponsorOrSite](SponsorOrSite.md) | Source of the comment. |
+| [Core](Core.md) | CDASH, ADaM, SDTM, and SEND Core designations. |
+| [EditPoint](EditPoint.md) | Identifies the phase of data processing in which update action occurred. |
+| [StructuralElementOID](StructuralElementOID.md) | OID of a structural element such as a Study, Epoch, StudyEventGroup, StudyEve... |
+| [SubjectKey](SubjectKey.md) | Unique identifier for the Subject. |
+| [UserTypeRef](UserTypeRef.md) | User's role in the study. |
+| [SourceSystemVersion](SourceSystemVersion.md) | The version of the "SourceSystem" above. |
+| [StudyTargetPopulationOID](StudyTargetPopulationOID.md) |  |
+| [Status](Status.md) | Status of Standard. |
+| [StudyEventGroupOID](StudyEventGroupOID.md) | Reference to the StudyEventGroupDef . |
+| [State](State.md) | Status of the Query |
+| [IsReferenceData](IsReferenceData.md) | Specifies whether this ItemGroupDef is used for non-subject data. |
+| [DefinitionRef](DefinitionRef.md) | A free-text definition of the parameter |
+| [GranularityRef](GranularityRef.md) | Granularity is intended to give the sender a shorthand way to Describes the s... |
+| [LastPage](LastPage.md) | Last page in a range of pages. |
+| [ConditionOID](ConditionOID.md) | Reference to a ConditionDef defining the condition under which the transition... |
+| [SeqNum](SeqNum.md) | When more than 1 Value element exists this attribute uniquely identifies each... |
+| [HasNoData](HasNoData.md) | Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d... |
+| [UnitsItemOID](UnitsItemOID.md) | Reference to a sibling ItemRef element that represents the unit specification... |
+| [System](System.md) | Identifies the code system that defines the code. If the code is taken from a... |
+| [ODMVersionRef](ODMVersionRef.md) | The version of the ODM standard used. |
+| [Originator](Originator.md) | The organization that generated the ODM file. |
+| [PreSpecifiedValue](PreSpecifiedValue.md) | Prefill value or a default value for a field that is automatically populated. |
+| [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | Reference to a ConditionDef |
+| [TimepointTarget](TimepointTarget.md) | The planned time between the 2 activities defined by the transition in the wo... |
+| [StartOID](StartOID.md) | Reference to the definition of the structural element that starts the workflo... |
+| [language](language.md) | language context for internationalisation and localisation |
+| [WhereClauseOID](WhereClauseOID.md) | Reference to the unique ID of a WhereClauseDef element |
+| [PageRefs](PageRefs.md) | List of PDF pages separated by a space. |
+| [KeySequence](KeySequence.md) | Indicates that this item is a key for the enclosing element. It also provides... |
+| [Path](Path.md) | Provides the machine-executable instruction or template for it to obtain the ... |
+| [SequenceNumber](SequenceNumber.md) | Order of the Epoch |
+| [ItemGroupDataSeq](ItemGroupDataSeq.md) | Unique sequence # for each ItemGroupData child element (record) in the contai... |
+| [href](href.md) | URL that can be used to identify the location of a document or dataset file r... |
+| [Library](Library.md) | The name of the external library containing the FormalExpression. |
 | [TimepointPreWindow](TimepointPreWindow.md) | Specifies the amount of time prior to the TimepointTarget, the time between t... |
+| [Version](Version.md) | Version of Standard. |
+| [PredecessorOID](PredecessorOID.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that occurs immed... |
+| [ref](ref.md) | Reference to a local instance (e.g. file) of the external library containing ... |
+| [OrganizationOID](OrganizationOID.md) | Reference to an Organization elment. |
+| [Type](Type.md) | Type of page for page references indicated in the PageRefs attribute. |
+| [VersionName](VersionName.md) | Short descriptive label for the version of the study, e.g. "Initial go live" ... |
+| [RoleCodeListOID](RoleCodeListOID.md) | Reference to a CodeList that defines the allowable values of Role for the Stu... |
+| [TelecomType](TelecomType.md) |  |
+| [MetaDataVersionOID](MetaDataVersionOID.md) | References a prior MetaDataVersion within the Study referenced by the StudyOI... |
+| [TimepointPostWindow](TimepointPostWindow.md) | Specifies the amount of time after the TimepointTarget, the time between the ... |
+| [RepeatingLimit](RepeatingLimit.md) | Maximum number of repeats. |
+| [FirstPage](FirstPage.md) | First page in a range of pages. |
+| [StartConditionOID](StartConditionOID.md) | The StartConditionOID references a ConditionDef specifying a condition that m... |
+| [ID](ID.md) | Unique identifier for the leaf that is referenced. |
+| [Methodology](Methodology.md) | Defines the type of electronic signature, including the meaning as required b... |
+| [SuccessorOID](SuccessorOID.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs immedi... |
+| [EffectiveDate](EffectiveDate.md) | Datetime stamp when this MetaDataVersion was published at this location. |
+| [IsNonStandard](IsNonStandard.md) | Required for ADaM, SDTM, or SEND if StandardOID is not provided. |
+| [LastUpdateDatetime](LastUpdateDatetime.md) | When was this Query updated? Will correspond to the creation date or the last... |
+| [StudyOID](StudyOID.md) | References the Study that provides a prior metadata version. This attribute a... |
+| [CodeListOID](CodeListOID.md) | Reference to the CodeList definition that provides the allowable values for I... |
+| [Category](Category.md) | The Category attribute is typically used to indicate the study phase appropri... |
+| [DurationPreWindow](DurationPreWindow.md) | Defines the amount of time by which the targetted duration may be reduced. |
+| [StudyEndPointOID](StudyEndPointOID.md) | Reference to the StudyEndPoint . |
+| [Dictionary](Dictionary.md) |  |
+| [ValueRef](ValueRef.md) | Human-readable designation of the trial phase. |
+| [Rank](Rank.md) | Numeric significance of the CodeListItem relative to others in the CodeList. ... |
+| [PublishingSet](PublishingSet.md) | Set of published files of Standard when Type="CT" (e.g. SDTM, ADaM, SEND, CDA... |
+| [UsedMethod](UsedMethod.md) | Indicates that the action was made by the system rather than a data entry for... |
+| [TransitionOID](TransitionOID.md) | References the workflow Transition on which the timing constraint must be exe... |
+| [Structure](Structure.md) | Description of the level of detail represented by individual records in the I... |
+| [LeafID](LeafID.md) | Unique identifier for the Leaf element with the document location. |
+| [LocationOID](LocationOID.md) | Reference to a Location element. |
+| [ComparatorRef](ComparatorRef.md) | Comparison operator used to compare the item and value(s). |
+| [CreationDateTime](CreationDateTime.md) | Time of creation of the file containing the document. |
+| [ExtendedValue](ExtendedValue.md) |  |
+| [TimepointRelativeTarget](TimepointRelativeTarget.md) | The relative timing between two activities or groups of activities. |
+| [TargetTransitionOID](TargetTransitionOID.md) | Reference to the Transition that is one of the targets of the branching. |
+| [VersionID](VersionID.md) | Identifier for the specific version of the study in the source system that th... |
+| [WorkflowOID](WorkflowOID.md) | Reference to a WorfkflowDef |
+| [AsOfDateTime](AsOfDateTime.md) | The date/time at which the source database was queried in order to create thi... |
+| [SourceSystem](SourceSystem.md) | The computer system or database management system that is the source of the i... |
+| [DisplayFormat](DisplayFormat.md) | Display format supports data visualization of numeric float and date values. |
+| [StandardOID](StandardOID.md) | Reference to a Standard element. |
+| [OrderNumber](OrderNumber.md) | Indicates the order in which this StudyEventGroup appears in Metadata display... |
+| [ArchiveLocationID](ArchiveLocationID.md) | Reference to the unique ID of a leaf element that provides the actual locatio... |
+| [TargetOID](TargetOID.md) | References the definition of the target structural element for the transition... |
+| [ParentClass](ParentClass.md) | Parent class of the Sub Class |
+| [Method](Method.md) | The name of the method or function that contains the FormalExpression code. |
+| [ImageFileName](ImageFileName.md) | The file name of or file path to the picture |
+| [ItemOID](ItemOID.md) | Reference to the ItemDef . |
+| [SystemName](SystemName.md) | Human readable name for the code system. |
+| [Other](Other.md) | Flag to indicate that the Item represents "other" content added to an ItemGro... |
+| [StudyName](StudyName.md) | Sponsoring organization's internal name for the study. If no internal name is... |
+| [StudyInterventionOID](StudyInterventionOID.md) | Reference to a StudyIntervention |
+| [VariableSet](VariableSet.md) | ADaM variable set, e.g. Dose, Analysis Parameter, Treatment Timing. |
+| [Repeat](Repeat.md) | Indicates that the item serves as the item over which repeats are to be perfo... |
+| [Domain](Domain.md) | Identifies the scope or CDISC SDTMIG/SENDIG Domain of the ItemGroup data. The... |
+| [FileTypeRef](FileTypeRef.md) | Snapshot means that the document contains only the current state of the data ... |
+| [EpochOID](EpochOID.md) | Reference to an Epoch element defined in the study. |
+| [DurationPostWindow](DurationPostWindow.md) | Defines the amount of time by which the targetted duration may be increased. |
+| [CodedValue](CodedValue.md) | Value of the codelist item (as it would occur in clinical data). |
+| [ValueListOID](ValueListOID.md) | Reference to the unique ID of a ValueListDef element that provides value-leve... |
+| [MethodOID](MethodOID.md) | Reference to a MethodDef that will provide one or more data rows as output. T... |
 | [TranslatedTextRef](TranslatedTextRef.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... |
 | [content](content.md) | multi-line text content from between XML tags |
 | [DescriptionRef](DescriptionRef.md) | Description reference: A free-text description of the containing metadata com... |
@@ -1434,8 +684,8 @@ _Enumerations are common features in modeling frameworks. These can be thought o
 | [CommentType](CommentType.md) | Enumeration used in SponsorOrSite |
 | [SignMethod](SignMethod.md) | Enumeration used in Methodology |
 | [EditPointType](EditPointType.md) | Enumeration used in EditPoint |
-| [YesOrNo](YesOrNo.md) | Enumeration used in UsedMethod, IsReferenceData, Mandatory, Repeating |
-| [YesOnly](YesOnly.md) | Enumeration used in IsNull, HasNoData, Repeat, IsNonStandard, Other, Extended... |
+| [YesOrNo](YesOrNo.md) | Enumeration used in IsReferenceData, Mandatory, UsedMethod, Repeating |
+| [YesOnly](YesOnly.md) | Enumeration used in IsNonStandard, Repeat, ExtendedValue, IsNull, Other, HasN... |
 | [MethodType](MethodType.md) | Enumeration used in Type |
 | [ItemGroupRepeatingType](ItemGroupRepeatingType.md) | Enumeration used in Repeating |
 | [ItemGroupTypeTypeEnum](ItemGroupTypeTypeEnum.md) |  |
@@ -1461,38 +711,38 @@ _Types in LinkML are scalar data values such as strings, integers, floats, and s
 
 | Type | Description |
 | --- | --- |
-| [text](text.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [positiveInteger](positiveInteger.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [hexBinary](hexBinary.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [base64Binary](base64Binary.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [hexFloat](hexFloat.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [base64Float](base64Float.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [emptyTag](emptyTag.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [partialDate](partialDate.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [tHour](tHour.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [partialTime](partialTime.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [tDatetime](tDatetime.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [partialDatetime](partialDatetime.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [tDuration](tDuration.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [durationDatetime](durationDatetime.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [tInterval](tInterval.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [intervalDatetime](intervalDatetime.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [tIncomplete](tIncomplete.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [incompleteDatetime](incompleteDatetime.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [tIncompleteDate](tIncompleteDate.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [tIncompleteTime](tIncompleteTime.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [incompleteTime](incompleteTime.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [incompleteDate](incompleteDate.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [oid](oid.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [oidref](oidref.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [value](value.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [subjectKey](subjectKey.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [repeatKey](repeatKey.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [name](name.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
-| [fileName](fileName.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
+| [text](text.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [positiveInteger](positiveInteger.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [hexBinary](hexBinary.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [base64Binary](base64Binary.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [hexFloat](hexFloat.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [base64Float](base64Float.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [emptyTag](emptyTag.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [partialDate](partialDate.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [tHour](tHour.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [partialTime](partialTime.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [tDatetime](tDatetime.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [partialDatetime](partialDatetime.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [tDuration](tDuration.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [durationDatetime](durationDatetime.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [tInterval](tInterval.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [intervalDatetime](intervalDatetime.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [tIncomplete](tIncomplete.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [incompleteDatetime](incompleteDatetime.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [tIncompleteDate](tIncompleteDate.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [tIncompleteTime](tIncompleteTime.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [incompleteTime](incompleteTime.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [incompleteDate](incompleteDate.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [oid](oid.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [oidref](oidref.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [value](value.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [subjectKey](subjectKey.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [repeatKey](repeatKey.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [name](name.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
+| [fileName](fileName.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
 | [ODMVersion](ODMVersion.md) | Version of ODM that the file conforms to. |
 | [TrialPhaseType](TrialPhaseType.md) | A terminology codelist relevant to the phase, or stage, of the |
-| [ItemGroupTypeType](ItemGroupTypeType.md) | https://wiki.cdisc.org/display/ODM2/Data+Formats |
+| [ItemGroupTypeType](ItemGroupTypeType.md) | https://wiki.cdisc.org/display/PUB/Data+Formats |
 | [CoreType](CoreType.md) | Core. |
 | [StandardStatus](StandardStatus.md) | Terminology relevant to the development or publication status of the |
 | [DictionaryNameType](DictionaryNameType.md) | A name given to a reference source that lists words and gives their |

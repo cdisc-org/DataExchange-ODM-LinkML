@@ -102,7 +102,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Origin](https://wiki.cdisc.org/display/ODM2/Origin)
+* [https://wiki.cdisc.org/display/PUB/Origin](https://wiki.cdisc.org/display/PUB/Origin)
 
 ## Identifier and Mapping Information
 
@@ -147,7 +147,7 @@ description: Origin defines the source metadata, where applicable, for ODM ItemR
   based on the def:Origin element in Define-XML v2.1 with the Trace-XML v1.0 extension.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Origin
+- https://wiki.cdisc.org/display/PUB/Origin
 rank: 1000
 slots:
 - Type
@@ -300,7 +300,7 @@ description: Origin defines the source metadata, where applicable, for ODM ItemR
   based on the def:Origin element in Define-XML v2.1 with the Trace-XML v1.0 extension.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Origin
+- https://wiki.cdisc.org/display/PUB/Origin
 rank: 1000
 slot_usage:
   Type:

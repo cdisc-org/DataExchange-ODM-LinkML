@@ -52,7 +52,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Prompt](https://wiki.cdisc.org/display/ODM2/Prompt)
+* [https://wiki.cdisc.org/display/PUB/Prompt](https://wiki.cdisc.org/display/PUB/Prompt)
 
 ## Identifier and Mapping Information
 
@@ -95,7 +95,7 @@ description: A prompt text shown to a human user when prompted to provide data f
   an item on paper or on a screen. The Prompt is a short version of the question.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Prompt
+- https://wiki.cdisc.org/display/PUB/Prompt
 rank: 1000
 slots:
 - TranslatedTextRef
@@ -131,7 +131,7 @@ description: A prompt text shown to a human user when prompted to provide data f
   an item on paper or on a screen. The Prompt is a short version of the question.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Prompt
+- https://wiki.cdisc.org/display/PUB/Prompt
 rank: 1000
 slot_usage:
   TranslatedTextRef:

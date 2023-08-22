@@ -58,7 +58,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ParameterValue](https://wiki.cdisc.org/display/ODM2/ParameterValue)
+* [https://wiki.cdisc.org/display/PUB/ParameterValue](https://wiki.cdisc.org/display/PUB/ParameterValue)
 
 ## Identifier and Mapping Information
 
@@ -100,7 +100,7 @@ name: ParameterValue
 description: This element contains the value of the study parameter as text content.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ParameterValue
+- https://wiki.cdisc.org/display/PUB/ParameterValue
 rank: 1000
 slots:
 - ValueRef
@@ -160,7 +160,7 @@ name: ParameterValue
 description: This element contains the value of the study parameter as text content.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ParameterValue
+- https://wiki.cdisc.org/display/PUB/ParameterValue
 rank: 1000
 slot_usage:
   ValueRef:

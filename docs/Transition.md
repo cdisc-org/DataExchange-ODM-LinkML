@@ -57,7 +57,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Transition](https://wiki.cdisc.org/display/ODM2/Transition)
+* [https://wiki.cdisc.org/display/PUB/Transition](https://wiki.cdisc.org/display/PUB/Transition)
 
 ## Identifier and Mapping Information
 
@@ -102,7 +102,7 @@ description: A Transition defines a link between 2 structural elements in a work
   referencing the current Transition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Transition
+- https://wiki.cdisc.org/display/PUB/Transition
 rank: 1000
 slots:
 - OID
@@ -293,7 +293,7 @@ description: A Transition defines a link between 2 structural elements in a work
   referencing the current Transition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Transition
+- https://wiki.cdisc.org/display/PUB/Transition
 rank: 1000
 slot_usage:
   OID:

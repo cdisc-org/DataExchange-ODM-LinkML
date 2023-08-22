@@ -66,7 +66,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyIndications](https://wiki.cdisc.org/display/ODM2/StudyIndications)
+* [https://wiki.cdisc.org/display/PUB/StudyIndications](https://wiki.cdisc.org/display/PUB/StudyIndications)
 
 ## Identifier and Mapping Information
 
@@ -109,7 +109,7 @@ description: StudyIndications is a container element for individual StudyIndicat
   elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyIndications
+- https://wiki.cdisc.org/display/PUB/StudyIndications
 rank: 1000
 slots:
 - StudyIndicationRef
@@ -136,7 +136,7 @@ description: StudyIndications is a container element for individual StudyIndicat
   elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyIndications
+- https://wiki.cdisc.org/display/PUB/StudyIndications
 rank: 1000
 slot_usage:
   StudyIndicationRef:

@@ -230,7 +230,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Protocol](https://wiki.cdisc.org/display/ODM2/Protocol)
+* [https://wiki.cdisc.org/display/PUB/Protocol](https://wiki.cdisc.org/display/PUB/Protocol)
 
 ## Identifier and Mapping Information
 
@@ -274,7 +274,7 @@ description: The Protocol element lists the kinds of study events that can occur
   study events.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Protocol
+- https://wiki.cdisc.org/display/PUB/Protocol
 rank: 1000
 slots:
 - DescriptionRef
@@ -451,7 +451,7 @@ description: The Protocol element lists the kinds of study events that can occur
   study events.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Protocol
+- https://wiki.cdisc.org/display/PUB/Protocol
 rank: 1000
 slot_usage:
   DescriptionRef:

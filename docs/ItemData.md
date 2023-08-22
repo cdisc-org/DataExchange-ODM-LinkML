@@ -136,7 +136,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ItemData](https://wiki.cdisc.org/display/ODM2/ItemData)
+* [https://wiki.cdisc.org/display/PUB/ItemData](https://wiki.cdisc.org/display/PUB/ItemData)
 
 ## Identifier and Mapping Information
 
@@ -179,7 +179,7 @@ description: The ItemData element is used for transmission of the clinical data 
   an item. The model does not support repeating items within a single item group.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ItemData
+- https://wiki.cdisc.org/display/PUB/ItemData
 rank: 1000
 slots:
 - ItemOID
@@ -312,7 +312,7 @@ description: The ItemData element is used for transmission of the clinical data 
   an item. The model does not support repeating items within a single item group.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ItemData
+- https://wiki.cdisc.org/display/PUB/ItemData
 rank: 1000
 slot_usage:
   ItemOID:

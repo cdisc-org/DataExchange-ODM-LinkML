@@ -70,7 +70,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/CommentDef](https://wiki.cdisc.org/display/ODM2/CommentDef)
+* [https://wiki.cdisc.org/display/PUB/CommentDef](https://wiki.cdisc.org/display/PUB/CommentDef)
 
 ## Identifier and Mapping Information
 
@@ -115,7 +115,7 @@ description: The Comment element allows referencing short comments self-containe
   of a document where the comments are included.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/CommentDef
+- https://wiki.cdisc.org/display/PUB/CommentDef
 rank: 1000
 slots:
 - OID
@@ -240,7 +240,7 @@ description: The Comment element allows referencing short comments self-containe
   of a document where the comments are included.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/CommentDef
+- https://wiki.cdisc.org/display/PUB/CommentDef
 rank: 1000
 slot_usage:
   OID:

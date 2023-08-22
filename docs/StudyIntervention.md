@@ -69,7 +69,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyIntervention](https://wiki.cdisc.org/display/ODM2/StudyIntervention)
+* [https://wiki.cdisc.org/display/PUB/StudyIntervention](https://wiki.cdisc.org/display/PUB/StudyIntervention)
 
 ## Identifier and Mapping Information
 
@@ -115,7 +115,7 @@ description: This element describes a study intervention (e.g., medication, trea
   anti-inflammatory drug).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyIntervention
+- https://wiki.cdisc.org/display/PUB/StudyIntervention
 rank: 1000
 slots:
 - OID
@@ -244,7 +244,7 @@ description: This element describes a study intervention (e.g., medication, trea
   anti-inflammatory drug).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyIntervention
+- https://wiki.cdisc.org/display/PUB/StudyIntervention
 rank: 1000
 slot_usage:
   OID:

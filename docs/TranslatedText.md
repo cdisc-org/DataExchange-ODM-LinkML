@@ -60,7 +60,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/TranslatedText](https://wiki.cdisc.org/display/ODM2/TranslatedText)
+* [https://wiki.cdisc.org/display/PUB/TranslatedText](https://wiki.cdisc.org/display/PUB/TranslatedText)
 
 ## Identifier and Mapping Information
 
@@ -104,7 +104,7 @@ description: Human-readable text that is appropriate for a particular language. 
   for different languages and types.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/TranslatedText
+- https://wiki.cdisc.org/display/PUB/TranslatedText
 rank: 1000
 slots:
 - language
@@ -212,7 +212,7 @@ description: Human-readable text that is appropriate for a particular language. 
   for different languages and types.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/TranslatedText
+- https://wiki.cdisc.org/display/PUB/TranslatedText
 rank: 1000
 slot_usage:
   language:

@@ -158,7 +158,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyEventData](https://wiki.cdisc.org/display/ODM2/StudyEventData)
+* [https://wiki.cdisc.org/display/PUB/StudyEventData](https://wiki.cdisc.org/display/PUB/StudyEventData)
 
 ## Identifier and Mapping Information
 
@@ -202,7 +202,7 @@ description: Clinical data for a study event (visit). The model supports repeati
   patient visits).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyEventData
+- https://wiki.cdisc.org/display/PUB/StudyEventData
 rank: 1000
 slots:
 - StudyEventOID
@@ -341,7 +341,7 @@ description: Clinical data for a study event (visit). The model supports repeati
   patient visits).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyEventData
+- https://wiki.cdisc.org/display/PUB/StudyEventData
 rank: 1000
 slot_usage:
   StudyEventOID:

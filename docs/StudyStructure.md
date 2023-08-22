@@ -72,7 +72,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyStructure](https://wiki.cdisc.org/display/ODM2/StudyStructure)
+* [https://wiki.cdisc.org/display/PUB/StudyStructure](https://wiki.cdisc.org/display/PUB/StudyStructure)
 
 ## Identifier and Mapping Information
 
@@ -115,7 +115,7 @@ description: The StudyStructure element describes the general structure of a cli
   study with arms, epochs, and workflows.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyStructure
+- https://wiki.cdisc.org/display/PUB/StudyStructure
 rank: 1000
 slots:
 - DescriptionRef
@@ -205,7 +205,7 @@ description: The StudyStructure element describes the general structure of a cli
   study with arms, epochs, and workflows.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyStructure
+- https://wiki.cdisc.org/display/PUB/StudyStructure
 rank: 1000
 slot_usage:
   DescriptionRef:

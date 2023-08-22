@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/WorkflowStart](https://wiki.cdisc.org/display/ODM2/WorkflowStart)
+* [https://wiki.cdisc.org/display/PUB/WorkflowStart](https://wiki.cdisc.org/display/PUB/WorkflowStart)
 
 ## Identifier and Mapping Information
 
@@ -90,7 +90,7 @@ description: WorkflowStart references a structural element that begins the autom
   workflow.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/WorkflowStart
+- https://wiki.cdisc.org/display/PUB/WorkflowStart
 rank: 1000
 slots:
 - StartOID
@@ -126,7 +126,7 @@ description: WorkflowStart references a structural element that begins the autom
   workflow.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/WorkflowStart
+- https://wiki.cdisc.org/display/PUB/WorkflowStart
 rank: 1000
 slot_usage:
   StartOID:

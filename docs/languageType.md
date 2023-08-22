@@ -23,7 +23,7 @@ URI: [xml:lang](http://www.w3.org/XML/1998/namespacelang)
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Data+Formats](https://wiki.cdisc.org/display/ODM2/Data+Formats)
+* [https://wiki.cdisc.org/display/PUB/Data+Formats](https://wiki.cdisc.org/display/PUB/Data+Formats)
 
 ## Identifier and Mapping Information
 

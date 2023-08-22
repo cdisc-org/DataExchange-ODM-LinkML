@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Suffix](https://wiki.cdisc.org/display/ODM2/Suffix)
+* [https://wiki.cdisc.org/display/PUB/Suffix](https://wiki.cdisc.org/display/PUB/Suffix)
 
 ## Identifier and Mapping Information
 
@@ -89,7 +89,7 @@ name: Suffix
 description: This element may include credentials, or suffixes (e.g., Jr., III).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Suffix
+- https://wiki.cdisc.org/display/PUB/Suffix
 rank: 1000
 slots:
 - content
@@ -137,7 +137,7 @@ name: Suffix
 description: This element may include credentials, or suffixes (e.g., Jr., III).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Suffix
+- https://wiki.cdisc.org/display/PUB/Suffix
 rank: 1000
 slot_usage:
   content:

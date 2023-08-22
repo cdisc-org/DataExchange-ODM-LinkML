@@ -58,7 +58,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/SupplementalDoc](https://wiki.cdisc.org/display/ODM2/SupplementalDoc)
+* [https://wiki.cdisc.org/display/PUB/SupplementalDoc](https://wiki.cdisc.org/display/PUB/SupplementalDoc)
 
 ## Identifier and Mapping Information
 
@@ -100,7 +100,7 @@ name: SupplementalDoc
 description: Supplemental data definitions
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SupplementalDoc
+- https://wiki.cdisc.org/display/PUB/SupplementalDoc
 rank: 1000
 slots:
 - DocumentRefRef
@@ -131,7 +131,7 @@ name: SupplementalDoc
 description: Supplemental data definitions
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SupplementalDoc
+- https://wiki.cdisc.org/display/PUB/SupplementalDoc
 rank: 1000
 slot_usage:
   DocumentRefRef:

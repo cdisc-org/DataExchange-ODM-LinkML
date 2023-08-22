@@ -64,7 +64,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Arm](https://wiki.cdisc.org/display/ODM2/Arm)
+* [https://wiki.cdisc.org/display/PUB/Arm](https://wiki.cdisc.org/display/PUB/Arm)
 
 ## Identifier and Mapping Information
 
@@ -107,7 +107,7 @@ description: An Arm element provides the declaration of a study arm. Arms do not
   any ordering relative to one another.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Arm
+- https://wiki.cdisc.org/display/PUB/Arm
 rank: 1000
 slots:
 - OID
@@ -271,7 +271,7 @@ description: An Arm element provides the declaration of a study arm. Arms do not
   any ordering relative to one another.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Arm
+- https://wiki.cdisc.org/display/PUB/Arm
 rank: 1000
 slot_usage:
   OID:

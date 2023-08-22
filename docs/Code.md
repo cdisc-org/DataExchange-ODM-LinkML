@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Code](https://wiki.cdisc.org/display/ODM2/Code)
+* [https://wiki.cdisc.org/display/PUB/Code](https://wiki.cdisc.org/display/PUB/Code)
 
 ## Identifier and Mapping Information
 
@@ -91,7 +91,7 @@ description: Contains the source code that represents a FormalExpression in a gi
   input parameters and return values for the code.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Code
+- https://wiki.cdisc.org/display/PUB/Code
 rank: 1000
 slots:
 - content
@@ -141,7 +141,7 @@ description: Contains the source code that represents a FormalExpression in a gi
   input parameters and return values for the code.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Code
+- https://wiki.cdisc.org/display/PUB/Code
 rank: 1000
 slot_usage:
   content:

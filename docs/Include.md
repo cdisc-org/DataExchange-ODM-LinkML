@@ -51,7 +51,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Include](https://wiki.cdisc.org/display/ODM2/Include)
+* [https://wiki.cdisc.org/display/PUB/Include](https://wiki.cdisc.org/display/PUB/Include)
 
 ## Identifier and Mapping Information
 
@@ -93,7 +93,7 @@ name: Include
 description: The Include metadata element allows a reference to a prior metadata version.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Include
+- https://wiki.cdisc.org/display/PUB/Include
 rank: 1000
 slots:
 - StudyOID
@@ -172,7 +172,7 @@ name: Include
 description: The Include metadata element allows a reference to a prior metadata version.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Include
+- https://wiki.cdisc.org/display/PUB/Include
 rank: 1000
 slot_usage:
   StudyOID:

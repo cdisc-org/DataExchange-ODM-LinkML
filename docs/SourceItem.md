@@ -80,7 +80,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/SourceItem](https://wiki.cdisc.org/display/ODM2/SourceItem)
+* [https://wiki.cdisc.org/display/PUB/SourceItem](https://wiki.cdisc.org/display/PUB/SourceItem)
 
 ## Identifier and Mapping Information
 
@@ -122,7 +122,7 @@ name: SourceItem
 description: Provides the information needed to identify the source metadata.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SourceItem
+- https://wiki.cdisc.org/display/PUB/SourceItem
 rank: 1000
 slots:
 - ItemOID
@@ -315,7 +315,7 @@ name: SourceItem
 description: Provides the information needed to identify the source metadata.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SourceItem
+- https://wiki.cdisc.org/display/PUB/SourceItem
 rank: 1000
 slot_usage:
   ItemOID:

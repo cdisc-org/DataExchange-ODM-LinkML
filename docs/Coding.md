@@ -76,7 +76,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Coding](https://wiki.cdisc.org/display/ODM2/Coding)
+* [https://wiki.cdisc.org/display/PUB/Coding](https://wiki.cdisc.org/display/PUB/Coding)
 
 ## Identifier and Mapping Information
 
@@ -122,7 +122,7 @@ description: Coding references a symbol from a defined code system. It uses a co
   synonymous meanings provided by different code systems or code system versions.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Coding
+- https://wiki.cdisc.org/display/PUB/Coding
 rank: 1000
 slots:
 - CodeRef
@@ -259,7 +259,7 @@ description: Coding references a symbol from a defined code system. It uses a co
   synonymous meanings provided by different code systems or code system versions.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Coding
+- https://wiki.cdisc.org/display/PUB/Coding
 rank: 1000
 slot_usage:
   CodeRef:

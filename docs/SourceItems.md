@@ -76,7 +76,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/SourceItems](https://wiki.cdisc.org/display/ODM2/SourceItems)
+* [https://wiki.cdisc.org/display/PUB/SourceItems](https://wiki.cdisc.org/display/PUB/SourceItems)
 
 ## Identifier and Mapping Information
 
@@ -119,7 +119,7 @@ description: Identifies source items as needed to support automated data capture
   end-to-end traceability.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SourceItems
+- https://wiki.cdisc.org/display/PUB/SourceItems
 rank: 1000
 slots:
 - SourceItemRef
@@ -170,7 +170,7 @@ description: Identifies source items as needed to support automated data capture
   end-to-end traceability.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SourceItems
+- https://wiki.cdisc.org/display/PUB/SourceItems
 rank: 1000
 slot_usage:
   SourceItemRef:

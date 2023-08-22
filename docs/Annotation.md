@@ -94,7 +94,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Annotation](https://wiki.cdisc.org/display/ODM2/Annotation)
+* [https://wiki.cdisc.org/display/PUB/Annotation](https://wiki.cdisc.org/display/PUB/Annotation)
 
 ## Identifier and Mapping Information
 
@@ -137,7 +137,7 @@ description: A general note about clinical data. If an annotation has both a com
   and flags, the flags should be related to the comment.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Annotation
+- https://wiki.cdisc.org/display/PUB/Annotation
 rank: 1000
 slots:
 - SeqNum
@@ -233,7 +233,7 @@ description: A general note about clinical data. If an annotation has both a com
   and flags, the flags should be related to the comment.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Annotation
+- https://wiki.cdisc.org/display/PUB/Annotation
 rank: 1000
 slot_usage:
   SeqNum:

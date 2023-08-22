@@ -476,7 +476,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/MetaDataVersion](https://wiki.cdisc.org/display/ODM2/MetaDataVersion)
+* [https://wiki.cdisc.org/display/PUB/MetaDataVersion](https://wiki.cdisc.org/display/PUB/MetaDataVersion)
 
 ## Identifier and Mapping Information
 
@@ -522,7 +522,7 @@ description: The metadata for a study is defined in a series of MetaDataVersion 
   to delays in IRB approval at various sites).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/MetaDataVersion
+- https://wiki.cdisc.org/display/PUB/MetaDataVersion
 rank: 1000
 slots:
 - OID
@@ -844,7 +844,7 @@ description: The metadata for a study is defined in a series of MetaDataVersion 
   to delays in IRB approval at various sites).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/MetaDataVersion
+- https://wiki.cdisc.org/display/PUB/MetaDataVersion
 rank: 1000
 slot_usage:
   OID:

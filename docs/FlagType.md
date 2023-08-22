@@ -49,7 +49,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/FlagType](https://wiki.cdisc.org/display/ODM2/FlagType)
+* [https://wiki.cdisc.org/display/PUB/FlagType](https://wiki.cdisc.org/display/PUB/FlagType)
 
 ## Identifier and Mapping Information
 
@@ -91,7 +91,7 @@ name: FlagType
 description: The type of flag. This determines the purpose and semantics of the flag.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/FlagType
+- https://wiki.cdisc.org/display/PUB/FlagType
 rank: 1000
 slots:
 - CodeListOID
@@ -156,7 +156,7 @@ name: FlagType
 description: The type of flag. This determines the purpose and semantics of the flag.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/FlagType
+- https://wiki.cdisc.org/display/PUB/FlagType
 rank: 1000
 slot_usage:
   CodeListOID:

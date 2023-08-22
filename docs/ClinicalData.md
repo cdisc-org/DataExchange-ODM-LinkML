@@ -185,7 +185,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ClinicalData](https://wiki.cdisc.org/display/ODM2/ClinicalData)
+* [https://wiki.cdisc.org/display/PUB/ClinicalData](https://wiki.cdisc.org/display/PUB/ClinicalData)
 
 ## Identifier and Mapping Information
 
@@ -227,7 +227,7 @@ name: ClinicalData
 description: Clinical data for 1 or more subjects.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ClinicalData
+- https://wiki.cdisc.org/display/PUB/ClinicalData
 rank: 1000
 slots:
 - StudyOID
@@ -363,7 +363,7 @@ name: ClinicalData
 description: Clinical data for 1 or more subjects.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ClinicalData
+- https://wiki.cdisc.org/display/PUB/ClinicalData
 rank: 1000
 slot_usage:
   StudyOID:

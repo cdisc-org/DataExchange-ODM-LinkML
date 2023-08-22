@@ -91,7 +91,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/CodeListItem](https://wiki.cdisc.org/display/ODM2/CodeListItem)
+* [https://wiki.cdisc.org/display/PUB/CodeListItem](https://wiki.cdisc.org/display/PUB/CodeListItem)
 
 ## Identifier and Mapping Information
 
@@ -134,7 +134,7 @@ description: Defines an individual member value of a codelist. It may include a 
   value in the child Decode element
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/CodeListItem
+- https://wiki.cdisc.org/display/PUB/CodeListItem
 rank: 1000
 slots:
 - CodedValue
@@ -331,7 +331,7 @@ description: Defines an individual member value of a codelist. It may include a 
   value in the child Decode element
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/CodeListItem
+- https://wiki.cdisc.org/display/PUB/CodeListItem
 rank: 1000
 slot_usage:
   CodedValue:

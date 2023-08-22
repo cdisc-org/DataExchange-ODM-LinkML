@@ -51,7 +51,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Telecom](https://wiki.cdisc.org/display/ODM2/Telecom)
+* [https://wiki.cdisc.org/display/PUB/Telecom](https://wiki.cdisc.org/display/PUB/Telecom)
 
 ## Identifier and Mapping Information
 
@@ -94,7 +94,7 @@ description: The telecommunication contacts points of a user, a location, or an 
   The Type attribute designates the type of contact.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Telecom
+- https://wiki.cdisc.org/display/PUB/Telecom
 rank: 1000
 slots:
 - TelecomType
@@ -140,7 +140,7 @@ description: The telecommunication contacts points of a user, a location, or an 
   The Type attribute designates the type of contact.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Telecom
+- https://wiki.cdisc.org/display/PUB/Telecom
 rank: 1000
 slot_usage:
   TelecomType:

@@ -59,7 +59,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Standard](https://wiki.cdisc.org/display/ODM2/Standard)
+* [https://wiki.cdisc.org/display/PUB/Standard](https://wiki.cdisc.org/display/PUB/Standard)
 
 ## Identifier and Mapping Information
 
@@ -102,7 +102,7 @@ description: The Standard element describes each standard used within the MetaDa
   element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Standard
+- https://wiki.cdisc.org/display/PUB/Standard
 rank: 1000
 slots:
 - OID
@@ -325,7 +325,7 @@ description: The Standard element describes each standard used within the MetaDa
   element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Standard
+- https://wiki.cdisc.org/display/PUB/Standard
 rank: 1000
 slot_usage:
   OID:

@@ -95,14 +95,12 @@ type CDISCNotes
 
 type CheckValue
   {
-    content: ContentType
-    range: String
+    content: Value
   }
 
 type City
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type Class
@@ -125,8 +123,7 @@ type ClinicalData
 
 type Code
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type CodeList
@@ -200,8 +197,7 @@ type ConditionDef
 
 type Country
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type CRFCompletionInstructions
@@ -220,8 +216,7 @@ type Criterion
 
 type DateTimeStamp
   {
-    content: ContentType
-    range: String
+    content: Datetime
   }
 
 type Decode
@@ -290,8 +285,7 @@ type ExternalCodeLib
 
 type FamilyName
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type Flag
@@ -321,8 +315,7 @@ type FormalExpression
 
 type FullName
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type GeoPosition
@@ -334,14 +327,12 @@ type GeoPosition
 
 type GivenName
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type HouseNumber
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type Image
@@ -512,8 +503,7 @@ type Leaf
 
 type LegalReason
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type Location
@@ -536,8 +526,7 @@ type LocationRef
 
 type Meaning
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type MetaDataVersion
@@ -637,8 +626,7 @@ type Origin
 
 type OtherText
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type Parameter
@@ -666,14 +654,12 @@ type PDFPageRef
 
 type PostalCode
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type Prefix
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type Prompt
@@ -731,8 +717,7 @@ type RangeCheck
 
 type ReasonForChange
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type ReferenceData
@@ -809,8 +794,7 @@ type SiteRef
 
 type SourceID
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type SourceItem
@@ -849,14 +833,12 @@ type Standards
 
 type StateProv
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type StreetName
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type Study
@@ -1083,8 +1065,7 @@ type SubjectData
 
 type Suffix
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type SummaryMeasure
@@ -1111,8 +1092,7 @@ type Telecom
 
 type Title
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type Transition
@@ -1170,8 +1150,7 @@ type User
 
 type UserName
   {
-    content: ContentType
-    range: String
+    content: Text
   }
 
 type UserRef

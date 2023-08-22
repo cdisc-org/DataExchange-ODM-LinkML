@@ -57,7 +57,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Flag](https://wiki.cdisc.org/display/ODM2/Flag)
+* [https://wiki.cdisc.org/display/PUB/Flag](https://wiki.cdisc.org/display/PUB/Flag)
 
 ## Identifier and Mapping Information
 
@@ -99,7 +99,7 @@ name: Flag
 description: A machine-processable annotation.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Flag
+- https://wiki.cdisc.org/display/PUB/Flag
 rank: 1000
 slots:
 - FlagValueRef
@@ -130,7 +130,7 @@ name: Flag
 description: A machine-processable annotation.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Flag
+- https://wiki.cdisc.org/display/PUB/Flag
 rank: 1000
 slot_usage:
   FlagValueRef:

@@ -59,7 +59,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/DocumentRef](https://wiki.cdisc.org/display/ODM2/DocumentRef)
+* [https://wiki.cdisc.org/display/PUB/DocumentRef](https://wiki.cdisc.org/display/PUB/DocumentRef)
 
 ## Identifier and Mapping Information
 
@@ -101,7 +101,7 @@ name: DocumentRef
 description: Links to a leaf element with the location of the document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/DocumentRef
+- https://wiki.cdisc.org/display/PUB/DocumentRef
 rank: 1000
 slots:
 - LeafID
@@ -142,7 +142,7 @@ name: DocumentRef
 description: Links to a leaf element with the location of the document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/DocumentRef
+- https://wiki.cdisc.org/display/PUB/DocumentRef
 rank: 1000
 slot_usage:
   LeafID:

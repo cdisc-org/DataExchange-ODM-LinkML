@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/UserName](https://wiki.cdisc.org/display/ODM2/UserName)
+* [https://wiki.cdisc.org/display/PUB/UserName](https://wiki.cdisc.org/display/PUB/UserName)
 
 ## Identifier and Mapping Information
 
@@ -89,7 +89,7 @@ name: UserName
 description: The user's login identification in the sender's system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/UserName
+- https://wiki.cdisc.org/display/PUB/UserName
 rank: 1000
 slots:
 - content
@@ -137,7 +137,7 @@ name: UserName
 description: The user's login identification in the sender's system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/UserName
+- https://wiki.cdisc.org/display/PUB/UserName
 rank: 1000
 slot_usage:
   content:

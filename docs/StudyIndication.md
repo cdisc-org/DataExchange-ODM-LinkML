@@ -69,7 +69,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyIndication](https://wiki.cdisc.org/display/ODM2/StudyIndication)
+* [https://wiki.cdisc.org/display/PUB/StudyIndication](https://wiki.cdisc.org/display/PUB/StudyIndication)
 
 ## Identifier and Mapping Information
 
@@ -114,7 +114,7 @@ description: This element describes a study indication (e.g., condition, disease
   indication (e.g., SNOMED-CT code 26929004 for "Alzheimer's disease").
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyIndication
+- https://wiki.cdisc.org/display/PUB/StudyIndication
 rank: 1000
 slots:
 - OID
@@ -242,7 +242,7 @@ description: This element describes a study indication (e.g., condition, disease
   indication (e.g., SNOMED-CT code 26929004 for "Alzheimer's disease").
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyIndication
+- https://wiki.cdisc.org/display/PUB/StudyIndication
 rank: 1000
 slot_usage:
   OID:

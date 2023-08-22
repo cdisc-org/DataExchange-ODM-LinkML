@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in UsedMethod, IsReferenceData, Mandatory, Repeating_
+_Enumeration used in IsReferenceData, Mandatory, UsedMethod, Repeating_
 
 
 
@@ -23,9 +23,9 @@ URI: [YesOrNo](YesOrNo)
 
 | Name | Description |
 | ---  | --- |
+| [Mandatory](Mandatory.md) | Indicator of whether this StudyEventGroup must appear in the study clinical d... |
 | [IsReferenceData](IsReferenceData.md) | Specifies whether this ItemGroupDef is used for non-subject data. |
 | [UsedMethod](UsedMethod.md) | Indicates that the action was made by the system rather than a data entry for... |
-| [Mandatory](Mandatory.md) | Indicator of whether this StudyEventGroup must appear in the study clinical d... |
 | [Mandatory](Mandatory.md) | Indicator of whether this StudyEventGroup must appear in the study clinical d... |
 | [Mandatory](Mandatory.md) | The Mandatory flag indicates that the clinical data for the containing MetaDa... |
 | [Repeating](Repeating.md) | The Repeating flag indicates when this type of study event can occur repeated... |
@@ -60,7 +60,7 @@ URI: [YesOrNo](YesOrNo)
 <details>
 ```yaml
 name: YesOrNo
-description: Enumeration used in UsedMethod, IsReferenceData, Mandatory, Repeating
+description: Enumeration used in IsReferenceData, Mandatory, UsedMethod, Repeating
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

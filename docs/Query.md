@@ -95,7 +95,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Query](https://wiki.cdisc.org/display/ODM2/Query)
+* [https://wiki.cdisc.org/display/PUB/Query](https://wiki.cdisc.org/display/PUB/Query)
 
 ## Identifier and Mapping Information
 
@@ -143,7 +143,7 @@ description: The Query element represents a request for clarification on a data 
   to provide a short identifier that can be included in listing or user interfaces.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Query
+- https://wiki.cdisc.org/display/PUB/Query
 rank: 1000
 slots:
 - OID
@@ -339,7 +339,7 @@ description: The Query element represents a request for clarification on a data 
   to provide a short identifier that can be included in listing or user interfaces.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Query
+- https://wiki.cdisc.org/display/PUB/Query
 rank: 1000
 slot_usage:
   OID:

@@ -53,7 +53,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ReturnValue](https://wiki.cdisc.org/display/ODM2/ReturnValue)
+* [https://wiki.cdisc.org/display/PUB/ReturnValue](https://wiki.cdisc.org/display/PUB/ReturnValue)
 
 ## Identifier and Mapping Information
 
@@ -97,7 +97,7 @@ description: The ReturnValue element represents a return value used as part of a
   from the Method to the calling element. A ReturnValue may be computed by a FormalExpression.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ReturnValue
+- https://wiki.cdisc.org/display/PUB/ReturnValue
 rank: 1000
 slots:
 - Name
@@ -210,7 +210,7 @@ description: The ReturnValue element represents a return value used as part of a
   from the Method to the calling element. A ReturnValue may be computed by a FormalExpression.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ReturnValue
+- https://wiki.cdisc.org/display/PUB/ReturnValue
 rank: 1000
 slot_usage:
   Name:

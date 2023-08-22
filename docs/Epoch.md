@@ -61,7 +61,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Epoch](https://wiki.cdisc.org/display/ODM2/Epoch)
+* [https://wiki.cdisc.org/display/PUB/Epoch](https://wiki.cdisc.org/display/PUB/Epoch)
 
 ## Identifier and Mapping Information
 
@@ -107,7 +107,7 @@ description: The planned period of subjects' participation in the trial is divid
   assigned the sequence number 1. Sequence numbers are subsequent.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Epoch
+- https://wiki.cdisc.org/display/PUB/Epoch
 rank: 1000
 slots:
 - OID
@@ -278,7 +278,7 @@ description: The planned period of subjects' participation in the trial is divid
   assigned the sequence number 1. Sequence numbers are subsequent.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Epoch
+- https://wiki.cdisc.org/display/PUB/Epoch
 rank: 1000
 slot_usage:
   OID:

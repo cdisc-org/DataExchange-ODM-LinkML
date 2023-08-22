@@ -103,7 +103,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ConditionDef](https://wiki.cdisc.org/display/ODM2/ConditionDef)
+* [https://wiki.cdisc.org/display/PUB/ConditionDef](https://wiki.cdisc.org/display/PUB/ConditionDef)
 
 ## Identifier and Mapping Information
 
@@ -145,7 +145,7 @@ name: ConditionDef
 description: A ConditionDef defines a boolean condition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ConditionDef
+- https://wiki.cdisc.org/display/PUB/ConditionDef
 rank: 1000
 slots:
 - OID
@@ -356,7 +356,7 @@ name: ConditionDef
 description: A ConditionDef defines a boolean condition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ConditionDef
+- https://wiki.cdisc.org/display/PUB/ConditionDef
 rank: 1000
 slot_usage:
   OID:

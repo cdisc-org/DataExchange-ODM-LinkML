@@ -166,7 +166,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/SubjectData](https://wiki.cdisc.org/display/ODM2/SubjectData)
+* [https://wiki.cdisc.org/display/PUB/SubjectData](https://wiki.cdisc.org/display/PUB/SubjectData)
 
 ## Identifier and Mapping Information
 
@@ -208,7 +208,7 @@ name: SubjectData
 description: Clinical data for a single subject.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SubjectData
+- https://wiki.cdisc.org/display/PUB/SubjectData
 rank: 1000
 slots:
 - SubjectKey
@@ -337,7 +337,7 @@ name: SubjectData
 description: Clinical data for a single subject.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SubjectData
+- https://wiki.cdisc.org/display/PUB/SubjectData
 rank: 1000
 slot_usage:
   SubjectKey:

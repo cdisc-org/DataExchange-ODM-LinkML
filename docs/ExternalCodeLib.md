@@ -55,7 +55,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ExternalCodeLib](https://wiki.cdisc.org/display/ODM2/ExternalCodeLib)
+* [https://wiki.cdisc.org/display/PUB/ExternalCodeLib](https://wiki.cdisc.org/display/PUB/ExternalCodeLib)
 
 ## Identifier and Mapping Information
 
@@ -105,7 +105,7 @@ description: The ExternalCodeLib element references a FormalExpression in an ext
   external FormalExpression code referenced.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ExternalCodeLib
+- https://wiki.cdisc.org/display/PUB/ExternalCodeLib
 rank: 1000
 slots:
 - Library
@@ -194,7 +194,7 @@ description: The ExternalCodeLib element references a FormalExpression in an ext
   external FormalExpression code referenced.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ExternalCodeLib
+- https://wiki.cdisc.org/display/PUB/ExternalCodeLib
 rank: 1000
 slot_usage:
   Library:

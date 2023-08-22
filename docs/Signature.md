@@ -71,7 +71,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Signature](https://wiki.cdisc.org/display/ODM2/Signature)
+* [https://wiki.cdisc.org/display/PUB/Signature](https://wiki.cdisc.org/display/PUB/Signature)
 
 ## Identifier and Mapping Information
 
@@ -117,7 +117,7 @@ description: An electronic signature applies to a collection of clinical data. T
   and (in the case of a digital signature) an encrypted hash of the included data.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Signature
+- https://wiki.cdisc.org/display/PUB/Signature
 rank: 1000
 slots:
 - ID
@@ -185,7 +185,7 @@ description: An electronic signature applies to a collection of clinical data. T
   and (in the case of a digital signature) an encrypted hash of the included data.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Signature
+- https://wiki.cdisc.org/display/PUB/Signature
 rank: 1000
 slot_usage:
   ID:

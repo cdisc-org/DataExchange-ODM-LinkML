@@ -55,7 +55,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/PDFPageRef](https://wiki.cdisc.org/display/ODM2/PDFPageRef)
+* [https://wiki.cdisc.org/display/PUB/PDFPageRef](https://wiki.cdisc.org/display/PUB/PDFPageRef)
 
 ## Identifier and Mapping Information
 
@@ -97,7 +97,7 @@ name: PDFPageRef
 description: This element is the container for CRF page references.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/PDFPageRef
+- https://wiki.cdisc.org/display/PUB/PDFPageRef
 rank: 1000
 slots:
 - PageRefs
@@ -190,7 +190,7 @@ name: PDFPageRef
 description: This element is the container for CRF page references.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/PDFPageRef
+- https://wiki.cdisc.org/display/PUB/PDFPageRef
 rank: 1000
 slot_usage:
   PageRefs:

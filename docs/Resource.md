@@ -57,7 +57,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Resource](https://wiki.cdisc.org/display/ODM2/Resource)
+* [https://wiki.cdisc.org/display/PUB/Resource](https://wiki.cdisc.org/display/PUB/Resource)
 
 ## Identifier and Mapping Information
 
@@ -100,7 +100,7 @@ description: Describes an external resource used as the source for the parent It
   or Item.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Resource
+- https://wiki.cdisc.org/display/PUB/Resource
 rank: 1000
 slots:
 - Type
@@ -236,7 +236,7 @@ description: Describes an external resource used as the source for the parent It
   or Item.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Resource
+- https://wiki.cdisc.org/display/PUB/Resource
 rank: 1000
 slot_usage:
   Type:

@@ -74,7 +74,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Criterion](https://wiki.cdisc.org/display/ODM2/Criterion)
+* [https://wiki.cdisc.org/display/PUB/Criterion](https://wiki.cdisc.org/display/PUB/Criterion)
 
 ## Identifier and Mapping Information
 
@@ -117,7 +117,7 @@ description: The Criterion represents either an inclusion or an exclusion criter
   depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Criterion
+- https://wiki.cdisc.org/display/PUB/Criterion
 rank: 1000
 slots:
 - OID
@@ -302,7 +302,7 @@ description: The Criterion represents either an inclusion or an exclusion criter
   depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Criterion
+- https://wiki.cdisc.org/display/PUB/Criterion
 rank: 1000
 slot_usage:
   OID:

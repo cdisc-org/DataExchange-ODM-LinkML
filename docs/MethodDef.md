@@ -118,7 +118,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/MethodDef](https://wiki.cdisc.org/display/ODM2/MethodDef)
+* [https://wiki.cdisc.org/display/PUB/MethodDef](https://wiki.cdisc.org/display/PUB/MethodDef)
 
 ## Identifier and Mapping Information
 
@@ -161,7 +161,7 @@ description: A MethodDef defines how a data value can be obtained from a collect
   of other data values.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/MethodDef
+- https://wiki.cdisc.org/display/PUB/MethodDef
 rank: 1000
 slots:
 - OID
@@ -412,7 +412,7 @@ description: A MethodDef defines how a data value can be obtained from a collect
   of other data values.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/MethodDef
+- https://wiki.cdisc.org/display/PUB/MethodDef
 rank: 1000
 slot_usage:
   OID:

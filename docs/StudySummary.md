@@ -68,7 +68,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudySummary](https://wiki.cdisc.org/display/ODM2/StudySummary)
+* [https://wiki.cdisc.org/display/PUB/StudySummary](https://wiki.cdisc.org/display/PUB/StudySummary)
 
 ## Identifier and Mapping Information
 
@@ -112,7 +112,7 @@ description: The StudyParameter element allows to provide a set of study design 
   or planned number of arms.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudySummary
+- https://wiki.cdisc.org/display/PUB/StudySummary
 rank: 1000
 slots:
 - StudyParameterRef
@@ -140,7 +140,7 @@ description: The StudyParameter element allows to provide a set of study design 
   or planned number of arms.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudySummary
+- https://wiki.cdisc.org/display/PUB/StudySummary
 rank: 1000
 slot_usage:
   StudyParameterRef:

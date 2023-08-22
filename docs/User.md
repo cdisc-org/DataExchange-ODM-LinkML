@@ -134,7 +134,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/User](https://wiki.cdisc.org/display/ODM2/User)
+* [https://wiki.cdisc.org/display/PUB/User](https://wiki.cdisc.org/display/PUB/User)
 
 ## Identifier and Mapping Information
 
@@ -177,7 +177,7 @@ description: Information about a specific user of a clinical data collection or 
   management system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/User
+- https://wiki.cdisc.org/display/PUB/User
 rank: 1000
 slots:
 - OID
@@ -364,7 +364,7 @@ description: Information about a specific user of a clinical data collection or 
   management system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/User
+- https://wiki.cdisc.org/display/PUB/User
 rank: 1000
 slot_usage:
   OID:

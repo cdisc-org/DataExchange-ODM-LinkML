@@ -161,7 +161,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ItemDef](https://wiki.cdisc.org/display/ODM2/ItemDef)
+* [https://wiki.cdisc.org/display/PUB/ItemDef](https://wiki.cdisc.org/display/PUB/ItemDef)
 
 ## Identifier and Mapping Information
 
@@ -205,7 +205,7 @@ description: An ItemDef describes a type of item that can occur within a study. 
   other properties.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ItemDef
+- https://wiki.cdisc.org/display/PUB/ItemDef
 rank: 1000
 slots:
 - OID
@@ -544,7 +544,7 @@ description: An ItemDef describes a type of item that can occur within a study. 
   other properties.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ItemDef
+- https://wiki.cdisc.org/display/PUB/ItemDef
 rank: 1000
 slot_usage:
   OID:

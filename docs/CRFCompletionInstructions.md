@@ -52,7 +52,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/CRFCompletionInstructions](https://wiki.cdisc.org/display/ODM2/CRFCompletionInstructions)
+* [https://wiki.cdisc.org/display/PUB/CRFCompletionInstructions](https://wiki.cdisc.org/display/PUB/CRFCompletionInstructions)
 
 ## Identifier and Mapping Information
 
@@ -95,7 +95,7 @@ description: Instructions for the clinical site on how to enter collected inform
   on the CRF.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/CRFCompletionInstructions
+- https://wiki.cdisc.org/display/PUB/CRFCompletionInstructions
 rank: 1000
 slots:
 - TranslatedTextRef
@@ -131,7 +131,7 @@ description: Instructions for the clinical site on how to enter collected inform
   on the CRF.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/CRFCompletionInstructions
+- https://wiki.cdisc.org/display/PUB/CRFCompletionInstructions
 rank: 1000
 slot_usage:
   TranslatedTextRef:

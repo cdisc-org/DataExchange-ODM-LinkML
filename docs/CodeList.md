@@ -98,7 +98,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/CodeList](https://wiki.cdisc.org/display/ODM2/CodeList)
+* [https://wiki.cdisc.org/display/PUB/CodeList](https://wiki.cdisc.org/display/PUB/CodeList)
 
 ## Identifier and Mapping Information
 
@@ -142,7 +142,7 @@ description: Defines a discrete set of permitted values for an item, or provides
   the Coding element, or a combination of both. Examples provided under Coding.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/CodeList
+- https://wiki.cdisc.org/display/PUB/CodeList
 rank: 1000
 slots:
 - OID
@@ -395,7 +395,7 @@ description: Defines a discrete set of permitted values for an item, or provides
   the Coding element, or a combination of both. Examples provided under Coding.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/CodeList
+- https://wiki.cdisc.org/display/PUB/CodeList
 rank: 1000
 slot_usage:
   OID:

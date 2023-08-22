@@ -1,12 +1,9 @@
 {
-   "datetime": "http://example.org/UNKNOWN/datetime/",
    "linkml": "https://w3id.org/linkml/",
    "nci": "http://ncicb.nci.nih.gov/xml/odm/EVS/CDISC",
    "odm": "http://www.cdisc.org/ns/odm/v2.0/",
    "schema": "http://schema.org/",
    "shex": "http://www.w3.org/ns/shex#",
-   "text": "http://example.org/UNKNOWN/text/",
-   "value": "http://example.org/UNKNOWN/value/",
    "xhtml": "http://www.w3.org/1999/xhtml",
    "xml": "http://www.w3.org/XML/1998/namespace",
    "xsd": "http://www.w3.org/2001/XMLSchema#"

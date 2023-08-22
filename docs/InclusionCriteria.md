@@ -68,7 +68,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/InclusionCriteria](https://wiki.cdisc.org/display/ODM2/InclusionCriteria)
+* [https://wiki.cdisc.org/display/PUB/InclusionCriteria](https://wiki.cdisc.org/display/PUB/InclusionCriteria)
 
 ## Identifier and Mapping Information
 
@@ -112,7 +112,7 @@ description: The InclusionCriteria is a container element for Criterion elements
   must meet each of the criteria in the list in order to enroll in the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/InclusionCriteria
+- https://wiki.cdisc.org/display/PUB/InclusionCriteria
 rank: 1000
 slots:
 - CriterionRef
@@ -141,7 +141,7 @@ description: The InclusionCriteria is a container element for Criterion elements
   must meet each of the criteria in the list in order to enroll in the study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/InclusionCriteria
+- https://wiki.cdisc.org/display/PUB/InclusionCriteria
 rank: 1000
 slot_usage:
   CriterionRef:

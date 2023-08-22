@@ -134,7 +134,7 @@
                     "type": "array"
                 },
                 "StudyOID": {
-                    "description": "Reference to a Study.",
+                    "description": "Reference to a Study .",
                     "type": "string"
                 },
                 "UserRefRef": {
@@ -410,7 +410,7 @@
             "additionalProperties": false,
             "description": "A comparison value used in a range check.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -422,7 +422,7 @@
             "additionalProperties": false,
             "description": "The city name part of a user's postal address.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -509,7 +509,7 @@
             "additionalProperties": false,
             "description": "Contains the source code that represents a FormalExpression in a given Context. The source code must be executable, and the MethodSignature defines the input parameters and return values for the code.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -602,7 +602,7 @@
                     "type": "array"
                 },
                 "CommentOID": {
-                    "description": "Reference to a CommentDef.",
+                    "description": "Reference to a CommentDef .",
                     "type": "string"
                 },
                 "DecodeRef": {
@@ -822,7 +822,7 @@
             "additionalProperties": false,
             "description": "The country name part of a user's postal address. For CDISC SDTM or trial registry applications, this must be represented by an ISO 3166 3-letter or US-GENC country code (e.g., FRA for France, JPN for Japan).",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -900,8 +900,9 @@
             "additionalProperties": false,
             "description": "Date and time when an action was performed.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
+                    "format": "date-time",
                     "type": "string"
                 }
             },
@@ -1177,7 +1178,7 @@
             "additionalProperties": false,
             "description": "The user's surname (family name).",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -1218,7 +1219,7 @@
                     "description": "Reference to the CodeList definition.",
                     "type": "string"
                 },
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -1237,7 +1238,7 @@
                     "description": "Reference to the CodeList definition.",
                     "type": "string"
                 },
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -1272,7 +1273,7 @@
             "additionalProperties": false,
             "description": "The user's full formal name. May be a combination of Prefix, GivenName, FamilyName & Suffix. Intended to be used for display.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -1304,7 +1305,7 @@
             "additionalProperties": false,
             "description": "The user's initial given name or all given names.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -1330,7 +1331,7 @@
             "additionalProperties": false,
             "description": "The house number part of a user's postal address.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -1777,7 +1778,7 @@
                 },
                 "Repeating": {
                     "$ref": "#/$defs/ItemGroupRepeatingType",
-                    "description": "The Repeating attribute indicates that the ItemGroup may occur repeatedly within the containing element. Simple - the ItemGroup repeats within the containing element and is not bound in any way. Note: It is equivalent to the ODM v1.3.2 case where Repeating=\"Yes\". Dynamic - ItemGroupData repeats based on values in a codelist. There may be multiple occurrences for some codelist items. Static - ItemGroupData repeats based on values in a codelist. Only one occurrence may happen for each codelist item."
+                    "description": "The Repeating attribute indicates that the ItemGroup may occur repeatedly within the containing element . Simple - the ItemGroup repeats within the containing element and is not bound in any way. Note: It is equivalent to the ODM v1.3.2 case where Repeating=\"Yes\". Dynamic - ItemGroupData repeats based on values in a codelist. There may be multiple occurrences for some codelist items. Static - ItemGroupData repeats based on values in a codelist. Only one occurrence may happen for each codelist item."
                 },
                 "RepeatingLimit": {
                     "description": "Maximum number of repeats.",
@@ -1818,7 +1819,7 @@
                     "type": "string"
                 },
                 "ItemGroupOID": {
-                    "description": "Reference to the ItemGroupDef.",
+                    "description": "Reference to the ItemGroupDef .",
                     "type": "string"
                 },
                 "Mandatory": {
@@ -1890,7 +1891,7 @@
                     "description": "A non-standard variable is one that is not defined in the SDTMIG or the underlying SDTM model of a standard referenced within the ODM document. Permitted for any ItemRef that represents a non-standard variable in an SDTM or SEND dataset when the ODM Context attribute value is \"Other\" Is not used with an ItemRef that represents a value level metadata for an SDTMIG SUPPQUAL dataset Has no meaning for ADaM, so shall not be used for ADaM variables"
                 },
                 "ItemOID": {
-                    "description": "Reference to the ItemDef.",
+                    "description": "Reference to the ItemDef .",
                     "type": "string"
                 },
                 "KeySequence": {
@@ -2026,7 +2027,7 @@
             "additionalProperties": false,
             "description": "The responsibility statement associated with a signature (e.g., \"The signer accepts responsibility for the accuracy of this data.\").",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -2113,7 +2114,7 @@
             "additionalProperties": false,
             "description": "A short name or description for this signature. It should reflect the context of the signature and/or the text that appears when the signature is applied in the user interface.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -2616,7 +2617,7 @@
             "additionalProperties": false,
             "description": "Any other text needed as part of a user's postal address.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -2718,7 +2719,7 @@
             "additionalProperties": false,
             "description": "The postal code part of a user's postal address.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -2730,7 +2731,7 @@
             "additionalProperties": false,
             "description": "Title or other prefix. Maps to FHIR HumanName.prefix (https://www.hl7.org/fhir/datatypes.html#humanname).",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -2976,7 +2977,7 @@
             "additionalProperties": false,
             "description": "A user-supplied reason for a data change.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -3215,7 +3216,7 @@
                 },
                 "Methodology": {
                     "$ref": "#/$defs/SignMethod",
-                    "description": "Defines the type of electronic signature, including the meaning as required by 21 CFR Part 11."
+                    "description": "Defines the type of electronic signature, including the meaning as required by 21 CFR Part 11 ."
                 },
                 "OID": {
                     "description": "Unique identifier.",
@@ -3233,7 +3234,7 @@
             "description": "A reference to the signature meaning.",
             "properties": {
                 "SignatureOID": {
-                    "description": "Reference to the SignatureDef.",
+                    "description": "Reference to the SignatureDef .",
                     "type": "string"
                 }
             },
@@ -3271,7 +3272,7 @@
             "additionalProperties": false,
             "description": "Information that identifies the source of the data within an originating system.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -3458,7 +3459,7 @@
             "additionalProperties": false,
             "description": "The state or province name part of a user's postal address.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -3470,7 +3471,7 @@
             "additionalProperties": false,
             "description": "The street name part of a user's postal address.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -3498,7 +3499,7 @@
                     "type": "string"
                 },
                 "ProtocolName": {
-                    "description": "Protocol identifier or protocol number assigned to the study . It is used by the regulatory authority or clinical trial registry.",
+                    "description": "Protocol identifier or protocol number assigned to the study. It is used by the regulatory authority or clinical trial registry.",
                     "type": "string"
                 },
                 "Status": {
@@ -3574,7 +3575,7 @@
                     "type": "integer"
                 },
                 "StudyEndPointOID": {
-                    "description": "Reference to the StudyEndPoint.",
+                    "description": "Reference to the StudyEndPoint .",
                     "type": "string"
                 }
             },
@@ -3717,7 +3718,7 @@
                     "type": "string"
                 },
                 "StudyEventOID": {
-                    "description": "Reference to the StudyEventDef. The StudyEventOID and StudyEventRepeatKey are used together to identify a particular study event. This pair of values uniquely identifies a StudyEvent within the containing subject. The StudyEventRepeatKey is present if and only if the StudyEventDef is repeating.",
+                    "description": "Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey are used together to identify a particular study event. This pair of values uniquely identifies a StudyEvent within the containing subject. The StudyEventRepeatKey is present if and only if the StudyEventDef is repeating.",
                     "type": "string"
                 },
                 "StudyEventRepeatKey": {
@@ -3884,7 +3885,7 @@
                     "type": "integer"
                 },
                 "StudyEventGroupOID": {
-                    "description": "Reference to the StudyEventGroupDef.",
+                    "description": "Reference to the StudyEventGroupDef .",
                     "type": "string"
                 }
             },
@@ -3912,7 +3913,7 @@
                     "type": "integer"
                 },
                 "StudyEventOID": {
-                    "description": "Reference to the StudyEventDef.",
+                    "description": "Reference to the StudyEventDef .",
                     "type": "string"
                 }
             },
@@ -4351,7 +4352,7 @@
             "additionalProperties": false,
             "description": "This element may include credentials, or suffixes (e.g., Jr., III).",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -4442,7 +4443,7 @@
             "additionalProperties": false,
             "description": "Text with the label for the document or dataset.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -4558,11 +4559,11 @@
                     "description": "Contains IANA media type of the TranslatedText element contents.",
                     "type": "string"
                 },
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 },
-                "_language": {
+                "language": {
                     "description": "Code representing the language of the enclosed text value. Default value depends on locale. Note: The xml:lang attribute is part of the XML standard. See IETF Trust, Tags for Identifying Languages",
                     "type": "string"
                 }
@@ -4685,7 +4686,7 @@
             "additionalProperties": false,
             "description": "The user's login identification in the sender's system.",
             "properties": {
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -4732,7 +4733,7 @@
                     "description": "When more than 1 Value element exists this attribute uniquely identifies each Value and defines the order of a Value in a list of Values.",
                     "type": "integer"
                 },
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -4879,7 +4880,7 @@
                     "description": "Reference to the definition of the structural element that ends the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef element.",
                     "type": "string"
                 },
-                "_content": {
+                "content": {
                     "description": "multi-line text content from between XML tags",
                     "type": "string"
                 }
@@ -4921,13 +4922,13 @@
             "type": "object"
         },
         "YesOnly": {
-            "description": "Enumeration used in Repeat, Other, IsNonStandard, ExtendedValue, HasNoData, IsNull",
+            "description": "Enumeration used in IsNonStandard, Repeat, ExtendedValue, IsNull, Other, HasNoData",
             "enum": [],
             "title": "YesOnly",
             "type": "string"
         },
         "YesOrNo": {
-            "description": "Enumeration used in Repeating, UsedMethod, IsReferenceData, Mandatory",
+            "description": "Enumeration used in IsReferenceData, Mandatory, UsedMethod, Repeating",
             "enum": [
                 "Yes",
                 "No"

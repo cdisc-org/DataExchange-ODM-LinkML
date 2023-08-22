@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/LegalReason](https://wiki.cdisc.org/display/ODM2/LegalReason)
+* [https://wiki.cdisc.org/display/PUB/LegalReason](https://wiki.cdisc.org/display/PUB/LegalReason)
 
 ## Identifier and Mapping Information
 
@@ -90,7 +90,7 @@ description: The responsibility statement associated with a signature (e.g., "Th
   signer accepts responsibility for the accuracy of this data.").
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/LegalReason
+- https://wiki.cdisc.org/display/PUB/LegalReason
 rank: 1000
 slots:
 - content
@@ -139,7 +139,7 @@ description: The responsibility statement associated with a signature (e.g., "Th
   signer accepts responsibility for the accuracy of this data.").
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/LegalReason
+- https://wiki.cdisc.org/display/PUB/LegalReason
 rank: 1000
 slot_usage:
   content:

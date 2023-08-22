@@ -103,7 +103,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/RangeCheck](https://wiki.cdisc.org/display/ODM2/RangeCheck)
+* [https://wiki.cdisc.org/display/PUB/RangeCheck](https://wiki.cdisc.org/display/PUB/RangeCheck)
 
 ## Identifier and Mapping Information
 
@@ -148,7 +148,7 @@ description: A RangeCheck defines a constraint on the value of the enclosing ite
   Comparator and CheckValue or using FormalExpressions.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/RangeCheck
+- https://wiki.cdisc.org/display/PUB/RangeCheck
 rank: 1000
 slots:
 - ComparatorRef
@@ -244,7 +244,7 @@ description: A RangeCheck defines a constraint on the value of the enclosing ite
   Comparator and CheckValue or using FormalExpressions.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/RangeCheck
+- https://wiki.cdisc.org/display/PUB/RangeCheck
 rank: 1000
 slot_usage:
   ComparatorRef:

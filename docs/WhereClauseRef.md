@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/WhereClauseRef](https://wiki.cdisc.org/display/ODM2/WhereClauseRef)
+* [https://wiki.cdisc.org/display/PUB/WhereClauseRef](https://wiki.cdisc.org/display/PUB/WhereClauseRef)
 
 ## Identifier and Mapping Information
 
@@ -90,7 +90,7 @@ description: The WhereClauseRef references the WhereClauseDef element that descr
   the conditions under which the variable values are defined by the referenced ItemDef.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/WhereClauseRef
+- https://wiki.cdisc.org/display/PUB/WhereClauseRef
 rank: 1000
 slots:
 - WhereClauseOID
@@ -120,7 +120,7 @@ description: The WhereClauseRef references the WhereClauseDef element that descr
   the conditions under which the variable values are defined by the referenced ItemDef.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/WhereClauseRef
+- https://wiki.cdisc.org/display/PUB/WhereClauseRef
 rank: 1000
 slot_usage:
   WhereClauseOID:

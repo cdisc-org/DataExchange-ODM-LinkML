@@ -49,7 +49,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/SubClass](https://wiki.cdisc.org/display/ODM2/SubClass)
+* [https://wiki.cdisc.org/display/PUB/SubClass](https://wiki.cdisc.org/display/PUB/SubClass)
 
 ## Identifier and Mapping Information
 
@@ -91,7 +91,7 @@ name: SubClass
 description: This element contains SubClass definitions.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SubClass
+- https://wiki.cdisc.org/display/PUB/SubClass
 rank: 1000
 slots:
 - Name
@@ -169,7 +169,7 @@ name: SubClass
 description: This element contains SubClass definitions.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SubClass
+- https://wiki.cdisc.org/display/PUB/SubClass
 rank: 1000
 slot_usage:
   Name:

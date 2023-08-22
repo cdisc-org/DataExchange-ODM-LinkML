@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Title](https://wiki.cdisc.org/display/ODM2/Title)
+* [https://wiki.cdisc.org/display/PUB/Title](https://wiki.cdisc.org/display/PUB/Title)
 
 ## Identifier and Mapping Information
 
@@ -89,7 +89,7 @@ name: Title
 description: Text with the label for the document or dataset.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Title
+- https://wiki.cdisc.org/display/PUB/Title
 rank: 1000
 slots:
 - content
@@ -137,7 +137,7 @@ name: Title
 description: Text with the label for the document or dataset.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Title
+- https://wiki.cdisc.org/display/PUB/Title
 rank: 1000
 slot_usage:
   content:

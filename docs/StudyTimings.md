@@ -96,7 +96,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyTimings](https://wiki.cdisc.org/display/ODM2/StudyTimings)
+* [https://wiki.cdisc.org/display/PUB/StudyTimings](https://wiki.cdisc.org/display/PUB/StudyTimings)
 
 ## Identifier and Mapping Information
 
@@ -139,7 +139,7 @@ description: The StudyTimings element is a container element for individual Stud
   elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyTimings
+- https://wiki.cdisc.org/display/PUB/StudyTimings
 rank: 1000
 slots:
 - StudyTimingRef
@@ -166,7 +166,7 @@ description: The StudyTimings element is a container element for individual Stud
   elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyTimings
+- https://wiki.cdisc.org/display/PUB/StudyTimings
 rank: 1000
 slot_usage:
   StudyTimingRef:

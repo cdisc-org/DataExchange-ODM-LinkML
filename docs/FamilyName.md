@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/FamilyName](https://wiki.cdisc.org/display/ODM2/FamilyName)
+* [https://wiki.cdisc.org/display/PUB/FamilyName](https://wiki.cdisc.org/display/PUB/FamilyName)
 
 ## Identifier and Mapping Information
 
@@ -89,7 +89,7 @@ name: FamilyName
 description: The user's surname (family name).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/FamilyName
+- https://wiki.cdisc.org/display/PUB/FamilyName
 rank: 1000
 slots:
 - content
@@ -137,7 +137,7 @@ name: FamilyName
 description: The user's surname (family name).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/FamilyName
+- https://wiki.cdisc.org/display/PUB/FamilyName
 rank: 1000
 slot_usage:
   content:

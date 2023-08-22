@@ -171,7 +171,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ItemGroupDef](https://wiki.cdisc.org/display/ODM2/ItemGroupDef)
+* [https://wiki.cdisc.org/display/PUB/ItemGroupDef](https://wiki.cdisc.org/display/PUB/ItemGroupDef)
 
 ## Identifier and Mapping Information
 
@@ -214,7 +214,7 @@ description: An ItemGroupDef describes a type of variable or field grouping that
   occur within a study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ItemGroupDef
+- https://wiki.cdisc.org/display/PUB/ItemGroupDef
 rank: 1000
 slots:
 - OID
@@ -698,7 +698,7 @@ description: An ItemGroupDef describes a type of variable or field grouping that
   occur within a study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ItemGroupDef
+- https://wiki.cdisc.org/display/PUB/ItemGroupDef
 rank: 1000
 slot_usage:
   OID:

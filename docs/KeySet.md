@@ -61,7 +61,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/KeySet](https://wiki.cdisc.org/display/ODM2/KeySet)
+* [https://wiki.cdisc.org/display/PUB/KeySet](https://wiki.cdisc.org/display/PUB/KeySet)
 
 ## Identifier and Mapping Information
 
@@ -105,7 +105,7 @@ description: A KeySet references a single entity (e.g., a study, a subject, a st
   and all others must be omitted (see Section 2.7, Clinical Data Keys).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/KeySet
+- https://wiki.cdisc.org/display/PUB/KeySet
 rank: 1000
 slots:
 - StudyOID
@@ -248,7 +248,7 @@ description: A KeySet references a single entity (e.g., a study, a subject, a st
   and all others must be omitted (see Section 2.7, Clinical Data Keys).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/KeySet
+- https://wiki.cdisc.org/display/PUB/KeySet
 rank: 1000
 slot_usage:
   StudyOID:

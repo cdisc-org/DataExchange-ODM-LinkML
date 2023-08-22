@@ -141,7 +141,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Location](https://wiki.cdisc.org/display/ODM2/Location)
+* [https://wiki.cdisc.org/display/PUB/Location](https://wiki.cdisc.org/display/PUB/Location)
 
 ## Identifier and Mapping Information
 
@@ -184,7 +184,7 @@ description: A physical location associated with data collection and/or treatmen
   of subjects.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Location
+- https://wiki.cdisc.org/display/PUB/Location
 rank: 1000
 slots:
 - OID
@@ -411,7 +411,7 @@ description: A physical location associated with data collection and/or treatmen
   of subjects.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Location
+- https://wiki.cdisc.org/display/PUB/Location
 rank: 1000
 slot_usage:
   OID:

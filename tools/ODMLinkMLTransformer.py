@@ -27,7 +27,7 @@ class ODMLinkMLTransformer():
     schema: SchemaDefinition = None
     schema_builder: SchemaBuilder = None
     namespace: str = field(default = 'http://www.cdisc.org/ns/odm/v2.0')
-    type_documentation: str = field(default = 'https://wiki.cdisc.org/display/ODM2/Data+Formats')
+    type_documentation: str = field(default = 'https://wiki.cdisc.org/display/PUB/Data+Formats')
     namespace_prefix: str = field(default = 'odm')
     look_up_membership: dict = None
     class_names: list = None
@@ -445,7 +445,7 @@ class ODMLinkMLTransformer():
         klass = ClassDefinition(class_name)
         if props.get('xs:annotation'):
             klass.description = '\n'.join(props.get('xs:annotation').get('xs:documentation'))
-        klass.see_also = f'https://wiki.cdisc.org/display/ODM2/{class_name}'
+        klass.see_also = f'https://wiki.cdisc.org/display/PUB/{class_name}'
         # Handle unique relation constraints
         unique = element.get('xs:unique')
         selector_list = []

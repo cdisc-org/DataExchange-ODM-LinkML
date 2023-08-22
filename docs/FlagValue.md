@@ -49,7 +49,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/FlagValue](https://wiki.cdisc.org/display/ODM2/FlagValue)
+* [https://wiki.cdisc.org/display/PUB/FlagValue](https://wiki.cdisc.org/display/PUB/FlagValue)
 
 ## Identifier and Mapping Information
 
@@ -93,7 +93,7 @@ description: The value of the flag. The meaning of this value is typically depen
   CodeList
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/FlagValue
+- https://wiki.cdisc.org/display/PUB/FlagValue
 rank: 1000
 slots:
 - CodeListOID
@@ -160,7 +160,7 @@ description: The value of the flag. The meaning of this value is typically depen
   CodeList
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/FlagValue
+- https://wiki.cdisc.org/display/PUB/FlagValue
 rank: 1000
 slot_usage:
   CodeListOID:

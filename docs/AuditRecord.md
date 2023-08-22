@@ -79,7 +79,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/AuditRecord](https://wiki.cdisc.org/display/ODM2/AuditRecord)
+* [https://wiki.cdisc.org/display/PUB/AuditRecord](https://wiki.cdisc.org/display/PUB/AuditRecord)
 
 ## Identifier and Mapping Information
 
@@ -126,7 +126,7 @@ description: An AuditRecord carries information pertaining to the creation, dele
   only added to.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/AuditRecord
+- https://wiki.cdisc.org/display/PUB/AuditRecord
 rank: 1000
 slots:
 - EditPoint
@@ -207,7 +207,7 @@ description: An AuditRecord carries information pertaining to the creation, dele
   only added to.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/AuditRecord
+- https://wiki.cdisc.org/display/PUB/AuditRecord
 rank: 1000
 slot_usage:
   EditPoint:

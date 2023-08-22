@@ -84,7 +84,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyEstimand](https://wiki.cdisc.org/display/ODM2/StudyEstimand)
+* [https://wiki.cdisc.org/display/PUB/StudyEstimand](https://wiki.cdisc.org/display/PUB/StudyEstimand)
 
 ## Identifier and Mapping Information
 
@@ -129,7 +129,7 @@ description: A precise description of the treatment effect reflecting the clinic
   conditions being compared.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyEstimand
+- https://wiki.cdisc.org/display/PUB/StudyEstimand
 rank: 1000
 slots:
 - OID
@@ -337,7 +337,7 @@ description: A precise description of the treatment effect reflecting the clinic
   conditions being compared.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyEstimand
+- https://wiki.cdisc.org/display/PUB/StudyEstimand
 rank: 1000
 slot_usage:
   OID:

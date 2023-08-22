@@ -96,7 +96,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/WorkflowDef](https://wiki.cdisc.org/display/ODM2/WorkflowDef)
+* [https://wiki.cdisc.org/display/PUB/WorkflowDef](https://wiki.cdisc.org/display/PUB/WorkflowDef)
 
 ## Identifier and Mapping Information
 
@@ -138,7 +138,7 @@ name: WorkflowDef
 description: A WorkflowDef defines an automated workflow for a study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/WorkflowDef
+- https://wiki.cdisc.org/display/PUB/WorkflowDef
 rank: 1000
 slots:
 - OID
@@ -327,7 +327,7 @@ name: WorkflowDef
 description: A WorkflowDef defines an automated workflow for a study.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/WorkflowDef
+- https://wiki.cdisc.org/display/PUB/WorkflowDef
 rank: 1000
 slot_usage:
   OID:

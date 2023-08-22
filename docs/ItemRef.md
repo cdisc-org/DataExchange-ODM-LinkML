@@ -113,7 +113,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ItemRef](https://wiki.cdisc.org/display/ODM2/ItemRef)
+* [https://wiki.cdisc.org/display/PUB/ItemRef](https://wiki.cdisc.org/display/PUB/ItemRef)
 
 ## Identifier and Mapping Information
 
@@ -157,7 +157,7 @@ description: A reference to an ItemDef as it occurs within a specific ItemGroupD
   this type of item group.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ItemRef
+- https://wiki.cdisc.org/display/PUB/ItemRef
 rank: 1000
 slots:
 - ItemOID
@@ -450,7 +450,7 @@ description: A reference to an ItemDef as it occurs within a specific ItemGroupD
   this type of item group.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ItemRef
+- https://wiki.cdisc.org/display/PUB/ItemRef
 rank: 1000
 slot_usage:
   ItemOID:

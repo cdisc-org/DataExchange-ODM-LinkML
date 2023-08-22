@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ValueListRef](https://wiki.cdisc.org/display/ODM2/ValueListRef)
+* [https://wiki.cdisc.org/display/PUB/ValueListRef](https://wiki.cdisc.org/display/PUB/ValueListRef)
 
 ## Identifier and Mapping Information
 
@@ -92,7 +92,7 @@ description: The ValueListRef element is the OID of the ValueListDef that contai
   on the ItemDef for the variable definition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ValueListRef
+- https://wiki.cdisc.org/display/PUB/ValueListRef
 rank: 1000
 slots:
 - ValueListOID
@@ -127,7 +127,7 @@ description: The ValueListRef element is the OID of the ValueListDef that contai
   on the ItemDef for the variable definition.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ValueListRef
+- https://wiki.cdisc.org/display/PUB/ValueListRef
 rank: 1000
 slot_usage:
   ValueListOID:

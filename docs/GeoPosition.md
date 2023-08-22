@@ -51,7 +51,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/GeoPosition](https://wiki.cdisc.org/display/ODM2/GeoPosition)
+* [https://wiki.cdisc.org/display/PUB/GeoPosition](https://wiki.cdisc.org/display/PUB/GeoPosition)
 
 ## Identifier and Mapping Information
 
@@ -93,7 +93,7 @@ name: GeoPosition
 description: The geographical position using the World Geodetic System WGS84.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/GeoPosition
+- https://wiki.cdisc.org/display/PUB/GeoPosition
 rank: 1000
 slots:
 - Longitude
@@ -145,7 +145,7 @@ name: GeoPosition
 description: The geographical position using the World Geodetic System WGS84.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/GeoPosition
+- https://wiki.cdisc.org/display/PUB/GeoPosition
 rank: 1000
 slot_usage:
   Longitude:

@@ -64,7 +64,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/FormalExpression](https://wiki.cdisc.org/display/ODM2/FormalExpression)
+* [https://wiki.cdisc.org/display/PUB/FormalExpression](https://wiki.cdisc.org/display/PUB/FormalExpression)
 
 ## Identifier and Mapping Information
 
@@ -112,7 +112,7 @@ description: A FormalExpression used within a ConditionDef or a RangeCheck must 
   in the FormalExpression.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/FormalExpression
+- https://wiki.cdisc.org/display/PUB/FormalExpression
 rank: 1000
 slots:
 - ContextRef
@@ -164,7 +164,7 @@ description: A FormalExpression used within a ConditionDef or a RangeCheck must 
   in the FormalExpression.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/FormalExpression
+- https://wiki.cdisc.org/display/PUB/FormalExpression
 rank: 1000
 slot_usage:
   ContextRef:

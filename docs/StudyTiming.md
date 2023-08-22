@@ -101,7 +101,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyTiming](https://wiki.cdisc.org/display/ODM2/StudyTiming)
+* [https://wiki.cdisc.org/display/PUB/StudyTiming](https://wiki.cdisc.org/display/PUB/StudyTiming)
 
 ## Identifier and Mapping Information
 
@@ -149,7 +149,7 @@ description: The StudyTiming element defines a timing constraint within the stud
   hours with a window of 30 minutes).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyTiming
+- https://wiki.cdisc.org/display/PUB/StudyTiming
 rank: 1000
 slots:
 - OID
@@ -304,7 +304,7 @@ description: The StudyTiming element defines a timing constraint within the stud
   hours with a window of 30 minutes).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyTiming
+- https://wiki.cdisc.org/display/PUB/StudyTiming
 rank: 1000
 slot_usage:
   OID:

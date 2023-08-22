@@ -69,7 +69,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/AbsoluteTimingConstraint](https://wiki.cdisc.org/display/ODM2/AbsoluteTimingConstraint)
+* [https://wiki.cdisc.org/display/PUB/AbsoluteTimingConstraint](https://wiki.cdisc.org/display/PUB/AbsoluteTimingConstraint)
 
 ## Identifier and Mapping Information
 
@@ -112,7 +112,7 @@ description: The element AbsoluteTimingConstraint is used to specify when an act
   represented by either a StudyEventGroup or StudyEvent, can take place.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/AbsoluteTimingConstraint
+- https://wiki.cdisc.org/display/PUB/AbsoluteTimingConstraint
 rank: 1000
 slots:
 - OID
@@ -346,7 +346,7 @@ description: The element AbsoluteTimingConstraint is used to specify when an act
   represented by either a StudyEventGroup or StudyEvent, can take place.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/AbsoluteTimingConstraint
+- https://wiki.cdisc.org/display/PUB/AbsoluteTimingConstraint
 rank: 1000
 slot_usage:
   OID:

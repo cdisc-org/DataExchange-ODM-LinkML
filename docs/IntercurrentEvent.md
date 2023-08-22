@@ -56,7 +56,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/IntercurrentEvent](https://wiki.cdisc.org/display/ODM2/IntercurrentEvent)
+* [https://wiki.cdisc.org/display/PUB/IntercurrentEvent](https://wiki.cdisc.org/display/PUB/IntercurrentEvent)
 
 ## Identifier and Mapping Information
 
@@ -99,7 +99,7 @@ description: The IntercurrentEvent element describes an intercurrent event for a
   estimand (e.g., treatment discontinuation).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/IntercurrentEvent
+- https://wiki.cdisc.org/display/PUB/IntercurrentEvent
 rank: 1000
 slots:
 - DescriptionRef
@@ -159,7 +159,7 @@ description: The IntercurrentEvent element describes an intercurrent event for a
   estimand (e.g., treatment discontinuation).
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/IntercurrentEvent
+- https://wiki.cdisc.org/display/PUB/IntercurrentEvent
 rank: 1000
 slot_usage:
   DescriptionRef:

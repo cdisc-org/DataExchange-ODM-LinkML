@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/SignatureRef](https://wiki.cdisc.org/display/ODM2/SignatureRef)
+* [https://wiki.cdisc.org/display/PUB/SignatureRef](https://wiki.cdisc.org/display/PUB/SignatureRef)
 
 ## Identifier and Mapping Information
 
@@ -89,7 +89,7 @@ name: SignatureRef
 description: A reference to the signature meaning.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SignatureRef
+- https://wiki.cdisc.org/display/PUB/SignatureRef
 rank: 1000
 slots:
 - SignatureOID
@@ -118,7 +118,7 @@ name: SignatureRef
 description: A reference to the signature meaning.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/SignatureRef
+- https://wiki.cdisc.org/display/PUB/SignatureRef
 rank: 1000
 slot_usage:
   SignatureOID:

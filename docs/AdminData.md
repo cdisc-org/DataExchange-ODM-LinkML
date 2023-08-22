@@ -161,7 +161,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/AdminData](https://wiki.cdisc.org/display/ODM2/AdminData)
+* [https://wiki.cdisc.org/display/PUB/AdminData](https://wiki.cdisc.org/display/PUB/AdminData)
 
 ## Identifier and Mapping Information
 
@@ -204,7 +204,7 @@ description: Administrative information about users, locations, organizations, a
   electronic signatures.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/AdminData
+- https://wiki.cdisc.org/display/PUB/AdminData
 rank: 1000
 slots:
 - StudyOID
@@ -282,7 +282,7 @@ description: Administrative information about users, locations, organizations, a
   electronic signatures.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/AdminData
+- https://wiki.cdisc.org/display/PUB/AdminData
 rank: 1000
 slot_usage:
   StudyOID:

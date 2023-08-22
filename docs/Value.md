@@ -50,7 +50,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Value](https://wiki.cdisc.org/display/ODM2/Value)
+* [https://wiki.cdisc.org/display/PUB/Value](https://wiki.cdisc.org/display/PUB/Value)
 
 ## Identifier and Mapping Information
 
@@ -94,7 +94,7 @@ description: The data collected for an item. This data is represented according 
   ItemData element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Value
+- https://wiki.cdisc.org/display/PUB/Value
 rank: 1000
 slots:
 - SeqNum
@@ -157,7 +157,7 @@ description: The data collected for an item. This data is represented according 
   ItemData element.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Value
+- https://wiki.cdisc.org/display/PUB/Value
 rank: 1000
 slot_usage:
   SeqNum:

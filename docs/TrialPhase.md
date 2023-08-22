@@ -57,7 +57,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/TrialPhase](https://wiki.cdisc.org/display/ODM2/TrialPhase)
+* [https://wiki.cdisc.org/display/PUB/TrialPhase](https://wiki.cdisc.org/display/PUB/TrialPhase)
 
 ## Identifier and Mapping Information
 
@@ -100,7 +100,7 @@ description: The TrialPhase element designates the phase of the study in the cli
   trial.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/TrialPhase
+- https://wiki.cdisc.org/display/PUB/TrialPhase
 rank: 1000
 slots:
 - ValueRef
@@ -182,7 +182,7 @@ description: The TrialPhase element designates the phase of the study in the cli
   trial.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/TrialPhase
+- https://wiki.cdisc.org/display/PUB/TrialPhase
 rank: 1000
 slot_usage:
   ValueRef:

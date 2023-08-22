@@ -250,7 +250,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ODM](https://wiki.cdisc.org/display/ODM2/ODM)
+* [https://wiki.cdisc.org/display/PUB/ODM](https://wiki.cdisc.org/display/PUB/ODM)
 
 ## Identifier and Mapping Information
 
@@ -293,7 +293,7 @@ description: Root element for ODM Documents. The ODM element is the top-level (r
   element of each ODM document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ODM
+- https://wiki.cdisc.org/display/PUB/ODM
 rank: 1000
 slots:
 - FileTypeRef
@@ -541,7 +541,7 @@ description: Root element for ODM Documents. The ODM element is the top-level (r
   element of each ODM document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ODM
+- https://wiki.cdisc.org/display/PUB/ODM
 rank: 1000
 slot_usage:
   FileTypeRef:

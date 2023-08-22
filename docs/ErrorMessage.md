@@ -52,7 +52,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/ErrorMessage](https://wiki.cdisc.org/display/ODM2/ErrorMessage)
+* [https://wiki.cdisc.org/display/PUB/ErrorMessage](https://wiki.cdisc.org/display/PUB/ErrorMessage)
 
 ## Identifier and Mapping Information
 
@@ -94,7 +94,7 @@ name: ErrorMessage
 description: Error message provided to user when the range check fails.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ErrorMessage
+- https://wiki.cdisc.org/display/PUB/ErrorMessage
 rank: 1000
 slots:
 - TranslatedTextRef
@@ -129,7 +129,7 @@ name: ErrorMessage
 description: Error message provided to user when the range check fails.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/ErrorMessage
+- https://wiki.cdisc.org/display/PUB/ErrorMessage
 rank: 1000
 slot_usage:
   TranslatedTextRef:

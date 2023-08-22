@@ -94,7 +94,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyEventGroupDef](https://wiki.cdisc.org/display/ODM2/StudyEventGroupDef)
+* [https://wiki.cdisc.org/display/PUB/StudyEventGroupDef](https://wiki.cdisc.org/display/PUB/StudyEventGroupDef)
 
 ## Identifier and Mapping Information
 
@@ -138,7 +138,7 @@ description: StudyEventGroupDef is a study building block that groups a number o
   It thus allows nesting of building blocks.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyEventGroupDef
+- https://wiki.cdisc.org/display/PUB/StudyEventGroupDef
 rank: 1000
 slots:
 - OID
@@ -404,7 +404,7 @@ description: StudyEventGroupDef is a study building block that groups a number o
   It thus allows nesting of building blocks.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyEventGroupDef
+- https://wiki.cdisc.org/display/PUB/StudyEventGroupDef
 rank: 1000
 slot_usage:
   OID:

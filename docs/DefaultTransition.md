@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/DefaultTransition](https://wiki.cdisc.org/display/ODM2/DefaultTransition)
+* [https://wiki.cdisc.org/display/PUB/DefaultTransition](https://wiki.cdisc.org/display/PUB/DefaultTransition)
 
 ## Identifier and Mapping Information
 
@@ -90,7 +90,7 @@ description: The DefaultTransition references the Transition that needs to be ex
   when none of the TargetTransitions can be executed.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/DefaultTransition
+- https://wiki.cdisc.org/display/PUB/DefaultTransition
 rank: 1000
 slots:
 - TargetTransitionOID
@@ -124,7 +124,7 @@ description: The DefaultTransition references the Transition that needs to be ex
   when none of the TargetTransitions can be executed.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/DefaultTransition
+- https://wiki.cdisc.org/display/PUB/DefaultTransition
 rank: 1000
 slot_usage:
   TargetTransitionOID:

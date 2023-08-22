@@ -56,7 +56,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Standards](https://wiki.cdisc.org/display/ODM2/Standards)
+* [https://wiki.cdisc.org/display/PUB/Standards](https://wiki.cdisc.org/display/PUB/Standards)
 
 ## Identifier and Mapping Information
 
@@ -99,7 +99,7 @@ description: The Standards element provides a container for the list of Standard
   referenced in the MetaDataVersion for the Study..
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Standards
+- https://wiki.cdisc.org/display/PUB/Standards
 rank: 1000
 slots:
 - StandardRef
@@ -127,7 +127,7 @@ description: The Standards element provides a container for the list of Standard
   referenced in the MetaDataVersion for the Study..
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Standards
+- https://wiki.cdisc.org/display/PUB/Standards
 rank: 1000
 slot_usage:
   StandardRef:

@@ -62,7 +62,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyObjectives](https://wiki.cdisc.org/display/ODM2/StudyObjectives)
+* [https://wiki.cdisc.org/display/PUB/StudyObjectives](https://wiki.cdisc.org/display/PUB/StudyObjectives)
 
 ## Identifier and Mapping Information
 
@@ -105,7 +105,7 @@ description: The StudyObjectives is a container element for individual StudyObje
   elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyObjectives
+- https://wiki.cdisc.org/display/PUB/StudyObjectives
 rank: 1000
 slots:
 - StudyObjectiveRef
@@ -132,7 +132,7 @@ description: The StudyObjectives is a container element for individual StudyObje
   elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyObjectives
+- https://wiki.cdisc.org/display/PUB/StudyObjectives
 rank: 1000
 slot_usage:
   StudyObjectiveRef:

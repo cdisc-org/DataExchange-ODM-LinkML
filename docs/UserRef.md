@@ -48,7 +48,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/UserRef](https://wiki.cdisc.org/display/ODM2/UserRef)
+* [https://wiki.cdisc.org/display/PUB/UserRef](https://wiki.cdisc.org/display/PUB/UserRef)
 
 ## Identifier and Mapping Information
 
@@ -91,7 +91,7 @@ description: A reference to information about a specific user of a clinical data
   or data management system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/UserRef
+- https://wiki.cdisc.org/display/PUB/UserRef
 rank: 1000
 slots:
 - UserOID
@@ -124,7 +124,7 @@ description: A reference to information about a specific user of a clinical data
   or data management system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/UserRef
+- https://wiki.cdisc.org/display/PUB/UserRef
 rank: 1000
 slot_usage:
   UserOID:

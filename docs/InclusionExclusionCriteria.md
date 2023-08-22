@@ -64,7 +64,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/InclusionExclusionCriteria](https://wiki.cdisc.org/display/ODM2/InclusionExclusionCriteria)
+* [https://wiki.cdisc.org/display/PUB/InclusionExclusionCriteria](https://wiki.cdisc.org/display/PUB/InclusionExclusionCriteria)
 
 ## Identifier and Mapping Information
 
@@ -110,7 +110,7 @@ description: The InclusionExclusionCriteria element can contain 2 lists of Crite
   by each Criterion‟s ConditionOID attribute.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/InclusionExclusionCriteria
+- https://wiki.cdisc.org/display/PUB/InclusionExclusionCriteria
 rank: 1000
 slots:
 - InclusionCriteriaRef
@@ -145,7 +145,7 @@ description: The InclusionExclusionCriteria element can contain 2 lists of Crite
   by each Criterion‟s ConditionOID attribute.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/InclusionExclusionCriteria
+- https://wiki.cdisc.org/display/PUB/InclusionExclusionCriteria
 rank: 1000
 slot_usage:
   InclusionCriteriaRef:

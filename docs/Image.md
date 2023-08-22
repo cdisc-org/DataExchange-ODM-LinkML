@@ -51,7 +51,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/Image](https://wiki.cdisc.org/display/ODM2/Image)
+* [https://wiki.cdisc.org/display/PUB/Image](https://wiki.cdisc.org/display/PUB/Image)
 
 ## Identifier and Mapping Information
 
@@ -93,7 +93,7 @@ name: Image
 description: A visual depiction of the user.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Image
+- https://wiki.cdisc.org/display/PUB/Image
 rank: 1000
 slots:
 - ImageFileName
@@ -154,7 +154,7 @@ name: Image
 description: A visual depiction of the user.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/Image
+- https://wiki.cdisc.org/display/PUB/Image
 rank: 1000
 slot_usage:
   ImageFileName:

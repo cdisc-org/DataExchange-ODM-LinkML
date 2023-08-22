@@ -68,7 +68,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/StudyParameter](https://wiki.cdisc.org/display/ODM2/StudyParameter)
+* [https://wiki.cdisc.org/display/PUB/StudyParameter](https://wiki.cdisc.org/display/PUB/StudyParameter)
 
 ## Identifier and Mapping Information
 
@@ -111,7 +111,7 @@ description: A StudyParameter defines a study design parameter for which the val
   or values are delivered in the ParameterValue child element or elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyParameter
+- https://wiki.cdisc.org/display/PUB/StudyParameter
 rank: 1000
 slots:
 - OID
@@ -243,7 +243,7 @@ description: A StudyParameter defines a study design parameter for which the val
   or values are delivered in the ParameterValue child element or elements.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/StudyParameter
+- https://wiki.cdisc.org/display/PUB/StudyParameter
 rank: 1000
 slot_usage:
   OID:

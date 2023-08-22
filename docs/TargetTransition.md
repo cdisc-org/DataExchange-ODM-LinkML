@@ -49,7 +49,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 ## See Also
 
-* [https://wiki.cdisc.org/display/ODM2/TargetTransition](https://wiki.cdisc.org/display/ODM2/TargetTransition)
+* [https://wiki.cdisc.org/display/PUB/TargetTransition](https://wiki.cdisc.org/display/PUB/TargetTransition)
 
 ## Identifier and Mapping Information
 
@@ -92,7 +92,7 @@ description: TargetTransition provides a reference to a Transition element that 
   the target of a branching.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/TargetTransition
+- https://wiki.cdisc.org/display/PUB/TargetTransition
 rank: 1000
 slots:
 - TargetTransitionOID
@@ -144,7 +144,7 @@ description: TargetTransition provides a reference to a Transition element that 
   the target of a branching.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
-- https://wiki.cdisc.org/display/ODM2/TargetTransition
+- https://wiki.cdisc.org/display/PUB/TargetTransition
 rank: 1000
 slot_usage:
   TargetTransitionOID:
