@@ -11,50 +11,50 @@ URI: [odm:ValueListDef](http://www.cdisc.org/ns/odm/v2.0/ValueListDef)
 ```mermaid
 erDiagram
 ValueListDef {
-    oid OID  
+    oid oID  
 }
 ItemRef {
-    oidref ItemOID  
-    positiveInteger KeySequence  
-    YesOnly IsNonStandard  
-    YesOnly HasNoData  
-    oidref MethodOID  
-    oidref UnitsItemOID  
-    YesOnly Repeat  
-    YesOnly Other  
-    text Role  
-    oidref RoleCodeListOID  
-    CoreType Core  
-    text PreSpecifiedValue  
-    positiveInteger OrderNumber  
-    YesOrNo Mandatory  
-    oidref CollectionExceptionConditionOID  
+    oidref itemOID  
+    positiveInteger keySequence  
+    YesOnly isNonStandard  
+    YesOnly hasNoData  
+    oidref methodOID  
+    oidref unitsItemOID  
+    YesOnly repeat  
+    YesOnly other  
+    text role  
+    oidref roleCodeListOID  
+    CoreType core  
+    text preSpecifiedValue  
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+    oidref collectionExceptionConditionOID  
 }
 WhereClauseRef {
-    oidref WhereClauseOID  
+    oidref whereClauseOID  
 }
 Origin {
-    OriginType Type  
-    OriginSource Source  
+    OriginType type  
+    OriginSource source  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-ValueListDef ||--|o Description : "DescriptionRef"
-ValueListDef ||--}o ItemRef : "ItemRefRef"
-ItemRef ||--}o Origin : "OriginRef"
-ItemRef ||--}o WhereClauseRef : "WhereClauseRefRef"
-Origin ||--|o Description : "DescriptionRef"
-Origin ||--|o SourceItems : "SourceItemsRef"
-Origin ||--}o Coding : "CodingRef"
-Origin ||--}o DocumentRef : "DocumentRefRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+ValueListDef ||--|o Description : "description"
+ValueListDef ||--}o ItemRef : "itemRef"
+ItemRef ||--}o Origin : "origin"
+ItemRef ||--}o WhereClauseRef : "whereClauseRef"
+Origin ||--|o Description : "description"
+Origin ||--|o SourceItems : "sourceItems"
+Origin ||--}o Coding : "coding"
+Origin ||--}o DocumentRef : "documentRef"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -67,9 +67,9 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the Value List See Section 2.13, Element Identifiers and Refere... | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description of the value list. | direct |
-| [ItemRefRef](ItemRefRef.md) | 0..* <br/> [ItemRef](ItemRef.md) | The ItemRef element contains the reference to the value attributes definition... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the Value List See Section 2.13, Element Identifiers and Refere... | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description of the value list. | direct |
+| [itemRef](itemRef.md) | 0..* <br/> [ItemRef](ItemRef.md) | The ItemRef element contains the reference to the value attributes definition... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -80,7 +80,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [MetaDataVersion](MetaDataVersion.md) | [ValueListDefRef](ValueListDefRef.md) | range | [ValueListDef](ValueListDef.md) |
+| [MetaDataVersion](MetaDataVersion.md) | [valueListDef](valueListDef.md) | range | [ValueListDef](ValueListDef.md) |
 
 
 
@@ -136,12 +136,12 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ValueListDef
 rank: 1000
 slots:
-- OID
-- DescriptionRef
-- ItemRefRef
+- oID
+- description
+- itemRef
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique ID for the Value List See Section 2.13, Element Identifiers
       and References , for OID considerations.
     comments:
@@ -187,8 +187,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: Description of the value list.
     domain_of:
     - Study
@@ -229,8 +229,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  ItemRefRef:
-    name: ItemRefRef
+  itemRef:
+    name: itemRef
     description: The ItemRef element contains the reference to the value attributes
       definitions.
     multivalued: true
@@ -258,8 +258,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ValueListDef
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique ID for the Value List See Section 2.13, Element Identifiers
       and References , for OID considerations.
     comments:
@@ -305,8 +305,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: Description of the value list.
     domain_of:
     - Study
@@ -347,8 +347,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  ItemRefRef:
-    name: ItemRefRef
+  itemRef:
+    name: itemRef
     description: The ItemRef element contains the reference to the value attributes
       definitions.
     multivalued: true
@@ -359,8 +359,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique ID for the Value List See Section 2.13, Element Identifiers
       and References , for OID considerations.
     comments:
@@ -370,7 +370,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: ValueListDef
     domain_of:
     - Study
@@ -411,13 +411,13 @@ attributes:
     - Query
     range: oid
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: Description of the value list.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: ValueListDef
     domain_of:
     - Study
@@ -458,15 +458,15 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  ItemRefRef:
-    name: ItemRefRef
+  itemRef:
+    name: itemRef
     description: The ItemRef element contains the reference to the value attributes
       definitions.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: ItemRefRef
+    alias: itemRef
     owner: ValueListDef
     domain_of:
     - ValueListDef

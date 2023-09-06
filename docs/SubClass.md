@@ -11,8 +11,8 @@ URI: [odm:SubClass](http://www.cdisc.org/ns/odm/v2.0/SubClass)
 ```mermaid
 erDiagram
 SubClass {
-    ItemGroupSubClass Name  
-    ItemGroupClassSubClass ParentClass  
+    ItemGroupSubClass name  
+    ItemGroupClassSubClass parentClass  
 }
 
 
@@ -28,8 +28,8 @@ SubClass {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Name](Name.md) | 1..1 <br/> [ItemGroupSubClass](ItemGroupSubClass.md) | Name of the SubClass | direct |
-| [ParentClass](ParentClass.md) | 0..1 <br/> [ItemGroupClassSubClass](ItemGroupClassSubClass.md) | For a nested or multilevel SubClass, the ParentClass attribute is used to def... | direct |
+| [name](name.md) | 1..1 <br/> [ItemGroupSubClass](ItemGroupSubClass.md) | Name of the SubClass | direct |
+| [parentClass](parentClass.md) | 0..1 <br/> [ItemGroupClassSubClass](ItemGroupClassSubClass.md) | For a nested or multilevel SubClass, the ParentClass attribute is used to def... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -40,7 +40,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Class](Class.md) | [SubClassRef](SubClassRef.md) | range | [SubClass](SubClass.md) |
+| [Class](Class.md) | [subClass](subClass.md) | range | [SubClass](SubClass.md) |
 
 
 
@@ -94,11 +94,11 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SubClass
 rank: 1000
 slots:
-- Name
-- ParentClass
+- name
+- parentClass
 slot_usage:
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name of the SubClass
     comments:
     - 'Required
@@ -143,8 +143,8 @@ slot_usage:
     - Query
     range: ItemGroupSubClass
     required: true
-  ParentClass:
-    name: ParentClass
+  parentClass:
+    name: parentClass
     description: For a nested or multilevel SubClass, the ParentClass attribute is
       used to define the hierarchy.
     comments:
@@ -172,8 +172,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SubClass
 rank: 1000
 slot_usage:
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name of the SubClass
     comments:
     - 'Required
@@ -218,8 +218,8 @@ slot_usage:
     - Query
     range: ItemGroupSubClass
     required: true
-  ParentClass:
-    name: ParentClass
+  parentClass:
+    name: parentClass
     description: For a nested or multilevel SubClass, the ParentClass attribute is
       used to define the hierarchy.
     comments:
@@ -232,8 +232,8 @@ slot_usage:
     - SubClass
     range: ItemGroupClassSubClass
 attributes:
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name of the SubClass
     comments:
     - 'Required
@@ -243,7 +243,7 @@ attributes:
       Text must follow CDISC Controlled Terminology for SubClass.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: SubClass
     domain_of:
     - Alias
@@ -282,8 +282,8 @@ attributes:
     - Query
     range: ItemGroupSubClass
     required: true
-  ParentClass:
-    name: ParentClass
+  parentClass:
+    name: parentClass
     description: For a nested or multilevel SubClass, the ParentClass attribute is
       used to define the hierarchy.
     comments:
@@ -294,7 +294,7 @@ attributes:
       Text must follow CDISC Controlled Terminology for Class or SubClass.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ParentClass
+    alias: parentClass
     owner: SubClass
     domain_of:
     - SubClass

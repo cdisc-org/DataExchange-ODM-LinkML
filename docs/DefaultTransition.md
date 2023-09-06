@@ -11,7 +11,7 @@ URI: [odm:DefaultTransition](http://www.cdisc.org/ns/odm/v2.0/DefaultTransition)
 ```mermaid
 erDiagram
 DefaultTransition {
-    oidref TargetTransitionOID  
+    oidref targetTransitionOID  
 }
 
 
@@ -27,7 +27,7 @@ DefaultTransition {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TargetTransitionOID](TargetTransitionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the Transition that is the default target of the branching. | direct |
+| [targetTransitionOID](targetTransitionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the Transition that is the default target of the branching. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Branching](Branching.md) | [DefaultTransitionRef](DefaultTransitionRef.md) | range | [DefaultTransition](DefaultTransition.md) |
+| [Branching](Branching.md) | [defaultTransition](defaultTransition.md) | range | [DefaultTransition](DefaultTransition.md) |
 
 
 
@@ -93,10 +93,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/DefaultTransition
 rank: 1000
 slots:
-- TargetTransitionOID
+- targetTransitionOID
 slot_usage:
-  TargetTransitionOID:
-    name: TargetTransitionOID
+  targetTransitionOID:
+    name: targetTransitionOID
     description: Reference to the Transition that is the default target of the branching.
     comments:
     - 'Required
@@ -127,8 +127,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/DefaultTransition
 rank: 1000
 slot_usage:
-  TargetTransitionOID:
-    name: TargetTransitionOID
+  targetTransitionOID:
+    name: targetTransitionOID
     description: Reference to the Transition that is the default target of the branching.
     comments:
     - 'Required
@@ -143,8 +143,8 @@ slot_usage:
     range: oidref
     required: true
 attributes:
-  TargetTransitionOID:
-    name: TargetTransitionOID
+  targetTransitionOID:
+    name: targetTransitionOID
     description: Reference to the Transition that is the default target of the branching.
     comments:
     - 'Required
@@ -155,7 +155,7 @@ attributes:
       element within the WorkflowDef.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TargetTransitionOID
+    alias: targetTransitionOID
     owner: DefaultTransition
     domain_of:
     - TargetTransition

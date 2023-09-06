@@ -11,18 +11,18 @@ URI: [odm:StudyEndPoint](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoint)
 ```mermaid
 erDiagram
 StudyEndPoint {
-    oid OID  
-    name Name  
-    StudyEndPointType Type  
-    StudyEstimandLevel Level  
+    oid oID  
+    nameType name  
+    StudyEndPointType type  
+    StudyEstimandLevel level  
 }
 FormalExpression {
-    text ContextRef  
+    text context  
 }
 ExternalCodeLib {
-    name Library  
-    name Method  
-    text Version  
+    nameType library  
+    nameType method  
+    text version  
     text ref  
     uriorcurie href  
 }
@@ -34,15 +34,15 @@ Description {
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-StudyEndPoint ||--|o Description : "DescriptionRef"
-StudyEndPoint ||--}o FormalExpression : "FormalExpressionRef"
-FormalExpression ||--|o Code : "CodeRef"
-FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+StudyEndPoint ||--|o Description : "description"
+StudyEndPoint ||--}o FormalExpression : "formalExpression"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -55,12 +55,12 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEndPoint element | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable identifier for the StudyEndPoint element. | direct |
-| [Type](Type.md) | 0..1 <br/> [StudyEndPointType](StudyEndPointType.md) | The type of end point. Simple: measures the change of a single outcome that i... | direct |
-| [Level](Level.md) | 0..1 <br/> [StudyEstimandLevel](StudyEstimandLevel.md) | Level for the Study Endpoint. Primary endpoint(s) are typically efficacy meas... | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEndPoint element | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable identifier for the StudyEndPoint element. | direct |
+| [type](type.md) | 0..1 <br/> [StudyEndPointType](StudyEndPointType.md) | The type of end point. Simple: measures the change of a single outcome that i... | direct |
+| [level](level.md) | 0..1 <br/> [StudyEstimandLevel](StudyEstimandLevel.md) | Level for the Study Endpoint. Primary endpoint(s) are typically efficacy meas... | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [formalExpression](formalExpression.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -71,7 +71,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyEndPoints](StudyEndPoints.md) | [StudyEndPointRefRef](StudyEndPointRefRef.md) | range | [StudyEndPoint](StudyEndPoint.md) |
+| [StudyEndPoints](StudyEndPoints.md) | [studyEndPoint](studyEndPoint.md) | range | [StudyEndPoint](StudyEndPoint.md) |
 
 
 
@@ -129,15 +129,15 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEndPoint
 rank: 1000
 slots:
-- OID
-- Name
-- Type
-- Level
-- DescriptionRef
-- FormalExpressionRef
+- oID
+- name
+- type
+- level
+- description
+- formalExpression
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyEndPoint element
     comments:
     - 'Required
@@ -184,8 +184,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable identifier for the StudyEndPoint element.
     comments:
     - 'Required
@@ -228,10 +228,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Type:
-    name: Type
+  type:
+    name: type
     description: 'The type of end point. Simple: measures the change of a single outcome
       that is meaningful in the context of the disease being studied. Humane: the
       point at which pain and/or distress is terminated, minimized, or reduced. Surrogate:
@@ -260,8 +260,8 @@ slot_usage:
     - Organization
     - Query
     range: StudyEndPointType
-  Level:
-    name: Level
+  level:
+    name: level
     description: Level for the Study Endpoint. Primary endpoint(s) are typically efficacy
       measures that address the main research question [1] Secondary endpoints are
       generally not sufficient to influence decision-making alone, but may support
@@ -281,8 +281,8 @@ slot_usage:
     - StudyEndPoint
     - StudyEstimand
     range: StudyEstimandLevel
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -322,8 +322,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     multivalued: true
     domain_of:
     - RangeCheck
@@ -354,8 +354,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEndPoint
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyEndPoint element
     comments:
     - 'Required
@@ -402,8 +402,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable identifier for the StudyEndPoint element.
     comments:
     - 'Required
@@ -446,10 +446,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Type:
-    name: Type
+  type:
+    name: type
     description: 'The type of end point. Simple: measures the change of a single outcome
       that is meaningful in the context of the disease being studied. Humane: the
       point at which pain and/or distress is terminated, minimized, or reduced. Surrogate:
@@ -478,8 +478,8 @@ slot_usage:
     - Organization
     - Query
     range: StudyEndPointType
-  Level:
-    name: Level
+  level:
+    name: level
     description: Level for the Study Endpoint. Primary endpoint(s) are typically efficacy
       measures that address the main research question [1] Secondary endpoints are
       generally not sufficient to influence decision-making alone, but may support
@@ -499,8 +499,8 @@ slot_usage:
     - StudyEndPoint
     - StudyEstimand
     range: StudyEstimandLevel
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -540,8 +540,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     multivalued: true
     domain_of:
     - RangeCheck
@@ -553,8 +553,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyEndPoint element
     comments:
     - 'Required
@@ -565,7 +565,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: StudyEndPoint
     domain_of:
     - Study
@@ -606,8 +606,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable identifier for the StudyEndPoint element.
     comments:
     - 'Required
@@ -617,7 +617,7 @@ attributes:
       The Name must be unique within the set of StudyEndPoints elements for the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: StudyEndPoint
     domain_of:
     - Alias
@@ -654,10 +654,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Type:
-    name: Type
+  type:
+    name: type
     description: 'The type of end point. Simple: measures the change of a single outcome
       that is meaningful in the context of the disease being studied. Humane: the
       point at which pain and/or distress is terminated, minimized, or reduced. Surrogate:
@@ -672,7 +672,7 @@ attributes:
       enum values: (Simple | Humane | Surrogate | Composite)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Type
+    alias: type
     owner: StudyEndPoint
     domain_of:
     - TranslatedText
@@ -690,8 +690,8 @@ attributes:
     - Organization
     - Query
     range: StudyEndPointType
-  Level:
-    name: Level
+  level:
+    name: level
     description: Level for the Study Endpoint. Primary endpoint(s) are typically efficacy
       measures that address the main research question [1] Secondary endpoints are
       generally not sufficient to influence decision-making alone, but may support
@@ -708,21 +708,21 @@ attributes:
       Harmonised Protocol Specification'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Level
+    alias: level
     owner: StudyEndPoint
     domain_of:
     - StudyObjective
     - StudyEndPoint
     - StudyEstimand
     range: StudyEstimandLevel
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: StudyEndPoint
     domain_of:
     - Study
@@ -763,8 +763,8 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     description: 'FormalExpression reference: A FormalExpression used within a ConditionDef
       or a RangeCheck must evaluate to True or False. A FormalExpression referenced
       within a MethodDef having Type Imputation, Computation, or Transpose must evaluate
@@ -776,7 +776,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: FormalExpressionRef
+    alias: formalExpression
     owner: StudyEndPoint
     domain_of:
     - RangeCheck

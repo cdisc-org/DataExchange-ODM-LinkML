@@ -11,49 +11,49 @@ URI: [odm:Association](http://www.cdisc.org/ns/odm/v2.0/Association)
 ```mermaid
 erDiagram
 Association {
-    oidref StudyOID  
-    oidref MetaDataVersionOID  
+    oidref studyOID  
+    oidref metaDataVersionOID  
 }
 Annotation {
-    positiveInteger SeqNum  
-    TransactionType TransactionTypeRef  
-    oid ID  
+    positiveInteger seqNum  
+    TransactionType transactionType  
+    oid iD  
 }
 Flag {
 
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 Comment {
-    CommentType SponsorOrSite  
+    CommentType sponsorOrSite  
 }
 KeySet {
-    oidref StudyOID  
-    subjectKey SubjectKey  
-    oidref MetaDataVersionOID  
-    oidref StudyEventOID  
-    repeatKey StudyEventRepeatKey  
-    oidref ItemGroupOID  
-    repeatKey ItemGroupRepeatKey  
-    oidref ItemOID  
+    oidref studyOID  
+    subjectKeyType subjectKey  
+    oidref metaDataVersionOID  
+    oidref studyEventOID  
+    repeatKey studyEventRepeatKey  
+    oidref itemGroupOID  
+    repeatKey itemGroupRepeatKey  
+    oidref itemOID  
 }
 
-Association ||--|o KeySet : "KeySetRef"
-Association ||--|o Annotation : "AnnotationRef"
-Annotation ||--|o Comment : "CommentRef"
-Annotation ||--}o Coding : "CodingRef"
-Annotation ||--}o Flag : "FlagRef"
-Flag ||--|o FlagValue : "FlagValueRef"
-Flag ||--|o FlagType : "FlagTypeRef"
-Comment ||--}o TranslatedText : "TranslatedTextRef"
+Association ||--|o KeySet : "keySet"
+Association ||--|o Annotation : "annotation"
+Annotation ||--|o Comment : "comment"
+Annotation ||--}o Coding : "coding"
+Annotation ||--}o Flag : "flag"
+Flag ||--|o FlagValue : "flagValue"
+Flag ||--|o FlagType : "flagType"
+Comment ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -66,11 +66,11 @@ Comment ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to an ODM Study element. | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a MetaDataVersion element. | direct |
-| [KeySetRef](KeySetRef.md) | 0..1 <br/> [KeySet](KeySet.md) | KeySet reference: A KeySet references a single entity (e.g., a study, a subje... | direct |
-| [KeySetRef](KeySetRef.md) | 0..1 <br/> [KeySet](KeySet.md) | KeySet reference: A KeySet references a single entity (e.g., a study, a subje... | direct |
-| [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
+| [studyOID](studyOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to an ODM Study element. | direct |
+| [metaDataVersionOID](metaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a MetaDataVersion element. | direct |
+| [keySet](keySet.md) | 0..1 <br/> [KeySet](KeySet.md) | KeySet reference: A KeySet references a single entity (e.g., a study, a subje... | direct |
+| [keySet](keySet.md) | 0..1 <br/> [KeySet](KeySet.md) | KeySet reference: A KeySet references a single entity (e.g., a study, a subje... | direct |
+| [annotation](annotation.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -81,7 +81,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ODMFileMetadata](ODMFileMetadata.md) | [AssociationRef](AssociationRef.md) | range | [Association](Association.md) |
+| [ODMFileMetadata](ODMFileMetadata.md) | [association](association.md) | range | [Association](Association.md) |
 
 
 
@@ -137,14 +137,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Association
 rank: 1000
 slots:
-- StudyOID
-- MetaDataVersionOID
-- KeySetRef
-- KeySetRef
-- AnnotationRef
+- studyOID
+- metaDataVersionOID
+- keySet
+- keySet
+- annotation
 slot_usage:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: Reference to an ODM Study element.
     comments:
     - Required
@@ -159,8 +159,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: Reference to a MetaDataVersion element.
     comments:
     - Required
@@ -174,14 +174,14 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  KeySetRef:
-    name: KeySetRef
+  keySet:
+    name: keySet
     domain_of:
     - Association
     range: KeySet
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -210,8 +210,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Association
 rank: 1000
 slot_usage:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: Reference to an ODM Study element.
     comments:
     - Required
@@ -226,8 +226,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: Reference to a MetaDataVersion element.
     comments:
     - Required
@@ -241,14 +241,14 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  KeySetRef:
-    name: KeySetRef
+  keySet:
+    name: keySet
     domain_of:
     - Association
     range: KeySet
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -260,14 +260,14 @@ slot_usage:
     range: Annotation
     maximum_cardinality: 1
 attributes:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: Reference to an ODM Study element.
     comments:
     - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyOID
+    alias: studyOID
     owner: Association
     domain_of:
     - Include
@@ -280,14 +280,14 @@ attributes:
     - KeySet
     range: oidref
     required: true
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: Reference to a MetaDataVersion element.
     comments:
     - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: MetaDataVersionOID
+    alias: metaDataVersionOID
     owner: Association
     domain_of:
     - Include
@@ -299,8 +299,8 @@ attributes:
     - KeySet
     range: oidref
     required: true
-  KeySetRef:
-    name: KeySetRef
+  keySet:
+    name: keySet
     description: 'KeySet reference: A KeySet references a single entity (e.g., a study,
       a subject, a study event). Only those attributes needed to specify the particular
       entity are required, and all others must be omitted (see Section 2.7, Clinical
@@ -308,21 +308,21 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: KeySetRef
+    alias: keySet
     owner: Association
     domain_of:
     - Association
     range: KeySet
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     description: 'Annotation reference: A general note about clinical data. If an
       annotation has both a comment and flags, the flags should be related to the
       comment.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: AnnotationRef
+    alias: annotation
     owner: Association
     domain_of:
     - ReferenceData

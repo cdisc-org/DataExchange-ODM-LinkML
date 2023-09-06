@@ -11,25 +11,25 @@ URI: [odm:AbsoluteTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/AbsoluteTim
 ```mermaid
 erDiagram
 AbsoluteTimingConstraint {
-    oid OID  
-    name Name  
-    oidref StudyEventGroupOID  
-    oidref StudyEventOID  
-    string TimepointTarget  
-    durationDatetime TimepointPreWindow  
-    durationDatetime TimepointPostWindow  
+    oid oID  
+    nameType name  
+    oidref studyEventGroupOID  
+    oidref studyEventOID  
+    string timepointTarget  
+    durationDatetime timepointPreWindow  
+    durationDatetime timepointPostWindow  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-AbsoluteTimingConstraint ||--|o Description : "DescriptionRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+AbsoluteTimingConstraint ||--|o Description : "description"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -42,14 +42,14 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name. | direct |
-| [StudyEventGroupOID](StudyEventGroupOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to StudyEventGroup definition element. | direct |
-| [StudyEventOID](StudyEventOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to StudyEvent definition element. | direct |
-| [TimepointTarget](TimepointTarget.md) | 1..1 <br/> [string](string.md) | Specifies the targetted date, time, or datetime. | direct |
-| [TimepointPreWindow](TimepointPreWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Specifies the amount of time before the TimepointTarget that the activity may... | direct |
-| [TimepointPostWindow](TimepointPostWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Specifies the amount of time after the TimepointTarget that the activity can ... | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name. | direct |
+| [studyEventGroupOID](studyEventGroupOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to StudyEventGroup definition element. | direct |
+| [studyEventOID](studyEventOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to StudyEvent definition element. | direct |
+| [timepointTarget](timepointTarget.md) | 1..1 <br/> [string](string.md) | Specifies the targetted date, time, or datetime. | direct |
+| [timepointPreWindow](timepointPreWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Specifies the amount of time before the TimepointTarget that the activity may... | direct |
+| [timepointPostWindow](timepointPostWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Specifies the amount of time after the TimepointTarget that the activity can ... | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -60,7 +60,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyTiming](StudyTiming.md) | [AbsoluteTimingConstraintRef](AbsoluteTimingConstraintRef.md) | range | [AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) |
+| [StudyTiming](StudyTiming.md) | [absoluteTimingConstraint](absoluteTimingConstraint.md) | range | [AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) |
 
 
 
@@ -115,17 +115,17 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/AbsoluteTimingConstraint
 rank: 1000
 slots:
-- OID
-- Name
-- StudyEventGroupOID
-- StudyEventOID
-- TimepointTarget
-- TimepointPreWindow
-- TimepointPostWindow
-- DescriptionRef
+- oID
+- name
+- studyEventGroupOID
+- studyEventOID
+- timepointTarget
+- timepointPreWindow
+- timepointPostWindow
+- description
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -170,8 +170,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name.
     comments:
     - 'Required
@@ -212,10 +212,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  StudyEventGroupOID:
-    name: StudyEventGroupOID
+  studyEventGroupOID:
+    name: studyEventGroupOID
     description: Reference to StudyEventGroup definition element.
     comments:
     - 'Optional
@@ -225,8 +225,8 @@ slot_usage:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
     range: oidref
-  StudyEventOID:
-    name: StudyEventOID
+  studyEventOID:
+    name: studyEventOID
     description: Reference to StudyEvent definition element.
     comments:
     - 'Optional
@@ -238,13 +238,13 @@ slot_usage:
     - StudyEventData
     - KeySet
     range: oidref
-  TimepointTarget:
-    name: TimepointTarget
+  timepointTarget:
+    name: timepointTarget
     description: Specifies the targetted date, time, or datetime.
     comments:
     - 'Required
 
-      enum values: (date, time, datetime, partialDate, partialTime, partialDatetime
+      enum values: ( date , time , datetime , partialDate , partialTime , partialDatetime
       )
 
       Must be expressed in ISO 8601 format. Note it can be incomplete date/datetime;
@@ -261,8 +261,8 @@ slot_usage:
     - range: partialDate
     - range: partialTime
     - range: partialDatetime
-  TimepointPreWindow:
-    name: TimepointPreWindow
+  timepointPreWindow:
+    name: timepointPreWindow
     description: Specifies the amount of time before the TimepointTarget that the
       activity may be started.
     comments:
@@ -276,8 +276,8 @@ slot_usage:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-  TimepointPostWindow:
-    name: TimepointPostWindow
+  timepointPostWindow:
+    name: timepointPostWindow
     description: Specifies the amount of time after the TimepointTarget that the activity
       can be started.
     comments:
@@ -291,8 +291,8 @@ slot_usage:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -349,8 +349,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/AbsoluteTimingConstraint
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -395,8 +395,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name.
     comments:
     - 'Required
@@ -437,10 +437,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  StudyEventGroupOID:
-    name: StudyEventGroupOID
+  studyEventGroupOID:
+    name: studyEventGroupOID
     description: Reference to StudyEventGroup definition element.
     comments:
     - 'Optional
@@ -450,8 +450,8 @@ slot_usage:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
     range: oidref
-  StudyEventOID:
-    name: StudyEventOID
+  studyEventOID:
+    name: studyEventOID
     description: Reference to StudyEvent definition element.
     comments:
     - 'Optional
@@ -463,13 +463,13 @@ slot_usage:
     - StudyEventData
     - KeySet
     range: oidref
-  TimepointTarget:
-    name: TimepointTarget
+  timepointTarget:
+    name: timepointTarget
     description: Specifies the targetted date, time, or datetime.
     comments:
     - 'Required
 
-      enum values: (date, time, datetime, partialDate, partialTime, partialDatetime
+      enum values: ( date , time , datetime , partialDate , partialTime , partialDatetime
       )
 
       Must be expressed in ISO 8601 format. Note it can be incomplete date/datetime;
@@ -486,8 +486,8 @@ slot_usage:
     - range: partialDate
     - range: partialTime
     - range: partialDatetime
-  TimepointPreWindow:
-    name: TimepointPreWindow
+  timepointPreWindow:
+    name: timepointPreWindow
     description: Specifies the amount of time before the TimepointTarget that the
       activity may be started.
     comments:
@@ -501,8 +501,8 @@ slot_usage:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-  TimepointPostWindow:
-    name: TimepointPostWindow
+  timepointPostWindow:
+    name: timepointPostWindow
     description: Specifies the amount of time after the TimepointTarget that the activity
       can be started.
     comments:
@@ -516,8 +516,8 @@ slot_usage:
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -558,8 +558,8 @@ slot_usage:
     range: Description
     maximum_cardinality: 1
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -568,7 +568,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: AbsoluteTimingConstraint
     domain_of:
     - Study
@@ -609,8 +609,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name.
     comments:
     - 'Required
@@ -618,7 +618,7 @@ attributes:
       range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: AbsoluteTimingConstraint
     domain_of:
     - Alias
@@ -655,10 +655,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  StudyEventGroupOID:
-    name: StudyEventGroupOID
+  studyEventGroupOID:
+    name: studyEventGroupOID
     description: Reference to StudyEventGroup definition element.
     comments:
     - 'Optional
@@ -666,14 +666,14 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyEventGroupOID
+    alias: studyEventGroupOID
     owner: AbsoluteTimingConstraint
     domain_of:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
     range: oidref
-  StudyEventOID:
-    name: StudyEventOID
+  studyEventOID:
+    name: studyEventOID
     description: Reference to StudyEvent definition element.
     comments:
     - 'Optional
@@ -681,7 +681,7 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyEventOID
+    alias: studyEventOID
     owner: AbsoluteTimingConstraint
     domain_of:
     - StudyEventRef
@@ -689,13 +689,13 @@ attributes:
     - StudyEventData
     - KeySet
     range: oidref
-  TimepointTarget:
-    name: TimepointTarget
+  timepointTarget:
+    name: timepointTarget
     description: Specifies the targetted date, time, or datetime.
     comments:
     - 'Required
 
-      enum values: (date, time, datetime, partialDate, partialTime, partialDatetime
+      enum values: ( date , time , datetime , partialDate , partialTime , partialDatetime
       )
 
       Must be expressed in ISO 8601 format. Note it can be incomplete date/datetime;
@@ -703,7 +703,7 @@ attributes:
       may be expressed as "-----T09".'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TimepointTarget
+    alias: timepointTarget
     owner: AbsoluteTimingConstraint
     domain_of:
     - TransitionTimingConstraint
@@ -717,8 +717,8 @@ attributes:
     - range: partialDate
     - range: partialTime
     - range: partialDatetime
-  TimepointPreWindow:
-    name: TimepointPreWindow
+  timepointPreWindow:
+    name: timepointPreWindow
     description: Specifies the amount of time before the TimepointTarget that the
       activity may be started.
     comments:
@@ -729,15 +729,15 @@ attributes:
       Must be expressed as an ISO 8601 duration.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TimepointPreWindow
+    alias: timepointPreWindow
     owner: AbsoluteTimingConstraint
     domain_of:
     - TransitionTimingConstraint
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-  TimepointPostWindow:
-    name: TimepointPostWindow
+  timepointPostWindow:
+    name: timepointPostWindow
     description: Specifies the amount of time after the TimepointTarget that the activity
       can be started.
     comments:
@@ -748,21 +748,21 @@ attributes:
       Must be expressed as an ISO 8601 duration.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TimepointPostWindow
+    alias: timepointPostWindow
     owner: AbsoluteTimingConstraint
     domain_of:
     - TransitionTimingConstraint
     - AbsoluteTimingConstraint
     - RelativeTimingConstraint
     range: durationDatetime
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: AbsoluteTimingConstraint
     domain_of:
     - Study

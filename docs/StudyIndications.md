@@ -14,26 +14,26 @@ StudyIndications {
 
 }
 StudyIndication {
-    oid OID  
+    oid oID  
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 Description {
 
 }
 
-StudyIndications ||--}o StudyIndication : "StudyIndicationRef"
-StudyIndication ||--|o Description : "DescriptionRef"
-StudyIndication ||--}o Coding : "CodingRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+StudyIndications ||--}o StudyIndication : "studyIndication"
+StudyIndication ||--|o Description : "description"
+StudyIndication ||--}o Coding : "coding"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -46,7 +46,7 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyIndicationRef](StudyIndicationRef.md) | 0..* <br/> [StudyIndication](StudyIndication.md) | StudyIndication reference: This element describes a study indication (e.g., c... | direct |
+| [studyIndication](studyIndication.md) | 0..* <br/> [StudyIndication](StudyIndication.md) | StudyIndication reference: This element describes a study indication (e.g., c... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -57,7 +57,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Protocol](Protocol.md) | [StudyIndicationsRef](StudyIndicationsRef.md) | range | [StudyIndications](StudyIndications.md) |
+| [Protocol](Protocol.md) | [studyIndications](studyIndications.md) | range | [StudyIndications](StudyIndications.md) |
 
 
 
@@ -112,10 +112,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyIndications
 rank: 1000
 slots:
-- StudyIndicationRef
+- studyIndication
 slot_usage:
-  StudyIndicationRef:
-    name: StudyIndicationRef
+  studyIndication:
+    name: studyIndication
     multivalued: true
     domain_of:
     - StudyIndications
@@ -139,8 +139,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyIndications
 rank: 1000
 slot_usage:
-  StudyIndicationRef:
-    name: StudyIndicationRef
+  studyIndication:
+    name: studyIndication
     multivalued: true
     domain_of:
     - StudyIndications
@@ -148,8 +148,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  StudyIndicationRef:
-    name: StudyIndicationRef
+  studyIndication:
+    name: studyIndication
     description: 'StudyIndication reference: This element describes a study indication
       (e.g., condition, disease) for the clinical study. The human-readable description
       is provided in the Description element. The Coding element can be used to provide
@@ -159,7 +159,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: StudyIndicationRef
+    alias: studyIndication
     owner: StudyIndications
     domain_of:
     - StudyIndications

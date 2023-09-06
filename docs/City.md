@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Address](Address.md) | [CityRef](CityRef.md) | range | [City](City.md) |
+| [Address](Address.md) | [city](city.md) | range | [City](City.md) |
 
 
 

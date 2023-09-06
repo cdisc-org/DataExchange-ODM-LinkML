@@ -11,7 +11,7 @@ URI: [odm:UserRef](http://www.cdisc.org/ns/odm/v2.0/UserRef)
 ```mermaid
 erDiagram
 UserRef {
-    oidref UserOID  
+    oidref userOID  
 }
 
 
@@ -27,7 +27,7 @@ UserRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [UserOID](UserOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the User definition. | direct |
+| [userOID](userOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the User definition. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,8 +38,8 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AuditRecord](AuditRecord.md) | [UserRefRef](UserRefRef.md) | range | [UserRef](UserRef.md) |
-| [Signature](Signature.md) | [UserRefRef](UserRefRef.md) | range | [UserRef](UserRef.md) |
+| [AuditRecord](AuditRecord.md) | [userRef](userRef.md) | range | [UserRef](UserRef.md) |
+| [Signature](Signature.md) | [userRef](userRef.md) | range | [UserRef](UserRef.md) |
 
 
 
@@ -94,10 +94,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/UserRef
 rank: 1000
 slots:
-- UserOID
+- userOID
 slot_usage:
-  UserOID:
-    name: UserOID
+  userOID:
+    name: userOID
     description: Reference to the User definition.
     comments:
     - 'Required
@@ -127,8 +127,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/UserRef
 rank: 1000
 slot_usage:
-  UserOID:
-    name: UserOID
+  userOID:
+    name: userOID
     description: Reference to the User definition.
     comments:
     - 'Required
@@ -142,8 +142,8 @@ slot_usage:
     range: oidref
     required: true
 attributes:
-  UserOID:
-    name: UserOID
+  userOID:
+    name: userOID
     description: Reference to the User definition.
     comments:
     - 'Required
@@ -153,7 +153,7 @@ attributes:
       attribute in the the AdminData element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: UserOID
+    alias: userOID
     owner: UserRef
     domain_of:
     - InvestigatorRef

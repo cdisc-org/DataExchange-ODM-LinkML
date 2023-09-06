@@ -11,14 +11,14 @@ URI: [odm:Coding](http://www.cdisc.org/ns/odm/v2.0/Coding)
 ```mermaid
 erDiagram
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 
 
@@ -34,14 +34,14 @@ Coding {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [CodeRef](CodeRef.md) | 0..1 <br/> [text](text.md) | A string pattern that identifies a concept as defined by the code system. | direct |
-| [System](System.md) | 1..1 <br/> [uriorcurie](uriorcurie.md) | Identifies the code system that defines the code. If the code is taken from a... | direct |
-| [SystemName](SystemName.md) | 0..1 <br/> [text](text.md) | Human readable name for the code system. | direct |
-| [SystemVersion](SystemVersion.md) | 0..1 <br/> [text](text.md) | Identifies the version of the code system | direct |
-| [Label](Label.md) | 0..1 <br/> [text](text.md) | Used to link the value to a named MethodDef parameter. | direct |
+| [code](code.md) | 0..1 <br/> [text](text.md) | A string pattern that identifies a concept as defined by the code system. | direct |
+| [system](system.md) | 1..1 <br/> [uriorcurie](uriorcurie.md) | Identifies the code system that defines the code. If the code is taken from a... | direct |
+| [systemName](systemName.md) | 0..1 <br/> [text](text.md) | Human readable name for the code system. | direct |
+| [systemVersion](systemVersion.md) | 0..1 <br/> [text](text.md) | Identifies the version of the code system | direct |
+| [label](label.md) | 0..1 <br/> [text](text.md) | Used to link the value to a named MethodDef parameter. | direct |
 | [href](href.md) | 0..1 <br/> [uriorcurie](uriorcurie.md) | URI reference to the Code definition. | direct |
 | [ref](ref.md) | 0..1 <br/> [uriorcurie](uriorcurie.md) | Reference to a local instance of the code system. | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [text](text.md) | Reference to a CommentDef that provides the rationale for the use of the Conc... | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [text](text.md) | Reference to a CommentDef that provides the rationale for the use of the Conc... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -52,22 +52,22 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyEventGroupDef](StudyEventGroupDef.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [StudyEventDef](StudyEventDef.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [ItemGroupDef](ItemGroupDef.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [Origin](Origin.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [SourceItems](SourceItems.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [SourceItem](SourceItem.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [ItemDef](ItemDef.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [CodeList](CodeList.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [CodeListItem](CodeListItem.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [StudyIndication](StudyIndication.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [StudyIntervention](StudyIntervention.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [StudyTargetPopulation](StudyTargetPopulation.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [StudyParameter](StudyParameter.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [ParameterValue](ParameterValue.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [Criterion](Criterion.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
-| [Annotation](Annotation.md) | [CodingRef](CodingRef.md) | range | [Coding](Coding.md) |
+| [StudyEventGroupDef](StudyEventGroupDef.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [StudyEventDef](StudyEventDef.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [Origin](Origin.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [SourceItems](SourceItems.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [SourceItem](SourceItem.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [ItemDef](ItemDef.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [CodeList](CodeList.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [CodeListItem](CodeListItem.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [StudyIndication](StudyIndication.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [StudyIntervention](StudyIntervention.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [StudyTargetPopulation](StudyTargetPopulation.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [StudyParameter](StudyParameter.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [ParameterValue](ParameterValue.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [Criterion](Criterion.md) | [coding](coding.md) | range | [Coding](Coding.md) |
+| [Annotation](Annotation.md) | [coding](coding.md) | range | [Coding](Coding.md) |
 
 
 
@@ -125,17 +125,17 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Coding
 rank: 1000
 slots:
-- CodeRef
-- System
-- SystemName
-- SystemVersion
-- Label
+- code
+- system
+- systemName
+- systemVersion
+- label
 - href
 - ref
-- CommentOID
+- commentOID
 slot_usage:
-  CodeRef:
-    name: CodeRef
+  code:
+    name: code
     description: A string pattern that identifies a concept as defined by the code
       system.
     comments:
@@ -149,8 +149,8 @@ slot_usage:
     - FormalExpression
     - Coding
     range: text
-  System:
-    name: System
+  system:
+    name: system
     description: Identifies the code system that defines the code. If the code is
       taken from a code system resource then the URL for the code system should be
       used.
@@ -162,8 +162,8 @@ slot_usage:
     - Coding
     range: uriorcurie
     required: true
-  SystemName:
-    name: SystemName
+  systemName:
+    name: systemName
     description: Human readable name for the code system.
     comments:
     - 'Optional
@@ -172,8 +172,8 @@ slot_usage:
     domain_of:
     - Coding
     range: text
-  SystemVersion:
-    name: SystemVersion
+  systemVersion:
+    name: systemVersion
     description: Identifies the version of the code system
     comments:
     - 'Optional
@@ -182,8 +182,8 @@ slot_usage:
     domain_of:
     - Coding
     range: text
-  Label:
-    name: Label
+  label:
+    name: label
     description: Used to link the value to a named MethodDef parameter.
     comments:
     - 'Optional
@@ -218,8 +218,8 @@ slot_usage:
     - ExternalCodeLib
     - Coding
     range: uriorcurie
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef that provides the rationale for the use
       of the Concept.
     comments:
@@ -262,8 +262,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Coding
 rank: 1000
 slot_usage:
-  CodeRef:
-    name: CodeRef
+  code:
+    name: code
     description: A string pattern that identifies a concept as defined by the code
       system.
     comments:
@@ -277,8 +277,8 @@ slot_usage:
     - FormalExpression
     - Coding
     range: text
-  System:
-    name: System
+  system:
+    name: system
     description: Identifies the code system that defines the code. If the code is
       taken from a code system resource then the URL for the code system should be
       used.
@@ -290,8 +290,8 @@ slot_usage:
     - Coding
     range: uriorcurie
     required: true
-  SystemName:
-    name: SystemName
+  systemName:
+    name: systemName
     description: Human readable name for the code system.
     comments:
     - 'Optional
@@ -300,8 +300,8 @@ slot_usage:
     domain_of:
     - Coding
     range: text
-  SystemVersion:
-    name: SystemVersion
+  systemVersion:
+    name: systemVersion
     description: Identifies the version of the code system
     comments:
     - 'Optional
@@ -310,8 +310,8 @@ slot_usage:
     domain_of:
     - Coding
     range: text
-  Label:
-    name: Label
+  label:
+    name: label
     description: Used to link the value to a named MethodDef parameter.
     comments:
     - 'Optional
@@ -346,8 +346,8 @@ slot_usage:
     - ExternalCodeLib
     - Coding
     range: uriorcurie
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef that provides the rationale for the use
       of the Concept.
     comments:
@@ -371,8 +371,8 @@ slot_usage:
     - Coding
     range: text
 attributes:
-  CodeRef:
-    name: CodeRef
+  code:
+    name: code
     description: A string pattern that identifies a concept as defined by the code
       system.
     comments:
@@ -385,14 +385,14 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: CodeRef
+    alias: code
     owner: Coding
     domain_of:
     - FormalExpression
     - Coding
     range: text
-  System:
-    name: System
+  system:
+    name: system
     description: Identifies the code system that defines the code. If the code is
       taken from a code system resource then the URL for the code system should be
       used.
@@ -402,14 +402,14 @@ attributes:
       range: URI'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: System
+    alias: system
     owner: Coding
     domain_of:
     - Coding
     range: uriorcurie
     required: true
-  SystemName:
-    name: SystemName
+  systemName:
+    name: systemName
     description: Human readable name for the code system.
     comments:
     - 'Optional
@@ -417,13 +417,13 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: SystemName
+    alias: systemName
     owner: Coding
     domain_of:
     - Coding
     range: text
-  SystemVersion:
-    name: SystemVersion
+  systemVersion:
+    name: systemVersion
     description: Identifies the version of the code system
     comments:
     - 'Optional
@@ -431,13 +431,13 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: SystemVersion
+    alias: systemVersion
     owner: Coding
     domain_of:
     - Coding
     range: text
-  Label:
-    name: Label
+  label:
+    name: label
     description: Used to link the value to a named MethodDef parameter.
     comments:
     - 'Optional
@@ -445,7 +445,7 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Label
+    alias: label
     owner: Coding
     domain_of:
     - Resource
@@ -484,8 +484,8 @@ attributes:
     - ExternalCodeLib
     - Coding
     range: uriorcurie
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef that provides the rationale for the use
       of the Concept.
     comments:
@@ -496,7 +496,7 @@ attributes:
       Must match the OID attribute of a CommentDef element within in this Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: CommentOID
+    alias: commentOID
     owner: Coding
     domain_of:
     - MetaDataVersion

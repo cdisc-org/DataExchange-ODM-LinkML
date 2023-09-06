@@ -11,7 +11,7 @@ URI: [odm:ValueListRef](http://www.cdisc.org/ns/odm/v2.0/ValueListRef)
 ```mermaid
 erDiagram
 ValueListRef {
-    oidref ValueListOID  
+    oidref valueListOID  
 }
 
 
@@ -27,7 +27,7 @@ ValueListRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ValueListOID](ValueListOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a ValueListDef element that provides value-leve... | direct |
+| [valueListOID](valueListOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a ValueListDef element that provides value-leve... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ItemDef](ItemDef.md) | [ValueListRefRef](ValueListRefRef.md) | range | [ValueListRef](ValueListRef.md) |
+| [ItemDef](ItemDef.md) | [valueListRef](valueListRef.md) | range | [ValueListRef](ValueListRef.md) |
 
 
 
@@ -95,10 +95,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ValueListRef
 rank: 1000
 slots:
-- ValueListOID
+- valueListOID
 slot_usage:
-  ValueListOID:
-    name: ValueListOID
+  valueListOID:
+    name: valueListOID
     description: Reference to the unique ID of a ValueListDef element that provides
       value-level metadata.
     comments:
@@ -130,8 +130,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ValueListRef
 rank: 1000
 slot_usage:
-  ValueListOID:
-    name: ValueListOID
+  valueListOID:
+    name: valueListOID
     description: Reference to the unique ID of a ValueListDef element that provides
       value-level metadata.
     comments:
@@ -145,8 +145,8 @@ slot_usage:
     range: oidref
     required: true
 attributes:
-  ValueListOID:
-    name: ValueListOID
+  valueListOID:
+    name: valueListOID
     description: Reference to the unique ID of a ValueListDef element that provides
       value-level metadata.
     comments:
@@ -157,7 +157,7 @@ attributes:
       Must match the OID of a ValueListDef in the same MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ValueListOID
+    alias: valueListOID
     owner: ValueListRef
     domain_of:
     - ValueListRef

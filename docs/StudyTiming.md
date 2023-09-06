@@ -11,59 +11,59 @@ URI: [odm:StudyTiming](http://www.cdisc.org/ns/odm/v2.0/StudyTiming)
 ```mermaid
 erDiagram
 StudyTiming {
-    oid OID  
-    name Name  
+    oid oID  
+    nameType name  
 }
 DurationTimingConstraint {
-    oid OID  
-    name Name  
-    oidref StructuralElementOID  
-    durationDatetime DurationTarget  
-    durationDatetime DurationPreWindow  
-    durationDatetime DurationPostWindow  
+    oid oID  
+    nameType name  
+    oidref structuralElementOID  
+    durationDatetime durationTarget  
+    durationDatetime durationPreWindow  
+    durationDatetime durationPostWindow  
 }
 Description {
 
 }
 TransitionTimingConstraint {
-    oid OID  
-    name Name  
-    oidref TransitionOID  
-    oidref MethodOID  
-    RelativeTimingConstraintType Type  
-    durationDatetime TimepointTarget  
-    durationDatetime TimepointPreWindow  
-    durationDatetime TimepointPostWindow  
+    oid oID  
+    nameType name  
+    oidref transitionOID  
+    oidref methodOID  
+    RelativeTimingConstraintType type  
+    durationDatetime timepointTarget  
+    durationDatetime timepointPreWindow  
+    durationDatetime timepointPostWindow  
 }
 RelativeTimingConstraint {
-    oid OID  
-    name Name  
-    oidref PredecessorOID  
-    oidref SuccessorOID  
-    RelativeTimingConstraintType Type  
-    durationDatetime TimepointRelativeTarget  
-    durationDatetime TimepointPreWindow  
-    durationDatetime TimepointPostWindow  
+    oid oID  
+    nameType name  
+    oidref predecessorOID  
+    oidref successorOID  
+    RelativeTimingConstraintType type  
+    durationDatetime timepointRelativeTarget  
+    durationDatetime timepointPreWindow  
+    durationDatetime timepointPostWindow  
 }
 AbsoluteTimingConstraint {
-    oid OID  
-    name Name  
-    oidref StudyEventGroupOID  
-    oidref StudyEventOID  
-    string TimepointTarget  
-    durationDatetime TimepointPreWindow  
-    durationDatetime TimepointPostWindow  
+    oid oID  
+    nameType name  
+    oidref studyEventGroupOID  
+    oidref studyEventOID  
+    string timepointTarget  
+    durationDatetime timepointPreWindow  
+    durationDatetime timepointPostWindow  
 }
 
-StudyTiming ||--}o AbsoluteTimingConstraint : "AbsoluteTimingConstraintRef"
-StudyTiming ||--}o RelativeTimingConstraint : "RelativeTimingConstraintRef"
-StudyTiming ||--}o TransitionTimingConstraint : "TransitionTimingConstraintRef"
-StudyTiming ||--}o DurationTimingConstraint : "DurationTimingConstraintRef"
-DurationTimingConstraint ||--|o Description : "DescriptionRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
-TransitionTimingConstraint ||--|o Description : "DescriptionRef"
-RelativeTimingConstraint ||--|o Description : "DescriptionRef"
-AbsoluteTimingConstraint ||--|o Description : "DescriptionRef"
+StudyTiming ||--}o AbsoluteTimingConstraint : "absoluteTimingConstraint"
+StudyTiming ||--}o RelativeTimingConstraint : "relativeTimingConstraint"
+StudyTiming ||--}o TransitionTimingConstraint : "transitionTimingConstraint"
+StudyTiming ||--}o DurationTimingConstraint : "durationTimingConstraint"
+DurationTimingConstraint ||--|o Description : "description"
+Description ||--}o TranslatedText : "translatedText"
+TransitionTimingConstraint ||--|o Description : "description"
+RelativeTimingConstraint ||--|o Description : "description"
+AbsoluteTimingConstraint ||--|o Description : "description"
 
 ```
 
@@ -76,12 +76,12 @@ AbsoluteTimingConstraint ||--|o Description : "DescriptionRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for a StudyTiming element. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable identifier for a StudyTiming element. | direct |
-| [AbsoluteTimingConstraintRef](AbsoluteTimingConstraintRef.md) | 0..* <br/> [AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) | AbsoluteTimingConstraint reference: The element AbsoluteTimingConstraint is u... | direct |
-| [RelativeTimingConstraintRef](RelativeTimingConstraintRef.md) | 0..* <br/> [RelativeTimingConstraint](RelativeTimingConstraint.md) | RelativeTimingConstraint reference: The RelativeTimingConstraint element desc... | direct |
-| [TransitionTimingConstraintRef](TransitionTimingConstraintRef.md) | 0..* <br/> [TransitionTimingConstraint](TransitionTimingConstraint.md) | TransitionTimingConstraint reference: The TransitionTimingConstraint element ... | direct |
-| [DurationTimingConstraintRef](DurationTimingConstraintRef.md) | 0..* <br/> [DurationTimingConstraint](DurationTimingConstraint.md) | DurationTimingConstraint reference: The DurationTimingConstraint constrains t... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for a StudyTiming element. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable identifier for a StudyTiming element. | direct |
+| [absoluteTimingConstraint](absoluteTimingConstraint.md) | 0..* <br/> [AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) | AbsoluteTimingConstraint reference: The element AbsoluteTimingConstraint is u... | direct |
+| [relativeTimingConstraint](relativeTimingConstraint.md) | 0..* <br/> [RelativeTimingConstraint](RelativeTimingConstraint.md) | RelativeTimingConstraint reference: The RelativeTimingConstraint element desc... | direct |
+| [transitionTimingConstraint](transitionTimingConstraint.md) | 0..* <br/> [TransitionTimingConstraint](TransitionTimingConstraint.md) | TransitionTimingConstraint reference: The TransitionTimingConstraint element ... | direct |
+| [durationTimingConstraint](durationTimingConstraint.md) | 0..* <br/> [DurationTimingConstraint](DurationTimingConstraint.md) | DurationTimingConstraint reference: The DurationTimingConstraint constrains t... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -92,7 +92,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyTimings](StudyTimings.md) | [StudyTimingRef](StudyTimingRef.md) | range | [StudyTiming](StudyTiming.md) |
+| [StudyTimings](StudyTimings.md) | [studyTiming](studyTiming.md) | range | [StudyTiming](StudyTiming.md) |
 
 
 
@@ -152,15 +152,15 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyTiming
 rank: 1000
 slots:
-- OID
-- Name
-- AbsoluteTimingConstraintRef
-- RelativeTimingConstraintRef
-- TransitionTimingConstraintRef
-- DurationTimingConstraintRef
+- oID
+- name
+- absoluteTimingConstraint
+- relativeTimingConstraint
+- transitionTimingConstraint
+- durationTimingConstraint
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for a StudyTiming element.
     comments:
     - 'Required
@@ -207,8 +207,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable identifier for a StudyTiming element.
     comments:
     - 'Required
@@ -251,34 +251,34 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  AbsoluteTimingConstraintRef:
-    name: AbsoluteTimingConstraintRef
+  absoluteTimingConstraint:
+    name: absoluteTimingConstraint
     multivalued: true
     domain_of:
     - StudyTiming
     range: AbsoluteTimingConstraint
     inlined: true
     inlined_as_list: true
-  RelativeTimingConstraintRef:
-    name: RelativeTimingConstraintRef
+  relativeTimingConstraint:
+    name: relativeTimingConstraint
     multivalued: true
     domain_of:
     - StudyTiming
     range: RelativeTimingConstraint
     inlined: true
     inlined_as_list: true
-  TransitionTimingConstraintRef:
-    name: TransitionTimingConstraintRef
+  transitionTimingConstraint:
+    name: transitionTimingConstraint
     multivalued: true
     domain_of:
     - StudyTiming
     range: TransitionTimingConstraint
     inlined: true
     inlined_as_list: true
-  DurationTimingConstraintRef:
-    name: DurationTimingConstraintRef
+  durationTimingConstraint:
+    name: durationTimingConstraint
     multivalued: true
     domain_of:
     - StudyTiming
@@ -307,8 +307,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyTiming
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for a StudyTiming element.
     comments:
     - 'Required
@@ -355,8 +355,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable identifier for a StudyTiming element.
     comments:
     - 'Required
@@ -399,34 +399,34 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  AbsoluteTimingConstraintRef:
-    name: AbsoluteTimingConstraintRef
+  absoluteTimingConstraint:
+    name: absoluteTimingConstraint
     multivalued: true
     domain_of:
     - StudyTiming
     range: AbsoluteTimingConstraint
     inlined: true
     inlined_as_list: true
-  RelativeTimingConstraintRef:
-    name: RelativeTimingConstraintRef
+  relativeTimingConstraint:
+    name: relativeTimingConstraint
     multivalued: true
     domain_of:
     - StudyTiming
     range: RelativeTimingConstraint
     inlined: true
     inlined_as_list: true
-  TransitionTimingConstraintRef:
-    name: TransitionTimingConstraintRef
+  transitionTimingConstraint:
+    name: transitionTimingConstraint
     multivalued: true
     domain_of:
     - StudyTiming
     range: TransitionTimingConstraint
     inlined: true
     inlined_as_list: true
-  DurationTimingConstraintRef:
-    name: DurationTimingConstraintRef
+  durationTimingConstraint:
+    name: durationTimingConstraint
     multivalued: true
     domain_of:
     - StudyTiming
@@ -434,8 +434,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for a StudyTiming element.
     comments:
     - 'Required
@@ -446,7 +446,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: StudyTiming
     domain_of:
     - Study
@@ -487,8 +487,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable identifier for a StudyTiming element.
     comments:
     - 'Required
@@ -498,7 +498,7 @@ attributes:
       The StudyTiming/@Name value must be unique within the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: StudyTiming
     domain_of:
     - Alias
@@ -535,10 +535,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  AbsoluteTimingConstraintRef:
-    name: AbsoluteTimingConstraintRef
+  absoluteTimingConstraint:
+    name: absoluteTimingConstraint
     description: 'AbsoluteTimingConstraint reference: The element AbsoluteTimingConstraint
       is used to specify when an activity, represented by either a StudyEventGroup
       or StudyEvent, can take place.'
@@ -546,15 +546,15 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: AbsoluteTimingConstraintRef
+    alias: absoluteTimingConstraint
     owner: StudyTiming
     domain_of:
     - StudyTiming
     range: AbsoluteTimingConstraint
     inlined: true
     inlined_as_list: true
-  RelativeTimingConstraintRef:
-    name: RelativeTimingConstraintRef
+  relativeTimingConstraint:
+    name: relativeTimingConstraint
     description: 'RelativeTimingConstraint reference: The RelativeTimingConstraint
       element describes a relative timing constraint between 2 activities or groups
       of activities, represented by StudyEventGroups, StudyEvents, ItemGroups, or
@@ -563,15 +563,15 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: RelativeTimingConstraintRef
+    alias: relativeTimingConstraint
     owner: StudyTiming
     domain_of:
     - StudyTiming
     range: RelativeTimingConstraint
     inlined: true
     inlined_as_list: true
-  TransitionTimingConstraintRef:
-    name: TransitionTimingConstraintRef
+  transitionTimingConstraint:
+    name: transitionTimingConstraint
     description: 'TransitionTimingConstraint reference: The TransitionTimingConstraint
       element defines a timing constraint on a transition between structural elements
       as defined in a workflow. As such, it is a non-blocking constraint. This means
@@ -581,15 +581,15 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: TransitionTimingConstraintRef
+    alias: transitionTimingConstraint
     owner: StudyTiming
     domain_of:
     - StudyTiming
     range: TransitionTimingConstraint
     inlined: true
     inlined_as_list: true
-  DurationTimingConstraintRef:
-    name: DurationTimingConstraintRef
+  durationTimingConstraint:
+    name: durationTimingConstraint
     description: 'DurationTimingConstraint reference: The DurationTimingConstraint
       constrains the duration of an activity represented by a study, epoch, StudyEventGroupDef,
       StudyEventDef, ItemGroupDef, or ItemDef. It is used to constrain the duration
@@ -598,7 +598,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: DurationTimingConstraintRef
+    alias: durationTimingConstraint
     owner: StudyTiming
     domain_of:
     - StudyTiming

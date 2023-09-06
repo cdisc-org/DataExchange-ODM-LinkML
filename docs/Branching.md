@@ -11,20 +11,20 @@ URI: [odm:Branching](http://www.cdisc.org/ns/odm/v2.0/Branching)
 ```mermaid
 erDiagram
 Branching {
-    oid OID  
-    name Name  
-    BranchingType Type  
+    oid oID  
+    nameType name  
+    BranchingType type  
 }
 DefaultTransition {
-    oidref TargetTransitionOID  
+    oidref targetTransitionOID  
 }
 TargetTransition {
-    oidref TargetTransitionOID  
-    oidref ConditionOID  
+    oidref targetTransitionOID  
+    oidref conditionOID  
 }
 
-Branching ||--}o TargetTransition : "TargetTransitionRef"
-Branching ||--}o DefaultTransition : "DefaultTransitionRef"
+Branching ||--}o TargetTransition : "targetTransition"
+Branching ||--}o DefaultTransition : "defaultTransition"
 
 ```
 
@@ -37,11 +37,11 @@ Branching ||--}o DefaultTransition : "DefaultTransitionRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier of the version within the XML document. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | General observation Sub Class. | direct |
-| [Type](Type.md) | 1..1 <br/> [BranchingType](BranchingType.md) | Type of page for page references indicated in the PageRefs attribute. | direct |
-| [TargetTransitionRef](TargetTransitionRef.md) | 0..* <br/> [TargetTransition](TargetTransition.md) | TargetTransition reference: TargetTransition provides a reference to a Transi... | direct |
-| [DefaultTransitionRef](DefaultTransitionRef.md) | 0..* <br/> [DefaultTransition](DefaultTransition.md) | DefaultTransition reference: The DefaultTransition references the Transition ... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier of the version within the XML document. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | General observation Sub Class. | direct |
+| [type](type.md) | 1..1 <br/> [BranchingType](BranchingType.md) | Type of page for page references indicated in the PageRefs attribute. | direct |
+| [targetTransition](targetTransition.md) | 0..* <br/> [TargetTransition](TargetTransition.md) | TargetTransition reference: TargetTransition provides a reference to a Transi... | direct |
+| [defaultTransition](defaultTransition.md) | 0..* <br/> [DefaultTransition](DefaultTransition.md) | DefaultTransition reference: The DefaultTransition references the Transition ... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -52,7 +52,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [WorkflowDef](WorkflowDef.md) | [BranchingRef](BranchingRef.md) | range | [Branching](Branching.md) |
+| [WorkflowDef](WorkflowDef.md) | [branching](branching.md) | range | [Branching](Branching.md) |
 
 
 
@@ -107,14 +107,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Branching
 rank: 1000
 slots:
-- OID
-- Name
-- Type
-- TargetTransitionRef
-- DefaultTransitionRef
+- oID
+- name
+- type
+- targetTransition
+- defaultTransition
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     comments:
     - 'Required
 
@@ -160,8 +160,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     comments:
     - 'Required
 
@@ -203,10 +203,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Type:
-    name: Type
+  type:
+    name: type
     comments:
     - 'Required
 
@@ -231,16 +231,16 @@ slot_usage:
     - Query
     range: BranchingType
     required: true
-  TargetTransitionRef:
-    name: TargetTransitionRef
+  targetTransition:
+    name: targetTransition
     multivalued: true
     domain_of:
     - Branching
     range: TargetTransition
     inlined: true
     inlined_as_list: true
-  DefaultTransitionRef:
-    name: DefaultTransitionRef
+  defaultTransition:
+    name: defaultTransition
     multivalued: true
     domain_of:
     - Branching
@@ -264,8 +264,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Branching
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     comments:
     - 'Required
 
@@ -311,8 +311,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     comments:
     - 'Required
 
@@ -354,10 +354,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Type:
-    name: Type
+  type:
+    name: type
     comments:
     - 'Required
 
@@ -382,16 +382,16 @@ slot_usage:
     - Query
     range: BranchingType
     required: true
-  TargetTransitionRef:
-    name: TargetTransitionRef
+  targetTransition:
+    name: targetTransition
     multivalued: true
     domain_of:
     - Branching
     range: TargetTransition
     inlined: true
     inlined_as_list: true
-  DefaultTransitionRef:
-    name: DefaultTransitionRef
+  defaultTransition:
+    name: defaultTransition
     multivalued: true
     domain_of:
     - Branching
@@ -399,8 +399,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier of the version within the XML document.
     comments:
     - 'Required
@@ -411,7 +411,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: Branching
     domain_of:
     - Study
@@ -452,8 +452,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: General observation Sub Class.
     comments:
     - 'Required
@@ -463,7 +463,7 @@ attributes:
       The Branching/@Name attribute must be unique within the set of Study/MetaDataVersion/WorkflowDefs'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: Branching
     domain_of:
     - Alias
@@ -500,10 +500,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Type:
-    name: Type
+  type:
+    name: type
     description: Type of page for page references indicated in the PageRefs attribute.
     comments:
     - 'Required
@@ -514,7 +514,7 @@ attributes:
       the value of Type is "Exclusive".'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Type
+    alias: type
     owner: Branching
     domain_of:
     - TranslatedText
@@ -533,23 +533,23 @@ attributes:
     - Query
     range: BranchingType
     required: true
-  TargetTransitionRef:
-    name: TargetTransitionRef
+  targetTransition:
+    name: targetTransition
     description: 'TargetTransition reference: TargetTransition provides a reference
       to a Transition element that is the target of a branching.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: TargetTransitionRef
+    alias: targetTransition
     owner: Branching
     domain_of:
     - Branching
     range: TargetTransition
     inlined: true
     inlined_as_list: true
-  DefaultTransitionRef:
-    name: DefaultTransitionRef
+  defaultTransition:
+    name: defaultTransition
     description: 'DefaultTransition reference: The DefaultTransition references the
       Transition that needs to be executed when none of the TargetTransitions can
       be executed.'
@@ -557,7 +557,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: DefaultTransitionRef
+    alias: defaultTransition
     owner: Branching
     domain_of:
     - Branching

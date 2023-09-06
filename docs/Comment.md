@@ -11,15 +11,15 @@ URI: [odm:Comment](http://www.cdisc.org/ns/odm/v2.0/Comment)
 ```mermaid
 erDiagram
 Comment {
-    CommentType SponsorOrSite  
+    CommentType sponsorOrSite  
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-Comment ||--}o TranslatedText : "TranslatedTextRef"
+Comment ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -32,8 +32,8 @@ Comment ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SponsorOrSite](SponsorOrSite.md) | 0..1 <br/> [CommentType](CommentType.md) | Source of the comment. | direct |
-| [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... | direct |
+| [sponsorOrSite](sponsorOrSite.md) | 0..1 <br/> [CommentType](CommentType.md) | Source of the comment. | direct |
+| [translatedText](translatedText.md) | 0..* <br/> [TranslatedText](TranslatedText.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -44,7 +44,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Annotation](Annotation.md) | [CommentRef](CommentRef.md) | range | [Comment](Comment.md) |
+| [Annotation](Annotation.md) | [comment](comment.md) | range | [Comment](Comment.md) |
 
 
 
@@ -99,11 +99,11 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Comment
 rank: 1000
 slots:
-- SponsorOrSite
-- TranslatedTextRef
+- sponsorOrSite
+- translatedText
 slot_usage:
-  SponsorOrSite:
-    name: SponsorOrSite
+  sponsorOrSite:
+    name: sponsorOrSite
     description: Source of the comment.
     comments:
     - 'Optional
@@ -112,8 +112,8 @@ slot_usage:
     domain_of:
     - Comment
     range: CommentType
-  TranslatedTextRef:
-    name: TranslatedTextRef
+  translatedText:
+    name: translatedText
     multivalued: true
     domain_of:
     - Description
@@ -146,8 +146,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Comment
 rank: 1000
 slot_usage:
-  SponsorOrSite:
-    name: SponsorOrSite
+  sponsorOrSite:
+    name: sponsorOrSite
     description: Source of the comment.
     comments:
     - 'Optional
@@ -156,8 +156,8 @@ slot_usage:
     domain_of:
     - Comment
     range: CommentType
-  TranslatedTextRef:
-    name: TranslatedTextRef
+  translatedText:
+    name: translatedText
     multivalued: true
     domain_of:
     - Description
@@ -174,8 +174,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  SponsorOrSite:
-    name: SponsorOrSite
+  sponsorOrSite:
+    name: sponsorOrSite
     description: Source of the comment.
     comments:
     - 'Optional
@@ -183,13 +183,13 @@ attributes:
       enum values: (Sponsor | Site)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: SponsorOrSite
+    alias: sponsorOrSite
     owner: Comment
     domain_of:
     - Comment
     range: CommentType
-  TranslatedTextRef:
-    name: TranslatedTextRef
+  translatedText:
+    name: translatedText
     description: 'TranslatedText reference: Human-readable text that is appropriate
       for a particular language. TranslatedText elements typically occur in a series,
       presenting a set of alternative textual renditions for different languages and
@@ -198,7 +198,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: TranslatedTextRef
+    alias: translatedText
     owner: Comment
     domain_of:
     - Description

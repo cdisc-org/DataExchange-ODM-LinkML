@@ -11,7 +11,7 @@ URI: [odm:Value](http://www.cdisc.org/ns/odm/v2.0/Value)
 ```mermaid
 erDiagram
 Value {
-    positiveInteger SeqNum  
+    positiveInteger seqNum  
     text content  
 }
 
@@ -28,7 +28,7 @@ Value {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SeqNum](SeqNum.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | When more than 1 Value element exists this attribute uniquely identifies each... | direct |
+| [seqNum](seqNum.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | When more than 1 Value element exists this attribute uniquely identifies each... | direct |
 | [content](content.md) | 0..1 <br/> [text](text.md) | multi-line text content from between XML tags | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
@@ -40,8 +40,8 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ItemData](ItemData.md) | [ValueRef](ValueRef.md) | range | [Value](Value.md) |
-| [Query](Query.md) | [ValueRef](ValueRef.md) | range | [Value](Value.md) |
+| [ItemData](ItemData.md) | [value](value.md) | range | [Value](Value.md) |
+| [Query](Query.md) | [value](value.md) | range | [Value](Value.md) |
 
 
 
@@ -97,11 +97,11 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Value
 rank: 1000
 slots:
-- SeqNum
+- seqNum
 - content
 slot_usage:
-  SeqNum:
-    name: SeqNum
+  seqNum:
+    name: seqNum
     description: When more than 1 Value element exists this attribute uniquely identifies
       each Value and defines the order of a Value in a list of Values.
     comments:
@@ -160,8 +160,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Value
 rank: 1000
 slot_usage:
-  SeqNum:
-    name: SeqNum
+  seqNum:
+    name: seqNum
     description: When more than 1 Value element exists this attribute uniquely identifies
       each Value and defines the order of a Value in a list of Values.
     comments:
@@ -203,8 +203,8 @@ slot_usage:
     - Value
     range: text
 attributes:
-  SeqNum:
-    name: SeqNum
+  seqNum:
+    name: seqNum
     description: When more than 1 Value element exists this attribute uniquely identifies
       each Value and defines the order of a Value in a list of Values.
     comments:
@@ -213,7 +213,7 @@ attributes:
       Must be unique within the ItemData element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: SeqNum
+    alias: seqNum
     owner: Value
     domain_of:
     - Annotation

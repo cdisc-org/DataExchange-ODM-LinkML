@@ -11,31 +11,31 @@ URI: [odm:Location](http://www.cdisc.org/ns/odm/v2.0/Location)
 ```mermaid
 erDiagram
 Location {
-    oid OID  
-    name Name  
-    text Role  
-    oidref OrganizationOID  
+    oid oID  
+    nameType name  
+    text role  
+    oidref organizationOID  
 }
 Query {
-    oid OID  
-    QuerySourceType Source  
-    text Target  
-    QueryType Type  
-    QueryStateType State  
-    datetime LastUpdateDatetime  
-    name Name  
+    oid oID  
+    QuerySourceType source  
+    text target  
+    QueryType type  
+    QueryStateType state  
+    datetime lastUpdateDatetime  
+    nameType name  
 }
 AuditRecord {
-    EditPointType EditPoint  
-    YesOrNo UsedMethod  
+    EditPointType editPoint  
+    YesOrNo usedMethod  
 }
 Value {
-    positiveInteger SeqNum  
+    positiveInteger seqNum  
     text content  
 }
 Telecom {
-    TelecomTypeType TelecomType  
-    text ValueRef  
+    TelecomTypeType telecomType  
+    text value  
 }
 Address {
 
@@ -44,9 +44,9 @@ OtherText {
     text content  
 }
 GeoPosition {
-    decimal Longitude  
-    decimal Latitude  
-    decimal Altitude  
+    decimal longitude  
+    decimal latitude  
+    decimal altitude  
 }
 PostalCode {
     text content  
@@ -67,40 +67,40 @@ StreetName {
     text content  
 }
 MetaDataVersionRef {
-    oidref StudyOID  
-    oidref MetaDataVersionOID  
-    date EffectiveDate  
+    oidref studyOID  
+    oidref metaDataVersionOID  
+    date effectiveDate  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-Location ||--|o Description : "DescriptionRef"
-Location ||--}o MetaDataVersionRef : "MetaDataVersionRefRef"
-Location ||--}o Address : "AddressRef"
-Location ||--}o Telecom : "TelecomRef"
-Location ||--}o Query : "QueryRef"
-Query ||--|o Value : "ValueRef"
-Query ||--}o AuditRecord : "AuditRecordRef"
-AuditRecord ||--|o UserRef : "UserRefRef"
-AuditRecord ||--|o LocationRef : "LocationRefRef"
-AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
-AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
-AuditRecord ||--|o SourceID : "SourceIDRef"
-Address ||--|o StreetName : "StreetNameRef"
-Address ||--|o HouseNumber : "HouseNumberRef"
-Address ||--|o City : "CityRef"
-Address ||--|o StateProv : "StateProvRef"
-Address ||--|o Country : "CountryRef"
-Address ||--|o PostalCode : "PostalCodeRef"
-Address ||--|o GeoPosition : "GeoPositionRef"
-Address ||--|o OtherText : "OtherTextRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+Location ||--|o Description : "description"
+Location ||--}o MetaDataVersionRef : "metaDataVersionRef"
+Location ||--}o Address : "address"
+Location ||--}o Telecom : "telecom"
+Location ||--}o Query : "query"
+Query ||--|o Value : "value"
+Query ||--}o AuditRecord : "auditRecord"
+AuditRecord ||--|o UserRef : "userRef"
+AuditRecord ||--|o LocationRef : "locationRef"
+AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o ReasonForChange : "reasonForChange"
+AuditRecord ||--|o SourceID : "sourceID"
+Address ||--|o StreetName : "streetName"
+Address ||--|o HouseNumber : "houseNumber"
+Address ||--|o City : "city"
+Address ||--|o StateProv : "stateProv"
+Address ||--|o Country : "country"
+Address ||--|o PostalCode : "postalCode"
+Address ||--|o GeoPosition : "geoPosition"
+Address ||--|o OtherText : "otherText"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -113,15 +113,15 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human-readable identifier. | direct |
-| [Role](Role.md) | 0..1 <br/> [text](text.md) | Specifies the role of this location in the study. | direct |
-| [OrganizationOID](OrganizationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an organization. | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [MetaDataVersionRefRef](MetaDataVersionRefRef.md) | 0..* <br/> [MetaDataVersionRef](MetaDataVersionRef.md) | MetaDataVersionRef reference: A reference to a MetaDataVersion used at the co... | direct |
-| [AddressRef](AddressRef.md) | 0..* <br/> [Address](Address.md) | Address reference: The postal address for a user, location, or organization. | direct |
-| [TelecomRef](TelecomRef.md) | 0..* <br/> [Telecom](Telecom.md) | Telecom reference: The telecommunication contacts points of a user, a locatio... | direct |
-| [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) | Query reference: The Query element represents a request for clarification on ... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human-readable identifier. | direct |
+| [role](role.md) | 0..1 <br/> [text](text.md) | Specifies the role of this location in the study. | direct |
+| [organizationOID](organizationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an organization. | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [metaDataVersionRef](metaDataVersionRef.md) | 0..* <br/> [MetaDataVersionRef](MetaDataVersionRef.md) | MetaDataVersionRef reference: A reference to a MetaDataVersion used at the co... | direct |
+| [address](address.md) | 0..* <br/> [Address](Address.md) | Address reference: The postal address for a user, location, or organization. | direct |
+| [telecom](telecom.md) | 0..* <br/> [Telecom](Telecom.md) | Telecom reference: The telecommunication contacts points of a user, a locatio... | direct |
+| [query](query.md) | 0..* <br/> [Query](Query.md) | Query reference: The Query element represents a request for clarification on ... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -132,7 +132,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdminData](AdminData.md) | [LocationRefRef](LocationRefRef.md) | range | [Location](Location.md) |
+| [AdminData](AdminData.md) | [location](location.md) | range | [Location](Location.md) |
 
 
 
@@ -187,18 +187,18 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Location
 rank: 1000
 slots:
-- OID
-- Name
-- Role
-- OrganizationOID
-- DescriptionRef
-- MetaDataVersionRefRef
-- AddressRef
-- TelecomRef
-- QueryRef
+- oID
+- name
+- role
+- organizationOID
+- description
+- metaDataVersionRef
+- address
+- telecom
+- query
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier
     comments:
     - 'Required
@@ -245,8 +245,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human-readable identifier.
     comments:
     - 'Required
@@ -289,10 +289,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Role:
-    name: Role
+  role:
+    name: role
     description: Specifies the role of this location in the study.
     comments:
     - 'Optional
@@ -303,8 +303,8 @@ slot_usage:
     - Organization
     - Location
     range: text
-  OrganizationOID:
-    name: OrganizationOID
+  organizationOID:
+    name: organizationOID
     description: Reference to an organization.
     comments:
     - 'Optional
@@ -314,8 +314,8 @@ slot_usage:
     - User
     - Location
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -355,17 +355,16 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  MetaDataVersionRefRef:
-    name: MetaDataVersionRefRef
+  metaDataVersionRef:
+    name: metaDataVersionRef
     multivalued: true
     domain_of:
-    - Study
     - Location
     range: MetaDataVersionRef
     inlined: true
     inlined_as_list: true
-  AddressRef:
-    name: AddressRef
+  address:
+    name: address
     multivalued: true
     domain_of:
     - User
@@ -374,8 +373,8 @@ slot_usage:
     range: Address
     inlined: true
     inlined_as_list: true
-  TelecomRef:
-    name: TelecomRef
+  telecom:
+    name: telecom
     multivalued: true
     domain_of:
     - User
@@ -384,8 +383,8 @@ slot_usage:
     range: Telecom
     inlined: true
     inlined_as_list: true
-  QueryRef:
-    name: QueryRef
+  query:
+    name: query
     multivalued: true
     domain_of:
     - Location
@@ -414,8 +413,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Location
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier
     comments:
     - 'Required
@@ -462,8 +461,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human-readable identifier.
     comments:
     - 'Required
@@ -506,10 +505,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Role:
-    name: Role
+  role:
+    name: role
     description: Specifies the role of this location in the study.
     comments:
     - 'Optional
@@ -520,8 +519,8 @@ slot_usage:
     - Organization
     - Location
     range: text
-  OrganizationOID:
-    name: OrganizationOID
+  organizationOID:
+    name: organizationOID
     description: Reference to an organization.
     comments:
     - 'Optional
@@ -531,8 +530,8 @@ slot_usage:
     - User
     - Location
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -572,17 +571,16 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  MetaDataVersionRefRef:
-    name: MetaDataVersionRefRef
+  metaDataVersionRef:
+    name: metaDataVersionRef
     multivalued: true
     domain_of:
-    - Study
     - Location
     range: MetaDataVersionRef
     inlined: true
     inlined_as_list: true
-  AddressRef:
-    name: AddressRef
+  address:
+    name: address
     multivalued: true
     domain_of:
     - User
@@ -591,8 +589,8 @@ slot_usage:
     range: Address
     inlined: true
     inlined_as_list: true
-  TelecomRef:
-    name: TelecomRef
+  telecom:
+    name: telecom
     multivalued: true
     domain_of:
     - User
@@ -601,8 +599,8 @@ slot_usage:
     range: Telecom
     inlined: true
     inlined_as_list: true
-  QueryRef:
-    name: QueryRef
+  query:
+    name: query
     multivalued: true
     domain_of:
     - Location
@@ -615,8 +613,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier
     comments:
     - 'Required
@@ -627,7 +625,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: Location
     domain_of:
     - Study
@@ -668,8 +666,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human-readable identifier.
     comments:
     - 'Required
@@ -679,7 +677,7 @@ attributes:
       Must be unique within the set of Location definitions for the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: Location
     domain_of:
     - Alias
@@ -716,10 +714,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Role:
-    name: Role
+  role:
+    name: role
     description: Specifies the role of this location in the study.
     comments:
     - 'Optional
@@ -727,15 +725,15 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Role
+    alias: role
     owner: Location
     domain_of:
     - ItemRef
     - Organization
     - Location
     range: text
-  OrganizationOID:
-    name: OrganizationOID
+  organizationOID:
+    name: organizationOID
     description: Reference to an organization.
     comments:
     - 'Optional
@@ -743,20 +741,20 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: OrganizationOID
+    alias: organizationOID
     owner: Location
     domain_of:
     - User
     - Location
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: Location
     domain_of:
     - Study
@@ -797,8 +795,8 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  MetaDataVersionRefRef:
-    name: MetaDataVersionRefRef
+  metaDataVersionRef:
+    name: metaDataVersionRef
     description: 'MetaDataVersionRef reference: A reference to a MetaDataVersion used
       at the containing Location. The EffectiveDate reflects the possibility that
       the metadata may change over the course of the study.'
@@ -806,22 +804,21 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: MetaDataVersionRefRef
+    alias: metaDataVersionRef
     owner: Location
     domain_of:
-    - Study
     - Location
     range: MetaDataVersionRef
     inlined: true
     inlined_as_list: true
-  AddressRef:
-    name: AddressRef
+  address:
+    name: address
     description: 'Address reference: The postal address for a user, location, or organization.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: AddressRef
+    alias: address
     owner: Location
     domain_of:
     - User
@@ -830,15 +827,15 @@ attributes:
     range: Address
     inlined: true
     inlined_as_list: true
-  TelecomRef:
-    name: TelecomRef
+  telecom:
+    name: telecom
     description: 'Telecom reference: The telecommunication contacts points of a user,
       a location, or an organization. The Type attribute designates the type of contact.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: TelecomRef
+    alias: telecom
     owner: Location
     domain_of:
     - User
@@ -847,8 +844,8 @@ attributes:
     range: Telecom
     inlined: true
     inlined_as_list: true
-  QueryRef:
-    name: QueryRef
+  query:
+    name: query
     description: 'Query reference: The Query element represents a request for clarification
       on a data item collected for a clinical trial, specifically a request from a
       sponsor or sponsor’s representative to an investigator to resolve an error or
@@ -861,7 +858,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: QueryRef
+    alias: query
     owner: Location
     domain_of:
     - Location

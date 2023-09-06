@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in Level_
+_Enumeration used in level_
 
 
 
@@ -24,7 +24,7 @@ URI: [StudyObjectiveLevel](StudyObjectiveLevel)
 
 | Name | Description |
 | ---  | --- |
-| [Level](Level.md) | Defined level for the Study Objective |
+| [level](level.md) | Defined level for the Study Objective |
 
 
 
@@ -52,7 +52,7 @@ URI: [StudyObjectiveLevel](StudyObjectiveLevel)
 <details>
 ```yaml
 name: StudyObjectiveLevel
-description: Enumeration used in Level
+description: Enumeration used in level
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

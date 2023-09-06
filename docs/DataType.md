@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in DataTypeRef_
+_Enumeration used in dataType_
 
 
 
@@ -44,9 +44,9 @@ URI: [DataType](DataType)
 
 | Name | Description |
 | ---  | --- |
-| [DataTypeRef](DataTypeRef.md) | Specification of the allowable values and the intended use of the correspondi... |
-| [DataTypeRef](DataTypeRef.md) | Parameter datatype. |
-| [DataTypeRef](DataTypeRef.md) | Return value datatype |
+| [dataType](dataType.md) | Specification of the allowable values and the intended use of the correspondi... |
+| [dataType](dataType.md) | Parameter datatype. |
+| [dataType](dataType.md) | Return value datatype |
 
 
 
@@ -74,7 +74,7 @@ URI: [DataType](DataType)
 <details>
 ```yaml
 name: DataType
-description: Enumeration used in DataTypeRef
+description: Enumeration used in dataType
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

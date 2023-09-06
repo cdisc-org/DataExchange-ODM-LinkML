@@ -11,92 +11,92 @@ URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
 ```mermaid
 erDiagram
 MetaDataVersion {
-    oid OID  
-    name Name  
-    oidref CommentOID  
+    oid oID  
+    nameType name  
+    oidref commentOID  
 }
 Leaf {
-    oid ID  
+    oid iD  
     uriorcurie href  
 }
 Title {
     text content  
 }
 CommentDef {
-    oid OID  
+    oid oID  
 }
 DocumentRef {
-    oid LeafID  
+    oid leafID  
 }
 Description {
 
 }
 MethodDef {
-    oid OID  
-    name Name  
-    MethodType Type  
-    oidref CommentOID  
+    oid oID  
+    nameType name  
+    MethodType type  
+    oidref commentOID  
 }
 Alias {
-    text ContextRef  
-    text Name  
+    text context  
+    text name  
 }
 FormalExpression {
-    text ContextRef  
+    text context  
 }
 MethodSignature {
 
 }
 ConditionDef {
-    oid OID  
-    name Name  
-    oidref CommentOID  
+    oid oID  
+    nameType name  
+    oidref commentOID  
 }
 CodeList {
-    oid OID  
-    name Name  
-    CLDataType DataTypeRef  
-    oidref CommentOID  
-    oidref StandardOID  
-    YesOnly IsNonStandard  
+    oid oID  
+    nameType name  
+    CLDataType dataType  
+    oidref commentOID  
+    oidref standardOID  
+    YesOnly isNonStandard  
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 CodeListItem {
-    value CodedValue  
-    decimal Rank  
-    YesOnly Other  
-    positiveInteger OrderNumber  
-    YesOnly ExtendedValue  
-    oidref CommentOID  
+    valueType codedValue  
+    decimal rank  
+    YesOnly other  
+    positiveInteger orderNumber  
+    YesOnly extendedValue  
+    oidref commentOID  
 }
 ItemDef {
-    oid OID  
-    name Name  
-    DataType DataTypeRef  
-    positiveInteger Length  
-    text DisplayFormat  
-    text VariableSet  
-    oidref CommentOID  
+    oid oID  
+    nameType name  
+    DataType dataType  
+    positiveInteger length  
+    text displayFormat  
+    text variableSet  
+    oidref commentOID  
 }
 ValueListRef {
-    oidref ValueListOID  
+    oidref valueListOID  
 }
 CodeListRef {
-    oidref CodeListOID  
+    oidref codeListOID  
 }
 RangeCheck {
-    Comparator ComparatorRef  
-    SoftOrHard SoftHard  
-    oidref ItemOID  
+    Comparator comparator  
+    SoftOrHard softHard  
+    oidref itemOID  
 }
 CDISCNotes {
 
@@ -117,106 +117,106 @@ Definition {
 
 }
 ItemGroupDef {
-    oid OID  
-    name Name  
-    ItemGroupRepeatingType Repeating  
-    positiveInteger RepeatingLimit  
-    YesOrNo IsReferenceData  
-    text Structure  
-    oidref ArchiveLocationID  
-    name DatasetName  
-    text Domain  
-    ItemGroupTypeType Type  
-    text Purpose  
-    oidref StandardOID  
-    YesOnly IsNonStandard  
-    YesOnly HasNoData  
-    oidref CommentOID  
+    oid oID  
+    nameType name  
+    ItemGroupRepeatingType repeating  
+    positiveInteger repeatingLimit  
+    YesOrNo isReferenceData  
+    text structure  
+    oidref archiveLocationID  
+    nameType datasetName  
+    text domain  
+    ItemGroupTypeType type  
+    text purpose  
+    oidref standardOID  
+    YesOnly isNonStandard  
+    YesOnly hasNoData  
+    oidref commentOID  
 }
 ItemRef {
-    oidref ItemOID  
-    positiveInteger KeySequence  
-    YesOnly IsNonStandard  
-    YesOnly HasNoData  
-    oidref MethodOID  
-    oidref UnitsItemOID  
-    YesOnly Repeat  
-    YesOnly Other  
-    text Role  
-    oidref RoleCodeListOID  
-    CoreType Core  
-    text PreSpecifiedValue  
-    positiveInteger OrderNumber  
-    YesOrNo Mandatory  
-    oidref CollectionExceptionConditionOID  
+    oidref itemOID  
+    positiveInteger keySequence  
+    YesOnly isNonStandard  
+    YesOnly hasNoData  
+    oidref methodOID  
+    oidref unitsItemOID  
+    YesOnly repeat  
+    YesOnly other  
+    text role  
+    oidref roleCodeListOID  
+    CoreType core  
+    text preSpecifiedValue  
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+    oidref collectionExceptionConditionOID  
 }
 ItemGroupRef {
-    oidref ItemGroupOID  
-    oidref MethodOID  
-    positiveInteger OrderNumber  
-    YesOrNo Mandatory  
-    oidref CollectionExceptionConditionOID  
+    oidref itemGroupOID  
+    oidref methodOID  
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+    oidref collectionExceptionConditionOID  
 }
 Origin {
-    OriginType Type  
-    OriginSource Source  
+    OriginType type  
+    OriginSource source  
 }
 WorkflowRef {
-    oidref WorkflowOID  
+    oidref workflowOID  
 }
 Class {
-    ItemGroupClass Name  
+    ItemGroupClass name  
 }
 StudyEventDef {
-    oid OID  
-    name Name  
-    YesOrNo Repeating  
-    EventType Type  
-    text Category  
-    oidref CommentOID  
+    oid oID  
+    nameType name  
+    YesOrNo repeating  
+    EventType type  
+    text category  
+    oidref commentOID  
 }
 StudyEventGroupDef {
-    oid OID  
-    name Name  
-    oidref ArmOID  
-    oidref EpochOID  
-    oidref CommentOID  
+    oid oID  
+    nameType name  
+    oidref armOID  
+    oidref epochOID  
+    oidref commentOID  
 }
 StudyEventRef {
-    oidref StudyEventOID  
-    positiveInteger OrderNumber  
-    YesOrNo Mandatory  
-    oidref CollectionExceptionConditionOID  
+    oidref studyEventOID  
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+    oidref collectionExceptionConditionOID  
 }
 StudyEventGroupRef {
-    oidref StudyEventGroupOID  
-    positiveInteger OrderNumber  
-    YesOrNo Mandatory  
-    oidref CollectionExceptionConditionOID  
+    oidref studyEventGroupOID  
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+    oidref collectionExceptionConditionOID  
 }
 WorkflowDef {
-    oid OID  
-    name Name  
+    oid oID  
+    nameType name  
 }
 Branching {
-    oid OID  
-    name Name  
-    BranchingType Type  
+    oid oID  
+    nameType name  
+    BranchingType type  
 }
 Transition {
-    oid OID  
-    name Name  
-    oidref SourceOID  
-    oidref TargetOID  
-    oidref StartConditionOID  
-    oidref EndConditionOID  
+    oid oID  
+    nameType name  
+    oidref sourceOID  
+    oidref targetOID  
+    oidref startConditionOID  
+    oidref endConditionOID  
 }
 WorkflowEnd {
-    oidref EndOID  
+    oidref endOID  
     text content  
 }
 WorkflowStart {
-    oidref StartOID  
+    oidref startOID  
 }
 Protocol {
 
@@ -228,8 +228,8 @@ StudyEstimands {
 
 }
 StudyTargetPopulation {
-    oid OID  
-    name Name  
+    oid oID  
+    nameType name  
 }
 StudyEndPoints {
 
@@ -247,7 +247,7 @@ StudyTimings {
 
 }
 TrialPhase {
-    TrialPhaseType ValueRef  
+    TrialPhaseType value  
 }
 StudyStructure {
 
@@ -256,11 +256,11 @@ StudySummary {
 
 }
 WhereClauseDef {
-    oid OID  
-    oidref CommentOID  
+    oid oID  
+    oidref commentOID  
 }
 ValueListDef {
-    oid OID  
+    oid oID  
 }
 SupplementalDoc {
 
@@ -272,158 +272,158 @@ Standards {
 
 }
 Standard {
-    oid OID  
-    StandardName Name  
-    StandardType Type  
-    StandardPublishingSet PublishingSet  
-    text Version  
-    StandardStatus Status  
-    oidref CommentOID  
+    oid oID  
+    StandardName name  
+    StandardType type  
+    StandardPublishingSet publishingSet  
+    text version  
+    StandardStatus status  
+    oidref commentOID  
 }
 Include {
-    oidref StudyOID  
-    oidref MetaDataVersionOID  
+    oidref studyOID  
+    oidref metaDataVersionOID  
     uriorcurie href  
 }
 
-MetaDataVersion ||--|o Description : "DescriptionRef"
-MetaDataVersion ||--|o Include : "IncludeRef"
-MetaDataVersion ||--|o Standards : "StandardsRef"
-MetaDataVersion ||--|o AnnotatedCRF : "AnnotatedCRFRef"
-MetaDataVersion ||--|o SupplementalDoc : "SupplementalDocRef"
-MetaDataVersion ||--}o ValueListDef : "ValueListDefRef"
-MetaDataVersion ||--}o WhereClauseDef : "WhereClauseDefRef"
-MetaDataVersion ||--|o Protocol : "ProtocolRef"
-MetaDataVersion ||--}o WorkflowDef : "WorkflowDefRef"
-MetaDataVersion ||--}o StudyEventGroupDef : "StudyEventGroupDefRef"
-MetaDataVersion ||--}o StudyEventDef : "StudyEventDefRef"
-MetaDataVersion ||--}o ItemGroupDef : "ItemGroupDefRef"
-MetaDataVersion ||--}o ItemDef : "ItemDefRef"
-MetaDataVersion ||--}o CodeList : "CodeListRefRef"
-MetaDataVersion ||--}o ConditionDef : "ConditionDefRef"
-MetaDataVersion ||--}o MethodDef : "MethodDefRef"
-MetaDataVersion ||--}o CommentDef : "CommentDefRef"
-MetaDataVersion ||--}o Leaf : "LeafRef"
-Leaf ||--|o Title : "TitleRef"
-CommentDef ||--|o Description : "DescriptionRef"
-CommentDef ||--}o DocumentRef : "DocumentRefRef"
-DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
-MethodDef ||--|o Description : "DescriptionRef"
-MethodDef ||--|o MethodSignature : "MethodSignatureRef"
-MethodDef ||--}o FormalExpression : "FormalExpressionRef"
-MethodDef ||--}o Alias : "AliasRef"
-MethodDef ||--}o DocumentRef : "DocumentRefRef"
-FormalExpression ||--|o Code : "CodeRef"
-FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
-MethodSignature ||--}o Parameter : "ParameterRef"
-MethodSignature ||--}o ReturnValue : "ReturnValueRef"
-ConditionDef ||--|o Description : "DescriptionRef"
-ConditionDef ||--|o MethodSignature : "MethodSignatureRef"
-ConditionDef ||--}o FormalExpression : "FormalExpressionRef"
-ConditionDef ||--}o Alias : "AliasRef"
-CodeList ||--|o Description : "DescriptionRef"
-CodeList ||--}o CodeListItem : "CodeListItemRef"
-CodeList ||--}o Coding : "CodingRef"
-CodeList ||--}o Alias : "AliasRef"
-CodeListItem ||--|o Description : "DescriptionRef"
-CodeListItem ||--|o Decode : "DecodeRef"
-CodeListItem ||--}o Coding : "CodingRef"
-CodeListItem ||--}o Alias : "AliasRef"
-ItemDef ||--|o Description : "DescriptionRef"
-ItemDef ||--|o Definition : "DefinitionRef"
-ItemDef ||--|o Question : "QuestionRef"
-ItemDef ||--|o Prompt : "PromptRef"
-ItemDef ||--|o CRFCompletionInstructions : "CRFCompletionInstructionsRef"
-ItemDef ||--|o ImplementationNotes : "ImplementationNotesRef"
-ItemDef ||--|o CDISCNotes : "CDISCNotesRef"
-ItemDef ||--}o RangeCheck : "RangeCheckRef"
-ItemDef ||--|o CodeListRef : "CodeListRefRef"
-ItemDef ||--|o ValueListRef : "ValueListRefRef"
-ItemDef ||--}o Coding : "CodingRef"
-ItemDef ||--}o Alias : "AliasRef"
-RangeCheck ||--|o ErrorMessage : "ErrorMessageRef"
-RangeCheck ||--|o MethodSignature : "MethodSignatureRef"
-RangeCheck ||--}o FormalExpression : "FormalExpressionRef"
-RangeCheck ||--}o CheckValue : "CheckValueRef"
-CDISCNotes ||--}o TranslatedText : "TranslatedTextRef"
-ImplementationNotes ||--}o TranslatedText : "TranslatedTextRef"
-CRFCompletionInstructions ||--}o TranslatedText : "TranslatedTextRef"
-Prompt ||--}o TranslatedText : "TranslatedTextRef"
-Question ||--}o TranslatedText : "TranslatedTextRef"
-Definition ||--}o TranslatedText : "TranslatedTextRef"
-ItemGroupDef ||--|o Description : "DescriptionRef"
-ItemGroupDef ||--|o Class : "ClassRef"
-ItemGroupDef ||--}o Coding : "CodingRef"
-ItemGroupDef ||--|o WorkflowRef : "WorkflowRefRef"
-ItemGroupDef ||--}o Origin : "OriginRef"
-ItemGroupDef ||--}o Alias : "AliasRef"
-ItemGroupDef ||--|o Leaf : "LeafRef"
-ItemGroupDef ||--}o ItemGroupRef : "ItemGroupRefRef"
-ItemGroupDef ||--}o ItemRef : "ItemRefRef"
-ItemRef ||--}o Origin : "OriginRef"
-ItemRef ||--}o WhereClauseRef : "WhereClauseRefRef"
-Origin ||--|o Description : "DescriptionRef"
-Origin ||--|o SourceItems : "SourceItemsRef"
-Origin ||--}o Coding : "CodingRef"
-Origin ||--}o DocumentRef : "DocumentRefRef"
-Class ||--}o SubClass : "SubClassRef"
-StudyEventDef ||--|o Description : "DescriptionRef"
-StudyEventDef ||--}o ItemGroupRef : "ItemGroupRefRef"
-StudyEventDef ||--|o WorkflowRef : "WorkflowRefRef"
-StudyEventDef ||--}o Coding : "CodingRef"
-StudyEventDef ||--}o Alias : "AliasRef"
-StudyEventGroupDef ||--|o Description : "DescriptionRef"
-StudyEventGroupDef ||--|o WorkflowRef : "WorkflowRefRef"
-StudyEventGroupDef ||--}o Coding : "CodingRef"
-StudyEventGroupDef ||--}o StudyEventGroupRef : "StudyEventGroupRefRef"
-StudyEventGroupDef ||--}o StudyEventRef : "StudyEventRefRef"
-StudyEventGroupRef ||--|o Description : "DescriptionRef"
-WorkflowDef ||--|o Description : "DescriptionRef"
-WorkflowDef ||--|o WorkflowStart : "WorkflowStartRef"
-WorkflowDef ||--}o WorkflowEnd : "WorkflowEndRef"
-WorkflowDef ||--}o Transition : "TransitionRef"
-WorkflowDef ||--}o Branching : "BranchingRef"
-Branching ||--}o TargetTransition : "TargetTransitionRef"
-Branching ||--}o DefaultTransition : "DefaultTransitionRef"
-Protocol ||--|o Description : "DescriptionRef"
-Protocol ||--|o StudySummary : "StudySummaryRef"
-Protocol ||--|o StudyStructure : "StudyStructureRef"
-Protocol ||--|o TrialPhase : "TrialPhaseRef"
-Protocol ||--|o StudyTimings : "StudyTimingsRef"
-Protocol ||--|o StudyIndications : "StudyIndicationsRef"
-Protocol ||--|o StudyInterventions : "StudyInterventionsRef"
-Protocol ||--|o StudyObjectives : "StudyObjectivesRef"
-Protocol ||--|o StudyEndPoints : "StudyEndPointsRef"
-Protocol ||--|o StudyTargetPopulation : "StudyTargetPopulationRefRef"
-Protocol ||--|o StudyEstimands : "StudyEstimandsRef"
-Protocol ||--|o InclusionExclusionCriteria : "InclusionExclusionCriteriaRef"
-Protocol ||--}o StudyEventGroupRef : "StudyEventGroupRefRef"
-Protocol ||--|o WorkflowRef : "WorkflowRefRef"
-Protocol ||--}o Alias : "AliasRef"
-InclusionExclusionCriteria ||--|o InclusionCriteria : "InclusionCriteriaRef"
-InclusionExclusionCriteria ||--|o ExclusionCriteria : "ExclusionCriteriaRef"
-StudyEstimands ||--}o StudyEstimand : "StudyEstimandRef"
-StudyTargetPopulation ||--|o Description : "DescriptionRef"
-StudyTargetPopulation ||--}o Coding : "CodingRef"
-StudyTargetPopulation ||--}o FormalExpression : "FormalExpressionRef"
-StudyEndPoints ||--}o StudyEndPoint : "StudyEndPointRefRef"
-StudyObjectives ||--}o StudyObjective : "StudyObjectiveRef"
-StudyInterventions ||--}o StudyIntervention : "StudyInterventionRefRef"
-StudyIndications ||--}o StudyIndication : "StudyIndicationRef"
-StudyTimings ||--}o StudyTiming : "StudyTimingRef"
-TrialPhase ||--|o Description : "DescriptionRef"
-StudyStructure ||--|o Description : "DescriptionRef"
-StudyStructure ||--}o Arm : "ArmRef"
-StudyStructure ||--}o Epoch : "EpochRef"
-StudyStructure ||--|o WorkflowRef : "WorkflowRefRef"
-StudySummary ||--}o StudyParameter : "StudyParameterRef"
-WhereClauseDef ||--}o RangeCheck : "RangeCheckRef"
-ValueListDef ||--|o Description : "DescriptionRef"
-ValueListDef ||--}o ItemRef : "ItemRefRef"
-SupplementalDoc ||--}o DocumentRef : "DocumentRefRef"
-AnnotatedCRF ||--}o DocumentRef : "DocumentRefRef"
-Standards ||--}o Standard : "StandardRef"
+MetaDataVersion ||--|o Description : "description"
+MetaDataVersion ||--|o Include : "include"
+MetaDataVersion ||--|o Standards : "standards"
+MetaDataVersion ||--|o AnnotatedCRF : "annotatedCRF"
+MetaDataVersion ||--|o SupplementalDoc : "supplementalDoc"
+MetaDataVersion ||--}o ValueListDef : "valueListDef"
+MetaDataVersion ||--}o WhereClauseDef : "whereClauseDef"
+MetaDataVersion ||--|o Protocol : "protocol"
+MetaDataVersion ||--}o WorkflowDef : "workflowDef"
+MetaDataVersion ||--}o StudyEventGroupDef : "studyEventGroupDef"
+MetaDataVersion ||--}o StudyEventDef : "studyEventDef"
+MetaDataVersion ||--}o ItemGroupDef : "itemGroupDef"
+MetaDataVersion ||--}o ItemDef : "itemDef"
+MetaDataVersion ||--}o CodeList : "codeList"
+MetaDataVersion ||--}o ConditionDef : "conditionDef"
+MetaDataVersion ||--}o MethodDef : "methodDef"
+MetaDataVersion ||--}o CommentDef : "commentDef"
+MetaDataVersion ||--}o Leaf : "leaf"
+Leaf ||--|o Title : "title"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
+Description ||--}o TranslatedText : "translatedText"
+MethodDef ||--|o Description : "description"
+MethodDef ||--|o MethodSignature : "methodSignature"
+MethodDef ||--}o FormalExpression : "formalExpression"
+MethodDef ||--}o Alias : "alias"
+MethodDef ||--}o DocumentRef : "documentRef"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+MethodSignature ||--}o Parameter : "parameter"
+MethodSignature ||--}o ReturnValue : "returnValue"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
+CodeList ||--|o Description : "description"
+CodeList ||--}o CodeListItem : "codeListItem"
+CodeList ||--}o Coding : "coding"
+CodeList ||--}o Alias : "alias"
+CodeListItem ||--|o Description : "description"
+CodeListItem ||--|o Decode : "decode"
+CodeListItem ||--}o Coding : "coding"
+CodeListItem ||--}o Alias : "alias"
+ItemDef ||--|o Description : "description"
+ItemDef ||--|o Definition : "definition"
+ItemDef ||--|o Question : "question"
+ItemDef ||--|o Prompt : "prompt"
+ItemDef ||--|o CRFCompletionInstructions : "cRFCompletionInstructions"
+ItemDef ||--|o ImplementationNotes : "implementationNotes"
+ItemDef ||--|o CDISCNotes : "cDISCNotes"
+ItemDef ||--}o RangeCheck : "rangeCheck"
+ItemDef ||--|o CodeListRef : "codeListRef"
+ItemDef ||--|o ValueListRef : "valueListRef"
+ItemDef ||--}o Coding : "coding"
+ItemDef ||--}o Alias : "alias"
+RangeCheck ||--|o ErrorMessage : "errorMessage"
+RangeCheck ||--|o MethodSignature : "methodSignature"
+RangeCheck ||--}o FormalExpression : "formalExpression"
+RangeCheck ||--}o CheckValue : "checkValue"
+CDISCNotes ||--}o TranslatedText : "translatedText"
+ImplementationNotes ||--}o TranslatedText : "translatedText"
+CRFCompletionInstructions ||--}o TranslatedText : "translatedText"
+Prompt ||--}o TranslatedText : "translatedText"
+Question ||--}o TranslatedText : "translatedText"
+Definition ||--}o TranslatedText : "translatedText"
+ItemGroupDef ||--|o Description : "description"
+ItemGroupDef ||--|o Class : "classRef"
+ItemGroupDef ||--}o Coding : "coding"
+ItemGroupDef ||--|o WorkflowRef : "workflowRef"
+ItemGroupDef ||--}o Origin : "origin"
+ItemGroupDef ||--}o Alias : "alias"
+ItemGroupDef ||--|o Leaf : "leaf"
+ItemGroupDef ||--}o ItemGroupRef : "itemGroupRef"
+ItemGroupDef ||--}o ItemRef : "itemRef"
+ItemRef ||--}o Origin : "origin"
+ItemRef ||--}o WhereClauseRef : "whereClauseRef"
+Origin ||--|o Description : "description"
+Origin ||--|o SourceItems : "sourceItems"
+Origin ||--}o Coding : "coding"
+Origin ||--}o DocumentRef : "documentRef"
+Class ||--}o SubClass : "subClass"
+StudyEventDef ||--|o Description : "description"
+StudyEventDef ||--}o ItemGroupRef : "itemGroupRef"
+StudyEventDef ||--|o WorkflowRef : "workflowRef"
+StudyEventDef ||--}o Coding : "coding"
+StudyEventDef ||--}o Alias : "alias"
+StudyEventGroupDef ||--|o Description : "description"
+StudyEventGroupDef ||--|o WorkflowRef : "workflowRef"
+StudyEventGroupDef ||--}o Coding : "coding"
+StudyEventGroupDef ||--}o StudyEventGroupRef : "studyEventGroupRef"
+StudyEventGroupDef ||--}o StudyEventRef : "studyEventRef"
+StudyEventGroupRef ||--|o Description : "description"
+WorkflowDef ||--|o Description : "description"
+WorkflowDef ||--|o WorkflowStart : "workflowStart"
+WorkflowDef ||--}o WorkflowEnd : "workflowEnd"
+WorkflowDef ||--}o Transition : "transition"
+WorkflowDef ||--}o Branching : "branching"
+Branching ||--}o TargetTransition : "targetTransition"
+Branching ||--}o DefaultTransition : "defaultTransition"
+Protocol ||--|o Description : "description"
+Protocol ||--|o StudySummary : "studySummary"
+Protocol ||--|o StudyStructure : "studyStructure"
+Protocol ||--|o TrialPhase : "trialPhase"
+Protocol ||--|o StudyTimings : "studyTimings"
+Protocol ||--|o StudyIndications : "studyIndications"
+Protocol ||--|o StudyInterventions : "studyInterventions"
+Protocol ||--|o StudyObjectives : "studyObjectives"
+Protocol ||--|o StudyEndPoints : "studyEndPoints"
+Protocol ||--|o StudyTargetPopulation : "studyTargetPopulation"
+Protocol ||--|o StudyEstimands : "studyEstimands"
+Protocol ||--|o InclusionExclusionCriteria : "inclusionExclusionCriteria"
+Protocol ||--}o StudyEventGroupRef : "studyEventGroupRef"
+Protocol ||--|o WorkflowRef : "workflowRef"
+Protocol ||--}o Alias : "alias"
+InclusionExclusionCriteria ||--|o InclusionCriteria : "inclusionCriteria"
+InclusionExclusionCriteria ||--|o ExclusionCriteria : "exclusionCriteria"
+StudyEstimands ||--}o StudyEstimand : "studyEstimand"
+StudyTargetPopulation ||--|o Description : "description"
+StudyTargetPopulation ||--}o Coding : "coding"
+StudyTargetPopulation ||--}o FormalExpression : "formalExpression"
+StudyEndPoints ||--}o StudyEndPoint : "studyEndPoint"
+StudyObjectives ||--}o StudyObjective : "studyObjective"
+StudyInterventions ||--}o StudyIntervention : "studyIntervention"
+StudyIndications ||--}o StudyIndication : "studyIndication"
+StudyTimings ||--}o StudyTiming : "studyTiming"
+TrialPhase ||--|o Description : "description"
+StudyStructure ||--|o Description : "description"
+StudyStructure ||--}o Arm : "arm"
+StudyStructure ||--}o Epoch : "epoch"
+StudyStructure ||--|o WorkflowRef : "workflowRef"
+StudySummary ||--}o StudyParameter : "studyParameter"
+WhereClauseDef ||--}o RangeCheck : "rangeCheck"
+ValueListDef ||--|o Description : "description"
+ValueListDef ||--}o ItemRef : "itemRef"
+SupplementalDoc ||--}o DocumentRef : "documentRef"
+AnnotatedCRF ||--}o DocumentRef : "documentRef"
+Standards ||--}o Standard : "standard"
 
 ```
 
@@ -436,27 +436,27 @@ Standards ||--}o Standard : "StandardRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | MetaDataVersion name. | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef element. | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [IncludeRef](IncludeRef.md) | 0..1 <br/> [Include](Include.md) | Include reference: The Include metadata element allows a reference to a prior... | direct |
-| [StandardsRef](StandardsRef.md) | 0..1 <br/> [Standards](Standards.md) | Standards reference: The Standards element provides a container for the list ... | direct |
-| [AnnotatedCRFRef](AnnotatedCRFRef.md) | 0..1 <br/> [AnnotatedCRF](AnnotatedCRF.md) | AnnotatedCRF reference: An Annotated Case Report Form (CRF) is a Portable Fil... | direct |
-| [SupplementalDocRef](SupplementalDocRef.md) | 0..1 <br/> [SupplementalDoc](SupplementalDoc.md) | SupplementalDoc reference: Supplemental data definitions | direct |
-| [ValueListDefRef](ValueListDefRef.md) | 0..* <br/> [ValueListDef](ValueListDef.md) | ValueListDef reference: The following table specifies the XML structure for v... | direct |
-| [WhereClauseDefRef](WhereClauseDefRef.md) | 0..* <br/> [WhereClauseDef](WhereClauseDef.md) | WhereClauseDef reference: The WhereClauseDef element specifies a condition. | direct |
-| [ProtocolRef](ProtocolRef.md) | 0..1 <br/> [Protocol](Protocol.md) | Protocol reference: The Protocol element lists the kinds of study events that... | direct |
-| [WorkflowDefRef](WorkflowDefRef.md) | 0..* <br/> [WorkflowDef](WorkflowDef.md) | WorkflowDef reference: A WorkflowDef defines an automated workflow for a stud... | direct |
-| [StudyEventGroupDefRef](StudyEventGroupDefRef.md) | 0..* <br/> [StudyEventGroupDef](StudyEventGroupDef.md) | StudyEventGroupDef reference: StudyEventGroupDef is a study building block th... | direct |
-| [StudyEventDefRef](StudyEventDefRef.md) | 0..* <br/> [StudyEventDef](StudyEventDef.md) | StudyEventDef reference: StudyEventDef represents the definition of an activi... | direct |
-| [ItemGroupDefRef](ItemGroupDefRef.md) | 0..* <br/> [ItemGroupDef](ItemGroupDef.md) | ItemGroupDef reference: An ItemGroupDef describes a type of variable or field... | direct |
-| [ItemDefRef](ItemDefRef.md) | 0..* <br/> [ItemDef](ItemDef.md) | ItemDef reference: An ItemDef describes a type of item that can occur within ... | direct |
-| [CodeListRefRef](CodeListRefRef.md) | 0..* <br/> [CodeList](CodeList.md) | CodeListRef reference: A reference to a CodeList definition. | direct |
-| [ConditionDefRef](ConditionDefRef.md) | 0..* <br/> [ConditionDef](ConditionDef.md) | ConditionDef reference: A ConditionDef defines a boolean condition. | direct |
-| [MethodDefRef](MethodDefRef.md) | 0..* <br/> [MethodDef](MethodDef.md) | MethodDef reference: A MethodDef defines how a data value can be obtained fro... | direct |
-| [CommentDefRef](CommentDefRef.md) | 0..* <br/> [CommentDef](CommentDef.md) | CommentDef reference: The Comment element allows referencing short comments s... | direct |
-| [LeafRef](LeafRef.md) | 0..* <br/> [Leaf](Leaf.md) | Leaf reference: Contains the XLink information referenced by DocumentRef or A... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | MetaDataVersion name. | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef element. | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [include](include.md) | 0..1 <br/> [Include](Include.md) | Include reference: The Include metadata element allows a reference to a prior... | direct |
+| [standards](standards.md) | 0..1 <br/> [Standards](Standards.md) | Standards reference: The Standards element provides a container for the list ... | direct |
+| [annotatedCRF](annotatedCRF.md) | 0..1 <br/> [AnnotatedCRF](AnnotatedCRF.md) | AnnotatedCRF reference: An Annotated Case Report Form (CRF) is a Portable Fil... | direct |
+| [supplementalDoc](supplementalDoc.md) | 0..1 <br/> [SupplementalDoc](SupplementalDoc.md) | SupplementalDoc reference: Supplemental data definitions | direct |
+| [valueListDef](valueListDef.md) | 0..* <br/> [ValueListDef](ValueListDef.md) | ValueListDef reference: The following table specifies the XML structure for v... | direct |
+| [whereClauseDef](whereClauseDef.md) | 0..* <br/> [WhereClauseDef](WhereClauseDef.md) | WhereClauseDef reference: The WhereClauseDef element specifies a condition. | direct |
+| [protocol](protocol.md) | 0..1 <br/> [Protocol](Protocol.md) | Protocol reference: The Protocol element lists the kinds of study events that... | direct |
+| [workflowDef](workflowDef.md) | 0..* <br/> [WorkflowDef](WorkflowDef.md) | WorkflowDef reference: A WorkflowDef defines an automated workflow for a stud... | direct |
+| [studyEventGroupDef](studyEventGroupDef.md) | 0..* <br/> [StudyEventGroupDef](StudyEventGroupDef.md) | StudyEventGroupDef reference: StudyEventGroupDef is a study building block th... | direct |
+| [studyEventDef](studyEventDef.md) | 0..* <br/> [StudyEventDef](StudyEventDef.md) | StudyEventDef reference: StudyEventDef represents the definition of an activi... | direct |
+| [itemGroupDef](itemGroupDef.md) | 0..* <br/> [ItemGroupDef](ItemGroupDef.md) | ItemGroupDef reference: An ItemGroupDef describes a type of variable or field... | direct |
+| [itemDef](itemDef.md) | 0..* <br/> [ItemDef](ItemDef.md) | ItemDef reference: An ItemDef describes a type of item that can occur within ... | direct |
+| [codeList](codeList.md) | 0..* <br/> [CodeList](CodeList.md) | CodeList reference: Defines a discrete set of permitted values for an item, o... | direct |
+| [conditionDef](conditionDef.md) | 0..* <br/> [ConditionDef](ConditionDef.md) | ConditionDef reference: A ConditionDef defines a boolean condition. | direct |
+| [methodDef](methodDef.md) | 0..* <br/> [MethodDef](MethodDef.md) | MethodDef reference: A MethodDef defines how a data value can be obtained fro... | direct |
+| [commentDef](commentDef.md) | 0..* <br/> [CommentDef](CommentDef.md) | CommentDef reference: The Comment element allows referencing short comments s... | direct |
+| [leaf](leaf.md) | 0..* <br/> [Leaf](Leaf.md) | Leaf reference: Contains the XLink information referenced by DocumentRef or A... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -467,7 +467,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Study](Study.md) | [MetaDataVersionRefRef](MetaDataVersionRefRef.md) | range | [MetaDataVersion](MetaDataVersion.md) |
+| [Study](Study.md) | [metaDataVersion](metaDataVersion.md) | range | [MetaDataVersion](MetaDataVersion.md) |
 
 
 
@@ -525,30 +525,30 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/MetaDataVersion
 rank: 1000
 slots:
-- OID
-- Name
-- CommentOID
-- DescriptionRef
-- IncludeRef
-- StandardsRef
-- AnnotatedCRFRef
-- SupplementalDocRef
-- ValueListDefRef
-- WhereClauseDefRef
-- ProtocolRef
-- WorkflowDefRef
-- StudyEventGroupDefRef
-- StudyEventDefRef
-- ItemGroupDefRef
-- ItemDefRef
-- CodeListRefRef
-- ConditionDefRef
-- MethodDefRef
-- CommentDefRef
-- LeafRef
+- oID
+- name
+- commentOID
+- description
+- include
+- standards
+- annotatedCRF
+- supplementalDoc
+- valueListDef
+- whereClauseDef
+- protocol
+- workflowDef
+- studyEventGroupDef
+- studyEventDef
+- itemGroupDef
+- itemDef
+- codeList
+- conditionDef
+- methodDef
+- commentDef
+- leaf
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -593,8 +593,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: MetaDataVersion name.
     comments:
     - 'Required
@@ -635,10 +635,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef element.
     comments:
     - 'Optional
@@ -658,8 +658,8 @@ slot_usage:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -699,127 +699,126 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  IncludeRef:
-    name: IncludeRef
+  include:
+    name: include
     domain_of:
     - MetaDataVersion
     range: Include
     maximum_cardinality: 1
-  StandardsRef:
-    name: StandardsRef
+  standards:
+    name: standards
     domain_of:
     - MetaDataVersion
     range: Standards
     maximum_cardinality: 1
-  AnnotatedCRFRef:
-    name: AnnotatedCRFRef
+  annotatedCRF:
+    name: annotatedCRF
     domain_of:
     - MetaDataVersion
     range: AnnotatedCRF
     maximum_cardinality: 1
-  SupplementalDocRef:
-    name: SupplementalDocRef
+  supplementalDoc:
+    name: supplementalDoc
     domain_of:
     - MetaDataVersion
     range: SupplementalDoc
     maximum_cardinality: 1
-  ValueListDefRef:
-    name: ValueListDefRef
+  valueListDef:
+    name: valueListDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: ValueListDef
     inlined: true
     inlined_as_list: true
-  WhereClauseDefRef:
-    name: WhereClauseDefRef
+  whereClauseDef:
+    name: whereClauseDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: WhereClauseDef
     inlined: true
     inlined_as_list: true
-  ProtocolRef:
-    name: ProtocolRef
+  protocol:
+    name: protocol
     domain_of:
     - MetaDataVersion
     range: Protocol
     maximum_cardinality: 1
-  WorkflowDefRef:
-    name: WorkflowDefRef
+  workflowDef:
+    name: workflowDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: WorkflowDef
     inlined: true
     inlined_as_list: true
-  StudyEventGroupDefRef:
-    name: StudyEventGroupDefRef
+  studyEventGroupDef:
+    name: studyEventGroupDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: StudyEventGroupDef
     inlined: true
     inlined_as_list: true
-  StudyEventDefRef:
-    name: StudyEventDefRef
+  studyEventDef:
+    name: studyEventDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: StudyEventDef
     inlined: true
     inlined_as_list: true
-  ItemGroupDefRef:
-    name: ItemGroupDefRef
+  itemGroupDef:
+    name: itemGroupDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: ItemGroupDef
     inlined: true
     inlined_as_list: true
-  ItemDefRef:
-    name: ItemDefRef
+  itemDef:
+    name: itemDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: ItemDef
     inlined: true
     inlined_as_list: true
-  CodeListRefRef:
-    name: CodeListRefRef
+  codeList:
+    name: codeList
     multivalued: true
     domain_of:
     - MetaDataVersion
-    - ItemDef
     range: CodeList
     inlined: true
     inlined_as_list: true
-  ConditionDefRef:
-    name: ConditionDefRef
+  conditionDef:
+    name: conditionDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: ConditionDef
     inlined: true
     inlined_as_list: true
-  MethodDefRef:
-    name: MethodDefRef
+  methodDef:
+    name: methodDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: MethodDef
     inlined: true
     inlined_as_list: true
-  CommentDefRef:
-    name: CommentDefRef
+  commentDef:
+    name: commentDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: CommentDef
     inlined: true
     inlined_as_list: true
-  LeafRef:
-    name: LeafRef
+  leaf:
+    name: leaf
     multivalued: true
     domain_of:
     - MetaDataVersion
@@ -847,8 +846,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/MetaDataVersion
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -893,8 +892,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: MetaDataVersion name.
     comments:
     - 'Required
@@ -935,10 +934,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef element.
     comments:
     - 'Optional
@@ -958,8 +957,8 @@ slot_usage:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -999,127 +998,126 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  IncludeRef:
-    name: IncludeRef
+  include:
+    name: include
     domain_of:
     - MetaDataVersion
     range: Include
     maximum_cardinality: 1
-  StandardsRef:
-    name: StandardsRef
+  standards:
+    name: standards
     domain_of:
     - MetaDataVersion
     range: Standards
     maximum_cardinality: 1
-  AnnotatedCRFRef:
-    name: AnnotatedCRFRef
+  annotatedCRF:
+    name: annotatedCRF
     domain_of:
     - MetaDataVersion
     range: AnnotatedCRF
     maximum_cardinality: 1
-  SupplementalDocRef:
-    name: SupplementalDocRef
+  supplementalDoc:
+    name: supplementalDoc
     domain_of:
     - MetaDataVersion
     range: SupplementalDoc
     maximum_cardinality: 1
-  ValueListDefRef:
-    name: ValueListDefRef
+  valueListDef:
+    name: valueListDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: ValueListDef
     inlined: true
     inlined_as_list: true
-  WhereClauseDefRef:
-    name: WhereClauseDefRef
+  whereClauseDef:
+    name: whereClauseDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: WhereClauseDef
     inlined: true
     inlined_as_list: true
-  ProtocolRef:
-    name: ProtocolRef
+  protocol:
+    name: protocol
     domain_of:
     - MetaDataVersion
     range: Protocol
     maximum_cardinality: 1
-  WorkflowDefRef:
-    name: WorkflowDefRef
+  workflowDef:
+    name: workflowDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: WorkflowDef
     inlined: true
     inlined_as_list: true
-  StudyEventGroupDefRef:
-    name: StudyEventGroupDefRef
+  studyEventGroupDef:
+    name: studyEventGroupDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: StudyEventGroupDef
     inlined: true
     inlined_as_list: true
-  StudyEventDefRef:
-    name: StudyEventDefRef
+  studyEventDef:
+    name: studyEventDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: StudyEventDef
     inlined: true
     inlined_as_list: true
-  ItemGroupDefRef:
-    name: ItemGroupDefRef
+  itemGroupDef:
+    name: itemGroupDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: ItemGroupDef
     inlined: true
     inlined_as_list: true
-  ItemDefRef:
-    name: ItemDefRef
+  itemDef:
+    name: itemDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: ItemDef
     inlined: true
     inlined_as_list: true
-  CodeListRefRef:
-    name: CodeListRefRef
+  codeList:
+    name: codeList
     multivalued: true
     domain_of:
     - MetaDataVersion
-    - ItemDef
     range: CodeList
     inlined: true
     inlined_as_list: true
-  ConditionDefRef:
-    name: ConditionDefRef
+  conditionDef:
+    name: conditionDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: ConditionDef
     inlined: true
     inlined_as_list: true
-  MethodDefRef:
-    name: MethodDefRef
+  methodDef:
+    name: methodDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: MethodDef
     inlined: true
     inlined_as_list: true
-  CommentDefRef:
-    name: CommentDefRef
+  commentDef:
+    name: commentDef
     multivalued: true
     domain_of:
     - MetaDataVersion
     range: CommentDef
     inlined: true
     inlined_as_list: true
-  LeafRef:
-    name: LeafRef
+  leaf:
+    name: leaf
     multivalued: true
     domain_of:
     - MetaDataVersion
@@ -1128,8 +1126,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -1138,7 +1136,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: MetaDataVersion
     domain_of:
     - Study
@@ -1179,8 +1177,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: MetaDataVersion name.
     comments:
     - 'Required
@@ -1188,7 +1186,7 @@ attributes:
       range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: MetaDataVersion
     domain_of:
     - Alias
@@ -1225,10 +1223,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef element.
     comments:
     - 'Optional
@@ -1236,7 +1234,7 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: CommentOID
+    alias: commentOID
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
@@ -1252,14 +1250,14 @@ attributes:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: MetaDataVersion
     domain_of:
     - Study
@@ -1300,61 +1298,61 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  IncludeRef:
-    name: IncludeRef
+  include:
+    name: include
     description: 'Include reference: The Include metadata element allows a reference
       to a prior metadata version.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: IncludeRef
+    alias: include
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: Include
     maximum_cardinality: 1
-  StandardsRef:
-    name: StandardsRef
+  standards:
+    name: standards
     description: 'Standards reference: The Standards element provides a container
       for the list of Standard elements referenced in the MetaDataVersion for the
       Study..'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: StandardsRef
+    alias: standards
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: Standards
     maximum_cardinality: 1
-  AnnotatedCRFRef:
-    name: AnnotatedCRFRef
+  annotatedCRF:
+    name: annotatedCRF
     description: 'AnnotatedCRF reference: An Annotated Case Report Form (CRF) is a
       Portable File Format (PDF) document that provides the mapping of data collection
       fields to the variables or discrete variable values contained within the datasets.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: AnnotatedCRFRef
+    alias: annotatedCRF
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: AnnotatedCRF
     maximum_cardinality: 1
-  SupplementalDocRef:
-    name: SupplementalDocRef
+  supplementalDoc:
+    name: supplementalDoc
     description: 'SupplementalDoc reference: Supplemental data definitions'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: SupplementalDocRef
+    alias: supplementalDoc
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: SupplementalDoc
     maximum_cardinality: 1
-  ValueListDefRef:
-    name: ValueListDefRef
+  valueListDef:
+    name: valueListDef
     description: 'ValueListDef reference: The following table specifies the XML structure
       for valuelist metadata. The ValueListDef element contains ItemRef elements that
       reference ItemDef elements that provide the value-level metadata details'
@@ -1362,59 +1360,59 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: ValueListDefRef
+    alias: valueListDef
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: ValueListDef
     inlined: true
     inlined_as_list: true
-  WhereClauseDefRef:
-    name: WhereClauseDefRef
+  whereClauseDef:
+    name: whereClauseDef
     description: 'WhereClauseDef reference: The WhereClauseDef element specifies a
       condition.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: WhereClauseDefRef
+    alias: whereClauseDef
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: WhereClauseDef
     inlined: true
     inlined_as_list: true
-  ProtocolRef:
-    name: ProtocolRef
+  protocol:
+    name: protocol
     description: 'Protocol reference: The Protocol element lists the kinds of study
       events that can occur within a specific version of a study. All clinical data
       must occur within one of these study events.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: ProtocolRef
+    alias: protocol
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: Protocol
     maximum_cardinality: 1
-  WorkflowDefRef:
-    name: WorkflowDefRef
+  workflowDef:
+    name: workflowDef
     description: 'WorkflowDef reference: A WorkflowDef defines an automated workflow
       for a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: WorkflowDefRef
+    alias: workflowDef
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: WorkflowDef
     inlined: true
     inlined_as_list: true
-  StudyEventGroupDefRef:
-    name: StudyEventGroupDefRef
+  studyEventGroupDef:
+    name: studyEventGroupDef
     description: 'StudyEventGroupDef reference: StudyEventGroupDef is a study building
       block that groups a number of smaller building blocks, which can themselves
       be StudyEventGroups or StudyEvents. It thus allows nesting of building blocks.'
@@ -1422,15 +1420,15 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: StudyEventGroupDefRef
+    alias: studyEventGroupDef
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: StudyEventGroupDef
     inlined: true
     inlined_as_list: true
-  StudyEventDefRef:
-    name: StudyEventDefRef
+  studyEventDef:
+    name: studyEventDef
     description: 'StudyEventDef reference: StudyEventDef represents the definition
       of an activity in a study where data is collected. For example, a study event
       may represent a set of item groups that represent data collection instruments
@@ -1440,30 +1438,30 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: StudyEventDefRef
+    alias: studyEventDef
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: StudyEventDef
     inlined: true
     inlined_as_list: true
-  ItemGroupDefRef:
-    name: ItemGroupDefRef
+  itemGroupDef:
+    name: itemGroupDef
     description: 'ItemGroupDef reference: An ItemGroupDef describes a type of variable
       or field grouping that can occur within a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: ItemGroupDefRef
+    alias: itemGroupDef
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: ItemGroupDef
     inlined: true
     inlined_as_list: true
-  ItemDefRef:
-    name: ItemDefRef
+  itemDef:
+    name: itemDef
     description: 'ItemDef reference: An ItemDef describes a type of item that can
       occur within a study. Item properties include name, datatype, range, or codelist
       restrictions, and several other properties.'
@@ -1471,59 +1469,61 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: ItemDefRef
+    alias: itemDef
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: ItemDef
     inlined: true
     inlined_as_list: true
-  CodeListRefRef:
-    name: CodeListRefRef
-    description: 'CodeListRef reference: A reference to a CodeList definition.'
+  codeList:
+    name: codeList
+    description: 'CodeList reference: Defines a discrete set of permitted values for
+      an item, or provides a reference to a codelist or dictionary maintained by an
+      external organization via the Coding element, or a combination of both. Examples
+      provided under Coding.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: CodeListRefRef
+    alias: codeList
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
-    - ItemDef
     range: CodeList
     inlined: true
     inlined_as_list: true
-  ConditionDefRef:
-    name: ConditionDefRef
+  conditionDef:
+    name: conditionDef
     description: 'ConditionDef reference: A ConditionDef defines a boolean condition.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: ConditionDefRef
+    alias: conditionDef
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: ConditionDef
     inlined: true
     inlined_as_list: true
-  MethodDefRef:
-    name: MethodDefRef
+  methodDef:
+    name: methodDef
     description: 'MethodDef reference: A MethodDef defines how a data value can be
       obtained from a collection of other data values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: MethodDefRef
+    alias: methodDef
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: MethodDef
     inlined: true
     inlined_as_list: true
-  CommentDefRef:
-    name: CommentDefRef
+  commentDef:
+    name: commentDef
     description: 'CommentDef reference: The Comment element allows referencing short
       comments self-contained in the XML document or long comments normally included
       in external documents. For comments included in external documents, the reference
@@ -1532,22 +1532,22 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: CommentDefRef
+    alias: commentDef
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion
     range: CommentDef
     inlined: true
     inlined_as_list: true
-  LeafRef:
-    name: LeafRef
+  leaf:
+    name: leaf
     description: 'Leaf reference: Contains the XLink information referenced by DocumentRef
       or ArchiveLocationID'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: LeafRef
+    alias: leaf
     owner: MetaDataVersion
     domain_of:
     - MetaDataVersion

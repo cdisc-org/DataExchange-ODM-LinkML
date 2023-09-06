@@ -11,24 +11,24 @@ URI: [odm:Arm](http://www.cdisc.org/ns/odm/v2.0/Arm)
 ```mermaid
 erDiagram
 Arm {
-    oid OID  
-    name Name  
+    oid oID  
+    nameType name  
 }
 WorkflowRef {
-    oidref WorkflowOID  
+    oidref workflowOID  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-Arm ||--|o Description : "DescriptionRef"
-Arm ||--|o WorkflowRef : "WorkflowRefRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+Arm ||--|o Description : "description"
+Arm ||--|o WorkflowRef : "workflowRef"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -41,10 +41,10 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Arm definition. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name of the study arm. | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Arm definition. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name of the study arm. | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [workflowRef](workflowRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -55,7 +55,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyStructure](StudyStructure.md) | [ArmRef](ArmRef.md) | range | [Arm](Arm.md) |
+| [StudyStructure](StudyStructure.md) | [arm](arm.md) | range | [Arm](Arm.md) |
 
 
 
@@ -110,13 +110,13 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Arm
 rank: 1000
 slots:
-- OID
-- Name
-- DescriptionRef
-- WorkflowRefRef
+- oID
+- name
+- description
+- workflowRef
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the Arm definition.
     comments:
     - 'Required
@@ -161,8 +161,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name of the study arm.
     comments:
     - 'Required
@@ -203,10 +203,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -246,8 +246,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  WorkflowRefRef:
-    name: WorkflowRefRef
+  workflowRef:
+    name: workflowRef
     domain_of:
     - StudyEventGroupDef
     - StudyEventDef
@@ -274,8 +274,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Arm
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the Arm definition.
     comments:
     - 'Required
@@ -320,8 +320,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name of the study arm.
     comments:
     - 'Required
@@ -362,10 +362,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -405,8 +405,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  WorkflowRefRef:
-    name: WorkflowRefRef
+  workflowRef:
+    name: workflowRef
     domain_of:
     - StudyEventGroupDef
     - StudyEventDef
@@ -417,8 +417,8 @@ slot_usage:
     range: WorkflowRef
     maximum_cardinality: 1
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the Arm definition.
     comments:
     - 'Required
@@ -427,7 +427,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: Arm
     domain_of:
     - Study
@@ -468,8 +468,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name of the study arm.
     comments:
     - 'Required
@@ -477,7 +477,7 @@ attributes:
       range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: Arm
     domain_of:
     - Alias
@@ -514,16 +514,16 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: Arm
     domain_of:
     - Study
@@ -564,13 +564,13 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  WorkflowRefRef:
-    name: WorkflowRefRef
+  workflowRef:
+    name: workflowRef
     description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: WorkflowRefRef
+    alias: workflowRef
     owner: Arm
     domain_of:
     - StudyEventGroupDef

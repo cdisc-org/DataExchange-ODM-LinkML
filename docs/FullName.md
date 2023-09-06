@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [User](User.md) | [FullNameRef](FullNameRef.md) | range | [FullName](FullName.md) |
+| [User](User.md) | [fullName](fullName.md) | range | [FullName](FullName.md) |
 
 
 

@@ -11,48 +11,48 @@ URI: [odm:ReferenceData](http://www.cdisc.org/ns/odm/v2.0/ReferenceData)
 ```mermaid
 erDiagram
 ReferenceData {
-    oidref StudyOID  
-    oidref MetaDataVersionOID  
+    oidref studyOID  
+    oidref metaDataVersionOID  
 }
 Annotation {
-    positiveInteger SeqNum  
-    TransactionType TransactionTypeRef  
-    oid ID  
+    positiveInteger seqNum  
+    TransactionType transactionType  
+    oid iD  
 }
 Flag {
 
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 Comment {
-    CommentType SponsorOrSite  
+    CommentType sponsorOrSite  
 }
 Signature {
-    oid ID  
+    oid iD  
 }
 DateTimeStamp {
     datetime content  
 }
 SignatureRef {
-    oidref SignatureOID  
+    oidref signatureOID  
 }
 LocationRef {
-    oidref LocationOID  
+    oidref locationOID  
 }
 UserRef {
-    oidref UserOID  
+    oidref userOID  
 }
 AuditRecord {
-    EditPointType EditPoint  
-    YesOrNo UsedMethod  
+    EditPointType editPoint  
+    YesOrNo usedMethod  
 }
 SourceID {
     text content  
@@ -61,58 +61,58 @@ ReasonForChange {
     text content  
 }
 ItemGroupData {
-    oidref ItemGroupOID  
-    repeatKey ItemGroupRepeatKey  
-    TransactionType TransactionTypeRef  
-    positiveInteger ItemGroupDataSeq  
+    oidref itemGroupOID  
+    repeatKey itemGroupRepeatKey  
+    TransactionType transactionType  
+    positiveInteger itemGroupDataSeq  
 }
 ItemData {
-    oidref ItemOID  
-    TransactionType TransactionTypeRef  
-    YesOnly IsNull  
+    oidref itemOID  
+    TransactionType transactionType  
+    YesOnly isNull  
 }
 Query {
-    oid OID  
-    QuerySourceType Source  
-    text Target  
-    QueryType Type  
-    QueryStateType State  
-    datetime LastUpdateDatetime  
-    name Name  
+    oid oID  
+    QuerySourceType source  
+    text target  
+    QueryType type  
+    QueryStateType state  
+    datetime lastUpdateDatetime  
+    nameType name  
 }
 
-ReferenceData ||--}o ItemGroupData : "ItemGroupDataRef"
-ReferenceData ||--|o AuditRecord : "AuditRecordRef"
-ReferenceData ||--|o Signature : "SignatureRefRef"
-ReferenceData ||--|o Annotation : "AnnotationRef"
-Annotation ||--|o Comment : "CommentRef"
-Annotation ||--}o Coding : "CodingRef"
-Annotation ||--}o Flag : "FlagRef"
-Flag ||--|o FlagValue : "FlagValueRef"
-Flag ||--|o FlagType : "FlagTypeRef"
-Comment ||--}o TranslatedText : "TranslatedTextRef"
-Signature ||--|o UserRef : "UserRefRef"
-Signature ||--|o LocationRef : "LocationRefRef"
-Signature ||--|o SignatureRef : "SignatureRefRef"
-Signature ||--|o DateTimeStamp : "DateTimeStampRef"
-AuditRecord ||--|o UserRef : "UserRefRef"
-AuditRecord ||--|o LocationRef : "LocationRefRef"
-AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
-AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
-AuditRecord ||--|o SourceID : "SourceIDRef"
-ItemGroupData ||--}o Query : "QueryRef"
-ItemGroupData ||--}o ItemGroupData : "ItemGroupDataRef"
-ItemGroupData ||--}o ItemData : "ItemDataRef"
-ItemGroupData ||--|o AuditRecord : "AuditRecordRef"
-ItemGroupData ||--|o Signature : "SignatureRefRef"
-ItemGroupData ||--|o Annotation : "AnnotationRef"
-ItemData ||--}o Value : "ValueRef"
-ItemData ||--}o Query : "QueryRef"
-ItemData ||--|o AuditRecord : "AuditRecordRef"
-ItemData ||--|o Signature : "SignatureRefRef"
-ItemData ||--|o Annotation : "AnnotationRef"
-Query ||--|o Value : "ValueRef"
-Query ||--}o AuditRecord : "AuditRecordRef"
+ReferenceData ||--}o ItemGroupData : "itemGroupData"
+ReferenceData ||--|o AuditRecord : "auditRecord"
+ReferenceData ||--|o Signature : "signature"
+ReferenceData ||--|o Annotation : "annotation"
+Annotation ||--|o Comment : "comment"
+Annotation ||--}o Coding : "coding"
+Annotation ||--}o Flag : "flag"
+Flag ||--|o FlagValue : "flagValue"
+Flag ||--|o FlagType : "flagType"
+Comment ||--}o TranslatedText : "translatedText"
+Signature ||--|o UserRef : "userRef"
+Signature ||--|o LocationRef : "locationRef"
+Signature ||--|o SignatureRef : "signatureRef"
+Signature ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o UserRef : "userRef"
+AuditRecord ||--|o LocationRef : "locationRef"
+AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o ReasonForChange : "reasonForChange"
+AuditRecord ||--|o SourceID : "sourceID"
+ItemGroupData ||--}o Query : "query"
+ItemGroupData ||--}o ItemGroupData : "itemGroupData"
+ItemGroupData ||--}o ItemData : "itemData"
+ItemGroupData ||--|o AuditRecord : "auditRecord"
+ItemGroupData ||--|o Signature : "signature"
+ItemGroupData ||--|o Annotation : "annotation"
+ItemData ||--}o Value : "value"
+ItemData ||--}o Query : "query"
+ItemData ||--|o AuditRecord : "auditRecord"
+ItemData ||--|o Signature : "signature"
+ItemData ||--|o Annotation : "annotation"
+Query ||--|o Value : "value"
+Query ||--}o AuditRecord : "auditRecord"
 
 ```
 
@@ -125,12 +125,12 @@ Query ||--}o AuditRecord : "AuditRecordRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the Study that defines the metadata for this reference data. | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | References the MetaDataVersion (within the above Study) for this reference da... | direct |
-| [ItemGroupDataRef](ItemGroupDataRef.md) | 0..* <br/> [ItemGroupData](ItemGroupData.md) | ItemGroupData reference: Clinical data corresponding to an ItemGroupRef defin... | direct |
-| [AuditRecordRef](AuditRecordRef.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
-| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: A reference to the signature meaning. | direct |
-| [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
+| [studyOID](studyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the Study that defines the metadata for this reference data. | direct |
+| [metaDataVersionOID](metaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | References the MetaDataVersion (within the above Study) for this reference da... | direct |
+| [itemGroupData](itemGroupData.md) | 0..* <br/> [ItemGroupData](ItemGroupData.md) | ItemGroupData reference: Clinical data corresponding to an ItemGroupRef defin... | direct |
+| [auditRecord](auditRecord.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
+| [signature](signature.md) | 0..1 <br/> [Signature](Signature.md) | Signature reference: An electronic signature applies to a collection of clini... | direct |
+| [annotation](annotation.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -141,7 +141,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ODMFileMetadata](ODMFileMetadata.md) | [ReferenceDataRef](ReferenceDataRef.md) | range | [ReferenceData](ReferenceData.md) |
+| [ODMFileMetadata](ODMFileMetadata.md) | [referenceData](referenceData.md) | range | [ReferenceData](ReferenceData.md) |
 
 
 
@@ -197,15 +197,15 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ReferenceData
 rank: 1000
 slots:
-- StudyOID
-- MetaDataVersionOID
-- ItemGroupDataRef
-- AuditRecordRef
-- SignatureRefRef
-- AnnotationRef
+- studyOID
+- metaDataVersionOID
+- itemGroupData
+- auditRecord
+- signature
+- annotation
 slot_usage:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the Study that defines the metadata for this reference
       data.
     comments:
@@ -226,8 +226,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: References the MetaDataVersion (within the above Study) for this
       reference data. All metadata references (OIDs) occurring within this ReferenceData
       element refer to definitions within the selected metadata version. Signature
@@ -251,8 +251,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  ItemGroupDataRef:
-    name: ItemGroupDataRef
+  itemGroupData:
+    name: itemGroupData
     multivalued: true
     domain_of:
     - ReferenceData
@@ -262,8 +262,8 @@ slot_usage:
     range: ItemGroupData
     inlined: true
     inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -274,8 +274,8 @@ slot_usage:
     - Query
     range: AuditRecord
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
+  signature:
+    name: signature
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -283,11 +283,10 @@ slot_usage:
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Signature
     range: Signature
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -316,8 +315,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ReferenceData
 rank: 1000
 slot_usage:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the Study that defines the metadata for this reference
       data.
     comments:
@@ -338,8 +337,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: References the MetaDataVersion (within the above Study) for this
       reference data. All metadata references (OIDs) occurring within this ReferenceData
       element refer to definitions within the selected metadata version. Signature
@@ -363,8 +362,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  ItemGroupDataRef:
-    name: ItemGroupDataRef
+  itemGroupData:
+    name: itemGroupData
     multivalued: true
     domain_of:
     - ReferenceData
@@ -374,8 +373,8 @@ slot_usage:
     range: ItemGroupData
     inlined: true
     inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -386,8 +385,8 @@ slot_usage:
     - Query
     range: AuditRecord
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
+  signature:
+    name: signature
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -395,11 +394,10 @@ slot_usage:
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Signature
     range: Signature
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -411,8 +409,8 @@ slot_usage:
     range: Annotation
     maximum_cardinality: 1
 attributes:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the Study that defines the metadata for this reference
       data.
     comments:
@@ -424,7 +422,7 @@ attributes:
       matches the MetaDataVersionOID.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyOID
+    alias: studyOID
     owner: ReferenceData
     domain_of:
     - Include
@@ -437,8 +435,8 @@ attributes:
     - KeySet
     range: oidref
     required: true
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: References the MetaDataVersion (within the above Study) for this
       reference data. All metadata references (OIDs) occurring within this ReferenceData
       element refer to definitions within the selected metadata version. Signature
@@ -454,7 +452,7 @@ attributes:
       that matches the StudyOID.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: MetaDataVersionOID
+    alias: metaDataVersionOID
     owner: ReferenceData
     domain_of:
     - Include
@@ -466,15 +464,15 @@ attributes:
     - KeySet
     range: oidref
     required: true
-  ItemGroupDataRef:
-    name: ItemGroupDataRef
+  itemGroupData:
+    name: itemGroupData
     description: 'ItemGroupData reference: Clinical data corresponding to an ItemGroupRef
       defined in the active MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: ItemGroupDataRef
+    alias: itemGroupData
     owner: ReferenceData
     domain_of:
     - ReferenceData
@@ -484,8 +482,8 @@ attributes:
     range: ItemGroupData
     inlined: true
     inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     description: 'AuditRecord reference: An AuditRecord carries information pertaining
       to the creation, deletion, or modification of clinical data. This information
       includes who performed that action, and where, when, and why that action was
@@ -495,7 +493,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: AuditRecordRef
+    alias: auditRecord
     owner: ReferenceData
     domain_of:
     - ReferenceData
@@ -507,13 +505,18 @@ attributes:
     - Query
     range: AuditRecord
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
-    description: 'SignatureRef reference: A reference to the signature meaning.'
+  signature:
+    name: signature
+    description: 'Signature reference: An electronic signature applies to a collection
+      of clinical data. This indicates that some user accepts legal responsibility
+      for that data. See 21 CFR Part 11. The signature identifies the person signing,
+      the location of signing, the signature meaning (via the referenced SignatureDef),
+      the date and time of signing, and (in the case of a digital signature) an encrypted
+      hash of the included data.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: SignatureRefRef
+    alias: signature
     owner: ReferenceData
     domain_of:
     - ReferenceData
@@ -522,18 +525,17 @@ attributes:
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Signature
     range: Signature
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     description: 'Annotation reference: A general note about clinical data. If an
       annotation has both a comment and flags, the flags should be related to the
       comment.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: AnnotationRef
+    alias: annotation
     owner: ReferenceData
     domain_of:
     - ReferenceData

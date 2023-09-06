@@ -11,31 +11,31 @@ URI: [odm:CommentDef](http://www.cdisc.org/ns/odm/v2.0/CommentDef)
 ```mermaid
 erDiagram
 CommentDef {
-    oid OID  
+    oid oID  
 }
 DocumentRef {
-    oid LeafID  
+    oid leafID  
 }
 PDFPageRef {
-    text PageRefs  
-    positiveInteger FirstPage  
-    positiveInteger LastPage  
-    PDFPageType Type  
-    text TitleRef  
+    text pageRefs  
+    positiveInteger firstPage  
+    positiveInteger lastPage  
+    PDFPageType type  
+    text title  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-CommentDef ||--|o Description : "DescriptionRef"
-CommentDef ||--}o DocumentRef : "DocumentRefRef"
-DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -48,9 +48,9 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Text of the comment. | direct |
-| [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file. | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Text of the comment. | direct |
+| [documentRef](documentRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -61,7 +61,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [MetaDataVersion](MetaDataVersion.md) | [CommentDefRef](CommentDefRef.md) | range | [CommentDef](CommentDef.md) |
+| [MetaDataVersion](MetaDataVersion.md) | [commentDef](commentDef.md) | range | [CommentDef](CommentDef.md) |
 
 
 
@@ -118,12 +118,12 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/CommentDef
 rank: 1000
 slots:
-- OID
-- DescriptionRef
-- DocumentRefRef
+- oID
+- description
+- documentRef
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -168,8 +168,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: Text of the comment.
     domain_of:
     - Study
@@ -210,8 +210,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  DocumentRefRef:
-    name: DocumentRefRef
+  documentRef:
+    name: documentRef
     description: The DocumentRef element is a container for page references in a PDF
       file.
     multivalued: true
@@ -243,8 +243,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/CommentDef
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -289,8 +289,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: Text of the comment.
     domain_of:
     - Study
@@ -331,8 +331,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  DocumentRefRef:
-    name: DocumentRefRef
+  documentRef:
+    name: documentRef
     description: The DocumentRef element is a container for page references in a PDF
       file.
     multivalued: true
@@ -346,8 +346,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -356,7 +356,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: CommentDef
     domain_of:
     - Study
@@ -397,13 +397,13 @@ attributes:
     - Query
     range: oid
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: Text of the comment.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: CommentDef
     domain_of:
     - Study
@@ -444,15 +444,15 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  DocumentRefRef:
-    name: DocumentRefRef
+  documentRef:
+    name: documentRef
     description: The DocumentRef element is a container for page references in a PDF
       file.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: DocumentRefRef
+    alias: documentRef
     owner: CommentDef
     domain_of:
     - AnnotatedCRF

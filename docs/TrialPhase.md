@@ -11,19 +11,19 @@ URI: [odm:TrialPhase](http://www.cdisc.org/ns/odm/v2.0/TrialPhase)
 ```mermaid
 erDiagram
 TrialPhase {
-    TrialPhaseType ValueRef  
+    TrialPhaseType value  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-TrialPhase ||--|o Description : "DescriptionRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+TrialPhase ||--|o Description : "description"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -36,8 +36,8 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ValueRef](ValueRef.md) | 1..1 <br/> [TrialPhaseType](TrialPhaseType.md) | Human-readable designation of the trial phase. | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [value](value.md) | 1..1 <br/> [TrialPhaseType](TrialPhaseType.md) | Human-readable designation of the trial phase. | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -48,7 +48,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Protocol](Protocol.md) | [TrialPhaseRef](TrialPhaseRef.md) | range | [TrialPhase](TrialPhase.md) |
+| [Protocol](Protocol.md) | [trialPhase](trialPhase.md) | range | [TrialPhase](TrialPhase.md) |
 
 
 
@@ -103,11 +103,11 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/TrialPhase
 rank: 1000
 slots:
-- ValueRef
-- DescriptionRef
+- value
+- description
 slot_usage:
-  ValueRef:
-    name: ValueRef
+  value:
+    name: value
     description: Human-readable designation of the trial phase.
     comments:
     - 'Required
@@ -127,8 +127,8 @@ slot_usage:
     - Query
     range: TrialPhaseType
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -185,8 +185,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/TrialPhase
 rank: 1000
 slot_usage:
-  ValueRef:
-    name: ValueRef
+  value:
+    name: value
     description: Human-readable designation of the trial phase.
     comments:
     - 'Required
@@ -206,8 +206,8 @@ slot_usage:
     - Query
     range: TrialPhaseType
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -248,8 +248,8 @@ slot_usage:
     range: Description
     maximum_cardinality: 1
 attributes:
-  ValueRef:
-    name: ValueRef
+  value:
+    name: value
     description: Human-readable designation of the trial phase.
     comments:
     - 'Required
@@ -264,7 +264,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: ValueRef
+    alias: value
     owner: TrialPhase
     domain_of:
     - TrialPhase
@@ -274,14 +274,14 @@ attributes:
     - Query
     range: TrialPhaseType
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: TrialPhase
     domain_of:
     - Study

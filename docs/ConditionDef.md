@@ -11,21 +11,21 @@ URI: [odm:ConditionDef](http://www.cdisc.org/ns/odm/v2.0/ConditionDef)
 ```mermaid
 erDiagram
 ConditionDef {
-    oid OID  
-    name Name  
-    oidref CommentOID  
+    oid oID  
+    nameType name  
+    oidref commentOID  
 }
 Alias {
-    text ContextRef  
-    text Name  
+    text context  
+    text name  
 }
 FormalExpression {
-    text ContextRef  
+    text context  
 }
 ExternalCodeLib {
-    name Library  
-    name Method  
-    text Version  
+    nameType library  
+    nameType method  
+    text version  
     text ref  
     uriorcurie href  
 }
@@ -36,35 +36,35 @@ MethodSignature {
 
 }
 ReturnValue {
-    name Name  
-    DataType DataTypeRef  
-    text DefinitionRef  
-    positiveInteger OrderNumber  
+    nameType name  
+    DataType dataType  
+    text definition  
+    positiveInteger orderNumber  
 }
 Parameter {
-    name Name  
-    DataType DataTypeRef  
-    text DefinitionRef  
-    positiveInteger OrderNumber  
+    nameType name  
+    DataType dataType  
+    text definition  
+    positiveInteger orderNumber  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-ConditionDef ||--|o Description : "DescriptionRef"
-ConditionDef ||--|o MethodSignature : "MethodSignatureRef"
-ConditionDef ||--}o FormalExpression : "FormalExpressionRef"
-ConditionDef ||--}o Alias : "AliasRef"
-FormalExpression ||--|o Code : "CodeRef"
-FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
-MethodSignature ||--}o Parameter : "ParameterRef"
-MethodSignature ||--}o ReturnValue : "ReturnValueRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+MethodSignature ||--}o Parameter : "parameter"
+MethodSignature ||--}o ReturnValue : "returnValue"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -77,13 +77,13 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human-readable name for the Condition. | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef element. | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [MethodSignatureRef](MethodSignatureRef.md) | 0..1 <br/> [MethodSignature](MethodSignature.md) | MethodSignature reference: A MethodSignature defines the parameters and retur... | direct |
-| [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
-| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human-readable name for the Condition. | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef element. | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [methodSignature](methodSignature.md) | 0..1 <br/> [MethodSignature](MethodSignature.md) | MethodSignature reference: A MethodSignature defines the parameters and retur... | direct |
+| [formalExpression](formalExpression.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
+| [alias](alias.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -94,7 +94,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [MetaDataVersion](MetaDataVersion.md) | [ConditionDefRef](ConditionDefRef.md) | range | [ConditionDef](ConditionDef.md) |
+| [MetaDataVersion](MetaDataVersion.md) | [conditionDef](conditionDef.md) | range | [ConditionDef](ConditionDef.md) |
 
 
 
@@ -148,16 +148,16 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ConditionDef
 rank: 1000
 slots:
-- OID
-- Name
-- CommentOID
-- DescriptionRef
-- MethodSignatureRef
-- FormalExpressionRef
-- AliasRef
+- oID
+- name
+- commentOID
+- description
+- methodSignature
+- formalExpression
+- alias
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -202,8 +202,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human-readable name for the Condition.
     comments:
     - 'Required
@@ -244,10 +244,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef element.
     comments:
     - 'Optional
@@ -267,8 +267,8 @@ slot_usage:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -308,16 +308,16 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  MethodSignatureRef:
-    name: MethodSignatureRef
+  methodSignature:
+    name: methodSignature
     domain_of:
     - RangeCheck
     - MethodDef
     - ConditionDef
     range: MethodSignature
     maximum_cardinality: 1
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     multivalued: true
     domain_of:
     - RangeCheck
@@ -328,8 +328,8 @@ slot_usage:
     range: FormalExpression
     inlined: true
     inlined_as_list: true
-  AliasRef:
-    name: AliasRef
+  alias:
+    name: alias
     multivalued: true
     domain_of:
     - StudyEventDef
@@ -359,8 +359,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ConditionDef
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -405,8 +405,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human-readable name for the Condition.
     comments:
     - 'Required
@@ -447,10 +447,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef element.
     comments:
     - 'Optional
@@ -470,8 +470,8 @@ slot_usage:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -511,16 +511,16 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  MethodSignatureRef:
-    name: MethodSignatureRef
+  methodSignature:
+    name: methodSignature
     domain_of:
     - RangeCheck
     - MethodDef
     - ConditionDef
     range: MethodSignature
     maximum_cardinality: 1
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     multivalued: true
     domain_of:
     - RangeCheck
@@ -531,8 +531,8 @@ slot_usage:
     range: FormalExpression
     inlined: true
     inlined_as_list: true
-  AliasRef:
-    name: AliasRef
+  alias:
+    name: alias
     multivalued: true
     domain_of:
     - StudyEventDef
@@ -547,8 +547,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -557,7 +557,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: ConditionDef
     domain_of:
     - Study
@@ -598,8 +598,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human-readable name for the Condition.
     comments:
     - 'Required
@@ -607,7 +607,7 @@ attributes:
       range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: ConditionDef
     domain_of:
     - Alias
@@ -644,10 +644,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef element.
     comments:
     - 'Optional
@@ -655,7 +655,7 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: CommentOID
+    alias: commentOID
     owner: ConditionDef
     domain_of:
     - MetaDataVersion
@@ -671,14 +671,14 @@ attributes:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: ConditionDef
     domain_of:
     - Study
@@ -719,8 +719,8 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  MethodSignatureRef:
-    name: MethodSignatureRef
+  methodSignature:
+    name: methodSignature
     description: 'MethodSignature reference: A MethodSignature defines the parameters
       and return values for a method. The MethodSignature improves traceability while
       enhancing the ability for automation engines to execute a MethodDef''s FormalExpression.
@@ -728,7 +728,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: MethodSignatureRef
+    alias: methodSignature
     owner: ConditionDef
     domain_of:
     - RangeCheck
@@ -736,8 +736,8 @@ attributes:
     - ConditionDef
     range: MethodSignature
     maximum_cardinality: 1
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     description: 'FormalExpression reference: A FormalExpression used within a ConditionDef
       or a RangeCheck must evaluate to True or False. A FormalExpression referenced
       within a MethodDef having Type Imputation, Computation, or Transpose must evaluate
@@ -749,7 +749,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: FormalExpressionRef
+    alias: formalExpression
     owner: ConditionDef
     domain_of:
     - RangeCheck
@@ -760,8 +760,8 @@ attributes:
     range: FormalExpression
     inlined: true
     inlined_as_list: true
-  AliasRef:
-    name: AliasRef
+  alias:
+    name: alias
     description: 'Alias reference: An Alias provides an additional name for an element.
       The Context attribute specifies the application domain in which this additional
       name is relevant.'
@@ -769,7 +769,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: AliasRef
+    alias: alias
     owner: ConditionDef
     domain_of:
     - StudyEventDef

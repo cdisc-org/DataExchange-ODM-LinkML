@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Leaf](Leaf.md) | [TitleRef](TitleRef.md) | range | [Title](Title.md) |
+| [Leaf](Leaf.md) | [title](title.md) | range | [Title](Title.md) |
 
 
 

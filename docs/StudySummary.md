@@ -14,28 +14,28 @@ StudySummary {
 
 }
 StudyParameter {
-    oid OID  
-    name Term  
-    name ShortName  
+    oid oID  
+    nameType term  
+    nameType shortName  
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 ParameterValue {
-    text ValueRef  
+    text value  
 }
 
-StudySummary ||--}o StudyParameter : "StudyParameterRef"
-StudyParameter ||--|o ParameterValue : "ParameterValueRef"
-StudyParameter ||--}o Coding : "CodingRef"
-ParameterValue ||--}o Coding : "CodingRef"
+StudySummary ||--}o StudyParameter : "studyParameter"
+StudyParameter ||--|o ParameterValue : "parameterValue"
+StudyParameter ||--}o Coding : "coding"
+ParameterValue ||--}o Coding : "coding"
 
 ```
 
@@ -48,7 +48,7 @@ ParameterValue ||--}o Coding : "CodingRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyParameterRef](StudyParameterRef.md) | 0..* <br/> [StudyParameter](StudyParameter.md) | StudyParameter reference: A StudyParameter defines a study design parameter f... | direct |
+| [studyParameter](studyParameter.md) | 0..* <br/> [StudyParameter](StudyParameter.md) | StudyParameter reference: A StudyParameter defines a study design parameter f... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -59,7 +59,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Protocol](Protocol.md) | [StudySummaryRef](StudySummaryRef.md) | range | [StudySummary](StudySummary.md) |
+| [Protocol](Protocol.md) | [studySummary](studySummary.md) | range | [StudySummary](StudySummary.md) |
 
 
 
@@ -115,10 +115,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudySummary
 rank: 1000
 slots:
-- StudyParameterRef
+- studyParameter
 slot_usage:
-  StudyParameterRef:
-    name: StudyParameterRef
+  studyParameter:
+    name: studyParameter
     multivalued: true
     domain_of:
     - StudySummary
@@ -143,8 +143,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudySummary
 rank: 1000
 slot_usage:
-  StudyParameterRef:
-    name: StudyParameterRef
+  studyParameter:
+    name: studyParameter
     multivalued: true
     domain_of:
     - StudySummary
@@ -152,8 +152,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  StudyParameterRef:
-    name: StudyParameterRef
+  studyParameter:
+    name: studyParameter
     description: 'StudyParameter reference: A StudyParameter defines a study design
       parameter for which the value or values are delivered in the ParameterValue
       child element or elements.'
@@ -161,7 +161,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: StudyParameterRef
+    alias: studyParameter
     owner: StudySummary
     domain_of:
     - StudySummary

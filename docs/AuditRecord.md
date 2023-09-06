@@ -11,8 +11,8 @@ URI: [odm:AuditRecord](http://www.cdisc.org/ns/odm/v2.0/AuditRecord)
 ```mermaid
 erDiagram
 AuditRecord {
-    EditPointType EditPoint  
-    YesOrNo UsedMethod  
+    EditPointType editPoint  
+    YesOrNo usedMethod  
 }
 SourceID {
     text content  
@@ -24,17 +24,17 @@ DateTimeStamp {
     datetime content  
 }
 LocationRef {
-    oidref LocationOID  
+    oidref locationOID  
 }
 UserRef {
-    oidref UserOID  
+    oidref userOID  
 }
 
-AuditRecord ||--|o UserRef : "UserRefRef"
-AuditRecord ||--|o LocationRef : "LocationRefRef"
-AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
-AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
-AuditRecord ||--|o SourceID : "SourceIDRef"
+AuditRecord ||--|o UserRef : "userRef"
+AuditRecord ||--|o LocationRef : "locationRef"
+AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o ReasonForChange : "reasonForChange"
+AuditRecord ||--|o SourceID : "sourceID"
 
 ```
 
@@ -47,13 +47,13 @@ AuditRecord ||--|o SourceID : "SourceIDRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [EditPoint](EditPoint.md) | 0..1 <br/> [EditPointType](EditPointType.md) | Identifies the phase of data processing in which update action occurred. | direct |
-| [UsedMethod](UsedMethod.md) | 0..1 <br/> [YesOrNo](YesOrNo.md) | Indicates that the action was made by the system rather than a data entry for... | direct |
-| [UserRefRef](UserRefRef.md) | 0..1 <br/> [UserRef](UserRef.md) | UserRef reference: A reference to information about a specific user of a clin... | direct |
-| [LocationRefRef](LocationRefRef.md) | 0..1 <br/> [LocationRef](LocationRef.md) | LocationRef reference: A reference to the user's physical location. | direct |
-| [DateTimeStampRef](DateTimeStampRef.md) | 0..1 <br/> [DateTimeStamp](DateTimeStamp.md) | DateTimeStamp reference: Date and time when an action was performed. | direct |
-| [ReasonForChangeRef](ReasonForChangeRef.md) | 0..1 <br/> [ReasonForChange](ReasonForChange.md) | ReasonForChange reference: A user-supplied reason for a data change. | direct |
-| [SourceIDRef](SourceIDRef.md) | 0..1 <br/> [SourceID](SourceID.md) | SourceID reference: Information that identifies the source of the data within... | direct |
+| [editPoint](editPoint.md) | 0..1 <br/> [EditPointType](EditPointType.md) | Identifies the phase of data processing in which update action occurred. | direct |
+| [usedMethod](usedMethod.md) | 0..1 <br/> [YesOrNo](YesOrNo.md) | Indicates that the action was made by the system rather than a data entry for... | direct |
+| [userRef](userRef.md) | 0..1 <br/> [UserRef](UserRef.md) | UserRef reference: A reference to information about a specific user of a clin... | direct |
+| [locationRef](locationRef.md) | 0..1 <br/> [LocationRef](LocationRef.md) | LocationRef reference: A reference to the user's physical location. | direct |
+| [dateTimeStamp](dateTimeStamp.md) | 0..1 <br/> [DateTimeStamp](DateTimeStamp.md) | DateTimeStamp reference: Date and time when an action was performed. | direct |
+| [reasonForChange](reasonForChange.md) | 0..1 <br/> [ReasonForChange](ReasonForChange.md) | ReasonForChange reference: A user-supplied reason for a data change. | direct |
+| [sourceID](sourceID.md) | 0..1 <br/> [SourceID](SourceID.md) | SourceID reference: Information that identifies the source of the data within... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -64,13 +64,13 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ReferenceData](ReferenceData.md) | [AuditRecordRef](AuditRecordRef.md) | range | [AuditRecord](AuditRecord.md) |
-| [ClinicalData](ClinicalData.md) | [AuditRecordRef](AuditRecordRef.md) | range | [AuditRecord](AuditRecord.md) |
-| [SubjectData](SubjectData.md) | [AuditRecordRef](AuditRecordRef.md) | range | [AuditRecord](AuditRecord.md) |
-| [StudyEventData](StudyEventData.md) | [AuditRecordRef](AuditRecordRef.md) | range | [AuditRecord](AuditRecord.md) |
-| [ItemGroupData](ItemGroupData.md) | [AuditRecordRef](AuditRecordRef.md) | range | [AuditRecord](AuditRecord.md) |
-| [ItemData](ItemData.md) | [AuditRecordRef](AuditRecordRef.md) | range | [AuditRecord](AuditRecord.md) |
-| [Query](Query.md) | [AuditRecordRef](AuditRecordRef.md) | range | [AuditRecord](AuditRecord.md) |
+| [ReferenceData](ReferenceData.md) | [auditRecord](auditRecord.md) | range | [AuditRecord](AuditRecord.md) |
+| [ClinicalData](ClinicalData.md) | [auditRecord](auditRecord.md) | range | [AuditRecord](AuditRecord.md) |
+| [SubjectData](SubjectData.md) | [auditRecord](auditRecord.md) | range | [AuditRecord](AuditRecord.md) |
+| [StudyEventData](StudyEventData.md) | [auditRecord](auditRecord.md) | range | [AuditRecord](AuditRecord.md) |
+| [ItemGroupData](ItemGroupData.md) | [auditRecord](auditRecord.md) | range | [AuditRecord](AuditRecord.md) |
+| [ItemData](ItemData.md) | [auditRecord](auditRecord.md) | range | [AuditRecord](AuditRecord.md) |
+| [Query](Query.md) | [auditRecord](auditRecord.md) | range | [AuditRecord](AuditRecord.md) |
 
 
 
@@ -129,24 +129,24 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/AuditRecord
 rank: 1000
 slots:
-- EditPoint
-- UsedMethod
-- UserRefRef
-- LocationRefRef
-- DateTimeStampRef
-- ReasonForChangeRef
-- SourceIDRef
+- editPoint
+- usedMethod
+- userRef
+- locationRef
+- dateTimeStamp
+- reasonForChange
+- sourceID
 slot_usage:
-  EditPoint:
-    name: EditPoint
+  editPoint:
+    name: editPoint
     description: Identifies the phase of data processing in which update action occurred.
     comments:
     - Optional
     domain_of:
     - AuditRecord
     range: EditPointType
-  UsedMethod:
-    name: UsedMethod
+  usedMethod:
+    name: usedMethod
     description: Indicates that the action was made by the system rather than a data
       entry form user action.
     comments:
@@ -154,37 +154,35 @@ slot_usage:
     domain_of:
     - AuditRecord
     range: YesOrNo
-  UserRefRef:
-    name: UserRefRef
+  userRef:
+    name: userRef
     domain_of:
-    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
     maximum_cardinality: 1
-  LocationRefRef:
-    name: LocationRefRef
+  locationRef:
+    name: locationRef
     domain_of:
-    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
     maximum_cardinality: 1
-  DateTimeStampRef:
-    name: DateTimeStampRef
+  dateTimeStamp:
+    name: dateTimeStamp
     domain_of:
     - AuditRecord
     - Signature
     range: DateTimeStamp
     maximum_cardinality: 1
-  ReasonForChangeRef:
-    name: ReasonForChangeRef
+  reasonForChange:
+    name: reasonForChange
     domain_of:
     - AuditRecord
     range: ReasonForChange
     maximum_cardinality: 1
-  SourceIDRef:
-    name: SourceIDRef
+  sourceID:
+    name: sourceID
     domain_of:
     - AuditRecord
     range: SourceID
@@ -210,16 +208,16 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/AuditRecord
 rank: 1000
 slot_usage:
-  EditPoint:
-    name: EditPoint
+  editPoint:
+    name: editPoint
     description: Identifies the phase of data processing in which update action occurred.
     comments:
     - Optional
     domain_of:
     - AuditRecord
     range: EditPointType
-  UsedMethod:
-    name: UsedMethod
+  usedMethod:
+    name: usedMethod
     description: Indicates that the action was made by the system rather than a data
       entry form user action.
     comments:
@@ -227,129 +225,125 @@ slot_usage:
     domain_of:
     - AuditRecord
     range: YesOrNo
-  UserRefRef:
-    name: UserRefRef
+  userRef:
+    name: userRef
     domain_of:
-    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
     maximum_cardinality: 1
-  LocationRefRef:
-    name: LocationRefRef
+  locationRef:
+    name: locationRef
     domain_of:
-    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
     maximum_cardinality: 1
-  DateTimeStampRef:
-    name: DateTimeStampRef
+  dateTimeStamp:
+    name: dateTimeStamp
     domain_of:
     - AuditRecord
     - Signature
     range: DateTimeStamp
     maximum_cardinality: 1
-  ReasonForChangeRef:
-    name: ReasonForChangeRef
+  reasonForChange:
+    name: reasonForChange
     domain_of:
     - AuditRecord
     range: ReasonForChange
     maximum_cardinality: 1
-  SourceIDRef:
-    name: SourceIDRef
+  sourceID:
+    name: sourceID
     domain_of:
     - AuditRecord
     range: SourceID
     maximum_cardinality: 1
 attributes:
-  EditPoint:
-    name: EditPoint
+  editPoint:
+    name: editPoint
     description: Identifies the phase of data processing in which update action occurred.
     comments:
     - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: EditPoint
+    alias: editPoint
     owner: AuditRecord
     domain_of:
     - AuditRecord
     range: EditPointType
-  UsedMethod:
-    name: UsedMethod
+  usedMethod:
+    name: usedMethod
     description: Indicates that the action was made by the system rather than a data
       entry form user action.
     comments:
     - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: UsedMethod
+    alias: usedMethod
     owner: AuditRecord
     domain_of:
     - AuditRecord
     range: YesOrNo
-  UserRefRef:
-    name: UserRefRef
+  userRef:
+    name: userRef
     description: 'UserRef reference: A reference to information about a specific user
       of a clinical data collection or data management system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: UserRefRef
+    alias: userRef
     owner: AuditRecord
     domain_of:
-    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
     maximum_cardinality: 1
-  LocationRefRef:
-    name: LocationRefRef
+  locationRef:
+    name: locationRef
     description: 'LocationRef reference: A reference to the user''s physical location.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: LocationRefRef
+    alias: locationRef
     owner: AuditRecord
     domain_of:
-    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
     maximum_cardinality: 1
-  DateTimeStampRef:
-    name: DateTimeStampRef
+  dateTimeStamp:
+    name: dateTimeStamp
     description: 'DateTimeStamp reference: Date and time when an action was performed.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DateTimeStampRef
+    alias: dateTimeStamp
     owner: AuditRecord
     domain_of:
     - AuditRecord
     - Signature
     range: DateTimeStamp
     maximum_cardinality: 1
-  ReasonForChangeRef:
-    name: ReasonForChangeRef
+  reasonForChange:
+    name: reasonForChange
     description: 'ReasonForChange reference: A user-supplied reason for a data change.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: ReasonForChangeRef
+    alias: reasonForChange
     owner: AuditRecord
     domain_of:
     - AuditRecord
     range: ReasonForChange
     maximum_cardinality: 1
-  SourceIDRef:
-    name: SourceIDRef
+  sourceID:
+    name: sourceID
     description: 'SourceID reference: Information that identifies the source of the
       data within an originating system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: SourceIDRef
+    alias: sourceID
     owner: AuditRecord
     domain_of:
     - AuditRecord

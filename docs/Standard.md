@@ -11,13 +11,13 @@ URI: [odm:Standard](http://www.cdisc.org/ns/odm/v2.0/Standard)
 ```mermaid
 erDiagram
 Standard {
-    oid OID  
-    StandardName Name  
-    StandardType Type  
-    StandardPublishingSet PublishingSet  
-    text Version  
-    StandardStatus Status  
-    oidref CommentOID  
+    oid oID  
+    StandardName name  
+    StandardType type  
+    StandardPublishingSet publishingSet  
+    text version  
+    StandardStatus status  
+    oidref commentOID  
 }
 
 
@@ -33,13 +33,13 @@ Standard {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the standard. | direct |
-| [Name](Name.md) | 1..1 <br/> [StandardName](StandardName.md) | Name of the external standard to which the data conforms. | direct |
-| [Type](Type.md) | 1..1 <br/> [StandardType](StandardType.md) | The type of standard. | direct |
-| [PublishingSet](PublishingSet.md) | 0..1 <br/> [StandardPublishingSet](StandardPublishingSet.md) | The name of the publishing set that contains the published standard. | direct |
-| [Version](Version.md) | 1..1 <br/> [text](text.md) | Version of the external standard to which the data conforms. | direct |
-| [Status](Status.md) | 1..1 <br/> [StandardStatus](StandardStatus.md) | Publishing status of the standard. | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a CommentDef element that contains the comment ... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the standard. | direct |
+| [name](name.md) | 1..1 <br/> [StandardName](StandardName.md) | Name of the external standard to which the data conforms. | direct |
+| [type](type.md) | 1..1 <br/> [StandardType](StandardType.md) | The type of standard. | direct |
+| [publishingSet](publishingSet.md) | 0..1 <br/> [StandardPublishingSet](StandardPublishingSet.md) | The name of the publishing set that contains the published standard. | direct |
+| [version](version.md) | 1..1 <br/> [text](text.md) | Version of the external standard to which the data conforms. | direct |
+| [status](status.md) | 1..1 <br/> [StandardStatus](StandardStatus.md) | Publishing status of the standard. | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a CommentDef element that contains the comment ... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -50,7 +50,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Standards](Standards.md) | [StandardRef](StandardRef.md) | range | [Standard](Standard.md) |
+| [Standards](Standards.md) | [standard](standard.md) | range | [Standard](Standard.md) |
 
 
 
@@ -105,16 +105,16 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Standard
 rank: 1000
 slots:
-- OID
-- Name
-- Type
-- PublishingSet
-- Version
-- Status
-- CommentOID
+- oID
+- name
+- type
+- publishingSet
+- version
+- status
+- commentOID
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the standard.
     comments:
     - 'Required
@@ -159,8 +159,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name of the external standard to which the data conforms.
     comments:
     - 'Required
@@ -209,8 +209,8 @@ slot_usage:
     - Query
     range: StandardName
     required: true
-  Type:
-    name: Type
+  type:
+    name: type
     description: The type of standard.
     comments:
     - 'Required
@@ -238,8 +238,8 @@ slot_usage:
     - Query
     range: StandardType
     required: true
-  PublishingSet:
-    name: PublishingSet
+  publishingSet:
+    name: publishingSet
     description: The name of the publishing set that contains the published standard.
     comments:
     - 'Conditional Required when Type="CT" Not applicable for other standard types
@@ -253,8 +253,8 @@ slot_usage:
     domain_of:
     - Standard
     range: StandardPublishingSet
-  Version:
-    name: Version
+  version:
+    name: version
     description: Version of the external standard to which the data conforms.
     comments:
     - 'Required
@@ -268,8 +268,8 @@ slot_usage:
     - ExternalCodeLib
     range: text
     required: true
-  Status:
-    name: Status
+  status:
+    name: status
     description: Publishing status of the standard.
     comments:
     - 'Optional
@@ -286,8 +286,8 @@ slot_usage:
     - Standard
     range: StandardStatus
     required: true
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: 'Reference to the unique ID of a CommentDef element that contains
       the comment for the Standard element Business Rule: Must match the OID of a
       CommentDef in the same MetaDataVersion'
@@ -328,8 +328,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Standard
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the standard.
     comments:
     - 'Required
@@ -374,8 +374,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name of the external standard to which the data conforms.
     comments:
     - 'Required
@@ -424,8 +424,8 @@ slot_usage:
     - Query
     range: StandardName
     required: true
-  Type:
-    name: Type
+  type:
+    name: type
     description: The type of standard.
     comments:
     - 'Required
@@ -453,8 +453,8 @@ slot_usage:
     - Query
     range: StandardType
     required: true
-  PublishingSet:
-    name: PublishingSet
+  publishingSet:
+    name: publishingSet
     description: The name of the publishing set that contains the published standard.
     comments:
     - 'Conditional Required when Type="CT" Not applicable for other standard types
@@ -468,8 +468,8 @@ slot_usage:
     domain_of:
     - Standard
     range: StandardPublishingSet
-  Version:
-    name: Version
+  version:
+    name: version
     description: Version of the external standard to which the data conforms.
     comments:
     - 'Required
@@ -483,8 +483,8 @@ slot_usage:
     - ExternalCodeLib
     range: text
     required: true
-  Status:
-    name: Status
+  status:
+    name: status
     description: Publishing status of the standard.
     comments:
     - 'Optional
@@ -501,8 +501,8 @@ slot_usage:
     - Standard
     range: StandardStatus
     required: true
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: 'Reference to the unique ID of a CommentDef element that contains
       the comment for the Standard element Business Rule: Must match the OID of a
       CommentDef in the same MetaDataVersion'
@@ -527,8 +527,8 @@ slot_usage:
     - Coding
     range: oidref
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the standard.
     comments:
     - 'Required
@@ -537,7 +537,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: Standard
     domain_of:
     - Study
@@ -578,8 +578,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name of the external standard to which the data conforms.
     comments:
     - 'Required
@@ -593,7 +593,7 @@ attributes:
       ).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: Standard
     domain_of:
     - Alias
@@ -632,8 +632,8 @@ attributes:
     - Query
     range: StandardName
     required: true
-  Type:
-    name: Type
+  type:
+    name: type
     description: The type of standard.
     comments:
     - 'Required
@@ -646,7 +646,7 @@ attributes:
       ).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Type
+    alias: type
     owner: Standard
     domain_of:
     - TranslatedText
@@ -665,8 +665,8 @@ attributes:
     - Query
     range: StandardType
     required: true
-  PublishingSet:
-    name: PublishingSet
+  publishingSet:
+    name: publishingSet
     description: The name of the publishing set that contains the published standard.
     comments:
     - 'Conditional Required when Type="CT" Not applicable for other standard types
@@ -679,13 +679,13 @@ attributes:
       ).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: PublishingSet
+    alias: publishingSet
     owner: Standard
     domain_of:
     - Standard
     range: StandardPublishingSet
-  Version:
-    name: Version
+  version:
+    name: version
     description: Version of the external standard to which the data conforms.
     comments:
     - 'Required
@@ -696,15 +696,15 @@ attributes:
       publication.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Version
+    alias: version
     owner: Standard
     domain_of:
     - Standard
     - ExternalCodeLib
     range: text
     required: true
-  Status:
-    name: Status
+  status:
+    name: status
     description: Publishing status of the standard.
     comments:
     - 'Optional
@@ -718,15 +718,15 @@ attributes:
       Final.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Status
+    alias: status
     owner: Standard
     domain_of:
     - Study
     - Standard
     range: StandardStatus
     required: true
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: 'Reference to the unique ID of a CommentDef element that contains
       the comment for the Standard element Business Rule: Must match the OID of a
       CommentDef in the same MetaDataVersion'
@@ -738,7 +738,7 @@ attributes:
       Must match the OID of a CommentDef in the same MetaDataVersion'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: CommentOID
+    alias: commentOID
     owner: Standard
     domain_of:
     - MetaDataVersion

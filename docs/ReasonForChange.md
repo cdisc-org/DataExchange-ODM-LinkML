@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AuditRecord](AuditRecord.md) | [ReasonForChangeRef](ReasonForChangeRef.md) | range | [ReasonForChange](ReasonForChange.md) |
+| [AuditRecord](AuditRecord.md) | [reasonForChange](reasonForChange.md) | range | [ReasonForChange](ReasonForChange.md) |
 
 
 

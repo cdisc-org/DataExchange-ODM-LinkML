@@ -11,30 +11,30 @@ URI: [odm:StudyIntervention](http://www.cdisc.org/ns/odm/v2.0/StudyIntervention)
 ```mermaid
 erDiagram
 StudyIntervention {
-    oid OID  
+    oid oID  
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-StudyIntervention ||--|o Description : "DescriptionRef"
-StudyIntervention ||--}o Coding : "CodingRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+StudyIntervention ||--|o Description : "description"
+StudyIntervention ||--}o Coding : "coding"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -47,9 +47,9 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier of the version within the XML document. | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier of the version within the XML document. | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -60,7 +60,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyInterventions](StudyInterventions.md) | [StudyInterventionRefRef](StudyInterventionRefRef.md) | range | [StudyIntervention](StudyIntervention.md) |
+| [StudyInterventions](StudyInterventions.md) | [studyIntervention](studyIntervention.md) | range | [StudyIntervention](StudyIntervention.md) |
 
 
 
@@ -118,12 +118,12 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyIntervention
 rank: 1000
 slots:
-- OID
-- DescriptionRef
-- CodingRef
+- oID
+- description
+- coding
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     domain_of:
     - Study
     - MetaDataVersion
@@ -163,8 +163,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -204,8 +204,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -247,8 +247,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyIntervention
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     domain_of:
     - Study
     - MetaDataVersion
@@ -288,8 +288,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -329,8 +329,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -353,13 +353,13 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier of the version within the XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: StudyIntervention
     domain_of:
     - Study
@@ -400,14 +400,14 @@ attributes:
     - Query
     range: oid
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: StudyIntervention
     domain_of:
     - Study
@@ -448,8 +448,8 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     description: 'Coding reference: Coding references a symbol from a defined code
       system. It uses a code defined in a terminology system to associate semantics
       with a given term, codelist, variable, or group of variables. The presence of
@@ -460,7 +460,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: CodingRef
+    alias: coding
     owner: StudyIntervention
     domain_of:
     - StudyEventGroupDef

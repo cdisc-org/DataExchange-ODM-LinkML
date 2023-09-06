@@ -11,25 +11,25 @@ URI: [odm:Signature](http://www.cdisc.org/ns/odm/v2.0/Signature)
 ```mermaid
 erDiagram
 Signature {
-    oid ID  
+    oid iD  
 }
 DateTimeStamp {
     datetime content  
 }
 SignatureRef {
-    oidref SignatureOID  
+    oidref signatureOID  
 }
 LocationRef {
-    oidref LocationOID  
+    oidref locationOID  
 }
 UserRef {
-    oidref UserOID  
+    oidref userOID  
 }
 
-Signature ||--|o UserRef : "UserRefRef"
-Signature ||--|o LocationRef : "LocationRefRef"
-Signature ||--|o SignatureRef : "SignatureRefRef"
-Signature ||--|o DateTimeStamp : "DateTimeStampRef"
+Signature ||--|o UserRef : "userRef"
+Signature ||--|o LocationRef : "locationRef"
+Signature ||--|o SignatureRef : "signatureRef"
+Signature ||--|o DateTimeStamp : "dateTimeStamp"
 
 ```
 
@@ -42,11 +42,11 @@ Signature ||--|o DateTimeStamp : "DateTimeStampRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ID](ID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the leaf that is referenced. | direct |
-| [UserRefRef](UserRefRef.md) | 0..1 <br/> [UserRef](UserRef.md) | UserRef reference: A reference to information about a specific user of a clin... | direct |
-| [LocationRefRef](LocationRefRef.md) | 0..1 <br/> [LocationRef](LocationRef.md) | LocationRef reference: A reference to the user's physical location. | direct |
-| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [SignatureRef](SignatureRef.md) | SignatureRef reference: A reference to the signature meaning. | direct |
-| [DateTimeStampRef](DateTimeStampRef.md) | 0..1 <br/> [DateTimeStamp](DateTimeStamp.md) | DateTimeStamp reference: Date and time when an action was performed. | direct |
+| [iD](iD.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the leaf that is referenced. | direct |
+| [userRef](userRef.md) | 0..1 <br/> [UserRef](UserRef.md) | UserRef reference: A reference to information about a specific user of a clin... | direct |
+| [locationRef](locationRef.md) | 0..1 <br/> [LocationRef](LocationRef.md) | LocationRef reference: A reference to the user's physical location. | direct |
+| [signatureRef](signatureRef.md) | 0..1 <br/> [SignatureRef](SignatureRef.md) | SignatureRef reference: A reference to the signature meaning. | direct |
+| [dateTimeStamp](dateTimeStamp.md) | 0..1 <br/> [DateTimeStamp](DateTimeStamp.md) | DateTimeStamp reference: Date and time when an action was performed. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -57,12 +57,12 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ReferenceData](ReferenceData.md) | [SignatureRefRef](SignatureRefRef.md) | range | [Signature](Signature.md) |
-| [ClinicalData](ClinicalData.md) | [SignatureRefRef](SignatureRefRef.md) | range | [Signature](Signature.md) |
-| [SubjectData](SubjectData.md) | [SignatureRefRef](SignatureRefRef.md) | range | [Signature](Signature.md) |
-| [StudyEventData](StudyEventData.md) | [SignatureRefRef](SignatureRefRef.md) | range | [Signature](Signature.md) |
-| [ItemGroupData](ItemGroupData.md) | [SignatureRefRef](SignatureRefRef.md) | range | [Signature](Signature.md) |
-| [ItemData](ItemData.md) | [SignatureRefRef](SignatureRefRef.md) | range | [Signature](Signature.md) |
+| [ReferenceData](ReferenceData.md) | [signature](signature.md) | range | [Signature](Signature.md) |
+| [ClinicalData](ClinicalData.md) | [signature](signature.md) | range | [Signature](Signature.md) |
+| [SubjectData](SubjectData.md) | [signature](signature.md) | range | [Signature](Signature.md) |
+| [StudyEventData](StudyEventData.md) | [signature](signature.md) | range | [Signature](Signature.md) |
+| [ItemGroupData](ItemGroupData.md) | [signature](signature.md) | range | [Signature](Signature.md) |
+| [ItemData](ItemData.md) | [signature](signature.md) | range | [Signature](Signature.md) |
 
 
 
@@ -120,49 +120,41 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Signature
 rank: 1000
 slots:
-- ID
-- UserRefRef
-- LocationRefRef
-- SignatureRefRef
-- DateTimeStampRef
+- iD
+- userRef
+- locationRef
+- signatureRef
+- dateTimeStamp
 slot_usage:
-  ID:
-    name: ID
+  iD:
+    name: iD
     domain_of:
     - Leaf
     - Signature
     - Annotation
     range: oid
-  UserRefRef:
-    name: UserRefRef
+  userRef:
+    name: userRef
     domain_of:
-    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
     maximum_cardinality: 1
-  LocationRefRef:
-    name: LocationRefRef
+  locationRef:
+    name: locationRef
     domain_of:
-    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
+  signatureRef:
+    name: signatureRef
     domain_of:
-    - ReferenceData
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
     - Signature
     range: SignatureRef
     maximum_cardinality: 1
-  DateTimeStampRef:
-    name: DateTimeStampRef
+  dateTimeStamp:
+    name: dateTimeStamp
     domain_of:
     - AuditRecord
     - Signature
@@ -188,56 +180,48 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Signature
 rank: 1000
 slot_usage:
-  ID:
-    name: ID
+  iD:
+    name: iD
     domain_of:
     - Leaf
     - Signature
     - Annotation
     range: oid
-  UserRefRef:
-    name: UserRefRef
+  userRef:
+    name: userRef
     domain_of:
-    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
     maximum_cardinality: 1
-  LocationRefRef:
-    name: LocationRefRef
+  locationRef:
+    name: locationRef
     domain_of:
-    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
+  signatureRef:
+    name: signatureRef
     domain_of:
-    - ReferenceData
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
     - Signature
     range: SignatureRef
     maximum_cardinality: 1
-  DateTimeStampRef:
-    name: DateTimeStampRef
+  dateTimeStamp:
+    name: dateTimeStamp
     domain_of:
     - AuditRecord
     - Signature
     range: DateTimeStamp
     maximum_cardinality: 1
 attributes:
-  ID:
-    name: ID
+  iD:
+    name: iD
     description: Unique identifier for the leaf that is referenced.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: ID
+    alias: iD
     owner: Signature
     domain_of:
     - Leaf
@@ -245,60 +229,52 @@ attributes:
     - Annotation
     range: oid
     required: true
-  UserRefRef:
-    name: UserRefRef
+  userRef:
+    name: userRef
     description: 'UserRef reference: A reference to information about a specific user
       of a clinical data collection or data management system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: UserRefRef
+    alias: userRef
     owner: Signature
     domain_of:
-    - AdminData
     - AuditRecord
     - Signature
     range: UserRef
     maximum_cardinality: 1
-  LocationRefRef:
-    name: LocationRefRef
+  locationRef:
+    name: locationRef
     description: 'LocationRef reference: A reference to the user''s physical location.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: LocationRefRef
+    alias: locationRef
     owner: Signature
     domain_of:
-    - AdminData
     - AuditRecord
     - Signature
     range: LocationRef
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
+  signatureRef:
+    name: signatureRef
     description: 'SignatureRef reference: A reference to the signature meaning.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: SignatureRefRef
+    alias: signatureRef
     owner: Signature
     domain_of:
-    - ReferenceData
-    - ClinicalData
-    - SubjectData
-    - StudyEventData
-    - ItemGroupData
-    - ItemData
     - Signature
     range: SignatureRef
     maximum_cardinality: 1
-  DateTimeStampRef:
-    name: DateTimeStampRef
+  dateTimeStamp:
+    name: dateTimeStamp
     description: 'DateTimeStamp reference: Date and time when an action was performed.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DateTimeStampRef
+    alias: dateTimeStamp
     owner: Signature
     domain_of:
     - AuditRecord

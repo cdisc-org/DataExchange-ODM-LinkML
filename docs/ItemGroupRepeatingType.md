@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in Repeating_
+_Enumeration used in repeating_
 
 
 
@@ -25,7 +25,7 @@ URI: [ItemGroupRepeatingType](ItemGroupRepeatingType)
 
 | Name | Description |
 | ---  | --- |
-| [Repeating](Repeating.md) | The Repeating attribute indicates that the ItemGroup may occur repeatedly wit... |
+| [repeating](repeating.md) | The Repeating attribute indicates that the ItemGroup may occur repeatedly wit... |
 
 
 
@@ -53,7 +53,7 @@ URI: [ItemGroupRepeatingType](ItemGroupRepeatingType)
 <details>
 ```yaml
 name: ItemGroupRepeatingType
-description: Enumeration used in Repeating
+description: Enumeration used in repeating
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

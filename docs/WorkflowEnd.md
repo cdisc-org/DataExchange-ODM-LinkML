@@ -11,7 +11,7 @@ URI: [odm:WorkflowEnd](http://www.cdisc.org/ns/odm/v2.0/WorkflowEnd)
 ```mermaid
 erDiagram
 WorkflowEnd {
-    oidref EndOID  
+    oidref endOID  
     text content  
 }
 
@@ -28,7 +28,7 @@ WorkflowEnd {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [EndOID](EndOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the definition of the structural element that ends the workflow.... | direct |
+| [endOID](endOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the definition of the structural element that ends the workflow.... | direct |
 | [content](content.md) | 0..1 <br/> [text](text.md) | multi-line text content from between XML tags | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
@@ -40,7 +40,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [WorkflowDef](WorkflowDef.md) | [WorkflowEndRef](WorkflowEndRef.md) | range | [WorkflowEnd](WorkflowEnd.md) |
+| [WorkflowDef](WorkflowDef.md) | [workflowEnd](workflowEnd.md) | range | [WorkflowEnd](WorkflowEnd.md) |
 
 
 
@@ -95,11 +95,11 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/WorkflowEnd
 rank: 1000
 slots:
-- EndOID
+- endOID
 - content
 slot_usage:
-  EndOID:
-    name: EndOID
+  endOID:
+    name: endOID
     description: Reference to the definition of the structural element that ends the
       workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef
       element.
@@ -162,8 +162,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/WorkflowEnd
 rank: 1000
 slot_usage:
-  EndOID:
-    name: EndOID
+  endOID:
+    name: endOID
     description: Reference to the definition of the structural element that ends the
       workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef
       element.
@@ -210,8 +210,8 @@ slot_usage:
     - Value
     range: text
 attributes:
-  EndOID:
-    name: EndOID
+  endOID:
+    name: endOID
     description: Reference to the definition of the structural element that ends the
       workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef
       element.
@@ -225,7 +225,7 @@ attributes:
       of the WorkflowDef.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: EndOID
+    alias: endOID
     owner: WorkflowEnd
     domain_of:
     - WorkflowEnd

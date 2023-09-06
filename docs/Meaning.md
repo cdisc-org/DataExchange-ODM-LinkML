@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [SignatureDef](SignatureDef.md) | [MeaningRef](MeaningRef.md) | range | [Meaning](Meaning.md) |
+| [SignatureDef](SignatureDef.md) | [meaning](meaning.md) | range | [Meaning](Meaning.md) |
 
 
 

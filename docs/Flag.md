@@ -14,16 +14,16 @@ Flag {
 
 }
 FlagType {
-    oidref CodeListOID  
-    name content  
+    oidref codeListOID  
+    nameType content  
 }
 FlagValue {
-    oidref CodeListOID  
-    name content  
+    oidref codeListOID  
+    nameType content  
 }
 
-Flag ||--|o FlagValue : "FlagValueRef"
-Flag ||--|o FlagType : "FlagTypeRef"
+Flag ||--|o FlagValue : "flagValue"
+Flag ||--|o FlagType : "flagType"
 
 ```
 
@@ -36,8 +36,8 @@ Flag ||--|o FlagType : "FlagTypeRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [FlagValueRef](FlagValueRef.md) | 0..1 <br/> [FlagValue](FlagValue.md) | FlagValue reference: The value of the flag. The meaning of this value is typi... | direct |
-| [FlagTypeRef](FlagTypeRef.md) | 0..1 <br/> [FlagType](FlagType.md) | FlagType reference: The type of flag. This determines the purpose and semanti... | direct |
+| [flagValue](flagValue.md) | 0..1 <br/> [FlagValue](FlagValue.md) | FlagValue reference: The value of the flag. The meaning of this value is typi... | direct |
+| [flagType](flagType.md) | 0..1 <br/> [FlagType](FlagType.md) | FlagType reference: The type of flag. This determines the purpose and semanti... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -48,7 +48,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Annotation](Annotation.md) | [FlagRef](FlagRef.md) | range | [Flag](Flag.md) |
+| [Annotation](Annotation.md) | [flag](flag.md) | range | [Flag](Flag.md) |
 
 
 
@@ -102,17 +102,17 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Flag
 rank: 1000
 slots:
-- FlagValueRef
-- FlagTypeRef
+- flagValue
+- flagType
 slot_usage:
-  FlagValueRef:
-    name: FlagValueRef
+  flagValue:
+    name: flagValue
     domain_of:
     - Flag
     range: FlagValue
     maximum_cardinality: 1
-  FlagTypeRef:
-    name: FlagTypeRef
+  flagType:
+    name: flagType
     domain_of:
     - Flag
     range: FlagType
@@ -133,41 +133,41 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Flag
 rank: 1000
 slot_usage:
-  FlagValueRef:
-    name: FlagValueRef
+  flagValue:
+    name: flagValue
     domain_of:
     - Flag
     range: FlagValue
     maximum_cardinality: 1
-  FlagTypeRef:
-    name: FlagTypeRef
+  flagType:
+    name: flagType
     domain_of:
     - Flag
     range: FlagType
     maximum_cardinality: 1
 attributes:
-  FlagValueRef:
-    name: FlagValueRef
+  flagValue:
+    name: flagValue
     description: 'FlagValue reference: The value of the flag. The meaning of this
       value is typically dependent on the associated FlagType. The actual value must
       be a member of the referenced CodeList'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: FlagValueRef
+    alias: flagValue
     owner: Flag
     domain_of:
     - Flag
     range: FlagValue
     maximum_cardinality: 1
-  FlagTypeRef:
-    name: FlagTypeRef
+  flagType:
+    name: flagType
     description: 'FlagType reference: The type of flag. This determines the purpose
       and semantics of the flag.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: FlagTypeRef
+    alias: flagType
     owner: Flag
     domain_of:
     - Flag

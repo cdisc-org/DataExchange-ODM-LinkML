@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in UserTypeRef_
+_Enumeration used in userType_
 
 
 
@@ -30,8 +30,8 @@ URI: [UserType](UserType)
 
 | Name | Description |
 | ---  | --- |
-| [UserTypeRef](UserTypeRef.md) | User's role in the study. |
-| [UserTypeRef](UserTypeRef.md) | User's role in the study. |
+| [userType](userType.md) | User's role in the study. |
+| [userType](userType.md) | User's role in the study. |
 
 
 
@@ -59,7 +59,7 @@ URI: [UserType](UserType)
 <details>
 ```yaml
 name: UserType
-description: Enumeration used in UserTypeRef
+description: Enumeration used in userType
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

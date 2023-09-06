@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in EditPoint_
+_Enumeration used in editPoint_
 
 
 
@@ -24,8 +24,8 @@ URI: [EditPointType](EditPointType)
 
 | Name | Description |
 | ---  | --- |
-| [EditPoint](EditPoint.md) | Identifies the phase of data processing in which update action occurred. |
-| [EditPoint](EditPoint.md) | Identifies the phase of data processing in which update action occurred. |
+| [editPoint](editPoint.md) | Identifies the phase of data processing in which update action occurred. |
+| [editPoint](editPoint.md) | Identifies the phase of data processing in which update action occurred. |
 
 
 
@@ -53,7 +53,7 @@ URI: [EditPointType](EditPointType)
 <details>
 ```yaml
 name: EditPointType
-description: Enumeration used in EditPoint
+description: Enumeration used in editPoint
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in TransactionTypeRef_
+_Enumeration used in transactionType_
 
 
 
@@ -26,12 +26,12 @@ URI: [TransactionType](TransactionType)
 
 | Name | Description |
 | ---  | --- |
-| [TransactionTypeRef](TransactionTypeRef.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... |
-| [TransactionTypeRef](TransactionTypeRef.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... |
-| [TransactionTypeRef](TransactionTypeRef.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... |
-| [TransactionTypeRef](TransactionTypeRef.md) | The TransactionType attribute need not be present in a Snapshot document. |
-| [TransactionTypeRef](TransactionTypeRef.md) | Records the TransactionType for this ItemData instance in the source system. |
-| [TransactionTypeRef](TransactionTypeRef.md) |  |
+| [transactionType](transactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... |
+| [transactionType](transactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... |
+| [transactionType](transactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... |
+| [transactionType](transactionType.md) | The TransactionType attribute need not be present in a Snapshot document. |
+| [transactionType](transactionType.md) | Records the TransactionType for this ItemData instance in the source system. |
+| [transactionType](transactionType.md) |  |
 
 
 
@@ -59,7 +59,7 @@ URI: [TransactionType](TransactionType)
 <details>
 ```yaml
 name: TransactionType
-description: Enumeration used in TransactionTypeRef
+description: Enumeration used in transactionType
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

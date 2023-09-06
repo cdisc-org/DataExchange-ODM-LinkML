@@ -11,12 +11,12 @@ URI: [odm:Transition](http://www.cdisc.org/ns/odm/v2.0/Transition)
 ```mermaid
 erDiagram
 Transition {
-    oid OID  
-    name Name  
-    oidref SourceOID  
-    oidref TargetOID  
-    oidref StartConditionOID  
-    oidref EndConditionOID  
+    oid oID  
+    nameType name  
+    oidref sourceOID  
+    oidref targetOID  
+    oidref startConditionOID  
+    oidref endConditionOID  
 }
 
 
@@ -32,12 +32,12 @@ Transition {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Transition element. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the transition between two structural elements in a W... | direct |
-| [SourceOID](SourceOID.md) | 1..1 <br/> [oidref](oidref.md) | References the definition of the source structural element for the transition... | direct |
-| [TargetOID](TargetOID.md) | 1..1 <br/> [oidref](oidref.md) | References the definition of the target structural element for the transition... | direct |
-| [StartConditionOID](StartConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | The StartConditionOID references a ConditionDef specifying a condition that m... | direct |
-| [EndConditionOID](EndConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | The EndConditionOID references a ConditionDef defining the condition under wh... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Transition element. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name for the transition between two structural elements in a W... | direct |
+| [sourceOID](sourceOID.md) | 1..1 <br/> [oidref](oidref.md) | References the definition of the source structural element for the transition... | direct |
+| [targetOID](targetOID.md) | 1..1 <br/> [oidref](oidref.md) | References the definition of the target structural element for the transition... | direct |
+| [startConditionOID](startConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | The StartConditionOID references a ConditionDef specifying a condition that m... | direct |
+| [endConditionOID](endConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | The EndConditionOID references a ConditionDef defining the condition under wh... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -48,7 +48,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [WorkflowDef](WorkflowDef.md) | [TransitionRef](TransitionRef.md) | range | [Transition](Transition.md) |
+| [WorkflowDef](WorkflowDef.md) | [transition](transition.md) | range | [Transition](Transition.md) |
 
 
 
@@ -105,15 +105,15 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Transition
 rank: 1000
 slots:
-- OID
-- Name
-- SourceOID
-- TargetOID
-- StartConditionOID
-- EndConditionOID
+- oID
+- name
+- sourceOID
+- targetOID
+- startConditionOID
+- endConditionOID
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the Transition element.
     comments:
     - 'Required
@@ -160,8 +160,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the transition between two structural elements
       in a WorkflowDef element.
     comments:
@@ -205,10 +205,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  SourceOID:
-    name: SourceOID
+  sourceOID:
+    name: sourceOID
     description: References the definition of the source structural element for the
       transition. The structural element may be a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef, or Branching element.
@@ -224,8 +224,8 @@ slot_usage:
     - Transition
     range: oidref
     required: true
-  TargetOID:
-    name: TargetOID
+  targetOID:
+    name: targetOID
     description: References the definition of the target structural element for the
       transition. The structural element may be a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef, or Branching element. The latter will be used when there
@@ -242,8 +242,8 @@ slot_usage:
     - Transition
     range: oidref
     required: true
-  StartConditionOID:
-    name: StartConditionOID
+  startConditionOID:
+    name: startConditionOID
     description: The StartConditionOID references a ConditionDef specifying a condition
       that must be met for the transition to start. For example, if the source structural
       element is a StudyEventGroupDef describing the activities for study screening
@@ -260,8 +260,8 @@ slot_usage:
     domain_of:
     - Transition
     range: oidref
-  EndConditionOID:
-    name: EndConditionOID
+  endConditionOID:
+    name: endConditionOID
     description: The EndConditionOID references a ConditionDef defining the condition
       under which the transition can be completed. As long as the condition is not
       met, the transition to the next actitivity or event must be considered to be
@@ -296,8 +296,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Transition
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the Transition element.
     comments:
     - 'Required
@@ -344,8 +344,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the transition between two structural elements
       in a WorkflowDef element.
     comments:
@@ -389,10 +389,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  SourceOID:
-    name: SourceOID
+  sourceOID:
+    name: sourceOID
     description: References the definition of the source structural element for the
       transition. The structural element may be a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef, or Branching element.
@@ -408,8 +408,8 @@ slot_usage:
     - Transition
     range: oidref
     required: true
-  TargetOID:
-    name: TargetOID
+  targetOID:
+    name: targetOID
     description: References the definition of the target structural element for the
       transition. The structural element may be a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef, or Branching element. The latter will be used when there
@@ -426,8 +426,8 @@ slot_usage:
     - Transition
     range: oidref
     required: true
-  StartConditionOID:
-    name: StartConditionOID
+  startConditionOID:
+    name: startConditionOID
     description: The StartConditionOID references a ConditionDef specifying a condition
       that must be met for the transition to start. For example, if the source structural
       element is a StudyEventGroupDef describing the activities for study screening
@@ -444,8 +444,8 @@ slot_usage:
     domain_of:
     - Transition
     range: oidref
-  EndConditionOID:
-    name: EndConditionOID
+  endConditionOID:
+    name: endConditionOID
     description: The EndConditionOID references a ConditionDef defining the condition
       under which the transition can be completed. As long as the condition is not
       met, the transition to the next actitivity or event must be considered to be
@@ -462,8 +462,8 @@ slot_usage:
     - Transition
     range: oidref
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the Transition element.
     comments:
     - 'Required
@@ -474,7 +474,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: Transition
     domain_of:
     - Study
@@ -515,8 +515,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the transition between two structural elements
       in a WorkflowDef element.
     comments:
@@ -527,7 +527,7 @@ attributes:
       The Transition/@Name must be unique within a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: Transition
     domain_of:
     - Alias
@@ -564,10 +564,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  SourceOID:
-    name: SourceOID
+  sourceOID:
+    name: sourceOID
     description: References the definition of the source structural element for the
       transition. The structural element may be a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef, or Branching element.
@@ -581,14 +581,14 @@ attributes:
       element of the WorkflowDef .'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: SourceOID
+    alias: sourceOID
     owner: Transition
     domain_of:
     - Transition
     range: oidref
     required: true
-  TargetOID:
-    name: TargetOID
+  targetOID:
+    name: targetOID
     description: References the definition of the target structural element for the
       transition. The structural element may be a StudyEventGroupDef, StudyEventDef,
       ItemGroupDef, ItemDef, or Branching element. The latter will be used when there
@@ -603,14 +603,14 @@ attributes:
       element of the WorkflowDef .'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TargetOID
+    alias: targetOID
     owner: Transition
     domain_of:
     - Transition
     range: oidref
     required: true
-  StartConditionOID:
-    name: StartConditionOID
+  startConditionOID:
+    name: startConditionOID
     description: The StartConditionOID references a ConditionDef specifying a condition
       that must be met for the transition to start. For example, if the source structural
       element is a StudyEventGroupDef describing the activities for study screening
@@ -626,13 +626,13 @@ attributes:
       of the MetaDataVersion parent element of the WorkflowDef .'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StartConditionOID
+    alias: startConditionOID
     owner: Transition
     domain_of:
     - Transition
     range: oidref
-  EndConditionOID:
-    name: EndConditionOID
+  endConditionOID:
+    name: endConditionOID
     description: The EndConditionOID references a ConditionDef defining the condition
       under which the transition can be completed. As long as the condition is not
       met, the transition to the next actitivity or event must be considered to be
@@ -647,7 +647,7 @@ attributes:
       of the MetaDataVersion parent element of the WorkflowDef .'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: EndConditionOID
+    alias: endConditionOID
     owner: Transition
     domain_of:
     - Transition

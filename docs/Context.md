@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in ContextRef_
+_Enumeration used in context_
 
 
 
@@ -24,7 +24,7 @@ URI: [Context](Context)
 
 | Name | Description |
 | ---  | --- |
-| [ContextRef](ContextRef.md) | Indicates the intended usage of the ODM document. Archive - indicates that th... |
+| [context](context.md) | Indicates the intended usage of the ODM document. Archive - indicates that th... |
 
 
 
@@ -52,7 +52,7 @@ URI: [Context](Context)
 <details>
 ```yaml
 name: Context
-description: Enumeration used in ContextRef
+description: Enumeration used in context
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

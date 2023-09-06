@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in TelecomType_
+_Enumeration used in telecomType_
 
 
 
@@ -28,8 +28,8 @@ URI: [TelecomTypeType](TelecomTypeType)
 
 | Name | Description |
 | ---  | --- |
-| [TelecomType](TelecomType.md) |  |
-| [TelecomType](TelecomType.md) |  |
+| [telecomType](telecomType.md) |  |
+| [telecomType](telecomType.md) |  |
 
 
 
@@ -57,7 +57,7 @@ URI: [TelecomTypeType](TelecomTypeType)
 <details>
 ```yaml
 name: TelecomTypeType
-description: Enumeration used in TelecomType
+description: Enumeration used in telecomType
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

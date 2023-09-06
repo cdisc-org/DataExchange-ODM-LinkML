@@ -11,16 +11,16 @@ URI: [odm:Organization](http://www.cdisc.org/ns/odm/v2.0/Organization)
 ```mermaid
 erDiagram
 Organization {
-    oid OID  
-    name Name  
-    text Role  
-    OrganizationType Type  
-    oidref LocationOID  
-    oidref PartOfOrganizationOID  
+    oid oID  
+    nameType name  
+    text role  
+    OrganizationType type  
+    oidref locationOID  
+    oidref partOfOrganizationOID  
 }
 Telecom {
-    TelecomTypeType TelecomType  
-    text ValueRef  
+    TelecomTypeType telecomType  
+    text value  
 }
 Address {
 
@@ -29,9 +29,9 @@ OtherText {
     text content  
 }
 GeoPosition {
-    decimal Longitude  
-    decimal Latitude  
-    decimal Altitude  
+    decimal longitude  
+    decimal latitude  
+    decimal altitude  
 }
 PostalCode {
     text content  
@@ -56,22 +56,22 @@ Description {
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-Organization ||--|o Description : "DescriptionRef"
-Organization ||--}o Address : "AddressRef"
-Organization ||--}o Telecom : "TelecomRef"
-Address ||--|o StreetName : "StreetNameRef"
-Address ||--|o HouseNumber : "HouseNumberRef"
-Address ||--|o City : "CityRef"
-Address ||--|o StateProv : "StateProvRef"
-Address ||--|o Country : "CountryRef"
-Address ||--|o PostalCode : "PostalCodeRef"
-Address ||--|o GeoPosition : "GeoPositionRef"
-Address ||--|o OtherText : "OtherTextRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+Organization ||--|o Description : "description"
+Organization ||--}o Address : "address"
+Organization ||--}o Telecom : "telecom"
+Address ||--|o StreetName : "streetName"
+Address ||--|o HouseNumber : "houseNumber"
+Address ||--|o City : "city"
+Address ||--|o StateProv : "stateProv"
+Address ||--|o Country : "country"
+Address ||--|o PostalCode : "postalCode"
+Address ||--|o GeoPosition : "geoPosition"
+Address ||--|o OtherText : "otherText"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -84,15 +84,15 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the organization. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Formal, human readable name of the organization. | direct |
-| [Role](Role.md) | 0..1 <br/> [text](text.md) | Role of the organization in the current study. | direct |
-| [Type](Type.md) | 1..1 <br/> [OrganizationType](OrganizationType.md) | Categorization of organizations associated with clinical studies. | direct |
-| [LocationOID](LocationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a location where data is collected and/or study subjects are tre... | direct |
-| [PartOfOrganizationOID](PartOfOrganizationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a parent organization. | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [AddressRef](AddressRef.md) | 0..* <br/> [Address](Address.md) | Address reference: The postal address for a user, location, or organization. | direct |
-| [TelecomRef](TelecomRef.md) | 0..* <br/> [Telecom](Telecom.md) | Telecom reference: The telecommunication contacts points of a user, a locatio... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the organization. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Formal, human readable name of the organization. | direct |
+| [role](role.md) | 0..1 <br/> [text](text.md) | Role of the organization in the current study. | direct |
+| [type](type.md) | 1..1 <br/> [OrganizationType](OrganizationType.md) | Categorization of organizations associated with clinical studies. | direct |
+| [locationOID](locationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a location where data is collected and/or study subjects are tre... | direct |
+| [partOfOrganizationOID](partOfOrganizationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a parent organization. | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [address](address.md) | 0..* <br/> [Address](Address.md) | Address reference: The postal address for a user, location, or organization. | direct |
+| [telecom](telecom.md) | 0..* <br/> [Telecom](Telecom.md) | Telecom reference: The telecommunication contacts points of a user, a locatio... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -103,7 +103,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdminData](AdminData.md) | [OrganizationRef](OrganizationRef.md) | range | [Organization](Organization.md) |
+| [AdminData](AdminData.md) | [organization](organization.md) | range | [Organization](Organization.md) |
 
 
 
@@ -159,18 +159,18 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Organization
 rank: 1000
 slots:
-- OID
-- Name
-- Role
-- Type
-- LocationOID
-- PartOfOrganizationOID
-- DescriptionRef
-- AddressRef
-- TelecomRef
+- oID
+- name
+- role
+- type
+- locationOID
+- partOfOrganizationOID
+- description
+- address
+- telecom
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the organization.
     comments:
     - 'Required
@@ -217,8 +217,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Formal, human readable name of the organization.
     comments:
     - 'Required
@@ -261,10 +261,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Role:
-    name: Role
+  role:
+    name: role
     description: Role of the organization in the current study.
     comments:
     - 'Optional
@@ -275,8 +275,8 @@ slot_usage:
     - Organization
     - Location
     range: text
-  Type:
-    name: Type
+  type:
+    name: type
     description: Categorization of organizations associated with clinical studies.
     comments:
     - 'Required
@@ -301,8 +301,8 @@ slot_usage:
     - Query
     range: OrganizationType
     required: true
-  LocationOID:
-    name: LocationOID
+  locationOID:
+    name: locationOID
     description: Reference to a location where data is collected and/or study subjects
       are treated.
     comments:
@@ -317,8 +317,8 @@ slot_usage:
     - SiteRef
     - LocationRef
     range: oidref
-  PartOfOrganizationOID:
-    name: PartOfOrganizationOID
+  partOfOrganizationOID:
+    name: partOfOrganizationOID
     description: Reference to a parent organization.
     comments:
     - 'Optional
@@ -329,8 +329,8 @@ slot_usage:
     domain_of:
     - Organization
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -370,8 +370,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  AddressRef:
-    name: AddressRef
+  address:
+    name: address
     multivalued: true
     domain_of:
     - User
@@ -380,8 +380,8 @@ slot_usage:
     range: Address
     inlined: true
     inlined_as_list: true
-  TelecomRef:
-    name: TelecomRef
+  telecom:
+    name: telecom
     multivalued: true
     domain_of:
     - User
@@ -408,8 +408,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Organization
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the organization.
     comments:
     - 'Required
@@ -456,8 +456,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Formal, human readable name of the organization.
     comments:
     - 'Required
@@ -500,10 +500,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Role:
-    name: Role
+  role:
+    name: role
     description: Role of the organization in the current study.
     comments:
     - 'Optional
@@ -514,8 +514,8 @@ slot_usage:
     - Organization
     - Location
     range: text
-  Type:
-    name: Type
+  type:
+    name: type
     description: Categorization of organizations associated with clinical studies.
     comments:
     - 'Required
@@ -540,8 +540,8 @@ slot_usage:
     - Query
     range: OrganizationType
     required: true
-  LocationOID:
-    name: LocationOID
+  locationOID:
+    name: locationOID
     description: Reference to a location where data is collected and/or study subjects
       are treated.
     comments:
@@ -556,8 +556,8 @@ slot_usage:
     - SiteRef
     - LocationRef
     range: oidref
-  PartOfOrganizationOID:
-    name: PartOfOrganizationOID
+  partOfOrganizationOID:
+    name: partOfOrganizationOID
     description: Reference to a parent organization.
     comments:
     - 'Optional
@@ -568,8 +568,8 @@ slot_usage:
     domain_of:
     - Organization
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -609,8 +609,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  AddressRef:
-    name: AddressRef
+  address:
+    name: address
     multivalued: true
     domain_of:
     - User
@@ -619,8 +619,8 @@ slot_usage:
     range: Address
     inlined: true
     inlined_as_list: true
-  TelecomRef:
-    name: TelecomRef
+  telecom:
+    name: telecom
     multivalued: true
     domain_of:
     - User
@@ -630,8 +630,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the organization.
     comments:
     - 'Required
@@ -642,7 +642,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: Organization
     domain_of:
     - Study
@@ -683,8 +683,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Formal, human readable name of the organization.
     comments:
     - 'Required
@@ -694,7 +694,7 @@ attributes:
       Must be unique within the set of Organization elements for a study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: Organization
     domain_of:
     - Alias
@@ -731,10 +731,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Role:
-    name: Role
+  role:
+    name: role
     description: Role of the organization in the current study.
     comments:
     - 'Optional
@@ -742,15 +742,15 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Role
+    alias: role
     owner: Organization
     domain_of:
     - ItemRef
     - Organization
     - Location
     range: text
-  Type:
-    name: Type
+  type:
+    name: type
     description: Categorization of organizations associated with clinical studies.
     comments:
     - 'Required
@@ -760,7 +760,7 @@ attributes:
       An ODM extension is required if additional Type values are needed.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Type
+    alias: type
     owner: Organization
     domain_of:
     - TranslatedText
@@ -779,8 +779,8 @@ attributes:
     - Query
     range: OrganizationType
     required: true
-  LocationOID:
-    name: LocationOID
+  locationOID:
+    name: locationOID
     description: Reference to a location where data is collected and/or study subjects
       are treated.
     comments:
@@ -791,7 +791,7 @@ attributes:
       Must match the OID attribute for a Location element for the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: LocationOID
+    alias: locationOID
     owner: Organization
     domain_of:
     - User
@@ -799,8 +799,8 @@ attributes:
     - SiteRef
     - LocationRef
     range: oidref
-  PartOfOrganizationOID:
-    name: PartOfOrganizationOID
+  partOfOrganizationOID:
+    name: partOfOrganizationOID
     description: Reference to a parent organization.
     comments:
     - 'Optional
@@ -810,19 +810,19 @@ attributes:
       Must match the OID Organization within the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: PartOfOrganizationOID
+    alias: partOfOrganizationOID
     owner: Organization
     domain_of:
     - Organization
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: Organization
     domain_of:
     - Study
@@ -863,14 +863,14 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  AddressRef:
-    name: AddressRef
+  address:
+    name: address
     description: 'Address reference: The postal address for a user, location, or organization.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: AddressRef
+    alias: address
     owner: Organization
     domain_of:
     - User
@@ -879,15 +879,15 @@ attributes:
     range: Address
     inlined: true
     inlined_as_list: true
-  TelecomRef:
-    name: TelecomRef
+  telecom:
+    name: telecom
     description: 'Telecom reference: The telecommunication contacts points of a user,
       a location, or an organization. The Type attribute designates the type of contact.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: TelecomRef
+    alias: telecom
     owner: Organization
     domain_of:
     - User

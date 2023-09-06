@@ -11,14 +11,14 @@ URI: [odm:Leaf](http://www.cdisc.org/ns/odm/v2.0/Leaf)
 ```mermaid
 erDiagram
 Leaf {
-    oid ID  
+    oid iD  
     uriorcurie href  
 }
 Title {
     text content  
 }
 
-Leaf ||--|o Title : "TitleRef"
+Leaf ||--|o Title : "title"
 
 ```
 
@@ -31,9 +31,9 @@ Leaf ||--|o Title : "TitleRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ID](ID.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the Leaf. See Section 2.13, Element Identifiers and References ... | direct |
+| [iD](iD.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the Leaf. See Section 2.13, Element Identifiers and References ... | direct |
 | [href](href.md) | 1..1 <br/> [uriorcurie](uriorcurie.md) | URL that can be used to identify the location of a document or dataset file r... | direct |
-| [TitleRef](TitleRef.md) | 0..1 <br/> [Title](Title.md) | Text with the label for the document or dataset. | direct |
+| [title](title.md) | 0..1 <br/> [Title](Title.md) | Text with the label for the document or dataset. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -44,8 +44,8 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [MetaDataVersion](MetaDataVersion.md) | [LeafRef](LeafRef.md) | range | [Leaf](Leaf.md) |
-| [ItemGroupDef](ItemGroupDef.md) | [LeafRef](LeafRef.md) | range | [Leaf](Leaf.md) |
+| [MetaDataVersion](MetaDataVersion.md) | [leaf](leaf.md) | range | [Leaf](Leaf.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [leaf](leaf.md) | range | [Leaf](Leaf.md) |
 
 
 
@@ -99,12 +99,12 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Leaf
 rank: 1000
 slots:
-- ID
+- iD
 - href
-- TitleRef
+- title
 slot_usage:
-  ID:
-    name: ID
+  iD:
+    name: iD
     description: 'Unique ID for the Leaf. See Section 2.13, Element Identifiers and
       References , for OID considerations. Business Rule: Leaf ID attributes must
       be unique within the ODM document (i.e., there can be no 2 Leaf elements with
@@ -141,8 +141,8 @@ slot_usage:
     - Coding
     range: uriorcurie
     required: true
-  TitleRef:
-    name: TitleRef
+  title:
+    name: title
     description: Text with the label for the document or dataset.
     domain_of:
     - PDFPageRef
@@ -165,8 +165,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Leaf
 rank: 1000
 slot_usage:
-  ID:
-    name: ID
+  iD:
+    name: iD
     description: 'Unique ID for the Leaf. See Section 2.13, Element Identifiers and
       References , for OID considerations. Business Rule: Leaf ID attributes must
       be unique within the ODM document (i.e., there can be no 2 Leaf elements with
@@ -203,8 +203,8 @@ slot_usage:
     - Coding
     range: uriorcurie
     required: true
-  TitleRef:
-    name: TitleRef
+  title:
+    name: title
     description: Text with the label for the document or dataset.
     domain_of:
     - PDFPageRef
@@ -212,8 +212,8 @@ slot_usage:
     range: Title
     maximum_cardinality: 1
 attributes:
-  ID:
-    name: ID
+  iD:
+    name: iD
     description: 'Unique ID for the Leaf. See Section 2.13, Element Identifiers and
       References , for OID considerations. Business Rule: Leaf ID attributes must
       be unique within the ODM document (i.e., there can be no 2 Leaf elements with
@@ -227,7 +227,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: ID
+    alias: iD
     owner: Leaf
     domain_of:
     - Leaf
@@ -259,13 +259,13 @@ attributes:
     - Coding
     range: uriorcurie
     required: true
-  TitleRef:
-    name: TitleRef
+  title:
+    name: title
     description: Text with the label for the document or dataset.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: TitleRef
+    alias: title
     owner: Leaf
     domain_of:
     - PDFPageRef

@@ -11,9 +11,9 @@ URI: [odm:Image](http://www.cdisc.org/ns/odm/v2.0/Image)
 ```mermaid
 erDiagram
 Image {
-    fileName ImageFileName  
+    fileName imageFileName  
     text href  
-    text MimeType  
+    text mimeType  
 }
 
 
@@ -29,9 +29,9 @@ Image {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ImageFileName](ImageFileName.md) | 0..1 <br/> [fileName](fileName.md) | The file name of or file path to the picture | direct |
+| [imageFileName](imageFileName.md) | 0..1 <br/> [fileName](fileName.md) | The file name of or file path to the picture | direct |
 | [href](href.md) | 0..1 <br/> [text](text.md) | URL of the location of the picture | direct |
-| [MimeType](MimeType.md) | 0..1 <br/> [text](text.md) | Media type of the image | direct |
+| [mimeType](mimeType.md) | 0..1 <br/> [text](text.md) | Media type of the image | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -42,7 +42,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [User](User.md) | [ImageRef](ImageRef.md) | range | [Image](Image.md) |
+| [User](User.md) | [image](image.md) | range | [Image](Image.md) |
 
 
 
@@ -96,12 +96,12 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Image
 rank: 1000
 slots:
-- ImageFileName
+- imageFileName
 - href
-- MimeType
+- mimeType
 slot_usage:
-  ImageFileName:
-    name: ImageFileName
+  imageFileName:
+    name: imageFileName
     description: The file name of or file path to the picture
     comments:
     - 'Conditional
@@ -128,8 +128,8 @@ slot_usage:
     - Image
     - Coding
     range: text
-  MimeType:
-    name: MimeType
+  mimeType:
+    name: mimeType
     description: Media type of the image
     comments:
     - 'Optional
@@ -157,8 +157,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Image
 rank: 1000
 slot_usage:
-  ImageFileName:
-    name: ImageFileName
+  imageFileName:
+    name: imageFileName
     description: The file name of or file path to the picture
     comments:
     - 'Conditional
@@ -185,8 +185,8 @@ slot_usage:
     - Image
     - Coding
     range: text
-  MimeType:
-    name: MimeType
+  mimeType:
+    name: mimeType
     description: Media type of the image
     comments:
     - 'Optional
@@ -199,8 +199,8 @@ slot_usage:
     - Image
     range: text
 attributes:
-  ImageFileName:
-    name: ImageFileName
+  imageFileName:
+    name: imageFileName
     description: The file name of or file path to the picture
     comments:
     - 'Conditional
@@ -210,7 +210,7 @@ attributes:
       Either IamgeFileName or href must be present.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ImageFileName
+    alias: imageFileName
     owner: Image
     domain_of:
     - Image
@@ -235,8 +235,8 @@ attributes:
     - Image
     - Coding
     range: text
-  MimeType:
-    name: MimeType
+  mimeType:
+    name: mimeType
     description: Media type of the image
     comments:
     - 'Optional
@@ -247,7 +247,7 @@ attributes:
       is recommended.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: MimeType
+    alias: mimeType
     owner: Image
     domain_of:
     - Image

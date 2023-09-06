@@ -11,7 +11,7 @@ URI: [odm:WhereClauseRef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseRef)
 ```mermaid
 erDiagram
 WhereClauseRef {
-    oidref WhereClauseOID  
+    oidref whereClauseOID  
 }
 
 
@@ -27,7 +27,7 @@ WhereClauseRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [WhereClauseOID](WhereClauseOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a WhereClauseDef element | direct |
+| [whereClauseOID](whereClauseOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a WhereClauseDef element | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ItemRef](ItemRef.md) | [WhereClauseRefRef](WhereClauseRefRef.md) | range | [WhereClauseRef](WhereClauseRef.md) |
+| [ItemRef](ItemRef.md) | [whereClauseRef](whereClauseRef.md) | range | [WhereClauseRef](WhereClauseRef.md) |
 
 
 
@@ -93,10 +93,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/WhereClauseRef
 rank: 1000
 slots:
-- WhereClauseOID
+- whereClauseOID
 slot_usage:
-  WhereClauseOID:
-    name: WhereClauseOID
+  whereClauseOID:
+    name: whereClauseOID
     description: Reference to the unique ID of a WhereClauseDef element
     comments:
     - 'Required
@@ -123,8 +123,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/WhereClauseRef
 rank: 1000
 slot_usage:
-  WhereClauseOID:
-    name: WhereClauseOID
+  whereClauseOID:
+    name: whereClauseOID
     description: Reference to the unique ID of a WhereClauseDef element
     comments:
     - 'Required
@@ -135,8 +135,8 @@ slot_usage:
     range: oidref
     required: true
 attributes:
-  WhereClauseOID:
-    name: WhereClauseOID
+  whereClauseOID:
+    name: whereClauseOID
     description: Reference to the unique ID of a WhereClauseDef element
     comments:
     - 'Required
@@ -144,7 +144,7 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: WhereClauseOID
+    alias: whereClauseOID
     owner: WhereClauseRef
     domain_of:
     - WhereClauseRef

@@ -18,12 +18,12 @@ Description {
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-SummaryMeasure ||--|o Description : "DescriptionRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+SummaryMeasure ||--|o Description : "description"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -36,7 +36,7 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyEstimand](StudyEstimand.md) | [SummaryMeasureRef](SummaryMeasureRef.md) | range | [SummaryMeasure](SummaryMeasure.md) |
+| [StudyEstimand](StudyEstimand.md) | [summaryMeasure](summaryMeasure.md) | range | [SummaryMeasure](SummaryMeasure.md) |
 
 
 
@@ -102,10 +102,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SummaryMeasure
 rank: 1000
 slots:
-- DescriptionRef
+- description
 slot_usage:
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -162,8 +162,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SummaryMeasure
 rank: 1000
 slot_usage:
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -204,14 +204,14 @@ slot_usage:
     range: Description
     maximum_cardinality: 1
 attributes:
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: SummaryMeasure
     domain_of:
     - Study

@@ -14,28 +14,28 @@ ExclusionCriteria {
 
 }
 Criterion {
-    oid OID  
-    name Name  
-    oidref ConditionOID  
+    oid oID  
+    nameType name  
+    oidref conditionOID  
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 Description {
 
 }
 
-ExclusionCriteria ||--}o Criterion : "CriterionRef"
-Criterion ||--|o Description : "DescriptionRef"
-Criterion ||--}o Coding : "CodingRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+ExclusionCriteria ||--}o Criterion : "criterion"
+Criterion ||--|o Description : "description"
+Criterion ||--}o Coding : "coding"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -48,7 +48,7 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [CriterionRef](CriterionRef.md) | 0..* <br/> [Criterion](Criterion.md) | Criterion reference: The Criterion represents either an inclusion or an exclu... | direct |
+| [criterion](criterion.md) | 0..* <br/> [Criterion](Criterion.md) | Criterion reference: The Criterion represents either an inclusion or an exclu... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -59,7 +59,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [InclusionExclusionCriteria](InclusionExclusionCriteria.md) | [ExclusionCriteriaRef](ExclusionCriteriaRef.md) | range | [ExclusionCriteria](ExclusionCriteria.md) |
+| [InclusionExclusionCriteria](InclusionExclusionCriteria.md) | [exclusionCriteria](exclusionCriteria.md) | range | [ExclusionCriteria](ExclusionCriteria.md) |
 
 
 
@@ -115,10 +115,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ExclusionCriteria
 rank: 1000
 slots:
-- CriterionRef
+- criterion
 slot_usage:
-  CriterionRef:
-    name: CriterionRef
+  criterion:
+    name: criterion
     multivalued: true
     domain_of:
     - InclusionCriteria
@@ -144,8 +144,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ExclusionCriteria
 rank: 1000
 slot_usage:
-  CriterionRef:
-    name: CriterionRef
+  criterion:
+    name: criterion
     multivalued: true
     domain_of:
     - InclusionCriteria
@@ -154,8 +154,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  CriterionRef:
-    name: CriterionRef
+  criterion:
+    name: criterion
     description: 'Criterion reference: The Criterion represents either an inclusion
       or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria,
       ExclusionCriteria).'
@@ -163,7 +163,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: CriterionRef
+    alias: criterion
     owner: ExclusionCriteria
     domain_of:
     - InclusionCriteria

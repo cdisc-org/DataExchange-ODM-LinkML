@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in Name_
+_Enumeration used in name_
 
 
 
@@ -25,7 +25,7 @@ URI: [ItemGroupSubClass](ItemGroupSubClass)
 
 | Name | Description |
 | ---  | --- |
-| [Name](Name.md) | Name of the SubClass |
+| [name](name.md) | Name of the SubClass |
 
 
 
@@ -53,7 +53,7 @@ URI: [ItemGroupSubClass](ItemGroupSubClass)
 <details>
 ```yaml
 name: ItemGroupSubClass
-description: Enumeration used in Name
+description: Enumeration used in name
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

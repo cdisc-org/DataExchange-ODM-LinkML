@@ -11,27 +11,27 @@ URI: [odm:StudyParameter](http://www.cdisc.org/ns/odm/v2.0/StudyParameter)
 ```mermaid
 erDiagram
 StudyParameter {
-    oid OID  
-    name Term  
-    name ShortName  
+    oid oID  
+    nameType term  
+    nameType shortName  
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 ParameterValue {
-    text ValueRef  
+    text value  
 }
 
-StudyParameter ||--|o ParameterValue : "ParameterValueRef"
-StudyParameter ||--}o Coding : "CodingRef"
-ParameterValue ||--}o Coding : "CodingRef"
+StudyParameter ||--|o ParameterValue : "parameterValue"
+StudyParameter ||--}o Coding : "coding"
+ParameterValue ||--}o Coding : "coding"
 
 ```
 
@@ -44,11 +44,11 @@ ParameterValue ||--}o Coding : "CodingRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for StudyParameter. Note a StudyParameter can be referenced... | direct |
-| [Term](Term.md) | 1..1 <br/> [name](name.md) | Longer name. Provides the full name of the parameter. | direct |
-| [ShortName](ShortName.md) | 0..1 <br/> [name](name.md) | Short name or code for the parameter. | direct |
-| [ParameterValueRef](ParameterValueRef.md) | 0..1 <br/> [ParameterValue](ParameterValue.md) | ParameterValue reference: This element contains the value of the study parame... | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for StudyParameter. Note a StudyParameter can be referenced... | direct |
+| [term](term.md) | 1..1 <br/> [nameType](nameType.md) | Longer name. Provides the full name of the parameter. | direct |
+| [shortName](shortName.md) | 0..1 <br/> [nameType](nameType.md) | Short name or code for the parameter. | direct |
+| [parameterValue](parameterValue.md) | 0..1 <br/> [ParameterValue](ParameterValue.md) | ParameterValue reference: This element contains the value of the study parame... | direct |
+| [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -59,7 +59,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudySummary](StudySummary.md) | [StudyParameterRef](StudyParameterRef.md) | range | [StudyParameter](StudyParameter.md) |
+| [StudySummary](StudySummary.md) | [studyParameter](studyParameter.md) | range | [StudyParameter](StudyParameter.md) |
 
 
 
@@ -114,14 +114,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyParameter
 rank: 1000
 slots:
-- OID
-- Term
-- ShortName
-- ParameterValueRef
-- CodingRef
+- oID
+- term
+- shortName
+- parameterValue
+- coding
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for StudyParameter. Note a StudyParameter can be
       referenced from other elements.
     comments:
@@ -169,8 +169,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Term:
-    name: Term
+  term:
+    name: term
     description: Longer name. Provides the full name of the parameter.
     comments:
     - 'Required
@@ -183,10 +183,10 @@ slot_usage:
       white space.'
     domain_of:
     - StudyParameter
-    range: name
+    range: nameType
     required: true
-  ShortName:
-    name: ShortName
+  shortName:
+    name: shortName
     description: Short name or code for the parameter.
     comments:
     - 'Required
@@ -199,15 +199,15 @@ slot_usage:
       and the value of ShortName will be limited to 8 characters.'
     domain_of:
     - StudyParameter
-    range: name
-  ParameterValueRef:
-    name: ParameterValueRef
+    range: nameType
+  parameterValue:
+    name: parameterValue
     domain_of:
     - StudyParameter
     range: ParameterValue
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -246,8 +246,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyParameter
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for StudyParameter. Note a StudyParameter can be
       referenced from other elements.
     comments:
@@ -295,8 +295,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Term:
-    name: Term
+  term:
+    name: term
     description: Longer name. Provides the full name of the parameter.
     comments:
     - 'Required
@@ -309,10 +309,10 @@ slot_usage:
       white space.'
     domain_of:
     - StudyParameter
-    range: name
+    range: nameType
     required: true
-  ShortName:
-    name: ShortName
+  shortName:
+    name: shortName
     description: Short name or code for the parameter.
     comments:
     - 'Required
@@ -325,15 +325,15 @@ slot_usage:
       and the value of ShortName will be limited to 8 characters.'
     domain_of:
     - StudyParameter
-    range: name
-  ParameterValueRef:
-    name: ParameterValueRef
+    range: nameType
+  parameterValue:
+    name: parameterValue
     domain_of:
     - StudyParameter
     range: ParameterValue
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -356,8 +356,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for StudyParameter. Note a StudyParameter can be
       referenced from other elements.
     comments:
@@ -369,7 +369,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: StudyParameter
     domain_of:
     - Study
@@ -410,8 +410,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Term:
-    name: Term
+  term:
+    name: term
     description: Longer name. Provides the full name of the parameter.
     comments:
     - 'Required
@@ -424,14 +424,14 @@ attributes:
       white space.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Term
+    alias: term
     owner: StudyParameter
     domain_of:
     - StudyParameter
-    range: name
+    range: nameType
     required: true
-  ShortName:
-    name: ShortName
+  shortName:
+    name: shortName
     description: Short name or code for the parameter.
     comments:
     - 'Required
@@ -444,26 +444,26 @@ attributes:
       and the value of ShortName will be limited to 8 characters.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ShortName
+    alias: shortName
     owner: StudyParameter
     domain_of:
     - StudyParameter
-    range: name
-  ParameterValueRef:
-    name: ParameterValueRef
+    range: nameType
+  parameterValue:
+    name: parameterValue
     description: 'ParameterValue reference: This element contains the value of the
       study parameter as text content.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: ParameterValueRef
+    alias: parameterValue
     owner: StudyParameter
     domain_of:
     - StudyParameter
     range: ParameterValue
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     description: 'Coding reference: Coding references a symbol from a defined code
       system. It uses a code defined in a terminology system to associate semantics
       with a given term, codelist, variable, or group of variables. The presence of
@@ -474,7 +474,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: CodingRef
+    alias: coding
     owner: StudyParameter
     domain_of:
     - StudyEventGroupDef

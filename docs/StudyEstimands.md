@@ -14,9 +14,9 @@ StudyEstimands {
 
 }
 StudyEstimand {
-    oid OID  
-    name Name  
-    StudyEstimandLevel Level  
+    oid oID  
+    nameType name  
+    StudyEstimandLevel level  
 }
 SummaryMeasure {
 
@@ -25,29 +25,29 @@ IntercurrentEvent {
 
 }
 StudyEndPointRef {
-    oidref StudyEndPointOID  
-    positiveInteger OrderNumber  
+    oidref studyEndPointOID  
+    positiveInteger orderNumber  
 }
 StudyInterventionRef {
-    oidref StudyInterventionOID  
+    oidref studyInterventionOID  
 }
 StudyTargetPopulationRef {
-    oidref StudyTargetPopulationOID  
+    oidref studyTargetPopulationOID  
 }
 Description {
 
 }
 
-StudyEstimands ||--}o StudyEstimand : "StudyEstimandRef"
-StudyEstimand ||--|o Description : "DescriptionRef"
-StudyEstimand ||--|o StudyTargetPopulationRef : "StudyTargetPopulationRefRef"
-StudyEstimand ||--|o StudyInterventionRef : "StudyInterventionRefRef"
-StudyEstimand ||--|o StudyEndPointRef : "StudyEndPointRefRef"
-StudyEstimand ||--}o IntercurrentEvent : "IntercurrentEventRef"
-StudyEstimand ||--|o SummaryMeasure : "SummaryMeasureRef"
-SummaryMeasure ||--|o Description : "DescriptionRef"
-IntercurrentEvent ||--|o Description : "DescriptionRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+StudyEstimands ||--}o StudyEstimand : "studyEstimand"
+StudyEstimand ||--|o Description : "description"
+StudyEstimand ||--|o StudyTargetPopulationRef : "studyTargetPopulationRef"
+StudyEstimand ||--|o StudyInterventionRef : "studyInterventionRef"
+StudyEstimand ||--|o StudyEndPointRef : "studyEndPointRef"
+StudyEstimand ||--}o IntercurrentEvent : "intercurrentEvent"
+StudyEstimand ||--|o SummaryMeasure : "summaryMeasure"
+SummaryMeasure ||--|o Description : "description"
+IntercurrentEvent ||--|o Description : "description"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -60,7 +60,7 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEstimandRef](StudyEstimandRef.md) | 0..* <br/> [StudyEstimand](StudyEstimand.md) | StudyEstimand reference: A precise description of the treatment effect reflec... | direct |
+| [studyEstimand](studyEstimand.md) | 0..* <br/> [StudyEstimand](StudyEstimand.md) | StudyEstimand reference: A precise description of the treatment effect reflec... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -71,7 +71,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Protocol](Protocol.md) | [StudyEstimandsRef](StudyEstimandsRef.md) | range | [StudyEstimands](StudyEstimands.md) |
+| [Protocol](Protocol.md) | [studyEstimands](studyEstimands.md) | range | [StudyEstimands](StudyEstimands.md) |
 
 
 
@@ -125,10 +125,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEstimands
 rank: 1000
 slots:
-- StudyEstimandRef
+- studyEstimand
 slot_usage:
-  StudyEstimandRef:
-    name: StudyEstimandRef
+  studyEstimand:
+    name: studyEstimand
     multivalued: true
     domain_of:
     - StudyEstimands
@@ -151,8 +151,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEstimands
 rank: 1000
 slot_usage:
-  StudyEstimandRef:
-    name: StudyEstimandRef
+  studyEstimand:
+    name: studyEstimand
     multivalued: true
     domain_of:
     - StudyEstimands
@@ -160,8 +160,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  StudyEstimandRef:
-    name: StudyEstimandRef
+  studyEstimand:
+    name: studyEstimand
     description: 'StudyEstimand reference: A precise description of the treatment
       effect reflecting the clinical question posed by a given clinical trial objective.
       It summarises at a population level what the outcomes would be in the same patients
@@ -170,7 +170,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: StudyEstimandRef
+    alias: studyEstimand
     owner: StudyEstimands
     domain_of:
     - StudyEstimands

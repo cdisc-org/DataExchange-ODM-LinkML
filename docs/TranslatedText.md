@@ -12,7 +12,7 @@ URI: [odm:TranslatedText](http://www.cdisc.org/ns/odm/v2.0/TranslatedText)
 erDiagram
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
@@ -30,7 +30,7 @@ TranslatedText {
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [language](language.md) | 0..1 <br/> [languageType](languageType.md) | Code representing the language of the enclosed text value. Default value depe... | direct |
-| [Type](Type.md) | 1..1 <br/> [text](text.md) | Contains IANA media type of the TranslatedText element contents. | direct |
+| [type](type.md) | 1..1 <br/> [text](text.md) | Contains IANA media type of the TranslatedText element contents. | direct |
 | [content](content.md) | 0..1 <br/> [contentType](contentType.md) | multi-line text content from between XML tags | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
@@ -42,16 +42,16 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Description](Description.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
-| [Question](Question.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
-| [Definition](Definition.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
-| [Prompt](Prompt.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
-| [CRFCompletionInstructions](CRFCompletionInstructions.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
-| [ImplementationNotes](ImplementationNotes.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
-| [CDISCNotes](CDISCNotes.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
-| [ErrorMessage](ErrorMessage.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
-| [Decode](Decode.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
-| [Comment](Comment.md) | [TranslatedTextRef](TranslatedTextRef.md) | range | [TranslatedText](TranslatedText.md) |
+| [Description](Description.md) | [translatedText](translatedText.md) | range | [TranslatedText](TranslatedText.md) |
+| [Question](Question.md) | [translatedText](translatedText.md) | range | [TranslatedText](TranslatedText.md) |
+| [Definition](Definition.md) | [translatedText](translatedText.md) | range | [TranslatedText](TranslatedText.md) |
+| [Prompt](Prompt.md) | [translatedText](translatedText.md) | range | [TranslatedText](TranslatedText.md) |
+| [CRFCompletionInstructions](CRFCompletionInstructions.md) | [translatedText](translatedText.md) | range | [TranslatedText](TranslatedText.md) |
+| [ImplementationNotes](ImplementationNotes.md) | [translatedText](translatedText.md) | range | [TranslatedText](TranslatedText.md) |
+| [CDISCNotes](CDISCNotes.md) | [translatedText](translatedText.md) | range | [TranslatedText](TranslatedText.md) |
+| [ErrorMessage](ErrorMessage.md) | [translatedText](translatedText.md) | range | [TranslatedText](TranslatedText.md) |
+| [Decode](Decode.md) | [translatedText](translatedText.md) | range | [TranslatedText](TranslatedText.md) |
+| [Comment](Comment.md) | [translatedText](translatedText.md) | range | [TranslatedText](TranslatedText.md) |
 
 
 
@@ -108,7 +108,7 @@ see_also:
 rank: 1000
 slots:
 - language
-- Type
+- type
 - content
 slot_usage:
   language:
@@ -131,8 +131,8 @@ slot_usage:
     domain_of:
     - TranslatedText
     range: languageType
-  Type:
-    name: Type
+  type:
+    name: type
     description: Contains IANA media type of the TranslatedText element contents.
     comments:
     - 'Required
@@ -235,8 +235,8 @@ slot_usage:
     domain_of:
     - TranslatedText
     range: languageType
-  Type:
-    name: Type
+  type:
+    name: type
     description: Contains IANA media type of the TranslatedText element contents.
     comments:
     - 'Required
@@ -326,8 +326,8 @@ attributes:
     domain_of:
     - TranslatedText
     range: languageType
-  Type:
-    name: Type
+  type:
+    name: type
     description: Contains IANA media type of the TranslatedText element contents.
     comments:
     - 'Required
@@ -346,7 +346,7 @@ attributes:
       <area> Color : <span style="color:xxx">'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Type
+    alias: type
     owner: TranslatedText
     domain_of:
     - TranslatedText

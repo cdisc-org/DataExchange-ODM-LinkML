@@ -11,8 +11,8 @@ URI: [odm:FlagType](http://www.cdisc.org/ns/odm/v2.0/FlagType)
 ```mermaid
 erDiagram
 FlagType {
-    oidref CodeListOID  
-    name content  
+    oidref codeListOID  
+    nameType content  
 }
 
 
@@ -28,8 +28,8 @@ FlagType {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [CodeListOID](CodeListOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the CodeList definition. | direct |
-| [content](content.md) | 0..1 <br/> [name](name.md) | multi-line text content from between XML tags | direct |
+| [codeListOID](codeListOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the CodeList definition. | direct |
+| [content](content.md) | 0..1 <br/> [nameType](nameType.md) | multi-line text content from between XML tags | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -40,7 +40,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Flag](Flag.md) | [FlagTypeRef](FlagTypeRef.md) | range | [FlagType](FlagType.md) |
+| [Flag](Flag.md) | [flagType](flagType.md) | range | [FlagType](FlagType.md) |
 
 
 
@@ -94,11 +94,11 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/FlagType
 rank: 1000
 slots:
-- CodeListOID
+- codeListOID
 - content
 slot_usage:
-  CodeListOID:
-    name: CodeListOID
+  codeListOID:
+    name: codeListOID
     description: Reference to the CodeList definition.
     comments:
     - 'Required
@@ -142,7 +142,7 @@ slot_usage:
     - FlagValue
     - FlagType
     - Value
-    range: name
+    range: nameType
 class_uri: odm:FlagType
 
 ```
@@ -159,8 +159,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/FlagType
 rank: 1000
 slot_usage:
-  CodeListOID:
-    name: CodeListOID
+  codeListOID:
+    name: codeListOID
     description: Reference to the CodeList definition.
     comments:
     - 'Required
@@ -204,10 +204,10 @@ slot_usage:
     - FlagValue
     - FlagType
     - Value
-    range: name
+    range: nameType
 attributes:
-  CodeListOID:
-    name: CodeListOID
+  codeListOID:
+    name: codeListOID
     description: Reference to the CodeList definition.
     comments:
     - 'Required
@@ -218,7 +218,7 @@ attributes:
       the OID for a CodeList element in the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: CodeListOID
+    alias: codeListOID
     owner: FlagType
     domain_of:
     - CodeListRef
@@ -260,7 +260,7 @@ attributes:
     - FlagValue
     - FlagType
     - Value
-    range: name
+    range: nameType
     inlined: true
 class_uri: odm:FlagType
 

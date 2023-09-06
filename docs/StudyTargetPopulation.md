@@ -11,16 +11,16 @@ URI: [odm:StudyTargetPopulation](http://www.cdisc.org/ns/odm/v2.0/StudyTargetPop
 ```mermaid
 erDiagram
 StudyTargetPopulation {
-    oid OID  
-    name Name  
+    oid oID  
+    nameType name  
 }
 FormalExpression {
-    text ContextRef  
+    text context  
 }
 ExternalCodeLib {
-    name Library  
-    name Method  
-    text Version  
+    nameType library  
+    nameType method  
+    text version  
     text ref  
     uriorcurie href  
 }
@@ -28,30 +28,30 @@ Code {
     text content  
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-StudyTargetPopulation ||--|o Description : "DescriptionRef"
-StudyTargetPopulation ||--}o Coding : "CodingRef"
-StudyTargetPopulation ||--}o FormalExpression : "FormalExpressionRef"
-FormalExpression ||--|o Code : "CodeRef"
-FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+StudyTargetPopulation ||--|o Description : "description"
+StudyTargetPopulation ||--}o Coding : "coding"
+StudyTargetPopulation ||--}o FormalExpression : "formalExpression"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -64,11 +64,11 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyTargetPopulation element. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the StudyTargetPopulation. | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
-| [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyTargetPopulation element. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name for the StudyTargetPopulation. | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [formalExpression](formalExpression.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -79,7 +79,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Protocol](Protocol.md) | [StudyTargetPopulationRefRef](StudyTargetPopulationRefRef.md) | range | [StudyTargetPopulation](StudyTargetPopulation.md) |
+| [Protocol](Protocol.md) | [studyTargetPopulation](studyTargetPopulation.md) | range | [StudyTargetPopulation](StudyTargetPopulation.md) |
 
 
 
@@ -134,14 +134,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyTargetPopulation
 rank: 1000
 slots:
-- OID
-- Name
-- DescriptionRef
-- CodingRef
-- FormalExpressionRef
+- oID
+- name
+- description
+- coding
+- formalExpression
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyTargetPopulation element.
     comments:
     - 'Required
@@ -188,8 +188,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the StudyTargetPopulation.
     comments:
     - 'Required
@@ -230,10 +230,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -273,8 +273,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -296,8 +296,8 @@ slot_usage:
     range: Coding
     inlined: true
     inlined_as_list: true
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     multivalued: true
     domain_of:
     - RangeCheck
@@ -325,8 +325,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyTargetPopulation
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyTargetPopulation element.
     comments:
     - 'Required
@@ -373,8 +373,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the StudyTargetPopulation.
     comments:
     - 'Required
@@ -415,10 +415,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -458,8 +458,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -481,8 +481,8 @@ slot_usage:
     range: Coding
     inlined: true
     inlined_as_list: true
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     multivalued: true
     domain_of:
     - RangeCheck
@@ -494,8 +494,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyTargetPopulation element.
     comments:
     - 'Required
@@ -506,7 +506,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: StudyTargetPopulation
     domain_of:
     - Study
@@ -547,8 +547,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the StudyTargetPopulation.
     comments:
     - 'Required
@@ -556,7 +556,7 @@ attributes:
       range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: StudyTargetPopulation
     domain_of:
     - Alias
@@ -593,16 +593,16 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: StudyTargetPopulation
     domain_of:
     - Study
@@ -643,8 +643,8 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     description: 'Coding reference: Coding references a symbol from a defined code
       system. It uses a code defined in a terminology system to associate semantics
       with a given term, codelist, variable, or group of variables. The presence of
@@ -655,7 +655,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: CodingRef
+    alias: coding
     owner: StudyTargetPopulation
     domain_of:
     - StudyEventGroupDef
@@ -677,8 +677,8 @@ attributes:
     range: Coding
     inlined: true
     inlined_as_list: true
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     description: 'FormalExpression reference: A FormalExpression used within a ConditionDef
       or a RangeCheck must evaluate to True or False. A FormalExpression referenced
       within a MethodDef having Type Imputation, Computation, or Transpose must evaluate
@@ -690,7 +690,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: FormalExpressionRef
+    alias: formalExpression
     owner: StudyTargetPopulation
     domain_of:
     - RangeCheck

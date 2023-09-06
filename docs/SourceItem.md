@@ -11,36 +11,36 @@ URI: [odm:SourceItem](http://www.cdisc.org/ns/odm/v2.0/SourceItem)
 ```mermaid
 erDiagram
 SourceItem {
-    oidref ItemOID  
-    oidref ItemGroupOID  
-    oidref MetaDataVersionOID  
-    oidref StudyOID  
+    oidref itemOID  
+    oidref itemGroupOID  
+    oidref metaDataVersionOID  
+    oidref studyOID  
     oidref leafID  
-    name Name  
+    nameType name  
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 Resource {
-    text Type  
-    name Name  
-    text Attribute  
-    text Label  
+    text type  
+    nameType name  
+    text attribute  
+    text label  
 }
 Selection {
-    text Path  
+    text path  
 }
 
-SourceItem ||--}o Resource : "ResourceRef"
-SourceItem ||--}o Coding : "CodingRef"
-Resource ||--}o Selection : "SelectionRef"
+SourceItem ||--}o Resource : "resource"
+SourceItem ||--}o Coding : "coding"
+Resource ||--}o Selection : "selection"
 
 ```
 
@@ -53,14 +53,14 @@ Resource ||--}o Selection : "SelectionRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ItemOID](ItemOID.md) | 0..1 <br/> [oidref](oidref.md) | References the ItemDef that provides the variable metadata. | direct |
-| [ItemGroupOID](ItemGroupOID.md) | 0..1 <br/> [oidref](oidref.md) | References the ItemGroupDef that provides the ItemGroup or dataset metadata. | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 0..1 <br/> [oidref](oidref.md) | References the MetaDataVersion that provides the metadata when referencing an... | direct |
-| [StudyOID](StudyOID.md) | 0..1 <br/> [oidref](oidref.md) | References the Study that provides the metadata when referencing another ODM ... | direct |
-| [leafID](leafID.md) | 1..1 <br/> [oidref](oidref.md) | References a leaf element that provides a reference to another ODM document. ... | direct |
-| [Name](Name.md) | 0..1 <br/> [name](name.md) | Provides a way to connect an argument to a parameter when SourceItems are inp... | direct |
-| [ResourceRef](ResourceRef.md) | 0..* <br/> [Resource](Resource.md) | Resource reference: Describes an external resource used as the source for the... | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [itemOID](itemOID.md) | 0..1 <br/> [oidref](oidref.md) | References the ItemDef that provides the variable metadata. | direct |
+| [itemGroupOID](itemGroupOID.md) | 0..1 <br/> [oidref](oidref.md) | References the ItemGroupDef that provides the ItemGroup or dataset metadata. | direct |
+| [metaDataVersionOID](metaDataVersionOID.md) | 0..1 <br/> [oidref](oidref.md) | References the MetaDataVersion that provides the metadata when referencing an... | direct |
+| [studyOID](studyOID.md) | 0..1 <br/> [oidref](oidref.md) | References the Study that provides the metadata when referencing another ODM ... | direct |
+| [leafID](leafID.md) | 0..1 <br/> [oidref](oidref.md) | References a leaf element that provides a reference to another ODM document. ... | direct |
+| [name](name.md) | 0..1 <br/> [nameType](nameType.md) | Provides a way to connect an argument to a parameter when SourceItems are inp... | direct |
+| [resource](resource.md) | 0..* <br/> [Resource](Resource.md) | Resource reference: Describes an external resource used as the source for the... | direct |
+| [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -71,7 +71,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [SourceItems](SourceItems.md) | [SourceItemRef](SourceItemRef.md) | range | [SourceItem](SourceItem.md) |
+| [SourceItems](SourceItems.md) | [sourceItem](sourceItem.md) | range | [SourceItem](SourceItem.md) |
 
 
 
@@ -125,17 +125,17 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SourceItem
 rank: 1000
 slots:
-- ItemOID
-- ItemGroupOID
-- MetaDataVersionOID
-- StudyOID
+- itemOID
+- itemGroupOID
+- metaDataVersionOID
+- studyOID
 - leafID
-- Name
-- ResourceRef
-- CodingRef
+- name
+- resource
+- coding
 slot_usage:
-  ItemOID:
-    name: ItemOID
+  itemOID:
+    name: itemOID
     description: References the ItemDef that provides the variable metadata.
     comments:
     - 'Optional
@@ -151,8 +151,8 @@ slot_usage:
     - ItemData
     - KeySet
     range: oidref
-  ItemGroupOID:
-    name: ItemGroupOID
+  itemGroupOID:
+    name: itemGroupOID
     description: References the ItemGroupDef that provides the ItemGroup or dataset
       metadata.
     comments:
@@ -168,8 +168,8 @@ slot_usage:
     - ItemGroupData
     - KeySet
     range: oidref
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: References the MetaDataVersion that provides the metadata when referencing
       another ODM document.
     comments:
@@ -189,8 +189,8 @@ slot_usage:
     - Association
     - KeySet
     range: oidref
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the Study that provides the metadata when referencing
       another ODM document.
     comments:
@@ -224,10 +224,11 @@ slot_usage:
       When referencing another ODM document it is necessary to have values for the
       MetaDataVersionOID and StudyOID attributes.'
     domain_of:
+    - DocumentRef
     - SourceItem
     range: oidref
-  Name:
-    name: Name
+  name:
+    name: name
     description: Provides a way to connect an argument to a parameter when SourceItems
       are inputs to methods. It allows the name used in the programming code in the
       method description to make it easier to trace the use of the value.
@@ -270,17 +271,17 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
-  ResourceRef:
-    name: ResourceRef
+    range: nameType
+  resource:
+    name: resource
     multivalued: true
     domain_of:
     - SourceItem
     range: Resource
     inlined: true
     inlined_as_list: true
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -318,8 +319,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SourceItem
 rank: 1000
 slot_usage:
-  ItemOID:
-    name: ItemOID
+  itemOID:
+    name: itemOID
     description: References the ItemDef that provides the variable metadata.
     comments:
     - 'Optional
@@ -335,8 +336,8 @@ slot_usage:
     - ItemData
     - KeySet
     range: oidref
-  ItemGroupOID:
-    name: ItemGroupOID
+  itemGroupOID:
+    name: itemGroupOID
     description: References the ItemGroupDef that provides the ItemGroup or dataset
       metadata.
     comments:
@@ -352,8 +353,8 @@ slot_usage:
     - ItemGroupData
     - KeySet
     range: oidref
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: References the MetaDataVersion that provides the metadata when referencing
       another ODM document.
     comments:
@@ -373,8 +374,8 @@ slot_usage:
     - Association
     - KeySet
     range: oidref
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the Study that provides the metadata when referencing
       another ODM document.
     comments:
@@ -408,10 +409,11 @@ slot_usage:
       When referencing another ODM document it is necessary to have values for the
       MetaDataVersionOID and StudyOID attributes.'
     domain_of:
+    - DocumentRef
     - SourceItem
     range: oidref
-  Name:
-    name: Name
+  name:
+    name: name
     description: Provides a way to connect an argument to a parameter when SourceItems
       are inputs to methods. It allows the name used in the programming code in the
       method description to make it easier to trace the use of the value.
@@ -454,17 +456,17 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
-  ResourceRef:
-    name: ResourceRef
+    range: nameType
+  resource:
+    name: resource
     multivalued: true
     domain_of:
     - SourceItem
     range: Resource
     inlined: true
     inlined_as_list: true
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -487,8 +489,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  ItemOID:
-    name: ItemOID
+  itemOID:
+    name: itemOID
     description: References the ItemDef that provides the variable metadata.
     comments:
     - 'Optional
@@ -499,7 +501,7 @@ attributes:
       be in the same ODM document or another ODM document.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ItemOID
+    alias: itemOID
     owner: SourceItem
     domain_of:
     - ItemRef
@@ -508,8 +510,8 @@ attributes:
     - ItemData
     - KeySet
     range: oidref
-  ItemGroupOID:
-    name: ItemGroupOID
+  itemGroupOID:
+    name: itemGroupOID
     description: References the ItemGroupDef that provides the ItemGroup or dataset
       metadata.
     comments:
@@ -521,7 +523,7 @@ attributes:
       element can be in the same ODM document or another ODM document.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ItemGroupOID
+    alias: itemGroupOID
     owner: SourceItem
     domain_of:
     - ItemGroupRef
@@ -529,8 +531,8 @@ attributes:
     - ItemGroupData
     - KeySet
     range: oidref
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: References the MetaDataVersion that provides the metadata when referencing
       another ODM document.
     comments:
@@ -543,7 +545,7 @@ attributes:
       if the reference is not to an object within the same MetaDataVersion element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: MetaDataVersionOID
+    alias: metaDataVersionOID
     owner: SourceItem
     domain_of:
     - Include
@@ -554,8 +556,8 @@ attributes:
     - Association
     - KeySet
     range: oidref
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the Study that provides the metadata when referencing
       another ODM document.
     comments:
@@ -568,7 +570,7 @@ attributes:
       is not to an object within the same Study element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyOID
+    alias: studyOID
     owner: SourceItem
     domain_of:
     - Include
@@ -594,15 +596,14 @@ attributes:
       MetaDataVersionOID and StudyOID attributes.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: true
     alias: leafID
     owner: SourceItem
     domain_of:
+    - DocumentRef
     - SourceItem
     range: oidref
-    required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Provides a way to connect an argument to a parameter when SourceItems
       are inputs to methods. It allows the name used in the programming code in the
       method description to make it easier to trace the use of the value.
@@ -612,7 +613,7 @@ attributes:
       range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: SourceItem
     domain_of:
     - Alias
@@ -649,24 +650,24 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
-  ResourceRef:
-    name: ResourceRef
+    range: nameType
+  resource:
+    name: resource
     description: 'Resource reference: Describes an external resource used as the source
       for the parent ItemGroup or Item.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: ResourceRef
+    alias: resource
     owner: SourceItem
     domain_of:
     - SourceItem
     range: Resource
     inlined: true
     inlined_as_list: true
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     description: 'Coding reference: Coding references a symbol from a defined code
       system. It uses a code defined in a terminology system to associate semantics
       with a given term, codelist, variable, or group of variables. The presence of
@@ -677,7 +678,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: CodingRef
+    alias: coding
     owner: SourceItem
     domain_of:
     - StudyEventGroupDef

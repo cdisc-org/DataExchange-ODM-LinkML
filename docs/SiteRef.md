@@ -11,7 +11,7 @@ URI: [odm:SiteRef](http://www.cdisc.org/ns/odm/v2.0/SiteRef)
 ```mermaid
 erDiagram
 SiteRef {
-    oidref LocationOID  
+    oidref locationOID  
 }
 
 
@@ -27,7 +27,7 @@ SiteRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [LocationOID](LocationOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a Location definition. | direct |
+| [locationOID](locationOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a Location definition. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [SubjectData](SubjectData.md) | [SiteRefRef](SiteRefRef.md) | range | [SiteRef](SiteRef.md) |
+| [SubjectData](SubjectData.md) | [siteRef](siteRef.md) | range | [SiteRef](SiteRef.md) |
 
 
 
@@ -93,10 +93,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SiteRef
 rank: 1000
 slots:
-- LocationOID
+- locationOID
 slot_usage:
-  LocationOID:
-    name: LocationOID
+  locationOID:
+    name: locationOID
     description: Reference to a Location definition.
     comments:
     - 'Required
@@ -129,8 +129,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SiteRef
 rank: 1000
 slot_usage:
-  LocationOID:
-    name: LocationOID
+  locationOID:
+    name: locationOID
     description: Reference to a Location definition.
     comments:
     - 'Required
@@ -147,8 +147,8 @@ slot_usage:
     range: oidref
     required: true
 attributes:
-  LocationOID:
-    name: LocationOID
+  locationOID:
+    name: locationOID
     description: Reference to a Location definition.
     comments:
     - 'Required
@@ -159,7 +159,7 @@ attributes:
       AdminData/@StudyOID attribute matches the ClinicalData/@StudyOID.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: LocationOID
+    alias: locationOID
     owner: SiteRef
     domain_of:
     - User

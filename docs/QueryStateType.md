@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in State_
+_Enumeration used in state_
 
 
 
@@ -27,8 +27,8 @@ URI: [QueryStateType](QueryStateType)
 
 | Name | Description |
 | ---  | --- |
-| [State](State.md) | Status of the Query |
-| [State](State.md) | Status of the Query |
+| [state](state.md) | Status of the Query |
+| [state](state.md) | Status of the Query |
 
 
 
@@ -56,7 +56,7 @@ URI: [QueryStateType](QueryStateType)
 <details>
 ```yaml
 name: QueryStateType
-description: Enumeration used in State
+description: Enumeration used in state
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

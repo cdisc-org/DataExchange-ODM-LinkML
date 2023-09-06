@@ -11,14 +11,14 @@ URI: [odm:KeySet](http://www.cdisc.org/ns/odm/v2.0/KeySet)
 ```mermaid
 erDiagram
 KeySet {
-    oidref StudyOID  
-    subjectKey SubjectKey  
-    oidref MetaDataVersionOID  
-    oidref StudyEventOID  
-    repeatKey StudyEventRepeatKey  
-    oidref ItemGroupOID  
-    repeatKey ItemGroupRepeatKey  
-    oidref ItemOID  
+    oidref studyOID  
+    subjectKeyType subjectKey  
+    oidref metaDataVersionOID  
+    oidref studyEventOID  
+    repeatKey studyEventRepeatKey  
+    oidref itemGroupOID  
+    repeatKey itemGroupRepeatKey  
+    oidref itemOID  
 }
 
 
@@ -34,14 +34,14 @@ KeySet {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the StudyOID in an ODM/ClinicalData element. | direct |
-| [SubjectKey](SubjectKey.md) | 0..1 <br/> [subjectKey](subjectKey.md) | Reference to a SubjectKey attribute value for a SubjectData child element of ... | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a MetaDataVersionOID attribute value for this ClinicalData eleme... | direct |
-| [StudyEventOID](StudyEventOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a StudyEventOID attribute value for a StudyEventData child eleme... | direct |
-| [StudyEventRepeatKey](StudyEventRepeatKey.md) | 0..1 <br/> [repeatKey](repeatKey.md) | Reference to a StudyEventRepeatKey attribute value for a StudyEventData child... | direct |
-| [ItemGroupOID](ItemGroupOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an ItemGroupOID attribute value for an ItemGroupData child eleme... | direct |
-| [ItemGroupRepeatKey](ItemGroupRepeatKey.md) | 0..1 <br/> [repeatKey](repeatKey.md) | Reference to an ItemGroupRepeatKey attribute value for an ItemGroupData child... | direct |
-| [ItemOID](ItemOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an ItemOID attribute for an ItemData child element of this Clini... | direct |
+| [studyOID](studyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the StudyOID in an ODM/ClinicalData element. | direct |
+| [subjectKey](subjectKey.md) | 0..1 <br/> [subjectKeyType](subjectKeyType.md) | Reference to a SubjectKey attribute value for a SubjectData child element of ... | direct |
+| [metaDataVersionOID](metaDataVersionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a MetaDataVersionOID attribute value for this ClinicalData eleme... | direct |
+| [studyEventOID](studyEventOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a StudyEventOID attribute value for a StudyEventData child eleme... | direct |
+| [studyEventRepeatKey](studyEventRepeatKey.md) | 0..1 <br/> [repeatKey](repeatKey.md) | Reference to a StudyEventRepeatKey attribute value for a StudyEventData child... | direct |
+| [itemGroupOID](itemGroupOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an ItemGroupOID attribute value for an ItemGroupData child eleme... | direct |
+| [itemGroupRepeatKey](itemGroupRepeatKey.md) | 0..1 <br/> [repeatKey](repeatKey.md) | Reference to an ItemGroupRepeatKey attribute value for an ItemGroupData child... | direct |
+| [itemOID](itemOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an ItemOID attribute for an ItemData child element of this Clini... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -52,7 +52,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Association](Association.md) | [KeySetRef](KeySetRef.md) | range | [KeySet](KeySet.md) |
+| [Association](Association.md) | [keySet](keySet.md) | range | [KeySet](KeySet.md) |
 
 
 
@@ -108,17 +108,17 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/KeySet
 rank: 1000
 slots:
-- StudyOID
-- SubjectKey
-- MetaDataVersionOID
-- StudyEventOID
-- StudyEventRepeatKey
-- ItemGroupOID
-- ItemGroupRepeatKey
-- ItemOID
+- studyOID
+- subjectKey
+- metaDataVersionOID
+- studyEventOID
+- studyEventRepeatKey
+- itemGroupOID
+- itemGroupRepeatKey
+- itemOID
 slot_usage:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the StudyOID in an ODM/ClinicalData element.
     comments:
     - Matches the Association/@StudyOID.
@@ -133,8 +133,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  SubjectKey:
-    name: SubjectKey
+  subjectKey:
+    name: subjectKey
     description: Reference to a SubjectKey attribute value for a SubjectData child
       element of this ClinicalData element.
     comments:
@@ -144,9 +144,9 @@ slot_usage:
     domain_of:
     - SubjectData
     - KeySet
-    range: subjectKey
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+    range: subjectKeyType
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: Reference to a MetaDataVersionOID attribute value for this ClinicalData
       element.
     comments:
@@ -162,8 +162,8 @@ slot_usage:
     - Association
     - KeySet
     range: oidref
-  StudyEventOID:
-    name: StudyEventOID
+  studyEventOID:
+    name: studyEventOID
     description: Reference to a StudyEventOID attribute value for a StudyEventData
       child element of this ClinicalData/SubjectData element.
     comments:
@@ -177,8 +177,8 @@ slot_usage:
     - StudyEventData
     - KeySet
     range: oidref
-  StudyEventRepeatKey:
-    name: StudyEventRepeatKey
+  studyEventRepeatKey:
+    name: studyEventRepeatKey
     description: Reference to a StudyEventRepeatKey attribute value for a StudyEventData
       child element of this ClinicalData/SubjectData/StudyEventData element.
     comments:
@@ -190,8 +190,8 @@ slot_usage:
     - StudyEventData
     - KeySet
     range: repeatKey
-  ItemGroupOID:
-    name: ItemGroupOID
+  itemGroupOID:
+    name: itemGroupOID
     description: Reference to an ItemGroupOID attribute value for an ItemGroupData
       child element of this ClinicalData/SubjectData/StudyEventData element.
     comments:
@@ -204,8 +204,8 @@ slot_usage:
     - ItemGroupData
     - KeySet
     range: oidref
-  ItemGroupRepeatKey:
-    name: ItemGroupRepeatKey
+  itemGroupRepeatKey:
+    name: itemGroupRepeatKey
     description: Reference to an ItemGroupRepeatKey attribute value for an ItemGroupData
       child element of this ClinicalData/SubjectData/StudyEventData element.
     comments:
@@ -217,8 +217,8 @@ slot_usage:
     - ItemGroupData
     - KeySet
     range: repeatKey
-  ItemOID:
-    name: ItemOID
+  itemOID:
+    name: itemOID
     description: Reference to an ItemOID attribute for an ItemData child element of
       this ClinicalData/SubjectData/StudyEventData/ItemGroupData element.
     comments:
@@ -251,8 +251,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/KeySet
 rank: 1000
 slot_usage:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the StudyOID in an ODM/ClinicalData element.
     comments:
     - Matches the Association/@StudyOID.
@@ -267,8 +267,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  SubjectKey:
-    name: SubjectKey
+  subjectKey:
+    name: subjectKey
     description: Reference to a SubjectKey attribute value for a SubjectData child
       element of this ClinicalData element.
     comments:
@@ -278,9 +278,9 @@ slot_usage:
     domain_of:
     - SubjectData
     - KeySet
-    range: subjectKey
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+    range: subjectKeyType
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: Reference to a MetaDataVersionOID attribute value for this ClinicalData
       element.
     comments:
@@ -296,8 +296,8 @@ slot_usage:
     - Association
     - KeySet
     range: oidref
-  StudyEventOID:
-    name: StudyEventOID
+  studyEventOID:
+    name: studyEventOID
     description: Reference to a StudyEventOID attribute value for a StudyEventData
       child element of this ClinicalData/SubjectData element.
     comments:
@@ -311,8 +311,8 @@ slot_usage:
     - StudyEventData
     - KeySet
     range: oidref
-  StudyEventRepeatKey:
-    name: StudyEventRepeatKey
+  studyEventRepeatKey:
+    name: studyEventRepeatKey
     description: Reference to a StudyEventRepeatKey attribute value for a StudyEventData
       child element of this ClinicalData/SubjectData/StudyEventData element.
     comments:
@@ -324,8 +324,8 @@ slot_usage:
     - StudyEventData
     - KeySet
     range: repeatKey
-  ItemGroupOID:
-    name: ItemGroupOID
+  itemGroupOID:
+    name: itemGroupOID
     description: Reference to an ItemGroupOID attribute value for an ItemGroupData
       child element of this ClinicalData/SubjectData/StudyEventData element.
     comments:
@@ -338,8 +338,8 @@ slot_usage:
     - ItemGroupData
     - KeySet
     range: oidref
-  ItemGroupRepeatKey:
-    name: ItemGroupRepeatKey
+  itemGroupRepeatKey:
+    name: itemGroupRepeatKey
     description: Reference to an ItemGroupRepeatKey attribute value for an ItemGroupData
       child element of this ClinicalData/SubjectData/StudyEventData element.
     comments:
@@ -351,8 +351,8 @@ slot_usage:
     - ItemGroupData
     - KeySet
     range: repeatKey
-  ItemOID:
-    name: ItemOID
+  itemOID:
+    name: itemOID
     description: Reference to an ItemOID attribute for an ItemData child element of
       this ClinicalData/SubjectData/StudyEventData/ItemGroupData element.
     comments:
@@ -368,14 +368,14 @@ slot_usage:
     - KeySet
     range: oidref
 attributes:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the StudyOID in an ODM/ClinicalData element.
     comments:
     - Matches the Association/@StudyOID.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyOID
+    alias: studyOID
     owner: KeySet
     domain_of:
     - Include
@@ -388,8 +388,8 @@ attributes:
     - KeySet
     range: oidref
     required: true
-  SubjectKey:
-    name: SubjectKey
+  subjectKey:
+    name: subjectKey
     description: Reference to a SubjectKey attribute value for a SubjectData child
       element of this ClinicalData element.
     comments:
@@ -398,14 +398,14 @@ attributes:
       Matches the SubjectKey attribute for a ClinicalData/SubjectData element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: SubjectKey
+    alias: subjectKey
     owner: KeySet
     domain_of:
     - SubjectData
     - KeySet
-    range: subjectKey
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+    range: subjectKeyType
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: Reference to a MetaDataVersionOID attribute value for this ClinicalData
       element.
     comments:
@@ -414,7 +414,7 @@ attributes:
       Matches the MetaDataVersionOID attribute for this ClinicalData element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: MetaDataVersionOID
+    alias: metaDataVersionOID
     owner: KeySet
     domain_of:
     - Include
@@ -425,8 +425,8 @@ attributes:
     - Association
     - KeySet
     range: oidref
-  StudyEventOID:
-    name: StudyEventOID
+  studyEventOID:
+    name: studyEventOID
     description: Reference to a StudyEventOID attribute value for a StudyEventData
       child element of this ClinicalData/SubjectData element.
     comments:
@@ -436,7 +436,7 @@ attributes:
       ClinicalData/SubjectData element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyEventOID
+    alias: studyEventOID
     owner: KeySet
     domain_of:
     - StudyEventRef
@@ -444,8 +444,8 @@ attributes:
     - StudyEventData
     - KeySet
     range: oidref
-  StudyEventRepeatKey:
-    name: StudyEventRepeatKey
+  studyEventRepeatKey:
+    name: studyEventRepeatKey
     description: Reference to a StudyEventRepeatKey attribute value for a StudyEventData
       child element of this ClinicalData/SubjectData/StudyEventData element.
     comments:
@@ -455,14 +455,14 @@ attributes:
       element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyEventRepeatKey
+    alias: studyEventRepeatKey
     owner: KeySet
     domain_of:
     - StudyEventData
     - KeySet
     range: repeatKey
-  ItemGroupOID:
-    name: ItemGroupOID
+  itemGroupOID:
+    name: itemGroupOID
     description: Reference to an ItemGroupOID attribute value for an ItemGroupData
       child element of this ClinicalData/SubjectData/StudyEventData element.
     comments:
@@ -471,7 +471,7 @@ attributes:
       Matches the ItemGroupOID attribute for an ItemGroupData child of this ClinicalData/SubjectData/StudyEventData.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ItemGroupOID
+    alias: itemGroupOID
     owner: KeySet
     domain_of:
     - ItemGroupRef
@@ -479,8 +479,8 @@ attributes:
     - ItemGroupData
     - KeySet
     range: oidref
-  ItemGroupRepeatKey:
-    name: ItemGroupRepeatKey
+  itemGroupRepeatKey:
+    name: itemGroupRepeatKey
     description: Reference to an ItemGroupRepeatKey attribute value for an ItemGroupData
       child element of this ClinicalData/SubjectData/StudyEventData element.
     comments:
@@ -490,14 +490,14 @@ attributes:
       element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ItemGroupRepeatKey
+    alias: itemGroupRepeatKey
     owner: KeySet
     domain_of:
     - ItemGroupData
     - KeySet
     range: repeatKey
-  ItemOID:
-    name: ItemOID
+  itemOID:
+    name: itemOID
     description: Reference to an ItemOID attribute for an ItemData child element of
       this ClinicalData/SubjectData/StudyEventData/ItemGroupData element.
     comments:
@@ -507,7 +507,7 @@ attributes:
       element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ItemOID
+    alias: itemOID
     owner: KeySet
     domain_of:
     - ItemRef

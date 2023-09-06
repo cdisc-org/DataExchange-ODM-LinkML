@@ -11,59 +11,59 @@ URI: [odm:Origin](http://www.cdisc.org/ns/odm/v2.0/Origin)
 ```mermaid
 erDiagram
 Origin {
-    OriginType Type  
-    OriginSource Source  
+    OriginType type  
+    OriginSource source  
 }
 DocumentRef {
-    oid LeafID  
+    oid leafID  
 }
 PDFPageRef {
-    text PageRefs  
-    positiveInteger FirstPage  
-    positiveInteger LastPage  
-    PDFPageType Type  
-    text TitleRef  
+    text pageRefs  
+    positiveInteger firstPage  
+    positiveInteger lastPage  
+    PDFPageType type  
+    text title  
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 SourceItems {
 
 }
 SourceItem {
-    oidref ItemOID  
-    oidref ItemGroupOID  
-    oidref MetaDataVersionOID  
-    oidref StudyOID  
+    oidref itemOID  
+    oidref itemGroupOID  
+    oidref metaDataVersionOID  
+    oidref studyOID  
     oidref leafID  
-    name Name  
+    nameType name  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-Origin ||--|o Description : "DescriptionRef"
-Origin ||--|o SourceItems : "SourceItemsRef"
-Origin ||--}o Coding : "CodingRef"
-Origin ||--}o DocumentRef : "DocumentRefRef"
-DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
-SourceItems ||--}o SourceItem : "SourceItemRef"
-SourceItems ||--}o Coding : "CodingRef"
-SourceItem ||--}o Resource : "ResourceRef"
-SourceItem ||--}o Coding : "CodingRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+Origin ||--|o Description : "description"
+Origin ||--|o SourceItems : "sourceItems"
+Origin ||--}o Coding : "coding"
+Origin ||--}o DocumentRef : "documentRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
+SourceItems ||--}o SourceItem : "sourceItem"
+SourceItems ||--}o Coding : "coding"
+SourceItem ||--}o Resource : "resource"
+SourceItem ||--}o Coding : "coding"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -76,12 +76,12 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Type](Type.md) | 1..1 <br/> [OriginType](OriginType.md) | Identifies how the clinical data values were obtained. | direct |
-| [Source](Source.md) | 0..1 <br/> [OriginSource](OriginSource.md) | Indicates the party responsible for the data's origin type. | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [SourceItemsRef](SourceItemsRef.md) | 0..1 <br/> [SourceItems](SourceItems.md) | SourceItems reference: Identifies source items as needed to support automated... | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
-| [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file. | direct |
+| [type](type.md) | 1..1 <br/> [OriginType](OriginType.md) | Identifies how the clinical data values were obtained. | direct |
+| [source](source.md) | 0..1 <br/> [OriginSource](OriginSource.md) | Indicates the party responsible for the data's origin type. | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [sourceItems](sourceItems.md) | 0..1 <br/> [SourceItems](SourceItems.md) | SourceItems reference: Identifies source items as needed to support automated... | direct |
+| [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [documentRef](documentRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -92,8 +92,8 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ItemGroupDef](ItemGroupDef.md) | [OriginRef](OriginRef.md) | range | [Origin](Origin.md) |
-| [ItemRef](ItemRef.md) | [OriginRef](OriginRef.md) | range | [Origin](Origin.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [origin](origin.md) | range | [Origin](Origin.md) |
+| [ItemRef](ItemRef.md) | [origin](origin.md) | range | [Origin](Origin.md) |
 
 
 
@@ -150,15 +150,15 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Origin
 rank: 1000
 slots:
-- Type
-- Source
-- DescriptionRef
-- SourceItemsRef
-- CodingRef
-- DocumentRefRef
+- type
+- source
+- description
+- sourceItems
+- coding
+- documentRef
 slot_usage:
-  Type:
-    name: Type
+  type:
+    name: type
     description: Identifies how the clinical data values were obtained.
     comments:
     - 'Required
@@ -186,8 +186,8 @@ slot_usage:
     - Query
     range: OriginType
     required: true
-  Source:
-    name: Source
+  source:
+    name: source
     description: Indicates the party responsible for the data's origin type.
     comments:
     - 'Optional
@@ -202,8 +202,8 @@ slot_usage:
     - Origin
     - Query
     range: OriginSource
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -243,14 +243,14 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  SourceItemsRef:
-    name: SourceItemsRef
+  sourceItems:
+    name: sourceItems
     domain_of:
     - Origin
     range: SourceItems
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -272,8 +272,8 @@ slot_usage:
     range: Coding
     inlined: true
     inlined_as_list: true
-  DocumentRefRef:
-    name: DocumentRefRef
+  documentRef:
+    name: documentRef
     multivalued: true
     domain_of:
     - AnnotatedCRF
@@ -303,8 +303,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Origin
 rank: 1000
 slot_usage:
-  Type:
-    name: Type
+  type:
+    name: type
     description: Identifies how the clinical data values were obtained.
     comments:
     - 'Required
@@ -332,8 +332,8 @@ slot_usage:
     - Query
     range: OriginType
     required: true
-  Source:
-    name: Source
+  source:
+    name: source
     description: Indicates the party responsible for the data's origin type.
     comments:
     - 'Optional
@@ -348,8 +348,8 @@ slot_usage:
     - Origin
     - Query
     range: OriginSource
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -389,14 +389,14 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  SourceItemsRef:
-    name: SourceItemsRef
+  sourceItems:
+    name: sourceItems
     domain_of:
     - Origin
     range: SourceItems
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -418,8 +418,8 @@ slot_usage:
     range: Coding
     inlined: true
     inlined_as_list: true
-  DocumentRefRef:
-    name: DocumentRefRef
+  documentRef:
+    name: documentRef
     multivalued: true
     domain_of:
     - AnnotatedCRF
@@ -431,8 +431,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  Type:
-    name: Type
+  type:
+    name: type
     description: Identifies how the clinical data values were obtained.
     comments:
     - 'Required
@@ -445,7 +445,7 @@ attributes:
       ( https://www.cdisc.org/standards/terminology/controlled-terminology ).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Type
+    alias: type
     owner: Origin
     domain_of:
     - TranslatedText
@@ -464,8 +464,8 @@ attributes:
     - Query
     range: OriginType
     required: true
-  Source:
-    name: Source
+  source:
+    name: source
     description: Indicates the party responsible for the data's origin type.
     comments:
     - 'Optional
@@ -478,20 +478,20 @@ attributes:
       ).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Source
+    alias: source
     owner: Origin
     domain_of:
     - Origin
     - Query
     range: OriginSource
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: Origin
     domain_of:
     - Study
@@ -532,21 +532,21 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  SourceItemsRef:
-    name: SourceItemsRef
+  sourceItems:
+    name: sourceItems
     description: 'SourceItems reference: Identifies source items as needed to support
       automated data capture and end-to-end traceability.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: SourceItemsRef
+    alias: sourceItems
     owner: Origin
     domain_of:
     - Origin
     range: SourceItems
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     description: 'Coding reference: Coding references a symbol from a defined code
       system. It uses a code defined in a terminology system to associate semantics
       with a given term, codelist, variable, or group of variables. The presence of
@@ -557,7 +557,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: CodingRef
+    alias: coding
     owner: Origin
     domain_of:
     - StudyEventGroupDef
@@ -579,15 +579,15 @@ attributes:
     range: Coding
     inlined: true
     inlined_as_list: true
-  DocumentRefRef:
-    name: DocumentRefRef
+  documentRef:
+    name: documentRef
     description: The DocumentRef element is a container for page references in a PDF
       file.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: DocumentRefRef
+    alias: documentRef
     owner: Origin
     domain_of:
     - AnnotatedCRF

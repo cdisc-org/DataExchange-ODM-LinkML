@@ -15,11 +15,11 @@ ImplementationNotes {
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-ImplementationNotes ||--}o TranslatedText : "TranslatedTextRef"
+ImplementationNotes ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -32,7 +32,7 @@ ImplementationNotes ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... | direct |
+| [translatedText](translatedText.md) | 0..* <br/> [TranslatedText](TranslatedText.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -43,7 +43,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ItemDef](ItemDef.md) | [ImplementationNotesRef](ImplementationNotesRef.md) | range | [ImplementationNotes](ImplementationNotes.md) |
+| [ItemDef](ItemDef.md) | [implementationNotes](implementationNotes.md) | range | [ImplementationNotes](ImplementationNotes.md) |
 
 
 
@@ -98,10 +98,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ImplementationNotes
 rank: 1000
 slots:
-- TranslatedTextRef
+- translatedText
 slot_usage:
-  TranslatedTextRef:
-    name: TranslatedTextRef
+  translatedText:
+    name: translatedText
     multivalued: true
     domain_of:
     - Description
@@ -134,8 +134,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ImplementationNotes
 rank: 1000
 slot_usage:
-  TranslatedTextRef:
-    name: TranslatedTextRef
+  translatedText:
+    name: translatedText
     multivalued: true
     domain_of:
     - Description
@@ -152,8 +152,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  TranslatedTextRef:
-    name: TranslatedTextRef
+  translatedText:
+    name: translatedText
     description: 'TranslatedText reference: Human-readable text that is appropriate
       for a particular language. TranslatedText elements typically occur in a series,
       presenting a set of alternative textual renditions for different languages and
@@ -162,7 +162,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: TranslatedTextRef
+    alias: translatedText
     owner: ImplementationNotes
     domain_of:
     - Description

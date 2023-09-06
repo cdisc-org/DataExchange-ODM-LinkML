@@ -38,8 +38,8 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AuditRecord](AuditRecord.md) | [DateTimeStampRef](DateTimeStampRef.md) | range | [DateTimeStamp](DateTimeStamp.md) |
-| [Signature](Signature.md) | [DateTimeStampRef](DateTimeStampRef.md) | range | [DateTimeStamp](DateTimeStamp.md) |
+| [AuditRecord](AuditRecord.md) | [dateTimeStamp](dateTimeStamp.md) | range | [DateTimeStamp](DateTimeStamp.md) |
+| [Signature](Signature.md) | [dateTimeStamp](dateTimeStamp.md) | range | [DateTimeStamp](DateTimeStamp.md) |
 
 
 

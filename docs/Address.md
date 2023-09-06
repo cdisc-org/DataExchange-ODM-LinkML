@@ -17,9 +17,9 @@ OtherText {
     text content  
 }
 GeoPosition {
-    decimal Longitude  
-    decimal Latitude  
-    decimal Altitude  
+    decimal longitude  
+    decimal latitude  
+    decimal altitude  
 }
 PostalCode {
     text content  
@@ -40,14 +40,14 @@ StreetName {
     text content  
 }
 
-Address ||--|o StreetName : "StreetNameRef"
-Address ||--|o HouseNumber : "HouseNumberRef"
-Address ||--|o City : "CityRef"
-Address ||--|o StateProv : "StateProvRef"
-Address ||--|o Country : "CountryRef"
-Address ||--|o PostalCode : "PostalCodeRef"
-Address ||--|o GeoPosition : "GeoPositionRef"
-Address ||--|o OtherText : "OtherTextRef"
+Address ||--|o StreetName : "streetName"
+Address ||--|o HouseNumber : "houseNumber"
+Address ||--|o City : "city"
+Address ||--|o StateProv : "stateProv"
+Address ||--|o Country : "country"
+Address ||--|o PostalCode : "postalCode"
+Address ||--|o GeoPosition : "geoPosition"
+Address ||--|o OtherText : "otherText"
 
 ```
 
@@ -60,14 +60,14 @@ Address ||--|o OtherText : "OtherTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StreetNameRef](StreetNameRef.md) | 0..1 <br/> [StreetName](StreetName.md) | StreetName reference: The street name part of a user's postal address. | direct |
-| [HouseNumberRef](HouseNumberRef.md) | 0..1 <br/> [HouseNumber](HouseNumber.md) | HouseNumber reference: The house number part of a user's postal address. | direct |
-| [CityRef](CityRef.md) | 0..1 <br/> [City](City.md) | City reference: The city name part of a user's postal address. | direct |
-| [StateProvRef](StateProvRef.md) | 0..1 <br/> [StateProv](StateProv.md) | StateProv reference: The state or province name part of a user's postal addre... | direct |
-| [CountryRef](CountryRef.md) | 0..1 <br/> [Country](Country.md) | Country reference: The country name part of a user's postal address. For CDIS... | direct |
-| [PostalCodeRef](PostalCodeRef.md) | 0..1 <br/> [PostalCode](PostalCode.md) | PostalCode reference: The postal code part of a user's postal address. | direct |
-| [GeoPositionRef](GeoPositionRef.md) | 0..1 <br/> [GeoPosition](GeoPosition.md) | GeoPosition reference: The geographical position using the World Geodetic Sys... | direct |
-| [OtherTextRef](OtherTextRef.md) | 0..1 <br/> [OtherText](OtherText.md) | OtherText reference: Any other text needed as part of a user's postal address... | direct |
+| [streetName](streetName.md) | 0..1 <br/> [StreetName](StreetName.md) | StreetName reference: The street name part of a user's postal address. | direct |
+| [houseNumber](houseNumber.md) | 0..1 <br/> [HouseNumber](HouseNumber.md) | HouseNumber reference: The house number part of a user's postal address. | direct |
+| [city](city.md) | 0..1 <br/> [City](City.md) | City reference: The city name part of a user's postal address. | direct |
+| [stateProv](stateProv.md) | 0..1 <br/> [StateProv](StateProv.md) | StateProv reference: The state or province name part of a user's postal addre... | direct |
+| [country](country.md) | 0..1 <br/> [Country](Country.md) | Country reference: The country name part of a user's postal address. For CDIS... | direct |
+| [postalCode](postalCode.md) | 0..1 <br/> [PostalCode](PostalCode.md) | PostalCode reference: The postal code part of a user's postal address. | direct |
+| [geoPosition](geoPosition.md) | 0..1 <br/> [GeoPosition](GeoPosition.md) | GeoPosition reference: The geographical position using the World Geodetic Sys... | direct |
+| [otherText](otherText.md) | 0..1 <br/> [OtherText](OtherText.md) | OtherText reference: Any other text needed as part of a user's postal address... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -78,9 +78,9 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [User](User.md) | [AddressRef](AddressRef.md) | range | [Address](Address.md) |
-| [Organization](Organization.md) | [AddressRef](AddressRef.md) | range | [Address](Address.md) |
-| [Location](Location.md) | [AddressRef](AddressRef.md) | range | [Address](Address.md) |
+| [User](User.md) | [address](address.md) | range | [Address](Address.md) |
+| [Organization](Organization.md) | [address](address.md) | range | [Address](Address.md) |
+| [Location](Location.md) | [address](address.md) | range | [Address](Address.md) |
 
 
 
@@ -134,59 +134,59 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Address
 rank: 1000
 slots:
-- StreetNameRef
-- HouseNumberRef
-- CityRef
-- StateProvRef
-- CountryRef
-- PostalCodeRef
-- GeoPositionRef
-- OtherTextRef
+- streetName
+- houseNumber
+- city
+- stateProv
+- country
+- postalCode
+- geoPosition
+- otherText
 slot_usage:
-  StreetNameRef:
-    name: StreetNameRef
+  streetName:
+    name: streetName
     domain_of:
     - Address
     range: StreetName
     maximum_cardinality: 1
-  HouseNumberRef:
-    name: HouseNumberRef
+  houseNumber:
+    name: houseNumber
     domain_of:
     - Address
     range: HouseNumber
     maximum_cardinality: 1
-  CityRef:
-    name: CityRef
+  city:
+    name: city
     domain_of:
     - Address
     range: City
     maximum_cardinality: 1
-  StateProvRef:
-    name: StateProvRef
+  stateProv:
+    name: stateProv
     domain_of:
     - Address
     range: StateProv
     maximum_cardinality: 1
-  CountryRef:
-    name: CountryRef
+  country:
+    name: country
     domain_of:
     - Address
     range: Country
     maximum_cardinality: 1
-  PostalCodeRef:
-    name: PostalCodeRef
+  postalCode:
+    name: postalCode
     domain_of:
     - Address
     range: PostalCode
     maximum_cardinality: 1
-  GeoPositionRef:
-    name: GeoPositionRef
+  geoPosition:
+    name: geoPosition
     domain_of:
     - Address
     range: GeoPosition
     maximum_cardinality: 1
-  OtherTextRef:
-    name: OtherTextRef
+  otherText:
+    name: otherText
     domain_of:
     - Address
     range: OtherText
@@ -207,152 +207,152 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Address
 rank: 1000
 slot_usage:
-  StreetNameRef:
-    name: StreetNameRef
+  streetName:
+    name: streetName
     domain_of:
     - Address
     range: StreetName
     maximum_cardinality: 1
-  HouseNumberRef:
-    name: HouseNumberRef
+  houseNumber:
+    name: houseNumber
     domain_of:
     - Address
     range: HouseNumber
     maximum_cardinality: 1
-  CityRef:
-    name: CityRef
+  city:
+    name: city
     domain_of:
     - Address
     range: City
     maximum_cardinality: 1
-  StateProvRef:
-    name: StateProvRef
+  stateProv:
+    name: stateProv
     domain_of:
     - Address
     range: StateProv
     maximum_cardinality: 1
-  CountryRef:
-    name: CountryRef
+  country:
+    name: country
     domain_of:
     - Address
     range: Country
     maximum_cardinality: 1
-  PostalCodeRef:
-    name: PostalCodeRef
+  postalCode:
+    name: postalCode
     domain_of:
     - Address
     range: PostalCode
     maximum_cardinality: 1
-  GeoPositionRef:
-    name: GeoPositionRef
+  geoPosition:
+    name: geoPosition
     domain_of:
     - Address
     range: GeoPosition
     maximum_cardinality: 1
-  OtherTextRef:
-    name: OtherTextRef
+  otherText:
+    name: otherText
     domain_of:
     - Address
     range: OtherText
     maximum_cardinality: 1
 attributes:
-  StreetNameRef:
-    name: StreetNameRef
+  streetName:
+    name: streetName
     description: 'StreetName reference: The street name part of a user''s postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: StreetNameRef
+    alias: streetName
     owner: Address
     domain_of:
     - Address
     range: StreetName
     maximum_cardinality: 1
-  HouseNumberRef:
-    name: HouseNumberRef
+  houseNumber:
+    name: houseNumber
     description: 'HouseNumber reference: The house number part of a user''s postal
       address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: HouseNumberRef
+    alias: houseNumber
     owner: Address
     domain_of:
     - Address
     range: HouseNumber
     maximum_cardinality: 1
-  CityRef:
-    name: CityRef
+  city:
+    name: city
     description: 'City reference: The city name part of a user''s postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: CityRef
+    alias: city
     owner: Address
     domain_of:
     - Address
     range: City
     maximum_cardinality: 1
-  StateProvRef:
-    name: StateProvRef
+  stateProv:
+    name: stateProv
     description: 'StateProv reference: The state or province name part of a user''s
       postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: StateProvRef
+    alias: stateProv
     owner: Address
     domain_of:
     - Address
     range: StateProv
     maximum_cardinality: 1
-  CountryRef:
-    name: CountryRef
+  country:
+    name: country
     description: 'Country reference: The country name part of a user''s postal address.
       For CDISC SDTM or trial registry applications, this must be represented by an
       ISO 3166 3-letter or US-GENC country code (e.g., FRA for France, JPN for Japan).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: CountryRef
+    alias: country
     owner: Address
     domain_of:
     - Address
     range: Country
     maximum_cardinality: 1
-  PostalCodeRef:
-    name: PostalCodeRef
+  postalCode:
+    name: postalCode
     description: 'PostalCode reference: The postal code part of a user''s postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: PostalCodeRef
+    alias: postalCode
     owner: Address
     domain_of:
     - Address
     range: PostalCode
     maximum_cardinality: 1
-  GeoPositionRef:
-    name: GeoPositionRef
+  geoPosition:
+    name: geoPosition
     description: 'GeoPosition reference: The geographical position using the World
       Geodetic System WGS84.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: GeoPositionRef
+    alias: geoPosition
     owner: Address
     domain_of:
     - Address
     range: GeoPosition
     maximum_cardinality: 1
-  OtherTextRef:
-    name: OtherTextRef
+  otherText:
+    name: otherText
     description: 'OtherText reference: Any other text needed as part of a user''s
       postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: OtherTextRef
+    alias: otherText
     owner: Address
     domain_of:
     - Address

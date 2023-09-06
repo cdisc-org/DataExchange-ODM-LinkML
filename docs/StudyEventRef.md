@@ -11,10 +11,10 @@ URI: [odm:StudyEventRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventRef)
 ```mermaid
 erDiagram
 StudyEventRef {
-    oidref StudyEventOID  
-    positiveInteger OrderNumber  
-    YesOrNo Mandatory  
-    oidref CollectionExceptionConditionOID  
+    oidref studyEventOID  
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+    oidref collectionExceptionConditionOID  
 }
 
 
@@ -30,10 +30,10 @@ StudyEventRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEventOID](StudyEventOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventDef . | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEventDef appears in Metadata displays ... | direct |
-| [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | The Mandatory flag indicates that the clinical data for the containing MetaDa... | direct |
-| [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
+| [studyEventOID](studyEventOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventDef . | direct |
+| [orderNumber](orderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEventDef appears in Metadata displays ... | direct |
+| [mandatory](mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | The Mandatory flag indicates that the clinical data for the containing MetaDa... | direct |
+| [collectionExceptionConditionOID](collectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -44,7 +44,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyEventGroupDef](StudyEventGroupDef.md) | [StudyEventRefRef](StudyEventRefRef.md) | range | [StudyEventRef](StudyEventRef.md) |
+| [StudyEventGroupDef](StudyEventGroupDef.md) | [studyEventRef](studyEventRef.md) | range | [StudyEventRef](StudyEventRef.md) |
 
 
 
@@ -100,13 +100,13 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEventRef
 rank: 1000
 slots:
-- StudyEventOID
-- OrderNumber
-- Mandatory
-- CollectionExceptionConditionOID
+- studyEventOID
+- orderNumber
+- mandatory
+- collectionExceptionConditionOID
 slot_usage:
-  StudyEventOID:
-    name: StudyEventOID
+  studyEventOID:
+    name: studyEventOID
     description: Reference to the StudyEventDef .
     comments:
     - 'Required
@@ -121,8 +121,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Indicates the order in which this StudyEventDef appears in Metadata
       displays or data entry applications. OrderNumbers provide an ordering on the
       StudyEventDefs for use whenever a list of StudyEventDefs is presented to a user.
@@ -147,8 +147,8 @@ slot_usage:
     - ReturnValue
     - StudyEndPointRef
     range: positiveInteger
-  Mandatory:
-    name: Mandatory
+  mandatory:
+    name: mandatory
     description: The Mandatory flag indicates that the clinical data for the containing
       MetaDataVersion would be incomplete without an instance of this type of Study
       Event for each subject per the study protocol. ODM clinical data files that
@@ -168,8 +168,8 @@ slot_usage:
     - ItemRef
     range: YesOrNo
     required: true
-  CollectionExceptionConditionOID:
-    name: CollectionExceptionConditionOID
+  collectionExceptionConditionOID:
+    name: collectionExceptionConditionOID
     description: Reference to a ConditionDef If the CollectionExceptionConditionOID
       attribute is provided, it references a ConditionDef that describes the circumstances
       under which data for this study event should not be collected.
@@ -204,8 +204,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEventRef
 rank: 1000
 slot_usage:
-  StudyEventOID:
-    name: StudyEventOID
+  studyEventOID:
+    name: studyEventOID
     description: Reference to the StudyEventDef .
     comments:
     - 'Required
@@ -220,8 +220,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Indicates the order in which this StudyEventDef appears in Metadata
       displays or data entry applications. OrderNumbers provide an ordering on the
       StudyEventDefs for use whenever a list of StudyEventDefs is presented to a user.
@@ -246,8 +246,8 @@ slot_usage:
     - ReturnValue
     - StudyEndPointRef
     range: positiveInteger
-  Mandatory:
-    name: Mandatory
+  mandatory:
+    name: mandatory
     description: The Mandatory flag indicates that the clinical data for the containing
       MetaDataVersion would be incomplete without an instance of this type of Study
       Event for each subject per the study protocol. ODM clinical data files that
@@ -267,8 +267,8 @@ slot_usage:
     - ItemRef
     range: YesOrNo
     required: true
-  CollectionExceptionConditionOID:
-    name: CollectionExceptionConditionOID
+  collectionExceptionConditionOID:
+    name: collectionExceptionConditionOID
     description: Reference to a ConditionDef If the CollectionExceptionConditionOID
       attribute is provided, it references a ConditionDef that describes the circumstances
       under which data for this study event should not be collected.
@@ -286,8 +286,8 @@ slot_usage:
     - ItemRef
     range: oidref
 attributes:
-  StudyEventOID:
-    name: StudyEventOID
+  studyEventOID:
+    name: studyEventOID
     description: Reference to the StudyEventDef .
     comments:
     - 'Required
@@ -297,7 +297,7 @@ attributes:
       Must match the OID attribute for a StudyEventDef in the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyEventOID
+    alias: studyEventOID
     owner: StudyEventRef
     domain_of:
     - StudyEventRef
@@ -306,8 +306,8 @@ attributes:
     - KeySet
     range: oidref
     required: true
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Indicates the order in which this StudyEventDef appears in Metadata
       displays or data entry applications. OrderNumbers provide an ordering on the
       StudyEventDefs for use whenever a list of StudyEventDefs is presented to a user.
@@ -324,7 +324,7 @@ attributes:
       values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: OrderNumber
+    alias: orderNumber
     owner: StudyEventRef
     domain_of:
     - StudyEventGroupRef
@@ -336,8 +336,8 @@ attributes:
     - ReturnValue
     - StudyEndPointRef
     range: positiveInteger
-  Mandatory:
-    name: Mandatory
+  mandatory:
+    name: mandatory
     description: The Mandatory flag indicates that the clinical data for the containing
       MetaDataVersion would be incomplete without an instance of this type of Study
       Event for each subject per the study protocol. ODM clinical data files that
@@ -352,7 +352,7 @@ attributes:
       with this StudyEventOID, when the value is "Yes".'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Mandatory
+    alias: mandatory
     owner: StudyEventRef
     domain_of:
     - StudyEventGroupRef
@@ -361,8 +361,8 @@ attributes:
     - ItemRef
     range: YesOrNo
     required: true
-  CollectionExceptionConditionOID:
-    name: CollectionExceptionConditionOID
+  collectionExceptionConditionOID:
+    name: collectionExceptionConditionOID
     description: Reference to a ConditionDef If the CollectionExceptionConditionOID
       attribute is provided, it references a ConditionDef that describes the circumstances
       under which data for this study event should not be collected.
@@ -375,7 +375,7 @@ attributes:
       ConditionDef in this Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: CollectionExceptionConditionOID
+    alias: collectionExceptionConditionOID
     owner: StudyEventRef
     domain_of:
     - StudyEventGroupRef

@@ -11,53 +11,53 @@ URI: [odm:WorkflowDef](http://www.cdisc.org/ns/odm/v2.0/WorkflowDef)
 ```mermaid
 erDiagram
 WorkflowDef {
-    oid OID  
-    name Name  
+    oid oID  
+    nameType name  
 }
 Branching {
-    oid OID  
-    name Name  
-    BranchingType Type  
+    oid oID  
+    nameType name  
+    BranchingType type  
 }
 DefaultTransition {
-    oidref TargetTransitionOID  
+    oidref targetTransitionOID  
 }
 TargetTransition {
-    oidref TargetTransitionOID  
-    oidref ConditionOID  
+    oidref targetTransitionOID  
+    oidref conditionOID  
 }
 Transition {
-    oid OID  
-    name Name  
-    oidref SourceOID  
-    oidref TargetOID  
-    oidref StartConditionOID  
-    oidref EndConditionOID  
+    oid oID  
+    nameType name  
+    oidref sourceOID  
+    oidref targetOID  
+    oidref startConditionOID  
+    oidref endConditionOID  
 }
 WorkflowEnd {
-    oidref EndOID  
+    oidref endOID  
     text content  
 }
 WorkflowStart {
-    oidref StartOID  
+    oidref startOID  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-WorkflowDef ||--|o Description : "DescriptionRef"
-WorkflowDef ||--|o WorkflowStart : "WorkflowStartRef"
-WorkflowDef ||--}o WorkflowEnd : "WorkflowEndRef"
-WorkflowDef ||--}o Transition : "TransitionRef"
-WorkflowDef ||--}o Branching : "BranchingRef"
-Branching ||--}o TargetTransition : "TargetTransitionRef"
-Branching ||--}o DefaultTransition : "DefaultTransitionRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+WorkflowDef ||--|o Description : "description"
+WorkflowDef ||--|o WorkflowStart : "workflowStart"
+WorkflowDef ||--}o WorkflowEnd : "workflowEnd"
+WorkflowDef ||--}o Transition : "transition"
+WorkflowDef ||--}o Branching : "branching"
+Branching ||--}o TargetTransition : "targetTransition"
+Branching ||--}o DefaultTransition : "defaultTransition"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -70,13 +70,13 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the workflow. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable label for the workflow. | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [WorkflowStartRef](WorkflowStartRef.md) | 0..1 <br/> [WorkflowStart](WorkflowStart.md) | WorkflowStart reference: WorkflowStart references a structural element that b... | direct |
-| [WorkflowEndRef](WorkflowEndRef.md) | 0..* <br/> [WorkflowEnd](WorkflowEnd.md) | WorkflowEnd reference: A WorkflowEnd references a structural element with whi... | direct |
-| [TransitionRef](TransitionRef.md) | 0..* <br/> [Transition](Transition.md) | Transition reference: A Transition defines a link between 2 structural elemen... | direct |
-| [BranchingRef](BranchingRef.md) | 0..* <br/> [Branching](Branching.md) | Branching reference: This element describes the branching in a workflow from ... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the workflow. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable label for the workflow. | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [workflowStart](workflowStart.md) | 0..1 <br/> [WorkflowStart](WorkflowStart.md) | WorkflowStart reference: WorkflowStart references a structural element that b... | direct |
+| [workflowEnd](workflowEnd.md) | 0..* <br/> [WorkflowEnd](WorkflowEnd.md) | WorkflowEnd reference: A WorkflowEnd references a structural element with whi... | direct |
+| [transition](transition.md) | 0..* <br/> [Transition](Transition.md) | Transition reference: A Transition defines a link between 2 structural elemen... | direct |
+| [branching](branching.md) | 0..* <br/> [Branching](Branching.md) | Branching reference: This element describes the branching in a workflow from ... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -87,7 +87,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [MetaDataVersion](MetaDataVersion.md) | [WorkflowDefRef](WorkflowDefRef.md) | range | [WorkflowDef](WorkflowDef.md) |
+| [MetaDataVersion](MetaDataVersion.md) | [workflowDef](workflowDef.md) | range | [WorkflowDef](WorkflowDef.md) |
 
 
 
@@ -141,16 +141,16 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/WorkflowDef
 rank: 1000
 slots:
-- OID
-- Name
-- DescriptionRef
-- WorkflowStartRef
-- WorkflowEndRef
-- TransitionRef
-- BranchingRef
+- oID
+- name
+- description
+- workflowStart
+- workflowEnd
+- transition
+- branching
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the workflow.
     comments:
     - 'Required
@@ -197,8 +197,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable label for the workflow.
     comments:
     - 'Required
@@ -241,10 +241,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -284,30 +284,30 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  WorkflowStartRef:
-    name: WorkflowStartRef
+  workflowStart:
+    name: workflowStart
     domain_of:
     - WorkflowDef
     range: WorkflowStart
     maximum_cardinality: 1
-  WorkflowEndRef:
-    name: WorkflowEndRef
+  workflowEnd:
+    name: workflowEnd
     multivalued: true
     domain_of:
     - WorkflowDef
     range: WorkflowEnd
     inlined: true
     inlined_as_list: true
-  TransitionRef:
-    name: TransitionRef
+  transition:
+    name: transition
     multivalued: true
     domain_of:
     - WorkflowDef
     range: Transition
     inlined: true
     inlined_as_list: true
-  BranchingRef:
-    name: BranchingRef
+  branching:
+    name: branching
     multivalued: true
     domain_of:
     - WorkflowDef
@@ -330,8 +330,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/WorkflowDef
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the workflow.
     comments:
     - 'Required
@@ -378,8 +378,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable label for the workflow.
     comments:
     - 'Required
@@ -422,10 +422,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -465,30 +465,30 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  WorkflowStartRef:
-    name: WorkflowStartRef
+  workflowStart:
+    name: workflowStart
     domain_of:
     - WorkflowDef
     range: WorkflowStart
     maximum_cardinality: 1
-  WorkflowEndRef:
-    name: WorkflowEndRef
+  workflowEnd:
+    name: workflowEnd
     multivalued: true
     domain_of:
     - WorkflowDef
     range: WorkflowEnd
     inlined: true
     inlined_as_list: true
-  TransitionRef:
-    name: TransitionRef
+  transition:
+    name: transition
     multivalued: true
     domain_of:
     - WorkflowDef
     range: Transition
     inlined: true
     inlined_as_list: true
-  BranchingRef:
-    name: BranchingRef
+  branching:
+    name: branching
     multivalued: true
     domain_of:
     - WorkflowDef
@@ -496,8 +496,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the workflow.
     comments:
     - 'Required
@@ -508,7 +508,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: WorkflowDef
     domain_of:
     - Study
@@ -549,8 +549,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable label for the workflow.
     comments:
     - 'Required
@@ -560,7 +560,7 @@ attributes:
       The Name attribute value must be unique within the Study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: WorkflowDef
     domain_of:
     - Alias
@@ -597,16 +597,16 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: WorkflowDef
     domain_of:
     - Study
@@ -647,36 +647,36 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  WorkflowStartRef:
-    name: WorkflowStartRef
+  workflowStart:
+    name: workflowStart
     description: 'WorkflowStart reference: WorkflowStart references a structural element
       that begins the automated workflow.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: WorkflowStartRef
+    alias: workflowStart
     owner: WorkflowDef
     domain_of:
     - WorkflowDef
     range: WorkflowStart
     maximum_cardinality: 1
-  WorkflowEndRef:
-    name: WorkflowEndRef
+  workflowEnd:
+    name: workflowEnd
     description: 'WorkflowEnd reference: A WorkflowEnd references a structural element
       with which the workflows ends.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: WorkflowEndRef
+    alias: workflowEnd
     owner: WorkflowDef
     domain_of:
     - WorkflowDef
     range: WorkflowEnd
     inlined: true
     inlined_as_list: true
-  TransitionRef:
-    name: TransitionRef
+  transition:
+    name: transition
     description: 'Transition reference: A Transition defines a link between 2 structural
       elements in a workflow. When the execution of the transition is dependent upon
       a timing constraint that is either directly defined or calculated, a TransitionTimingConstraint
@@ -685,15 +685,15 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: TransitionRef
+    alias: transition
     owner: WorkflowDef
     domain_of:
     - WorkflowDef
     range: Transition
     inlined: true
     inlined_as_list: true
-  BranchingRef:
-    name: BranchingRef
+  branching:
+    name: branching
     description: 'Branching reference: This element describes the branching in a workflow
       from a source (start) structural element to 2 or more target structural elements,
       over a Transition element.'
@@ -701,7 +701,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: BranchingRef
+    alias: branching
     owner: WorkflowDef
     domain_of:
     - WorkflowDef

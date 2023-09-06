@@ -11,20 +11,20 @@ URI: [odm:RangeCheck](http://www.cdisc.org/ns/odm/v2.0/RangeCheck)
 ```mermaid
 erDiagram
 RangeCheck {
-    Comparator ComparatorRef  
-    SoftOrHard SoftHard  
-    oidref ItemOID  
+    Comparator comparator  
+    SoftOrHard softHard  
+    oidref itemOID  
 }
 CheckValue {
-    value content  
+    valueType content  
 }
 FormalExpression {
-    text ContextRef  
+    text context  
 }
 ExternalCodeLib {
-    name Library  
-    name Method  
-    text Version  
+    nameType library  
+    nameType method  
+    text version  
     text ref  
     uriorcurie href  
 }
@@ -35,35 +35,35 @@ MethodSignature {
 
 }
 ReturnValue {
-    name Name  
-    DataType DataTypeRef  
-    text DefinitionRef  
-    positiveInteger OrderNumber  
+    nameType name  
+    DataType dataType  
+    text definition  
+    positiveInteger orderNumber  
 }
 Parameter {
-    name Name  
-    DataType DataTypeRef  
-    text DefinitionRef  
-    positiveInteger OrderNumber  
+    nameType name  
+    DataType dataType  
+    text definition  
+    positiveInteger orderNumber  
 }
 ErrorMessage {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-RangeCheck ||--|o ErrorMessage : "ErrorMessageRef"
-RangeCheck ||--|o MethodSignature : "MethodSignatureRef"
-RangeCheck ||--}o FormalExpression : "FormalExpressionRef"
-RangeCheck ||--}o CheckValue : "CheckValueRef"
-FormalExpression ||--|o Code : "CodeRef"
-FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
-MethodSignature ||--}o Parameter : "ParameterRef"
-MethodSignature ||--}o ReturnValue : "ReturnValueRef"
-ErrorMessage ||--}o TranslatedText : "TranslatedTextRef"
+RangeCheck ||--|o ErrorMessage : "errorMessage"
+RangeCheck ||--|o MethodSignature : "methodSignature"
+RangeCheck ||--}o FormalExpression : "formalExpression"
+RangeCheck ||--}o CheckValue : "checkValue"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+MethodSignature ||--}o Parameter : "parameter"
+MethodSignature ||--}o ReturnValue : "returnValue"
+ErrorMessage ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -76,13 +76,13 @@ ErrorMessage ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ComparatorRef](ComparatorRef.md) | 0..1 <br/> [Comparator](Comparator.md) | Comparison operator used to compare the item and value(s). | direct |
-| [SoftHard](SoftHard.md) | 0..1 <br/> [SoftOrHard](SoftOrHard.md) | Type of range check. Soft indicates that a warning occurs when the RangeCheck... | direct |
-| [ItemOID](ItemOID.md) | 0..1 <br/> [oidref](oidref.md) | Identifies a variable to compare against. | direct |
-| [ErrorMessageRef](ErrorMessageRef.md) | 0..1 <br/> [ErrorMessage](ErrorMessage.md) | ErrorMessage reference: Error message provided to user when the range check f... | direct |
-| [MethodSignatureRef](MethodSignatureRef.md) | 0..1 <br/> [MethodSignature](MethodSignature.md) | MethodSignature reference: A MethodSignature defines the parameters and retur... | direct |
-| [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
-| [CheckValueRef](CheckValueRef.md) | 0..* <br/> [CheckValue](CheckValue.md) | CheckValue reference: A comparison value used in a range check. | direct |
+| [comparator](comparator.md) | 0..1 <br/> [Comparator](Comparator.md) | Comparison operator used to compare the item and value(s). | direct |
+| [softHard](softHard.md) | 0..1 <br/> [SoftOrHard](SoftOrHard.md) | Type of range check. Soft indicates that a warning occurs when the RangeCheck... | direct |
+| [itemOID](itemOID.md) | 0..1 <br/> [oidref](oidref.md) | Identifies a variable to compare against. | direct |
+| [errorMessage](errorMessage.md) | 0..1 <br/> [ErrorMessage](ErrorMessage.md) | ErrorMessage reference: Error message provided to user when the range check f... | direct |
+| [methodSignature](methodSignature.md) | 0..1 <br/> [MethodSignature](MethodSignature.md) | MethodSignature reference: A MethodSignature defines the parameters and retur... | direct |
+| [formalExpression](formalExpression.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
+| [checkValue](checkValue.md) | 0..* <br/> [CheckValue](CheckValue.md) | CheckValue reference: A comparison value used in a range check. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -93,8 +93,8 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [WhereClauseDef](WhereClauseDef.md) | [RangeCheckRef](RangeCheckRef.md) | range | [RangeCheck](RangeCheck.md) |
-| [ItemDef](ItemDef.md) | [RangeCheckRef](RangeCheckRef.md) | range | [RangeCheck](RangeCheck.md) |
+| [WhereClauseDef](WhereClauseDef.md) | [rangeCheck](rangeCheck.md) | range | [RangeCheck](RangeCheck.md) |
+| [ItemDef](ItemDef.md) | [rangeCheck](rangeCheck.md) | range | [RangeCheck](RangeCheck.md) |
 
 
 
@@ -151,16 +151,16 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/RangeCheck
 rank: 1000
 slots:
-- ComparatorRef
-- SoftHard
-- ItemOID
-- ErrorMessageRef
-- MethodSignatureRef
-- FormalExpressionRef
-- CheckValueRef
+- comparator
+- softHard
+- itemOID
+- errorMessage
+- methodSignature
+- formalExpression
+- checkValue
 slot_usage:
-  ComparatorRef:
-    name: ComparatorRef
+  comparator:
+    name: comparator
     description: Comparison operator used to compare the item and value(s).
     comments:
     - 'Conditional
@@ -169,8 +169,8 @@ slot_usage:
     domain_of:
     - RangeCheck
     range: Comparator
-  SoftHard:
-    name: SoftHard
+  softHard:
+    name: softHard
     description: Type of range check. Soft indicates that a warning occurs when the
       RangeCheck fails. Hard indicates that an error occurs when the RangeCheck fails.
     comments:
@@ -180,8 +180,8 @@ slot_usage:
     domain_of:
     - RangeCheck
     range: SoftOrHard
-  ItemOID:
-    name: ItemOID
+  itemOID:
+    name: itemOID
     description: Identifies a variable to compare against.
     comments:
     - 'Conditional
@@ -194,22 +194,22 @@ slot_usage:
     - ItemData
     - KeySet
     range: oidref
-  ErrorMessageRef:
-    name: ErrorMessageRef
+  errorMessage:
+    name: errorMessage
     domain_of:
     - RangeCheck
     range: ErrorMessage
     maximum_cardinality: 1
-  MethodSignatureRef:
-    name: MethodSignatureRef
+  methodSignature:
+    name: methodSignature
     domain_of:
     - RangeCheck
     - MethodDef
     - ConditionDef
     range: MethodSignature
     maximum_cardinality: 1
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     multivalued: true
     domain_of:
     - RangeCheck
@@ -220,8 +220,8 @@ slot_usage:
     range: FormalExpression
     inlined: true
     inlined_as_list: true
-  CheckValueRef:
-    name: CheckValueRef
+  checkValue:
+    name: checkValue
     multivalued: true
     domain_of:
     - RangeCheck
@@ -247,8 +247,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/RangeCheck
 rank: 1000
 slot_usage:
-  ComparatorRef:
-    name: ComparatorRef
+  comparator:
+    name: comparator
     description: Comparison operator used to compare the item and value(s).
     comments:
     - 'Conditional
@@ -257,8 +257,8 @@ slot_usage:
     domain_of:
     - RangeCheck
     range: Comparator
-  SoftHard:
-    name: SoftHard
+  softHard:
+    name: softHard
     description: Type of range check. Soft indicates that a warning occurs when the
       RangeCheck fails. Hard indicates that an error occurs when the RangeCheck fails.
     comments:
@@ -268,8 +268,8 @@ slot_usage:
     domain_of:
     - RangeCheck
     range: SoftOrHard
-  ItemOID:
-    name: ItemOID
+  itemOID:
+    name: itemOID
     description: Identifies a variable to compare against.
     comments:
     - 'Conditional
@@ -282,22 +282,22 @@ slot_usage:
     - ItemData
     - KeySet
     range: oidref
-  ErrorMessageRef:
-    name: ErrorMessageRef
+  errorMessage:
+    name: errorMessage
     domain_of:
     - RangeCheck
     range: ErrorMessage
     maximum_cardinality: 1
-  MethodSignatureRef:
-    name: MethodSignatureRef
+  methodSignature:
+    name: methodSignature
     domain_of:
     - RangeCheck
     - MethodDef
     - ConditionDef
     range: MethodSignature
     maximum_cardinality: 1
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     multivalued: true
     domain_of:
     - RangeCheck
@@ -308,8 +308,8 @@ slot_usage:
     range: FormalExpression
     inlined: true
     inlined_as_list: true
-  CheckValueRef:
-    name: CheckValueRef
+  checkValue:
+    name: checkValue
     multivalued: true
     domain_of:
     - RangeCheck
@@ -317,8 +317,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  ComparatorRef:
-    name: ComparatorRef
+  comparator:
+    name: comparator
     description: Comparison operator used to compare the item and value(s).
     comments:
     - 'Conditional
@@ -326,13 +326,13 @@ attributes:
       enum values: (LT | LE | GT | GE | EQ | NE | IN | NOTIN)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ComparatorRef
+    alias: comparator
     owner: RangeCheck
     domain_of:
     - RangeCheck
     range: Comparator
-  SoftHard:
-    name: SoftHard
+  softHard:
+    name: softHard
     description: Type of range check. Soft indicates that a warning occurs when the
       RangeCheck fails. Hard indicates that an error occurs when the RangeCheck fails.
     comments:
@@ -341,13 +341,13 @@ attributes:
       enum values: (Soft | Hard)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: SoftHard
+    alias: softHard
     owner: RangeCheck
     domain_of:
     - RangeCheck
     range: SoftOrHard
-  ItemOID:
-    name: ItemOID
+  itemOID:
+    name: itemOID
     description: Identifies a variable to compare against.
     comments:
     - 'Conditional
@@ -355,7 +355,7 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ItemOID
+    alias: itemOID
     owner: RangeCheck
     domain_of:
     - ItemRef
@@ -364,21 +364,21 @@ attributes:
     - ItemData
     - KeySet
     range: oidref
-  ErrorMessageRef:
-    name: ErrorMessageRef
+  errorMessage:
+    name: errorMessage
     description: 'ErrorMessage reference: Error message provided to user when the
       range check fails.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: ErrorMessageRef
+    alias: errorMessage
     owner: RangeCheck
     domain_of:
     - RangeCheck
     range: ErrorMessage
     maximum_cardinality: 1
-  MethodSignatureRef:
-    name: MethodSignatureRef
+  methodSignature:
+    name: methodSignature
     description: 'MethodSignature reference: A MethodSignature defines the parameters
       and return values for a method. The MethodSignature improves traceability while
       enhancing the ability for automation engines to execute a MethodDef''s FormalExpression.
@@ -386,7 +386,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: MethodSignatureRef
+    alias: methodSignature
     owner: RangeCheck
     domain_of:
     - RangeCheck
@@ -394,8 +394,8 @@ attributes:
     - ConditionDef
     range: MethodSignature
     maximum_cardinality: 1
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     description: 'FormalExpression reference: A FormalExpression used within a ConditionDef
       or a RangeCheck must evaluate to True or False. A FormalExpression referenced
       within a MethodDef having Type Imputation, Computation, or Transpose must evaluate
@@ -407,7 +407,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: FormalExpressionRef
+    alias: formalExpression
     owner: RangeCheck
     domain_of:
     - RangeCheck
@@ -418,14 +418,14 @@ attributes:
     range: FormalExpression
     inlined: true
     inlined_as_list: true
-  CheckValueRef:
-    name: CheckValueRef
+  checkValue:
+    name: checkValue
     description: 'CheckValue reference: A comparison value used in a range check.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: CheckValueRef
+    alias: checkValue
     owner: RangeCheck
     domain_of:
     - RangeCheck

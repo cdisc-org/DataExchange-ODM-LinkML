@@ -11,17 +11,17 @@ URI: [odm:DocumentRef](http://www.cdisc.org/ns/odm/v2.0/DocumentRef)
 ```mermaid
 erDiagram
 DocumentRef {
-    oid LeafID  
+    oid leafID  
 }
 PDFPageRef {
-    text PageRefs  
-    positiveInteger FirstPage  
-    positiveInteger LastPage  
-    PDFPageType Type  
-    text TitleRef  
+    text pageRefs  
+    positiveInteger firstPage  
+    positiveInteger lastPage  
+    PDFPageType type  
+    text title  
 }
 
-DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
 
 ```
 
@@ -34,8 +34,8 @@ DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [LeafID](LeafID.md) | 1..1 <br/> [oid](oid.md) | Reference to the unique ID of the Leaf element that contains the location of ... | direct |
-| [PDFPageRefRef](PDFPageRefRef.md) | 0..* <br/> [PDFPageRef](PDFPageRef.md) | The PDFPageRef element is a container for page references in a PDF file. | direct |
+| [leafID](leafID.md) | 1..1 <br/> [oid](oid.md) | Reference to the unique ID of the Leaf element that contains the location of ... | direct |
+| [pDFPageRef](pDFPageRef.md) | 0..* <br/> [PDFPageRef](PDFPageRef.md) | The PDFPageRef element is a container for page references in a PDF file. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -46,11 +46,11 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AnnotatedCRF](AnnotatedCRF.md) | [DocumentRefRef](DocumentRefRef.md) | range | [DocumentRef](DocumentRef.md) |
-| [SupplementalDoc](SupplementalDoc.md) | [DocumentRefRef](DocumentRefRef.md) | range | [DocumentRef](DocumentRef.md) |
-| [Origin](Origin.md) | [DocumentRefRef](DocumentRefRef.md) | range | [DocumentRef](DocumentRef.md) |
-| [MethodDef](MethodDef.md) | [DocumentRefRef](DocumentRefRef.md) | range | [DocumentRef](DocumentRef.md) |
-| [CommentDef](CommentDef.md) | [DocumentRefRef](DocumentRefRef.md) | range | [DocumentRef](DocumentRef.md) |
+| [AnnotatedCRF](AnnotatedCRF.md) | [documentRef](documentRef.md) | range | [DocumentRef](DocumentRef.md) |
+| [SupplementalDoc](SupplementalDoc.md) | [documentRef](documentRef.md) | range | [DocumentRef](DocumentRef.md) |
+| [Origin](Origin.md) | [documentRef](documentRef.md) | range | [DocumentRef](DocumentRef.md) |
+| [MethodDef](MethodDef.md) | [documentRef](documentRef.md) | range | [DocumentRef](DocumentRef.md) |
+| [CommentDef](CommentDef.md) | [documentRef](documentRef.md) | range | [DocumentRef](DocumentRef.md) |
 
 
 
@@ -104,11 +104,11 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/DocumentRef
 rank: 1000
 slots:
-- LeafID
-- PDFPageRefRef
+- leafID
+- pDFPageRef
 slot_usage:
-  LeafID:
-    name: LeafID
+  leafID:
+    name: leafID
     description: Reference to the unique ID of the Leaf element that contains the
       location of a file containing a document.
     comments:
@@ -117,10 +117,11 @@ slot_usage:
       range: text'
     domain_of:
     - DocumentRef
+    - SourceItem
     range: oid
     required: true
-  PDFPageRefRef:
-    name: PDFPageRefRef
+  pDFPageRef:
+    name: pDFPageRef
     description: The PDFPageRef element is a container for page references in a PDF
       file.
     multivalued: true
@@ -145,8 +146,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/DocumentRef
 rank: 1000
 slot_usage:
-  LeafID:
-    name: LeafID
+  leafID:
+    name: leafID
     description: Reference to the unique ID of the Leaf element that contains the
       location of a file containing a document.
     comments:
@@ -155,10 +156,11 @@ slot_usage:
       range: text'
     domain_of:
     - DocumentRef
+    - SourceItem
     range: oid
     required: true
-  PDFPageRefRef:
-    name: PDFPageRefRef
+  pDFPageRef:
+    name: pDFPageRef
     description: The PDFPageRef element is a container for page references in a PDF
       file.
     multivalued: true
@@ -168,8 +170,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  LeafID:
-    name: LeafID
+  leafID:
+    name: leafID
     description: Reference to the unique ID of the Leaf element that contains the
       location of a file containing a document.
     comments:
@@ -178,21 +180,22 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: LeafID
+    alias: leafID
     owner: DocumentRef
     domain_of:
     - DocumentRef
+    - SourceItem
     range: oid
     required: true
-  PDFPageRefRef:
-    name: PDFPageRefRef
+  pDFPageRef:
+    name: pDFPageRef
     description: The PDFPageRef element is a container for page references in a PDF
       file.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: PDFPageRefRef
+    alias: pDFPageRef
     owner: DocumentRef
     domain_of:
     - DocumentRef

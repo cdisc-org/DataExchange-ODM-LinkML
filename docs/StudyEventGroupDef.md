@@ -11,48 +11,48 @@ URI: [odm:StudyEventGroupDef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupDe
 ```mermaid
 erDiagram
 StudyEventGroupDef {
-    oid OID  
-    name Name  
-    oidref ArmOID  
-    oidref EpochOID  
-    oidref CommentOID  
+    oid oID  
+    nameType name  
+    oidref armOID  
+    oidref epochOID  
+    oidref commentOID  
 }
 StudyEventRef {
-    oidref StudyEventOID  
-    positiveInteger OrderNumber  
-    YesOrNo Mandatory  
-    oidref CollectionExceptionConditionOID  
+    oidref studyEventOID  
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+    oidref collectionExceptionConditionOID  
 }
 StudyEventGroupRef {
-    oidref StudyEventGroupOID  
-    positiveInteger OrderNumber  
-    YesOrNo Mandatory  
-    oidref CollectionExceptionConditionOID  
+    oidref studyEventGroupOID  
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+    oidref collectionExceptionConditionOID  
 }
 Description {
 
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 WorkflowRef {
-    oidref WorkflowOID  
+    oidref workflowOID  
 }
 
-StudyEventGroupDef ||--|o Description : "DescriptionRef"
-StudyEventGroupDef ||--|o WorkflowRef : "WorkflowRefRef"
-StudyEventGroupDef ||--}o Coding : "CodingRef"
-StudyEventGroupDef ||--}o StudyEventGroupRef : "StudyEventGroupRefRef"
-StudyEventGroupDef ||--}o StudyEventRef : "StudyEventRefRef"
-StudyEventGroupRef ||--|o Description : "DescriptionRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+StudyEventGroupDef ||--|o Description : "description"
+StudyEventGroupDef ||--|o WorkflowRef : "workflowRef"
+StudyEventGroupDef ||--}o Coding : "coding"
+StudyEventGroupDef ||--}o StudyEventGroupRef : "studyEventGroupRef"
+StudyEventGroupDef ||--}o StudyEventRef : "studyEventRef"
+StudyEventGroupRef ||--|o Description : "description"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -65,16 +65,16 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEventGroupDef element. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable identifier for the StudyEventGroupDef element. | direct |
-| [ArmOID](ArmOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an Arm element defined in the study. | direct |
-| [EpochOID](EpochOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an Epoch element defined in the study. | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef element defined in the study. | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [WorkflowRefRef](WorkflowRefRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
-| [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | 0..* <br/> [StudyEventGroupRef](StudyEventGroupRef.md) | StudyEventGroupRef reference: This element references a StudyEventGroupDef as... | direct |
-| [StudyEventRefRef](StudyEventRefRef.md) | 0..* <br/> [StudyEventRef](StudyEventRef.md) | StudyEventRef reference: This element references a StudyEventDef as it occurs... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEventGroupDef element. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable identifier for the StudyEventGroupDef element. | direct |
+| [armOID](armOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an Arm element defined in the study. | direct |
+| [epochOID](epochOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an Epoch element defined in the study. | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef element defined in the study. | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [workflowRef](workflowRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
+| [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [studyEventGroupRef](studyEventGroupRef.md) | 0..* <br/> [StudyEventGroupRef](StudyEventGroupRef.md) | StudyEventGroupRef reference: This element references a StudyEventGroupDef as... | direct |
+| [studyEventRef](studyEventRef.md) | 0..* <br/> [StudyEventRef](StudyEventRef.md) | StudyEventRef reference: This element references a StudyEventDef as it occurs... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -85,7 +85,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [MetaDataVersion](MetaDataVersion.md) | [StudyEventGroupDefRef](StudyEventGroupDefRef.md) | range | [StudyEventGroupDef](StudyEventGroupDef.md) |
+| [MetaDataVersion](MetaDataVersion.md) | [studyEventGroupDef](studyEventGroupDef.md) | range | [StudyEventGroupDef](StudyEventGroupDef.md) |
 
 
 
@@ -141,19 +141,19 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEventGroupDef
 rank: 1000
 slots:
-- OID
-- Name
-- ArmOID
-- EpochOID
-- CommentOID
-- DescriptionRef
-- WorkflowRefRef
-- CodingRef
-- StudyEventGroupRefRef
-- StudyEventRefRef
+- oID
+- name
+- armOID
+- epochOID
+- commentOID
+- description
+- workflowRef
+- coding
+- studyEventGroupRef
+- studyEventRef
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyEventGroupDef element.
     comments:
     - 'Required
@@ -200,8 +200,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable identifier for the StudyEventGroupDef element.
     comments:
     - 'Required
@@ -245,10 +245,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  ArmOID:
-    name: ArmOID
+  armOID:
+    name: armOID
     description: Reference to an Arm element defined in the study.
     comments:
     - 'Optional
@@ -260,8 +260,8 @@ slot_usage:
     domain_of:
     - StudyEventGroupDef
     range: oidref
-  EpochOID:
-    name: EpochOID
+  epochOID:
+    name: epochOID
     description: Reference to an Epoch element defined in the study.
     comments:
     - 'Optional
@@ -273,8 +273,8 @@ slot_usage:
     domain_of:
     - StudyEventGroupDef
     range: oidref
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef element defined in the study.
     comments:
     - 'Optional
@@ -297,8 +297,8 @@ slot_usage:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -338,8 +338,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  WorkflowRefRef:
-    name: WorkflowRefRef
+  workflowRef:
+    name: workflowRef
     domain_of:
     - StudyEventGroupDef
     - StudyEventDef
@@ -349,8 +349,8 @@ slot_usage:
     - Arm
     range: WorkflowRef
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -372,8 +372,8 @@ slot_usage:
     range: Coding
     inlined: true
     inlined_as_list: true
-  StudyEventGroupRefRef:
-    name: StudyEventGroupRefRef
+  studyEventGroupRef:
+    name: studyEventGroupRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -381,8 +381,8 @@ slot_usage:
     range: StudyEventGroupRef
     inlined: true
     inlined_as_list: true
-  StudyEventRefRef:
-    name: StudyEventRefRef
+  studyEventRef:
+    name: studyEventRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -407,8 +407,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEventGroupDef
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyEventGroupDef element.
     comments:
     - 'Required
@@ -455,8 +455,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable identifier for the StudyEventGroupDef element.
     comments:
     - 'Required
@@ -500,10 +500,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  ArmOID:
-    name: ArmOID
+  armOID:
+    name: armOID
     description: Reference to an Arm element defined in the study.
     comments:
     - 'Optional
@@ -515,8 +515,8 @@ slot_usage:
     domain_of:
     - StudyEventGroupDef
     range: oidref
-  EpochOID:
-    name: EpochOID
+  epochOID:
+    name: epochOID
     description: Reference to an Epoch element defined in the study.
     comments:
     - 'Optional
@@ -528,8 +528,8 @@ slot_usage:
     domain_of:
     - StudyEventGroupDef
     range: oidref
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef element defined in the study.
     comments:
     - 'Optional
@@ -552,8 +552,8 @@ slot_usage:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -593,8 +593,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  WorkflowRefRef:
-    name: WorkflowRefRef
+  workflowRef:
+    name: workflowRef
     domain_of:
     - StudyEventGroupDef
     - StudyEventDef
@@ -604,8 +604,8 @@ slot_usage:
     - Arm
     range: WorkflowRef
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -627,8 +627,8 @@ slot_usage:
     range: Coding
     inlined: true
     inlined_as_list: true
-  StudyEventGroupRefRef:
-    name: StudyEventGroupRefRef
+  studyEventGroupRef:
+    name: studyEventGroupRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -636,8 +636,8 @@ slot_usage:
     range: StudyEventGroupRef
     inlined: true
     inlined_as_list: true
-  StudyEventRefRef:
-    name: StudyEventRefRef
+  studyEventRef:
+    name: studyEventRef
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -645,8 +645,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyEventGroupDef element.
     comments:
     - 'Required
@@ -657,7 +657,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: StudyEventGroupDef
     domain_of:
     - Study
@@ -698,8 +698,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable identifier for the StudyEventGroupDef element.
     comments:
     - 'Required
@@ -710,7 +710,7 @@ attributes:
       study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: StudyEventGroupDef
     domain_of:
     - Alias
@@ -747,10 +747,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  ArmOID:
-    name: ArmOID
+  armOID:
+    name: armOID
     description: Reference to an Arm element defined in the study.
     comments:
     - 'Optional
@@ -761,13 +761,13 @@ attributes:
       Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ArmOID
+    alias: armOID
     owner: StudyEventGroupDef
     domain_of:
     - StudyEventGroupDef
     range: oidref
-  EpochOID:
-    name: EpochOID
+  epochOID:
+    name: epochOID
     description: Reference to an Epoch element defined in the study.
     comments:
     - 'Optional
@@ -778,13 +778,13 @@ attributes:
       the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: EpochOID
+    alias: epochOID
     owner: StudyEventGroupDef
     domain_of:
     - StudyEventGroupDef
     range: oidref
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef element defined in the study.
     comments:
     - 'Optional
@@ -795,7 +795,7 @@ attributes:
       in the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: CommentOID
+    alias: commentOID
     owner: StudyEventGroupDef
     domain_of:
     - MetaDataVersion
@@ -811,14 +811,14 @@ attributes:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: StudyEventGroupDef
     domain_of:
     - Study
@@ -859,13 +859,13 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  WorkflowRefRef:
-    name: WorkflowRefRef
+  workflowRef:
+    name: workflowRef
     description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: WorkflowRefRef
+    alias: workflowRef
     owner: StudyEventGroupDef
     domain_of:
     - StudyEventGroupDef
@@ -876,8 +876,8 @@ attributes:
     - Arm
     range: WorkflowRef
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     description: 'Coding reference: Coding references a symbol from a defined code
       system. It uses a code defined in a terminology system to associate semantics
       with a given term, codelist, variable, or group of variables. The presence of
@@ -888,7 +888,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: CodingRef
+    alias: coding
     owner: StudyEventGroupDef
     domain_of:
     - StudyEventGroupDef
@@ -910,8 +910,8 @@ attributes:
     range: Coding
     inlined: true
     inlined_as_list: true
-  StudyEventGroupRefRef:
-    name: StudyEventGroupRefRef
+  studyEventGroupRef:
+    name: studyEventGroupRef
     description: 'StudyEventGroupRef reference: This element references a StudyEventGroupDef
       as it occurs within a specific version of a study. The list of StudyEventGroupRefs
       identifies the types of study group events that are allowed to occur within
@@ -920,7 +920,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: StudyEventGroupRefRef
+    alias: studyEventGroupRef
     owner: StudyEventGroupDef
     domain_of:
     - StudyEventGroupDef
@@ -928,8 +928,8 @@ attributes:
     range: StudyEventGroupRef
     inlined: true
     inlined_as_list: true
-  StudyEventRefRef:
-    name: StudyEventRefRef
+  studyEventRef:
+    name: studyEventRef
     description: 'StudyEventRef reference: This element references a StudyEventDef
       as it occurs within a specific version of a study. The list of StudyEventRefs
       identifies the types of study events that are allowed to occur within the study.'
@@ -937,7 +937,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: StudyEventRefRef
+    alias: studyEventRef
     owner: StudyEventGroupDef
     domain_of:
     - StudyEventGroupDef

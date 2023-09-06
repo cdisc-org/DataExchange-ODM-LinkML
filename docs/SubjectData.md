@@ -11,48 +11,48 @@ URI: [odm:SubjectData](http://www.cdisc.org/ns/odm/v2.0/SubjectData)
 ```mermaid
 erDiagram
 SubjectData {
-    subjectKey SubjectKey  
-    TransactionType TransactionTypeRef  
+    subjectKeyType subjectKey  
+    TransactionType transactionType  
 }
 Annotation {
-    positiveInteger SeqNum  
-    TransactionType TransactionTypeRef  
-    oid ID  
+    positiveInteger seqNum  
+    TransactionType transactionType  
+    oid iD  
 }
 Flag {
 
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 Comment {
-    CommentType SponsorOrSite  
+    CommentType sponsorOrSite  
 }
 Signature {
-    oid ID  
+    oid iD  
 }
 DateTimeStamp {
     datetime content  
 }
 SignatureRef {
-    oidref SignatureOID  
+    oidref signatureOID  
 }
 LocationRef {
-    oidref LocationOID  
+    oidref locationOID  
 }
 UserRef {
-    oidref UserOID  
+    oidref userOID  
 }
 AuditRecord {
-    EditPointType EditPoint  
-    YesOrNo UsedMethod  
+    EditPointType editPoint  
+    YesOrNo usedMethod  
 }
 SourceID {
     text content  
@@ -61,71 +61,71 @@ ReasonForChange {
     text content  
 }
 Query {
-    oid OID  
-    QuerySourceType Source  
-    text Target  
-    QueryType Type  
-    QueryStateType State  
-    datetime LastUpdateDatetime  
-    name Name  
+    oid oID  
+    QuerySourceType source  
+    text target  
+    QueryType type  
+    QueryStateType state  
+    datetime lastUpdateDatetime  
+    nameType name  
 }
 Value {
-    positiveInteger SeqNum  
+    positiveInteger seqNum  
     text content  
 }
 StudyEventData {
-    oidref StudyEventOID  
-    repeatKey StudyEventRepeatKey  
-    TransactionType TransactionTypeRef  
+    oidref studyEventOID  
+    repeatKey studyEventRepeatKey  
+    TransactionType transactionType  
 }
 ItemGroupData {
-    oidref ItemGroupOID  
-    repeatKey ItemGroupRepeatKey  
-    TransactionType TransactionTypeRef  
-    positiveInteger ItemGroupDataSeq  
+    oidref itemGroupOID  
+    repeatKey itemGroupRepeatKey  
+    TransactionType transactionType  
+    positiveInteger itemGroupDataSeq  
 }
 SiteRef {
-    oidref LocationOID  
+    oidref locationOID  
 }
 InvestigatorRef {
-    oidref UserOID  
+    oidref userOID  
 }
 
-SubjectData ||--|o InvestigatorRef : "InvestigatorRefRef"
-SubjectData ||--|o SiteRef : "SiteRefRef"
-SubjectData ||--}o StudyEventData : "StudyEventDataRef"
-SubjectData ||--}o Query : "QueryRef"
-SubjectData ||--|o AuditRecord : "AuditRecordRef"
-SubjectData ||--|o Signature : "SignatureRefRef"
-SubjectData ||--|o Annotation : "AnnotationRef"
-Annotation ||--|o Comment : "CommentRef"
-Annotation ||--}o Coding : "CodingRef"
-Annotation ||--}o Flag : "FlagRef"
-Flag ||--|o FlagValue : "FlagValueRef"
-Flag ||--|o FlagType : "FlagTypeRef"
-Comment ||--}o TranslatedText : "TranslatedTextRef"
-Signature ||--|o UserRef : "UserRefRef"
-Signature ||--|o LocationRef : "LocationRefRef"
-Signature ||--|o SignatureRef : "SignatureRefRef"
-Signature ||--|o DateTimeStamp : "DateTimeStampRef"
-AuditRecord ||--|o UserRef : "UserRefRef"
-AuditRecord ||--|o LocationRef : "LocationRefRef"
-AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
-AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
-AuditRecord ||--|o SourceID : "SourceIDRef"
-Query ||--|o Value : "ValueRef"
-Query ||--}o AuditRecord : "AuditRecordRef"
-StudyEventData ||--}o ItemGroupData : "ItemGroupDataRef"
-StudyEventData ||--}o Query : "QueryRef"
-StudyEventData ||--|o AuditRecord : "AuditRecordRef"
-StudyEventData ||--|o Signature : "SignatureRefRef"
-StudyEventData ||--|o Annotation : "AnnotationRef"
-ItemGroupData ||--}o Query : "QueryRef"
-ItemGroupData ||--}o ItemGroupData : "ItemGroupDataRef"
-ItemGroupData ||--}o ItemData : "ItemDataRef"
-ItemGroupData ||--|o AuditRecord : "AuditRecordRef"
-ItemGroupData ||--|o Signature : "SignatureRefRef"
-ItemGroupData ||--|o Annotation : "AnnotationRef"
+SubjectData ||--|o InvestigatorRef : "investigatorRef"
+SubjectData ||--|o SiteRef : "siteRef"
+SubjectData ||--}o StudyEventData : "studyEventData"
+SubjectData ||--}o Query : "query"
+SubjectData ||--|o AuditRecord : "auditRecord"
+SubjectData ||--|o Signature : "signature"
+SubjectData ||--|o Annotation : "annotation"
+Annotation ||--|o Comment : "comment"
+Annotation ||--}o Coding : "coding"
+Annotation ||--}o Flag : "flag"
+Flag ||--|o FlagValue : "flagValue"
+Flag ||--|o FlagType : "flagType"
+Comment ||--}o TranslatedText : "translatedText"
+Signature ||--|o UserRef : "userRef"
+Signature ||--|o LocationRef : "locationRef"
+Signature ||--|o SignatureRef : "signatureRef"
+Signature ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o UserRef : "userRef"
+AuditRecord ||--|o LocationRef : "locationRef"
+AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o ReasonForChange : "reasonForChange"
+AuditRecord ||--|o SourceID : "sourceID"
+Query ||--|o Value : "value"
+Query ||--}o AuditRecord : "auditRecord"
+StudyEventData ||--}o ItemGroupData : "itemGroupData"
+StudyEventData ||--}o Query : "query"
+StudyEventData ||--|o AuditRecord : "auditRecord"
+StudyEventData ||--|o Signature : "signature"
+StudyEventData ||--|o Annotation : "annotation"
+ItemGroupData ||--}o Query : "query"
+ItemGroupData ||--}o ItemGroupData : "itemGroupData"
+ItemGroupData ||--}o ItemData : "itemData"
+ItemGroupData ||--|o AuditRecord : "auditRecord"
+ItemGroupData ||--|o Signature : "signature"
+ItemGroupData ||--|o Annotation : "annotation"
 
 ```
 
@@ -138,15 +138,15 @@ ItemGroupData ||--|o Annotation : "AnnotationRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SubjectKey](SubjectKey.md) | 1..1 <br/> [subjectKey](subjectKey.md) | Unique identifier for the Subject. | direct |
-| [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... | direct |
-| [InvestigatorRefRef](InvestigatorRefRef.md) | 0..1 <br/> [InvestigatorRef](InvestigatorRef.md) | InvestigatorRef reference: Provides a reference to the user who created the S... | direct |
-| [SiteRefRef](SiteRefRef.md) | 0..1 <br/> [SiteRef](SiteRef.md) | SiteRef reference: Provides a reference to the site that the SubjectData reco... | direct |
-| [StudyEventDataRef](StudyEventDataRef.md) | 0..* <br/> [StudyEventData](StudyEventData.md) | StudyEventData reference: Clinical data for a study event (visit). The model ... | direct |
-| [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) | Query reference: The Query element represents a request for clarification on ... | direct |
-| [AuditRecordRef](AuditRecordRef.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
-| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: A reference to the signature meaning. | direct |
-| [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
+| [subjectKey](subjectKey.md) | 1..1 <br/> [subjectKeyType](subjectKeyType.md) | Unique identifier for the Subject. | direct |
+| [transactionType](transactionType.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... | direct |
+| [investigatorRef](investigatorRef.md) | 0..1 <br/> [InvestigatorRef](InvestigatorRef.md) | InvestigatorRef reference: Provides a reference to the user who created the S... | direct |
+| [siteRef](siteRef.md) | 0..1 <br/> [SiteRef](SiteRef.md) | SiteRef reference: Provides a reference to the site that the SubjectData reco... | direct |
+| [studyEventData](studyEventData.md) | 0..* <br/> [StudyEventData](StudyEventData.md) | StudyEventData reference: Clinical data for a study event (visit). The model ... | direct |
+| [query](query.md) | 0..* <br/> [Query](Query.md) | Query reference: The Query element represents a request for clarification on ... | direct |
+| [auditRecord](auditRecord.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
+| [signature](signature.md) | 0..1 <br/> [Signature](Signature.md) | Signature reference: An electronic signature applies to a collection of clini... | direct |
+| [annotation](annotation.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -157,7 +157,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ClinicalData](ClinicalData.md) | [SubjectDataRef](SubjectDataRef.md) | range | [SubjectData](SubjectData.md) |
+| [ClinicalData](ClinicalData.md) | [subjectData](subjectData.md) | range | [SubjectData](SubjectData.md) |
 
 
 
@@ -211,18 +211,18 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SubjectData
 rank: 1000
 slots:
-- SubjectKey
-- TransactionTypeRef
-- InvestigatorRefRef
-- SiteRefRef
-- StudyEventDataRef
-- QueryRef
-- AuditRecordRef
-- SignatureRefRef
-- AnnotationRef
+- subjectKey
+- transactionType
+- investigatorRef
+- siteRef
+- studyEventData
+- query
+- auditRecord
+- signature
+- annotation
 slot_usage:
-  SubjectKey:
-    name: SubjectKey
+  subjectKey:
+    name: subjectKey
     description: Unique identifier for the Subject.
     comments:
     - 'Required
@@ -234,10 +234,10 @@ slot_usage:
     domain_of:
     - SubjectData
     - KeySet
-    range: subjectKey
+    range: subjectKeyType
     required: true
-  TransactionTypeRef:
-    name: TransactionTypeRef
+  transactionType:
+    name: transactionType
     description: Identifies the transaction type when /ODM/@FileType is Transactional
       and there is no child element.
     comments:
@@ -255,28 +255,28 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-  InvestigatorRefRef:
-    name: InvestigatorRefRef
+  investigatorRef:
+    name: investigatorRef
     domain_of:
     - SubjectData
     range: InvestigatorRef
     maximum_cardinality: 1
-  SiteRefRef:
-    name: SiteRefRef
+  siteRef:
+    name: siteRef
     domain_of:
     - SubjectData
     range: SiteRef
     maximum_cardinality: 1
-  StudyEventDataRef:
-    name: StudyEventDataRef
+  studyEventData:
+    name: studyEventData
     multivalued: true
     domain_of:
     - SubjectData
     range: StudyEventData
     inlined: true
     inlined_as_list: true
-  QueryRef:
-    name: QueryRef
+  query:
+    name: query
     multivalued: true
     domain_of:
     - Location
@@ -288,8 +288,8 @@ slot_usage:
     range: Query
     inlined: true
     inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -300,8 +300,8 @@ slot_usage:
     - Query
     range: AuditRecord
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
+  signature:
+    name: signature
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -309,11 +309,10 @@ slot_usage:
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Signature
     range: Signature
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -340,8 +339,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SubjectData
 rank: 1000
 slot_usage:
-  SubjectKey:
-    name: SubjectKey
+  subjectKey:
+    name: subjectKey
     description: Unique identifier for the Subject.
     comments:
     - 'Required
@@ -353,10 +352,10 @@ slot_usage:
     domain_of:
     - SubjectData
     - KeySet
-    range: subjectKey
+    range: subjectKeyType
     required: true
-  TransactionTypeRef:
-    name: TransactionTypeRef
+  transactionType:
+    name: transactionType
     description: Identifies the transaction type when /ODM/@FileType is Transactional
       and there is no child element.
     comments:
@@ -374,28 +373,28 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-  InvestigatorRefRef:
-    name: InvestigatorRefRef
+  investigatorRef:
+    name: investigatorRef
     domain_of:
     - SubjectData
     range: InvestigatorRef
     maximum_cardinality: 1
-  SiteRefRef:
-    name: SiteRefRef
+  siteRef:
+    name: siteRef
     domain_of:
     - SubjectData
     range: SiteRef
     maximum_cardinality: 1
-  StudyEventDataRef:
-    name: StudyEventDataRef
+  studyEventData:
+    name: studyEventData
     multivalued: true
     domain_of:
     - SubjectData
     range: StudyEventData
     inlined: true
     inlined_as_list: true
-  QueryRef:
-    name: QueryRef
+  query:
+    name: query
     multivalued: true
     domain_of:
     - Location
@@ -407,8 +406,8 @@ slot_usage:
     range: Query
     inlined: true
     inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -419,8 +418,8 @@ slot_usage:
     - Query
     range: AuditRecord
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
+  signature:
+    name: signature
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -428,11 +427,10 @@ slot_usage:
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Signature
     range: Signature
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -444,8 +442,8 @@ slot_usage:
     range: Annotation
     maximum_cardinality: 1
 attributes:
-  SubjectKey:
-    name: SubjectKey
+  subjectKey:
+    name: subjectKey
     description: Unique identifier for the Subject.
     comments:
     - 'Required
@@ -456,15 +454,15 @@ attributes:
       SUBJID variable value.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: SubjectKey
+    alias: subjectKey
     owner: SubjectData
     domain_of:
     - SubjectData
     - KeySet
-    range: subjectKey
+    range: subjectKeyType
     required: true
-  TransactionTypeRef:
-    name: TransactionTypeRef
+  transactionType:
+    name: transactionType
     description: Identifies the transaction type when /ODM/@FileType is Transactional
       and there is no child element.
     comments:
@@ -477,7 +475,7 @@ attributes:
       must not affect the processing of the SubjectData element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TransactionTypeRef
+    alias: transactionType
     owner: SubjectData
     domain_of:
     - SubjectData
@@ -486,34 +484,34 @@ attributes:
     - ItemData
     - Annotation
     range: TransactionType
-  InvestigatorRefRef:
-    name: InvestigatorRefRef
+  investigatorRef:
+    name: investigatorRef
     description: 'InvestigatorRef reference: Provides a reference to the user who
       created the SubjectData record in the source system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: InvestigatorRefRef
+    alias: investigatorRef
     owner: SubjectData
     domain_of:
     - SubjectData
     range: InvestigatorRef
     maximum_cardinality: 1
-  SiteRefRef:
-    name: SiteRefRef
+  siteRef:
+    name: siteRef
     description: 'SiteRef reference: Provides a reference to the site that the SubjectData
       record is associated with in the source system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: SiteRefRef
+    alias: siteRef
     owner: SubjectData
     domain_of:
     - SubjectData
     range: SiteRef
     maximum_cardinality: 1
-  StudyEventDataRef:
-    name: StudyEventDataRef
+  studyEventData:
+    name: studyEventData
     description: 'StudyEventData reference: Clinical data for a study event (visit).
       The model supports repeating study events (e.g., when the same set of information
       is collected for a series of patient visits).'
@@ -521,15 +519,15 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: StudyEventDataRef
+    alias: studyEventData
     owner: SubjectData
     domain_of:
     - SubjectData
     range: StudyEventData
     inlined: true
     inlined_as_list: true
-  QueryRef:
-    name: QueryRef
+  query:
+    name: query
     description: 'Query reference: The Query element represents a request for clarification
       on a data item collected for a clinical trial, specifically a request from a
       sponsor or sponsor’s representative to an investigator to resolve an error or
@@ -542,7 +540,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: QueryRef
+    alias: query
     owner: SubjectData
     domain_of:
     - Location
@@ -554,8 +552,8 @@ attributes:
     range: Query
     inlined: true
     inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     description: 'AuditRecord reference: An AuditRecord carries information pertaining
       to the creation, deletion, or modification of clinical data. This information
       includes who performed that action, and where, when, and why that action was
@@ -565,7 +563,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: AuditRecordRef
+    alias: auditRecord
     owner: SubjectData
     domain_of:
     - ReferenceData
@@ -577,13 +575,18 @@ attributes:
     - Query
     range: AuditRecord
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
-    description: 'SignatureRef reference: A reference to the signature meaning.'
+  signature:
+    name: signature
+    description: 'Signature reference: An electronic signature applies to a collection
+      of clinical data. This indicates that some user accepts legal responsibility
+      for that data. See 21 CFR Part 11. The signature identifies the person signing,
+      the location of signing, the signature meaning (via the referenced SignatureDef),
+      the date and time of signing, and (in the case of a digital signature) an encrypted
+      hash of the included data.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: SignatureRefRef
+    alias: signature
     owner: SubjectData
     domain_of:
     - ReferenceData
@@ -592,18 +595,17 @@ attributes:
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Signature
     range: Signature
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     description: 'Annotation reference: A general note about clinical data. If an
       annotation has both a comment and flags, the flags should be related to the
       comment.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: AnnotationRef
+    alias: annotation
     owner: SubjectData
     domain_of:
     - ReferenceData

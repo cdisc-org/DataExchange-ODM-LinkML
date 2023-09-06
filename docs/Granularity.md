@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in GranularityRef_
+_Enumeration used in granularity_
 
 
 
@@ -28,8 +28,8 @@ URI: [Granularity](Granularity)
 
 | Name | Description |
 | ---  | --- |
-| [GranularityRef](GranularityRef.md) | Granularity is intended to give the sender a shorthand way to Describes the s... |
-| [GranularityRef](GranularityRef.md) | Granularity is intended to give the sender a shorthand way to Describes the s... |
+| [granularity](granularity.md) | Granularity is intended to give the sender a shorthand way to Describes the s... |
+| [granularity](granularity.md) | Granularity is intended to give the sender a shorthand way to Describes the s... |
 
 
 
@@ -57,7 +57,7 @@ URI: [Granularity](Granularity)
 <details>
 ```yaml
 name: Granularity
-description: Enumeration used in GranularityRef
+description: Enumeration used in granularity
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

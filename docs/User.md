@@ -11,14 +11,14 @@ URI: [odm:User](http://www.cdisc.org/ns/odm/v2.0/User)
 ```mermaid
 erDiagram
 User {
-    oid OID  
-    UserType UserTypeRef  
-    oidref OrganizationOID  
-    oidref LocationOID  
+    oid oID  
+    UserType userType  
+    oidref organizationOID  
+    oidref locationOID  
 }
 Telecom {
-    TelecomTypeType TelecomType  
-    text ValueRef  
+    TelecomTypeType telecomType  
+    text value  
 }
 Address {
 
@@ -27,9 +27,9 @@ OtherText {
     text content  
 }
 GeoPosition {
-    decimal Longitude  
-    decimal Latitude  
-    decimal Altitude  
+    decimal longitude  
+    decimal latitude  
+    decimal altitude  
 }
 PostalCode {
     text content  
@@ -50,9 +50,9 @@ StreetName {
     text content  
 }
 Image {
-    fileName ImageFileName  
+    fileName imageFileName  
     text href  
-    text MimeType  
+    text mimeType  
 }
 FamilyName {
     text content  
@@ -73,23 +73,23 @@ UserName {
     text content  
 }
 
-User ||--|o UserName : "UserNameRef"
-User ||--|o Prefix : "PrefixRef"
-User ||--|o Suffix : "SuffixRef"
-User ||--|o FullName : "FullNameRef"
-User ||--|o GivenName : "GivenNameRef"
-User ||--|o FamilyName : "FamilyNameRef"
-User ||--|o Image : "ImageRef"
-User ||--}o Address : "AddressRef"
-User ||--}o Telecom : "TelecomRef"
-Address ||--|o StreetName : "StreetNameRef"
-Address ||--|o HouseNumber : "HouseNumberRef"
-Address ||--|o City : "CityRef"
-Address ||--|o StateProv : "StateProvRef"
-Address ||--|o Country : "CountryRef"
-Address ||--|o PostalCode : "PostalCodeRef"
-Address ||--|o GeoPosition : "GeoPositionRef"
-Address ||--|o OtherText : "OtherTextRef"
+User ||--|o UserName : "userName"
+User ||--|o Prefix : "prefix"
+User ||--|o Suffix : "suffix"
+User ||--|o FullName : "fullName"
+User ||--|o GivenName : "givenName"
+User ||--|o FamilyName : "familyName"
+User ||--|o Image : "image"
+User ||--}o Address : "address"
+User ||--}o Telecom : "telecom"
+Address ||--|o StreetName : "streetName"
+Address ||--|o HouseNumber : "houseNumber"
+Address ||--|o City : "city"
+Address ||--|o StateProv : "stateProv"
+Address ||--|o Country : "country"
+Address ||--|o PostalCode : "postalCode"
+Address ||--|o GeoPosition : "geoPosition"
+Address ||--|o OtherText : "otherText"
 
 ```
 
@@ -102,19 +102,19 @@ Address ||--|o OtherText : "OtherTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Business Rules | direct |
-| [UserTypeRef](UserTypeRef.md) | 0..1 <br/> [UserType](UserType.md) | User's role in the study. | direct |
-| [OrganizationOID](OrganizationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an Organization elment. | direct |
-| [LocationOID](LocationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Location element. | direct |
-| [UserNameRef](UserNameRef.md) | 0..1 <br/> [UserName](UserName.md) | UserName reference: The user's login identification in the sender's system. | direct |
-| [PrefixRef](PrefixRef.md) | 0..1 <br/> [Prefix](Prefix.md) | Prefix reference: Title or other prefix. Maps to FHIR HumanName.prefix (https... | direct |
-| [SuffixRef](SuffixRef.md) | 0..1 <br/> [Suffix](Suffix.md) | Suffix reference: This element may include credentials, or suffixes (e.g., Jr... | direct |
-| [FullNameRef](FullNameRef.md) | 0..1 <br/> [FullName](FullName.md) | FullName reference: The user's full formal name. May be a combination of Pref... | direct |
-| [GivenNameRef](GivenNameRef.md) | 0..1 <br/> [GivenName](GivenName.md) | GivenName reference: The user's initial given name or all given names. | direct |
-| [FamilyNameRef](FamilyNameRef.md) | 0..1 <br/> [FamilyName](FamilyName.md) | FamilyName reference: The user's surname (family name). | direct |
-| [ImageRef](ImageRef.md) | 0..1 <br/> [Image](Image.md) | Image reference: A visual depiction of the user. | direct |
-| [AddressRef](AddressRef.md) | 0..* <br/> [Address](Address.md) | Address reference: The postal address for a user, location, or organization. | direct |
-| [TelecomRef](TelecomRef.md) | 0..* <br/> [Telecom](Telecom.md) | Telecom reference: The telecommunication contacts points of a user, a locatio... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Business Rules | direct |
+| [userType](userType.md) | 0..1 <br/> [UserType](UserType.md) | User's role in the study. | direct |
+| [organizationOID](organizationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an Organization elment. | direct |
+| [locationOID](locationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Location element. | direct |
+| [userName](userName.md) | 0..1 <br/> [UserName](UserName.md) | UserName reference: The user's login identification in the sender's system. | direct |
+| [prefix](prefix.md) | 0..1 <br/> [Prefix](Prefix.md) | Prefix reference: Title or other prefix. Maps to FHIR HumanName.prefix (https... | direct |
+| [suffix](suffix.md) | 0..1 <br/> [Suffix](Suffix.md) | Suffix reference: This element may include credentials, or suffixes (e.g., Jr... | direct |
+| [fullName](fullName.md) | 0..1 <br/> [FullName](FullName.md) | FullName reference: The user's full formal name. May be a combination of Pref... | direct |
+| [givenName](givenName.md) | 0..1 <br/> [GivenName](GivenName.md) | GivenName reference: The user's initial given name or all given names. | direct |
+| [familyName](familyName.md) | 0..1 <br/> [FamilyName](FamilyName.md) | FamilyName reference: The user's surname (family name). | direct |
+| [image](image.md) | 0..1 <br/> [Image](Image.md) | Image reference: A visual depiction of the user. | direct |
+| [address](address.md) | 0..* <br/> [Address](Address.md) | Address reference: The postal address for a user, location, or organization. | direct |
+| [telecom](telecom.md) | 0..* <br/> [Telecom](Telecom.md) | Telecom reference: The telecommunication contacts points of a user, a locatio... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -125,7 +125,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdminData](AdminData.md) | [UserRefRef](UserRefRef.md) | range | [User](User.md) |
+| [AdminData](AdminData.md) | [user](user.md) | range | [User](User.md) |
 
 
 
@@ -180,22 +180,22 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/User
 rank: 1000
 slots:
-- OID
-- UserTypeRef
-- OrganizationOID
-- LocationOID
-- UserNameRef
-- PrefixRef
-- SuffixRef
-- FullNameRef
-- GivenNameRef
-- FamilyNameRef
-- ImageRef
-- AddressRef
-- TelecomRef
+- oID
+- userType
+- organizationOID
+- locationOID
+- userName
+- prefix
+- suffix
+- fullName
+- givenName
+- familyName
+- image
+- address
+- telecom
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Business Rules
     comments:
     - 'Required
@@ -243,8 +243,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  UserTypeRef:
-    name: UserTypeRef
+  userType:
+    name: userType
     description: User's role in the study.
     comments:
     - 'Optional
@@ -258,8 +258,8 @@ slot_usage:
     domain_of:
     - User
     range: UserType
-  OrganizationOID:
-    name: OrganizationOID
+  organizationOID:
+    name: organizationOID
     description: Reference to an Organization elment.
     comments:
     - 'Optional
@@ -272,8 +272,8 @@ slot_usage:
     - User
     - Location
     range: oidref
-  LocationOID:
-    name: LocationOID
+  locationOID:
+    name: locationOID
     description: Reference to a Location element.
     comments:
     - 'Optional
@@ -288,50 +288,50 @@ slot_usage:
     - SiteRef
     - LocationRef
     range: oidref
-  UserNameRef:
-    name: UserNameRef
+  userName:
+    name: userName
     domain_of:
     - User
     range: UserName
     maximum_cardinality: 1
-  PrefixRef:
-    name: PrefixRef
+  prefix:
+    name: prefix
     domain_of:
     - User
     range: Prefix
     maximum_cardinality: 1
-  SuffixRef:
-    name: SuffixRef
+  suffix:
+    name: suffix
     domain_of:
     - User
     range: Suffix
     maximum_cardinality: 1
-  FullNameRef:
-    name: FullNameRef
+  fullName:
+    name: fullName
     domain_of:
     - User
     range: FullName
     maximum_cardinality: 1
-  GivenNameRef:
-    name: GivenNameRef
+  givenName:
+    name: givenName
     domain_of:
     - User
     range: GivenName
     maximum_cardinality: 1
-  FamilyNameRef:
-    name: FamilyNameRef
+  familyName:
+    name: familyName
     domain_of:
     - User
     range: FamilyName
     maximum_cardinality: 1
-  ImageRef:
-    name: ImageRef
+  image:
+    name: image
     domain_of:
     - User
     range: Image
     maximum_cardinality: 1
-  AddressRef:
-    name: AddressRef
+  address:
+    name: address
     multivalued: true
     domain_of:
     - User
@@ -340,8 +340,8 @@ slot_usage:
     range: Address
     inlined: true
     inlined_as_list: true
-  TelecomRef:
-    name: TelecomRef
+  telecom:
+    name: telecom
     multivalued: true
     domain_of:
     - User
@@ -367,8 +367,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/User
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Business Rules
     comments:
     - 'Required
@@ -416,8 +416,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  UserTypeRef:
-    name: UserTypeRef
+  userType:
+    name: userType
     description: User's role in the study.
     comments:
     - 'Optional
@@ -431,8 +431,8 @@ slot_usage:
     domain_of:
     - User
     range: UserType
-  OrganizationOID:
-    name: OrganizationOID
+  organizationOID:
+    name: organizationOID
     description: Reference to an Organization elment.
     comments:
     - 'Optional
@@ -445,8 +445,8 @@ slot_usage:
     - User
     - Location
     range: oidref
-  LocationOID:
-    name: LocationOID
+  locationOID:
+    name: locationOID
     description: Reference to a Location element.
     comments:
     - 'Optional
@@ -461,50 +461,50 @@ slot_usage:
     - SiteRef
     - LocationRef
     range: oidref
-  UserNameRef:
-    name: UserNameRef
+  userName:
+    name: userName
     domain_of:
     - User
     range: UserName
     maximum_cardinality: 1
-  PrefixRef:
-    name: PrefixRef
+  prefix:
+    name: prefix
     domain_of:
     - User
     range: Prefix
     maximum_cardinality: 1
-  SuffixRef:
-    name: SuffixRef
+  suffix:
+    name: suffix
     domain_of:
     - User
     range: Suffix
     maximum_cardinality: 1
-  FullNameRef:
-    name: FullNameRef
+  fullName:
+    name: fullName
     domain_of:
     - User
     range: FullName
     maximum_cardinality: 1
-  GivenNameRef:
-    name: GivenNameRef
+  givenName:
+    name: givenName
     domain_of:
     - User
     range: GivenName
     maximum_cardinality: 1
-  FamilyNameRef:
-    name: FamilyNameRef
+  familyName:
+    name: familyName
     domain_of:
     - User
     range: FamilyName
     maximum_cardinality: 1
-  ImageRef:
-    name: ImageRef
+  image:
+    name: image
     domain_of:
     - User
     range: Image
     maximum_cardinality: 1
-  AddressRef:
-    name: AddressRef
+  address:
+    name: address
     multivalued: true
     domain_of:
     - User
@@ -513,8 +513,8 @@ slot_usage:
     range: Address
     inlined: true
     inlined_as_list: true
-  TelecomRef:
-    name: TelecomRef
+  telecom:
+    name: telecom
     multivalued: true
     domain_of:
     - User
@@ -524,8 +524,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Business Rules
     comments:
     - 'Required
@@ -537,7 +537,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: User
     domain_of:
     - Study
@@ -578,8 +578,8 @@ attributes:
     - Query
     range: oid
     required: true
-  UserTypeRef:
-    name: UserTypeRef
+  userType:
+    name: userType
     description: User's role in the study.
     comments:
     - 'Optional
@@ -592,13 +592,13 @@ attributes:
       user may be a study subject and/or their care-giver.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: UserTypeRef
+    alias: userType
     owner: User
     domain_of:
     - User
     range: UserType
-  OrganizationOID:
-    name: OrganizationOID
+  organizationOID:
+    name: organizationOID
     description: Reference to an Organization elment.
     comments:
     - 'Optional
@@ -609,14 +609,14 @@ attributes:
       element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: OrganizationOID
+    alias: organizationOID
     owner: User
     domain_of:
     - User
     - Location
     range: oidref
-  LocationOID:
-    name: LocationOID
+  locationOID:
+    name: locationOID
     description: Reference to a Location element.
     comments:
     - 'Optional
@@ -627,7 +627,7 @@ attributes:
       element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: LocationOID
+    alias: locationOID
     owner: User
     domain_of:
     - User
@@ -635,103 +635,103 @@ attributes:
     - SiteRef
     - LocationRef
     range: oidref
-  UserNameRef:
-    name: UserNameRef
+  userName:
+    name: userName
     description: 'UserName reference: The user''s login identification in the sender''s
       system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: UserNameRef
+    alias: userName
     owner: User
     domain_of:
     - User
     range: UserName
     maximum_cardinality: 1
-  PrefixRef:
-    name: PrefixRef
+  prefix:
+    name: prefix
     description: 'Prefix reference: Title or other prefix. Maps to FHIR HumanName.prefix
       (https://www.hl7.org/fhir/datatypes.html#humanname).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: PrefixRef
+    alias: prefix
     owner: User
     domain_of:
     - User
     range: Prefix
     maximum_cardinality: 1
-  SuffixRef:
-    name: SuffixRef
+  suffix:
+    name: suffix
     description: 'Suffix reference: This element may include credentials, or suffixes
       (e.g., Jr., III).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: SuffixRef
+    alias: suffix
     owner: User
     domain_of:
     - User
     range: Suffix
     maximum_cardinality: 1
-  FullNameRef:
-    name: FullNameRef
+  fullName:
+    name: fullName
     description: 'FullName reference: The user''s full formal name. May be a combination
       of Prefix, GivenName, FamilyName & Suffix. Intended to be used for display.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: FullNameRef
+    alias: fullName
     owner: User
     domain_of:
     - User
     range: FullName
     maximum_cardinality: 1
-  GivenNameRef:
-    name: GivenNameRef
+  givenName:
+    name: givenName
     description: 'GivenName reference: The user''s initial given name or all given
       names.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: GivenNameRef
+    alias: givenName
     owner: User
     domain_of:
     - User
     range: GivenName
     maximum_cardinality: 1
-  FamilyNameRef:
-    name: FamilyNameRef
+  familyName:
+    name: familyName
     description: 'FamilyName reference: The user''s surname (family name).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: FamilyNameRef
+    alias: familyName
     owner: User
     domain_of:
     - User
     range: FamilyName
     maximum_cardinality: 1
-  ImageRef:
-    name: ImageRef
+  image:
+    name: image
     description: 'Image reference: A visual depiction of the user.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: ImageRef
+    alias: image
     owner: User
     domain_of:
     - User
     range: Image
     maximum_cardinality: 1
-  AddressRef:
-    name: AddressRef
+  address:
+    name: address
     description: 'Address reference: The postal address for a user, location, or organization.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: AddressRef
+    alias: address
     owner: User
     domain_of:
     - User
@@ -740,15 +740,15 @@ attributes:
     range: Address
     inlined: true
     inlined_as_list: true
-  TelecomRef:
-    name: TelecomRef
+  telecom:
+    name: telecom
     description: 'Telecom reference: The telecommunication contacts points of a user,
       a location, or an organization. The Type attribute designates the type of contact.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: TelecomRef
+    alias: telecom
     owner: User
     domain_of:
     - User

@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in FileTypeRef_
+_Enumeration used in fileType_
 
 
 
@@ -23,8 +23,8 @@ URI: [FileType](FileType)
 
 | Name | Description |
 | ---  | --- |
-| [FileTypeRef](FileTypeRef.md) | Snapshot means that the document contains only the current state of the data ... |
-| [FileTypeRef](FileTypeRef.md) | Snapshot means that the document contains only the current state of the data ... |
+| [fileType](fileType.md) | Snapshot means that the document contains only the current state of the data ... |
+| [fileType](fileType.md) | Snapshot means that the document contains only the current state of the data ... |
 
 
 
@@ -52,7 +52,7 @@ URI: [FileType](FileType)
 <details>
 ```yaml
 name: FileType
-description: Enumeration used in FileTypeRef
+description: Enumeration used in fileType
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

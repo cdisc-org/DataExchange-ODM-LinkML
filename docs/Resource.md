@@ -11,16 +11,16 @@ URI: [odm:Resource](http://www.cdisc.org/ns/odm/v2.0/Resource)
 ```mermaid
 erDiagram
 Resource {
-    text Type  
-    name Name  
-    text Attribute  
-    text Label  
+    text type  
+    nameType name  
+    text attribute  
+    text label  
 }
 Selection {
-    text Path  
+    text path  
 }
 
-Resource ||--}o Selection : "SelectionRef"
+Resource ||--}o Selection : "selection"
 
 ```
 
@@ -33,11 +33,11 @@ Resource ||--}o Selection : "SelectionRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Type](Type.md) | 1..1 <br/> [text](text.md) | Categorization of external resources. Examples include: "ODM", "HL7-FHIR", "H... | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | The human readable identifier of the element or field in the external resourc... | direct |
-| [Attribute](Attribute.md) | 0..1 <br/> [text](text.md) | Field provided by the Name attribute where the data or information can be obt... | direct |
-| [Label](Label.md) | 0..1 <br/> [text](text.md) | Used to link the value to a named MethodDef parameter. | direct |
-| [SelectionRef](SelectionRef.md) | 0..* <br/> [Selection](Selection.md) | Selection reference: Template for machine-readable/executable expression for ... | direct |
+| [type](type.md) | 1..1 <br/> [text](text.md) | Categorization of external resources. Examples include: "ODM", "HL7-FHIR", "H... | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | The human readable identifier of the element or field in the external resourc... | direct |
+| [attribute](attribute.md) | 0..1 <br/> [text](text.md) | Field provided by the Name attribute where the data or information can be obt... | direct |
+| [label](label.md) | 0..1 <br/> [text](text.md) | Used to link the value to a named MethodDef parameter. | direct |
+| [selection](selection.md) | 0..* <br/> [Selection](Selection.md) | Selection reference: Template for machine-readable/executable expression for ... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -48,7 +48,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [SourceItem](SourceItem.md) | [ResourceRef](ResourceRef.md) | range | [Resource](Resource.md) |
+| [SourceItem](SourceItem.md) | [resource](resource.md) | range | [Resource](Resource.md) |
 
 
 
@@ -103,14 +103,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Resource
 rank: 1000
 slots:
-- Type
-- Name
-- Attribute
-- Label
-- SelectionRef
+- type
+- name
+- attribute
+- label
+- selection
 slot_usage:
-  Type:
-    name: Type
+  type:
+    name: type
     description: 'Categorization of external resources. Examples include: "ODM", "HL7-FHIR",
       "HL7-CDA", "HL7-v2", "OpenEHR-extract". Note: Extensible controlled terminology
       may be developed and published in the future.'
@@ -135,8 +135,8 @@ slot_usage:
     - Query
     range: text
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: 'The human readable identifier of the element or field in the external
       resource. Examples include : "ItemGroupDef" (for Type="ODM"), "Observation"
       (for Type="HL7-FHIR"), "substanceAdministration.doseQuantity" (for Type="HL7-CDA"),
@@ -183,10 +183,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Attribute:
-    name: Attribute
+  attribute:
+    name: attribute
     description: Field provided by the Name attribute where the data or information
       can be obtained. Examples are "valueQuantity.value" or "valueQuantity.unit"
       for the case of an HL7-FHIR "Observation", "Repeating" for the case of an ODM
@@ -203,8 +203,8 @@ slot_usage:
     domain_of:
     - Resource
     range: text
-  Label:
-    name: Label
+  label:
+    name: label
     description: Used to link the value to a named MethodDef parameter.
     comments:
     - 'Optional
@@ -214,8 +214,8 @@ slot_usage:
     - Resource
     - Coding
     range: text
-  SelectionRef:
-    name: SelectionRef
+  selection:
+    name: selection
     multivalued: true
     domain_of:
     - Resource
@@ -239,8 +239,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Resource
 rank: 1000
 slot_usage:
-  Type:
-    name: Type
+  type:
+    name: type
     description: 'Categorization of external resources. Examples include: "ODM", "HL7-FHIR",
       "HL7-CDA", "HL7-v2", "OpenEHR-extract". Note: Extensible controlled terminology
       may be developed and published in the future.'
@@ -265,8 +265,8 @@ slot_usage:
     - Query
     range: text
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: 'The human readable identifier of the element or field in the external
       resource. Examples include : "ItemGroupDef" (for Type="ODM"), "Observation"
       (for Type="HL7-FHIR"), "substanceAdministration.doseQuantity" (for Type="HL7-CDA"),
@@ -313,10 +313,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Attribute:
-    name: Attribute
+  attribute:
+    name: attribute
     description: Field provided by the Name attribute where the data or information
       can be obtained. Examples are "valueQuantity.value" or "valueQuantity.unit"
       for the case of an HL7-FHIR "Observation", "Repeating" for the case of an ODM
@@ -333,8 +333,8 @@ slot_usage:
     domain_of:
     - Resource
     range: text
-  Label:
-    name: Label
+  label:
+    name: label
     description: Used to link the value to a named MethodDef parameter.
     comments:
     - 'Optional
@@ -344,8 +344,8 @@ slot_usage:
     - Resource
     - Coding
     range: text
-  SelectionRef:
-    name: SelectionRef
+  selection:
+    name: selection
     multivalued: true
     domain_of:
     - Resource
@@ -353,8 +353,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  Type:
-    name: Type
+  type:
+    name: type
     description: 'Categorization of external resources. Examples include: "ODM", "HL7-FHIR",
       "HL7-CDA", "HL7-v2", "OpenEHR-extract". Note: Extensible controlled terminology
       may be developed and published in the future.'
@@ -364,7 +364,7 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Type
+    alias: type
     owner: Resource
     domain_of:
     - TranslatedText
@@ -383,8 +383,8 @@ attributes:
     - Query
     range: text
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: 'The human readable identifier of the element or field in the external
       resource. Examples include : "ItemGroupDef" (for Type="ODM"), "Observation"
       (for Type="HL7-FHIR"), "substanceAdministration.doseQuantity" (for Type="HL7-CDA"),
@@ -398,7 +398,7 @@ attributes:
       or message type provided in the Type attribute.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: Resource
     domain_of:
     - Alias
@@ -435,10 +435,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Attribute:
-    name: Attribute
+  attribute:
+    name: attribute
     description: Field provided by the Name attribute where the data or information
       can be obtained. Examples are "valueQuantity.value" or "valueQuantity.unit"
       for the case of an HL7-FHIR "Observation", "Repeating" for the case of an ODM
@@ -454,13 +454,13 @@ attributes:
       for extracting the information from the resource.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Attribute
+    alias: attribute
     owner: Resource
     domain_of:
     - Resource
     range: text
-  Label:
-    name: Label
+  label:
+    name: label
     description: Used to link the value to a named MethodDef parameter.
     comments:
     - 'Optional
@@ -468,21 +468,21 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Label
+    alias: label
     owner: Resource
     domain_of:
     - Resource
     - Coding
     range: text
-  SelectionRef:
-    name: SelectionRef
+  selection:
+    name: selection
     description: 'Selection reference: Template for machine-readable/executable expression
       for retrieving the data or information from an external resource.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: SelectionRef
+    alias: selection
     owner: Resource
     domain_of:
     - Resource

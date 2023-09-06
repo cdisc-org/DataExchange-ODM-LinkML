@@ -11,8 +11,8 @@ URI: [odm:Include](http://www.cdisc.org/ns/odm/v2.0/Include)
 ```mermaid
 erDiagram
 Include {
-    oidref StudyOID  
-    oidref MetaDataVersionOID  
+    oidref studyOID  
+    oidref metaDataVersionOID  
     uriorcurie href  
 }
 
@@ -29,8 +29,8 @@ Include {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the Study that provides a prior metadata version. This attribute a... | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | References a prior MetaDataVersion within the Study referenced by the StudyOI... | direct |
+| [studyOID](studyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the Study that provides a prior metadata version. This attribute a... | direct |
+| [metaDataVersionOID](metaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | References a prior MetaDataVersion within the Study referenced by the StudyOI... | direct |
 | [href](href.md) | 0..1 <br/> [uriorcurie](uriorcurie.md) | Reference to the location where the to be included Study-Metadata definition ... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
@@ -42,7 +42,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [MetaDataVersion](MetaDataVersion.md) | [IncludeRef](IncludeRef.md) | range | [Include](Include.md) |
+| [MetaDataVersion](MetaDataVersion.md) | [include](include.md) | range | [Include](Include.md) |
 
 
 
@@ -96,12 +96,12 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Include
 rank: 1000
 slots:
-- StudyOID
-- MetaDataVersionOID
+- studyOID
+- metaDataVersionOID
 - href
 slot_usage:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the Study that provides a prior metadata version. This
       attribute allows an Include element to reference a metadata version in another
       study. Thus, it is possible for many studies to share a set of common metadata
@@ -121,8 +121,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: References a prior MetaDataVersion within the Study referenced by
       the StudyOID attribute.
     comments:
@@ -175,8 +175,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Include
 rank: 1000
 slot_usage:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the Study that provides a prior metadata version. This
       attribute allows an Include element to reference a metadata version in another
       study. Thus, it is possible for many studies to share a set of common metadata
@@ -196,8 +196,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: References a prior MetaDataVersion within the Study referenced by
       the StudyOID attribute.
     comments:
@@ -235,8 +235,8 @@ slot_usage:
     - Coding
     range: uriorcurie
 attributes:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the Study that provides a prior metadata version. This
       attribute allows an Include element to reference a metadata version in another
       study. Thus, it is possible for many studies to share a set of common metadata
@@ -247,7 +247,7 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyOID
+    alias: studyOID
     owner: Include
     domain_of:
     - Include
@@ -260,8 +260,8 @@ attributes:
     - KeySet
     range: oidref
     required: true
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: References a prior MetaDataVersion within the Study referenced by
       the StudyOID attribute.
     comments:
@@ -270,7 +270,7 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: MetaDataVersionOID
+    alias: metaDataVersionOID
     owner: Include
     domain_of:
     - Include

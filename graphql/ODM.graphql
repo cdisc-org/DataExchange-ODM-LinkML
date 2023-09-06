@@ -1,101 +1,101 @@
 type AbsoluteTimingConstraint
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     studyEventGroupOID: Oidref
     studyEventOID: Oidref
     timepointTarget: String!
     timepointPreWindow: DurationDatetime
     timepointPostWindow: DurationDatetime
-    descriptionRef: Description
+    description: Description
   }
 
 type Address
   {
-    streetNameRef: StreetName
-    houseNumberRef: HouseNumber
-    cityRef: City
-    stateProvRef: StateProv
-    countryRef: Country
-    postalCodeRef: PostalCode
-    geoPositionRef: GeoPosition
-    otherTextRef: OtherText
+    streetName: StreetName
+    houseNumber: HouseNumber
+    city: City
+    stateProv: StateProv
+    country: Country
+    postalCode: PostalCode
+    geoPosition: GeoPosition
+    otherText: OtherText
   }
 
 type AdminData
   {
     studyOID: Oidref
-    userRefRef: [User]
-    organizationRef: [Organization]
-    locationRefRef: [Location]
-    signatureDefRef: [SignatureDef]
+    user: [User]
+    organization: [Organization]
+    location: [Location]
+    signatureDef: [SignatureDef]
   }
 
 type Alias
   {
-    contextRef: Text!
+    context: Text!
     name: Text!
   }
 
 type AnnotatedCRF
   {
-    documentRefRef: [DocumentRef]
+    documentRef: [DocumentRef]
   }
 
 type Annotation
   {
     seqNum: PositiveInteger!
-    transactionTypeRef: TransactionType
+    transactionType: TransactionType
     iD: Oid!
-    commentRef: Comment
-    codingRef: [Coding]
-    flagRef: [Flag]
+    comment: Comment
+    coding: [Coding]
+    flag: [Flag]
   }
 
 type Arm
   {
     oID: Oid!
-    name: Name!
-    descriptionRef: Description
-    workflowRefRef: WorkflowRef
+    name: NameType!
+    description: Description
+    workflowRef: WorkflowRef
   }
 
 type Association
   {
     studyOID: Oidref!
     metaDataVersionOID: Oidref!
-    keySetRef: KeySet
-    annotationRef: Annotation
+    keySet: KeySet
+    annotation: Annotation
   }
 
 type AuditRecord
   {
     editPoint: EditPointType
     usedMethod: YesOrNo
-    userRefRef: UserRef
-    locationRefRef: LocationRef
-    dateTimeStampRef: DateTimeStamp
-    reasonForChangeRef: ReasonForChange
-    sourceIDRef: SourceID
+    userRef: UserRef
+    locationRef: LocationRef
+    dateTimeStamp: DateTimeStamp
+    reasonForChange: ReasonForChange
+    sourceID: SourceID
   }
 
 type Branching
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     type: BranchingType!
-    targetTransitionRef: [TargetTransition]
-    defaultTransitionRef: [DefaultTransition]
+    targetTransition: [TargetTransition]
+    defaultTransition: [DefaultTransition]
   }
 
 type CDISCNotes
   {
-    translatedTextRef: [TranslatedText]
+    translatedText: [TranslatedText]
   }
 
 type CheckValue
   {
-    content: Value
+    content: ValueType
   }
 
 type City
@@ -106,19 +106,19 @@ type City
 type Class
   {
     name: ItemGroupClass!
-    subClassRef: [SubClass]
+    subClass: [SubClass]
   }
 
 type ClinicalData
   {
     studyOID: Oidref!
     metaDataVersionOID: Oidref!
-    subjectDataRef: [SubjectData]
-    itemGroupDataRef: [ItemGroupData]
-    queryRef: [Query]
-    auditRecordRef: AuditRecord
-    signatureRefRef: Signature
-    annotationRef: Annotation
+    subjectData: [SubjectData]
+    itemGroupData: [ItemGroupData]
+    query: [Query]
+    auditRecord: AuditRecord
+    signature: Signature
+    annotation: Annotation
   }
 
 type Code
@@ -129,29 +129,29 @@ type Code
 type CodeList
   {
     oID: Oid!
-    name: Name!
-    dataTypeRef: CLDataType!
+    name: NameType!
+    dataType: CLDataType!
     commentOID: Oidref
     standardOID: Oidref
     isNonStandard: YesOnly
-    descriptionRef: Description
-    codeListItemRef: [CodeListItem]
-    codingRef: [Coding]
-    aliasRef: [Alias]
+    description: Description
+    codeListItem: [CodeListItem]
+    coding: [Coding]
+    alias: [Alias]
   }
 
 type CodeListItem
   {
-    codedValue: Value!
+    codedValue: ValueType!
     rank: Decimal
     other: YesOnly
     orderNumber: PositiveInteger
     extendedValue: YesOnly
     commentOID: Oidref
-    descriptionRef: Description
-    decodeRef: Decode
-    codingRef: [Coding]
-    aliasRef: [Alias]
+    description: Description
+    decode: Decode
+    coding: [Coding]
+    alias: [Alias]
   }
 
 type CodeListRef
@@ -161,7 +161,7 @@ type CodeListRef
 
 type Coding
   {
-    codeRef: Text
+    code: Text
     system: Uriorcurie!
     systemName: Text
     systemVersion: Text
@@ -174,25 +174,25 @@ type Coding
 type Comment
   {
     sponsorOrSite: CommentType
-    translatedTextRef: [TranslatedText]
+    translatedText: [TranslatedText]
   }
 
 type CommentDef
   {
     oID: Oid!
-    descriptionRef: Description
-    documentRefRef: [DocumentRef]
+    description: Description
+    documentRef: [DocumentRef]
   }
 
 type ConditionDef
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     commentOID: Oidref
-    descriptionRef: Description
-    methodSignatureRef: MethodSignature
-    formalExpressionRef: [FormalExpression]
-    aliasRef: [Alias]
+    description: Description
+    methodSignature: MethodSignature
+    formalExpression: [FormalExpression]
+    alias: [Alias]
   }
 
 type Country
@@ -202,16 +202,16 @@ type Country
 
 type CRFCompletionInstructions
   {
-    translatedTextRef: [TranslatedText]
+    translatedText: [TranslatedText]
   }
 
 type Criterion
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     conditionOID: Oidref!
-    descriptionRef: Description
-    codingRef: [Coding]
+    description: Description
+    coding: [Coding]
   }
 
 type DateTimeStamp
@@ -221,7 +221,7 @@ type DateTimeStamp
 
 type Decode
   {
-    translatedTextRef: [TranslatedText]
+    translatedText: [TranslatedText]
   }
 
 type DefaultTransition
@@ -231,53 +231,53 @@ type DefaultTransition
 
 type Definition
   {
-    translatedTextRef: [TranslatedText]
+    translatedText: [TranslatedText]
   }
 
 type Description
   {
-    translatedTextRef: [TranslatedText]
+    translatedText: [TranslatedText]
   }
 
 type DocumentRef
   {
     leafID: Oid!
-    pDFPageRefRef: [PDFPageRef]
+    pDFPageRef: [PDFPageRef]
   }
 
 type DurationTimingConstraint
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     structuralElementOID: Oidref!
     durationTarget: DurationDatetime!
     durationPreWindow: DurationDatetime
     durationPostWindow: DurationDatetime
-    descriptionRef: Description
+    description: Description
   }
 
 type Epoch
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     sequenceNumber: PositiveInteger!
-    descriptionRef: Description
+    description: Description
   }
 
 type ErrorMessage
   {
-    translatedTextRef: [TranslatedText]
+    translatedText: [TranslatedText]
   }
 
 type ExclusionCriteria
   {
-    criterionRef: [Criterion]
+    criterion: [Criterion]
   }
 
 type ExternalCodeLib
   {
-    library: Name!
-    method: Name
+    library: NameType!
+    method: NameType
     version: Text
     ref: Text
     href: Uriorcurie
@@ -290,27 +290,27 @@ type FamilyName
 
 type Flag
   {
-    flagValueRef: FlagValue
-    flagTypeRef: FlagType
+    flagValue: FlagValue
+    flagType: FlagType
   }
 
 type FlagType
   {
     codeListOID: Oidref!
-    content: Name
+    content: NameType
   }
 
 type FlagValue
   {
     codeListOID: Oidref!
-    content: Name
+    content: NameType
   }
 
 type FormalExpression
   {
-    contextRef: Text
-    codeRef: Code
-    externalCodeLibRef: ExternalCodeLib
+    context: Text
+    code: Code
+    externalCodeLib: ExternalCodeLib
   }
 
 type FullName
@@ -344,7 +344,7 @@ type Image
 
 type ImplementationNotes
   {
-    translatedTextRef: [TranslatedText]
+    translatedText: [TranslatedText]
   }
 
 type Include
@@ -356,18 +356,18 @@ type Include
 
 type InclusionCriteria
   {
-    criterionRef: [Criterion]
+    criterion: [Criterion]
   }
 
 type InclusionExclusionCriteria
   {
-    inclusionCriteriaRef: InclusionCriteria
-    exclusionCriteriaRef: ExclusionCriteria
+    inclusionCriteria: InclusionCriteria
+    exclusionCriteria: ExclusionCriteria
   }
 
 type IntercurrentEvent
   {
-    descriptionRef: Description
+    description: Description
   }
 
 type InvestigatorRef
@@ -378,62 +378,62 @@ type InvestigatorRef
 type ItemData
   {
     itemOID: Oidref!
-    transactionTypeRef: TransactionType
+    transactionType: TransactionType
     isNull: YesOnly
-    valueRef: [Value]
-    queryRef: [Query]
-    auditRecordRef: AuditRecord
-    signatureRefRef: Signature
-    annotationRef: Annotation
+    value: [Value]
+    query: [Query]
+    auditRecord: AuditRecord
+    signature: Signature
+    annotation: Annotation
   }
 
 type ItemDef
   {
     oID: Oid!
-    name: Name!
-    dataTypeRef: DataType!
+    name: NameType!
+    dataType: DataType!
     length: PositiveInteger
     displayFormat: Text
     variableSet: Text
     commentOID: Oidref
-    descriptionRef: Description
-    definitionRef: Definition
-    questionRef: Question
-    promptRef: Prompt
-    cRFCompletionInstructionsRef: CRFCompletionInstructions
-    implementationNotesRef: ImplementationNotes
-    cDISCNotesRef: CDISCNotes
-    rangeCheckRef: [RangeCheck]
-    codeListRefRef: CodeListRef
-    valueListRefRef: ValueListRef
-    codingRef: [Coding]
-    aliasRef: [Alias]
+    description: Description
+    definition: Definition
+    question: Question
+    prompt: Prompt
+    cRFCompletionInstructions: CRFCompletionInstructions
+    implementationNotes: ImplementationNotes
+    cDISCNotes: CDISCNotes
+    rangeCheck: [RangeCheck]
+    codeListRef: CodeListRef
+    valueListRef: ValueListRef
+    coding: [Coding]
+    alias: [Alias]
   }
 
 type ItemGroupData
   {
     itemGroupOID: Oidref!
     itemGroupRepeatKey: RepeatKey
-    transactionTypeRef: TransactionType
+    transactionType: TransactionType
     itemGroupDataSeq: PositiveInteger
-    queryRef: [Query]
-    itemGroupDataRef: [ItemGroupData]
-    itemDataRef: [ItemData]
-    auditRecordRef: AuditRecord
-    signatureRefRef: Signature
-    annotationRef: Annotation
+    query: [Query]
+    itemGroupData: [ItemGroupData]
+    itemData: [ItemData]
+    auditRecord: AuditRecord
+    signature: Signature
+    annotation: Annotation
   }
 
 type ItemGroupDef
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     repeating: ItemGroupRepeatingType!
     repeatingLimit: PositiveInteger
     isReferenceData: YesOrNo
     structure: Text
     archiveLocationID: Oidref
-    datasetName: Name
+    datasetName: NameType
     domain: Text
     type: ItemGroupTypeType!
     purpose: Text
@@ -441,15 +441,15 @@ type ItemGroupDef
     isNonStandard: YesOnly
     hasNoData: YesOnly
     commentOID: Oidref
-    descriptionRef: Description
+    description: Description
     classRef: Class
-    codingRef: [Coding]
-    workflowRefRef: WorkflowRef
-    originRef: [Origin]
-    aliasRef: [Alias]
-    leafRef: Leaf
-    itemGroupRefRef: [ItemGroupRef]
-    itemRefRef: [ItemRef]
+    coding: [Coding]
+    workflowRef: WorkflowRef
+    origin: [Origin]
+    alias: [Alias]
+    leaf: Leaf
+    itemGroupRef: [ItemGroupRef]
+    itemRef: [ItemRef]
   }
 
 type ItemGroupRef
@@ -478,14 +478,14 @@ type ItemRef
     orderNumber: PositiveInteger
     mandatory: YesOrNo!
     collectionExceptionConditionOID: Oidref
-    originRef: [Origin]
-    whereClauseRefRef: [WhereClauseRef]
+    origin: [Origin]
+    whereClauseRef: [WhereClauseRef]
   }
 
 type KeySet
   {
     studyOID: Oidref!
-    subjectKey: SubjectKey
+    subjectKey: SubjectKeyType
     metaDataVersionOID: Oidref
     studyEventOID: Oidref
     studyEventRepeatKey: RepeatKey
@@ -498,7 +498,7 @@ type Leaf
   {
     iD: Oid!
     href: Uriorcurie!
-    titleRef: Title
+    title: Title
   }
 
 type LegalReason
@@ -509,14 +509,14 @@ type LegalReason
 type Location
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     role: Text
     organizationOID: Oidref
-    descriptionRef: Description
-    metaDataVersionRefRef: [MetaDataVersionRef]
-    addressRef: [Address]
-    telecomRef: [Telecom]
-    queryRef: [Query]
+    description: Description
+    metaDataVersionRef: [MetaDataVersionRef]
+    address: [Address]
+    telecom: [Telecom]
+    query: [Query]
   }
 
 type LocationRef
@@ -532,26 +532,26 @@ type Meaning
 type MetaDataVersion
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     commentOID: Oidref
-    descriptionRef: Description
-    includeRef: Include
-    standardsRef: Standards
-    annotatedCRFRef: AnnotatedCRF
-    supplementalDocRef: SupplementalDoc
-    valueListDefRef: [ValueListDef]
-    whereClauseDefRef: [WhereClauseDef]
-    protocolRef: Protocol
-    workflowDefRef: [WorkflowDef]
-    studyEventGroupDefRef: [StudyEventGroupDef]
-    studyEventDefRef: [StudyEventDef]
-    itemGroupDefRef: [ItemGroupDef]
-    itemDefRef: [ItemDef]
-    codeListRefRef: [CodeList]
-    conditionDefRef: [ConditionDef]
-    methodDefRef: [MethodDef]
-    commentDefRef: [CommentDef]
-    leafRef: [Leaf]
+    description: Description
+    include: Include
+    standards: Standards
+    annotatedCRF: AnnotatedCRF
+    supplementalDoc: SupplementalDoc
+    valueListDef: [ValueListDef]
+    whereClauseDef: [WhereClauseDef]
+    protocol: Protocol
+    workflowDef: [WorkflowDef]
+    studyEventGroupDef: [StudyEventGroupDef]
+    studyEventDef: [StudyEventDef]
+    itemGroupDef: [ItemGroupDef]
+    itemDef: [ItemDef]
+    codeList: [CodeList]
+    conditionDef: [ConditionDef]
+    methodDef: [MethodDef]
+    commentDef: [CommentDef]
+    leaf: [Leaf]
   }
 
 type MetaDataVersionRef
@@ -564,64 +564,64 @@ type MetaDataVersionRef
 type MethodDef
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     type: MethodType
     commentOID: Oidref
-    descriptionRef: Description
-    methodSignatureRef: MethodSignature
-    formalExpressionRef: [FormalExpression]
-    aliasRef: [Alias]
-    documentRefRef: [DocumentRef]
+    description: Description
+    methodSignature: MethodSignature
+    formalExpression: [FormalExpression]
+    alias: [Alias]
+    documentRef: [DocumentRef]
   }
 
 type MethodSignature
   {
-    parameterRef: [Parameter]
-    returnValueRef: [ReturnValue]
+    parameter: [Parameter]
+    returnValue: [ReturnValue]
   }
 
 type ODMFileMetadata
   {
-    fileTypeRef: FileType!
-    granularityRef: Granularity
-    contextRef: Context
+    fileType: FileType!
+    granularity: Granularity
+    context: Context
     fileOID: Oid!
     creationDateTime: Datetime!
     priorFileOID: Oidref
     asOfDateTime: Datetime
-    oDMVersionRef: ODMVersion
+    oDMVersion: ODMVersion
     originator: Text
     sourceSystem: Text
     sourceSystemVersion: Text
-    descriptionRef: Description
-    studyRef: [Study]
-    adminDataRef: [AdminData]
-    referenceDataRef: [ReferenceData]
-    clinicalDataRef: [ClinicalData]
-    associationRef: [Association]
+    description: Description
+    study: [Study]
+    adminData: [AdminData]
+    referenceData: [ReferenceData]
+    clinicalData: [ClinicalData]
+    association: [Association]
   }
 
 type Organization
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     role: Text
     type: OrganizationType!
     locationOID: Oidref
     partOfOrganizationOID: Oidref
-    descriptionRef: Description
-    addressRef: [Address]
-    telecomRef: [Telecom]
+    description: Description
+    address: [Address]
+    telecom: [Telecom]
   }
 
 type Origin
   {
     type: OriginType!
     source: OriginSource
-    descriptionRef: Description
-    sourceItemsRef: SourceItems
-    codingRef: [Coding]
-    documentRefRef: [DocumentRef]
+    description: Description
+    sourceItems: SourceItems
+    coding: [Coding]
+    documentRef: [DocumentRef]
   }
 
 type OtherText
@@ -631,16 +631,16 @@ type OtherText
 
 type Parameter
   {
-    name: Name!
-    dataTypeRef: DataType!
-    definitionRef: Text
+    name: NameType!
+    dataType: DataType!
+    definition: Text
     orderNumber: PositiveInteger
   }
 
 type ParameterValue
   {
-    valueRef: Text!
-    codingRef: [Coding]
+    value: Text!
+    coding: [Coding]
   }
 
 type PDFPageRef
@@ -649,7 +649,7 @@ type PDFPageRef
     firstPage: PositiveInteger
     lastPage: PositiveInteger
     type: PDFPageType!
-    titleRef: Text
+    title: Text
   }
 
 type PostalCode
@@ -664,26 +664,26 @@ type Prefix
 
 type Prompt
   {
-    translatedTextRef: [TranslatedText]
+    translatedText: [TranslatedText]
   }
 
 type Protocol
   {
-    descriptionRef: Description
-    studySummaryRef: StudySummary
-    studyStructureRef: StudyStructure
-    trialPhaseRef: TrialPhase
-    studyTimingsRef: StudyTimings
-    studyIndicationsRef: StudyIndications
-    studyInterventionsRef: StudyInterventions
-    studyObjectivesRef: StudyObjectives
-    studyEndPointsRef: StudyEndPoints
-    studyTargetPopulationRefRef: StudyTargetPopulation
-    studyEstimandsRef: StudyEstimands
-    inclusionExclusionCriteriaRef: InclusionExclusionCriteria
-    studyEventGroupRefRef: [StudyEventGroupRef]
-    workflowRefRef: WorkflowRef
-    aliasRef: [Alias]
+    description: Description
+    studySummary: StudySummary
+    studyStructure: StudyStructure
+    trialPhase: TrialPhase
+    studyTimings: StudyTimings
+    studyIndications: StudyIndications
+    studyInterventions: StudyInterventions
+    studyObjectives: StudyObjectives
+    studyEndPoints: StudyEndPoints
+    studyTargetPopulation: StudyTargetPopulation
+    studyEstimands: StudyEstimands
+    inclusionExclusionCriteria: InclusionExclusionCriteria
+    studyEventGroupRef: [StudyEventGroupRef]
+    workflowRef: WorkflowRef
+    alias: [Alias]
   }
 
 type Query
@@ -694,25 +694,25 @@ type Query
     type: QueryType
     state: QueryStateType!
     lastUpdateDatetime: Datetime!
-    name: Name
-    valueRef: Value
-    auditRecordRef: [AuditRecord]
+    name: NameType
+    value: Value
+    auditRecord: [AuditRecord]
   }
 
 type Question
   {
-    translatedTextRef: [TranslatedText]
+    translatedText: [TranslatedText]
   }
 
 type RangeCheck
   {
-    comparatorRef: Comparator
+    comparator: Comparator
     softHard: SoftOrHard
     itemOID: Oidref
-    errorMessageRef: ErrorMessage
-    methodSignatureRef: MethodSignature
-    formalExpressionRef: [FormalExpression]
-    checkValueRef: [CheckValue]
+    errorMessage: ErrorMessage
+    methodSignature: MethodSignature
+    formalExpression: [FormalExpression]
+    checkValue: [CheckValue]
   }
 
 type ReasonForChange
@@ -724,39 +724,39 @@ type ReferenceData
   {
     studyOID: Oidref!
     metaDataVersionOID: Oidref!
-    itemGroupDataRef: [ItemGroupData]
-    auditRecordRef: AuditRecord
-    signatureRefRef: Signature
-    annotationRef: Annotation
+    itemGroupData: [ItemGroupData]
+    auditRecord: AuditRecord
+    signature: Signature
+    annotation: Annotation
   }
 
 type RelativeTimingConstraint
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     predecessorOID: Oidref
     successorOID: Oidref
     type: RelativeTimingConstraintType
     timepointRelativeTarget: DurationDatetime!
     timepointPreWindow: DurationDatetime
     timepointPostWindow: DurationDatetime
-    descriptionRef: Description
+    description: Description
   }
 
 type Resource
   {
     type: Text!
-    name: Name!
+    name: NameType!
     attribute: Text
     label: Text
-    selectionRef: [Selection]
+    selection: [Selection]
   }
 
 type ReturnValue
   {
-    name: Name!
-    dataTypeRef: DataType!
-    definitionRef: Text
+    name: NameType!
+    dataType: DataType!
+    definition: Text
     orderNumber: PositiveInteger
   }
 
@@ -768,18 +768,18 @@ type Selection
 type Signature
   {
     iD: Oid!
-    userRefRef: UserRef
-    locationRefRef: LocationRef
-    signatureRefRef: SignatureRef
-    dateTimeStampRef: DateTimeStamp
+    userRef: UserRef
+    locationRef: LocationRef
+    signatureRef: SignatureRef
+    dateTimeStamp: DateTimeStamp
   }
 
 type SignatureDef
   {
     oID: Oid!
     methodology: SignMethod
-    meaningRef: Meaning
-    legalReasonRef: LegalReason
+    meaning: Meaning
+    legalReason: LegalReason
   }
 
 type SignatureRef
@@ -803,16 +803,16 @@ type SourceItem
     itemGroupOID: Oidref
     metaDataVersionOID: Oidref
     studyOID: Oidref
-    leafID: Oidref!
-    name: Name
-    resourceRef: [Resource]
-    codingRef: [Coding]
+    leafID: Oidref
+    name: NameType
+    resource: [Resource]
+    coding: [Coding]
   }
 
 type SourceItems
   {
-    sourceItemRef: [SourceItem]
-    codingRef: [Coding]
+    sourceItem: [SourceItem]
+    coding: [Coding]
   }
 
 type Standard
@@ -828,7 +828,7 @@ type Standard
 
 type Standards
   {
-    standardRef: [Standard]
+    standard: [Standard]
   }
 
 type StateProv
@@ -844,23 +844,23 @@ type StreetName
 type Study
   {
     oID: Oid!
-    studyName: Name!
-    protocolName: Name!
-    versionID: Name
-    versionName: Name
-    status: Name
-    descriptionRef: Description
-    metaDataVersionRefRef: [MetaDataVersion]
+    studyName: NameType!
+    protocolName: NameType!
+    versionID: NameType
+    versionName: NameType
+    status: NameType
+    description: Description
+    metaDataVersion: [MetaDataVersion]
   }
 
 type StudyEndPoint
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     type: StudyEndPointType
     level: StudyEstimandLevel
-    descriptionRef: Description
-    formalExpressionRef: [FormalExpression]
+    description: Description
+    formalExpression: [FormalExpression]
   }
 
 type StudyEndPointRef
@@ -871,66 +871,66 @@ type StudyEndPointRef
 
 type StudyEndPoints
   {
-    studyEndPointRefRef: [StudyEndPoint]
+    studyEndPoint: [StudyEndPoint]
   }
 
 type StudyEstimand
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     level: StudyEstimandLevel
-    descriptionRef: Description
-    studyTargetPopulationRefRef: StudyTargetPopulationRef
-    studyInterventionRefRef: StudyInterventionRef
-    studyEndPointRefRef: StudyEndPointRef
-    intercurrentEventRef: [IntercurrentEvent]
-    summaryMeasureRef: SummaryMeasure
+    description: Description
+    studyTargetPopulationRef: StudyTargetPopulationRef
+    studyInterventionRef: StudyInterventionRef
+    studyEndPointRef: StudyEndPointRef
+    intercurrentEvent: [IntercurrentEvent]
+    summaryMeasure: SummaryMeasure
   }
 
 type StudyEstimands
   {
-    studyEstimandRef: [StudyEstimand]
+    studyEstimand: [StudyEstimand]
   }
 
 type StudyEventData
   {
     studyEventOID: Oidref!
     studyEventRepeatKey: RepeatKey
-    transactionTypeRef: TransactionType
-    itemGroupDataRef: [ItemGroupData]
-    queryRef: [Query]
-    auditRecordRef: AuditRecord
-    signatureRefRef: Signature
-    annotationRef: Annotation
+    transactionType: TransactionType
+    itemGroupData: [ItemGroupData]
+    query: [Query]
+    auditRecord: AuditRecord
+    signature: Signature
+    annotation: Annotation
   }
 
 type StudyEventDef
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     repeating: YesOrNo!
     type: EventType!
     category: Text
     commentOID: Oidref
-    descriptionRef: Description
-    itemGroupRefRef: [ItemGroupRef]
-    workflowRefRef: WorkflowRef
-    codingRef: [Coding]
-    aliasRef: [Alias]
+    description: Description
+    itemGroupRef: [ItemGroupRef]
+    workflowRef: WorkflowRef
+    coding: [Coding]
+    alias: [Alias]
   }
 
 type StudyEventGroupDef
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     armOID: Oidref
     epochOID: Oidref
     commentOID: Oidref
-    descriptionRef: Description
-    workflowRefRef: WorkflowRef
-    codingRef: [Coding]
-    studyEventGroupRefRef: [StudyEventGroupRef]
-    studyEventRefRef: [StudyEventRef]
+    description: Description
+    workflowRef: WorkflowRef
+    coding: [Coding]
+    studyEventGroupRef: [StudyEventGroupRef]
+    studyEventRef: [StudyEventRef]
   }
 
 type StudyEventGroupRef
@@ -939,7 +939,7 @@ type StudyEventGroupRef
     orderNumber: PositiveInteger
     mandatory: YesOrNo!
     collectionExceptionConditionOID: Oidref
-    descriptionRef: Description
+    description: Description
   }
 
 type StudyEventRef
@@ -953,20 +953,20 @@ type StudyEventRef
 type StudyIndication
   {
     oID: Oid!
-    descriptionRef: Description
-    codingRef: [Coding]
+    description: Description
+    coding: [Coding]
   }
 
 type StudyIndications
   {
-    studyIndicationRef: [StudyIndication]
+    studyIndication: [StudyIndication]
   }
 
 type StudyIntervention
   {
     oID: Oid!
-    descriptionRef: Description
-    codingRef: [Coding]
+    description: Description
+    coding: [Coding]
   }
 
 type StudyInterventionRef
@@ -976,52 +976,52 @@ type StudyInterventionRef
 
 type StudyInterventions
   {
-    studyInterventionRefRef: [StudyIntervention]
+    studyIntervention: [StudyIntervention]
   }
 
 type StudyObjective
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     level: StudyObjectiveLevel
-    descriptionRef: Description
-    studyEndPointRefRef: [StudyEndPointRef]
+    description: Description
+    studyEndPointRef: [StudyEndPointRef]
   }
 
 type StudyObjectives
   {
-    studyObjectiveRef: [StudyObjective]
+    studyObjective: [StudyObjective]
   }
 
 type StudyParameter
   {
     oID: Oid!
-    term: Name!
-    shortName: Name
-    parameterValueRef: ParameterValue
-    codingRef: [Coding]
+    term: NameType!
+    shortName: NameType
+    parameterValue: ParameterValue
+    coding: [Coding]
   }
 
 type StudyStructure
   {
-    descriptionRef: Description
-    armRef: [Arm]
-    epochRef: [Epoch]
-    workflowRefRef: WorkflowRef
+    description: Description
+    arm: [Arm]
+    epoch: [Epoch]
+    workflowRef: WorkflowRef
   }
 
 type StudySummary
   {
-    studyParameterRef: [StudyParameter]
+    studyParameter: [StudyParameter]
   }
 
 type StudyTargetPopulation
   {
     oID: Oid!
-    name: Name!
-    descriptionRef: Description
-    codingRef: [Coding]
-    formalExpressionRef: [FormalExpression]
+    name: NameType!
+    description: Description
+    coding: [Coding]
+    formalExpression: [FormalExpression]
   }
 
 type StudyTargetPopulationRef
@@ -1032,16 +1032,16 @@ type StudyTargetPopulationRef
 type StudyTiming
   {
     oID: Oid!
-    name: Name!
-    absoluteTimingConstraintRef: [AbsoluteTimingConstraint]
-    relativeTimingConstraintRef: [RelativeTimingConstraint]
-    transitionTimingConstraintRef: [TransitionTimingConstraint]
-    durationTimingConstraintRef: [DurationTimingConstraint]
+    name: NameType!
+    absoluteTimingConstraint: [AbsoluteTimingConstraint]
+    relativeTimingConstraint: [RelativeTimingConstraint]
+    transitionTimingConstraint: [TransitionTimingConstraint]
+    durationTimingConstraint: [DurationTimingConstraint]
   }
 
 type StudyTimings
   {
-    studyTimingRef: [StudyTiming]
+    studyTiming: [StudyTiming]
   }
 
 type SubClass
@@ -1052,15 +1052,15 @@ type SubClass
 
 type SubjectData
   {
-    subjectKey: SubjectKey!
-    transactionTypeRef: TransactionType
-    investigatorRefRef: InvestigatorRef
-    siteRefRef: SiteRef
-    studyEventDataRef: [StudyEventData]
-    queryRef: [Query]
-    auditRecordRef: AuditRecord
-    signatureRefRef: Signature
-    annotationRef: Annotation
+    subjectKey: SubjectKeyType!
+    transactionType: TransactionType
+    investigatorRef: InvestigatorRef
+    siteRef: SiteRef
+    studyEventData: [StudyEventData]
+    query: [Query]
+    auditRecord: AuditRecord
+    signature: Signature
+    annotation: Annotation
   }
 
 type Suffix
@@ -1070,12 +1070,12 @@ type Suffix
 
 type SummaryMeasure
   {
-    descriptionRef: Description
+    description: Description
   }
 
 type SupplementalDoc
   {
-    documentRefRef: [DocumentRef]
+    documentRef: [DocumentRef]
   }
 
 type TargetTransition
@@ -1087,7 +1087,7 @@ type TargetTransition
 type Telecom
   {
     telecomType: TelecomTypeType!
-    valueRef: Text!
+    value: Text!
   }
 
 type Title
@@ -1098,7 +1098,7 @@ type Title
 type Transition
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     sourceOID: Oidref!
     targetOID: Oidref!
     startConditionOID: Oidref
@@ -1108,14 +1108,14 @@ type Transition
 type TransitionTimingConstraint
   {
     oID: Oid!
-    name: Name!
+    name: NameType!
     transitionOID: Oidref!
     methodOID: Oidref
     type: RelativeTimingConstraintType
     timepointTarget: DurationDatetime!
     timepointPreWindow: DurationDatetime
     timepointPostWindow: DurationDatetime
-    descriptionRef: Description
+    description: Description
   }
 
 type TranslatedText
@@ -1127,25 +1127,25 @@ type TranslatedText
 
 type TrialPhase
   {
-    valueRef: TrialPhaseType!
-    descriptionRef: Description
+    value: TrialPhaseType!
+    description: Description
   }
 
 type User
   {
     oID: Oid!
-    userTypeRef: UserType
+    userType: UserType
     organizationOID: Oidref
     locationOID: Oidref
-    userNameRef: UserName
-    prefixRef: Prefix
-    suffixRef: Suffix
-    fullNameRef: FullName
-    givenNameRef: GivenName
-    familyNameRef: FamilyName
-    imageRef: Image
-    addressRef: [Address]
-    telecomRef: [Telecom]
+    userName: UserName
+    prefix: Prefix
+    suffix: Suffix
+    fullName: FullName
+    givenName: GivenName
+    familyName: FamilyName
+    image: Image
+    address: [Address]
+    telecom: [Telecom]
   }
 
 type UserName
@@ -1167,8 +1167,8 @@ type Value
 type ValueListDef
   {
     oID: Oid!
-    descriptionRef: Description
-    itemRefRef: [ItemRef]
+    description: Description
+    itemRef: [ItemRef]
   }
 
 type ValueListRef
@@ -1180,7 +1180,7 @@ type WhereClauseDef
   {
     oID: Oid!
     commentOID: Oidref
-    rangeCheckRef: [RangeCheck]
+    rangeCheck: [RangeCheck]
   }
 
 type WhereClauseRef
@@ -1191,12 +1191,12 @@ type WhereClauseRef
 type WorkflowDef
   {
     oID: Oid!
-    name: Name!
-    descriptionRef: Description
-    workflowStartRef: WorkflowStart
-    workflowEndRef: [WorkflowEnd]
-    transitionRef: [Transition]
-    branchingRef: [Branching]
+    name: NameType!
+    description: Description
+    workflowStart: WorkflowStart
+    workflowEnd: [WorkflowEnd]
+    transition: [Transition]
+    branching: [Branching]
   }
 
 type WorkflowEnd

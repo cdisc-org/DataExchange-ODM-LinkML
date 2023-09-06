@@ -11,9 +11,9 @@ URI: [odm:GeoPosition](http://www.cdisc.org/ns/odm/v2.0/GeoPosition)
 ```mermaid
 erDiagram
 GeoPosition {
-    decimal Longitude  
-    decimal Latitude  
-    decimal Altitude  
+    decimal longitude  
+    decimal latitude  
+    decimal altitude  
 }
 
 
@@ -29,9 +29,9 @@ GeoPosition {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Longitude](Longitude.md) | 0..1 <br/> [decimal](decimal.md) | Longitude component of geoposition coordinates in decimal degrees. May requir... | direct |
-| [Latitude](Latitude.md) | 0..1 <br/> [decimal](decimal.md) | Latitude component of geoposition coordinate in decimal degrees degrees. May ... | direct |
-| [Altitude](Altitude.md) | 0..1 <br/> [decimal](decimal.md) | Height above sea level in meters. | direct |
+| [longitude](longitude.md) | 0..1 <br/> [decimal](decimal.md) | Longitude component of geoposition coordinates in decimal degrees. May requir... | direct |
+| [latitude](latitude.md) | 0..1 <br/> [decimal](decimal.md) | Latitude component of geoposition coordinate in decimal degrees degrees. May ... | direct |
+| [altitude](altitude.md) | 0..1 <br/> [decimal](decimal.md) | Height above sea level in meters. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -42,7 +42,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Address](Address.md) | [GeoPositionRef](GeoPositionRef.md) | range | [GeoPosition](GeoPosition.md) |
+| [Address](Address.md) | [geoPosition](geoPosition.md) | range | [GeoPosition](GeoPosition.md) |
 
 
 
@@ -96,12 +96,12 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/GeoPosition
 rank: 1000
 slots:
-- Longitude
-- Latitude
-- Altitude
+- longitude
+- latitude
+- altitude
 slot_usage:
-  Longitude:
-    name: Longitude
+  longitude:
+    name: longitude
     description: Longitude component of geoposition coordinates in decimal degrees.
       May require conversion from degrees, minutes, seconds format.
     comments:
@@ -111,8 +111,8 @@ slot_usage:
     domain_of:
     - GeoPosition
     range: decimal
-  Latitude:
-    name: Latitude
+  latitude:
+    name: latitude
     description: Latitude component of geoposition coordinate in decimal degrees degrees.
       May require conversion from degrees, minutes, seconds format.
     comments:
@@ -122,8 +122,8 @@ slot_usage:
     domain_of:
     - GeoPosition
     range: decimal
-  Altitude:
-    name: Altitude
+  altitude:
+    name: altitude
     description: Height above sea level in meters.
     comments:
     - 'Optional
@@ -148,8 +148,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/GeoPosition
 rank: 1000
 slot_usage:
-  Longitude:
-    name: Longitude
+  longitude:
+    name: longitude
     description: Longitude component of geoposition coordinates in decimal degrees.
       May require conversion from degrees, minutes, seconds format.
     comments:
@@ -159,8 +159,8 @@ slot_usage:
     domain_of:
     - GeoPosition
     range: decimal
-  Latitude:
-    name: Latitude
+  latitude:
+    name: latitude
     description: Latitude component of geoposition coordinate in decimal degrees degrees.
       May require conversion from degrees, minutes, seconds format.
     comments:
@@ -170,8 +170,8 @@ slot_usage:
     domain_of:
     - GeoPosition
     range: decimal
-  Altitude:
-    name: Altitude
+  altitude:
+    name: altitude
     description: Height above sea level in meters.
     comments:
     - 'Optional
@@ -181,8 +181,8 @@ slot_usage:
     - GeoPosition
     range: decimal
 attributes:
-  Longitude:
-    name: Longitude
+  longitude:
+    name: longitude
     description: Longitude component of geoposition coordinates in decimal degrees.
       May require conversion from degrees, minutes, seconds format.
     comments:
@@ -191,13 +191,13 @@ attributes:
       range: decimal'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Longitude
+    alias: longitude
     owner: GeoPosition
     domain_of:
     - GeoPosition
     range: decimal
-  Latitude:
-    name: Latitude
+  latitude:
+    name: latitude
     description: Latitude component of geoposition coordinate in decimal degrees degrees.
       May require conversion from degrees, minutes, seconds format.
     comments:
@@ -206,13 +206,13 @@ attributes:
       range: decimal'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Latitude
+    alias: latitude
     owner: GeoPosition
     domain_of:
     - GeoPosition
     range: decimal
-  Altitude:
-    name: Altitude
+  altitude:
+    name: altitude
     description: Height above sea level in meters.
     comments:
     - 'Optional
@@ -220,7 +220,7 @@ attributes:
       range: decimal'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Altitude
+    alias: altitude
     owner: GeoPosition
     domain_of:
     - GeoPosition

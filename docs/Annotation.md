@@ -11,46 +11,46 @@ URI: [odm:Annotation](http://www.cdisc.org/ns/odm/v2.0/Annotation)
 ```mermaid
 erDiagram
 Annotation {
-    positiveInteger SeqNum  
-    TransactionType TransactionTypeRef  
-    oid ID  
+    positiveInteger seqNum  
+    TransactionType transactionType  
+    oid iD  
 }
 Flag {
 
 }
 FlagType {
-    oidref CodeListOID  
-    name content  
+    oidref codeListOID  
+    nameType content  
 }
 FlagValue {
-    oidref CodeListOID  
-    name content  
+    oidref codeListOID  
+    nameType content  
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 Comment {
-    CommentType SponsorOrSite  
+    CommentType sponsorOrSite  
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-Annotation ||--|o Comment : "CommentRef"
-Annotation ||--}o Coding : "CodingRef"
-Annotation ||--}o Flag : "FlagRef"
-Flag ||--|o FlagValue : "FlagValueRef"
-Flag ||--|o FlagType : "FlagTypeRef"
-Comment ||--}o TranslatedText : "TranslatedTextRef"
+Annotation ||--|o Comment : "comment"
+Annotation ||--}o Coding : "coding"
+Annotation ||--}o Flag : "flag"
+Flag ||--|o FlagValue : "flagValue"
+Flag ||--|o FlagType : "flagType"
+Comment ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -63,12 +63,12 @@ Comment ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SeqNum](SeqNum.md) | 1..1 <br/> [positiveInteger](positiveInteger.md) | When more than 1 Value element exists this attribute uniquely identifies each... | direct |
-| [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... | direct |
-| [ID](ID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the leaf that is referenced. | direct |
-| [CommentRef](CommentRef.md) | 0..1 <br/> [Comment](Comment.md) | Comment reference: A free-text (uninterpreted) comment about clinical data. T... | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
-| [FlagRef](FlagRef.md) | 0..* <br/> [Flag](Flag.md) | Flag reference: A machine-processable annotation. | direct |
+| [seqNum](seqNum.md) | 1..1 <br/> [positiveInteger](positiveInteger.md) | When more than 1 Value element exists this attribute uniquely identifies each... | direct |
+| [transactionType](transactionType.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... | direct |
+| [iD](iD.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the leaf that is referenced. | direct |
+| [comment](comment.md) | 0..1 <br/> [Comment](Comment.md) | Comment reference: A free-text (uninterpreted) comment about clinical data. T... | direct |
+| [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [flag](flag.md) | 0..* <br/> [Flag](Flag.md) | Flag reference: A machine-processable annotation. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -79,13 +79,13 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ReferenceData](ReferenceData.md) | [AnnotationRef](AnnotationRef.md) | range | [Annotation](Annotation.md) |
-| [ClinicalData](ClinicalData.md) | [AnnotationRef](AnnotationRef.md) | range | [Annotation](Annotation.md) |
-| [SubjectData](SubjectData.md) | [AnnotationRef](AnnotationRef.md) | range | [Annotation](Annotation.md) |
-| [StudyEventData](StudyEventData.md) | [AnnotationRef](AnnotationRef.md) | range | [Annotation](Annotation.md) |
-| [ItemGroupData](ItemGroupData.md) | [AnnotationRef](AnnotationRef.md) | range | [Annotation](Annotation.md) |
-| [ItemData](ItemData.md) | [AnnotationRef](AnnotationRef.md) | range | [Annotation](Annotation.md) |
-| [Association](Association.md) | [AnnotationRef](AnnotationRef.md) | range | [Annotation](Annotation.md) |
+| [ReferenceData](ReferenceData.md) | [annotation](annotation.md) | range | [Annotation](Annotation.md) |
+| [ClinicalData](ClinicalData.md) | [annotation](annotation.md) | range | [Annotation](Annotation.md) |
+| [SubjectData](SubjectData.md) | [annotation](annotation.md) | range | [Annotation](Annotation.md) |
+| [StudyEventData](StudyEventData.md) | [annotation](annotation.md) | range | [Annotation](Annotation.md) |
+| [ItemGroupData](ItemGroupData.md) | [annotation](annotation.md) | range | [Annotation](Annotation.md) |
+| [ItemData](ItemData.md) | [annotation](annotation.md) | range | [Annotation](Annotation.md) |
+| [Association](Association.md) | [annotation](annotation.md) | range | [Annotation](Annotation.md) |
 
 
 
@@ -140,15 +140,15 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Annotation
 rank: 1000
 slots:
-- SeqNum
-- TransactionTypeRef
-- ID
-- CommentRef
-- CodingRef
-- FlagRef
+- seqNum
+- transactionType
+- iD
+- comment
+- coding
+- flag
 slot_usage:
-  SeqNum:
-    name: SeqNum
+  seqNum:
+    name: seqNum
     comments:
     - 'Required
 
@@ -158,8 +158,8 @@ slot_usage:
     - Value
     range: positiveInteger
     required: true
-  TransactionTypeRef:
-    name: TransactionTypeRef
+  transactionType:
+    name: transactionType
     comments:
     - 'Optional
 
@@ -175,21 +175,21 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-  ID:
-    name: ID
+  iD:
+    name: iD
     domain_of:
     - Leaf
     - Signature
     - Annotation
     range: oid
-  CommentRef:
-    name: CommentRef
+  comment:
+    name: comment
     domain_of:
     - Annotation
     range: Comment
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -211,8 +211,8 @@ slot_usage:
     range: Coding
     inlined: true
     inlined_as_list: true
-  FlagRef:
-    name: FlagRef
+  flag:
+    name: flag
     multivalued: true
     domain_of:
     - Annotation
@@ -236,8 +236,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Annotation
 rank: 1000
 slot_usage:
-  SeqNum:
-    name: SeqNum
+  seqNum:
+    name: seqNum
     comments:
     - 'Required
 
@@ -247,8 +247,8 @@ slot_usage:
     - Value
     range: positiveInteger
     required: true
-  TransactionTypeRef:
-    name: TransactionTypeRef
+  transactionType:
+    name: transactionType
     comments:
     - 'Optional
 
@@ -264,21 +264,21 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-  ID:
-    name: ID
+  iD:
+    name: iD
     domain_of:
     - Leaf
     - Signature
     - Annotation
     range: oid
-  CommentRef:
-    name: CommentRef
+  comment:
+    name: comment
     domain_of:
     - Annotation
     range: Comment
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -300,8 +300,8 @@ slot_usage:
     range: Coding
     inlined: true
     inlined_as_list: true
-  FlagRef:
-    name: FlagRef
+  flag:
+    name: flag
     multivalued: true
     domain_of:
     - Annotation
@@ -309,8 +309,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  SeqNum:
-    name: SeqNum
+  seqNum:
+    name: seqNum
     description: When more than 1 Value element exists this attribute uniquely identifies
       each Value and defines the order of a Value in a list of Values.
     comments:
@@ -319,15 +319,15 @@ attributes:
       range: positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: SeqNum
+    alias: seqNum
     owner: Annotation
     domain_of:
     - Annotation
     - Value
     range: positiveInteger
     required: true
-  TransactionTypeRef:
-    name: TransactionTypeRef
+  transactionType:
+    name: transactionType
     description: Identifies the transaction type when /ODM/@FileType is Transactional
       and there is no child element.
     comments:
@@ -340,7 +340,7 @@ attributes:
       of the annotation is replaced.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TransactionTypeRef
+    alias: transactionType
     owner: Annotation
     domain_of:
     - SubjectData
@@ -349,13 +349,13 @@ attributes:
     - ItemData
     - Annotation
     range: TransactionType
-  ID:
-    name: ID
+  iD:
+    name: iD
     description: Unique identifier for the leaf that is referenced.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: ID
+    alias: iD
     owner: Annotation
     domain_of:
     - Leaf
@@ -363,21 +363,21 @@ attributes:
     - Annotation
     range: oid
     required: true
-  CommentRef:
-    name: CommentRef
+  comment:
+    name: comment
     description: 'Comment reference: A free-text (uninterpreted) comment about clinical
       data. The comment may have come from the sponsor or the clinical site.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: CommentRef
+    alias: comment
     owner: Annotation
     domain_of:
     - Annotation
     range: Comment
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     description: 'Coding reference: Coding references a symbol from a defined code
       system. It uses a code defined in a terminology system to associate semantics
       with a given term, codelist, variable, or group of variables. The presence of
@@ -388,7 +388,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: CodingRef
+    alias: coding
     owner: Annotation
     domain_of:
     - StudyEventGroupDef
@@ -410,14 +410,14 @@ attributes:
     range: Coding
     inlined: true
     inlined_as_list: true
-  FlagRef:
-    name: FlagRef
+  flag:
+    name: flag
     description: 'Flag reference: A machine-processable annotation.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: FlagRef
+    alias: flag
     owner: Annotation
     domain_of:
     - Annotation

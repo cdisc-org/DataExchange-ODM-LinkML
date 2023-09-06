@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in Type_
+_Enumeration used in type_
 
 
 
@@ -25,7 +25,7 @@ URI: [StudyEndPointType](StudyEndPointType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) | The type of end point. Simple: measures the change of a single outcome that i... |
+| [type](type.md) | The type of end point. Simple: measures the change of a single outcome that i... |
 
 
 
@@ -53,7 +53,7 @@ URI: [StudyEndPointType](StudyEndPointType)
 <details>
 ```yaml
 name: StudyEndPointType
-description: Enumeration used in Type
+description: Enumeration used in type
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

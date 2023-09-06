@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in Type_
+_Enumeration used in type_
 
 
 
@@ -23,7 +23,7 @@ URI: [PDFPageType](PDFPageType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) | Type of page for page reference(s) indicated in the PageRefs attribute |
+| [type](type.md) | Type of page for page reference(s) indicated in the PageRefs attribute |
 
 
 
@@ -51,7 +51,7 @@ URI: [PDFPageType](PDFPageType)
 <details>
 ```yaml
 name: PDFPageType
-description: Enumeration used in Type
+description: Enumeration used in type
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

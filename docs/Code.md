@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [FormalExpression](FormalExpression.md) | [CodeRef](CodeRef.md) | range | [Code](Code.md) |
+| [FormalExpression](FormalExpression.md) | [code](code.md) | range | [Code](Code.md) |
 
 
 

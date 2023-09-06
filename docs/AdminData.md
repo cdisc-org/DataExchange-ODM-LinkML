@@ -11,11 +11,11 @@ URI: [odm:AdminData](http://www.cdisc.org/ns/odm/v2.0/AdminData)
 ```mermaid
 erDiagram
 AdminData {
-    oidref StudyOID  
+    oidref studyOID  
 }
 SignatureDef {
-    oid OID  
-    SignMethod Methodology  
+    oid oID  
+    SignMethod methodology  
 }
 LegalReason {
     text content  
@@ -24,53 +24,53 @@ Meaning {
     text content  
 }
 Location {
-    oid OID  
-    name Name  
-    text Role  
-    oidref OrganizationOID  
+    oid oID  
+    nameType name  
+    text role  
+    oidref organizationOID  
 }
 Query {
-    oid OID  
-    QuerySourceType Source  
-    text Target  
-    QueryType Type  
-    QueryStateType State  
-    datetime LastUpdateDatetime  
-    name Name  
+    oid oID  
+    QuerySourceType source  
+    text target  
+    QueryType type  
+    QueryStateType state  
+    datetime lastUpdateDatetime  
+    nameType name  
 }
 Telecom {
-    TelecomTypeType TelecomType  
-    text ValueRef  
+    TelecomTypeType telecomType  
+    text value  
 }
 Address {
 
 }
 MetaDataVersionRef {
-    oidref StudyOID  
-    oidref MetaDataVersionOID  
-    date EffectiveDate  
+    oidref studyOID  
+    oidref metaDataVersionOID  
+    date effectiveDate  
 }
 Description {
 
 }
 Organization {
-    oid OID  
-    name Name  
-    text Role  
-    OrganizationType Type  
-    oidref LocationOID  
-    oidref PartOfOrganizationOID  
+    oid oID  
+    nameType name  
+    text role  
+    OrganizationType type  
+    oidref locationOID  
+    oidref partOfOrganizationOID  
 }
 User {
-    oid OID  
-    UserType UserTypeRef  
-    oidref OrganizationOID  
-    oidref LocationOID  
+    oid oID  
+    UserType userType  
+    oidref organizationOID  
+    oidref locationOID  
 }
 Image {
-    fileName ImageFileName  
+    fileName imageFileName  
     text href  
-    text MimeType  
+    text mimeType  
 }
 FamilyName {
     text content  
@@ -91,40 +91,40 @@ UserName {
     text content  
 }
 
-AdminData ||--}o User : "UserRefRef"
-AdminData ||--}o Organization : "OrganizationRef"
-AdminData ||--}o Location : "LocationRefRef"
-AdminData ||--}o SignatureDef : "SignatureDefRef"
-SignatureDef ||--|o Meaning : "MeaningRef"
-SignatureDef ||--|o LegalReason : "LegalReasonRef"
-Location ||--|o Description : "DescriptionRef"
-Location ||--}o MetaDataVersionRef : "MetaDataVersionRefRef"
-Location ||--}o Address : "AddressRef"
-Location ||--}o Telecom : "TelecomRef"
-Location ||--}o Query : "QueryRef"
-Query ||--|o Value : "ValueRef"
-Query ||--}o AuditRecord : "AuditRecordRef"
-Address ||--|o StreetName : "StreetNameRef"
-Address ||--|o HouseNumber : "HouseNumberRef"
-Address ||--|o City : "CityRef"
-Address ||--|o StateProv : "StateProvRef"
-Address ||--|o Country : "CountryRef"
-Address ||--|o PostalCode : "PostalCodeRef"
-Address ||--|o GeoPosition : "GeoPositionRef"
-Address ||--|o OtherText : "OtherTextRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
-Organization ||--|o Description : "DescriptionRef"
-Organization ||--}o Address : "AddressRef"
-Organization ||--}o Telecom : "TelecomRef"
-User ||--|o UserName : "UserNameRef"
-User ||--|o Prefix : "PrefixRef"
-User ||--|o Suffix : "SuffixRef"
-User ||--|o FullName : "FullNameRef"
-User ||--|o GivenName : "GivenNameRef"
-User ||--|o FamilyName : "FamilyNameRef"
-User ||--|o Image : "ImageRef"
-User ||--}o Address : "AddressRef"
-User ||--}o Telecom : "TelecomRef"
+AdminData ||--}o User : "user"
+AdminData ||--}o Organization : "organization"
+AdminData ||--}o Location : "location"
+AdminData ||--}o SignatureDef : "signatureDef"
+SignatureDef ||--|o Meaning : "meaning"
+SignatureDef ||--|o LegalReason : "legalReason"
+Location ||--|o Description : "description"
+Location ||--}o MetaDataVersionRef : "metaDataVersionRef"
+Location ||--}o Address : "address"
+Location ||--}o Telecom : "telecom"
+Location ||--}o Query : "query"
+Query ||--|o Value : "value"
+Query ||--}o AuditRecord : "auditRecord"
+Address ||--|o StreetName : "streetName"
+Address ||--|o HouseNumber : "houseNumber"
+Address ||--|o City : "city"
+Address ||--|o StateProv : "stateProv"
+Address ||--|o Country : "country"
+Address ||--|o PostalCode : "postalCode"
+Address ||--|o GeoPosition : "geoPosition"
+Address ||--|o OtherText : "otherText"
+Description ||--}o TranslatedText : "translatedText"
+Organization ||--|o Description : "description"
+Organization ||--}o Address : "address"
+Organization ||--}o Telecom : "telecom"
+User ||--|o UserName : "userName"
+User ||--|o Prefix : "prefix"
+User ||--|o Suffix : "suffix"
+User ||--|o FullName : "fullName"
+User ||--|o GivenName : "givenName"
+User ||--|o FamilyName : "familyName"
+User ||--|o Image : "image"
+User ||--}o Address : "address"
+User ||--}o Telecom : "telecom"
 
 ```
 
@@ -137,11 +137,11 @@ User ||--}o Telecom : "TelecomRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Study . | direct |
-| [UserRefRef](UserRefRef.md) | 0..* <br/> [User](User.md) | UserRef reference: A reference to information about a specific user of a clin... | direct |
-| [OrganizationRef](OrganizationRef.md) | 0..* <br/> [Organization](Organization.md) | Organization reference: An organization can reference a parent organization. ... | direct |
-| [LocationRefRef](LocationRefRef.md) | 0..* <br/> [Location](Location.md) | LocationRef reference: A reference to the user's physical location. | direct |
-| [SignatureDefRef](SignatureDefRef.md) | 0..* <br/> [SignatureDef](SignatureDef.md) | SignatureDef reference: Provides Metadata for signatures included in the /ODM... | direct |
+| [studyOID](studyOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Study . | direct |
+| [user](user.md) | 0..* <br/> [User](User.md) | User reference: Information about a specific user of a clinical data collecti... | direct |
+| [organization](organization.md) | 0..* <br/> [Organization](Organization.md) | Organization reference: An organization can reference a parent organization. ... | direct |
+| [location](location.md) | 0..* <br/> [Location](Location.md) | Location reference: A physical location associated with data collection and/o... | direct |
+| [signatureDef](signatureDef.md) | 0..* <br/> [SignatureDef](SignatureDef.md) | SignatureDef reference: Provides Metadata for signatures included in the /ODM... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -152,7 +152,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ODMFileMetadata](ODMFileMetadata.md) | [AdminDataRef](AdminDataRef.md) | range | [AdminData](AdminData.md) |
+| [ODMFileMetadata](ODMFileMetadata.md) | [adminData](adminData.md) | range | [AdminData](AdminData.md) |
 
 
 
@@ -207,14 +207,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/AdminData
 rank: 1000
 slots:
-- StudyOID
-- UserRefRef
-- OrganizationRef
-- LocationRefRef
-- SignatureDefRef
+- studyOID
+- user
+- organization
+- location
+- signatureDef
 slot_usage:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: Reference to a Study .
     comments:
     - 'Required
@@ -232,36 +232,32 @@ slot_usage:
     - Association
     - KeySet
     range: oidref
-  UserRefRef:
-    name: UserRefRef
+  user:
+    name: user
     multivalued: true
     domain_of:
     - AdminData
-    - AuditRecord
-    - Signature
     range: User
     inlined: true
     inlined_as_list: true
-  OrganizationRef:
-    name: OrganizationRef
+  organization:
+    name: organization
     multivalued: true
     domain_of:
     - AdminData
     range: Organization
     inlined: true
     inlined_as_list: true
-  LocationRefRef:
-    name: LocationRefRef
+  location:
+    name: location
     multivalued: true
     domain_of:
     - AdminData
-    - AuditRecord
-    - Signature
     range: Location
     inlined: true
     inlined_as_list: true
-  SignatureDefRef:
-    name: SignatureDefRef
+  signatureDef:
+    name: signatureDef
     multivalued: true
     domain_of:
     - AdminData
@@ -285,8 +281,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/AdminData
 rank: 1000
 slot_usage:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: Reference to a Study .
     comments:
     - 'Required
@@ -304,36 +300,32 @@ slot_usage:
     - Association
     - KeySet
     range: oidref
-  UserRefRef:
-    name: UserRefRef
+  user:
+    name: user
     multivalued: true
     domain_of:
     - AdminData
-    - AuditRecord
-    - Signature
     range: User
     inlined: true
     inlined_as_list: true
-  OrganizationRef:
-    name: OrganizationRef
+  organization:
+    name: organization
     multivalued: true
     domain_of:
     - AdminData
     range: Organization
     inlined: true
     inlined_as_list: true
-  LocationRefRef:
-    name: LocationRefRef
+  location:
+    name: location
     multivalued: true
     domain_of:
     - AdminData
-    - AuditRecord
-    - Signature
     range: Location
     inlined: true
     inlined_as_list: true
-  SignatureDefRef:
-    name: SignatureDefRef
+  signatureDef:
+    name: signatureDef
     multivalued: true
     domain_of:
     - AdminData
@@ -341,8 +333,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: Reference to a Study .
     comments:
     - 'Required
@@ -352,7 +344,7 @@ attributes:
       Must match the OID for a /ODM/Study element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyOID
+    alias: studyOID
     owner: AdminData
     domain_of:
     - Include
@@ -364,25 +356,23 @@ attributes:
     - Association
     - KeySet
     range: oidref
-  UserRefRef:
-    name: UserRefRef
-    description: 'UserRef reference: A reference to information about a specific user
-      of a clinical data collection or data management system.'
+  user:
+    name: user
+    description: 'User reference: Information about a specific user of a clinical
+      data collection or data management system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: UserRefRef
+    alias: user
     owner: AdminData
     domain_of:
     - AdminData
-    - AuditRecord
-    - Signature
     range: User
     inlined: true
     inlined_as_list: true
-  OrganizationRef:
-    name: OrganizationRef
+  organization:
+    name: organization
     description: 'Organization reference: An organization can reference a parent organization.
       Users may be associated with an Organization. An Organization may be associated
       with a Location. A User, Location, or Organization may have an address.'
@@ -390,38 +380,37 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: OrganizationRef
+    alias: organization
     owner: AdminData
     domain_of:
     - AdminData
     range: Organization
     inlined: true
     inlined_as_list: true
-  LocationRefRef:
-    name: LocationRefRef
-    description: 'LocationRef reference: A reference to the user''s physical location.'
+  location:
+    name: location
+    description: 'Location reference: A physical location associated with data collection
+      and/or treatment of subjects.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: LocationRefRef
+    alias: location
     owner: AdminData
     domain_of:
     - AdminData
-    - AuditRecord
-    - Signature
     range: Location
     inlined: true
     inlined_as_list: true
-  SignatureDefRef:
-    name: SignatureDefRef
+  signatureDef:
+    name: signatureDef
     description: 'SignatureDef reference: Provides Metadata for signatures included
       in the /ODM/ClinicalData.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: SignatureDefRef
+    alias: signatureDef
     owner: AdminData
     domain_of:
     - AdminData

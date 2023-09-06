@@ -14,20 +14,20 @@ MethodSignature {
 
 }
 ReturnValue {
-    name Name  
-    DataType DataTypeRef  
-    text DefinitionRef  
-    positiveInteger OrderNumber  
+    nameType name  
+    DataType dataType  
+    text definition  
+    positiveInteger orderNumber  
 }
 Parameter {
-    name Name  
-    DataType DataTypeRef  
-    text DefinitionRef  
-    positiveInteger OrderNumber  
+    nameType name  
+    DataType dataType  
+    text definition  
+    positiveInteger orderNumber  
 }
 
-MethodSignature ||--}o Parameter : "ParameterRef"
-MethodSignature ||--}o ReturnValue : "ReturnValueRef"
+MethodSignature ||--}o Parameter : "parameter"
+MethodSignature ||--}o ReturnValue : "returnValue"
 
 ```
 
@@ -40,8 +40,8 @@ MethodSignature ||--}o ReturnValue : "ReturnValueRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ParameterRef](ParameterRef.md) | 0..* <br/> [Parameter](Parameter.md) | Parameter reference: The Parameter element represents a method parameter used... | direct |
-| [ReturnValueRef](ReturnValueRef.md) | 0..* <br/> [ReturnValue](ReturnValue.md) | ReturnValue reference: The ReturnValue element represents a return value used... | direct |
+| [parameter](parameter.md) | 0..* <br/> [Parameter](Parameter.md) | Parameter reference: The Parameter element represents a method parameter used... | direct |
+| [returnValue](returnValue.md) | 0..* <br/> [ReturnValue](ReturnValue.md) | ReturnValue reference: The ReturnValue element represents a return value used... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -52,9 +52,9 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [RangeCheck](RangeCheck.md) | [MethodSignatureRef](MethodSignatureRef.md) | range | [MethodSignature](MethodSignature.md) |
-| [MethodDef](MethodDef.md) | [MethodSignatureRef](MethodSignatureRef.md) | range | [MethodSignature](MethodSignature.md) |
-| [ConditionDef](ConditionDef.md) | [MethodSignatureRef](MethodSignatureRef.md) | range | [MethodSignature](MethodSignature.md) |
+| [RangeCheck](RangeCheck.md) | [methodSignature](methodSignature.md) | range | [MethodSignature](MethodSignature.md) |
+| [MethodDef](MethodDef.md) | [methodSignature](methodSignature.md) | range | [MethodSignature](MethodSignature.md) |
+| [ConditionDef](ConditionDef.md) | [methodSignature](methodSignature.md) | range | [MethodSignature](MethodSignature.md) |
 
 
 
@@ -111,19 +111,19 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/MethodSignature
 rank: 1000
 slots:
-- ParameterRef
-- ReturnValueRef
+- parameter
+- returnValue
 slot_usage:
-  ParameterRef:
-    name: ParameterRef
+  parameter:
+    name: parameter
     multivalued: true
     domain_of:
     - MethodSignature
     range: Parameter
     inlined: true
     inlined_as_list: true
-  ReturnValueRef:
-    name: ReturnValueRef
+  returnValue:
+    name: returnValue
     multivalued: true
     domain_of:
     - MethodSignature
@@ -149,16 +149,16 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/MethodSignature
 rank: 1000
 slot_usage:
-  ParameterRef:
-    name: ParameterRef
+  parameter:
+    name: parameter
     multivalued: true
     domain_of:
     - MethodSignature
     range: Parameter
     inlined: true
     inlined_as_list: true
-  ReturnValueRef:
-    name: ReturnValueRef
+  returnValue:
+    name: returnValue
     multivalued: true
     domain_of:
     - MethodSignature
@@ -166,23 +166,23 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  ParameterRef:
-    name: ParameterRef
+  parameter:
+    name: parameter
     description: 'Parameter reference: The Parameter element represents a method parameter
       used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: ParameterRef
+    alias: parameter
     owner: MethodSignature
     domain_of:
     - MethodSignature
     range: Parameter
     inlined: true
     inlined_as_list: true
-  ReturnValueRef:
-    name: ReturnValueRef
+  returnValue:
+    name: returnValue
     description: 'ReturnValue reference: The ReturnValue element represents a return
       value used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck.
       A return value identifies values passed from the Method to the calling element.
@@ -191,7 +191,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: ReturnValueRef
+    alias: returnValue
     owner: MethodSignature
     domain_of:
     - MethodSignature

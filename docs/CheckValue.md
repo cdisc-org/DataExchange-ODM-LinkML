@@ -11,7 +11,7 @@ URI: [odm:CheckValue](http://www.cdisc.org/ns/odm/v2.0/CheckValue)
 ```mermaid
 erDiagram
 CheckValue {
-    value content  
+    valueType content  
 }
 
 
@@ -27,7 +27,7 @@ CheckValue {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [content](content.md) | 0..1 <br/> [value](value.md) | multi-line text content from between XML tags | direct |
+| [content](content.md) | 0..1 <br/> [valueType](valueType.md) | multi-line text content from between XML tags | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [RangeCheck](RangeCheck.md) | [CheckValueRef](CheckValueRef.md) | range | [CheckValue](CheckValue.md) |
+| [RangeCheck](RangeCheck.md) | [checkValue](checkValue.md) | range | [CheckValue](CheckValue.md) |
 
 
 
@@ -123,7 +123,7 @@ slot_usage:
     - FlagValue
     - FlagType
     - Value
-    range: value
+    range: valueType
 class_uri: odm:CheckValue
 
 ```
@@ -169,7 +169,7 @@ slot_usage:
     - FlagValue
     - FlagType
     - Value
-    range: value
+    range: valueType
 attributes:
   content:
     name: content
@@ -205,7 +205,7 @@ attributes:
     - FlagValue
     - FlagType
     - Value
-    range: value
+    range: valueType
     inlined: true
 class_uri: odm:CheckValue
 

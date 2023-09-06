@@ -11,7 +11,7 @@ URI: [odm:LocationRef](http://www.cdisc.org/ns/odm/v2.0/LocationRef)
 ```mermaid
 erDiagram
 LocationRef {
-    oidref LocationOID  
+    oidref locationOID  
 }
 
 
@@ -27,7 +27,7 @@ LocationRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [LocationOID](LocationOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a Location definition. | direct |
+| [locationOID](locationOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a Location definition. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,8 +38,8 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AuditRecord](AuditRecord.md) | [LocationRefRef](LocationRefRef.md) | range | [LocationRef](LocationRef.md) |
-| [Signature](Signature.md) | [LocationRefRef](LocationRefRef.md) | range | [LocationRef](LocationRef.md) |
+| [AuditRecord](AuditRecord.md) | [locationRef](locationRef.md) | range | [LocationRef](LocationRef.md) |
+| [Signature](Signature.md) | [locationRef](locationRef.md) | range | [LocationRef](LocationRef.md) |
 
 
 
@@ -93,10 +93,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/LocationRef
 rank: 1000
 slots:
-- LocationOID
+- locationOID
 slot_usage:
-  LocationOID:
-    name: LocationOID
+  locationOID:
+    name: locationOID
     description: Reference to a Location definition.
     comments:
     - 'Required
@@ -128,8 +128,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/LocationRef
 rank: 1000
 slot_usage:
-  LocationOID:
-    name: LocationOID
+  locationOID:
+    name: locationOID
     description: Reference to a Location definition.
     comments:
     - 'Required
@@ -146,8 +146,8 @@ slot_usage:
     range: oidref
     required: true
 attributes:
-  LocationOID:
-    name: LocationOID
+  locationOID:
+    name: locationOID
     description: Reference to a Location definition.
     comments:
     - 'Required
@@ -158,7 +158,7 @@ attributes:
       the UserRef element contained within the AuditRecord or Signature.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: LocationOID
+    alias: locationOID
     owner: LocationRef
     domain_of:
     - User

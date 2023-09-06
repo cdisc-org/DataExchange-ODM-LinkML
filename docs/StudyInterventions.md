@@ -14,26 +14,26 @@ StudyInterventions {
 
 }
 StudyIntervention {
-    oid OID  
+    oid oID  
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 Description {
 
 }
 
-StudyInterventions ||--}o StudyIntervention : "StudyInterventionRefRef"
-StudyIntervention ||--|o Description : "DescriptionRef"
-StudyIntervention ||--}o Coding : "CodingRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+StudyInterventions ||--}o StudyIntervention : "studyIntervention"
+StudyIntervention ||--|o Description : "description"
+StudyIntervention ||--}o Coding : "coding"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -46,7 +46,7 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyInterventionRefRef](StudyInterventionRefRef.md) | 0..* <br/> [StudyIntervention](StudyIntervention.md) | StudyInterventionRef reference: The StudyInterventionRef references an interv... | direct |
+| [studyIntervention](studyIntervention.md) | 0..* <br/> [StudyIntervention](StudyIntervention.md) | StudyIntervention reference: This element describes a study intervention (e.g... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -57,7 +57,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Protocol](Protocol.md) | [StudyInterventionsRef](StudyInterventionsRef.md) | range | [StudyInterventions](StudyInterventions.md) |
+| [Protocol](Protocol.md) | [studyInterventions](studyInterventions.md) | range | [StudyInterventions](StudyInterventions.md) |
 
 
 
@@ -112,14 +112,13 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyInterventions
 rank: 1000
 slots:
-- StudyInterventionRefRef
+- studyIntervention
 slot_usage:
-  StudyInterventionRefRef:
-    name: StudyInterventionRefRef
+  studyIntervention:
+    name: studyIntervention
     multivalued: true
     domain_of:
     - StudyInterventions
-    - StudyEstimand
     range: StudyIntervention
     inlined: true
     inlined_as_list: true
@@ -140,29 +139,30 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyInterventions
 rank: 1000
 slot_usage:
-  StudyInterventionRefRef:
-    name: StudyInterventionRefRef
+  studyIntervention:
+    name: studyIntervention
     multivalued: true
     domain_of:
     - StudyInterventions
-    - StudyEstimand
     range: StudyIntervention
     inlined: true
     inlined_as_list: true
 attributes:
-  StudyInterventionRefRef:
-    name: StudyInterventionRefRef
-    description: 'StudyInterventionRef reference: The StudyInterventionRef references
-      an intervention that is taken as the treatment for the estimand.'
+  studyIntervention:
+    name: studyIntervention
+    description: 'StudyIntervention reference: This element describes a study intervention
+      (e.g., medication, treatment, therapy) for the clinical study. The human-readable
+      description is provided in the Description element. The Coding element can be
+      used to provide a machine-readable code for the indication (e.g., ATC M01AE01
+      code for "Ibuprofen" when used as a nonsteroidal anti-inflammatory drug).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: StudyInterventionRefRef
+    alias: studyIntervention
     owner: StudyInterventions
     domain_of:
     - StudyInterventions
-    - StudyEstimand
     range: StudyIntervention
     inlined: true
     inlined_as_list: true

@@ -14,56 +14,56 @@ StudyTimings {
 
 }
 StudyTiming {
-    oid OID  
-    name Name  
+    oid oID  
+    nameType name  
 }
 DurationTimingConstraint {
-    oid OID  
-    name Name  
-    oidref StructuralElementOID  
-    durationDatetime DurationTarget  
-    durationDatetime DurationPreWindow  
-    durationDatetime DurationPostWindow  
+    oid oID  
+    nameType name  
+    oidref structuralElementOID  
+    durationDatetime durationTarget  
+    durationDatetime durationPreWindow  
+    durationDatetime durationPostWindow  
 }
 TransitionTimingConstraint {
-    oid OID  
-    name Name  
-    oidref TransitionOID  
-    oidref MethodOID  
-    RelativeTimingConstraintType Type  
-    durationDatetime TimepointTarget  
-    durationDatetime TimepointPreWindow  
-    durationDatetime TimepointPostWindow  
+    oid oID  
+    nameType name  
+    oidref transitionOID  
+    oidref methodOID  
+    RelativeTimingConstraintType type  
+    durationDatetime timepointTarget  
+    durationDatetime timepointPreWindow  
+    durationDatetime timepointPostWindow  
 }
 RelativeTimingConstraint {
-    oid OID  
-    name Name  
-    oidref PredecessorOID  
-    oidref SuccessorOID  
-    RelativeTimingConstraintType Type  
-    durationDatetime TimepointRelativeTarget  
-    durationDatetime TimepointPreWindow  
-    durationDatetime TimepointPostWindow  
+    oid oID  
+    nameType name  
+    oidref predecessorOID  
+    oidref successorOID  
+    RelativeTimingConstraintType type  
+    durationDatetime timepointRelativeTarget  
+    durationDatetime timepointPreWindow  
+    durationDatetime timepointPostWindow  
 }
 AbsoluteTimingConstraint {
-    oid OID  
-    name Name  
-    oidref StudyEventGroupOID  
-    oidref StudyEventOID  
-    string TimepointTarget  
-    durationDatetime TimepointPreWindow  
-    durationDatetime TimepointPostWindow  
+    oid oID  
+    nameType name  
+    oidref studyEventGroupOID  
+    oidref studyEventOID  
+    string timepointTarget  
+    durationDatetime timepointPreWindow  
+    durationDatetime timepointPostWindow  
 }
 
-StudyTimings ||--}o StudyTiming : "StudyTimingRef"
-StudyTiming ||--}o AbsoluteTimingConstraint : "AbsoluteTimingConstraintRef"
-StudyTiming ||--}o RelativeTimingConstraint : "RelativeTimingConstraintRef"
-StudyTiming ||--}o TransitionTimingConstraint : "TransitionTimingConstraintRef"
-StudyTiming ||--}o DurationTimingConstraint : "DurationTimingConstraintRef"
-DurationTimingConstraint ||--|o Description : "DescriptionRef"
-TransitionTimingConstraint ||--|o Description : "DescriptionRef"
-RelativeTimingConstraint ||--|o Description : "DescriptionRef"
-AbsoluteTimingConstraint ||--|o Description : "DescriptionRef"
+StudyTimings ||--}o StudyTiming : "studyTiming"
+StudyTiming ||--}o AbsoluteTimingConstraint : "absoluteTimingConstraint"
+StudyTiming ||--}o RelativeTimingConstraint : "relativeTimingConstraint"
+StudyTiming ||--}o TransitionTimingConstraint : "transitionTimingConstraint"
+StudyTiming ||--}o DurationTimingConstraint : "durationTimingConstraint"
+DurationTimingConstraint ||--|o Description : "description"
+TransitionTimingConstraint ||--|o Description : "description"
+RelativeTimingConstraint ||--|o Description : "description"
+AbsoluteTimingConstraint ||--|o Description : "description"
 
 ```
 
@@ -76,7 +76,7 @@ AbsoluteTimingConstraint ||--|o Description : "DescriptionRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyTimingRef](StudyTimingRef.md) | 0..* <br/> [StudyTiming](StudyTiming.md) | StudyTiming reference: The StudyTiming element defines a timing constraint wi... | direct |
+| [studyTiming](studyTiming.md) | 0..* <br/> [StudyTiming](StudyTiming.md) | StudyTiming reference: The StudyTiming element defines a timing constraint wi... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -87,7 +87,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Protocol](Protocol.md) | [StudyTimingsRef](StudyTimingsRef.md) | range | [StudyTimings](StudyTimings.md) |
+| [Protocol](Protocol.md) | [studyTimings](studyTimings.md) | range | [StudyTimings](StudyTimings.md) |
 
 
 
@@ -142,10 +142,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyTimings
 rank: 1000
 slots:
-- StudyTimingRef
+- studyTiming
 slot_usage:
-  StudyTimingRef:
-    name: StudyTimingRef
+  studyTiming:
+    name: studyTiming
     multivalued: true
     domain_of:
     - StudyTimings
@@ -169,8 +169,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyTimings
 rank: 1000
 slot_usage:
-  StudyTimingRef:
-    name: StudyTimingRef
+  studyTiming:
+    name: studyTiming
     multivalued: true
     domain_of:
     - StudyTimings
@@ -178,8 +178,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  StudyTimingRef:
-    name: StudyTimingRef
+  studyTiming:
+    name: studyTiming
     description: 'StudyTiming reference: The StudyTiming element defines a timing
       constraint within the study, which can be an absolute timing constraint (e.g.,
       start of the screening visit must be between 1 January 2022 and 31 December
@@ -192,7 +192,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: StudyTimingRef
+    alias: studyTiming
     owner: StudyTimings
     domain_of:
     - StudyTimings

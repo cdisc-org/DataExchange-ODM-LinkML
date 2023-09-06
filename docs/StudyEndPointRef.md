@@ -1,6 +1,6 @@
 # Class: StudyEndPointRef
 
-_Go to start of metadata_
+_A reference to a StudyEndPoint as it occurs within a specific StudyObjective._
 
 
 
@@ -11,8 +11,8 @@ URI: [odm:StudyEndPointRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointRef)
 ```mermaid
 erDiagram
 StudyEndPointRef {
-    oidref StudyEndPointOID  
-    positiveInteger OrderNumber  
+    oidref studyEndPointOID  
+    positiveInteger orderNumber  
 }
 
 
@@ -28,8 +28,8 @@ StudyEndPointRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEndPointOID](StudyEndPointOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEndPoint . | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEndPointRef appears in Metadata displa... | direct |
+| [studyEndPointOID](studyEndPointOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEndPoint . | direct |
+| [orderNumber](orderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEndPointRef appears in Metadata displa... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -40,8 +40,8 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyObjective](StudyObjective.md) | [StudyEndPointRefRef](StudyEndPointRefRef.md) | range | [StudyEndPointRef](StudyEndPointRef.md) |
-| [StudyEstimand](StudyEstimand.md) | [StudyEndPointRefRef](StudyEndPointRefRef.md) | range | [StudyEndPointRef](StudyEndPointRef.md) |
+| [StudyObjective](StudyObjective.md) | [studyEndPointRef](studyEndPointRef.md) | range | [StudyEndPointRef](StudyEndPointRef.md) |
+| [StudyEstimand](StudyEstimand.md) | [studyEndPointRef](studyEndPointRef.md) | range | [StudyEndPointRef](StudyEndPointRef.md) |
 
 
 
@@ -89,17 +89,17 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 <details>
 ```yaml
 name: StudyEndPointRef
-description: Go to start of metadata
+description: A reference to a StudyEndPoint as it occurs within a specific StudyObjective.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEndPointRef
 rank: 1000
 slots:
-- StudyEndPointOID
-- OrderNumber
+- studyEndPointOID
+- orderNumber
 slot_usage:
-  StudyEndPointOID:
-    name: StudyEndPointOID
+  studyEndPointOID:
+    name: studyEndPointOID
     description: Reference to the StudyEndPoint .
     comments:
     - 'Required
@@ -109,8 +109,8 @@ slot_usage:
     - StudyEndPointRef
     range: oidref
     required: true
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Indicates the order in which this StudyEndPointRef appears in Metadata
       displays or data entry applications.
     comments:
@@ -138,14 +138,14 @@ class_uri: odm:StudyEndPointRef
 <details>
 ```yaml
 name: StudyEndPointRef
-description: Go to start of metadata
+description: A reference to a StudyEndPoint as it occurs within a specific StudyObjective.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEndPointRef
 rank: 1000
 slot_usage:
-  StudyEndPointOID:
-    name: StudyEndPointOID
+  studyEndPointOID:
+    name: studyEndPointOID
     description: Reference to the StudyEndPoint .
     comments:
     - 'Required
@@ -155,8 +155,8 @@ slot_usage:
     - StudyEndPointRef
     range: oidref
     required: true
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Indicates the order in which this StudyEndPointRef appears in Metadata
       displays or data entry applications.
     comments:
@@ -175,8 +175,8 @@ slot_usage:
     - StudyEndPointRef
     range: positiveInteger
 attributes:
-  StudyEndPointOID:
-    name: StudyEndPointOID
+  studyEndPointOID:
+    name: studyEndPointOID
     description: Reference to the StudyEndPoint .
     comments:
     - 'Required
@@ -184,14 +184,14 @@ attributes:
       Must match the OID atttribute for a StudyEndPoint in the Study/MetaDataVersion/Protocol.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyEndPointOID
+    alias: studyEndPointOID
     owner: StudyEndPointRef
     domain_of:
     - StudyEndPointRef
     range: oidref
     required: true
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Indicates the order in which this StudyEndPointRef appears in Metadata
       displays or data entry applications.
     comments:
@@ -201,7 +201,7 @@ attributes:
       must not have duplicate OrderNumber values'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: OrderNumber
+    alias: orderNumber
     owner: StudyEndPointRef
     domain_of:
     - StudyEventGroupRef

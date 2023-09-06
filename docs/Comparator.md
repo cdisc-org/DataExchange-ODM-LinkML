@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in ComparatorRef_
+_Enumeration used in comparator_
 
 
 
@@ -29,8 +29,8 @@ URI: [Comparator](Comparator)
 
 | Name | Description |
 | ---  | --- |
-| [ComparatorRef](ComparatorRef.md) | Comparison operator used to compare the item and value(s). |
-| [ComparatorRef](ComparatorRef.md) | Comparison operator used to compare the item and value(s). |
+| [comparator](comparator.md) | Comparison operator used to compare the item and value(s). |
+| [comparator](comparator.md) | Comparison operator used to compare the item and value(s). |
 
 
 
@@ -58,7 +58,7 @@ URI: [Comparator](Comparator)
 <details>
 ```yaml
 name: Comparator
-description: Enumeration used in ComparatorRef
+description: Enumeration used in comparator
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

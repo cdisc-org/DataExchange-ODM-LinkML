@@ -14,35 +14,35 @@ SourceItems {
 
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 SourceItem {
-    oidref ItemOID  
-    oidref ItemGroupOID  
-    oidref MetaDataVersionOID  
-    oidref StudyOID  
+    oidref itemOID  
+    oidref itemGroupOID  
+    oidref metaDataVersionOID  
+    oidref studyOID  
     oidref leafID  
-    name Name  
+    nameType name  
 }
 Resource {
-    text Type  
-    name Name  
-    text Attribute  
-    text Label  
+    text type  
+    nameType name  
+    text attribute  
+    text label  
 }
 
-SourceItems ||--}o SourceItem : "SourceItemRef"
-SourceItems ||--}o Coding : "CodingRef"
-SourceItem ||--}o Resource : "ResourceRef"
-SourceItem ||--}o Coding : "CodingRef"
-Resource ||--}o Selection : "SelectionRef"
+SourceItems ||--}o SourceItem : "sourceItem"
+SourceItems ||--}o Coding : "coding"
+SourceItem ||--}o Resource : "resource"
+SourceItem ||--}o Coding : "coding"
+Resource ||--}o Selection : "selection"
 
 ```
 
@@ -55,8 +55,8 @@ Resource ||--}o Selection : "SelectionRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SourceItemRef](SourceItemRef.md) | 0..* <br/> [SourceItem](SourceItem.md) | SourceItem reference: Provides the information needed to identify the source ... | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [sourceItem](sourceItem.md) | 0..* <br/> [SourceItem](SourceItem.md) | SourceItem reference: Provides the information needed to identify the source ... | direct |
+| [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -67,7 +67,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Origin](Origin.md) | [SourceItemsRef](SourceItemsRef.md) | range | [SourceItems](SourceItems.md) |
+| [Origin](Origin.md) | [sourceItems](sourceItems.md) | range | [SourceItems](SourceItems.md) |
 
 
 
@@ -122,19 +122,19 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SourceItems
 rank: 1000
 slots:
-- SourceItemRef
-- CodingRef
+- sourceItem
+- coding
 slot_usage:
-  SourceItemRef:
-    name: SourceItemRef
+  sourceItem:
+    name: sourceItem
     multivalued: true
     domain_of:
     - SourceItems
     range: SourceItem
     inlined: true
     inlined_as_list: true
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -173,16 +173,16 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SourceItems
 rank: 1000
 slot_usage:
-  SourceItemRef:
-    name: SourceItemRef
+  sourceItem:
+    name: sourceItem
     multivalued: true
     domain_of:
     - SourceItems
     range: SourceItem
     inlined: true
     inlined_as_list: true
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -205,23 +205,23 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  SourceItemRef:
-    name: SourceItemRef
+  sourceItem:
+    name: sourceItem
     description: 'SourceItem reference: Provides the information needed to identify
       the source metadata.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: SourceItemRef
+    alias: sourceItem
     owner: SourceItems
     domain_of:
     - SourceItems
     range: SourceItem
     inlined: true
     inlined_as_list: true
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     description: 'Coding reference: Coding references a symbol from a defined code
       system. It uses a code defined in a terminology system to associate semantics
       with a given term, codelist, variable, or group of variables. The presence of
@@ -232,7 +232,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: CodingRef
+    alias: coding
     owner: SourceItems
     domain_of:
     - StudyEventGroupDef

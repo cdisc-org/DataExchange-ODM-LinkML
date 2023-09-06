@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in Name_
+_Enumeration used in name_
 
 
 
@@ -36,7 +36,7 @@ URI: [ItemGroupClass](ItemGroupClass)
 
 | Name | Description |
 | ---  | --- |
-| [Name](Name.md) | Name of the Class |
+| [name](name.md) | Name of the Class |
 
 
 
@@ -70,7 +70,7 @@ URI: [ItemGroupClass](ItemGroupClass)
 ```yaml
 name: ItemGroupClass
 conforms_to: nci:ExtCodeID:C103329
-description: Enumeration used in Name
+description: Enumeration used in name
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 aliases:
 - C103329

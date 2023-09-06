@@ -11,7 +11,7 @@ URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 ```mermaid
 erDiagram
 StudyInterventionRef {
-    oidref StudyInterventionOID  
+    oidref studyInterventionOID  
 }
 
 
@@ -27,7 +27,7 @@ StudyInterventionRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyInterventionOID](StudyInterventionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a StudyIntervention | direct |
+| [studyInterventionOID](studyInterventionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a StudyIntervention | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyEstimand](StudyEstimand.md) | [StudyInterventionRefRef](StudyInterventionRefRef.md) | range | [StudyInterventionRef](StudyInterventionRef.md) |
+| [StudyEstimand](StudyEstimand.md) | [studyInterventionRef](studyInterventionRef.md) | range | [StudyInterventionRef](StudyInterventionRef.md) |
 
 
 
@@ -93,10 +93,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyInterventionRef
 rank: 1000
 slots:
-- StudyInterventionOID
+- studyInterventionOID
 slot_usage:
-  StudyInterventionOID:
-    name: StudyInterventionOID
+  studyInterventionOID:
+    name: studyInterventionOID
     description: Reference to a StudyIntervention
     comments:
     - 'Required
@@ -123,8 +123,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyInterventionRef
 rank: 1000
 slot_usage:
-  StudyInterventionOID:
-    name: StudyInterventionOID
+  studyInterventionOID:
+    name: studyInterventionOID
     description: Reference to a StudyIntervention
     comments:
     - 'Required
@@ -135,8 +135,8 @@ slot_usage:
     range: oidref
     required: true
 attributes:
-  StudyInterventionOID:
-    name: StudyInterventionOID
+  studyInterventionOID:
+    name: studyInterventionOID
     description: Reference to a StudyIntervention
     comments:
     - 'Required
@@ -144,7 +144,7 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyInterventionOID
+    alias: studyInterventionOID
     owner: StudyInterventionRef
     domain_of:
     - StudyInterventionRef

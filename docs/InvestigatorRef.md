@@ -11,7 +11,7 @@ URI: [odm:InvestigatorRef](http://www.cdisc.org/ns/odm/v2.0/InvestigatorRef)
 ```mermaid
 erDiagram
 InvestigatorRef {
-    oidref UserOID  
+    oidref userOID  
 }
 
 
@@ -27,7 +27,7 @@ InvestigatorRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [UserOID](UserOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a User definition. | direct |
+| [userOID](userOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a User definition. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [SubjectData](SubjectData.md) | [InvestigatorRefRef](InvestigatorRefRef.md) | range | [InvestigatorRef](InvestigatorRef.md) |
+| [SubjectData](SubjectData.md) | [investigatorRef](investigatorRef.md) | range | [InvestigatorRef](InvestigatorRef.md) |
 
 
 
@@ -93,10 +93,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/InvestigatorRef
 rank: 1000
 slots:
-- UserOID
+- userOID
 slot_usage:
-  UserOID:
-    name: UserOID
+  userOID:
+    name: userOID
     description: Reference to a User definition.
     comments:
     - 'Required
@@ -127,8 +127,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/InvestigatorRef
 rank: 1000
 slot_usage:
-  UserOID:
-    name: UserOID
+  userOID:
+    name: userOID
     description: Reference to a User definition.
     comments:
     - 'Required
@@ -143,8 +143,8 @@ slot_usage:
     range: oidref
     required: true
 attributes:
-  UserOID:
-    name: UserOID
+  userOID:
+    name: userOID
     description: Reference to a User definition.
     comments:
     - 'Required
@@ -155,7 +155,7 @@ attributes:
       matches the ClinicalData/@StudyOID.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: UserOID
+    alias: userOID
     owner: InvestigatorRef
     domain_of:
     - InvestigatorRef

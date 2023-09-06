@@ -14,18 +14,18 @@ AnnotatedCRF {
 
 }
 DocumentRef {
-    oid LeafID  
+    oid leafID  
 }
 PDFPageRef {
-    text PageRefs  
-    positiveInteger FirstPage  
-    positiveInteger LastPage  
-    PDFPageType Type  
-    text TitleRef  
+    text pageRefs  
+    positiveInteger firstPage  
+    positiveInteger lastPage  
+    PDFPageType type  
+    text title  
 }
 
-AnnotatedCRF ||--}o DocumentRef : "DocumentRefRef"
-DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
+AnnotatedCRF ||--}o DocumentRef : "documentRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
 
 ```
 
@@ -38,7 +38,7 @@ DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | Links to a def:leaf element with the location of the document. | direct |
+| [documentRef](documentRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | Links to a def:leaf element with the location of the document. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -49,7 +49,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [MetaDataVersion](MetaDataVersion.md) | [AnnotatedCRFRef](AnnotatedCRFRef.md) | range | [AnnotatedCRF](AnnotatedCRF.md) |
+| [MetaDataVersion](MetaDataVersion.md) | [annotatedCRF](annotatedCRF.md) | range | [AnnotatedCRF](AnnotatedCRF.md) |
 
 
 
@@ -105,10 +105,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/AnnotatedCRF
 rank: 1000
 slots:
-- DocumentRefRef
+- documentRef
 slot_usage:
-  DocumentRefRef:
-    name: DocumentRefRef
+  documentRef:
+    name: documentRef
     description: Links to a def:leaf element with the location of the document.
     multivalued: true
     domain_of:
@@ -138,8 +138,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/AnnotatedCRF
 rank: 1000
 slot_usage:
-  DocumentRefRef:
-    name: DocumentRefRef
+  documentRef:
+    name: documentRef
     description: Links to a def:leaf element with the location of the document.
     multivalued: true
     domain_of:
@@ -152,14 +152,14 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  DocumentRefRef:
-    name: DocumentRefRef
+  documentRef:
+    name: documentRef
     description: Links to a def:leaf element with the location of the document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: DocumentRefRef
+    alias: documentRef
     owner: AnnotatedCRF
     domain_of:
     - AnnotatedCRF

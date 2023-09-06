@@ -11,8 +11,8 @@ URI: [odm:TargetTransition](http://www.cdisc.org/ns/odm/v2.0/TargetTransition)
 ```mermaid
 erDiagram
 TargetTransition {
-    oidref TargetTransitionOID  
-    oidref ConditionOID  
+    oidref targetTransitionOID  
+    oidref conditionOID  
 }
 
 
@@ -28,8 +28,8 @@ TargetTransition {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TargetTransitionOID](TargetTransitionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the Transition that is one of the targets of the branching. | direct |
-| [ConditionOID](ConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef defining the condition under which the transition... | direct |
+| [targetTransitionOID](targetTransitionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the Transition that is one of the targets of the branching. | direct |
+| [conditionOID](conditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef defining the condition under which the transition... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -40,7 +40,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Branching](Branching.md) | [TargetTransitionRef](TargetTransitionRef.md) | range | [TargetTransition](TargetTransition.md) |
+| [Branching](Branching.md) | [targetTransition](targetTransition.md) | range | [TargetTransition](TargetTransition.md) |
 
 
 
@@ -95,11 +95,11 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/TargetTransition
 rank: 1000
 slots:
-- TargetTransitionOID
-- ConditionOID
+- targetTransitionOID
+- conditionOID
 slot_usage:
-  TargetTransitionOID:
-    name: TargetTransitionOID
+  targetTransitionOID:
+    name: targetTransitionOID
     description: Reference to the Transition that is one of the targets of the branching.
     comments:
     - 'Required
@@ -113,8 +113,8 @@ slot_usage:
     - DefaultTransition
     range: oidref
     required: true
-  ConditionOID:
-    name: ConditionOID
+  conditionOID:
+    name: conditionOID
     description: Reference to a ConditionDef defining the condition under which the
       transition must be executed. The ConditionOID references a ConditionDef element
       defining a condition that needs to be evaluated at the time of entering the
@@ -147,8 +147,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/TargetTransition
 rank: 1000
 slot_usage:
-  TargetTransitionOID:
-    name: TargetTransitionOID
+  targetTransitionOID:
+    name: targetTransitionOID
     description: Reference to the Transition that is one of the targets of the branching.
     comments:
     - 'Required
@@ -162,8 +162,8 @@ slot_usage:
     - DefaultTransition
     range: oidref
     required: true
-  ConditionOID:
-    name: ConditionOID
+  conditionOID:
+    name: conditionOID
     description: Reference to a ConditionDef defining the condition under which the
       transition must be executed. The ConditionOID references a ConditionDef element
       defining a condition that needs to be evaluated at the time of entering the
@@ -180,8 +180,8 @@ slot_usage:
     - Criterion
     range: oidref
 attributes:
-  TargetTransitionOID:
-    name: TargetTransitionOID
+  targetTransitionOID:
+    name: targetTransitionOID
     description: Reference to the Transition that is one of the targets of the branching.
     comments:
     - 'Required
@@ -192,15 +192,15 @@ attributes:
       element in the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TargetTransitionOID
+    alias: targetTransitionOID
     owner: TargetTransition
     domain_of:
     - TargetTransition
     - DefaultTransition
     range: oidref
     required: true
-  ConditionOID:
-    name: ConditionOID
+  conditionOID:
+    name: conditionOID
     description: Reference to a ConditionDef defining the condition under which the
       transition must be executed. The ConditionOID references a ConditionDef element
       defining a condition that needs to be evaluated at the time of entering the
@@ -214,7 +214,7 @@ attributes:
       Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ConditionOID
+    alias: conditionOID
     owner: TargetTransition
     domain_of:
     - TargetTransition

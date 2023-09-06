@@ -14,22 +14,22 @@ StudyObjectives {
 
 }
 StudyObjective {
-    oid OID  
-    name Name  
-    StudyObjectiveLevel Level  
+    oid oID  
+    nameType name  
+    StudyObjectiveLevel level  
 }
 StudyEndPointRef {
-    oidref StudyEndPointOID  
-    positiveInteger OrderNumber  
+    oidref studyEndPointOID  
+    positiveInteger orderNumber  
 }
 Description {
 
 }
 
-StudyObjectives ||--}o StudyObjective : "StudyObjectiveRef"
-StudyObjective ||--|o Description : "DescriptionRef"
-StudyObjective ||--}o StudyEndPointRef : "StudyEndPointRefRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+StudyObjectives ||--}o StudyObjective : "studyObjective"
+StudyObjective ||--|o Description : "description"
+StudyObjective ||--}o StudyEndPointRef : "studyEndPointRef"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -42,7 +42,7 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyObjectiveRef](StudyObjectiveRef.md) | 0..* <br/> [StudyObjective](StudyObjective.md) | StudyObjective reference: The reason for performing a study in terms of the s... | direct |
+| [studyObjective](studyObjective.md) | 0..* <br/> [StudyObjective](StudyObjective.md) | StudyObjective reference: The reason for performing a study in terms of the s... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -53,7 +53,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Protocol](Protocol.md) | [StudyObjectivesRef](StudyObjectivesRef.md) | range | [StudyObjectives](StudyObjectives.md) |
+| [Protocol](Protocol.md) | [studyObjectives](studyObjectives.md) | range | [StudyObjectives](StudyObjectives.md) |
 
 
 
@@ -108,10 +108,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyObjectives
 rank: 1000
 slots:
-- StudyObjectiveRef
+- studyObjective
 slot_usage:
-  StudyObjectiveRef:
-    name: StudyObjectiveRef
+  studyObjective:
+    name: studyObjective
     multivalued: true
     domain_of:
     - StudyObjectives
@@ -135,8 +135,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyObjectives
 rank: 1000
 slot_usage:
-  StudyObjectiveRef:
-    name: StudyObjectiveRef
+  studyObjective:
+    name: studyObjective
     multivalued: true
     domain_of:
     - StudyObjectives
@@ -144,8 +144,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  StudyObjectiveRef:
-    name: StudyObjectiveRef
+  studyObjective:
+    name: studyObjective
     description: 'StudyObjective reference: The reason for performing a study in terms
       of the scientific questions to be answered by the analysis of data collected
       during the study.'
@@ -153,7 +153,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: StudyObjectiveRef
+    alias: studyObjective
     owner: StudyObjectives
     domain_of:
     - StudyObjectives

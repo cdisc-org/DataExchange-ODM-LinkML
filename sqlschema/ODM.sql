@@ -1,68 +1,68 @@
 
 
 CREATE TABLE "Address" (
-	"StreetNameRef" TEXT, 
-	"HouseNumberRef" TEXT, 
-	"CityRef" TEXT, 
-	"StateProvRef" TEXT, 
-	"CountryRef" TEXT, 
-	"PostalCodeRef" TEXT, 
-	"GeoPositionRef" TEXT, 
-	"OtherTextRef" TEXT, 
-	PRIMARY KEY ("StreetNameRef", "HouseNumberRef", "CityRef", "StateProvRef", "CountryRef", "PostalCodeRef", "GeoPositionRef", "OtherTextRef")
+	"streetName" TEXT, 
+	"houseNumber" TEXT, 
+	city TEXT, 
+	"stateProv" TEXT, 
+	country TEXT, 
+	"postalCode" TEXT, 
+	"geoPosition" TEXT, 
+	"otherText" TEXT, 
+	PRIMARY KEY ("streetName", "houseNumber", city, "stateProv", country, "postalCode", "geoPosition", "otherText")
 );
 
 CREATE TABLE "AdminData" (
-	"StudyOID" TEXT, 
-	"UserRefRef" TEXT, 
-	"OrganizationRef" TEXT, 
-	"LocationRefRef" TEXT, 
-	"SignatureDefRef" TEXT, 
-	PRIMARY KEY ("StudyOID", "UserRefRef", "OrganizationRef", "LocationRefRef", "SignatureDefRef")
+	"studyOID" TEXT, 
+	user TEXT, 
+	organization TEXT, 
+	location TEXT, 
+	"signatureDef" TEXT, 
+	PRIMARY KEY ("studyOID", user, organization, location, "signatureDef")
 );
 
 CREATE TABLE "Alias" (
-	"ContextRef" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	PRIMARY KEY ("ContextRef", "Name")
+	context TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	PRIMARY KEY (context, name)
 );
 
 CREATE TABLE "AnnotatedCRF" (
-	"DocumentRefRef" TEXT, 
-	PRIMARY KEY ("DocumentRefRef")
+	"documentRef" TEXT, 
+	PRIMARY KEY ("documentRef")
 );
 
 CREATE TABLE "Annotation" (
-	"SeqNum" INTEGER NOT NULL, 
-	"TransactionTypeRef" VARCHAR(7), 
-	"ID" TEXT NOT NULL, 
-	"CommentRef" TEXT, 
-	"CodingRef" TEXT, 
-	PRIMARY KEY ("ID")
+	"seqNum" INTEGER NOT NULL, 
+	"transactionType" VARCHAR(7), 
+	"iD" TEXT NOT NULL, 
+	comment TEXT, 
+	coding TEXT, 
+	PRIMARY KEY ("iD")
 );
 
 CREATE TABLE "Arm" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"DescriptionRef" TEXT, 
-	"WorkflowRefRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	description TEXT, 
+	"workflowRef" TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "AuditRecord" (
-	"EditPoint" VARCHAR(14), 
-	"UsedMethod" VARCHAR(3), 
-	"UserRefRef" TEXT, 
-	"LocationRefRef" TEXT, 
-	"DateTimeStampRef" TEXT, 
-	"ReasonForChangeRef" TEXT, 
-	"SourceIDRef" TEXT, 
-	PRIMARY KEY ("EditPoint", "UsedMethod", "UserRefRef", "LocationRefRef", "DateTimeStampRef", "ReasonForChangeRef", "SourceIDRef")
+	"editPoint" VARCHAR(14), 
+	"usedMethod" VARCHAR(3), 
+	"userRef" TEXT, 
+	"locationRef" TEXT, 
+	"dateTimeStamp" TEXT, 
+	"reasonForChange" TEXT, 
+	"sourceID" TEXT, 
+	PRIMARY KEY ("editPoint", "usedMethod", "userRef", "locationRef", "dateTimeStamp", "reasonForChange", "sourceID")
 );
 
 CREATE TABLE "CDISCNotes" (
-	"TranslatedTextRef" TEXT, 
-	PRIMARY KEY ("TranslatedTextRef")
+	"translatedText" TEXT, 
+	PRIMARY KEY ("translatedText")
 );
 
 CREATE TABLE "CheckValue" (
@@ -76,9 +76,9 @@ CREATE TABLE "City" (
 );
 
 CREATE TABLE "Class" (
-	"Name" VARCHAR(40) NOT NULL, 
-	"SubClassRef" TEXT, 
-	PRIMARY KEY ("Name", "SubClassRef")
+	name VARCHAR(40) NOT NULL, 
+	"subClass" TEXT, 
+	PRIMARY KEY (name, "subClass")
 );
 
 CREATE TABLE "Code" (
@@ -87,26 +87,26 @@ CREATE TABLE "Code" (
 );
 
 CREATE TABLE "CodeListRef" (
-	"CodeListOID" TEXT NOT NULL, 
-	PRIMARY KEY ("CodeListOID")
+	"codeListOID" TEXT NOT NULL, 
+	PRIMARY KEY ("codeListOID")
 );
 
 CREATE TABLE "Coding" (
-	"CodeRef" TEXT, 
-	"System" TEXT NOT NULL, 
-	"SystemName" TEXT, 
-	"SystemVersion" TEXT, 
-	"Label" TEXT, 
+	code TEXT, 
+	system TEXT NOT NULL, 
+	"systemName" TEXT, 
+	"systemVersion" TEXT, 
+	label TEXT, 
 	href TEXT, 
 	ref TEXT, 
-	"CommentOID" TEXT, 
-	PRIMARY KEY ("CodeRef", "System", "SystemName", "SystemVersion", "Label", href, ref, "CommentOID")
+	"commentOID" TEXT, 
+	PRIMARY KEY (code, system, "systemName", "systemVersion", label, href, ref, "commentOID")
 );
 
 CREATE TABLE "Comment" (
-	"SponsorOrSite" VARCHAR(7), 
-	"TranslatedTextRef" TEXT, 
-	PRIMARY KEY ("SponsorOrSite", "TranslatedTextRef")
+	"sponsorOrSite" VARCHAR(7), 
+	"translatedText" TEXT, 
+	PRIMARY KEY ("sponsorOrSite", "translatedText")
 );
 
 CREATE TABLE "Country" (
@@ -115,17 +115,17 @@ CREATE TABLE "Country" (
 );
 
 CREATE TABLE "CRFCompletionInstructions" (
-	"TranslatedTextRef" TEXT, 
-	PRIMARY KEY ("TranslatedTextRef")
+	"translatedText" TEXT, 
+	PRIMARY KEY ("translatedText")
 );
 
 CREATE TABLE "Criterion" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"ConditionOID" TEXT NOT NULL, 
-	"DescriptionRef" TEXT, 
-	"CodingRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	"conditionOID" TEXT NOT NULL, 
+	description TEXT, 
+	coding TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "DateTimeStamp" (
@@ -134,51 +134,51 @@ CREATE TABLE "DateTimeStamp" (
 );
 
 CREATE TABLE "Decode" (
-	"TranslatedTextRef" TEXT, 
-	PRIMARY KEY ("TranslatedTextRef")
+	"translatedText" TEXT, 
+	PRIMARY KEY ("translatedText")
 );
 
 CREATE TABLE "Definition" (
-	"TranslatedTextRef" TEXT, 
-	PRIMARY KEY ("TranslatedTextRef")
+	"translatedText" TEXT, 
+	PRIMARY KEY ("translatedText")
 );
 
 CREATE TABLE "Description" (
-	"TranslatedTextRef" TEXT, 
-	PRIMARY KEY ("TranslatedTextRef")
+	"translatedText" TEXT, 
+	PRIMARY KEY ("translatedText")
 );
 
 CREATE TABLE "DocumentRef" (
-	"LeafID" TEXT NOT NULL, 
-	"PDFPageRefRef" TEXT, 
-	PRIMARY KEY ("LeafID", "PDFPageRefRef")
+	"leafID" TEXT NOT NULL, 
+	"pDFPageRef" TEXT, 
+	PRIMARY KEY ("leafID", "pDFPageRef")
 );
 
 CREATE TABLE "Epoch" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"SequenceNumber" INTEGER NOT NULL, 
-	"DescriptionRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	"sequenceNumber" INTEGER NOT NULL, 
+	description TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "ErrorMessage" (
-	"TranslatedTextRef" TEXT, 
-	PRIMARY KEY ("TranslatedTextRef")
+	"translatedText" TEXT, 
+	PRIMARY KEY ("translatedText")
 );
 
 CREATE TABLE "ExclusionCriteria" (
-	"CriterionRef" TEXT, 
-	PRIMARY KEY ("CriterionRef")
+	criterion TEXT, 
+	PRIMARY KEY (criterion)
 );
 
 CREATE TABLE "ExternalCodeLib" (
-	"Library" TEXT NOT NULL, 
-	"Method" TEXT, 
-	"Version" TEXT, 
+	library TEXT NOT NULL, 
+	method TEXT, 
+	version TEXT, 
 	ref TEXT, 
 	href TEXT, 
-	PRIMARY KEY ("Library", "Method", "Version", ref, href)
+	PRIMARY KEY (library, method, version, ref, href)
 );
 
 CREATE TABLE "FamilyName" (
@@ -187,22 +187,22 @@ CREATE TABLE "FamilyName" (
 );
 
 CREATE TABLE "FlagType" (
-	"CodeListOID" TEXT NOT NULL, 
+	"codeListOID" TEXT NOT NULL, 
 	content TEXT, 
-	PRIMARY KEY ("CodeListOID", content)
+	PRIMARY KEY ("codeListOID", content)
 );
 
 CREATE TABLE "FlagValue" (
-	"CodeListOID" TEXT NOT NULL, 
+	"codeListOID" TEXT NOT NULL, 
 	content TEXT, 
-	PRIMARY KEY ("CodeListOID", content)
+	PRIMARY KEY ("codeListOID", content)
 );
 
 CREATE TABLE "FormalExpression" (
-	"ContextRef" TEXT, 
-	"CodeRef" TEXT, 
-	"ExternalCodeLibRef" TEXT, 
-	PRIMARY KEY ("ContextRef", "CodeRef", "ExternalCodeLibRef")
+	context TEXT, 
+	code TEXT, 
+	"externalCodeLib" TEXT, 
+	PRIMARY KEY (context, code, "externalCodeLib")
 );
 
 CREATE TABLE "FullName" (
@@ -211,10 +211,10 @@ CREATE TABLE "FullName" (
 );
 
 CREATE TABLE "GeoPosition" (
-	"Longitude" TEXT, 
-	"Latitude" TEXT, 
-	"Altitude" TEXT, 
-	PRIMARY KEY ("Longitude", "Latitude", "Altitude")
+	longitude TEXT, 
+	latitude TEXT, 
+	altitude TEXT, 
+	PRIMARY KEY (longitude, latitude, altitude)
 );
 
 CREATE TABLE "GivenName" (
@@ -228,87 +228,87 @@ CREATE TABLE "HouseNumber" (
 );
 
 CREATE TABLE "Image" (
-	"ImageFileName" TEXT, 
+	"imageFileName" TEXT, 
 	href TEXT, 
-	"MimeType" TEXT, 
-	PRIMARY KEY ("ImageFileName", href, "MimeType")
+	"mimeType" TEXT, 
+	PRIMARY KEY ("imageFileName", href, "mimeType")
 );
 
 CREATE TABLE "ImplementationNotes" (
-	"TranslatedTextRef" TEXT, 
-	PRIMARY KEY ("TranslatedTextRef")
+	"translatedText" TEXT, 
+	PRIMARY KEY ("translatedText")
 );
 
 CREATE TABLE "Include" (
-	"StudyOID" TEXT NOT NULL, 
-	"MetaDataVersionOID" TEXT NOT NULL, 
+	"studyOID" TEXT NOT NULL, 
+	"metaDataVersionOID" TEXT NOT NULL, 
 	href TEXT, 
-	PRIMARY KEY ("StudyOID", "MetaDataVersionOID", href)
+	PRIMARY KEY ("studyOID", "metaDataVersionOID", href)
 );
 
 CREATE TABLE "InclusionCriteria" (
-	"CriterionRef" TEXT, 
-	PRIMARY KEY ("CriterionRef")
+	criterion TEXT, 
+	PRIMARY KEY (criterion)
 );
 
 CREATE TABLE "InclusionExclusionCriteria" (
-	"InclusionCriteriaRef" TEXT, 
-	"ExclusionCriteriaRef" TEXT, 
-	PRIMARY KEY ("InclusionCriteriaRef", "ExclusionCriteriaRef")
+	"inclusionCriteria" TEXT, 
+	"exclusionCriteria" TEXT, 
+	PRIMARY KEY ("inclusionCriteria", "exclusionCriteria")
 );
 
 CREATE TABLE "InvestigatorRef" (
-	"UserOID" TEXT NOT NULL, 
-	PRIMARY KEY ("UserOID")
+	"userOID" TEXT NOT NULL, 
+	PRIMARY KEY ("userOID")
 );
 
 CREATE TABLE "ItemGroupRef" (
-	"ItemGroupOID" TEXT NOT NULL, 
-	"MethodOID" TEXT, 
-	"OrderNumber" INTEGER, 
-	"Mandatory" VARCHAR(3) NOT NULL, 
-	"CollectionExceptionConditionOID" TEXT, 
-	PRIMARY KEY ("ItemGroupOID", "MethodOID", "OrderNumber", "Mandatory", "CollectionExceptionConditionOID")
+	"itemGroupOID" TEXT NOT NULL, 
+	"methodOID" TEXT, 
+	"orderNumber" INTEGER, 
+	mandatory VARCHAR(3) NOT NULL, 
+	"collectionExceptionConditionOID" TEXT, 
+	PRIMARY KEY ("itemGroupOID", "methodOID", "orderNumber", mandatory, "collectionExceptionConditionOID")
 );
 
 CREATE TABLE "ItemRef" (
-	"ItemOID" TEXT NOT NULL, 
-	"KeySequence" INTEGER, 
-	"IsNonStandard" VARCHAR, 
-	"HasNoData" VARCHAR, 
-	"MethodOID" TEXT, 
-	"UnitsItemOID" TEXT, 
-	"Repeat" VARCHAR, 
-	"Other" VARCHAR, 
-	"Role" TEXT, 
-	"RoleCodeListOID" TEXT, 
-	"Core" TEXT, 
-	"PreSpecifiedValue" TEXT, 
-	"OrderNumber" INTEGER, 
-	"Mandatory" VARCHAR(3) NOT NULL, 
-	"CollectionExceptionConditionOID" TEXT, 
-	"OriginRef" TEXT, 
-	"WhereClauseRefRef" TEXT, 
-	PRIMARY KEY ("ItemOID", "KeySequence", "IsNonStandard", "HasNoData", "MethodOID", "UnitsItemOID", "Repeat", "Other", "Role", "RoleCodeListOID", "Core", "PreSpecifiedValue", "OrderNumber", "Mandatory", "CollectionExceptionConditionOID", "OriginRef", "WhereClauseRefRef")
+	"itemOID" TEXT NOT NULL, 
+	"keySequence" INTEGER, 
+	"isNonStandard" VARCHAR, 
+	"hasNoData" VARCHAR, 
+	"methodOID" TEXT, 
+	"unitsItemOID" TEXT, 
+	repeat VARCHAR, 
+	other VARCHAR, 
+	role TEXT, 
+	"roleCodeListOID" TEXT, 
+	core TEXT, 
+	"preSpecifiedValue" TEXT, 
+	"orderNumber" INTEGER, 
+	mandatory VARCHAR(3) NOT NULL, 
+	"collectionExceptionConditionOID" TEXT, 
+	origin TEXT, 
+	"whereClauseRef" TEXT, 
+	PRIMARY KEY ("itemOID", "keySequence", "isNonStandard", "hasNoData", "methodOID", "unitsItemOID", repeat, other, role, "roleCodeListOID", core, "preSpecifiedValue", "orderNumber", mandatory, "collectionExceptionConditionOID", origin, "whereClauseRef")
 );
 
 CREATE TABLE "KeySet" (
-	"StudyOID" TEXT NOT NULL, 
-	"SubjectKey" TEXT, 
-	"MetaDataVersionOID" TEXT, 
-	"StudyEventOID" TEXT, 
-	"StudyEventRepeatKey" TEXT, 
-	"ItemGroupOID" TEXT, 
-	"ItemGroupRepeatKey" TEXT, 
-	"ItemOID" TEXT, 
-	PRIMARY KEY ("StudyOID", "SubjectKey", "MetaDataVersionOID", "StudyEventOID", "StudyEventRepeatKey", "ItemGroupOID", "ItemGroupRepeatKey", "ItemOID")
+	"studyOID" TEXT NOT NULL, 
+	"subjectKey" TEXT, 
+	"metaDataVersionOID" TEXT, 
+	"studyEventOID" TEXT, 
+	"studyEventRepeatKey" TEXT, 
+	"itemGroupOID" TEXT, 
+	"itemGroupRepeatKey" TEXT, 
+	"itemOID" TEXT, 
+	PRIMARY KEY ("studyOID", "subjectKey", "metaDataVersionOID", "studyEventOID", "studyEventRepeatKey", "itemGroupOID", "itemGroupRepeatKey", "itemOID")
 );
 
 CREATE TABLE "Leaf" (
-	"ID" TEXT NOT NULL, 
+	"iD" TEXT NOT NULL, 
 	href TEXT NOT NULL, 
-	"TitleRef" TEXT, 
-	PRIMARY KEY ("ID")
+	title TEXT, 
+	PRIMARY KEY ("iD")
 );
 
 CREATE TABLE "LegalReason" (
@@ -317,20 +317,20 @@ CREATE TABLE "LegalReason" (
 );
 
 CREATE TABLE "Location" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"Role" TEXT, 
-	"OrganizationOID" TEXT, 
-	"DescriptionRef" TEXT, 
-	"AddressRef" TEXT, 
-	"TelecomRef" TEXT, 
-	"QueryRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	role TEXT, 
+	"organizationOID" TEXT, 
+	description TEXT, 
+	address TEXT, 
+	telecom TEXT, 
+	"query" TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "LocationRef" (
-	"LocationOID" TEXT NOT NULL, 
-	PRIMARY KEY ("LocationOID")
+	"locationOID" TEXT NOT NULL, 
+	PRIMARY KEY ("locationOID")
 );
 
 CREATE TABLE "Meaning" (
@@ -339,53 +339,53 @@ CREATE TABLE "Meaning" (
 );
 
 CREATE TABLE "MethodSignature" (
-	"ParameterRef" TEXT, 
-	"ReturnValueRef" TEXT, 
-	PRIMARY KEY ("ParameterRef", "ReturnValueRef")
+	parameter TEXT, 
+	"returnValue" TEXT, 
+	PRIMARY KEY (parameter, "returnValue")
 );
 
 CREATE TABLE "ODMFileMetadata" (
-	"FileTypeRef" VARCHAR(13) NOT NULL, 
-	"GranularityRef" VARCHAR(15), 
-	"ContextRef" VARCHAR(10), 
-	"FileOID" TEXT NOT NULL, 
-	"CreationDateTime" DATETIME NOT NULL, 
-	"PriorFileOID" TEXT, 
-	"AsOfDateTime" DATETIME, 
-	"ODMVersionRef" TEXT, 
-	"Originator" TEXT, 
-	"SourceSystem" TEXT, 
-	"SourceSystemVersion" TEXT, 
-	"DescriptionRef" TEXT, 
-	"StudyRef" TEXT, 
-	"AdminDataRef" TEXT, 
-	"ReferenceDataRef" TEXT, 
-	"ClinicalDataRef" TEXT, 
-	"AssociationRef" TEXT, 
-	PRIMARY KEY ("FileTypeRef", "GranularityRef", "ContextRef", "FileOID", "CreationDateTime", "PriorFileOID", "AsOfDateTime", "ODMVersionRef", "Originator", "SourceSystem", "SourceSystemVersion", "DescriptionRef", "StudyRef", "AdminDataRef", "ReferenceDataRef", "ClinicalDataRef", "AssociationRef")
+	"fileType" VARCHAR(13) NOT NULL, 
+	granularity VARCHAR(15), 
+	context VARCHAR(10), 
+	"fileOID" TEXT NOT NULL, 
+	"creationDateTime" DATETIME NOT NULL, 
+	"priorFileOID" TEXT, 
+	"asOfDateTime" DATETIME, 
+	"oDMVersion" TEXT, 
+	originator TEXT, 
+	"sourceSystem" TEXT, 
+	"sourceSystemVersion" TEXT, 
+	description TEXT, 
+	study TEXT, 
+	"adminData" TEXT, 
+	"referenceData" TEXT, 
+	"clinicalData" TEXT, 
+	association TEXT, 
+	PRIMARY KEY ("fileType", granularity, context, "fileOID", "creationDateTime", "priorFileOID", "asOfDateTime", "oDMVersion", originator, "sourceSystem", "sourceSystemVersion", description, study, "adminData", "referenceData", "clinicalData", association)
 );
 
 CREATE TABLE "Organization" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"Role" TEXT, 
-	"Type" VARCHAR(18) NOT NULL, 
-	"LocationOID" TEXT, 
-	"PartOfOrganizationOID" TEXT, 
-	"DescriptionRef" TEXT, 
-	"AddressRef" TEXT, 
-	"TelecomRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	role TEXT, 
+	type VARCHAR(18) NOT NULL, 
+	"locationOID" TEXT, 
+	"partOfOrganizationOID" TEXT, 
+	description TEXT, 
+	address TEXT, 
+	telecom TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "Origin" (
-	"Type" VARCHAR(13) NOT NULL, 
-	"Source" VARCHAR(12), 
-	"DescriptionRef" TEXT, 
-	"SourceItemsRef" TEXT, 
-	"CodingRef" TEXT, 
-	"DocumentRefRef" TEXT, 
-	PRIMARY KEY ("Type", "Source", "DescriptionRef", "SourceItemsRef", "CodingRef", "DocumentRefRef")
+	type VARCHAR(13) NOT NULL, 
+	source VARCHAR(12), 
+	description TEXT, 
+	"sourceItems" TEXT, 
+	coding TEXT, 
+	"documentRef" TEXT, 
+	PRIMARY KEY (type, source, description, "sourceItems", coding, "documentRef")
 );
 
 CREATE TABLE "OtherText" (
@@ -394,26 +394,26 @@ CREATE TABLE "OtherText" (
 );
 
 CREATE TABLE "Parameter" (
-	"Name" TEXT NOT NULL, 
-	"DataTypeRef" VARCHAR(18) NOT NULL, 
-	"DefinitionRef" TEXT, 
-	"OrderNumber" INTEGER, 
-	PRIMARY KEY ("Name", "DataTypeRef", "DefinitionRef", "OrderNumber")
+	name TEXT NOT NULL, 
+	"dataType" VARCHAR(18) NOT NULL, 
+	definition TEXT, 
+	"orderNumber" INTEGER, 
+	PRIMARY KEY (name, "dataType", definition, "orderNumber")
 );
 
 CREATE TABLE "ParameterValue" (
-	"ValueRef" TEXT NOT NULL, 
-	"CodingRef" TEXT, 
-	PRIMARY KEY ("ValueRef", "CodingRef")
+	value TEXT NOT NULL, 
+	coding TEXT, 
+	PRIMARY KEY (value, coding)
 );
 
 CREATE TABLE "PDFPageRef" (
-	"PageRefs" TEXT, 
-	"FirstPage" INTEGER, 
-	"LastPage" INTEGER, 
-	"Type" VARCHAR(16) NOT NULL, 
-	"TitleRef" TEXT, 
-	PRIMARY KEY ("PageRefs", "FirstPage", "LastPage", "Type", "TitleRef")
+	"pageRefs" TEXT, 
+	"firstPage" INTEGER, 
+	"lastPage" INTEGER, 
+	type VARCHAR(16) NOT NULL, 
+	title TEXT, 
+	PRIMARY KEY ("pageRefs", "firstPage", "lastPage", type, title)
 );
 
 CREATE TABLE "PostalCode" (
@@ -427,37 +427,37 @@ CREATE TABLE "Prefix" (
 );
 
 CREATE TABLE "Prompt" (
-	"TranslatedTextRef" TEXT, 
-	PRIMARY KEY ("TranslatedTextRef")
+	"translatedText" TEXT, 
+	PRIMARY KEY ("translatedText")
 );
 
 CREATE TABLE "Query" (
-	"OID" TEXT NOT NULL, 
-	"Source" VARCHAR(15) NOT NULL, 
-	"Target" TEXT, 
-	"Type" VARCHAR(6), 
-	"State" VARCHAR(9) NOT NULL, 
-	"LastUpdateDatetime" DATETIME NOT NULL, 
-	"Name" TEXT, 
-	"ValueRef" TEXT, 
-	"AuditRecordRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	source VARCHAR(15) NOT NULL, 
+	target TEXT, 
+	type VARCHAR(6), 
+	state VARCHAR(9) NOT NULL, 
+	"lastUpdateDatetime" DATETIME NOT NULL, 
+	name TEXT, 
+	value TEXT, 
+	"auditRecord" TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "Question" (
-	"TranslatedTextRef" TEXT, 
-	PRIMARY KEY ("TranslatedTextRef")
+	"translatedText" TEXT, 
+	PRIMARY KEY ("translatedText")
 );
 
 CREATE TABLE "RangeCheck" (
-	"ComparatorRef" VARCHAR(5), 
-	"SoftHard" VARCHAR(4), 
-	"ItemOID" TEXT, 
-	"ErrorMessageRef" TEXT, 
-	"MethodSignatureRef" TEXT, 
-	"FormalExpressionRef" TEXT, 
-	"CheckValueRef" TEXT, 
-	PRIMARY KEY ("ComparatorRef", "SoftHard", "ItemOID", "ErrorMessageRef", "MethodSignatureRef", "FormalExpressionRef", "CheckValueRef")
+	comparator VARCHAR(5), 
+	"softHard" VARCHAR(4), 
+	"itemOID" TEXT, 
+	"errorMessage" TEXT, 
+	"methodSignature" TEXT, 
+	"formalExpression" TEXT, 
+	"checkValue" TEXT, 
+	PRIMARY KEY (comparator, "softHard", "itemOID", "errorMessage", "methodSignature", "formalExpression", "checkValue")
 );
 
 CREATE TABLE "ReasonForChange" (
@@ -465,44 +465,53 @@ CREATE TABLE "ReasonForChange" (
 	PRIMARY KEY (content)
 );
 
+CREATE TABLE "Resource" (
+	type TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	attribute TEXT, 
+	label TEXT, 
+	selection TEXT, 
+	PRIMARY KEY (type, name, attribute, label, selection)
+);
+
 CREATE TABLE "ReturnValue" (
-	"Name" TEXT NOT NULL, 
-	"DataTypeRef" VARCHAR(18) NOT NULL, 
-	"DefinitionRef" TEXT, 
-	"OrderNumber" INTEGER, 
-	PRIMARY KEY ("Name", "DataTypeRef", "DefinitionRef", "OrderNumber")
+	name TEXT NOT NULL, 
+	"dataType" VARCHAR(18) NOT NULL, 
+	definition TEXT, 
+	"orderNumber" INTEGER, 
+	PRIMARY KEY (name, "dataType", definition, "orderNumber")
 );
 
 CREATE TABLE "Selection" (
-	"Path" TEXT NOT NULL, 
-	PRIMARY KEY ("Path")
+	path TEXT NOT NULL, 
+	PRIMARY KEY (path)
 );
 
 CREATE TABLE "Signature" (
-	"ID" TEXT NOT NULL, 
-	"UserRefRef" TEXT, 
-	"LocationRefRef" TEXT, 
-	"SignatureRefRef" TEXT, 
-	"DateTimeStampRef" TEXT, 
-	PRIMARY KEY ("ID")
+	"iD" TEXT NOT NULL, 
+	"userRef" TEXT, 
+	"locationRef" TEXT, 
+	"signatureRef" TEXT, 
+	"dateTimeStamp" TEXT, 
+	PRIMARY KEY ("iD")
 );
 
 CREATE TABLE "SignatureDef" (
-	"OID" TEXT NOT NULL, 
-	"Methodology" VARCHAR(10), 
-	"MeaningRef" TEXT, 
-	"LegalReasonRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	methodology VARCHAR(10), 
+	meaning TEXT, 
+	"legalReason" TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "SignatureRef" (
-	"SignatureOID" TEXT NOT NULL, 
-	PRIMARY KEY ("SignatureOID")
+	"signatureOID" TEXT NOT NULL, 
+	PRIMARY KEY ("signatureOID")
 );
 
 CREATE TABLE "SiteRef" (
-	"LocationOID" TEXT NOT NULL, 
-	PRIMARY KEY ("LocationOID")
+	"locationOID" TEXT NOT NULL, 
+	PRIMARY KEY ("locationOID")
 );
 
 CREATE TABLE "SourceID" (
@@ -511,36 +520,37 @@ CREATE TABLE "SourceID" (
 );
 
 CREATE TABLE "SourceItem" (
-	"ItemOID" TEXT, 
-	"ItemGroupOID" TEXT, 
-	"MetaDataVersionOID" TEXT, 
-	"StudyOID" TEXT, 
-	"leafID" TEXT NOT NULL, 
-	"Name" TEXT, 
-	"CodingRef" TEXT, 
-	PRIMARY KEY ("leafID")
+	"itemOID" TEXT, 
+	"itemGroupOID" TEXT, 
+	"metaDataVersionOID" TEXT, 
+	"studyOID" TEXT, 
+	"leafID" TEXT, 
+	name TEXT, 
+	resource TEXT, 
+	coding TEXT, 
+	PRIMARY KEY ("itemOID", "itemGroupOID", "metaDataVersionOID", "studyOID", "leafID", name, resource, coding)
 );
 
 CREATE TABLE "SourceItems" (
-	"SourceItemRef" TEXT, 
-	"CodingRef" TEXT, 
-	PRIMARY KEY ("SourceItemRef", "CodingRef")
+	"sourceItem" TEXT, 
+	coding TEXT, 
+	PRIMARY KEY ("sourceItem", coding)
 );
 
 CREATE TABLE "Standard" (
-	"OID" TEXT NOT NULL, 
-	"Name" VARCHAR(11) NOT NULL, 
-	"Type" VARCHAR(2) NOT NULL, 
-	"PublishingSet" VARCHAR(10), 
-	"Version" TEXT NOT NULL, 
-	"Status" TEXT NOT NULL, 
-	"CommentOID" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	name VARCHAR(11) NOT NULL, 
+	type VARCHAR(2) NOT NULL, 
+	"publishingSet" VARCHAR(10), 
+	version TEXT NOT NULL, 
+	status TEXT NOT NULL, 
+	"commentOID" TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "Standards" (
-	"StandardRef" TEXT, 
-	PRIMARY KEY ("StandardRef")
+	standard TEXT, 
+	PRIMARY KEY (standard)
 );
 
 CREATE TABLE "StateProv" (
@@ -554,157 +564,157 @@ CREATE TABLE "StreetName" (
 );
 
 CREATE TABLE "Study" (
-	"OID" TEXT NOT NULL, 
-	"StudyName" TEXT NOT NULL, 
-	"ProtocolName" TEXT NOT NULL, 
-	"VersionID" TEXT, 
-	"VersionName" TEXT, 
-	"Status" TEXT, 
-	"DescriptionRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	"studyName" TEXT NOT NULL, 
+	"protocolName" TEXT NOT NULL, 
+	"versionID" TEXT, 
+	"versionName" TEXT, 
+	status TEXT, 
+	description TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "StudyEndPoint" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"Type" VARCHAR(9), 
-	"Level" VARCHAR(11), 
-	"DescriptionRef" TEXT, 
-	"FormalExpressionRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	type VARCHAR(9), 
+	level VARCHAR(11), 
+	description TEXT, 
+	"formalExpression" TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "StudyEndPointRef" (
-	"StudyEndPointOID" TEXT NOT NULL, 
-	"OrderNumber" INTEGER, 
-	PRIMARY KEY ("StudyEndPointOID", "OrderNumber")
+	"studyEndPointOID" TEXT NOT NULL, 
+	"orderNumber" INTEGER, 
+	PRIMARY KEY ("studyEndPointOID", "orderNumber")
 );
 
 CREATE TABLE "StudyEndPoints" (
-	"StudyEndPointRefRef" TEXT, 
-	PRIMARY KEY ("StudyEndPointRefRef")
+	"studyEndPoint" TEXT, 
+	PRIMARY KEY ("studyEndPoint")
 );
 
 CREATE TABLE "StudyEstimand" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"Level" VARCHAR(11), 
-	"DescriptionRef" TEXT, 
-	"StudyTargetPopulationRefRef" TEXT, 
-	"StudyInterventionRefRef" TEXT, 
-	"StudyEndPointRefRef" TEXT, 
-	"SummaryMeasureRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	level VARCHAR(11), 
+	description TEXT, 
+	"studyTargetPopulationRef" TEXT, 
+	"studyInterventionRef" TEXT, 
+	"studyEndPointRef" TEXT, 
+	"summaryMeasure" TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "StudyEstimands" (
-	"StudyEstimandRef" TEXT, 
-	PRIMARY KEY ("StudyEstimandRef")
+	"studyEstimand" TEXT, 
+	PRIMARY KEY ("studyEstimand")
 );
 
 CREATE TABLE "StudyEventGroupRef" (
-	"StudyEventGroupOID" TEXT NOT NULL, 
-	"OrderNumber" INTEGER, 
-	"Mandatory" VARCHAR(3) NOT NULL, 
-	"CollectionExceptionConditionOID" TEXT, 
-	"DescriptionRef" TEXT, 
-	PRIMARY KEY ("StudyEventGroupOID", "OrderNumber", "Mandatory", "CollectionExceptionConditionOID", "DescriptionRef")
+	"studyEventGroupOID" TEXT NOT NULL, 
+	"orderNumber" INTEGER, 
+	mandatory VARCHAR(3) NOT NULL, 
+	"collectionExceptionConditionOID" TEXT, 
+	description TEXT, 
+	PRIMARY KEY ("studyEventGroupOID", "orderNumber", mandatory, "collectionExceptionConditionOID", description)
 );
 
 CREATE TABLE "StudyIndication" (
-	"OID" TEXT NOT NULL, 
-	"DescriptionRef" TEXT, 
-	"CodingRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	description TEXT, 
+	coding TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "StudyIndications" (
-	"StudyIndicationRef" TEXT, 
-	PRIMARY KEY ("StudyIndicationRef")
+	"studyIndication" TEXT, 
+	PRIMARY KEY ("studyIndication")
 );
 
 CREATE TABLE "StudyIntervention" (
-	"OID" TEXT NOT NULL, 
-	"DescriptionRef" TEXT, 
-	"CodingRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	description TEXT, 
+	coding TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "StudyInterventionRef" (
-	"StudyInterventionOID" TEXT NOT NULL, 
-	PRIMARY KEY ("StudyInterventionOID")
+	"studyInterventionOID" TEXT NOT NULL, 
+	PRIMARY KEY ("studyInterventionOID")
 );
 
 CREATE TABLE "StudyInterventions" (
-	"StudyInterventionRefRef" TEXT, 
-	PRIMARY KEY ("StudyInterventionRefRef")
+	"studyIntervention" TEXT, 
+	PRIMARY KEY ("studyIntervention")
 );
 
 CREATE TABLE "StudyObjective" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"Level" VARCHAR(11), 
-	"DescriptionRef" TEXT, 
-	"StudyEndPointRefRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	level VARCHAR(11), 
+	description TEXT, 
+	"studyEndPointRef" TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "StudyObjectives" (
-	"StudyObjectiveRef" TEXT, 
-	PRIMARY KEY ("StudyObjectiveRef")
+	"studyObjective" TEXT, 
+	PRIMARY KEY ("studyObjective")
 );
 
 CREATE TABLE "StudyParameter" (
-	"OID" TEXT NOT NULL, 
-	"Term" TEXT NOT NULL, 
-	"ShortName" TEXT, 
-	"ParameterValueRef" TEXT, 
-	"CodingRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	term TEXT NOT NULL, 
+	"shortName" TEXT, 
+	"parameterValue" TEXT, 
+	coding TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "StudyStructure" (
-	"DescriptionRef" TEXT, 
-	"ArmRef" TEXT, 
-	"EpochRef" TEXT, 
-	"WorkflowRefRef" TEXT, 
-	PRIMARY KEY ("DescriptionRef", "ArmRef", "EpochRef", "WorkflowRefRef")
+	description TEXT, 
+	arm TEXT, 
+	epoch TEXT, 
+	"workflowRef" TEXT, 
+	PRIMARY KEY (description, arm, epoch, "workflowRef")
 );
 
 CREATE TABLE "StudySummary" (
-	"StudyParameterRef" TEXT, 
-	PRIMARY KEY ("StudyParameterRef")
+	"studyParameter" TEXT, 
+	PRIMARY KEY ("studyParameter")
 );
 
 CREATE TABLE "StudyTargetPopulation" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"DescriptionRef" TEXT, 
-	"CodingRef" TEXT, 
-	"FormalExpressionRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	description TEXT, 
+	coding TEXT, 
+	"formalExpression" TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "StudyTargetPopulationRef" (
-	"StudyTargetPopulationOID" TEXT NOT NULL, 
-	PRIMARY KEY ("StudyTargetPopulationOID")
+	"studyTargetPopulationOID" TEXT NOT NULL, 
+	PRIMARY KEY ("studyTargetPopulationOID")
 );
 
 CREATE TABLE "StudyTiming" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "StudyTimings" (
-	"StudyTimingRef" TEXT, 
-	PRIMARY KEY ("StudyTimingRef")
+	"studyTiming" TEXT, 
+	PRIMARY KEY ("studyTiming")
 );
 
 CREATE TABLE "SubClass" (
-	"Name" VARCHAR(28) NOT NULL, 
-	"ParentClass" TEXT, 
-	PRIMARY KEY ("Name", "ParentClass")
+	name VARCHAR(28) NOT NULL, 
+	"parentClass" TEXT, 
+	PRIMARY KEY (name, "parentClass")
 );
 
 CREATE TABLE "Suffix" (
@@ -713,19 +723,19 @@ CREATE TABLE "Suffix" (
 );
 
 CREATE TABLE "SummaryMeasure" (
-	"DescriptionRef" TEXT, 
-	PRIMARY KEY ("DescriptionRef")
+	description TEXT, 
+	PRIMARY KEY (description)
 );
 
 CREATE TABLE "SupplementalDoc" (
-	"DocumentRefRef" TEXT, 
-	PRIMARY KEY ("DocumentRefRef")
+	"documentRef" TEXT, 
+	PRIMARY KEY ("documentRef")
 );
 
 CREATE TABLE "Telecom" (
-	"TelecomType" VARCHAR(5) NOT NULL, 
-	"ValueRef" TEXT NOT NULL, 
-	PRIMARY KEY ("TelecomType", "ValueRef")
+	"telecomType" VARCHAR(5) NOT NULL, 
+	value TEXT NOT NULL, 
+	PRIMARY KEY ("telecomType", value)
 );
 
 CREATE TABLE "Title" (
@@ -735,32 +745,32 @@ CREATE TABLE "Title" (
 
 CREATE TABLE "TranslatedText" (
 	language TEXT, 
-	"Type" TEXT NOT NULL, 
+	type TEXT NOT NULL, 
 	content TEXT, 
-	PRIMARY KEY (language, "Type", content)
+	PRIMARY KEY (language, type, content)
 );
 
 CREATE TABLE "TrialPhase" (
-	"ValueRef" TEXT NOT NULL, 
-	"DescriptionRef" TEXT, 
-	PRIMARY KEY ("ValueRef", "DescriptionRef")
+	value TEXT NOT NULL, 
+	description TEXT, 
+	PRIMARY KEY (value, description)
 );
 
 CREATE TABLE "User" (
-	"OID" TEXT NOT NULL, 
-	"UserTypeRef" VARCHAR(13), 
-	"OrganizationOID" TEXT, 
-	"LocationOID" TEXT, 
-	"UserNameRef" TEXT, 
-	"PrefixRef" TEXT, 
-	"SuffixRef" TEXT, 
-	"FullNameRef" TEXT, 
-	"GivenNameRef" TEXT, 
-	"FamilyNameRef" TEXT, 
-	"ImageRef" TEXT, 
-	"AddressRef" TEXT, 
-	"TelecomRef" TEXT, 
-	PRIMARY KEY ("OID")
+	"oID" TEXT NOT NULL, 
+	"userType" VARCHAR(13), 
+	"organizationOID" TEXT, 
+	"locationOID" TEXT, 
+	"userName" TEXT, 
+	prefix TEXT, 
+	suffix TEXT, 
+	"fullName" TEXT, 
+	"givenName" TEXT, 
+	"familyName" TEXT, 
+	image TEXT, 
+	address TEXT, 
+	telecom TEXT, 
+	PRIMARY KEY ("oID")
 );
 
 CREATE TABLE "UserName" (
@@ -769,492 +779,481 @@ CREATE TABLE "UserName" (
 );
 
 CREATE TABLE "UserRef" (
-	"UserOID" TEXT NOT NULL, 
-	PRIMARY KEY ("UserOID")
+	"userOID" TEXT NOT NULL, 
+	PRIMARY KEY ("userOID")
 );
 
 CREATE TABLE "Value" (
-	"SeqNum" INTEGER, 
+	"seqNum" INTEGER, 
 	content TEXT, 
-	PRIMARY KEY ("SeqNum", content)
+	PRIMARY KEY ("seqNum", content)
 );
 
 CREATE TABLE "ValueListRef" (
-	"ValueListOID" TEXT NOT NULL, 
-	PRIMARY KEY ("ValueListOID")
+	"valueListOID" TEXT NOT NULL, 
+	PRIMARY KEY ("valueListOID")
 );
 
 CREATE TABLE "WhereClauseRef" (
-	"WhereClauseOID" TEXT NOT NULL, 
-	PRIMARY KEY ("WhereClauseOID")
+	"whereClauseOID" TEXT NOT NULL, 
+	PRIMARY KEY ("whereClauseOID")
 );
 
 CREATE TABLE "WorkflowRef" (
-	"WorkflowOID" TEXT NOT NULL, 
-	PRIMARY KEY ("WorkflowOID")
+	"workflowOID" TEXT NOT NULL, 
+	PRIMARY KEY ("workflowOID")
 );
 
 CREATE TABLE "WorkflowStart" (
-	"StartOID" TEXT NOT NULL, 
-	PRIMARY KEY ("StartOID")
+	"startOID" TEXT NOT NULL, 
+	PRIMARY KEY ("startOID")
 );
 
 CREATE TABLE "AbsoluteTimingConstraint" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"StudyEventGroupOID" TEXT, 
-	"StudyEventOID" TEXT, 
-	"TimepointTarget" TEXT NOT NULL, 
-	"TimepointPreWindow" TEXT, 
-	"TimepointPostWindow" TEXT, 
-	"DescriptionRef" TEXT, 
-	"StudyTiming_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("StudyTiming_OID") REFERENCES "StudyTiming" ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	"studyEventGroupOID" TEXT, 
+	"studyEventOID" TEXT, 
+	"timepointTarget" TEXT NOT NULL, 
+	"timepointPreWindow" TEXT, 
+	"timepointPostWindow" TEXT, 
+	description TEXT, 
+	"StudyTiming_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("StudyTiming_oID") REFERENCES "StudyTiming" ("oID")
 );
 
 CREATE TABLE "Association" (
-	"StudyOID" TEXT NOT NULL, 
-	"MetaDataVersionOID" TEXT NOT NULL, 
-	"KeySetRef" TEXT, 
-	"AnnotationRef" TEXT, 
-	PRIMARY KEY ("StudyOID", "MetaDataVersionOID", "KeySetRef", "AnnotationRef"), 
-	FOREIGN KEY("AnnotationRef") REFERENCES "Annotation" ("ID")
+	"studyOID" TEXT NOT NULL, 
+	"metaDataVersionOID" TEXT NOT NULL, 
+	"keySet" TEXT, 
+	annotation TEXT, 
+	PRIMARY KEY ("studyOID", "metaDataVersionOID", "keySet", annotation), 
+	FOREIGN KEY(annotation) REFERENCES "Annotation" ("iD")
 );
 
 CREATE TABLE "ClinicalData" (
-	"StudyOID" TEXT NOT NULL, 
-	"MetaDataVersionOID" TEXT NOT NULL, 
-	"SubjectDataRef" TEXT, 
-	"ItemGroupDataRef" TEXT, 
-	"QueryRef" TEXT, 
-	"AuditRecordRef" TEXT, 
-	"SignatureRefRef" TEXT, 
-	"AnnotationRef" TEXT, 
-	PRIMARY KEY ("StudyOID", "MetaDataVersionOID", "SubjectDataRef", "ItemGroupDataRef", "QueryRef", "AuditRecordRef", "SignatureRefRef", "AnnotationRef"), 
-	FOREIGN KEY("SignatureRefRef") REFERENCES "Signature" ("ID"), 
-	FOREIGN KEY("AnnotationRef") REFERENCES "Annotation" ("ID")
+	"studyOID" TEXT NOT NULL, 
+	"metaDataVersionOID" TEXT NOT NULL, 
+	"subjectData" TEXT, 
+	"itemGroupData" TEXT, 
+	"query" TEXT, 
+	"auditRecord" TEXT, 
+	signature TEXT, 
+	annotation TEXT, 
+	PRIMARY KEY ("studyOID", "metaDataVersionOID", "subjectData", "itemGroupData", "query", "auditRecord", signature, annotation), 
+	FOREIGN KEY(signature) REFERENCES "Signature" ("iD"), 
+	FOREIGN KEY(annotation) REFERENCES "Annotation" ("iD")
 );
 
 CREATE TABLE "DurationTimingConstraint" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"StructuralElementOID" TEXT NOT NULL, 
-	"DurationTarget" TEXT NOT NULL, 
-	"DurationPreWindow" TEXT, 
-	"DurationPostWindow" TEXT, 
-	"DescriptionRef" TEXT, 
-	"StudyTiming_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("StudyTiming_OID") REFERENCES "StudyTiming" ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	"structuralElementOID" TEXT NOT NULL, 
+	"durationTarget" TEXT NOT NULL, 
+	"durationPreWindow" TEXT, 
+	"durationPostWindow" TEXT, 
+	description TEXT, 
+	"StudyTiming_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("StudyTiming_oID") REFERENCES "StudyTiming" ("oID")
 );
 
 CREATE TABLE "Flag" (
-	"FlagValueRef" TEXT, 
-	"FlagTypeRef" TEXT, 
-	"Annotation_ID" TEXT, 
-	PRIMARY KEY ("FlagValueRef", "FlagTypeRef", "Annotation_ID"), 
-	FOREIGN KEY("Annotation_ID") REFERENCES "Annotation" ("ID")
+	"flagValue" TEXT, 
+	"flagType" TEXT, 
+	"Annotation_iD" TEXT, 
+	PRIMARY KEY ("flagValue", "flagType", "Annotation_iD"), 
+	FOREIGN KEY("Annotation_iD") REFERENCES "Annotation" ("iD")
 );
 
 CREATE TABLE "IntercurrentEvent" (
-	"DescriptionRef" TEXT, 
-	"StudyEstimand_OID" TEXT, 
-	PRIMARY KEY ("DescriptionRef", "StudyEstimand_OID"), 
-	FOREIGN KEY("StudyEstimand_OID") REFERENCES "StudyEstimand" ("OID")
+	description TEXT, 
+	"StudyEstimand_oID" TEXT, 
+	PRIMARY KEY (description, "StudyEstimand_oID"), 
+	FOREIGN KEY("StudyEstimand_oID") REFERENCES "StudyEstimand" ("oID")
 );
 
 CREATE TABLE "ItemData" (
-	"ItemOID" TEXT NOT NULL, 
-	"TransactionTypeRef" VARCHAR(7), 
-	"IsNull" VARCHAR, 
-	"ValueRef" TEXT, 
-	"QueryRef" TEXT, 
-	"AuditRecordRef" TEXT, 
-	"SignatureRefRef" TEXT, 
-	"AnnotationRef" TEXT, 
-	PRIMARY KEY ("ItemOID", "TransactionTypeRef", "IsNull", "ValueRef", "QueryRef", "AuditRecordRef", "SignatureRefRef", "AnnotationRef"), 
-	FOREIGN KEY("SignatureRefRef") REFERENCES "Signature" ("ID"), 
-	FOREIGN KEY("AnnotationRef") REFERENCES "Annotation" ("ID")
+	"itemOID" TEXT NOT NULL, 
+	"transactionType" VARCHAR(7), 
+	"isNull" VARCHAR, 
+	value TEXT, 
+	"query" TEXT, 
+	"auditRecord" TEXT, 
+	signature TEXT, 
+	annotation TEXT, 
+	PRIMARY KEY ("itemOID", "transactionType", "isNull", value, "query", "auditRecord", signature, annotation), 
+	FOREIGN KEY(signature) REFERENCES "Signature" ("iD"), 
+	FOREIGN KEY(annotation) REFERENCES "Annotation" ("iD")
 );
 
 CREATE TABLE "ItemGroupData" (
-	"ItemGroupOID" TEXT NOT NULL, 
-	"ItemGroupRepeatKey" TEXT, 
-	"TransactionTypeRef" VARCHAR(7), 
-	"ItemGroupDataSeq" INTEGER, 
-	"QueryRef" TEXT, 
-	"ItemGroupDataRef" TEXT, 
-	"ItemDataRef" TEXT, 
-	"AuditRecordRef" TEXT, 
-	"SignatureRefRef" TEXT, 
-	"AnnotationRef" TEXT, 
-	PRIMARY KEY ("ItemGroupOID", "ItemGroupRepeatKey", "TransactionTypeRef", "ItemGroupDataSeq", "QueryRef", "ItemGroupDataRef", "ItemDataRef", "AuditRecordRef", "SignatureRefRef", "AnnotationRef"), 
-	FOREIGN KEY("SignatureRefRef") REFERENCES "Signature" ("ID"), 
-	FOREIGN KEY("AnnotationRef") REFERENCES "Annotation" ("ID")
+	"itemGroupOID" TEXT NOT NULL, 
+	"itemGroupRepeatKey" TEXT, 
+	"transactionType" VARCHAR(7), 
+	"itemGroupDataSeq" INTEGER, 
+	"query" TEXT, 
+	"itemGroupData" TEXT, 
+	"itemData" TEXT, 
+	"auditRecord" TEXT, 
+	signature TEXT, 
+	annotation TEXT, 
+	PRIMARY KEY ("itemGroupOID", "itemGroupRepeatKey", "transactionType", "itemGroupDataSeq", "query", "itemGroupData", "itemData", "auditRecord", signature, annotation), 
+	FOREIGN KEY(signature) REFERENCES "Signature" ("iD"), 
+	FOREIGN KEY(annotation) REFERENCES "Annotation" ("iD")
 );
 
 CREATE TABLE "MetaDataVersion" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"CommentOID" TEXT, 
-	"DescriptionRef" TEXT, 
-	"IncludeRef" TEXT, 
-	"StandardsRef" TEXT, 
-	"AnnotatedCRFRef" TEXT, 
-	"SupplementalDocRef" TEXT, 
-	"ProtocolRef" TEXT, 
-	"LeafRef" TEXT, 
-	"Study_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("Study_OID") REFERENCES "Study" ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	"commentOID" TEXT, 
+	description TEXT, 
+	include TEXT, 
+	standards TEXT, 
+	"annotatedCRF" TEXT, 
+	"supplementalDoc" TEXT, 
+	protocol TEXT, 
+	leaf TEXT, 
+	"Study_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("Study_oID") REFERENCES "Study" ("oID")
 );
 
 CREATE TABLE "MetaDataVersionRef" (
-	"StudyOID" TEXT NOT NULL, 
-	"MetaDataVersionOID" TEXT NOT NULL, 
-	"EffectiveDate" DATE NOT NULL, 
-	"Location_OID" TEXT, 
-	PRIMARY KEY ("StudyOID", "MetaDataVersionOID", "EffectiveDate", "Location_OID"), 
-	FOREIGN KEY("Location_OID") REFERENCES "Location" ("OID")
+	"studyOID" TEXT NOT NULL, 
+	"metaDataVersionOID" TEXT NOT NULL, 
+	"effectiveDate" DATE NOT NULL, 
+	"Location_oID" TEXT, 
+	PRIMARY KEY ("studyOID", "metaDataVersionOID", "effectiveDate", "Location_oID"), 
+	FOREIGN KEY("Location_oID") REFERENCES "Location" ("oID")
 );
 
 CREATE TABLE "Protocol" (
-	"DescriptionRef" TEXT, 
-	"StudySummaryRef" TEXT, 
-	"StudyStructureRef" TEXT, 
-	"TrialPhaseRef" TEXT, 
-	"StudyTimingsRef" TEXT, 
-	"StudyIndicationsRef" TEXT, 
-	"StudyInterventionsRef" TEXT, 
-	"StudyObjectivesRef" TEXT, 
-	"StudyEndPointsRef" TEXT, 
-	"StudyTargetPopulationRefRef" TEXT, 
-	"StudyEstimandsRef" TEXT, 
-	"InclusionExclusionCriteriaRef" TEXT, 
-	"StudyEventGroupRefRef" TEXT, 
-	"WorkflowRefRef" TEXT, 
-	"AliasRef" TEXT, 
-	PRIMARY KEY ("DescriptionRef", "StudySummaryRef", "StudyStructureRef", "TrialPhaseRef", "StudyTimingsRef", "StudyIndicationsRef", "StudyInterventionsRef", "StudyObjectivesRef", "StudyEndPointsRef", "StudyTargetPopulationRefRef", "StudyEstimandsRef", "InclusionExclusionCriteriaRef", "StudyEventGroupRefRef", "WorkflowRefRef", "AliasRef"), 
-	FOREIGN KEY("StudyTargetPopulationRefRef") REFERENCES "StudyTargetPopulation" ("OID")
+	description TEXT, 
+	"studySummary" TEXT, 
+	"studyStructure" TEXT, 
+	"trialPhase" TEXT, 
+	"studyTimings" TEXT, 
+	"studyIndications" TEXT, 
+	"studyInterventions" TEXT, 
+	"studyObjectives" TEXT, 
+	"studyEndPoints" TEXT, 
+	"studyTargetPopulation" TEXT, 
+	"studyEstimands" TEXT, 
+	"inclusionExclusionCriteria" TEXT, 
+	"studyEventGroupRef" TEXT, 
+	"workflowRef" TEXT, 
+	alias TEXT, 
+	PRIMARY KEY (description, "studySummary", "studyStructure", "trialPhase", "studyTimings", "studyIndications", "studyInterventions", "studyObjectives", "studyEndPoints", "studyTargetPopulation", "studyEstimands", "inclusionExclusionCriteria", "studyEventGroupRef", "workflowRef", alias), 
+	FOREIGN KEY("studyTargetPopulation") REFERENCES "StudyTargetPopulation" ("oID")
 );
 
 CREATE TABLE "ReferenceData" (
-	"StudyOID" TEXT NOT NULL, 
-	"MetaDataVersionOID" TEXT NOT NULL, 
-	"ItemGroupDataRef" TEXT, 
-	"AuditRecordRef" TEXT, 
-	"SignatureRefRef" TEXT, 
-	"AnnotationRef" TEXT, 
-	PRIMARY KEY ("StudyOID", "MetaDataVersionOID", "ItemGroupDataRef", "AuditRecordRef", "SignatureRefRef", "AnnotationRef"), 
-	FOREIGN KEY("SignatureRefRef") REFERENCES "Signature" ("ID"), 
-	FOREIGN KEY("AnnotationRef") REFERENCES "Annotation" ("ID")
+	"studyOID" TEXT NOT NULL, 
+	"metaDataVersionOID" TEXT NOT NULL, 
+	"itemGroupData" TEXT, 
+	"auditRecord" TEXT, 
+	signature TEXT, 
+	annotation TEXT, 
+	PRIMARY KEY ("studyOID", "metaDataVersionOID", "itemGroupData", "auditRecord", signature, annotation), 
+	FOREIGN KEY(signature) REFERENCES "Signature" ("iD"), 
+	FOREIGN KEY(annotation) REFERENCES "Annotation" ("iD")
 );
 
 CREATE TABLE "RelativeTimingConstraint" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"PredecessorOID" TEXT, 
-	"SuccessorOID" TEXT, 
-	"Type" VARCHAR(14), 
-	"TimepointRelativeTarget" TEXT NOT NULL, 
-	"TimepointPreWindow" TEXT, 
-	"TimepointPostWindow" TEXT, 
-	"DescriptionRef" TEXT, 
-	"StudyTiming_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("StudyTiming_OID") REFERENCES "StudyTiming" ("OID")
-);
-
-CREATE TABLE "Resource" (
-	"Type" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"Attribute" TEXT, 
-	"Label" TEXT, 
-	"SelectionRef" TEXT, 
-	"SourceItem_leafID" TEXT, 
-	PRIMARY KEY ("Type", "Name", "Attribute", "Label", "SelectionRef", "SourceItem_leafID"), 
-	FOREIGN KEY("SourceItem_leafID") REFERENCES "SourceItem" ("leafID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	"predecessorOID" TEXT, 
+	"successorOID" TEXT, 
+	type VARCHAR(14), 
+	"timepointRelativeTarget" TEXT NOT NULL, 
+	"timepointPreWindow" TEXT, 
+	"timepointPostWindow" TEXT, 
+	description TEXT, 
+	"StudyTiming_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("StudyTiming_oID") REFERENCES "StudyTiming" ("oID")
 );
 
 CREATE TABLE "StudyEventData" (
-	"StudyEventOID" TEXT NOT NULL, 
-	"StudyEventRepeatKey" TEXT, 
-	"TransactionTypeRef" VARCHAR(7), 
-	"ItemGroupDataRef" TEXT, 
-	"QueryRef" TEXT, 
-	"AuditRecordRef" TEXT, 
-	"SignatureRefRef" TEXT, 
-	"AnnotationRef" TEXT, 
-	PRIMARY KEY ("StudyEventOID", "StudyEventRepeatKey", "TransactionTypeRef", "ItemGroupDataRef", "QueryRef", "AuditRecordRef", "SignatureRefRef", "AnnotationRef"), 
-	FOREIGN KEY("SignatureRefRef") REFERENCES "Signature" ("ID"), 
-	FOREIGN KEY("AnnotationRef") REFERENCES "Annotation" ("ID")
+	"studyEventOID" TEXT NOT NULL, 
+	"studyEventRepeatKey" TEXT, 
+	"transactionType" VARCHAR(7), 
+	"itemGroupData" TEXT, 
+	"query" TEXT, 
+	"auditRecord" TEXT, 
+	signature TEXT, 
+	annotation TEXT, 
+	PRIMARY KEY ("studyEventOID", "studyEventRepeatKey", "transactionType", "itemGroupData", "query", "auditRecord", signature, annotation), 
+	FOREIGN KEY(signature) REFERENCES "Signature" ("iD"), 
+	FOREIGN KEY(annotation) REFERENCES "Annotation" ("iD")
 );
 
 CREATE TABLE "SubjectData" (
-	"SubjectKey" TEXT NOT NULL, 
-	"TransactionTypeRef" VARCHAR(7), 
-	"InvestigatorRefRef" TEXT, 
-	"SiteRefRef" TEXT, 
-	"StudyEventDataRef" TEXT, 
-	"QueryRef" TEXT, 
-	"AuditRecordRef" TEXT, 
-	"SignatureRefRef" TEXT, 
-	"AnnotationRef" TEXT, 
-	PRIMARY KEY ("SubjectKey", "TransactionTypeRef", "InvestigatorRefRef", "SiteRefRef", "StudyEventDataRef", "QueryRef", "AuditRecordRef", "SignatureRefRef", "AnnotationRef"), 
-	FOREIGN KEY("SignatureRefRef") REFERENCES "Signature" ("ID"), 
-	FOREIGN KEY("AnnotationRef") REFERENCES "Annotation" ("ID")
+	"subjectKey" TEXT NOT NULL, 
+	"transactionType" VARCHAR(7), 
+	"investigatorRef" TEXT, 
+	"siteRef" TEXT, 
+	"studyEventData" TEXT, 
+	"query" TEXT, 
+	"auditRecord" TEXT, 
+	signature TEXT, 
+	annotation TEXT, 
+	PRIMARY KEY ("subjectKey", "transactionType", "investigatorRef", "siteRef", "studyEventData", "query", "auditRecord", signature, annotation), 
+	FOREIGN KEY(signature) REFERENCES "Signature" ("iD"), 
+	FOREIGN KEY(annotation) REFERENCES "Annotation" ("iD")
 );
 
 CREATE TABLE "TransitionTimingConstraint" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"TransitionOID" TEXT NOT NULL, 
-	"MethodOID" TEXT, 
-	"Type" VARCHAR(14), 
-	"TimepointTarget" TEXT NOT NULL, 
-	"TimepointPreWindow" TEXT, 
-	"TimepointPostWindow" TEXT, 
-	"DescriptionRef" TEXT, 
-	"StudyTiming_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("StudyTiming_OID") REFERENCES "StudyTiming" ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	"transitionOID" TEXT NOT NULL, 
+	"methodOID" TEXT, 
+	type VARCHAR(14), 
+	"timepointTarget" TEXT NOT NULL, 
+	"timepointPreWindow" TEXT, 
+	"timepointPostWindow" TEXT, 
+	description TEXT, 
+	"StudyTiming_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("StudyTiming_oID") REFERENCES "StudyTiming" ("oID")
 );
 
 CREATE TABLE "CodeList" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"DataTypeRef" VARCHAR(7) NOT NULL, 
-	"CommentOID" TEXT, 
-	"StandardOID" TEXT, 
-	"IsNonStandard" VARCHAR, 
-	"DescriptionRef" TEXT, 
-	"CodingRef" TEXT, 
-	"AliasRef" TEXT, 
-	"MetaDataVersion_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("MetaDataVersion_OID") REFERENCES "MetaDataVersion" ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	"dataType" VARCHAR(7) NOT NULL, 
+	"commentOID" TEXT, 
+	"standardOID" TEXT, 
+	"isNonStandard" VARCHAR, 
+	description TEXT, 
+	coding TEXT, 
+	alias TEXT, 
+	"MetaDataVersion_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("MetaDataVersion_oID") REFERENCES "MetaDataVersion" ("oID")
 );
 
 CREATE TABLE "CommentDef" (
-	"OID" TEXT NOT NULL, 
-	"DescriptionRef" TEXT, 
-	"DocumentRefRef" TEXT, 
-	"MetaDataVersion_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("MetaDataVersion_OID") REFERENCES "MetaDataVersion" ("OID")
+	"oID" TEXT NOT NULL, 
+	description TEXT, 
+	"documentRef" TEXT, 
+	"MetaDataVersion_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("MetaDataVersion_oID") REFERENCES "MetaDataVersion" ("oID")
 );
 
 CREATE TABLE "ConditionDef" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"CommentOID" TEXT, 
-	"DescriptionRef" TEXT, 
-	"MethodSignatureRef" TEXT, 
-	"FormalExpressionRef" TEXT, 
-	"AliasRef" TEXT, 
-	"MetaDataVersion_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("MetaDataVersion_OID") REFERENCES "MetaDataVersion" ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	"commentOID" TEXT, 
+	description TEXT, 
+	"methodSignature" TEXT, 
+	"formalExpression" TEXT, 
+	alias TEXT, 
+	"MetaDataVersion_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("MetaDataVersion_oID") REFERENCES "MetaDataVersion" ("oID")
 );
 
 CREATE TABLE "ItemDef" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"DataTypeRef" VARCHAR(18) NOT NULL, 
-	"Length" INTEGER, 
-	"DisplayFormat" TEXT, 
-	"VariableSet" TEXT, 
-	"CommentOID" TEXT, 
-	"DescriptionRef" TEXT, 
-	"DefinitionRef" TEXT, 
-	"QuestionRef" TEXT, 
-	"PromptRef" TEXT, 
-	"CRFCompletionInstructionsRef" TEXT, 
-	"ImplementationNotesRef" TEXT, 
-	"CDISCNotesRef" TEXT, 
-	"RangeCheckRef" TEXT, 
-	"CodeListRefRef" TEXT, 
-	"ValueListRefRef" TEXT, 
-	"CodingRef" TEXT, 
-	"AliasRef" TEXT, 
-	"MetaDataVersion_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("MetaDataVersion_OID") REFERENCES "MetaDataVersion" ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	"dataType" VARCHAR(18) NOT NULL, 
+	length INTEGER, 
+	"displayFormat" TEXT, 
+	"variableSet" TEXT, 
+	"commentOID" TEXT, 
+	description TEXT, 
+	definition TEXT, 
+	question TEXT, 
+	prompt TEXT, 
+	"cRFCompletionInstructions" TEXT, 
+	"implementationNotes" TEXT, 
+	"cDISCNotes" TEXT, 
+	"rangeCheck" TEXT, 
+	"codeListRef" TEXT, 
+	"valueListRef" TEXT, 
+	coding TEXT, 
+	alias TEXT, 
+	"MetaDataVersion_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("MetaDataVersion_oID") REFERENCES "MetaDataVersion" ("oID")
 );
 
 CREATE TABLE "ItemGroupDef" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"Repeating" VARCHAR(7) NOT NULL, 
-	"RepeatingLimit" INTEGER, 
-	"IsReferenceData" VARCHAR(3), 
-	"Structure" TEXT, 
-	"ArchiveLocationID" TEXT, 
-	"DatasetName" TEXT, 
-	"Domain" TEXT, 
-	"Type" TEXT NOT NULL, 
-	"Purpose" TEXT, 
-	"StandardOID" TEXT, 
-	"IsNonStandard" VARCHAR, 
-	"HasNoData" VARCHAR, 
-	"CommentOID" TEXT, 
-	"DescriptionRef" TEXT, 
-	"ClassRef" TEXT, 
-	"CodingRef" TEXT, 
-	"WorkflowRefRef" TEXT, 
-	"OriginRef" TEXT, 
-	"AliasRef" TEXT, 
-	"LeafRef" TEXT, 
-	"ItemGroupRefRef" TEXT, 
-	"ItemRefRef" TEXT, 
-	"MetaDataVersion_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("LeafRef") REFERENCES "Leaf" ("ID"), 
-	FOREIGN KEY("MetaDataVersion_OID") REFERENCES "MetaDataVersion" ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	repeating VARCHAR(7) NOT NULL, 
+	"repeatingLimit" INTEGER, 
+	"isReferenceData" VARCHAR(3), 
+	structure TEXT, 
+	"archiveLocationID" TEXT, 
+	"datasetName" TEXT, 
+	domain TEXT, 
+	type TEXT NOT NULL, 
+	purpose TEXT, 
+	"standardOID" TEXT, 
+	"isNonStandard" VARCHAR, 
+	"hasNoData" VARCHAR, 
+	"commentOID" TEXT, 
+	description TEXT, 
+	"classRef" TEXT, 
+	coding TEXT, 
+	"workflowRef" TEXT, 
+	origin TEXT, 
+	alias TEXT, 
+	leaf TEXT, 
+	"itemGroupRef" TEXT, 
+	"itemRef" TEXT, 
+	"MetaDataVersion_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY(leaf) REFERENCES "Leaf" ("iD"), 
+	FOREIGN KEY("MetaDataVersion_oID") REFERENCES "MetaDataVersion" ("oID")
 );
 
 CREATE TABLE "MethodDef" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"Type" VARCHAR(11), 
-	"CommentOID" TEXT, 
-	"DescriptionRef" TEXT, 
-	"MethodSignatureRef" TEXT, 
-	"FormalExpressionRef" TEXT, 
-	"AliasRef" TEXT, 
-	"DocumentRefRef" TEXT, 
-	"MetaDataVersion_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("MetaDataVersion_OID") REFERENCES "MetaDataVersion" ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	type VARCHAR(11), 
+	"commentOID" TEXT, 
+	description TEXT, 
+	"methodSignature" TEXT, 
+	"formalExpression" TEXT, 
+	alias TEXT, 
+	"documentRef" TEXT, 
+	"MetaDataVersion_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("MetaDataVersion_oID") REFERENCES "MetaDataVersion" ("oID")
 );
 
 CREATE TABLE "StudyEventDef" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"Repeating" VARCHAR(3) NOT NULL, 
-	"Type" VARCHAR(11) NOT NULL, 
-	"Category" TEXT, 
-	"CommentOID" TEXT, 
-	"DescriptionRef" TEXT, 
-	"ItemGroupRefRef" TEXT, 
-	"WorkflowRefRef" TEXT, 
-	"CodingRef" TEXT, 
-	"AliasRef" TEXT, 
-	"MetaDataVersion_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("MetaDataVersion_OID") REFERENCES "MetaDataVersion" ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	repeating VARCHAR(3) NOT NULL, 
+	type VARCHAR(11) NOT NULL, 
+	category TEXT, 
+	"commentOID" TEXT, 
+	description TEXT, 
+	"itemGroupRef" TEXT, 
+	"workflowRef" TEXT, 
+	coding TEXT, 
+	alias TEXT, 
+	"MetaDataVersion_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("MetaDataVersion_oID") REFERENCES "MetaDataVersion" ("oID")
 );
 
 CREATE TABLE "StudyEventGroupDef" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"ArmOID" TEXT, 
-	"EpochOID" TEXT, 
-	"CommentOID" TEXT, 
-	"DescriptionRef" TEXT, 
-	"WorkflowRefRef" TEXT, 
-	"CodingRef" TEXT, 
-	"StudyEventGroupRefRef" TEXT, 
-	"MetaDataVersion_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("MetaDataVersion_OID") REFERENCES "MetaDataVersion" ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	"armOID" TEXT, 
+	"epochOID" TEXT, 
+	"commentOID" TEXT, 
+	description TEXT, 
+	"workflowRef" TEXT, 
+	coding TEXT, 
+	"studyEventGroupRef" TEXT, 
+	"MetaDataVersion_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("MetaDataVersion_oID") REFERENCES "MetaDataVersion" ("oID")
 );
 
 CREATE TABLE "ValueListDef" (
-	"OID" TEXT NOT NULL, 
-	"DescriptionRef" TEXT, 
-	"ItemRefRef" TEXT, 
-	"MetaDataVersion_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("MetaDataVersion_OID") REFERENCES "MetaDataVersion" ("OID")
+	"oID" TEXT NOT NULL, 
+	description TEXT, 
+	"itemRef" TEXT, 
+	"MetaDataVersion_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("MetaDataVersion_oID") REFERENCES "MetaDataVersion" ("oID")
 );
 
 CREATE TABLE "WhereClauseDef" (
-	"OID" TEXT NOT NULL, 
-	"CommentOID" TEXT, 
-	"RangeCheckRef" TEXT, 
-	"MetaDataVersion_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("MetaDataVersion_OID") REFERENCES "MetaDataVersion" ("OID")
+	"oID" TEXT NOT NULL, 
+	"commentOID" TEXT, 
+	"rangeCheck" TEXT, 
+	"MetaDataVersion_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("MetaDataVersion_oID") REFERENCES "MetaDataVersion" ("oID")
 );
 
 CREATE TABLE "WorkflowDef" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"DescriptionRef" TEXT, 
-	"WorkflowStartRef" TEXT, 
-	"MetaDataVersion_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("MetaDataVersion_OID") REFERENCES "MetaDataVersion" ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	description TEXT, 
+	"workflowStart" TEXT, 
+	"MetaDataVersion_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("MetaDataVersion_oID") REFERENCES "MetaDataVersion" ("oID")
 );
 
 CREATE TABLE "Branching" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"Type" VARCHAR(9) NOT NULL, 
-	"WorkflowDef_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("WorkflowDef_OID") REFERENCES "WorkflowDef" ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	type VARCHAR(9) NOT NULL, 
+	"WorkflowDef_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("WorkflowDef_oID") REFERENCES "WorkflowDef" ("oID")
 );
 
 CREATE TABLE "CodeListItem" (
-	"CodedValue" TEXT NOT NULL, 
-	"Rank" TEXT, 
-	"Other" VARCHAR, 
-	"OrderNumber" INTEGER, 
-	"ExtendedValue" VARCHAR, 
-	"CommentOID" TEXT, 
-	"DescriptionRef" TEXT, 
-	"DecodeRef" TEXT, 
-	"CodingRef" TEXT, 
-	"AliasRef" TEXT, 
-	"CodeList_OID" TEXT, 
-	PRIMARY KEY ("CodedValue", "Rank", "Other", "OrderNumber", "ExtendedValue", "CommentOID", "DescriptionRef", "DecodeRef", "CodingRef", "AliasRef", "CodeList_OID"), 
-	FOREIGN KEY("CodeList_OID") REFERENCES "CodeList" ("OID")
+	"codedValue" TEXT NOT NULL, 
+	rank TEXT, 
+	other VARCHAR, 
+	"orderNumber" INTEGER, 
+	"extendedValue" VARCHAR, 
+	"commentOID" TEXT, 
+	description TEXT, 
+	decode TEXT, 
+	coding TEXT, 
+	alias TEXT, 
+	"CodeList_oID" TEXT, 
+	PRIMARY KEY ("codedValue", rank, other, "orderNumber", "extendedValue", "commentOID", description, decode, coding, alias, "CodeList_oID"), 
+	FOREIGN KEY("CodeList_oID") REFERENCES "CodeList" ("oID")
 );
 
 CREATE TABLE "StudyEventRef" (
-	"StudyEventOID" TEXT NOT NULL, 
-	"OrderNumber" INTEGER, 
-	"Mandatory" VARCHAR(3) NOT NULL, 
-	"CollectionExceptionConditionOID" TEXT, 
-	"StudyEventGroupDef_OID" TEXT, 
-	PRIMARY KEY ("StudyEventOID", "OrderNumber", "Mandatory", "CollectionExceptionConditionOID", "StudyEventGroupDef_OID"), 
-	FOREIGN KEY("StudyEventGroupDef_OID") REFERENCES "StudyEventGroupDef" ("OID")
+	"studyEventOID" TEXT NOT NULL, 
+	"orderNumber" INTEGER, 
+	mandatory VARCHAR(3) NOT NULL, 
+	"collectionExceptionConditionOID" TEXT, 
+	"StudyEventGroupDef_oID" TEXT, 
+	PRIMARY KEY ("studyEventOID", "orderNumber", mandatory, "collectionExceptionConditionOID", "StudyEventGroupDef_oID"), 
+	FOREIGN KEY("StudyEventGroupDef_oID") REFERENCES "StudyEventGroupDef" ("oID")
 );
 
 CREATE TABLE "Transition" (
-	"OID" TEXT NOT NULL, 
-	"Name" TEXT NOT NULL, 
-	"SourceOID" TEXT NOT NULL, 
-	"TargetOID" TEXT NOT NULL, 
-	"StartConditionOID" TEXT, 
-	"EndConditionOID" TEXT, 
-	"WorkflowDef_OID" TEXT, 
-	PRIMARY KEY ("OID"), 
-	FOREIGN KEY("WorkflowDef_OID") REFERENCES "WorkflowDef" ("OID")
+	"oID" TEXT NOT NULL, 
+	name TEXT NOT NULL, 
+	"sourceOID" TEXT NOT NULL, 
+	"targetOID" TEXT NOT NULL, 
+	"startConditionOID" TEXT, 
+	"endConditionOID" TEXT, 
+	"WorkflowDef_oID" TEXT, 
+	PRIMARY KEY ("oID"), 
+	FOREIGN KEY("WorkflowDef_oID") REFERENCES "WorkflowDef" ("oID")
 );
 
 CREATE TABLE "WorkflowEnd" (
-	"EndOID" TEXT NOT NULL, 
+	"endOID" TEXT NOT NULL, 
 	content TEXT, 
-	"WorkflowDef_OID" TEXT, 
-	PRIMARY KEY ("EndOID", content, "WorkflowDef_OID"), 
-	FOREIGN KEY("WorkflowDef_OID") REFERENCES "WorkflowDef" ("OID")
+	"WorkflowDef_oID" TEXT, 
+	PRIMARY KEY ("endOID", content, "WorkflowDef_oID"), 
+	FOREIGN KEY("WorkflowDef_oID") REFERENCES "WorkflowDef" ("oID")
 );
 
 CREATE TABLE "DefaultTransition" (
-	"TargetTransitionOID" TEXT NOT NULL, 
-	"Branching_OID" TEXT, 
-	PRIMARY KEY ("TargetTransitionOID", "Branching_OID"), 
-	FOREIGN KEY("Branching_OID") REFERENCES "Branching" ("OID")
+	"targetTransitionOID" TEXT NOT NULL, 
+	"Branching_oID" TEXT, 
+	PRIMARY KEY ("targetTransitionOID", "Branching_oID"), 
+	FOREIGN KEY("Branching_oID") REFERENCES "Branching" ("oID")
 );
 
 CREATE TABLE "TargetTransition" (
-	"TargetTransitionOID" TEXT NOT NULL, 
-	"ConditionOID" TEXT, 
-	"Branching_OID" TEXT, 
-	PRIMARY KEY ("TargetTransitionOID", "ConditionOID", "Branching_OID"), 
-	FOREIGN KEY("Branching_OID") REFERENCES "Branching" ("OID")
+	"targetTransitionOID" TEXT NOT NULL, 
+	"conditionOID" TEXT, 
+	"Branching_oID" TEXT, 
+	PRIMARY KEY ("targetTransitionOID", "conditionOID", "Branching_oID"), 
+	FOREIGN KEY("Branching_oID") REFERENCES "Branching" ("oID")
 );

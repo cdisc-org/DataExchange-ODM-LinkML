@@ -11,7 +11,7 @@ URI: [odm:CodeListRef](http://www.cdisc.org/ns/odm/v2.0/CodeListRef)
 ```mermaid
 erDiagram
 CodeListRef {
-    oidref CodeListOID  
+    oidref codeListOID  
 }
 
 
@@ -27,7 +27,7 @@ CodeListRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [CodeListOID](CodeListOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the CodeList definition that provides the allowable values for I... | direct |
+| [codeListOID](codeListOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the CodeList definition that provides the allowable values for I... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ItemDef](ItemDef.md) | [CodeListRefRef](CodeListRefRef.md) | range | [CodeListRef](CodeListRef.md) |
+| [ItemDef](ItemDef.md) | [codeListRef](codeListRef.md) | range | [CodeListRef](CodeListRef.md) |
 
 
 
@@ -92,10 +92,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/CodeListRef
 rank: 1000
 slots:
-- CodeListOID
+- codeListOID
 slot_usage:
-  CodeListOID:
-    name: CodeListOID
+  codeListOID:
+    name: codeListOID
     description: Reference to the CodeList definition that provides the allowable
       values for ItemData that references the ItemDef.
     comments:
@@ -124,8 +124,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/CodeListRef
 rank: 1000
 slot_usage:
-  CodeListOID:
-    name: CodeListOID
+  codeListOID:
+    name: codeListOID
     description: Reference to the CodeList definition that provides the allowable
       values for ItemData that references the ItemDef.
     comments:
@@ -139,8 +139,8 @@ slot_usage:
     range: oidref
     required: true
 attributes:
-  CodeListOID:
-    name: CodeListOID
+  codeListOID:
+    name: codeListOID
     description: Reference to the CodeList definition that provides the allowable
       values for ItemData that references the ItemDef.
     comments:
@@ -149,7 +149,7 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: CodeListOID
+    alias: codeListOID
     owner: CodeListRef
     domain_of:
     - CodeListRef

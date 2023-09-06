@@ -11,7 +11,7 @@ URI: [odm:Selection](http://www.cdisc.org/ns/odm/v2.0/Selection)
 ```mermaid
 erDiagram
 Selection {
-    text Path  
+    text path  
 }
 
 
@@ -27,7 +27,7 @@ Selection {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Path](Path.md) | 1..1 <br/> [text](text.md) | Provides the machine-executable instruction or template for it to obtain the ... | direct |
+| [path](path.md) | 1..1 <br/> [text](text.md) | Provides the machine-executable instruction or template for it to obtain the ... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Resource](Resource.md) | [SelectionRef](SelectionRef.md) | range | [Selection](Selection.md) |
+| [Resource](Resource.md) | [selection](selection.md) | range | [Selection](Selection.md) |
 
 
 
@@ -93,10 +93,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Selection
 rank: 1000
 slots:
-- Path
+- path
 slot_usage:
-  Path:
-    name: Path
+  path:
+    name: path
     description: Provides the machine-executable instruction or template for it to
       obtain the data or information from the resource. The value of the Path attribute
       can either be an absolute path, or a relative path starting from the information
@@ -126,8 +126,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Selection
 rank: 1000
 slot_usage:
-  Path:
-    name: Path
+  path:
+    name: path
     description: Provides the machine-executable instruction or template for it to
       obtain the data or information from the resource. The value of the Path attribute
       can either be an absolute path, or a relative path starting from the information
@@ -141,8 +141,8 @@ slot_usage:
     range: text
     required: true
 attributes:
-  Path:
-    name: Path
+  path:
+    name: path
     description: Provides the machine-executable instruction or template for it to
       obtain the data or information from the resource. The value of the Path attribute
       can either be an absolute path, or a relative path starting from the information
@@ -153,7 +153,7 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Path
+    alias: path
     owner: Selection
     domain_of:
     - Selection

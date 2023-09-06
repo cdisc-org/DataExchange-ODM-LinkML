@@ -11,11 +11,11 @@ URI: [odm:PDFPageRef](http://www.cdisc.org/ns/odm/v2.0/PDFPageRef)
 ```mermaid
 erDiagram
 PDFPageRef {
-    text PageRefs  
-    positiveInteger FirstPage  
-    positiveInteger LastPage  
-    PDFPageType Type  
-    text TitleRef  
+    text pageRefs  
+    positiveInteger firstPage  
+    positiveInteger lastPage  
+    PDFPageType type  
+    text title  
 }
 
 
@@ -31,11 +31,11 @@ PDFPageRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [PageRefs](PageRefs.md) | 0..1 <br/> [text](text.md) | List of PDF pages, separated by spaces. Sample: "17 20 32 | direct |
-| [FirstPage](FirstPage.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | First page in a range of pages. Note that the way to indicate the range of pa... | direct |
-| [LastPage](LastPage.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Last page in a range of pages. Note that the way to indicate the range of pag... | direct |
-| [Type](Type.md) | 1..1 <br/> [PDFPageType](PDFPageType.md) | Type of page for page reference(s) indicated in the PageRefs attribute | direct |
-| [TitleRef](TitleRef.md) | 0..1 <br/> [text](text.md) | Alternative label to provide a more specific and descriptive reference to a p... | direct |
+| [pageRefs](pageRefs.md) | 0..1 <br/> [text](text.md) | List of PDF pages, separated by spaces. Sample: "17 20 32 | direct |
+| [firstPage](firstPage.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | First page in a range of pages. Note that the way to indicate the range of pa... | direct |
+| [lastPage](lastPage.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Last page in a range of pages. Note that the way to indicate the range of pag... | direct |
+| [type](type.md) | 1..1 <br/> [PDFPageType](PDFPageType.md) | Type of page for page reference(s) indicated in the PageRefs attribute | direct |
+| [title](title.md) | 0..1 <br/> [text](text.md) | Alternative label to provide a more specific and descriptive reference to a p... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -46,7 +46,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [DocumentRef](DocumentRef.md) | [PDFPageRefRef](PDFPageRefRef.md) | range | [PDFPageRef](PDFPageRef.md) |
+| [DocumentRef](DocumentRef.md) | [pDFPageRef](pDFPageRef.md) | range | [PDFPageRef](PDFPageRef.md) |
 
 
 
@@ -100,14 +100,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/PDFPageRef
 rank: 1000
 slots:
-- PageRefs
-- FirstPage
-- LastPage
-- Type
-- TitleRef
+- pageRefs
+- firstPage
+- lastPage
+- type
+- title
 slot_usage:
-  PageRefs:
-    name: PageRefs
+  pageRefs:
+    name: pageRefs
     description: 'List of PDF pages, separated by spaces. Sample: "17 20 32'
     comments:
     - 'Optional
@@ -116,8 +116,8 @@ slot_usage:
     domain_of:
     - PDFPageRef
     range: text
-  FirstPage:
-    name: FirstPage
+  firstPage:
+    name: firstPage
     description: First page in a range of pages. Note that the way to indicate the
       range of pages depends on the associated Type attribute provided.
     comments:
@@ -127,8 +127,8 @@ slot_usage:
     domain_of:
     - PDFPageRef
     range: positiveInteger
-  LastPage:
-    name: LastPage
+  lastPage:
+    name: lastPage
     description: Last page in a range of pages. Note that the way to indicate the
       range of pages depends on the associated Type attribute provided.
     comments:
@@ -138,8 +138,8 @@ slot_usage:
     domain_of:
     - PDFPageRef
     range: positiveInteger
-  Type:
-    name: Type
+  type:
+    name: type
     description: Type of page for page reference(s) indicated in the PageRefs attribute
     comments:
     - 'Required
@@ -165,8 +165,8 @@ slot_usage:
     - Query
     range: PDFPageType
     required: true
-  TitleRef:
-    name: TitleRef
+  title:
+    name: title
     description: Alternative label to provide a more specific and descriptive reference
       to a page link.
     comments:
@@ -193,8 +193,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/PDFPageRef
 rank: 1000
 slot_usage:
-  PageRefs:
-    name: PageRefs
+  pageRefs:
+    name: pageRefs
     description: 'List of PDF pages, separated by spaces. Sample: "17 20 32'
     comments:
     - 'Optional
@@ -203,8 +203,8 @@ slot_usage:
     domain_of:
     - PDFPageRef
     range: text
-  FirstPage:
-    name: FirstPage
+  firstPage:
+    name: firstPage
     description: First page in a range of pages. Note that the way to indicate the
       range of pages depends on the associated Type attribute provided.
     comments:
@@ -214,8 +214,8 @@ slot_usage:
     domain_of:
     - PDFPageRef
     range: positiveInteger
-  LastPage:
-    name: LastPage
+  lastPage:
+    name: lastPage
     description: Last page in a range of pages. Note that the way to indicate the
       range of pages depends on the associated Type attribute provided.
     comments:
@@ -225,8 +225,8 @@ slot_usage:
     domain_of:
     - PDFPageRef
     range: positiveInteger
-  Type:
-    name: Type
+  type:
+    name: type
     description: Type of page for page reference(s) indicated in the PageRefs attribute
     comments:
     - 'Required
@@ -252,8 +252,8 @@ slot_usage:
     - Query
     range: PDFPageType
     required: true
-  TitleRef:
-    name: TitleRef
+  title:
+    name: title
     description: Alternative label to provide a more specific and descriptive reference
       to a page link.
     comments:
@@ -265,8 +265,8 @@ slot_usage:
     - Leaf
     range: text
 attributes:
-  PageRefs:
-    name: PageRefs
+  pageRefs:
+    name: pageRefs
     description: 'List of PDF pages, separated by spaces. Sample: "17 20 32'
     comments:
     - 'Optional
@@ -274,13 +274,13 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: PageRefs
+    alias: pageRefs
     owner: PDFPageRef
     domain_of:
     - PDFPageRef
     range: text
-  FirstPage:
-    name: FirstPage
+  firstPage:
+    name: firstPage
     description: First page in a range of pages. Note that the way to indicate the
       range of pages depends on the associated Type attribute provided.
     comments:
@@ -289,13 +289,13 @@ attributes:
       range: positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: FirstPage
+    alias: firstPage
     owner: PDFPageRef
     domain_of:
     - PDFPageRef
     range: positiveInteger
-  LastPage:
-    name: LastPage
+  lastPage:
+    name: lastPage
     description: Last page in a range of pages. Note that the way to indicate the
       range of pages depends on the associated Type attribute provided.
     comments:
@@ -304,13 +304,13 @@ attributes:
       range: positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: LastPage
+    alias: lastPage
     owner: PDFPageRef
     domain_of:
     - PDFPageRef
     range: positiveInteger
-  Type:
-    name: Type
+  type:
+    name: type
     description: Type of page for page reference(s) indicated in the PageRefs attribute
     comments:
     - 'Required
@@ -321,7 +321,7 @@ attributes:
       PDF document to be able to link to them via a hyperlink.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Type
+    alias: type
     owner: PDFPageRef
     domain_of:
     - TranslatedText
@@ -340,8 +340,8 @@ attributes:
     - Query
     range: PDFPageType
     required: true
-  TitleRef:
-    name: TitleRef
+  title:
+    name: title
     description: Alternative label to provide a more specific and descriptive reference
       to a page link.
     comments:
@@ -351,7 +351,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: TitleRef
+    alias: title
     owner: PDFPageRef
     domain_of:
     - PDFPageRef

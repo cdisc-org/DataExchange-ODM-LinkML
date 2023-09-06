@@ -11,8 +11,8 @@ URI: [odm:Alias](http://www.cdisc.org/ns/odm/v2.0/Alias)
 ```mermaid
 erDiagram
 Alias {
-    text ContextRef  
-    text Name  
+    text context  
+    text name  
 }
 
 
@@ -28,8 +28,8 @@ Alias {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ContextRef](ContextRef.md) | 1..1 <br/> [text](text.md) | Identifies applicable domain or scope of the mapping. | direct |
-| [Name](Name.md) | 1..1 <br/> [text](text.md) | Alternate name of the parent element. | direct |
+| [context](context.md) | 1..1 <br/> [text](text.md) | Identifies applicable domain or scope of the mapping. | direct |
+| [name](name.md) | 1..1 <br/> [text](text.md) | Alternate name of the parent element. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -40,14 +40,14 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyEventDef](StudyEventDef.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
-| [ItemGroupDef](ItemGroupDef.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
-| [ItemDef](ItemDef.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
-| [CodeList](CodeList.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
-| [CodeListItem](CodeListItem.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
-| [MethodDef](MethodDef.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
-| [ConditionDef](ConditionDef.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
-| [Protocol](Protocol.md) | [AliasRef](AliasRef.md) | range | [Alias](Alias.md) |
+| [StudyEventDef](StudyEventDef.md) | [alias](alias.md) | range | [Alias](Alias.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [alias](alias.md) | range | [Alias](Alias.md) |
+| [ItemDef](ItemDef.md) | [alias](alias.md) | range | [Alias](Alias.md) |
+| [CodeList](CodeList.md) | [alias](alias.md) | range | [Alias](Alias.md) |
+| [CodeListItem](CodeListItem.md) | [alias](alias.md) | range | [Alias](Alias.md) |
+| [MethodDef](MethodDef.md) | [alias](alias.md) | range | [Alias](Alias.md) |
+| [ConditionDef](ConditionDef.md) | [alias](alias.md) | range | [Alias](Alias.md) |
+| [Protocol](Protocol.md) | [alias](alias.md) | range | [Alias](Alias.md) |
 
 
 
@@ -102,11 +102,11 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Alias
 rank: 1000
 slots:
-- ContextRef
-- Name
+- context
+- name
 slot_usage:
-  ContextRef:
-    name: ContextRef
+  context:
+    name: context
     description: Identifies applicable domain or scope of the mapping.
     comments:
     - 'Required
@@ -120,8 +120,8 @@ slot_usage:
     - ODMFileMetadata
     range: text
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Alternate name of the parent element.
     comments:
     - 'Required
@@ -183,8 +183,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Alias
 rank: 1000
 slot_usage:
-  ContextRef:
-    name: ContextRef
+  context:
+    name: context
     description: Identifies applicable domain or scope of the mapping.
     comments:
     - 'Required
@@ -198,8 +198,8 @@ slot_usage:
     - ODMFileMetadata
     range: text
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Alternate name of the parent element.
     comments:
     - 'Required
@@ -245,8 +245,8 @@ slot_usage:
     range: text
     required: true
 attributes:
-  ContextRef:
-    name: ContextRef
+  context:
+    name: context
     description: Identifies applicable domain or scope of the mapping.
     comments:
     - 'Required
@@ -256,7 +256,7 @@ attributes:
       Valid values may be defined by users or through schema extensions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ContextRef
+    alias: context
     owner: Alias
     domain_of:
     - Alias
@@ -264,8 +264,8 @@ attributes:
     - ODMFileMetadata
     range: text
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Alternate name of the parent element.
     comments:
     - 'Required
@@ -275,7 +275,7 @@ attributes:
       Valid values are dependent on the Context attribute value.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: Alias
     domain_of:
     - Alias

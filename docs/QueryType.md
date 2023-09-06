@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in Type_
+_Enumeration used in type_
 
 
 
@@ -23,7 +23,7 @@ URI: [QueryType](QueryType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) | Indicates whether Is the Query was raised manually by a user or automatically... |
+| [type](type.md) | Indicates whether Is the Query was raised manually by a user or automatically... |
 
 
 
@@ -51,7 +51,7 @@ URI: [QueryType](QueryType)
 <details>
 ```yaml
 name: QueryType
-description: Enumeration used in Type
+description: Enumeration used in type
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

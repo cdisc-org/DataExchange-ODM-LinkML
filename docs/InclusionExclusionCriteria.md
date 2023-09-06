@@ -17,20 +17,20 @@ ExclusionCriteria {
 
 }
 Criterion {
-    oid OID  
-    name Name  
-    oidref ConditionOID  
+    oid oID  
+    nameType name  
+    oidref conditionOID  
 }
 InclusionCriteria {
 
 }
 
-InclusionExclusionCriteria ||--|o InclusionCriteria : "InclusionCriteriaRef"
-InclusionExclusionCriteria ||--|o ExclusionCriteria : "ExclusionCriteriaRef"
-ExclusionCriteria ||--}o Criterion : "CriterionRef"
-Criterion ||--|o Description : "DescriptionRef"
-Criterion ||--}o Coding : "CodingRef"
-InclusionCriteria ||--}o Criterion : "CriterionRef"
+InclusionExclusionCriteria ||--|o InclusionCriteria : "inclusionCriteria"
+InclusionExclusionCriteria ||--|o ExclusionCriteria : "exclusionCriteria"
+ExclusionCriteria ||--}o Criterion : "criterion"
+Criterion ||--|o Description : "description"
+Criterion ||--}o Coding : "coding"
+InclusionCriteria ||--}o Criterion : "criterion"
 
 ```
 
@@ -43,8 +43,8 @@ InclusionCriteria ||--}o Criterion : "CriterionRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [InclusionCriteriaRef](InclusionCriteriaRef.md) | 0..1 <br/> [InclusionCriteria](InclusionCriteria.md) | InclusionCriteria reference: The InclusionCriteria is a container element for... | direct |
-| [ExclusionCriteriaRef](ExclusionCriteriaRef.md) | 0..1 <br/> [ExclusionCriteria](ExclusionCriteria.md) | ExclusionCriteria reference: The ExclusionCriteria is a container element for... | direct |
+| [inclusionCriteria](inclusionCriteria.md) | 0..1 <br/> [InclusionCriteria](InclusionCriteria.md) | InclusionCriteria reference: The InclusionCriteria is a container element for... | direct |
+| [exclusionCriteria](exclusionCriteria.md) | 0..1 <br/> [ExclusionCriteria](ExclusionCriteria.md) | ExclusionCriteria reference: The ExclusionCriteria is a container element for... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -55,7 +55,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Protocol](Protocol.md) | [InclusionExclusionCriteriaRef](InclusionExclusionCriteriaRef.md) | range | [InclusionExclusionCriteria](InclusionExclusionCriteria.md) |
+| [Protocol](Protocol.md) | [inclusionExclusionCriteria](inclusionExclusionCriteria.md) | range | [InclusionExclusionCriteria](InclusionExclusionCriteria.md) |
 
 
 
@@ -113,17 +113,17 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/InclusionExclusionCriteria
 rank: 1000
 slots:
-- InclusionCriteriaRef
-- ExclusionCriteriaRef
+- inclusionCriteria
+- exclusionCriteria
 slot_usage:
-  InclusionCriteriaRef:
-    name: InclusionCriteriaRef
+  inclusionCriteria:
+    name: inclusionCriteria
     domain_of:
     - InclusionExclusionCriteria
     range: InclusionCriteria
     maximum_cardinality: 1
-  ExclusionCriteriaRef:
-    name: ExclusionCriteriaRef
+  exclusionCriteria:
+    name: exclusionCriteria
     domain_of:
     - InclusionExclusionCriteria
     range: ExclusionCriteria
@@ -148,21 +148,21 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/InclusionExclusionCriteria
 rank: 1000
 slot_usage:
-  InclusionCriteriaRef:
-    name: InclusionCriteriaRef
+  inclusionCriteria:
+    name: inclusionCriteria
     domain_of:
     - InclusionExclusionCriteria
     range: InclusionCriteria
     maximum_cardinality: 1
-  ExclusionCriteriaRef:
-    name: ExclusionCriteriaRef
+  exclusionCriteria:
+    name: exclusionCriteria
     domain_of:
     - InclusionExclusionCriteria
     range: ExclusionCriteria
     maximum_cardinality: 1
 attributes:
-  InclusionCriteriaRef:
-    name: InclusionCriteriaRef
+  inclusionCriteria:
+    name: inclusionCriteria
     description: 'InclusionCriteria reference: The InclusionCriteria is a container
       element for Criterion elements describing inclusion criteria for subjects in
       the study. When a list is provided, subjects must meet each of the criteria
@@ -170,14 +170,14 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: InclusionCriteriaRef
+    alias: inclusionCriteria
     owner: InclusionExclusionCriteria
     domain_of:
     - InclusionExclusionCriteria
     range: InclusionCriteria
     maximum_cardinality: 1
-  ExclusionCriteriaRef:
-    name: ExclusionCriteriaRef
+  exclusionCriteria:
+    name: exclusionCriteria
     description: 'ExclusionCriteria reference: The ExclusionCriteria is a container
       element for Criterion elements describing exclusion criteria for subjects in
       the study. When a list is provided, not meeting any of the criteria in the list
@@ -185,7 +185,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: ExclusionCriteriaRef
+    alias: exclusionCriteria
     owner: InclusionExclusionCriteria
     domain_of:
     - InclusionExclusionCriteria

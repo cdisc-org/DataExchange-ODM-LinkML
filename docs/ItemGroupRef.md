@@ -11,11 +11,11 @@ URI: [odm:ItemGroupRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRef)
 ```mermaid
 erDiagram
 ItemGroupRef {
-    oidref ItemGroupOID  
-    oidref MethodOID  
-    positiveInteger OrderNumber  
-    YesOrNo Mandatory  
-    oidref CollectionExceptionConditionOID  
+    oidref itemGroupOID  
+    oidref methodOID  
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+    oidref collectionExceptionConditionOID  
 }
 
 
@@ -31,11 +31,11 @@ ItemGroupRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ItemGroupOID](ItemGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the ItemGroupDef . | direct |
-| [MethodOID](MethodOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a MethodDef that will provide one or more data rows as output. T... | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this ItemGroup appears in Metadata displays or d... | direct |
-| [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | The Mandatory flag indicates that the clinical data for an instance of the co... | direct |
-| [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
+| [itemGroupOID](itemGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the ItemGroupDef . | direct |
+| [methodOID](methodOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a MethodDef that will provide one or more data rows as output. T... | direct |
+| [orderNumber](orderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this ItemGroup appears in Metadata displays or d... | direct |
+| [mandatory](mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | The Mandatory flag indicates that the clinical data for an instance of the co... | direct |
+| [collectionExceptionConditionOID](collectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -46,8 +46,8 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyEventDef](StudyEventDef.md) | [ItemGroupRefRef](ItemGroupRefRef.md) | range | [ItemGroupRef](ItemGroupRef.md) |
-| [ItemGroupDef](ItemGroupDef.md) | [ItemGroupRefRef](ItemGroupRefRef.md) | range | [ItemGroupRef](ItemGroupRef.md) |
+| [StudyEventDef](StudyEventDef.md) | [itemGroupRef](itemGroupRef.md) | range | [ItemGroupRef](ItemGroupRef.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [itemGroupRef](itemGroupRef.md) | range | [ItemGroupRef](ItemGroupRef.md) |
 
 
 
@@ -105,14 +105,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ItemGroupRef
 rank: 1000
 slots:
-- ItemGroupOID
-- MethodOID
-- OrderNumber
-- Mandatory
-- CollectionExceptionConditionOID
+- itemGroupOID
+- methodOID
+- orderNumber
+- mandatory
+- collectionExceptionConditionOID
 slot_usage:
-  ItemGroupOID:
-    name: ItemGroupOID
+  itemGroupOID:
+    name: itemGroupOID
     description: Reference to the ItemGroupDef .
     comments:
     - 'Required
@@ -127,8 +127,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  MethodOID:
-    name: MethodOID
+  methodOID:
+    name: methodOID
     description: Reference to a MethodDef that will provide one or more data rows
       as output. The MethodDef is used to prepopulate items
     comments:
@@ -142,8 +142,8 @@ slot_usage:
     - ItemRef
     - TransitionTimingConstraint
     range: oidref
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Indicates the order in which this ItemGroup appears in Metadata displays
       or data entry applications. The OrderNumber attribute provides an ordering on
       the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever a
@@ -168,8 +168,8 @@ slot_usage:
     - ReturnValue
     - StudyEndPointRef
     range: positiveInteger
-  Mandatory:
-    name: Mandatory
+  mandatory:
+    name: mandatory
     description: The Mandatory flag indicates that the clinical data for an instance
       of the containing event or ItemGroup would be incomplete without an instance
       of this type of ItemGroup. ODM clinical data files that are incomplete in this
@@ -188,8 +188,8 @@ slot_usage:
     - ItemRef
     range: YesOrNo
     required: true
-  CollectionExceptionConditionOID:
-    name: CollectionExceptionConditionOID
+  collectionExceptionConditionOID:
+    name: collectionExceptionConditionOID
     description: Reference to a ConditionDef If the CollectionExceptionConditionOID
       attribute is provided, the ConditionDef it references describes the circumstances
       under which data for this ItemGroup should not be collected.
@@ -226,8 +226,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ItemGroupRef
 rank: 1000
 slot_usage:
-  ItemGroupOID:
-    name: ItemGroupOID
+  itemGroupOID:
+    name: itemGroupOID
     description: Reference to the ItemGroupDef .
     comments:
     - 'Required
@@ -242,8 +242,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  MethodOID:
-    name: MethodOID
+  methodOID:
+    name: methodOID
     description: Reference to a MethodDef that will provide one or more data rows
       as output. The MethodDef is used to prepopulate items
     comments:
@@ -257,8 +257,8 @@ slot_usage:
     - ItemRef
     - TransitionTimingConstraint
     range: oidref
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Indicates the order in which this ItemGroup appears in Metadata displays
       or data entry applications. The OrderNumber attribute provides an ordering on
       the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever a
@@ -283,8 +283,8 @@ slot_usage:
     - ReturnValue
     - StudyEndPointRef
     range: positiveInteger
-  Mandatory:
-    name: Mandatory
+  mandatory:
+    name: mandatory
     description: The Mandatory flag indicates that the clinical data for an instance
       of the containing event or ItemGroup would be incomplete without an instance
       of this type of ItemGroup. ODM clinical data files that are incomplete in this
@@ -303,8 +303,8 @@ slot_usage:
     - ItemRef
     range: YesOrNo
     required: true
-  CollectionExceptionConditionOID:
-    name: CollectionExceptionConditionOID
+  collectionExceptionConditionOID:
+    name: collectionExceptionConditionOID
     description: Reference to a ConditionDef If the CollectionExceptionConditionOID
       attribute is provided, the ConditionDef it references describes the circumstances
       under which data for this ItemGroup should not be collected.
@@ -322,8 +322,8 @@ slot_usage:
     - ItemRef
     range: oidref
 attributes:
-  ItemGroupOID:
-    name: ItemGroupOID
+  itemGroupOID:
+    name: itemGroupOID
     description: Reference to the ItemGroupDef .
     comments:
     - 'Required
@@ -333,7 +333,7 @@ attributes:
       Must match the OID atttribute for an ItemGroupDef in the Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ItemGroupOID
+    alias: itemGroupOID
     owner: ItemGroupRef
     domain_of:
     - ItemGroupRef
@@ -342,8 +342,8 @@ attributes:
     - KeySet
     range: oidref
     required: true
-  MethodOID:
-    name: MethodOID
+  methodOID:
+    name: methodOID
     description: Reference to a MethodDef that will provide one or more data rows
       as output. The MethodDef is used to prepopulate items
     comments:
@@ -354,15 +354,15 @@ attributes:
       The MethodOID value must match the OID attribute for a MethodDef in this Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: MethodOID
+    alias: methodOID
     owner: ItemGroupRef
     domain_of:
     - ItemGroupRef
     - ItemRef
     - TransitionTimingConstraint
     range: oidref
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Indicates the order in which this ItemGroup appears in Metadata displays
       or data entry applications. The OrderNumber attribute provides an ordering on
       the ItemGroupDefs (within StudyEventDef or ItemGroupDef) for use whenever a
@@ -379,7 +379,7 @@ attributes:
       values'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: OrderNumber
+    alias: orderNumber
     owner: ItemGroupRef
     domain_of:
     - StudyEventGroupRef
@@ -391,8 +391,8 @@ attributes:
     - ReturnValue
     - StudyEndPointRef
     range: positiveInteger
-  Mandatory:
-    name: Mandatory
+  mandatory:
+    name: mandatory
     description: The Mandatory flag indicates that the clinical data for an instance
       of the containing event or ItemGroup would be incomplete without an instance
       of this type of ItemGroup. ODM clinical data files that are incomplete in this
@@ -406,7 +406,7 @@ attributes:
       StudyEventData element with this StudyEventOID.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Mandatory
+    alias: mandatory
     owner: ItemGroupRef
     domain_of:
     - StudyEventGroupRef
@@ -415,8 +415,8 @@ attributes:
     - ItemRef
     range: YesOrNo
     required: true
-  CollectionExceptionConditionOID:
-    name: CollectionExceptionConditionOID
+  collectionExceptionConditionOID:
+    name: collectionExceptionConditionOID
     description: Reference to a ConditionDef If the CollectionExceptionConditionOID
       attribute is provided, the ConditionDef it references describes the circumstances
       under which data for this ItemGroup should not be collected.
@@ -429,7 +429,7 @@ attributes:
       ConditionDef in this Study/MetaDataVersion'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: CollectionExceptionConditionOID
+    alias: collectionExceptionConditionOID
     owner: ItemGroupRef
     domain_of:
     - StudyEventGroupRef

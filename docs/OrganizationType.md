@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in Type_
+_Enumeration used in type_
 
 
 
@@ -27,7 +27,7 @@ URI: [OrganizationType](OrganizationType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) | Categorization of organizations associated with clinical studies. |
+| [type](type.md) | Categorization of organizations associated with clinical studies. |
 
 
 
@@ -55,7 +55,7 @@ URI: [OrganizationType](OrganizationType)
 <details>
 ```yaml
 name: OrganizationType
-description: Enumeration used in Type
+description: Enumeration used in type
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

@@ -10,10 +10,6 @@ import scraper
 # Names for unnamed XML elements
 CONTENT_KEY = 'content'
 LANGUAGE_KEY = 'language'
-# Suffixes added as needed to avoid collisions between class/type/slot/enum names
-REFERENCE_SUFFIX = 'Ref'
-TYPE_SUFFIX = 'Type'
-ENUM_SUFFIX = 'Enum'
 # Switch this to True for debugging
 DEBUG = False
 
@@ -69,11 +65,11 @@ class ODMLinkMLTransformer():
         Content that is different from the Source Schema
         """
         # Changed ODMVersion simple type to ODMVersionType to avoid collision with slot name
-        # Added REFERENCE_SUFFIX to slot names to avoid collision with classes
+        # Forced slot names to begin with lower-case letter to avoid collision with classes
 
 
         # New Type for renamed XML Schema-specific element: internationalisation/localisation attribute
-        range = LANGUAGE_KEY + TYPE_SUFFIX
+        range = LANGUAGE_KEY + 'Type'
         self.schema.add_slot(
             SlotDefinition(name =LANGUAGE_KEY, range = range, 
                 description = 'language context for internationalisation and localisation'))
@@ -82,7 +78,7 @@ class ODMLinkMLTransformer():
                 description = 'language context for internationalisation and localisation'))
         
         # New Slot for renamed XML Schema-specific elements: text between tags
-        range = CONTENT_KEY + TYPE_SUFFIX
+        range = CONTENT_KEY + 'Type'
         self.schema.add_slot(
             SlotDefinition(name = CONTENT_KEY, range = range, inlined = True,
                 description = 'multi-line text content from between XML tags'))
@@ -99,27 +95,26 @@ class ODMLinkMLTransformer():
             self.schema.delete_class('ODM')
 
     @staticmethod
-    def hardcoded_name(ref) -> str:
-        """
-        Modify these slot names explicitly from original model to avoid overlapping names
-        This complements an initial check against known class names when
-        slots are created from attribute groups, references, and reference groups
-        """
-        name_map = ['ODMVersion', 'Comparator', 'Context', 'DataType', 'FileType', 'Granularity',
-                    'TransactionType', 'UserType', 'Code', 'CodeListRef', 'Definition', 'LocationRef',
-                    'MetaDataVersionRef', 'SignatureRef', 'StudyEndPointRef', 'StudyInterventionRef',
-                    'StudyTargetPopulationRef', 'UserRef', 'Value', 'Title']
-        if ref in name_map:
-            return ref + REFERENCE_SUFFIX
-        else:
-            return ref
+    def map_slot_name(ref) -> str:
+        # Slot names that are not permissible Python names
+        if not ref or not isinstance(ref, str):
+            return None
+        slot_map = {
+            'Class': 'itemGroupClass',
+            'xlink:href': 'href',
+            'xml:lang': LANGUAGE_KEY,
+            'xhtml:div': CONTENT_KEY
+        }
+        if ref in slot_map.keys():
+            ref = slot_map[ref]
+        return ref[0].lower() + ref[1:]
         
     @staticmethod
-    def hardcoded_range(range) -> str:
+    def map_range(range) -> str:
         type_map = {
             'href': 'uriorcurie',
-            LANGUAGE_KEY: LANGUAGE_KEY + TYPE_SUFFIX,
-            CONTENT_KEY: CONTENT_KEY + TYPE_SUFFIX
+            LANGUAGE_KEY: LANGUAGE_KEY + 'Type',
+            CONTENT_KEY: CONTENT_KEY + 'Type'
         }
         if range in type_map.keys():
             range = type_map[range]
@@ -164,13 +159,17 @@ class ODMLinkMLTransformer():
         result = re.search(r'{.*?}(\w+)', ref)
         ref = result.group(1) if result else ref
         ref = ref.replace('@', '')
+        # Correct any incompatible or colliding type names
         type_map = {
             'xs:anyURI': 'uriorcurie',
             'xs:ID': 'oid',
             'xs:IDREF': 'oid',
             'xlink:href': 'href',
             'xml:lang': LANGUAGE_KEY,
-            'xhtml:div': CONTENT_KEY
+            'xhtml:div': CONTENT_KEY,
+            'name': 'nameType',
+            'subjectKey': 'subjectKeyType',
+            'value': 'valueType'
         }
         if ref in type_map.keys():
             return type_map[ref]
@@ -232,7 +231,7 @@ class ODMLinkMLTransformer():
             description = slots[slot_name].get('description')
             ref = slots[slot_name].get('ref')
             ranges =  slots[slot_name].get('ranges', ref) 
-            slot = SlotDefinition(name = self.hardcoded_name(slot_name))
+            slot = SlotDefinition(name = self.map_slot_name(slot_name))
             if ref:
                 slot.exact_mappings = [ref]
                 slot.uri = self.namespace_prefix + ':' + ref
@@ -287,6 +286,7 @@ class ODMLinkMLTransformer():
     # Assemble types and their restrictions
     def create_simple_type(self, element, type_name) -> None:
         # https://linkml.io/linkml-model/docs/TypeDefinition
+        type_name = self.map_type(type_name)
         if self.schema.get_type(type_name):
             return None
         self.print_debug('creating type', type_name)
@@ -377,15 +377,12 @@ class ODMLinkMLTransformer():
         range = self.map_type(element.get('ref'))
         name = element.get('name') or range
         self.print_debug('mapping reference', name)
-        if name in self.class_names:
-            name += REFERENCE_SUFFIX
-            self.print_debug('reference name changed to', name)
         min_occurs = min(min_occurs or 0, element.get('minOccurs', 0))
         max_occurs = max_occurs or element.get('maxOccurs')
         documentation = element.get('xs:annotation', {}).get('xs:documentation',[])
         return {
-            'name': self.hardcoded_name(name),
-            'range': self.hardcoded_range(range) or range,
+            'name': self.map_slot_name(name),
+            'range': self.map_range(range) or range,
             'required': True if (int(min_occurs) and int(min_occurs) > 0) else None,
             'multivalued': True if max_occurs == 'unbounded' else None,
             'inlined': True if max_occurs == 'unbounded' else None,
@@ -411,10 +408,10 @@ class ODMLinkMLTransformer():
             if not attrib_name:
                 self.print_debug('attribute has no name', attrib)
                 return slot_usage
-            attrib_name = self.hardcoded_name(attrib_name)
+            attrib_name = self.map_slot_name(attrib_name)
             required = True if (attrib.get('use') == 'required') else None
             this_slot_usage = {'required': required}
-            range = self.map_type(attrib.get('type')) or self.hardcoded_range(attrib_name)
+            range = self.map_type(attrib.get('type')) or self.map_range(attrib_name)
             simpleType = attrib.get('xs:simpleType')
             if not range and not simpleType:
                 print('no type/s provided for', attrib_name, 'in', group_name)
@@ -496,6 +493,7 @@ class ODMLinkMLTransformer():
         xml_content_base = props.get('xs:simpleContent', {}).get('xs:extension', {}).get('base')
         match xml_content_base:
             case 'text' | 'datetime' | 'value' | 'name':
+                xml_content_base = self.map_type(xml_content_base)
                 slot_usage[CONTENT_KEY] = {'range': xml_content_base}
                 slots.append(CONTENT_KEY)
                 self.print_debug('xml content base type:', xml_content_base)
@@ -654,7 +652,7 @@ class ODMLinkMLTransformer():
                 slot_name = slot.get('Attribute')
                 if not slot_name:
                     continue
-                slot_name = self.map_type(self.hardcoded_name(slot_name))
+                slot_name = self.map_slot_name(slot_name)
                 external_comments = []
                 internal_notes = []
                 usage = slot.get('Usage')

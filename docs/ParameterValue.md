@@ -11,20 +11,20 @@ URI: [odm:ParameterValue](http://www.cdisc.org/ns/odm/v2.0/ParameterValue)
 ```mermaid
 erDiagram
 ParameterValue {
-    text ValueRef  
+    text value  
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 
-ParameterValue ||--}o Coding : "CodingRef"
+ParameterValue ||--}o Coding : "coding"
 
 ```
 
@@ -37,8 +37,8 @@ ParameterValue ||--}o Coding : "CodingRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ValueRef](ValueRef.md) | 1..1 <br/> [text](text.md) | Value for parent StudyParameter/@Term. | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [value](value.md) | 1..1 <br/> [text](text.md) | Value for parent StudyParameter/@Term. | direct |
+| [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -49,7 +49,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyParameter](StudyParameter.md) | [ParameterValueRef](ParameterValueRef.md) | range | [ParameterValue](ParameterValue.md) |
+| [StudyParameter](StudyParameter.md) | [parameterValue](parameterValue.md) | range | [ParameterValue](ParameterValue.md) |
 
 
 
@@ -103,11 +103,11 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ParameterValue
 rank: 1000
 slots:
-- ValueRef
-- CodingRef
+- value
+- coding
 slot_usage:
-  ValueRef:
-    name: ValueRef
+  value:
+    name: value
     description: Value for parent StudyParameter/@Term.
     comments:
     - 'Required
@@ -124,8 +124,8 @@ slot_usage:
     - Query
     range: text
     required: true
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -163,8 +163,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ParameterValue
 rank: 1000
 slot_usage:
-  ValueRef:
-    name: ValueRef
+  value:
+    name: value
     description: Value for parent StudyParameter/@Term.
     comments:
     - 'Required
@@ -181,8 +181,8 @@ slot_usage:
     - Query
     range: text
     required: true
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -205,8 +205,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  ValueRef:
-    name: ValueRef
+  value:
+    name: value
     description: Value for parent StudyParameter/@Term.
     comments:
     - 'Required
@@ -218,7 +218,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: ValueRef
+    alias: value
     owner: ParameterValue
     domain_of:
     - TrialPhase
@@ -228,8 +228,8 @@ attributes:
     - Query
     range: text
     required: true
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     description: 'Coding reference: Coding references a symbol from a defined code
       system. It uses a code defined in a terminology system to associate semantics
       with a given term, codelist, variable, or group of variables. The presence of
@@ -240,7 +240,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: CodingRef
+    alias: coding
     owner: ParameterValue
     domain_of:
     - StudyEventGroupDef

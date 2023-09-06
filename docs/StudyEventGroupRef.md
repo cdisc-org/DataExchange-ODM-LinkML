@@ -11,22 +11,22 @@ URI: [odm:StudyEventGroupRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupRe
 ```mermaid
 erDiagram
 StudyEventGroupRef {
-    oidref StudyEventGroupOID  
-    positiveInteger OrderNumber  
-    YesOrNo Mandatory  
-    oidref CollectionExceptionConditionOID  
+    oidref studyEventGroupOID  
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+    oidref collectionExceptionConditionOID  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-StudyEventGroupRef ||--|o Description : "DescriptionRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+StudyEventGroupRef ||--|o Description : "description"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -39,11 +39,11 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyEventGroupOID](StudyEventGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventGroupDef . | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEventGroup appears in Metadata display... | direct |
-| [Mandatory](Mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | Indicator of whether this StudyEventGroup must appear in the study clinical d... | direct |
-| [CollectionExceptionConditionOID](CollectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [studyEventGroupOID](studyEventGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventGroupDef . | direct |
+| [orderNumber](orderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEventGroup appears in Metadata display... | direct |
+| [mandatory](mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | Indicator of whether this StudyEventGroup must appear in the study clinical d... | direct |
+| [collectionExceptionConditionOID](collectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -54,8 +54,8 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyEventGroupDef](StudyEventGroupDef.md) | [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | range | [StudyEventGroupRef](StudyEventGroupRef.md) |
-| [Protocol](Protocol.md) | [StudyEventGroupRefRef](StudyEventGroupRefRef.md) | range | [StudyEventGroupRef](StudyEventGroupRef.md) |
+| [StudyEventGroupDef](StudyEventGroupDef.md) | [studyEventGroupRef](studyEventGroupRef.md) | range | [StudyEventGroupRef](StudyEventGroupRef.md) |
+| [Protocol](Protocol.md) | [studyEventGroupRef](studyEventGroupRef.md) | range | [StudyEventGroupRef](StudyEventGroupRef.md) |
 
 
 
@@ -111,14 +111,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEventGroupRef
 rank: 1000
 slots:
-- StudyEventGroupOID
-- OrderNumber
-- Mandatory
-- CollectionExceptionConditionOID
-- DescriptionRef
+- studyEventGroupOID
+- orderNumber
+- mandatory
+- collectionExceptionConditionOID
+- description
 slot_usage:
-  StudyEventGroupOID:
-    name: StudyEventGroupOID
+  studyEventGroupOID:
+    name: studyEventGroupOID
     description: Reference to the StudyEventGroupDef .
     comments:
     - 'Required
@@ -133,8 +133,8 @@ slot_usage:
     - AbsoluteTimingConstraint
     range: oidref
     required: true
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Indicates the order in which this StudyEventGroup appears in Metadata
       displays or data entry applications.
     comments:
@@ -154,8 +154,8 @@ slot_usage:
     - ReturnValue
     - StudyEndPointRef
     range: positiveInteger
-  Mandatory:
-    name: Mandatory
+  mandatory:
+    name: mandatory
     description: Indicator of whether this StudyEventGroup must appear in the study
       clinical data for each subject per the study protocol.
     comments:
@@ -172,8 +172,8 @@ slot_usage:
     - ItemRef
     range: YesOrNo
     required: true
-  CollectionExceptionConditionOID:
-    name: CollectionExceptionConditionOID
+  collectionExceptionConditionOID:
+    name: collectionExceptionConditionOID
     description: Reference to a ConditionDef
     comments:
     - 'Optional
@@ -188,8 +188,8 @@ slot_usage:
     - ItemGroupRef
     - ItemRef
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -247,8 +247,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEventGroupRef
 rank: 1000
 slot_usage:
-  StudyEventGroupOID:
-    name: StudyEventGroupOID
+  studyEventGroupOID:
+    name: studyEventGroupOID
     description: Reference to the StudyEventGroupDef .
     comments:
     - 'Required
@@ -263,8 +263,8 @@ slot_usage:
     - AbsoluteTimingConstraint
     range: oidref
     required: true
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Indicates the order in which this StudyEventGroup appears in Metadata
       displays or data entry applications.
     comments:
@@ -284,8 +284,8 @@ slot_usage:
     - ReturnValue
     - StudyEndPointRef
     range: positiveInteger
-  Mandatory:
-    name: Mandatory
+  mandatory:
+    name: mandatory
     description: Indicator of whether this StudyEventGroup must appear in the study
       clinical data for each subject per the study protocol.
     comments:
@@ -302,8 +302,8 @@ slot_usage:
     - ItemRef
     range: YesOrNo
     required: true
-  CollectionExceptionConditionOID:
-    name: CollectionExceptionConditionOID
+  collectionExceptionConditionOID:
+    name: collectionExceptionConditionOID
     description: Reference to a ConditionDef
     comments:
     - 'Optional
@@ -318,8 +318,8 @@ slot_usage:
     - ItemGroupRef
     - ItemRef
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -360,8 +360,8 @@ slot_usage:
     range: Description
     maximum_cardinality: 1
 attributes:
-  StudyEventGroupOID:
-    name: StudyEventGroupOID
+  studyEventGroupOID:
+    name: studyEventGroupOID
     description: Reference to the StudyEventGroupDef .
     comments:
     - 'Required
@@ -373,15 +373,15 @@ attributes:
       not have duplicate StudyEventGroupOID values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyEventGroupOID
+    alias: studyEventGroupOID
     owner: StudyEventGroupRef
     domain_of:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
     range: oidref
     required: true
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Indicates the order in which this StudyEventGroup appears in Metadata
       displays or data entry applications.
     comments:
@@ -393,7 +393,7 @@ attributes:
       values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: OrderNumber
+    alias: orderNumber
     owner: StudyEventGroupRef
     domain_of:
     - StudyEventGroupRef
@@ -405,8 +405,8 @@ attributes:
     - ReturnValue
     - StudyEndPointRef
     range: positiveInteger
-  Mandatory:
-    name: Mandatory
+  mandatory:
+    name: mandatory
     description: Indicator of whether this StudyEventGroup must appear in the study
       clinical data for each subject per the study protocol.
     comments:
@@ -418,7 +418,7 @@ attributes:
       StudyEventData element with this StudyEventGroupOID.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Mandatory
+    alias: mandatory
     owner: StudyEventGroupRef
     domain_of:
     - StudyEventGroupRef
@@ -427,8 +427,8 @@ attributes:
     - ItemRef
     range: YesOrNo
     required: true
-  CollectionExceptionConditionOID:
-    name: CollectionExceptionConditionOID
+  collectionExceptionConditionOID:
+    name: collectionExceptionConditionOID
     description: Reference to a ConditionDef
     comments:
     - 'Optional
@@ -439,7 +439,7 @@ attributes:
       ConditionDef in this Study/MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: CollectionExceptionConditionOID
+    alias: collectionExceptionConditionOID
     owner: StudyEventGroupRef
     domain_of:
     - StudyEventGroupRef
@@ -447,14 +447,14 @@ attributes:
     - ItemGroupRef
     - ItemRef
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: StudyEventGroupRef
     domain_of:
     - Study

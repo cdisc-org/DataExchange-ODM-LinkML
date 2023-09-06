@@ -11,7 +11,7 @@ URI: [odm:WorkflowRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRef)
 ```mermaid
 erDiagram
 WorkflowRef {
-    oidref WorkflowOID  
+    oidref workflowOID  
 }
 
 
@@ -27,7 +27,7 @@ WorkflowRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [WorkflowOID](WorkflowOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a WorfkflowDef | direct |
+| [workflowOID](workflowOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a WorkflowDef | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,12 +38,12 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyEventGroupDef](StudyEventGroupDef.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
-| [StudyEventDef](StudyEventDef.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
-| [ItemGroupDef](ItemGroupDef.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
-| [Protocol](Protocol.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
-| [StudyStructure](StudyStructure.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
-| [Arm](Arm.md) | [WorkflowRefRef](WorkflowRefRef.md) | range | [WorkflowRef](WorkflowRef.md) |
+| [StudyEventGroupDef](StudyEventGroupDef.md) | [workflowRef](workflowRef.md) | range | [WorkflowRef](WorkflowRef.md) |
+| [StudyEventDef](StudyEventDef.md) | [workflowRef](workflowRef.md) | range | [WorkflowRef](WorkflowRef.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [workflowRef](workflowRef.md) | range | [WorkflowRef](WorkflowRef.md) |
+| [Protocol](Protocol.md) | [workflowRef](workflowRef.md) | range | [WorkflowRef](WorkflowRef.md) |
+| [StudyStructure](StudyStructure.md) | [workflowRef](workflowRef.md) | range | [WorkflowRef](WorkflowRef.md) |
+| [Arm](Arm.md) | [workflowRef](workflowRef.md) | range | [WorkflowRef](WorkflowRef.md) |
 
 
 
@@ -97,11 +97,11 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/WorkflowRef
 rank: 1000
 slots:
-- WorkflowOID
+- workflowOID
 slot_usage:
-  WorkflowOID:
-    name: WorkflowOID
-    description: Reference to a WorfkflowDef
+  workflowOID:
+    name: workflowOID
+    description: Reference to a WorkflowDef
     comments:
     - 'Required
 
@@ -128,9 +128,9 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/WorkflowRef
 rank: 1000
 slot_usage:
-  WorkflowOID:
-    name: WorkflowOID
-    description: Reference to a WorfkflowDef
+  workflowOID:
+    name: workflowOID
+    description: Reference to a WorkflowDef
     comments:
     - 'Required
 
@@ -142,9 +142,9 @@ slot_usage:
     range: oidref
     required: true
 attributes:
-  WorkflowOID:
-    name: WorkflowOID
-    description: Reference to a WorfkflowDef
+  workflowOID:
+    name: workflowOID
+    description: Reference to a WorkflowDef
     comments:
     - 'Required
 
@@ -153,7 +153,7 @@ attributes:
       Must match the OID of a WorkflowDef child element of this MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: WorkflowOID
+    alias: workflowOID
     owner: WorkflowRef
     domain_of:
     - WorkflowRef

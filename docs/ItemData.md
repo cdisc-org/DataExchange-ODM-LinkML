@@ -11,49 +11,49 @@ URI: [odm:ItemData](http://www.cdisc.org/ns/odm/v2.0/ItemData)
 ```mermaid
 erDiagram
 ItemData {
-    oidref ItemOID  
-    TransactionType TransactionTypeRef  
-    YesOnly IsNull  
+    oidref itemOID  
+    TransactionType transactionType  
+    YesOnly isNull  
 }
 Annotation {
-    positiveInteger SeqNum  
-    TransactionType TransactionTypeRef  
-    oid ID  
+    positiveInteger seqNum  
+    TransactionType transactionType  
+    oid iD  
 }
 Flag {
 
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 Comment {
-    CommentType SponsorOrSite  
+    CommentType sponsorOrSite  
 }
 Signature {
-    oid ID  
+    oid iD  
 }
 DateTimeStamp {
     datetime content  
 }
 SignatureRef {
-    oidref SignatureOID  
+    oidref signatureOID  
 }
 LocationRef {
-    oidref LocationOID  
+    oidref locationOID  
 }
 UserRef {
-    oidref UserOID  
+    oidref userOID  
 }
 AuditRecord {
-    EditPointType EditPoint  
-    YesOrNo UsedMethod  
+    EditPointType editPoint  
+    YesOrNo usedMethod  
 }
 SourceID {
     text content  
@@ -62,41 +62,41 @@ ReasonForChange {
     text content  
 }
 Query {
-    oid OID  
-    QuerySourceType Source  
-    text Target  
-    QueryType Type  
-    QueryStateType State  
-    datetime LastUpdateDatetime  
-    name Name  
+    oid oID  
+    QuerySourceType source  
+    text target  
+    QueryType type  
+    QueryStateType state  
+    datetime lastUpdateDatetime  
+    nameType name  
 }
 Value {
-    positiveInteger SeqNum  
+    positiveInteger seqNum  
     text content  
 }
 
-ItemData ||--}o Value : "ValueRef"
-ItemData ||--}o Query : "QueryRef"
-ItemData ||--|o AuditRecord : "AuditRecordRef"
-ItemData ||--|o Signature : "SignatureRefRef"
-ItemData ||--|o Annotation : "AnnotationRef"
-Annotation ||--|o Comment : "CommentRef"
-Annotation ||--}o Coding : "CodingRef"
-Annotation ||--}o Flag : "FlagRef"
-Flag ||--|o FlagValue : "FlagValueRef"
-Flag ||--|o FlagType : "FlagTypeRef"
-Comment ||--}o TranslatedText : "TranslatedTextRef"
-Signature ||--|o UserRef : "UserRefRef"
-Signature ||--|o LocationRef : "LocationRefRef"
-Signature ||--|o SignatureRef : "SignatureRefRef"
-Signature ||--|o DateTimeStamp : "DateTimeStampRef"
-AuditRecord ||--|o UserRef : "UserRefRef"
-AuditRecord ||--|o LocationRef : "LocationRefRef"
-AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
-AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
-AuditRecord ||--|o SourceID : "SourceIDRef"
-Query ||--|o Value : "ValueRef"
-Query ||--}o AuditRecord : "AuditRecordRef"
+ItemData ||--}o Value : "value"
+ItemData ||--}o Query : "query"
+ItemData ||--|o AuditRecord : "auditRecord"
+ItemData ||--|o Signature : "signature"
+ItemData ||--|o Annotation : "annotation"
+Annotation ||--|o Comment : "comment"
+Annotation ||--}o Coding : "coding"
+Annotation ||--}o Flag : "flag"
+Flag ||--|o FlagValue : "flagValue"
+Flag ||--|o FlagType : "flagType"
+Comment ||--}o TranslatedText : "translatedText"
+Signature ||--|o UserRef : "userRef"
+Signature ||--|o LocationRef : "locationRef"
+Signature ||--|o SignatureRef : "signatureRef"
+Signature ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o UserRef : "userRef"
+AuditRecord ||--|o LocationRef : "locationRef"
+AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o ReasonForChange : "reasonForChange"
+AuditRecord ||--|o SourceID : "sourceID"
+Query ||--|o Value : "value"
+Query ||--}o AuditRecord : "auditRecord"
 
 ```
 
@@ -109,14 +109,14 @@ Query ||--}o AuditRecord : "AuditRecordRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ItemOID](ItemOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to an ItemDef in the MetaDataVersion identified in the ClinicalData... | direct |
-| [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Records the TransactionType for this ItemData instance in the source system. | direct |
-| [IsNull](IsNull.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Flag specifying that an item's value is to be set to null. In the interest of... | direct |
-| [ValueRef](ValueRef.md) | 0..* <br/> [Value](Value.md) | Human-readable designation of the trial phase. | direct |
-| [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) | Query reference: The Query element represents a request for clarification on ... | direct |
-| [AuditRecordRef](AuditRecordRef.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
-| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: A reference to the signature meaning. | direct |
-| [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
+| [itemOID](itemOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to an ItemDef in the MetaDataVersion identified in the ClinicalData... | direct |
+| [transactionType](transactionType.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Records the TransactionType for this ItemData instance in the source system. | direct |
+| [isNull](isNull.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Flag specifying that an item's value is to be set to null. In the interest of... | direct |
+| [value](value.md) | 0..* <br/> [Value](Value.md) | Human-readable designation of the trial phase. | direct |
+| [query](query.md) | 0..* <br/> [Query](Query.md) | Query reference: The Query element represents a request for clarification on ... | direct |
+| [auditRecord](auditRecord.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
+| [signature](signature.md) | 0..1 <br/> [Signature](Signature.md) | Signature reference: An electronic signature applies to a collection of clini... | direct |
+| [annotation](annotation.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -127,7 +127,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ItemGroupData](ItemGroupData.md) | [ItemDataRef](ItemDataRef.md) | range | [ItemData](ItemData.md) |
+| [ItemGroupData](ItemGroupData.md) | [itemData](itemData.md) | range | [ItemData](ItemData.md) |
 
 
 
@@ -182,17 +182,17 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ItemData
 rank: 1000
 slots:
-- ItemOID
-- TransactionTypeRef
-- IsNull
-- ValueRef
-- QueryRef
-- AuditRecordRef
-- SignatureRefRef
-- AnnotationRef
+- itemOID
+- transactionType
+- isNull
+- value
+- query
+- auditRecord
+- signature
+- annotation
 slot_usage:
-  ItemOID:
-    name: ItemOID
+  itemOID:
+    name: itemOID
     description: Reference to an ItemDef in the MetaDataVersion identified in the
       ClinicalData element. The referenced ItemDef defines the DataType of this item.
       The ItemOID attribute is used to identify a particular item definition. This
@@ -207,8 +207,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  TransactionTypeRef:
-    name: TransactionTypeRef
+  transactionType:
+    name: transactionType
     description: Records the TransactionType for this ItemData instance in the source
       system.
     comments:
@@ -221,8 +221,8 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-  IsNull:
-    name: IsNull
+  isNull:
+    name: isNull
     description: Flag specifying that an item's value is to be set to null. In the
       interest of creating non-verbose XML instances, one should not use ItemData
       elements with IsNull set to "Yes" to indicate uncollected data. The better practice
@@ -237,8 +237,8 @@ slot_usage:
     domain_of:
     - ItemData
     range: YesOnly
-  ValueRef:
-    name: ValueRef
+  value:
+    name: value
     multivalued: true
     domain_of:
     - TrialPhase
@@ -249,8 +249,8 @@ slot_usage:
     range: Value
     inlined: true
     inlined_as_list: true
-  QueryRef:
-    name: QueryRef
+  query:
+    name: query
     multivalued: true
     domain_of:
     - Location
@@ -262,8 +262,8 @@ slot_usage:
     range: Query
     inlined: true
     inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -274,8 +274,8 @@ slot_usage:
     - Query
     range: AuditRecord
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
+  signature:
+    name: signature
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -283,11 +283,10 @@ slot_usage:
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Signature
     range: Signature
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -315,8 +314,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ItemData
 rank: 1000
 slot_usage:
-  ItemOID:
-    name: ItemOID
+  itemOID:
+    name: itemOID
     description: Reference to an ItemDef in the MetaDataVersion identified in the
       ClinicalData element. The referenced ItemDef defines the DataType of this item.
       The ItemOID attribute is used to identify a particular item definition. This
@@ -331,8 +330,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  TransactionTypeRef:
-    name: TransactionTypeRef
+  transactionType:
+    name: transactionType
     description: Records the TransactionType for this ItemData instance in the source
       system.
     comments:
@@ -345,8 +344,8 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-  IsNull:
-    name: IsNull
+  isNull:
+    name: isNull
     description: Flag specifying that an item's value is to be set to null. In the
       interest of creating non-verbose XML instances, one should not use ItemData
       elements with IsNull set to "Yes" to indicate uncollected data. The better practice
@@ -361,8 +360,8 @@ slot_usage:
     domain_of:
     - ItemData
     range: YesOnly
-  ValueRef:
-    name: ValueRef
+  value:
+    name: value
     multivalued: true
     domain_of:
     - TrialPhase
@@ -373,8 +372,8 @@ slot_usage:
     range: Value
     inlined: true
     inlined_as_list: true
-  QueryRef:
-    name: QueryRef
+  query:
+    name: query
     multivalued: true
     domain_of:
     - Location
@@ -386,8 +385,8 @@ slot_usage:
     range: Query
     inlined: true
     inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -398,8 +397,8 @@ slot_usage:
     - Query
     range: AuditRecord
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
+  signature:
+    name: signature
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -407,11 +406,10 @@ slot_usage:
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Signature
     range: Signature
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -423,8 +421,8 @@ slot_usage:
     range: Annotation
     maximum_cardinality: 1
 attributes:
-  ItemOID:
-    name: ItemOID
+  itemOID:
+    name: itemOID
     description: Reference to an ItemDef in the MetaDataVersion identified in the
       ClinicalData element. The referenced ItemDef defines the DataType of this item.
       The ItemOID attribute is used to identify a particular item definition. This
@@ -433,7 +431,7 @@ attributes:
     - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ItemOID
+    alias: itemOID
     owner: ItemData
     domain_of:
     - ItemRef
@@ -443,8 +441,8 @@ attributes:
     - KeySet
     range: oidref
     required: true
-  TransactionTypeRef:
-    name: TransactionTypeRef
+  transactionType:
+    name: transactionType
     description: Records the TransactionType for this ItemData instance in the source
       system.
     comments:
@@ -452,7 +450,7 @@ attributes:
       when ODM/@FileType has the value "Transactional".
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TransactionTypeRef
+    alias: transactionType
     owner: ItemData
     domain_of:
     - SubjectData
@@ -461,8 +459,8 @@ attributes:
     - ItemData
     - Annotation
     range: TransactionType
-  IsNull:
-    name: IsNull
+  isNull:
+    name: isNull
     description: Flag specifying that an item's value is to be set to null. In the
       interest of creating non-verbose XML instances, one should not use ItemData
       elements with IsNull set to "Yes" to indicate uncollected data. The better practice
@@ -476,19 +474,19 @@ attributes:
       be present.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: IsNull
+    alias: isNull
     owner: ItemData
     domain_of:
     - ItemData
     range: YesOnly
-  ValueRef:
-    name: ValueRef
+  value:
+    name: value
     description: Human-readable designation of the trial phase.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: ValueRef
+    alias: value
     owner: ItemData
     domain_of:
     - TrialPhase
@@ -499,8 +497,8 @@ attributes:
     range: Value
     inlined: true
     inlined_as_list: true
-  QueryRef:
-    name: QueryRef
+  query:
+    name: query
     description: 'Query reference: The Query element represents a request for clarification
       on a data item collected for a clinical trial, specifically a request from a
       sponsor or sponsor’s representative to an investigator to resolve an error or
@@ -513,7 +511,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: QueryRef
+    alias: query
     owner: ItemData
     domain_of:
     - Location
@@ -525,8 +523,8 @@ attributes:
     range: Query
     inlined: true
     inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     description: 'AuditRecord reference: An AuditRecord carries information pertaining
       to the creation, deletion, or modification of clinical data. This information
       includes who performed that action, and where, when, and why that action was
@@ -536,7 +534,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: AuditRecordRef
+    alias: auditRecord
     owner: ItemData
     domain_of:
     - ReferenceData
@@ -548,13 +546,18 @@ attributes:
     - Query
     range: AuditRecord
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
-    description: 'SignatureRef reference: A reference to the signature meaning.'
+  signature:
+    name: signature
+    description: 'Signature reference: An electronic signature applies to a collection
+      of clinical data. This indicates that some user accepts legal responsibility
+      for that data. See 21 CFR Part 11. The signature identifies the person signing,
+      the location of signing, the signature meaning (via the referenced SignatureDef),
+      the date and time of signing, and (in the case of a digital signature) an encrypted
+      hash of the included data.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: SignatureRefRef
+    alias: signature
     owner: ItemData
     domain_of:
     - ReferenceData
@@ -563,18 +566,17 @@ attributes:
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Signature
     range: Signature
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     description: 'Annotation reference: A general note about clinical data. If an
       annotation has both a comment and flags, the flags should be related to the
       comment.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: AnnotationRef
+    alias: annotation
     owner: ItemData
     domain_of:
     - ReferenceData

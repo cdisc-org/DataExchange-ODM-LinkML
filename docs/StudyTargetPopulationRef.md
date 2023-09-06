@@ -11,7 +11,7 @@ URI: [odm:StudyTargetPopulationRef](http://www.cdisc.org/ns/odm/v2.0/StudyTarget
 ```mermaid
 erDiagram
 StudyTargetPopulationRef {
-    oidref StudyTargetPopulationOID  
+    oidref studyTargetPopulationOID  
 }
 
 
@@ -27,7 +27,7 @@ StudyTargetPopulationRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyTargetPopulationOID](StudyTargetPopulationOID.md) | 1..1 <br/> [oidref](oidref.md) |  | direct |
+| [studyTargetPopulationOID](studyTargetPopulationOID.md) | 1..1 <br/> [oidref](oidref.md) |  | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyEstimand](StudyEstimand.md) | [StudyTargetPopulationRefRef](StudyTargetPopulationRefRef.md) | range | [StudyTargetPopulationRef](StudyTargetPopulationRef.md) |
+| [StudyEstimand](StudyEstimand.md) | [studyTargetPopulationRef](studyTargetPopulationRef.md) | range | [StudyTargetPopulationRef](StudyTargetPopulationRef.md) |
 
 
 
@@ -93,10 +93,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyTargetPopulationRef
 rank: 1000
 slots:
-- StudyTargetPopulationOID
+- studyTargetPopulationOID
 slot_usage:
-  StudyTargetPopulationOID:
-    name: StudyTargetPopulationOID
+  studyTargetPopulationOID:
+    name: studyTargetPopulationOID
     domain_of:
     - StudyTargetPopulationRef
     range: oidref
@@ -118,18 +118,18 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyTargetPopulationRef
 rank: 1000
 slot_usage:
-  StudyTargetPopulationOID:
-    name: StudyTargetPopulationOID
+  studyTargetPopulationOID:
+    name: studyTargetPopulationOID
     domain_of:
     - StudyTargetPopulationRef
     range: oidref
     required: true
 attributes:
-  StudyTargetPopulationOID:
-    name: StudyTargetPopulationOID
+  studyTargetPopulationOID:
+    name: studyTargetPopulationOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyTargetPopulationOID
+    alias: studyTargetPopulationOID
     owner: StudyTargetPopulationRef
     domain_of:
     - StudyTargetPopulationRef

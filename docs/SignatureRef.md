@@ -11,7 +11,7 @@ URI: [odm:SignatureRef](http://www.cdisc.org/ns/odm/v2.0/SignatureRef)
 ```mermaid
 erDiagram
 SignatureRef {
-    oidref SignatureOID  
+    oidref signatureOID  
 }
 
 
@@ -27,7 +27,7 @@ SignatureRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [SignatureOID](SignatureOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the SignatureDef . | direct |
+| [signatureOID](signatureOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the SignatureDef . | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Signature](Signature.md) | [SignatureRefRef](SignatureRefRef.md) | range | [SignatureRef](SignatureRef.md) |
+| [Signature](Signature.md) | [signatureRef](signatureRef.md) | range | [SignatureRef](SignatureRef.md) |
 
 
 
@@ -92,10 +92,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SignatureRef
 rank: 1000
 slots:
-- SignatureOID
+- signatureOID
 slot_usage:
-  SignatureOID:
-    name: SignatureOID
+  signatureOID:
+    name: signatureOID
     description: Reference to the SignatureDef .
     comments:
     - 'Required
@@ -121,8 +121,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SignatureRef
 rank: 1000
 slot_usage:
-  SignatureOID:
-    name: SignatureOID
+  signatureOID:
+    name: signatureOID
     description: Reference to the SignatureDef .
     comments:
     - 'Required
@@ -133,8 +133,8 @@ slot_usage:
     range: oidref
     required: true
 attributes:
-  SignatureOID:
-    name: SignatureOID
+  signatureOID:
+    name: signatureOID
     description: Reference to the SignatureDef .
     comments:
     - 'Required
@@ -142,7 +142,7 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: SignatureOID
+    alias: signatureOID
     owner: SignatureRef
     domain_of:
     - SignatureRef

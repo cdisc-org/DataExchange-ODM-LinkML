@@ -15,11 +15,11 @@ Description {
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-Description ||--}o TranslatedText : "TranslatedTextRef"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -32,7 +32,7 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TranslatedTextRef](TranslatedTextRef.md) | 0..* <br/> [TranslatedText](TranslatedText.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... | direct |
+| [translatedText](translatedText.md) | 0..* <br/> [TranslatedText](TranslatedText.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -43,42 +43,42 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Study](Study.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [MetaDataVersion](MetaDataVersion.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [ValueListDef](ValueListDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [StudyEventGroupRef](StudyEventGroupRef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [StudyEventGroupDef](StudyEventGroupDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [StudyEventDef](StudyEventDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [ItemGroupDef](ItemGroupDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [Origin](Origin.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [ItemDef](ItemDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [CodeList](CodeList.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [CodeListItem](CodeListItem.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [MethodDef](MethodDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [ConditionDef](ConditionDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [CommentDef](CommentDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [Protocol](Protocol.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [StudyStructure](StudyStructure.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [TrialPhase](TrialPhase.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [StudyIndication](StudyIndication.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [StudyIntervention](StudyIntervention.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [StudyObjective](StudyObjective.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [StudyEndPoint](StudyEndPoint.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [StudyTargetPopulation](StudyTargetPopulation.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [StudyEstimand](StudyEstimand.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [IntercurrentEvent](IntercurrentEvent.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [SummaryMeasure](SummaryMeasure.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [Arm](Arm.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [Epoch](Epoch.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [TransitionTimingConstraint](TransitionTimingConstraint.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [RelativeTimingConstraint](RelativeTimingConstraint.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [DurationTimingConstraint](DurationTimingConstraint.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [WorkflowDef](WorkflowDef.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [Criterion](Criterion.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [Organization](Organization.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [Location](Location.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
-| [ODMFileMetadata](ODMFileMetadata.md) | [DescriptionRef](DescriptionRef.md) | range | [Description](Description.md) |
+| [Study](Study.md) | [description](description.md) | range | [Description](Description.md) |
+| [MetaDataVersion](MetaDataVersion.md) | [description](description.md) | range | [Description](Description.md) |
+| [ValueListDef](ValueListDef.md) | [description](description.md) | range | [Description](Description.md) |
+| [StudyEventGroupRef](StudyEventGroupRef.md) | [description](description.md) | range | [Description](Description.md) |
+| [StudyEventGroupDef](StudyEventGroupDef.md) | [description](description.md) | range | [Description](Description.md) |
+| [StudyEventDef](StudyEventDef.md) | [description](description.md) | range | [Description](Description.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [description](description.md) | range | [Description](Description.md) |
+| [Origin](Origin.md) | [description](description.md) | range | [Description](Description.md) |
+| [ItemDef](ItemDef.md) | [description](description.md) | range | [Description](Description.md) |
+| [CodeList](CodeList.md) | [description](description.md) | range | [Description](Description.md) |
+| [CodeListItem](CodeListItem.md) | [description](description.md) | range | [Description](Description.md) |
+| [MethodDef](MethodDef.md) | [description](description.md) | range | [Description](Description.md) |
+| [ConditionDef](ConditionDef.md) | [description](description.md) | range | [Description](Description.md) |
+| [CommentDef](CommentDef.md) | [description](description.md) | range | [Description](Description.md) |
+| [Protocol](Protocol.md) | [description](description.md) | range | [Description](Description.md) |
+| [StudyStructure](StudyStructure.md) | [description](description.md) | range | [Description](Description.md) |
+| [TrialPhase](TrialPhase.md) | [description](description.md) | range | [Description](Description.md) |
+| [StudyIndication](StudyIndication.md) | [description](description.md) | range | [Description](Description.md) |
+| [StudyIntervention](StudyIntervention.md) | [description](description.md) | range | [Description](Description.md) |
+| [StudyObjective](StudyObjective.md) | [description](description.md) | range | [Description](Description.md) |
+| [StudyEndPoint](StudyEndPoint.md) | [description](description.md) | range | [Description](Description.md) |
+| [StudyTargetPopulation](StudyTargetPopulation.md) | [description](description.md) | range | [Description](Description.md) |
+| [StudyEstimand](StudyEstimand.md) | [description](description.md) | range | [Description](Description.md) |
+| [IntercurrentEvent](IntercurrentEvent.md) | [description](description.md) | range | [Description](Description.md) |
+| [SummaryMeasure](SummaryMeasure.md) | [description](description.md) | range | [Description](Description.md) |
+| [Arm](Arm.md) | [description](description.md) | range | [Description](Description.md) |
+| [Epoch](Epoch.md) | [description](description.md) | range | [Description](Description.md) |
+| [TransitionTimingConstraint](TransitionTimingConstraint.md) | [description](description.md) | range | [Description](Description.md) |
+| [AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) | [description](description.md) | range | [Description](Description.md) |
+| [RelativeTimingConstraint](RelativeTimingConstraint.md) | [description](description.md) | range | [Description](Description.md) |
+| [DurationTimingConstraint](DurationTimingConstraint.md) | [description](description.md) | range | [Description](Description.md) |
+| [WorkflowDef](WorkflowDef.md) | [description](description.md) | range | [Description](Description.md) |
+| [Criterion](Criterion.md) | [description](description.md) | range | [Description](Description.md) |
+| [Organization](Organization.md) | [description](description.md) | range | [Description](Description.md) |
+| [Location](Location.md) | [description](description.md) | range | [Description](Description.md) |
+| [ODMFileMetadata](ODMFileMetadata.md) | [description](description.md) | range | [Description](Description.md) |
 
 
 
@@ -133,10 +133,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Description
 rank: 1000
 slots:
-- TranslatedTextRef
+- translatedText
 slot_usage:
-  TranslatedTextRef:
-    name: TranslatedTextRef
+  translatedText:
+    name: translatedText
     multivalued: true
     domain_of:
     - Description
@@ -169,8 +169,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Description
 rank: 1000
 slot_usage:
-  TranslatedTextRef:
-    name: TranslatedTextRef
+  translatedText:
+    name: translatedText
     multivalued: true
     domain_of:
     - Description
@@ -187,8 +187,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  TranslatedTextRef:
-    name: TranslatedTextRef
+  translatedText:
+    name: translatedText
     description: 'TranslatedText reference: Human-readable text that is appropriate
       for a particular language. TranslatedText elements typically occur in a series,
       presenting a set of alternative textual renditions for different languages and
@@ -197,7 +197,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: TranslatedTextRef
+    alias: translatedText
     owner: Description
     domain_of:
     - Description

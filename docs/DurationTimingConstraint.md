@@ -11,24 +11,24 @@ URI: [odm:DurationTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/DurationTim
 ```mermaid
 erDiagram
 DurationTimingConstraint {
-    oid OID  
-    name Name  
-    oidref StructuralElementOID  
-    durationDatetime DurationTarget  
-    durationDatetime DurationPreWindow  
-    durationDatetime DurationPostWindow  
+    oid oID  
+    nameType name  
+    oidref structuralElementOID  
+    durationDatetime durationTarget  
+    durationDatetime durationPreWindow  
+    durationDatetime durationPostWindow  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-DurationTimingConstraint ||--|o Description : "DescriptionRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+DurationTimingConstraint ||--|o Description : "description"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -41,13 +41,13 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the DurationTimingConstraint. | direct |
-| [StructuralElementOID](StructuralElementOID.md) | 1..1 <br/> [oidref](oidref.md) | OID of a structural element such as a Study, Epoch, StudyEventGroup, StudyEve... | direct |
-| [DurationTarget](DurationTarget.md) | 1..1 <br/> [durationDatetime](durationDatetime.md) | Constrains the duration of an activity represented by a Study, Epoch, StudyEv... | direct |
-| [DurationPreWindow](DurationPreWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Defines the amount of time by which the targetted duration may be reduced. | direct |
-| [DurationPostWindow](DurationPostWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Defines the amount of time by which the targetted duration may be increased. | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name for the DurationTimingConstraint. | direct |
+| [structuralElementOID](structuralElementOID.md) | 1..1 <br/> [oidref](oidref.md) | OID of a structural element such as a Study, Epoch, StudyEventGroup, StudyEve... | direct |
+| [durationTarget](durationTarget.md) | 1..1 <br/> [durationDatetime](durationDatetime.md) | Constrains the duration of an activity represented by a Study, Epoch, StudyEv... | direct |
+| [durationPreWindow](durationPreWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Defines the amount of time by which the targetted duration may be reduced. | direct |
+| [durationPostWindow](durationPostWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Defines the amount of time by which the targetted duration may be increased. | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -58,7 +58,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyTiming](StudyTiming.md) | [DurationTimingConstraintRef](DurationTimingConstraintRef.md) | range | [DurationTimingConstraint](DurationTimingConstraint.md) |
+| [StudyTiming](StudyTiming.md) | [durationTimingConstraint](durationTimingConstraint.md) | range | [DurationTimingConstraint](DurationTimingConstraint.md) |
 
 
 
@@ -115,16 +115,16 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/DurationTimingConstraint
 rank: 1000
 slots:
-- OID
-- Name
-- StructuralElementOID
-- DurationTarget
-- DurationPreWindow
-- DurationPostWindow
-- DescriptionRef
+- oID
+- name
+- structuralElementOID
+- durationTarget
+- durationPreWindow
+- durationPostWindow
+- description
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -171,8 +171,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the DurationTimingConstraint.
     comments:
     - 'Required
@@ -215,10 +215,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  StructuralElementOID:
-    name: StructuralElementOID
+  structuralElementOID:
+    name: structuralElementOID
     description: OID of a structural element such as a Study, Epoch, StudyEventGroup,
       StudyEvent, ItemGroup, Item
     comments:
@@ -232,8 +232,8 @@ slot_usage:
     - DurationTimingConstraint
     range: oidref
     required: true
-  DurationTarget:
-    name: DurationTarget
+  durationTarget:
+    name: durationTarget
     description: Constrains the duration of an activity represented by a Study, Epoch,
       StudyEventGroupDef, StudyEventDef, ItemGroupDef or ItemDef. Specifies the planned
       duration of the referenced structural element.
@@ -247,8 +247,8 @@ slot_usage:
     - DurationTimingConstraint
     range: durationDatetime
     required: true
-  DurationPreWindow:
-    name: DurationPreWindow
+  durationPreWindow:
+    name: durationPreWindow
     description: Defines the amount of time by which the targetted duration may be
       reduced.
     comments:
@@ -260,8 +260,8 @@ slot_usage:
     domain_of:
     - DurationTimingConstraint
     range: durationDatetime
-  DurationPostWindow:
-    name: DurationPostWindow
+  durationPostWindow:
+    name: durationPostWindow
     description: Defines the amount of time by which the targetted duration may be
       increased.
     comments:
@@ -273,8 +273,8 @@ slot_usage:
     domain_of:
     - DurationTimingConstraint
     range: durationDatetime
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -333,8 +333,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/DurationTimingConstraint
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -381,8 +381,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the DurationTimingConstraint.
     comments:
     - 'Required
@@ -425,10 +425,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  StructuralElementOID:
-    name: StructuralElementOID
+  structuralElementOID:
+    name: structuralElementOID
     description: OID of a structural element such as a Study, Epoch, StudyEventGroup,
       StudyEvent, ItemGroup, Item
     comments:
@@ -442,8 +442,8 @@ slot_usage:
     - DurationTimingConstraint
     range: oidref
     required: true
-  DurationTarget:
-    name: DurationTarget
+  durationTarget:
+    name: durationTarget
     description: Constrains the duration of an activity represented by a Study, Epoch,
       StudyEventGroupDef, StudyEventDef, ItemGroupDef or ItemDef. Specifies the planned
       duration of the referenced structural element.
@@ -457,8 +457,8 @@ slot_usage:
     - DurationTimingConstraint
     range: durationDatetime
     required: true
-  DurationPreWindow:
-    name: DurationPreWindow
+  durationPreWindow:
+    name: durationPreWindow
     description: Defines the amount of time by which the targetted duration may be
       reduced.
     comments:
@@ -470,8 +470,8 @@ slot_usage:
     domain_of:
     - DurationTimingConstraint
     range: durationDatetime
-  DurationPostWindow:
-    name: DurationPostWindow
+  durationPostWindow:
+    name: durationPostWindow
     description: Defines the amount of time by which the targetted duration may be
       increased.
     comments:
@@ -483,8 +483,8 @@ slot_usage:
     domain_of:
     - DurationTimingConstraint
     range: durationDatetime
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -525,8 +525,8 @@ slot_usage:
     range: Description
     maximum_cardinality: 1
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -537,7 +537,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: DurationTimingConstraint
     domain_of:
     - Study
@@ -578,8 +578,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the DurationTimingConstraint.
     comments:
     - 'Required
@@ -589,7 +589,7 @@ attributes:
       Must be unique within the set of timing constraints for the Study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: DurationTimingConstraint
     domain_of:
     - Alias
@@ -626,10 +626,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  StructuralElementOID:
-    name: StructuralElementOID
+  structuralElementOID:
+    name: structuralElementOID
     description: OID of a structural element such as a Study, Epoch, StudyEventGroup,
       StudyEvent, ItemGroup, Item
     comments:
@@ -641,14 +641,14 @@ attributes:
       or ItemDef. element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StructuralElementOID
+    alias: structuralElementOID
     owner: DurationTimingConstraint
     domain_of:
     - DurationTimingConstraint
     range: oidref
     required: true
-  DurationTarget:
-    name: DurationTarget
+  durationTarget:
+    name: durationTarget
     description: Constrains the duration of an activity represented by a Study, Epoch,
       StudyEventGroupDef, StudyEventDef, ItemGroupDef or ItemDef. Specifies the planned
       duration of the referenced structural element.
@@ -660,14 +660,14 @@ attributes:
       Must be a non-negative ISO 8601 duration.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: DurationTarget
+    alias: durationTarget
     owner: DurationTimingConstraint
     domain_of:
     - DurationTimingConstraint
     range: durationDatetime
     required: true
-  DurationPreWindow:
-    name: DurationPreWindow
+  durationPreWindow:
+    name: durationPreWindow
     description: Defines the amount of time by which the targetted duration may be
       reduced.
     comments:
@@ -678,13 +678,13 @@ attributes:
       Must be a non-negative ISO 8601 duration.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: DurationPreWindow
+    alias: durationPreWindow
     owner: DurationTimingConstraint
     domain_of:
     - DurationTimingConstraint
     range: durationDatetime
-  DurationPostWindow:
-    name: DurationPostWindow
+  durationPostWindow:
+    name: durationPostWindow
     description: Defines the amount of time by which the targetted duration may be
       increased.
     comments:
@@ -695,19 +695,19 @@ attributes:
       Must be a non-negative ISO 8601 duration.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: DurationPostWindow
+    alias: durationPostWindow
     owner: DurationTimingConstraint
     domain_of:
     - DurationTimingConstraint
     range: durationDatetime
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: DurationTimingConstraint
     domain_of:
     - Study

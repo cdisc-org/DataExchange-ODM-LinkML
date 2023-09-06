@@ -11,10 +11,10 @@ URI: [odm:Parameter](http://www.cdisc.org/ns/odm/v2.0/Parameter)
 ```mermaid
 erDiagram
 Parameter {
-    name Name  
-    DataType DataTypeRef  
-    text DefinitionRef  
-    positiveInteger OrderNumber  
+    nameType name  
+    DataType dataType  
+    text definition  
+    positiveInteger orderNumber  
 }
 
 
@@ -30,10 +30,10 @@ Parameter {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | The parameter name - typically the name of an ItemDef referenced in the ItemG... | direct |
-| [DataTypeRef](DataTypeRef.md) | 1..1 <br/> [DataType](DataType.md) | Parameter datatype. | direct |
-| [DefinitionRef](DefinitionRef.md) | 0..1 <br/> [text](text.md) | A free-text definition of the parameter | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Position of the Parameter in the MethodSignature | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | The parameter name - typically the name of an ItemDef referenced in the ItemG... | direct |
+| [dataType](dataType.md) | 1..1 <br/> [DataType](DataType.md) | Parameter datatype. | direct |
+| [definition](definition.md) | 0..1 <br/> [text](text.md) | A free-text definition of the parameter | direct |
+| [orderNumber](orderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Position of the Parameter in the MethodSignature | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -44,7 +44,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [MethodSignature](MethodSignature.md) | [ParameterRef](ParameterRef.md) | range | [Parameter](Parameter.md) |
+| [MethodSignature](MethodSignature.md) | [parameter](parameter.md) | range | [Parameter](Parameter.md) |
 
 
 
@@ -99,13 +99,13 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Parameter
 rank: 1000
 slots:
-- Name
-- DataTypeRef
-- DefinitionRef
-- OrderNumber
+- name
+- dataType
+- definition
+- orderNumber
 slot_usage:
-  Name:
-    name: Name
+  name:
+    name: name
     description: The parameter name - typically the name of an ItemDef referenced
       in the ItemGroupDef.
     comments:
@@ -147,10 +147,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  DataTypeRef:
-    name: DataTypeRef
+  dataType:
+    name: dataType
     description: Parameter datatype.
     comments:
     - 'Required
@@ -166,8 +166,8 @@ slot_usage:
     - ReturnValue
     range: DataType
     required: true
-  DefinitionRef:
-    name: DefinitionRef
+  definition:
+    name: definition
     description: A free-text definition of the parameter
     comments:
     - 'Optional
@@ -178,8 +178,8 @@ slot_usage:
     - Parameter
     - ReturnValue
     range: text
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Position of the Parameter in the MethodSignature
     comments:
     - 'Optional
@@ -212,8 +212,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Parameter
 rank: 1000
 slot_usage:
-  Name:
-    name: Name
+  name:
+    name: name
     description: The parameter name - typically the name of an ItemDef referenced
       in the ItemGroupDef.
     comments:
@@ -255,10 +255,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  DataTypeRef:
-    name: DataTypeRef
+  dataType:
+    name: dataType
     description: Parameter datatype.
     comments:
     - 'Required
@@ -274,8 +274,8 @@ slot_usage:
     - ReturnValue
     range: DataType
     required: true
-  DefinitionRef:
-    name: DefinitionRef
+  definition:
+    name: definition
     description: A free-text definition of the parameter
     comments:
     - 'Optional
@@ -286,8 +286,8 @@ slot_usage:
     - Parameter
     - ReturnValue
     range: text
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Position of the Parameter in the MethodSignature
     comments:
     - 'Optional
@@ -304,8 +304,8 @@ slot_usage:
     - StudyEndPointRef
     range: positiveInteger
 attributes:
-  Name:
-    name: Name
+  name:
+    name: name
     description: The parameter name - typically the name of an ItemDef referenced
       in the ItemGroupDef.
     comments:
@@ -314,7 +314,7 @@ attributes:
       range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: Parameter
     domain_of:
     - Alias
@@ -351,10 +351,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  DataTypeRef:
-    name: DataTypeRef
+  dataType:
+    name: dataType
     description: Parameter datatype.
     comments:
     - 'Required
@@ -365,7 +365,7 @@ attributes:
       | incompleteDatetime | incompleteDate | incompleteTime | URI )'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: DataTypeRef
+    alias: dataType
     owner: Parameter
     domain_of:
     - ItemDef
@@ -374,8 +374,8 @@ attributes:
     - ReturnValue
     range: DataType
     required: true
-  DefinitionRef:
-    name: DefinitionRef
+  definition:
+    name: definition
     description: A free-text definition of the parameter
     comments:
     - 'Optional
@@ -384,15 +384,15 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DefinitionRef
+    alias: definition
     owner: Parameter
     domain_of:
     - ItemDef
     - Parameter
     - ReturnValue
     range: text
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Position of the Parameter in the MethodSignature
     comments:
     - 'Optional
@@ -400,7 +400,7 @@ attributes:
       range: positiveInteger'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: OrderNumber
+    alias: orderNumber
     owner: Parameter
     domain_of:
     - StudyEventGroupRef

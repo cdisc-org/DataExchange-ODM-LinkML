@@ -11,50 +11,50 @@ URI: [odm:ItemGroupData](http://www.cdisc.org/ns/odm/v2.0/ItemGroupData)
 ```mermaid
 erDiagram
 ItemGroupData {
-    oidref ItemGroupOID  
-    repeatKey ItemGroupRepeatKey  
-    TransactionType TransactionTypeRef  
-    positiveInteger ItemGroupDataSeq  
+    oidref itemGroupOID  
+    repeatKey itemGroupRepeatKey  
+    TransactionType transactionType  
+    positiveInteger itemGroupDataSeq  
 }
 Annotation {
-    positiveInteger SeqNum  
-    TransactionType TransactionTypeRef  
-    oid ID  
+    positiveInteger seqNum  
+    TransactionType transactionType  
+    oid iD  
 }
 Flag {
 
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 Comment {
-    CommentType SponsorOrSite  
+    CommentType sponsorOrSite  
 }
 Signature {
-    oid ID  
+    oid iD  
 }
 DateTimeStamp {
     datetime content  
 }
 SignatureRef {
-    oidref SignatureOID  
+    oidref signatureOID  
 }
 LocationRef {
-    oidref LocationOID  
+    oidref locationOID  
 }
 UserRef {
-    oidref UserOID  
+    oidref userOID  
 }
 AuditRecord {
-    EditPointType EditPoint  
-    YesOrNo UsedMethod  
+    EditPointType editPoint  
+    YesOrNo usedMethod  
 }
 SourceID {
     text content  
@@ -63,52 +63,52 @@ ReasonForChange {
     text content  
 }
 ItemData {
-    oidref ItemOID  
-    TransactionType TransactionTypeRef  
-    YesOnly IsNull  
+    oidref itemOID  
+    TransactionType transactionType  
+    YesOnly isNull  
 }
 Query {
-    oid OID  
-    QuerySourceType Source  
-    text Target  
-    QueryType Type  
-    QueryStateType State  
-    datetime LastUpdateDatetime  
-    name Name  
+    oid oID  
+    QuerySourceType source  
+    text target  
+    QueryType type  
+    QueryStateType state  
+    datetime lastUpdateDatetime  
+    nameType name  
 }
 Value {
-    positiveInteger SeqNum  
+    positiveInteger seqNum  
     text content  
 }
 
-ItemGroupData ||--}o Query : "QueryRef"
-ItemGroupData ||--}o ItemGroupData : "ItemGroupDataRef"
-ItemGroupData ||--}o ItemData : "ItemDataRef"
-ItemGroupData ||--|o AuditRecord : "AuditRecordRef"
-ItemGroupData ||--|o Signature : "SignatureRefRef"
-ItemGroupData ||--|o Annotation : "AnnotationRef"
-Annotation ||--|o Comment : "CommentRef"
-Annotation ||--}o Coding : "CodingRef"
-Annotation ||--}o Flag : "FlagRef"
-Flag ||--|o FlagValue : "FlagValueRef"
-Flag ||--|o FlagType : "FlagTypeRef"
-Comment ||--}o TranslatedText : "TranslatedTextRef"
-Signature ||--|o UserRef : "UserRefRef"
-Signature ||--|o LocationRef : "LocationRefRef"
-Signature ||--|o SignatureRef : "SignatureRefRef"
-Signature ||--|o DateTimeStamp : "DateTimeStampRef"
-AuditRecord ||--|o UserRef : "UserRefRef"
-AuditRecord ||--|o LocationRef : "LocationRefRef"
-AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
-AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
-AuditRecord ||--|o SourceID : "SourceIDRef"
-ItemData ||--}o Value : "ValueRef"
-ItemData ||--}o Query : "QueryRef"
-ItemData ||--|o AuditRecord : "AuditRecordRef"
-ItemData ||--|o Signature : "SignatureRefRef"
-ItemData ||--|o Annotation : "AnnotationRef"
-Query ||--|o Value : "ValueRef"
-Query ||--}o AuditRecord : "AuditRecordRef"
+ItemGroupData ||--}o Query : "query"
+ItemGroupData ||--}o ItemGroupData : "itemGroupData"
+ItemGroupData ||--}o ItemData : "itemData"
+ItemGroupData ||--|o AuditRecord : "auditRecord"
+ItemGroupData ||--|o Signature : "signature"
+ItemGroupData ||--|o Annotation : "annotation"
+Annotation ||--|o Comment : "comment"
+Annotation ||--}o Coding : "coding"
+Annotation ||--}o Flag : "flag"
+Flag ||--|o FlagValue : "flagValue"
+Flag ||--|o FlagType : "flagType"
+Comment ||--}o TranslatedText : "translatedText"
+Signature ||--|o UserRef : "userRef"
+Signature ||--|o LocationRef : "locationRef"
+Signature ||--|o SignatureRef : "signatureRef"
+Signature ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o UserRef : "userRef"
+AuditRecord ||--|o LocationRef : "locationRef"
+AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o ReasonForChange : "reasonForChange"
+AuditRecord ||--|o SourceID : "sourceID"
+ItemData ||--}o Value : "value"
+ItemData ||--}o Query : "query"
+ItemData ||--|o AuditRecord : "auditRecord"
+ItemData ||--|o Signature : "signature"
+ItemData ||--|o Annotation : "annotation"
+Query ||--|o Value : "value"
+Query ||--}o AuditRecord : "auditRecord"
 
 ```
 
@@ -121,16 +121,16 @@ Query ||--}o AuditRecord : "AuditRecordRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ItemGroupOID](ItemGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to an ItemGroupDef for the MetaDataVersion identified in the Clinic... | direct |
-| [ItemGroupRepeatKey](ItemGroupRepeatKey.md) | 0..1 <br/> [repeatKey](repeatKey.md) | A key used to distinguish between repeats of the same type of item group. | direct |
-| [TransactionTypeRef](TransactionTypeRef.md) | 0..1 <br/> [TransactionType](TransactionType.md) | The TransactionType attribute need not be present in a Snapshot document. | direct |
-| [ItemGroupDataSeq](ItemGroupDataSeq.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Unique sequence # for each ItemGroupData child element (record) in the contai... | direct |
-| [QueryRef](QueryRef.md) | 0..* <br/> [Query](Query.md) | Query reference: The Query element represents a request for clarification on ... | direct |
-| [ItemGroupDataRef](ItemGroupDataRef.md) | 0..* <br/> [ItemGroupData](ItemGroupData.md) | ItemGroupData reference: Clinical data corresponding to an ItemGroupRef defin... | direct |
-| [ItemDataRef](ItemDataRef.md) | 0..* <br/> [ItemData](ItemData.md) | ItemData reference: The ItemData element is used for transmission of the clin... | direct |
-| [AuditRecordRef](AuditRecordRef.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
-| [SignatureRefRef](SignatureRefRef.md) | 0..1 <br/> [Signature](Signature.md) | SignatureRef reference: A reference to the signature meaning. | direct |
-| [AnnotationRef](AnnotationRef.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
+| [itemGroupOID](itemGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to an ItemGroupDef for the MetaDataVersion identified in the Clinic... | direct |
+| [itemGroupRepeatKey](itemGroupRepeatKey.md) | 0..1 <br/> [repeatKey](repeatKey.md) | A key used to distinguish between repeats of the same type of item group. | direct |
+| [transactionType](transactionType.md) | 0..1 <br/> [TransactionType](TransactionType.md) | The TransactionType attribute need not be present in a Snapshot document. | direct |
+| [itemGroupDataSeq](itemGroupDataSeq.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Unique sequence # for each ItemGroupData child element (record) in the contai... | direct |
+| [query](query.md) | 0..* <br/> [Query](Query.md) | Query reference: The Query element represents a request for clarification on ... | direct |
+| [itemGroupData](itemGroupData.md) | 0..* <br/> [ItemGroupData](ItemGroupData.md) | ItemGroupData reference: Clinical data corresponding to an ItemGroupRef defin... | direct |
+| [itemData](itemData.md) | 0..* <br/> [ItemData](ItemData.md) | ItemData reference: The ItemData element is used for transmission of the clin... | direct |
+| [auditRecord](auditRecord.md) | 0..1 <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
+| [signature](signature.md) | 0..1 <br/> [Signature](Signature.md) | Signature reference: An electronic signature applies to a collection of clini... | direct |
+| [annotation](annotation.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -141,10 +141,10 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ReferenceData](ReferenceData.md) | [ItemGroupDataRef](ItemGroupDataRef.md) | range | [ItemGroupData](ItemGroupData.md) |
-| [ClinicalData](ClinicalData.md) | [ItemGroupDataRef](ItemGroupDataRef.md) | range | [ItemGroupData](ItemGroupData.md) |
-| [StudyEventData](StudyEventData.md) | [ItemGroupDataRef](ItemGroupDataRef.md) | range | [ItemGroupData](ItemGroupData.md) |
-| [ItemGroupData](ItemGroupData.md) | [ItemGroupDataRef](ItemGroupDataRef.md) | range | [ItemGroupData](ItemGroupData.md) |
+| [ReferenceData](ReferenceData.md) | [itemGroupData](itemGroupData.md) | range | [ItemGroupData](ItemGroupData.md) |
+| [ClinicalData](ClinicalData.md) | [itemGroupData](itemGroupData.md) | range | [ItemGroupData](ItemGroupData.md) |
+| [StudyEventData](StudyEventData.md) | [itemGroupData](itemGroupData.md) | range | [ItemGroupData](ItemGroupData.md) |
+| [ItemGroupData](ItemGroupData.md) | [itemGroupData](itemGroupData.md) | range | [ItemGroupData](ItemGroupData.md) |
 
 
 
@@ -199,19 +199,19 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ItemGroupData
 rank: 1000
 slots:
-- ItemGroupOID
-- ItemGroupRepeatKey
-- TransactionTypeRef
-- ItemGroupDataSeq
-- QueryRef
-- ItemGroupDataRef
-- ItemDataRef
-- AuditRecordRef
-- SignatureRefRef
-- AnnotationRef
+- itemGroupOID
+- itemGroupRepeatKey
+- transactionType
+- itemGroupDataSeq
+- query
+- itemGroupData
+- itemData
+- auditRecord
+- signature
+- annotation
 slot_usage:
-  ItemGroupOID:
-    name: ItemGroupOID
+  itemGroupOID:
+    name: itemGroupOID
     description: Reference to an ItemGroupDef for the MetaDataVersion identified in
       the ClinicalData element.
     comments:
@@ -225,8 +225,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  ItemGroupRepeatKey:
-    name: ItemGroupRepeatKey
+  itemGroupRepeatKey:
+    name: itemGroupRepeatKey
     description: A key used to distinguish between repeats of the same type of item
       group.
     comments:
@@ -240,8 +240,8 @@ slot_usage:
     - ItemGroupData
     - KeySet
     range: repeatKey
-  TransactionTypeRef:
-    name: TransactionTypeRef
+  transactionType:
+    name: transactionType
     description: The TransactionType attribute need not be present in a Snapshot document.
     comments:
     - Conditional Required when the FileType attribute for the ODM element is Transactional.
@@ -252,8 +252,8 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-  ItemGroupDataSeq:
-    name: ItemGroupDataSeq
+  itemGroupDataSeq:
+    name: itemGroupDataSeq
     description: 'Unique sequence # for each ItemGroupData child element (record)
       in the container element. The ItemGroupDataSeq attribute doesn’t have any other
       meaning than the sequence in which the items are saved and exchanged for each
@@ -268,8 +268,8 @@ slot_usage:
     domain_of:
     - ItemGroupData
     range: positiveInteger
-  QueryRef:
-    name: QueryRef
+  query:
+    name: query
     multivalued: true
     domain_of:
     - Location
@@ -281,8 +281,8 @@ slot_usage:
     range: Query
     inlined: true
     inlined_as_list: true
-  ItemGroupDataRef:
-    name: ItemGroupDataRef
+  itemGroupData:
+    name: itemGroupData
     multivalued: true
     domain_of:
     - ReferenceData
@@ -292,16 +292,16 @@ slot_usage:
     range: ItemGroupData
     inlined: true
     inlined_as_list: true
-  ItemDataRef:
-    name: ItemDataRef
+  itemData:
+    name: itemData
     multivalued: true
     domain_of:
     - ItemGroupData
     range: ItemData
     inlined: true
     inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -312,8 +312,8 @@ slot_usage:
     - Query
     range: AuditRecord
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
+  signature:
+    name: signature
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -321,11 +321,10 @@ slot_usage:
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Signature
     range: Signature
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -353,8 +352,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ItemGroupData
 rank: 1000
 slot_usage:
-  ItemGroupOID:
-    name: ItemGroupOID
+  itemGroupOID:
+    name: itemGroupOID
     description: Reference to an ItemGroupDef for the MetaDataVersion identified in
       the ClinicalData element.
     comments:
@@ -368,8 +367,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  ItemGroupRepeatKey:
-    name: ItemGroupRepeatKey
+  itemGroupRepeatKey:
+    name: itemGroupRepeatKey
     description: A key used to distinguish between repeats of the same type of item
       group.
     comments:
@@ -383,8 +382,8 @@ slot_usage:
     - ItemGroupData
     - KeySet
     range: repeatKey
-  TransactionTypeRef:
-    name: TransactionTypeRef
+  transactionType:
+    name: transactionType
     description: The TransactionType attribute need not be present in a Snapshot document.
     comments:
     - Conditional Required when the FileType attribute for the ODM element is Transactional.
@@ -395,8 +394,8 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-  ItemGroupDataSeq:
-    name: ItemGroupDataSeq
+  itemGroupDataSeq:
+    name: itemGroupDataSeq
     description: 'Unique sequence # for each ItemGroupData child element (record)
       in the container element. The ItemGroupDataSeq attribute doesn’t have any other
       meaning than the sequence in which the items are saved and exchanged for each
@@ -411,8 +410,8 @@ slot_usage:
     domain_of:
     - ItemGroupData
     range: positiveInteger
-  QueryRef:
-    name: QueryRef
+  query:
+    name: query
     multivalued: true
     domain_of:
     - Location
@@ -424,8 +423,8 @@ slot_usage:
     range: Query
     inlined: true
     inlined_as_list: true
-  ItemGroupDataRef:
-    name: ItemGroupDataRef
+  itemGroupData:
+    name: itemGroupData
     multivalued: true
     domain_of:
     - ReferenceData
@@ -435,16 +434,16 @@ slot_usage:
     range: ItemGroupData
     inlined: true
     inlined_as_list: true
-  ItemDataRef:
-    name: ItemDataRef
+  itemData:
+    name: itemData
     multivalued: true
     domain_of:
     - ItemGroupData
     range: ItemData
     inlined: true
     inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -455,8 +454,8 @@ slot_usage:
     - Query
     range: AuditRecord
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
+  signature:
+    name: signature
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -464,11 +463,10 @@ slot_usage:
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Signature
     range: Signature
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     domain_of:
     - ReferenceData
     - ClinicalData
@@ -480,8 +478,8 @@ slot_usage:
     range: Annotation
     maximum_cardinality: 1
 attributes:
-  ItemGroupOID:
-    name: ItemGroupOID
+  itemGroupOID:
+    name: itemGroupOID
     description: Reference to an ItemGroupDef for the MetaDataVersion identified in
       the ClinicalData element.
     comments:
@@ -490,7 +488,7 @@ attributes:
       The values of ItemGroupOID must be unique within the parent element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ItemGroupOID
+    alias: itemGroupOID
     owner: ItemGroupData
     domain_of:
     - ItemGroupRef
@@ -499,8 +497,8 @@ attributes:
     - KeySet
     range: oidref
     required: true
-  ItemGroupRepeatKey:
-    name: ItemGroupRepeatKey
+  itemGroupRepeatKey:
+    name: itemGroupRepeatKey
     description: A key used to distinguish between repeats of the same type of item
       group.
     comments:
@@ -512,20 +510,20 @@ attributes:
       , the ItemGroupOID and ItemGroupRepeatKey pair must be unique.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ItemGroupRepeatKey
+    alias: itemGroupRepeatKey
     owner: ItemGroupData
     domain_of:
     - ItemGroupData
     - KeySet
     range: repeatKey
-  TransactionTypeRef:
-    name: TransactionTypeRef
+  transactionType:
+    name: transactionType
     description: The TransactionType attribute need not be present in a Snapshot document.
     comments:
     - Conditional Required when the FileType attribute for the ODM element is Transactional.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TransactionTypeRef
+    alias: transactionType
     owner: ItemGroupData
     domain_of:
     - SubjectData
@@ -534,8 +532,8 @@ attributes:
     - ItemData
     - Annotation
     range: TransactionType
-  ItemGroupDataSeq:
-    name: ItemGroupDataSeq
+  itemGroupDataSeq:
+    name: itemGroupDataSeq
     description: 'Unique sequence # for each ItemGroupData child element (record)
       in the container element. The ItemGroupDataSeq attribute doesn’t have any other
       meaning than the sequence in which the items are saved and exchanged for each
@@ -549,13 +547,13 @@ attributes:
       The ItemGroupDataSeq and ItemGroupRepeatKey attributes are mutually exclusive.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ItemGroupDataSeq
+    alias: itemGroupDataSeq
     owner: ItemGroupData
     domain_of:
     - ItemGroupData
     range: positiveInteger
-  QueryRef:
-    name: QueryRef
+  query:
+    name: query
     description: 'Query reference: The Query element represents a request for clarification
       on a data item collected for a clinical trial, specifically a request from a
       sponsor or sponsor’s representative to an investigator to resolve an error or
@@ -568,7 +566,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: QueryRef
+    alias: query
     owner: ItemGroupData
     domain_of:
     - Location
@@ -580,15 +578,15 @@ attributes:
     range: Query
     inlined: true
     inlined_as_list: true
-  ItemGroupDataRef:
-    name: ItemGroupDataRef
+  itemGroupData:
+    name: itemGroupData
     description: 'ItemGroupData reference: Clinical data corresponding to an ItemGroupRef
       defined in the active MetaDataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: ItemGroupDataRef
+    alias: itemGroupData
     owner: ItemGroupData
     domain_of:
     - ReferenceData
@@ -598,8 +596,8 @@ attributes:
     range: ItemGroupData
     inlined: true
     inlined_as_list: true
-  ItemDataRef:
-    name: ItemDataRef
+  itemData:
+    name: itemData
     description: 'ItemData reference: The ItemData element is used for transmission
       of the clinical data for an item. The model does not support repeating items
       within a single item group.'
@@ -607,15 +605,15 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: ItemDataRef
+    alias: itemData
     owner: ItemGroupData
     domain_of:
     - ItemGroupData
     range: ItemData
     inlined: true
     inlined_as_list: true
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     description: 'AuditRecord reference: An AuditRecord carries information pertaining
       to the creation, deletion, or modification of clinical data. This information
       includes who performed that action, and where, when, and why that action was
@@ -625,7 +623,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: AuditRecordRef
+    alias: auditRecord
     owner: ItemGroupData
     domain_of:
     - ReferenceData
@@ -637,13 +635,18 @@ attributes:
     - Query
     range: AuditRecord
     maximum_cardinality: 1
-  SignatureRefRef:
-    name: SignatureRefRef
-    description: 'SignatureRef reference: A reference to the signature meaning.'
+  signature:
+    name: signature
+    description: 'Signature reference: An electronic signature applies to a collection
+      of clinical data. This indicates that some user accepts legal responsibility
+      for that data. See 21 CFR Part 11. The signature identifies the person signing,
+      the location of signing, the signature meaning (via the referenced SignatureDef),
+      the date and time of signing, and (in the case of a digital signature) an encrypted
+      hash of the included data.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: SignatureRefRef
+    alias: signature
     owner: ItemGroupData
     domain_of:
     - ReferenceData
@@ -652,18 +655,17 @@ attributes:
     - StudyEventData
     - ItemGroupData
     - ItemData
-    - Signature
     range: Signature
     maximum_cardinality: 1
-  AnnotationRef:
-    name: AnnotationRef
+  annotation:
+    name: annotation
     description: 'Annotation reference: A general note about clinical data. If an
       annotation has both a comment and flags, the flags should be related to the
       comment.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: AnnotationRef
+    alias: annotation
     owner: ItemGroupData
     domain_of:
     - ReferenceData

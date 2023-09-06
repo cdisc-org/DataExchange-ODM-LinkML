@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in Methodology_
+_Enumeration used in methodology_
 
 
 
@@ -23,8 +23,8 @@ URI: [SignMethod](SignMethod)
 
 | Name | Description |
 | ---  | --- |
-| [Methodology](Methodology.md) | Defines the type of electronic signature, including the meaning as required b... |
-| [Methodology](Methodology.md) | Defines the type of electronic signature, including the meaning as required b... |
+| [methodology](methodology.md) | Defines the type of electronic signature, including the meaning as required b... |
+| [methodology](methodology.md) | Defines the type of electronic signature, including the meaning as required b... |
 
 
 
@@ -52,7 +52,7 @@ URI: [SignMethod](SignMethod)
 <details>
 ```yaml
 name: SignMethod
-description: Enumeration used in Methodology
+description: Enumeration used in methodology
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

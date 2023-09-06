@@ -11,8 +11,8 @@ URI: [odm:SignatureDef](http://www.cdisc.org/ns/odm/v2.0/SignatureDef)
 ```mermaid
 erDiagram
 SignatureDef {
-    oid OID  
-    SignMethod Methodology  
+    oid oID  
+    SignMethod methodology  
 }
 LegalReason {
     text content  
@@ -21,8 +21,8 @@ Meaning {
     text content  
 }
 
-SignatureDef ||--|o Meaning : "MeaningRef"
-SignatureDef ||--|o LegalReason : "LegalReasonRef"
+SignatureDef ||--|o Meaning : "meaning"
+SignatureDef ||--|o LegalReason : "legalReason"
 
 ```
 
@@ -35,10 +35,10 @@ SignatureDef ||--|o LegalReason : "LegalReasonRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
-| [Methodology](Methodology.md) | 0..1 <br/> [SignMethod](SignMethod.md) | Defines the type of electronic signature, including the meaning as required b... | direct |
-| [MeaningRef](MeaningRef.md) | 0..1 <br/> [Meaning](Meaning.md) | Meaning reference: A short name or description for this signature. It should ... | direct |
-| [LegalReasonRef](LegalReasonRef.md) | 0..1 <br/> [LegalReason](LegalReason.md) | LegalReason reference: The responsibility statement associated with a signatu... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [methodology](methodology.md) | 0..1 <br/> [SignMethod](SignMethod.md) | Defines the type of electronic signature, including the meaning as required b... | direct |
+| [meaning](meaning.md) | 0..1 <br/> [Meaning](Meaning.md) | Meaning reference: A short name or description for this signature. It should ... | direct |
+| [legalReason](legalReason.md) | 0..1 <br/> [LegalReason](LegalReason.md) | LegalReason reference: The responsibility statement associated with a signatu... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -49,7 +49,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdminData](AdminData.md) | [SignatureDefRef](SignatureDefRef.md) | range | [SignatureDef](SignatureDef.md) |
+| [AdminData](AdminData.md) | [signatureDef](signatureDef.md) | range | [SignatureDef](SignatureDef.md) |
 
 
 
@@ -103,13 +103,13 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SignatureDef
 rank: 1000
 slots:
-- OID
-- Methodology
-- MeaningRef
-- LegalReasonRef
+- oID
+- methodology
+- meaning
+- legalReason
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -156,8 +156,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Methodology:
-    name: Methodology
+  methodology:
+    name: methodology
     description: Defines the type of electronic signature, including the meaning as
       required by 21 CFR Part 11 .
     comments:
@@ -170,14 +170,14 @@ slot_usage:
     domain_of:
     - SignatureDef
     range: SignMethod
-  MeaningRef:
-    name: MeaningRef
+  meaning:
+    name: meaning
     domain_of:
     - SignatureDef
     range: Meaning
     maximum_cardinality: 1
-  LegalReasonRef:
-    name: LegalReasonRef
+  legalReason:
+    name: legalReason
     domain_of:
     - SignatureDef
     range: LegalReason
@@ -198,8 +198,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SignatureDef
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -246,8 +246,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Methodology:
-    name: Methodology
+  methodology:
+    name: methodology
     description: Defines the type of electronic signature, including the meaning as
       required by 21 CFR Part 11 .
     comments:
@@ -260,21 +260,21 @@ slot_usage:
     domain_of:
     - SignatureDef
     range: SignMethod
-  MeaningRef:
-    name: MeaningRef
+  meaning:
+    name: meaning
     domain_of:
     - SignatureDef
     range: Meaning
     maximum_cardinality: 1
-  LegalReasonRef:
-    name: LegalReasonRef
+  legalReason:
+    name: legalReason
     domain_of:
     - SignatureDef
     range: LegalReason
     maximum_cardinality: 1
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier.
     comments:
     - 'Required
@@ -285,7 +285,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: SignatureDef
     domain_of:
     - Study
@@ -326,8 +326,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Methodology:
-    name: Methodology
+  methodology:
+    name: methodology
     description: Defines the type of electronic signature, including the meaning as
       required by 21 CFR Part 11 .
     comments:
@@ -339,34 +339,34 @@ attributes:
       is electronic.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Methodology
+    alias: methodology
     owner: SignatureDef
     domain_of:
     - SignatureDef
     range: SignMethod
-  MeaningRef:
-    name: MeaningRef
+  meaning:
+    name: meaning
     description: 'Meaning reference: A short name or description for this signature.
       It should reflect the context of the signature and/or the text that appears
       when the signature is applied in the user interface.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: MeaningRef
+    alias: meaning
     owner: SignatureDef
     domain_of:
     - SignatureDef
     range: Meaning
     maximum_cardinality: 1
-  LegalReasonRef:
-    name: LegalReasonRef
+  legalReason:
+    name: legalReason
     description: 'LegalReason reference: The responsibility statement associated with
       a signature (e.g., "The signer accepts responsibility for the accuracy of this
       data.").'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: LegalReasonRef
+    alias: legalReason
     owner: SignatureDef
     domain_of:
     - SignatureDef

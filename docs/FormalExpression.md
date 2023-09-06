@@ -11,12 +11,12 @@ URI: [odm:FormalExpression](http://www.cdisc.org/ns/odm/v2.0/FormalExpression)
 ```mermaid
 erDiagram
 FormalExpression {
-    text ContextRef  
+    text context  
 }
 ExternalCodeLib {
-    name Library  
-    name Method  
-    text Version  
+    nameType library  
+    nameType method  
+    text version  
     text ref  
     uriorcurie href  
 }
@@ -24,8 +24,8 @@ Code {
     text content  
 }
 
-FormalExpression ||--|o Code : "CodeRef"
-FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
 
 ```
 
@@ -38,9 +38,9 @@ FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [ContextRef](ContextRef.md) | 0..1 <br/> [text](text.md) | A free-form qualifier to suggest an appropriate computer language to be used ... | direct |
-| [CodeRef](CodeRef.md) | 0..1 <br/> [Code](Code.md) | A string pattern that identifies a concept as defined by the code system. | direct |
-| [ExternalCodeLibRef](ExternalCodeLibRef.md) | 0..1 <br/> [ExternalCodeLib](ExternalCodeLib.md) | ExternalCodeLib reference: The ExternalCodeLib element references a FormalExp... | direct |
+| [context](context.md) | 0..1 <br/> [text](text.md) | A free-form qualifier to suggest an appropriate computer language to be used ... | direct |
+| [code](code.md) | 0..1 <br/> [Code](Code.md) | A string pattern that identifies a concept as defined by the code system. | direct |
+| [externalCodeLib](externalCodeLib.md) | 0..1 <br/> [ExternalCodeLib](ExternalCodeLib.md) | ExternalCodeLib reference: The ExternalCodeLib element references a FormalExp... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -51,11 +51,11 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [RangeCheck](RangeCheck.md) | [FormalExpressionRef](FormalExpressionRef.md) | range | [FormalExpression](FormalExpression.md) |
-| [MethodDef](MethodDef.md) | [FormalExpressionRef](FormalExpressionRef.md) | range | [FormalExpression](FormalExpression.md) |
-| [ConditionDef](ConditionDef.md) | [FormalExpressionRef](FormalExpressionRef.md) | range | [FormalExpression](FormalExpression.md) |
-| [StudyEndPoint](StudyEndPoint.md) | [FormalExpressionRef](FormalExpressionRef.md) | range | [FormalExpression](FormalExpression.md) |
-| [StudyTargetPopulation](StudyTargetPopulation.md) | [FormalExpressionRef](FormalExpressionRef.md) | range | [FormalExpression](FormalExpression.md) |
+| [RangeCheck](RangeCheck.md) | [formalExpression](formalExpression.md) | range | [FormalExpression](FormalExpression.md) |
+| [MethodDef](MethodDef.md) | [formalExpression](formalExpression.md) | range | [FormalExpression](FormalExpression.md) |
+| [ConditionDef](ConditionDef.md) | [formalExpression](formalExpression.md) | range | [FormalExpression](FormalExpression.md) |
+| [StudyEndPoint](StudyEndPoint.md) | [formalExpression](formalExpression.md) | range | [FormalExpression](FormalExpression.md) |
+| [StudyTargetPopulation](StudyTargetPopulation.md) | [formalExpression](formalExpression.md) | range | [FormalExpression](FormalExpression.md) |
 
 
 
@@ -115,12 +115,12 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/FormalExpression
 rank: 1000
 slots:
-- ContextRef
-- CodeRef
-- ExternalCodeLibRef
+- context
+- code
+- externalCodeLib
 slot_usage:
-  ContextRef:
-    name: ContextRef
+  context:
+    name: context
     description: A free-form qualifier to suggest an appropriate computer language
       to be used when evaluating the FormalExpression content.
     comments:
@@ -132,15 +132,15 @@ slot_usage:
     - FormalExpression
     - ODMFileMetadata
     range: text
-  CodeRef:
-    name: CodeRef
+  code:
+    name: code
     domain_of:
     - FormalExpression
     - Coding
     range: Code
     maximum_cardinality: 1
-  ExternalCodeLibRef:
-    name: ExternalCodeLibRef
+  externalCodeLib:
+    name: externalCodeLib
     domain_of:
     - FormalExpression
     range: ExternalCodeLib
@@ -167,8 +167,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/FormalExpression
 rank: 1000
 slot_usage:
-  ContextRef:
-    name: ContextRef
+  context:
+    name: context
     description: A free-form qualifier to suggest an appropriate computer language
       to be used when evaluating the FormalExpression content.
     comments:
@@ -180,22 +180,22 @@ slot_usage:
     - FormalExpression
     - ODMFileMetadata
     range: text
-  CodeRef:
-    name: CodeRef
+  code:
+    name: code
     domain_of:
     - FormalExpression
     - Coding
     range: Code
     maximum_cardinality: 1
-  ExternalCodeLibRef:
-    name: ExternalCodeLibRef
+  externalCodeLib:
+    name: externalCodeLib
     domain_of:
     - FormalExpression
     range: ExternalCodeLib
     maximum_cardinality: 1
 attributes:
-  ContextRef:
-    name: ContextRef
+  context:
+    name: context
     description: A free-form qualifier to suggest an appropriate computer language
       to be used when evaluating the FormalExpression content.
     comments:
@@ -204,29 +204,29 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ContextRef
+    alias: context
     owner: FormalExpression
     domain_of:
     - Alias
     - FormalExpression
     - ODMFileMetadata
     range: text
-  CodeRef:
-    name: CodeRef
+  code:
+    name: code
     description: A string pattern that identifies a concept as defined by the code
       system.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: CodeRef
+    alias: code
     owner: FormalExpression
     domain_of:
     - FormalExpression
     - Coding
     range: Code
     maximum_cardinality: 1
-  ExternalCodeLibRef:
-    name: ExternalCodeLibRef
+  externalCodeLib:
+    name: externalCodeLib
     description: 'ExternalCodeLib reference: The ExternalCodeLib element references
       a FormalExpression in an external code library, such as a file or GitHub. The
       intention is to make it possible to reference existing code libraries where
@@ -240,7 +240,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: ExternalCodeLibRef
+    alias: externalCodeLib
     owner: FormalExpression
     domain_of:
     - FormalExpression

@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [User](User.md) | [SuffixRef](SuffixRef.md) | range | [Suffix](Suffix.md) |
+| [User](User.md) | [suffix](suffix.md) | range | [Suffix](Suffix.md) |
 
 
 

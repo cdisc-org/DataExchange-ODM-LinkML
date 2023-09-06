@@ -11,26 +11,26 @@ URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
 ```mermaid
 erDiagram
 StudyObjective {
-    oid OID  
-    name Name  
-    StudyObjectiveLevel Level  
+    oid oID  
+    nameType name  
+    StudyObjectiveLevel level  
 }
 StudyEndPointRef {
-    oidref StudyEndPointOID  
-    positiveInteger OrderNumber  
+    oidref studyEndPointOID  
+    positiveInteger orderNumber  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-StudyObjective ||--|o Description : "DescriptionRef"
-StudyObjective ||--}o StudyEndPointRef : "StudyEndPointRefRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+StudyObjective ||--|o Description : "description"
+StudyObjective ||--}o StudyEndPointRef : "studyEndPointRef"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -43,11 +43,11 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyObjective element. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Name of the study objective | direct |
-| [Level](Level.md) | 0..1 <br/> [StudyObjectiveLevel](StudyObjectiveLevel.md) | Defined level for the Study Objective | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [StudyEndPointRefRef](StudyEndPointRefRef.md) | 0..* <br/> [StudyEndPointRef](StudyEndPointRef.md) | StudyEndPointRef reference: Go to start of metadata | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyObjective element. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Name of the study objective | direct |
+| [level](level.md) | 0..1 <br/> [StudyObjectiveLevel](StudyObjectiveLevel.md) | Defined level for the Study Objective | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [studyEndPointRef](studyEndPointRef.md) | 0..* <br/> [StudyEndPointRef](StudyEndPointRef.md) | StudyEndPointRef reference: A reference to a StudyEndPoint as it occurs withi... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -58,7 +58,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyObjectives](StudyObjectives.md) | [StudyObjectiveRef](StudyObjectiveRef.md) | range | [StudyObjective](StudyObjective.md) |
+| [StudyObjectives](StudyObjectives.md) | [studyObjective](studyObjective.md) | range | [StudyObjective](StudyObjective.md) |
 
 
 
@@ -113,14 +113,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyObjective
 rank: 1000
 slots:
-- OID
-- Name
-- Level
-- DescriptionRef
-- StudyEndPointRefRef
+- oID
+- name
+- level
+- description
+- studyEndPointRef
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyObjective element.
     comments:
     - 'Required
@@ -167,8 +167,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name of the study objective
     comments:
     - 'Required
@@ -212,10 +212,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Level:
-    name: Level
+  level:
+    name: level
     description: Defined level for the Study Objective
     comments:
     - 'Optional
@@ -229,8 +229,8 @@ slot_usage:
     - StudyEndPoint
     - StudyEstimand
     range: StudyObjectiveLevel
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -270,12 +270,11 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  StudyEndPointRefRef:
-    name: StudyEndPointRefRef
+  studyEndPointRef:
+    name: studyEndPointRef
     multivalued: true
     domain_of:
     - StudyObjective
-    - StudyEndPoints
     - StudyEstimand
     range: StudyEndPointRef
     inlined: true
@@ -297,8 +296,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyObjective
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyObjective element.
     comments:
     - 'Required
@@ -345,8 +344,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name of the study objective
     comments:
     - 'Required
@@ -390,10 +389,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Level:
-    name: Level
+  level:
+    name: level
     description: Defined level for the Study Objective
     comments:
     - 'Optional
@@ -407,8 +406,8 @@ slot_usage:
     - StudyEndPoint
     - StudyEstimand
     range: StudyObjectiveLevel
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -448,19 +447,18 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  StudyEndPointRefRef:
-    name: StudyEndPointRefRef
+  studyEndPointRef:
+    name: studyEndPointRef
     multivalued: true
     domain_of:
     - StudyObjective
-    - StudyEndPoints
     - StudyEstimand
     range: StudyEndPointRef
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyObjective element.
     comments:
     - 'Required
@@ -471,7 +469,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: StudyObjective
     domain_of:
     - Study
@@ -512,8 +510,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name of the study objective
     comments:
     - 'Required
@@ -524,7 +522,7 @@ attributes:
       a Study/MetadataVersion.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: StudyObjective
     domain_of:
     - Alias
@@ -561,10 +559,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Level:
-    name: Level
+  level:
+    name: level
     description: Defined level for the Study Objective
     comments:
     - 'Optional
@@ -575,21 +573,21 @@ attributes:
       Harmonised Protocol Specification'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Level
+    alias: level
     owner: StudyObjective
     domain_of:
     - StudyObjective
     - StudyEndPoint
     - StudyEstimand
     range: StudyObjectiveLevel
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: StudyObjective
     domain_of:
     - Study
@@ -630,18 +628,18 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  StudyEndPointRefRef:
-    name: StudyEndPointRefRef
-    description: 'StudyEndPointRef reference: Go to start of metadata'
+  studyEndPointRef:
+    name: studyEndPointRef
+    description: 'StudyEndPointRef reference: A reference to a StudyEndPoint as it
+      occurs within a specific StudyObjective.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: StudyEndPointRefRef
+    alias: studyEndPointRef
     owner: StudyObjective
     domain_of:
     - StudyObjective
-    - StudyEndPoints
     - StudyEstimand
     range: StudyEndPointRef
     inlined: true

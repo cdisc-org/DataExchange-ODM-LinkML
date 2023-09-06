@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in Type_
+_Enumeration used in type_
 
 
 
@@ -25,7 +25,7 @@ URI: [MethodType](MethodType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) | Computation: derivation involving one or more variables. Imputation: derivati... |
+| [type](type.md) | Computation: derivation involving one or more variables. Imputation: derivati... |
 
 
 
@@ -53,7 +53,7 @@ URI: [MethodType](MethodType)
 <details>
 ```yaml
 name: MethodType
-description: Enumeration used in Type
+description: Enumeration used in type
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

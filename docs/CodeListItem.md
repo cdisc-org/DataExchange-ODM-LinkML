@@ -11,45 +11,45 @@ URI: [odm:CodeListItem](http://www.cdisc.org/ns/odm/v2.0/CodeListItem)
 ```mermaid
 erDiagram
 CodeListItem {
-    value CodedValue  
-    decimal Rank  
-    YesOnly Other  
-    positiveInteger OrderNumber  
-    YesOnly ExtendedValue  
-    oidref CommentOID  
+    valueType codedValue  
+    decimal rank  
+    YesOnly other  
+    positiveInteger orderNumber  
+    YesOnly extendedValue  
+    oidref commentOID  
 }
 Alias {
-    text ContextRef  
-    text Name  
+    text context  
+    text name  
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 Decode {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 Description {
 
 }
 
-CodeListItem ||--|o Description : "DescriptionRef"
-CodeListItem ||--|o Decode : "DecodeRef"
-CodeListItem ||--}o Coding : "CodingRef"
-CodeListItem ||--}o Alias : "AliasRef"
-Decode ||--}o TranslatedText : "TranslatedTextRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+CodeListItem ||--|o Description : "description"
+CodeListItem ||--|o Decode : "decode"
+CodeListItem ||--}o Coding : "coding"
+CodeListItem ||--}o Alias : "alias"
+Decode ||--}o TranslatedText : "translatedText"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -62,16 +62,16 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [CodedValue](CodedValue.md) | 1..1 <br/> [value](value.md) | Value of the codelist item (as it would occur in clinical data). | direct |
-| [Rank](Rank.md) | 0..1 <br/> [decimal](decimal.md) | Numeric significance of the CodeListItem relative to others in the CodeList. ... | direct |
-| [Other](Other.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Flag to indicate that the term represents "other" content. | direct |
-| [OrderNumber](OrderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Ordering on the CodeListItems (within a containing CodeListItem) for use when... | direct |
-| [ExtendedValue](ExtendedValue.md) | 0..1 <br/> [YesOnly](YesOnly.md) |  | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef . | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [DecodeRef](DecodeRef.md) | 0..1 <br/> [Decode](Decode.md) | Decode reference: The displayed value relating to the CodeListItem/@CodedValu... | direct |
-| [CodingRef](CodingRef.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
-| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
+| [codedValue](codedValue.md) | 1..1 <br/> [valueType](valueType.md) | Value of the codelist item (as it would occur in clinical data). | direct |
+| [rank](rank.md) | 0..1 <br/> [decimal](decimal.md) | Numeric significance of the CodeListItem relative to others in the CodeList. ... | direct |
+| [other](other.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Flag to indicate that the term represents "other" content. | direct |
+| [orderNumber](orderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Ordering on the CodeListItems (within a containing CodeListItem) for use when... | direct |
+| [extendedValue](extendedValue.md) | 0..1 <br/> [YesOnly](YesOnly.md) |  | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef . | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [decode](decode.md) | 0..1 <br/> [Decode](Decode.md) | Decode reference: The displayed value relating to the CodeListItem/@CodedValu... | direct |
+| [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
+| [alias](alias.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -82,7 +82,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [CodeList](CodeList.md) | [CodeListItemRef](CodeListItemRef.md) | range | [CodeListItem](CodeListItem.md) |
+| [CodeList](CodeList.md) | [codeListItem](codeListItem.md) | range | [CodeListItem](CodeListItem.md) |
 
 
 
@@ -137,19 +137,19 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/CodeListItem
 rank: 1000
 slots:
-- CodedValue
-- Rank
-- Other
-- OrderNumber
-- ExtendedValue
-- CommentOID
-- DescriptionRef
-- DecodeRef
-- CodingRef
-- AliasRef
+- codedValue
+- rank
+- other
+- orderNumber
+- extendedValue
+- commentOID
+- description
+- decode
+- coding
+- alias
 slot_usage:
-  CodedValue:
-    name: CodedValue
+  codedValue:
+    name: codedValue
     description: Value of the codelist item (as it would occur in clinical data).
     comments:
     - 'Required
@@ -157,10 +157,10 @@ slot_usage:
       range: text'
     domain_of:
     - CodeListItem
-    range: value
+    range: valueType
     required: true
-  Rank:
-    name: Rank
+  rank:
+    name: rank
     description: Numeric significance of the CodeListItem relative to others in the
       CodeList. The Rank attribute may be used where the relative value corresponding
       to an enumeration cannot or should not be determined by its lexical order. For
@@ -176,8 +176,8 @@ slot_usage:
     domain_of:
     - CodeListItem
     range: decimal
-  Other:
-    name: Other
+  other:
+    name: other
     description: Flag to indicate that the term represents "other" content.
     comments:
     - 'Optional
@@ -187,8 +187,8 @@ slot_usage:
     - ItemRef
     - CodeListItem
     range: YesOnly
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Ordering on the CodeListItems (within a containing CodeListItem)
       for use whenever a list of Items is presented to a user. The ordering does not
       imply anything about event scheduling, time ordering, or data correctness.
@@ -206,13 +206,13 @@ slot_usage:
     - ReturnValue
     - StudyEndPointRef
     range: positiveInteger
-  ExtendedValue:
-    name: ExtendedValue
+  extendedValue:
+    name: extendedValue
     domain_of:
     - CodeListItem
     range: YesOnly
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef .
     comments:
     - 'Optional
@@ -232,8 +232,8 @@ slot_usage:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -273,14 +273,14 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  DecodeRef:
-    name: DecodeRef
+  decode:
+    name: decode
     domain_of:
     - CodeListItem
     range: Decode
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -302,8 +302,8 @@ slot_usage:
     range: Coding
     inlined: true
     inlined_as_list: true
-  AliasRef:
-    name: AliasRef
+  alias:
+    name: alias
     multivalued: true
     domain_of:
     - StudyEventDef
@@ -334,8 +334,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/CodeListItem
 rank: 1000
 slot_usage:
-  CodedValue:
-    name: CodedValue
+  codedValue:
+    name: codedValue
     description: Value of the codelist item (as it would occur in clinical data).
     comments:
     - 'Required
@@ -343,10 +343,10 @@ slot_usage:
       range: text'
     domain_of:
     - CodeListItem
-    range: value
+    range: valueType
     required: true
-  Rank:
-    name: Rank
+  rank:
+    name: rank
     description: Numeric significance of the CodeListItem relative to others in the
       CodeList. The Rank attribute may be used where the relative value corresponding
       to an enumeration cannot or should not be determined by its lexical order. For
@@ -362,8 +362,8 @@ slot_usage:
     domain_of:
     - CodeListItem
     range: decimal
-  Other:
-    name: Other
+  other:
+    name: other
     description: Flag to indicate that the term represents "other" content.
     comments:
     - 'Optional
@@ -373,8 +373,8 @@ slot_usage:
     - ItemRef
     - CodeListItem
     range: YesOnly
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Ordering on the CodeListItems (within a containing CodeListItem)
       for use whenever a list of Items is presented to a user. The ordering does not
       imply anything about event scheduling, time ordering, or data correctness.
@@ -392,13 +392,13 @@ slot_usage:
     - ReturnValue
     - StudyEndPointRef
     range: positiveInteger
-  ExtendedValue:
-    name: ExtendedValue
+  extendedValue:
+    name: extendedValue
     domain_of:
     - CodeListItem
     range: YesOnly
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef .
     comments:
     - 'Optional
@@ -418,8 +418,8 @@ slot_usage:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -459,14 +459,14 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  DecodeRef:
-    name: DecodeRef
+  decode:
+    name: decode
     domain_of:
     - CodeListItem
     range: Decode
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     multivalued: true
     domain_of:
     - StudyEventGroupDef
@@ -488,8 +488,8 @@ slot_usage:
     range: Coding
     inlined: true
     inlined_as_list: true
-  AliasRef:
-    name: AliasRef
+  alias:
+    name: alias
     multivalued: true
     domain_of:
     - StudyEventDef
@@ -504,8 +504,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  CodedValue:
-    name: CodedValue
+  codedValue:
+    name: codedValue
     description: Value of the codelist item (as it would occur in clinical data).
     comments:
     - 'Required
@@ -513,14 +513,14 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: CodedValue
+    alias: codedValue
     owner: CodeListItem
     domain_of:
     - CodeListItem
-    range: value
+    range: valueType
     required: true
-  Rank:
-    name: Rank
+  rank:
+    name: rank
     description: Numeric significance of the CodeListItem relative to others in the
       CodeList. The Rank attribute may be used where the relative value corresponding
       to an enumeration cannot or should not be determined by its lexical order. For
@@ -535,13 +535,13 @@ attributes:
       range: float'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Rank
+    alias: rank
     owner: CodeListItem
     domain_of:
     - CodeListItem
     range: decimal
-  Other:
-    name: Other
+  other:
+    name: other
     description: Flag to indicate that the term represents "other" content.
     comments:
     - 'Optional
@@ -549,14 +549,14 @@ attributes:
       range: (Yes)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Other
+    alias: other
     owner: CodeListItem
     domain_of:
     - ItemRef
     - CodeListItem
     range: YesOnly
-  OrderNumber:
-    name: OrderNumber
+  orderNumber:
+    name: orderNumber
     description: Ordering on the CodeListItems (within a containing CodeListItem)
       for use whenever a list of Items is presented to a user. The ordering does not
       imply anything about event scheduling, time ordering, or data correctness.
@@ -566,7 +566,7 @@ attributes:
       range: integer'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: OrderNumber
+    alias: orderNumber
     owner: CodeListItem
     domain_of:
     - StudyEventGroupRef
@@ -578,17 +578,17 @@ attributes:
     - ReturnValue
     - StudyEndPointRef
     range: positiveInteger
-  ExtendedValue:
-    name: ExtendedValue
+  extendedValue:
+    name: extendedValue
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: ExtendedValue
+    alias: extendedValue
     owner: CodeListItem
     domain_of:
     - CodeListItem
     range: YesOnly
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef .
     comments:
     - 'Optional
@@ -596,7 +596,7 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: CommentOID
+    alias: commentOID
     owner: CodeListItem
     domain_of:
     - MetaDataVersion
@@ -612,14 +612,14 @@ attributes:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: CodeListItem
     domain_of:
     - Study
@@ -660,8 +660,8 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  DecodeRef:
-    name: DecodeRef
+  decode:
+    name: decode
     description: 'Decode reference: The displayed value relating to the CodeListItem/@CodedValue.
       This is often a label corresponding to a short name or alpha-numeric code. The
       actual Decode text is provided in a TranslatedText element so that it can be
@@ -669,14 +669,14 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DecodeRef
+    alias: decode
     owner: CodeListItem
     domain_of:
     - CodeListItem
     range: Decode
     maximum_cardinality: 1
-  CodingRef:
-    name: CodingRef
+  coding:
+    name: coding
     description: 'Coding reference: Coding references a symbol from a defined code
       system. It uses a code defined in a terminology system to associate semantics
       with a given term, codelist, variable, or group of variables. The presence of
@@ -687,7 +687,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: CodingRef
+    alias: coding
     owner: CodeListItem
     domain_of:
     - StudyEventGroupDef
@@ -709,8 +709,8 @@ attributes:
     range: Coding
     inlined: true
     inlined_as_list: true
-  AliasRef:
-    name: AliasRef
+  alias:
+    name: alias
     description: 'Alias reference: An Alias provides an additional name for an element.
       The Context attribute specifies the application domain in which this additional
       name is relevant.'
@@ -718,7 +718,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: AliasRef
+    alias: alias
     owner: CodeListItem
     domain_of:
     - StudyEventDef

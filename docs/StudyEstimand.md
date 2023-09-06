@@ -11,9 +11,9 @@ URI: [odm:StudyEstimand](http://www.cdisc.org/ns/odm/v2.0/StudyEstimand)
 ```mermaid
 erDiagram
 StudyEstimand {
-    oid OID  
-    name Name  
-    StudyEstimandLevel Level  
+    oid oID  
+    nameType name  
+    StudyEstimandLevel level  
 }
 SummaryMeasure {
 
@@ -25,25 +25,25 @@ IntercurrentEvent {
 
 }
 StudyEndPointRef {
-    oidref StudyEndPointOID  
-    positiveInteger OrderNumber  
+    oidref studyEndPointOID  
+    positiveInteger orderNumber  
 }
 StudyInterventionRef {
-    oidref StudyInterventionOID  
+    oidref studyInterventionOID  
 }
 StudyTargetPopulationRef {
-    oidref StudyTargetPopulationOID  
+    oidref studyTargetPopulationOID  
 }
 
-StudyEstimand ||--|o Description : "DescriptionRef"
-StudyEstimand ||--|o StudyTargetPopulationRef : "StudyTargetPopulationRefRef"
-StudyEstimand ||--|o StudyInterventionRef : "StudyInterventionRefRef"
-StudyEstimand ||--|o StudyEndPointRef : "StudyEndPointRefRef"
-StudyEstimand ||--}o IntercurrentEvent : "IntercurrentEventRef"
-StudyEstimand ||--|o SummaryMeasure : "SummaryMeasureRef"
-SummaryMeasure ||--|o Description : "DescriptionRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
-IntercurrentEvent ||--|o Description : "DescriptionRef"
+StudyEstimand ||--|o Description : "description"
+StudyEstimand ||--|o StudyTargetPopulationRef : "studyTargetPopulationRef"
+StudyEstimand ||--|o StudyInterventionRef : "studyInterventionRef"
+StudyEstimand ||--|o StudyEndPointRef : "studyEndPointRef"
+StudyEstimand ||--}o IntercurrentEvent : "intercurrentEvent"
+StudyEstimand ||--|o SummaryMeasure : "summaryMeasure"
+SummaryMeasure ||--|o Description : "description"
+Description ||--}o TranslatedText : "translatedText"
+IntercurrentEvent ||--|o Description : "description"
 
 ```
 
@@ -56,15 +56,15 @@ IntercurrentEvent ||--|o Description : "DescriptionRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEstimand element. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the Study Estimand. | direct |
-| [Level](Level.md) | 0..1 <br/> [StudyEstimandLevel](StudyEstimandLevel.md) | Defined Level for the Study Estimand | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [StudyTargetPopulationRefRef](StudyTargetPopulationRefRef.md) | 0..1 <br/> [StudyTargetPopulationRef](StudyTargetPopulationRef.md) | StudyTargetPopulationRef reference: The StudyTargetPopulationRef references a... | direct |
-| [StudyInterventionRefRef](StudyInterventionRefRef.md) | 0..1 <br/> [StudyInterventionRef](StudyInterventionRef.md) | StudyInterventionRef reference: The StudyInterventionRef references an interv... | direct |
-| [StudyEndPointRefRef](StudyEndPointRefRef.md) | 0..1 <br/> [StudyEndPointRef](StudyEndPointRef.md) | StudyEndPointRef reference: Go to start of metadata | direct |
-| [IntercurrentEventRef](IntercurrentEventRef.md) | 0..* <br/> [IntercurrentEvent](IntercurrentEvent.md) | IntercurrentEvent reference: The IntercurrentEvent element describes an inter... | direct |
-| [SummaryMeasureRef](SummaryMeasureRef.md) | 0..1 <br/> [SummaryMeasure](SummaryMeasure.md) | SummaryMeasure reference: The SummaryMeasure element describes a summary meas... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEstimand element. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name for the Study Estimand. | direct |
+| [level](level.md) | 0..1 <br/> [StudyEstimandLevel](StudyEstimandLevel.md) | Defined Level for the Study Estimand | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [studyTargetPopulationRef](studyTargetPopulationRef.md) | 0..1 <br/> [StudyTargetPopulationRef](StudyTargetPopulationRef.md) | StudyTargetPopulationRef reference: The StudyTargetPopulationRef references a... | direct |
+| [studyInterventionRef](studyInterventionRef.md) | 0..1 <br/> [StudyInterventionRef](StudyInterventionRef.md) | StudyInterventionRef reference: The StudyInterventionRef references an interv... | direct |
+| [studyEndPointRef](studyEndPointRef.md) | 0..1 <br/> [StudyEndPointRef](StudyEndPointRef.md) | StudyEndPointRef reference: A reference to a StudyEndPoint as it occurs withi... | direct |
+| [intercurrentEvent](intercurrentEvent.md) | 0..* <br/> [IntercurrentEvent](IntercurrentEvent.md) | IntercurrentEvent reference: The IntercurrentEvent element describes an inter... | direct |
+| [summaryMeasure](summaryMeasure.md) | 0..1 <br/> [SummaryMeasure](SummaryMeasure.md) | SummaryMeasure reference: The SummaryMeasure element describes a summary meas... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -75,7 +75,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StudyEstimands](StudyEstimands.md) | [StudyEstimandRef](StudyEstimandRef.md) | range | [StudyEstimand](StudyEstimand.md) |
+| [StudyEstimands](StudyEstimands.md) | [studyEstimand](studyEstimand.md) | range | [StudyEstimand](StudyEstimand.md) |
 
 
 
@@ -132,18 +132,18 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEstimand
 rank: 1000
 slots:
-- OID
-- Name
-- Level
-- DescriptionRef
-- StudyTargetPopulationRefRef
-- StudyInterventionRefRef
-- StudyEndPointRefRef
-- IntercurrentEventRef
-- SummaryMeasureRef
+- oID
+- name
+- level
+- description
+- studyTargetPopulationRef
+- studyInterventionRef
+- studyEndPointRef
+- intercurrentEvent
+- summaryMeasure
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyEstimand element.
     comments:
     - 'Required
@@ -188,8 +188,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the Study Estimand.
     comments:
     - 'Required
@@ -230,10 +230,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Level:
-    name: Level
+  level:
+    name: level
     description: Defined Level for the Study Estimand
     comments:
     - 'Optional
@@ -244,8 +244,8 @@ slot_usage:
     - StudyEndPoint
     - StudyEstimand
     range: StudyEstimandLevel
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -285,38 +285,35 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  StudyTargetPopulationRefRef:
-    name: StudyTargetPopulationRefRef
+  studyTargetPopulationRef:
+    name: studyTargetPopulationRef
     domain_of:
-    - Protocol
     - StudyEstimand
     range: StudyTargetPopulationRef
     maximum_cardinality: 1
-  StudyInterventionRefRef:
-    name: StudyInterventionRefRef
+  studyInterventionRef:
+    name: studyInterventionRef
     domain_of:
-    - StudyInterventions
     - StudyEstimand
     range: StudyInterventionRef
     maximum_cardinality: 1
-  StudyEndPointRefRef:
-    name: StudyEndPointRefRef
+  studyEndPointRef:
+    name: studyEndPointRef
     domain_of:
     - StudyObjective
-    - StudyEndPoints
     - StudyEstimand
     range: StudyEndPointRef
     maximum_cardinality: 1
-  IntercurrentEventRef:
-    name: IntercurrentEventRef
+  intercurrentEvent:
+    name: intercurrentEvent
     multivalued: true
     domain_of:
     - StudyEstimand
     range: IntercurrentEvent
     inlined: true
     inlined_as_list: true
-  SummaryMeasureRef:
-    name: SummaryMeasureRef
+  summaryMeasure:
+    name: summaryMeasure
     domain_of:
     - StudyEstimand
     range: SummaryMeasure
@@ -340,8 +337,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEstimand
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyEstimand element.
     comments:
     - 'Required
@@ -386,8 +383,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the Study Estimand.
     comments:
     - 'Required
@@ -428,10 +425,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Level:
-    name: Level
+  level:
+    name: level
     description: Defined Level for the Study Estimand
     comments:
     - 'Optional
@@ -442,8 +439,8 @@ slot_usage:
     - StudyEndPoint
     - StudyEstimand
     range: StudyEstimandLevel
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -483,45 +480,42 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  StudyTargetPopulationRefRef:
-    name: StudyTargetPopulationRefRef
+  studyTargetPopulationRef:
+    name: studyTargetPopulationRef
     domain_of:
-    - Protocol
     - StudyEstimand
     range: StudyTargetPopulationRef
     maximum_cardinality: 1
-  StudyInterventionRefRef:
-    name: StudyInterventionRefRef
+  studyInterventionRef:
+    name: studyInterventionRef
     domain_of:
-    - StudyInterventions
     - StudyEstimand
     range: StudyInterventionRef
     maximum_cardinality: 1
-  StudyEndPointRefRef:
-    name: StudyEndPointRefRef
+  studyEndPointRef:
+    name: studyEndPointRef
     domain_of:
     - StudyObjective
-    - StudyEndPoints
     - StudyEstimand
     range: StudyEndPointRef
     maximum_cardinality: 1
-  IntercurrentEventRef:
-    name: IntercurrentEventRef
+  intercurrentEvent:
+    name: intercurrentEvent
     multivalued: true
     domain_of:
     - StudyEstimand
     range: IntercurrentEvent
     inlined: true
     inlined_as_list: true
-  SummaryMeasureRef:
-    name: SummaryMeasureRef
+  summaryMeasure:
+    name: summaryMeasure
     domain_of:
     - StudyEstimand
     range: SummaryMeasure
     maximum_cardinality: 1
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifier for the StudyEstimand element.
     comments:
     - 'Required
@@ -530,7 +524,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: StudyEstimand
     domain_of:
     - Study
@@ -571,8 +565,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the Study Estimand.
     comments:
     - 'Required
@@ -580,7 +574,7 @@ attributes:
       range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: StudyEstimand
     domain_of:
     - Alias
@@ -617,10 +611,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Level:
-    name: Level
+  level:
+    name: level
     description: Defined Level for the Study Estimand
     comments:
     - 'Optional
@@ -628,21 +622,21 @@ attributes:
       enum values: ( Primary | Secondary | Exploratory )'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Level
+    alias: level
     owner: StudyEstimand
     domain_of:
     - StudyObjective
     - StudyEndPoint
     - StudyEstimand
     range: StudyEstimandLevel
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: StudyEstimand
     domain_of:
     - Study
@@ -683,71 +677,69 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  StudyTargetPopulationRefRef:
-    name: StudyTargetPopulationRefRef
+  studyTargetPopulationRef:
+    name: studyTargetPopulationRef
     description: 'StudyTargetPopulationRef reference: The StudyTargetPopulationRef
       references a StudyTargetPopulation to which the estimand applies.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: StudyTargetPopulationRefRef
+    alias: studyTargetPopulationRef
     owner: StudyEstimand
     domain_of:
-    - Protocol
     - StudyEstimand
     range: StudyTargetPopulationRef
     maximum_cardinality: 1
-  StudyInterventionRefRef:
-    name: StudyInterventionRefRef
+  studyInterventionRef:
+    name: studyInterventionRef
     description: 'StudyInterventionRef reference: The StudyInterventionRef references
       an intervention that is taken as the treatment for the estimand.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: StudyInterventionRefRef
+    alias: studyInterventionRef
     owner: StudyEstimand
     domain_of:
-    - StudyInterventions
     - StudyEstimand
     range: StudyInterventionRef
     maximum_cardinality: 1
-  StudyEndPointRefRef:
-    name: StudyEndPointRefRef
-    description: 'StudyEndPointRef reference: Go to start of metadata'
+  studyEndPointRef:
+    name: studyEndPointRef
+    description: 'StudyEndPointRef reference: A reference to a StudyEndPoint as it
+      occurs within a specific StudyObjective.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: StudyEndPointRefRef
+    alias: studyEndPointRef
     owner: StudyEstimand
     domain_of:
     - StudyObjective
-    - StudyEndPoints
     - StudyEstimand
     range: StudyEndPointRef
     maximum_cardinality: 1
-  IntercurrentEventRef:
-    name: IntercurrentEventRef
+  intercurrentEvent:
+    name: intercurrentEvent
     description: 'IntercurrentEvent reference: The IntercurrentEvent element describes
       an intercurrent event for an estimand (e.g., treatment discontinuation).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: IntercurrentEventRef
+    alias: intercurrentEvent
     owner: StudyEstimand
     domain_of:
     - StudyEstimand
     range: IntercurrentEvent
     inlined: true
     inlined_as_list: true
-  SummaryMeasureRef:
-    name: SummaryMeasureRef
+  summaryMeasure:
+    name: summaryMeasure
     description: 'SummaryMeasure reference: The SummaryMeasure element describes a
       summary measure for an estimand (e.g., proportion of patients with an improvement).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: SummaryMeasureRef
+    alias: summaryMeasure
     owner: StudyEstimand
     domain_of:
     - StudyEstimand

@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in Type_
+_Enumeration used in type_
 
 
 
@@ -25,8 +25,8 @@ URI: [RelativeTimingConstraintType](RelativeTimingConstraintType)
 
 | Name | Description |
 | ---  | --- |
-| [Type](Type.md) | Defines how the timing is to be defined between the two activities, starting ... |
-| [Type](Type.md) | Defines how the timing is to be defined between the two activities, starting ... |
+| [type](type.md) | Defines how the timing is to be defined between the two activities, starting ... |
+| [type](type.md) | Defines how the timing is to be defined between the two activities, starting ... |
 
 
 
@@ -54,7 +54,7 @@ URI: [RelativeTimingConstraintType](RelativeTimingConstraintType)
 <details>
 ```yaml
 name: RelativeTimingConstraintType
-description: Enumeration used in Type
+description: Enumeration used in type
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 permissible_values:

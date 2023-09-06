@@ -11,14 +11,14 @@ URI: [odm:Class](http://www.cdisc.org/ns/odm/v2.0/Class)
 ```mermaid
 erDiagram
 Class {
-    ItemGroupClass Name  
+    ItemGroupClass name  
 }
 SubClass {
-    ItemGroupSubClass Name  
-    ItemGroupClassSubClass ParentClass  
+    ItemGroupSubClass name  
+    ItemGroupClassSubClass parentClass  
 }
 
-Class ||--}o SubClass : "SubClassRef"
+Class ||--}o SubClass : "subClass"
 
 ```
 
@@ -31,8 +31,8 @@ Class ||--}o SubClass : "SubClassRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Name](Name.md) | 1..1 <br/> [ItemGroupClass](ItemGroupClass.md) | Name of the Class | direct |
-| [SubClassRef](SubClassRef.md) | 0..* <br/> [SubClass](SubClass.md) | SubClass reference: This element contains SubClass definitions. | direct |
+| [name](name.md) | 1..1 <br/> [ItemGroupClass](ItemGroupClass.md) | Name of the Class | direct |
+| [subClass](subClass.md) | 0..* <br/> [SubClass](SubClass.md) | SubClass reference: This element contains SubClass definitions. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -43,7 +43,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ItemGroupDef](ItemGroupDef.md) | [ClassRef](ClassRef.md) | range | [Class](Class.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [classRef](classRef.md) | range | [Class](Class.md) |
 
 
 
@@ -98,11 +98,11 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Class
 rank: 1000
 slots:
-- Name
-- SubClassRef
+- name
+- subClass
 slot_usage:
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name of the Class
     comments:
     - 'Conditional Required when ODM/@Context="Submission
@@ -149,8 +149,8 @@ slot_usage:
     - Query
     range: ItemGroupClass
     required: true
-  SubClassRef:
-    name: SubClassRef
+  subClass:
+    name: subClass
     multivalued: true
     domain_of:
     - Class
@@ -174,8 +174,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Class
 rank: 1000
 slot_usage:
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name of the Class
     comments:
     - 'Conditional Required when ODM/@Context="Submission
@@ -222,8 +222,8 @@ slot_usage:
     - Query
     range: ItemGroupClass
     required: true
-  SubClassRef:
-    name: SubClassRef
+  subClass:
+    name: subClass
     multivalued: true
     domain_of:
     - Class
@@ -231,8 +231,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name of the Class
     comments:
     - 'Conditional Required when ODM/@Context="Submission
@@ -244,7 +244,7 @@ attributes:
       the Class should not be provided.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: Class
     domain_of:
     - Alias
@@ -283,14 +283,14 @@ attributes:
     - Query
     range: ItemGroupClass
     required: true
-  SubClassRef:
-    name: SubClassRef
+  subClass:
+    name: subClass
     description: 'SubClass reference: This element contains SubClass definitions.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: SubClassRef
+    alias: subClass
     owner: Class
     domain_of:
     - Class

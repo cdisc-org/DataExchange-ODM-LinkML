@@ -1,7 +1,7 @@
 # Slot: leafID
 
 
-_References a leaf element that provides a reference to another ODM document. This is necessary when the source ItemOID references an ItemDef contained in a different ODM document._
+_Unique identifier for the Leaf element with the document location._
 
 
 
@@ -18,6 +18,7 @@ URI: [odm:leafID](http://www.cdisc.org/ns/odm/v2.0/leafID)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+[DocumentRef](DocumentRef.md) | Links to a leaf element with the location of the document. |  yes  |
 [SourceItem](SourceItem.md) | Provides the information needed to identify the source metadata. |  yes  |
 
 
@@ -28,9 +29,7 @@ URI: [odm:leafID](http://www.cdisc.org/ns/odm/v2.0/leafID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
-
-* Required: True
+* Range: [oid](oid.md)
 
 
 
@@ -57,17 +56,14 @@ URI: [odm:leafID](http://www.cdisc.org/ns/odm/v2.0/leafID)
 <details>
 ```yaml
 name: leafID
-description: References a leaf element that provides a reference to another ODM document.
-  This is necessary when the source ItemOID references an ItemDef contained in a different
-  ODM document.
+description: Unique identifier for the Leaf element with the document location.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: true
 alias: leafID
 domain_of:
+- DocumentRef
 - SourceItem
-range: oidref
-required: true
+range: oid
 
 ```
 </details>

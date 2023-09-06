@@ -14,16 +14,16 @@ Standards {
 
 }
 Standard {
-    oid OID  
-    StandardName Name  
-    StandardType Type  
-    StandardPublishingSet PublishingSet  
-    text Version  
-    StandardStatus Status  
-    oidref CommentOID  
+    oid oID  
+    StandardName name  
+    StandardType type  
+    StandardPublishingSet publishingSet  
+    text version  
+    StandardStatus status  
+    oidref commentOID  
 }
 
-Standards ||--}o Standard : "StandardRef"
+Standards ||--}o Standard : "standard"
 
 ```
 
@@ -36,7 +36,7 @@ Standards ||--}o Standard : "StandardRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StandardRef](StandardRef.md) | 0..* <br/> [Standard](Standard.md) | Definition of a standard referenced in the Define-XML document. | direct |
+| [standard](standard.md) | 0..* <br/> [Standard](Standard.md) | Definition of a standard referenced in the Define-XML document. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -47,7 +47,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [MetaDataVersion](MetaDataVersion.md) | [StandardsRef](StandardsRef.md) | range | [Standards](Standards.md) |
+| [MetaDataVersion](MetaDataVersion.md) | [standards](standards.md) | range | [Standards](Standards.md) |
 
 
 
@@ -102,10 +102,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Standards
 rank: 1000
 slots:
-- StandardRef
+- standard
 slot_usage:
-  StandardRef:
-    name: StandardRef
+  standard:
+    name: standard
     description: Definition of a standard referenced in the Define-XML document.
     multivalued: true
     domain_of:
@@ -130,8 +130,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Standards
 rank: 1000
 slot_usage:
-  StandardRef:
-    name: StandardRef
+  standard:
+    name: standard
     description: Definition of a standard referenced in the Define-XML document.
     multivalued: true
     domain_of:
@@ -140,14 +140,14 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  StandardRef:
-    name: StandardRef
+  standard:
+    name: standard
     description: Definition of a standard referenced in the Define-XML document.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: StandardRef
+    alias: standard
     owner: Standards
     domain_of:
     - Standards

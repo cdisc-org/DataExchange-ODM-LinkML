@@ -11,17 +11,17 @@ URI: [odm:Query](http://www.cdisc.org/ns/odm/v2.0/Query)
 ```mermaid
 erDiagram
 Query {
-    oid OID  
-    QuerySourceType Source  
-    text Target  
-    QueryType Type  
-    QueryStateType State  
-    datetime LastUpdateDatetime  
-    name Name  
+    oid oID  
+    QuerySourceType source  
+    text target  
+    QueryType type  
+    QueryStateType state  
+    datetime lastUpdateDatetime  
+    nameType name  
 }
 AuditRecord {
-    EditPointType EditPoint  
-    YesOrNo UsedMethod  
+    EditPointType editPoint  
+    YesOrNo usedMethod  
 }
 SourceID {
     text content  
@@ -33,23 +33,23 @@ DateTimeStamp {
     datetime content  
 }
 LocationRef {
-    oidref LocationOID  
+    oidref locationOID  
 }
 UserRef {
-    oidref UserOID  
+    oidref userOID  
 }
 Value {
-    positiveInteger SeqNum  
+    positiveInteger seqNum  
     text content  
 }
 
-Query ||--|o Value : "ValueRef"
-Query ||--}o AuditRecord : "AuditRecordRef"
-AuditRecord ||--|o UserRef : "UserRefRef"
-AuditRecord ||--|o LocationRef : "LocationRefRef"
-AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
-AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
-AuditRecord ||--|o SourceID : "SourceIDRef"
+Query ||--|o Value : "value"
+Query ||--}o AuditRecord : "auditRecord"
+AuditRecord ||--|o UserRef : "userRef"
+AuditRecord ||--|o LocationRef : "locationRef"
+AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o ReasonForChange : "reasonForChange"
+AuditRecord ||--|o SourceID : "sourceID"
 
 ```
 
@@ -62,15 +62,15 @@ AuditRecord ||--|o SourceID : "SourceIDRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Query unique identifier | direct |
-| [Source](Source.md) | 1..1 <br/> [QuerySourceType](QuerySourceType.md) | Origin of the Query. | direct |
-| [Target](Target.md) | 0..1 <br/> [text](text.md) | Element upon which the Query is raised. The parent element is the Target when... | direct |
-| [Type](Type.md) | 0..1 <br/> [QueryType](QueryType.md) | Indicates whether Is the Query was raised manually by a user or automatically... | direct |
-| [State](State.md) | 1..1 <br/> [QueryStateType](QueryStateType.md) | Status of the Query | direct |
-| [LastUpdateDatetime](LastUpdateDatetime.md) | 1..1 <br/> [datetime](datetime.md) | When was this Query updated? Will correspond to the creation date or the last... | direct |
-| [Name](Name.md) | 0..1 <br/> [name](name.md) | Name for a query that can be used to identify the query in a listing or user ... | direct |
-| [ValueRef](ValueRef.md) | 0..1 <br/> [Value](Value.md) | Human-readable designation of the trial phase. | direct |
-| [AuditRecordRef](AuditRecordRef.md) | 0..* <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Query unique identifier | direct |
+| [source](source.md) | 1..1 <br/> [QuerySourceType](QuerySourceType.md) | Origin of the Query. | direct |
+| [target](target.md) | 0..1 <br/> [text](text.md) | Element upon which the Query is raised. The parent element is the Target when... | direct |
+| [type](type.md) | 0..1 <br/> [QueryType](QueryType.md) | Indicates whether Is the Query was raised manually by a user or automatically... | direct |
+| [state](state.md) | 1..1 <br/> [QueryStateType](QueryStateType.md) | Status of the Query | direct |
+| [lastUpdateDatetime](lastUpdateDatetime.md) | 1..1 <br/> [datetime](datetime.md) | When was this Query updated? Will correspond to the creation date or the last... | direct |
+| [name](name.md) | 0..1 <br/> [nameType](nameType.md) | Name for a query that can be used to identify the query in a listing or user ... | direct |
+| [value](value.md) | 0..1 <br/> [Value](Value.md) | Human-readable designation of the trial phase. | direct |
+| [auditRecord](auditRecord.md) | 0..* <br/> [AuditRecord](AuditRecord.md) | AuditRecord reference: An AuditRecord carries information pertaining to the c... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -81,12 +81,12 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Location](Location.md) | [QueryRef](QueryRef.md) | range | [Query](Query.md) |
-| [ClinicalData](ClinicalData.md) | [QueryRef](QueryRef.md) | range | [Query](Query.md) |
-| [SubjectData](SubjectData.md) | [QueryRef](QueryRef.md) | range | [Query](Query.md) |
-| [StudyEventData](StudyEventData.md) | [QueryRef](QueryRef.md) | range | [Query](Query.md) |
-| [ItemGroupData](ItemGroupData.md) | [QueryRef](QueryRef.md) | range | [Query](Query.md) |
-| [ItemData](ItemData.md) | [QueryRef](QueryRef.md) | range | [Query](Query.md) |
+| [Location](Location.md) | [query](query.md) | range | [Query](Query.md) |
+| [ClinicalData](ClinicalData.md) | [query](query.md) | range | [Query](Query.md) |
+| [SubjectData](SubjectData.md) | [query](query.md) | range | [Query](Query.md) |
+| [StudyEventData](StudyEventData.md) | [query](query.md) | range | [Query](Query.md) |
+| [ItemGroupData](ItemGroupData.md) | [query](query.md) | range | [Query](Query.md) |
+| [ItemData](ItemData.md) | [query](query.md) | range | [Query](Query.md) |
 
 
 
@@ -146,18 +146,18 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Query
 rank: 1000
 slots:
-- OID
-- Source
-- Target
-- Type
-- State
-- LastUpdateDatetime
-- Name
-- ValueRef
-- AuditRecordRef
+- oID
+- source
+- target
+- type
+- state
+- lastUpdateDatetime
+- name
+- value
+- auditRecord
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Query unique identifier
     comments:
     - Must be unique within a Study.
@@ -200,16 +200,16 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Source:
-    name: Source
+  source:
+    name: source
     description: Origin of the Query.
     domain_of:
     - Origin
     - Query
     range: QuerySourceType
     required: true
-  Target:
-    name: Target
+  target:
+    name: target
     description: Element upon which the Query is raised. The parent element is the
       Target when the Target attribute is omitted.
     comments:
@@ -217,8 +217,8 @@ slot_usage:
     domain_of:
     - Query
     range: text
-  Type:
-    name: Type
+  type:
+    name: type
     description: Indicates whether Is the Query was raised manually by a user or automatically
       via an edit check.
     comments:
@@ -239,23 +239,23 @@ slot_usage:
     - Organization
     - Query
     range: QueryType
-  State:
-    name: State
+  state:
+    name: state
     description: Status of the Query
     domain_of:
     - Query
     range: QueryStateType
     required: true
-  LastUpdateDatetime:
-    name: LastUpdateDatetime
+  lastUpdateDatetime:
+    name: lastUpdateDatetime
     description: When was this Query updated? Will correspond to the creation date
       or the last updated date?
     domain_of:
     - Query
     range: datetime
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name for a query that can be used to identify the query in a listing
       or user interface.
     comments:
@@ -295,9 +295,9 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
-  ValueRef:
-    name: ValueRef
+    range: nameType
+  value:
+    name: value
     domain_of:
     - TrialPhase
     - ParameterValue
@@ -306,8 +306,8 @@ slot_usage:
     - Query
     range: Value
     maximum_cardinality: 1
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     multivalued: true
     domain_of:
     - ReferenceData
@@ -342,8 +342,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Query
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Query unique identifier
     comments:
     - Must be unique within a Study.
@@ -386,16 +386,16 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Source:
-    name: Source
+  source:
+    name: source
     description: Origin of the Query.
     domain_of:
     - Origin
     - Query
     range: QuerySourceType
     required: true
-  Target:
-    name: Target
+  target:
+    name: target
     description: Element upon which the Query is raised. The parent element is the
       Target when the Target attribute is omitted.
     comments:
@@ -403,8 +403,8 @@ slot_usage:
     domain_of:
     - Query
     range: text
-  Type:
-    name: Type
+  type:
+    name: type
     description: Indicates whether Is the Query was raised manually by a user or automatically
       via an edit check.
     comments:
@@ -425,23 +425,23 @@ slot_usage:
     - Organization
     - Query
     range: QueryType
-  State:
-    name: State
+  state:
+    name: state
     description: Status of the Query
     domain_of:
     - Query
     range: QueryStateType
     required: true
-  LastUpdateDatetime:
-    name: LastUpdateDatetime
+  lastUpdateDatetime:
+    name: lastUpdateDatetime
     description: When was this Query updated? Will correspond to the creation date
       or the last updated date?
     domain_of:
     - Query
     range: datetime
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name for a query that can be used to identify the query in a listing
       or user interface.
     comments:
@@ -481,9 +481,9 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
-  ValueRef:
-    name: ValueRef
+    range: nameType
+  value:
+    name: value
     domain_of:
     - TrialPhase
     - ParameterValue
@@ -492,8 +492,8 @@ slot_usage:
     - Query
     range: Value
     maximum_cardinality: 1
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     multivalued: true
     domain_of:
     - ReferenceData
@@ -507,15 +507,15 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Query unique identifier
     comments:
     - Must be unique within a Study.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: Query
     domain_of:
     - Study
@@ -556,40 +556,40 @@ attributes:
     - Query
     range: oid
     required: true
-  Source:
-    name: Source
+  source:
+    name: source
     description: Origin of the Query.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Source
+    alias: source
     owner: Query
     domain_of:
     - Origin
     - Query
     range: QuerySourceType
     required: true
-  Target:
-    name: Target
+  target:
+    name: target
     description: Element upon which the Query is raised. The parent element is the
       Target when the Target attribute is omitted.
     comments:
     - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Target
+    alias: target
     owner: Query
     domain_of:
     - Query
     range: text
-  Type:
-    name: Type
+  type:
+    name: type
     description: Indicates whether Is the Query was raised manually by a user or automatically
       via an edit check.
     comments:
     - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Type
+    alias: type
     owner: Query
     domain_of:
     - TranslatedText
@@ -607,38 +607,38 @@ attributes:
     - Organization
     - Query
     range: QueryType
-  State:
-    name: State
+  state:
+    name: state
     description: Status of the Query
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: State
+    alias: state
     owner: Query
     domain_of:
     - Query
     range: QueryStateType
     required: true
-  LastUpdateDatetime:
-    name: LastUpdateDatetime
+  lastUpdateDatetime:
+    name: lastUpdateDatetime
     description: When was this Query updated? Will correspond to the creation date
       or the last updated date?
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: LastUpdateDatetime
+    alias: lastUpdateDatetime
     owner: Query
     domain_of:
     - Query
     range: datetime
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Name for a query that can be used to identify the query in a listing
       or user interface.
     comments:
     - Optional
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: Query
     domain_of:
     - Alias
@@ -675,14 +675,14 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
-  ValueRef:
-    name: ValueRef
+    range: nameType
+  value:
+    name: value
     description: Human-readable designation of the trial phase.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: ValueRef
+    alias: value
     owner: Query
     domain_of:
     - TrialPhase
@@ -692,8 +692,8 @@ attributes:
     - Query
     range: Value
     maximum_cardinality: 1
-  AuditRecordRef:
-    name: AuditRecordRef
+  auditRecord:
+    name: auditRecord
     description: 'AuditRecord reference: An AuditRecord carries information pertaining
       to the creation, deletion, or modification of clinical data. This information
       includes who performed that action, and where, when, and why that action was
@@ -704,7 +704,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: AuditRecordRef
+    alias: auditRecord
     owner: Query
     domain_of:
     - ReferenceData

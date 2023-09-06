@@ -11,32 +11,32 @@ URI: [odm:MethodDef](http://www.cdisc.org/ns/odm/v2.0/MethodDef)
 ```mermaid
 erDiagram
 MethodDef {
-    oid OID  
-    name Name  
-    MethodType Type  
-    oidref CommentOID  
+    oid oID  
+    nameType name  
+    MethodType type  
+    oidref commentOID  
 }
 DocumentRef {
-    oid LeafID  
+    oid leafID  
 }
 PDFPageRef {
-    text PageRefs  
-    positiveInteger FirstPage  
-    positiveInteger LastPage  
-    PDFPageType Type  
-    text TitleRef  
+    text pageRefs  
+    positiveInteger firstPage  
+    positiveInteger lastPage  
+    PDFPageType type  
+    text title  
 }
 Alias {
-    text ContextRef  
-    text Name  
+    text context  
+    text name  
 }
 FormalExpression {
-    text ContextRef  
+    text context  
 }
 ExternalCodeLib {
-    name Library  
-    name Method  
-    text Version  
+    nameType library  
+    nameType method  
+    text version  
     text ref  
     uriorcurie href  
 }
@@ -47,37 +47,37 @@ MethodSignature {
 
 }
 ReturnValue {
-    name Name  
-    DataType DataTypeRef  
-    text DefinitionRef  
-    positiveInteger OrderNumber  
+    nameType name  
+    DataType dataType  
+    text definition  
+    positiveInteger orderNumber  
 }
 Parameter {
-    name Name  
-    DataType DataTypeRef  
-    text DefinitionRef  
-    positiveInteger OrderNumber  
+    nameType name  
+    DataType dataType  
+    text definition  
+    positiveInteger orderNumber  
 }
 Description {
 
 }
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
-MethodDef ||--|o Description : "DescriptionRef"
-MethodDef ||--|o MethodSignature : "MethodSignatureRef"
-MethodDef ||--}o FormalExpression : "FormalExpressionRef"
-MethodDef ||--}o Alias : "AliasRef"
-MethodDef ||--}o DocumentRef : "DocumentRefRef"
-DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
-FormalExpression ||--|o Code : "CodeRef"
-FormalExpression ||--|o ExternalCodeLib : "ExternalCodeLibRef"
-MethodSignature ||--}o Parameter : "ParameterRef"
-MethodSignature ||--}o ReturnValue : "ReturnValueRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+MethodDef ||--|o Description : "description"
+MethodDef ||--|o MethodSignature : "methodSignature"
+MethodDef ||--}o FormalExpression : "formalExpression"
+MethodDef ||--}o Alias : "alias"
+MethodDef ||--}o DocumentRef : "documentRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+MethodSignature ||--}o Parameter : "parameter"
+MethodSignature ||--}o ReturnValue : "returnValue"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -90,15 +90,15 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifer for the MethodDef element. | direct |
-| [Name](Name.md) | 1..1 <br/> [name](name.md) | Human readable name for the method. | direct |
-| [Type](Type.md) | 0..1 <br/> [MethodType](MethodType.md) | Computation: derivation involving one or more variables. Imputation: derivati... | direct |
-| [CommentOID](CommentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef with information related to this MethodDef. | direct |
-| [DescriptionRef](DescriptionRef.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [MethodSignatureRef](MethodSignatureRef.md) | 0..1 <br/> [MethodSignature](MethodSignature.md) | MethodSignature reference: A MethodSignature defines the parameters and retur... | direct |
-| [FormalExpressionRef](FormalExpressionRef.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
-| [AliasRef](AliasRef.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
-| [DocumentRefRef](DocumentRefRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file. | direct |
+| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifer for the MethodDef element. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name for the method. | direct |
+| [type](type.md) | 0..1 <br/> [MethodType](MethodType.md) | Computation: derivation involving one or more variables. Imputation: derivati... | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef with information related to this MethodDef. | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+| [methodSignature](methodSignature.md) | 0..1 <br/> [MethodSignature](MethodSignature.md) | MethodSignature reference: A MethodSignature defines the parameters and retur... | direct |
+| [formalExpression](formalExpression.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
+| [alias](alias.md) | 0..* <br/> [Alias](Alias.md) | Alias reference: An Alias provides an additional name for an element. The Con... | direct |
+| [documentRef](documentRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -109,7 +109,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [MetaDataVersion](MetaDataVersion.md) | [MethodDefRef](MethodDefRef.md) | range | [MethodDef](MethodDef.md) |
+| [MetaDataVersion](MetaDataVersion.md) | [methodDef](methodDef.md) | range | [MethodDef](MethodDef.md) |
 
 
 
@@ -164,18 +164,18 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/MethodDef
 rank: 1000
 slots:
-- OID
-- Name
-- Type
-- CommentOID
-- DescriptionRef
-- MethodSignatureRef
-- FormalExpressionRef
-- AliasRef
-- DocumentRefRef
+- oID
+- name
+- type
+- commentOID
+- description
+- methodSignature
+- formalExpression
+- alias
+- documentRef
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifer for the MethodDef element.
     comments:
     - 'Required
@@ -220,8 +220,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the method.
     comments:
     - 'Required
@@ -262,10 +262,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Type:
-    name: Type
+  type:
+    name: type
     description: 'Computation: derivation involving one or more variables. Imputation:
       derivation based on other observations. Transpose: conversion of rows to columns
       or vice versa. Preload: retrieve and populate data from an external source.'
@@ -289,8 +289,8 @@ slot_usage:
     - Organization
     - Query
     range: MethodType
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef with information related to this MethodDef.
     comments:
     - 'Optional
@@ -310,8 +310,8 @@ slot_usage:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -351,16 +351,16 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  MethodSignatureRef:
-    name: MethodSignatureRef
+  methodSignature:
+    name: methodSignature
     domain_of:
     - RangeCheck
     - MethodDef
     - ConditionDef
     range: MethodSignature
     maximum_cardinality: 1
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     multivalued: true
     domain_of:
     - RangeCheck
@@ -371,8 +371,8 @@ slot_usage:
     range: FormalExpression
     inlined: true
     inlined_as_list: true
-  AliasRef:
-    name: AliasRef
+  alias:
+    name: alias
     multivalued: true
     domain_of:
     - StudyEventDef
@@ -386,8 +386,8 @@ slot_usage:
     range: Alias
     inlined: true
     inlined_as_list: true
-  DocumentRefRef:
-    name: DocumentRefRef
+  documentRef:
+    name: documentRef
     multivalued: true
     domain_of:
     - AnnotatedCRF
@@ -415,8 +415,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/MethodDef
 rank: 1000
 slot_usage:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifer for the MethodDef element.
     comments:
     - 'Required
@@ -461,8 +461,8 @@ slot_usage:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the method.
     comments:
     - 'Required
@@ -503,10 +503,10 @@ slot_usage:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Type:
-    name: Type
+  type:
+    name: type
     description: 'Computation: derivation involving one or more variables. Imputation:
       derivation based on other observations. Transpose: conversion of rows to columns
       or vice versa. Preload: retrieve and populate data from an external source.'
@@ -530,8 +530,8 @@ slot_usage:
     - Organization
     - Query
     range: MethodType
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef with information related to this MethodDef.
     comments:
     - 'Optional
@@ -551,8 +551,8 @@ slot_usage:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     domain_of:
     - Study
     - MetaDataVersion
@@ -592,16 +592,16 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  MethodSignatureRef:
-    name: MethodSignatureRef
+  methodSignature:
+    name: methodSignature
     domain_of:
     - RangeCheck
     - MethodDef
     - ConditionDef
     range: MethodSignature
     maximum_cardinality: 1
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     multivalued: true
     domain_of:
     - RangeCheck
@@ -612,8 +612,8 @@ slot_usage:
     range: FormalExpression
     inlined: true
     inlined_as_list: true
-  AliasRef:
-    name: AliasRef
+  alias:
+    name: alias
     multivalued: true
     domain_of:
     - StudyEventDef
@@ -627,8 +627,8 @@ slot_usage:
     range: Alias
     inlined: true
     inlined_as_list: true
-  DocumentRefRef:
-    name: DocumentRefRef
+  documentRef:
+    name: documentRef
     multivalued: true
     domain_of:
     - AnnotatedCRF
@@ -640,8 +640,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  OID:
-    name: OID
+  oID:
+    name: oID
     description: Unique identifer for the MethodDef element.
     comments:
     - 'Required
@@ -650,7 +650,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: OID
+    alias: oID
     owner: MethodDef
     domain_of:
     - Study
@@ -691,8 +691,8 @@ attributes:
     - Query
     range: oid
     required: true
-  Name:
-    name: Name
+  name:
+    name: name
     description: Human readable name for the method.
     comments:
     - 'Required
@@ -700,7 +700,7 @@ attributes:
       range: name'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Name
+    alias: name
     owner: MethodDef
     domain_of:
     - Alias
@@ -737,10 +737,10 @@ attributes:
     - Organization
     - Location
     - Query
-    range: name
+    range: nameType
     required: true
-  Type:
-    name: Type
+  type:
+    name: type
     description: 'Computation: derivation involving one or more variables. Imputation:
       derivation based on other observations. Transpose: conversion of rows to columns
       or vice versa. Preload: retrieve and populate data from an external source.'
@@ -750,7 +750,7 @@ attributes:
       enum values: (Computation | Imputation | Transpose | Preload)'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Type
+    alias: type
     owner: MethodDef
     domain_of:
     - TranslatedText
@@ -768,8 +768,8 @@ attributes:
     - Organization
     - Query
     range: MethodType
-  CommentOID:
-    name: CommentOID
+  commentOID:
+    name: commentOID
     description: Reference to a CommentDef with information related to this MethodDef.
     comments:
     - 'Optional
@@ -777,7 +777,7 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: CommentOID
+    alias: commentOID
     owner: MethodDef
     domain_of:
     - MetaDataVersion
@@ -793,14 +793,14 @@ attributes:
     - ConditionDef
     - Coding
     range: oidref
-  DescriptionRef:
-    name: DescriptionRef
+  description:
+    name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: DescriptionRef
+    alias: description
     owner: MethodDef
     domain_of:
     - Study
@@ -841,8 +841,8 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  MethodSignatureRef:
-    name: MethodSignatureRef
+  methodSignature:
+    name: methodSignature
     description: 'MethodSignature reference: A MethodSignature defines the parameters
       and return values for a method. The MethodSignature improves traceability while
       enhancing the ability for automation engines to execute a MethodDef''s FormalExpression.
@@ -850,7 +850,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: MethodSignatureRef
+    alias: methodSignature
     owner: MethodDef
     domain_of:
     - RangeCheck
@@ -858,8 +858,8 @@ attributes:
     - ConditionDef
     range: MethodSignature
     maximum_cardinality: 1
-  FormalExpressionRef:
-    name: FormalExpressionRef
+  formalExpression:
+    name: formalExpression
     description: 'FormalExpression reference: A FormalExpression used within a ConditionDef
       or a RangeCheck must evaluate to True or False. A FormalExpression referenced
       within a MethodDef having Type Imputation, Computation, or Transpose must evaluate
@@ -871,7 +871,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: FormalExpressionRef
+    alias: formalExpression
     owner: MethodDef
     domain_of:
     - RangeCheck
@@ -882,8 +882,8 @@ attributes:
     range: FormalExpression
     inlined: true
     inlined_as_list: true
-  AliasRef:
-    name: AliasRef
+  alias:
+    name: alias
     description: 'Alias reference: An Alias provides an additional name for an element.
       The Context attribute specifies the application domain in which this additional
       name is relevant.'
@@ -891,7 +891,7 @@ attributes:
     rank: 1000
     multivalued: true
     identifier: false
-    alias: AliasRef
+    alias: alias
     owner: MethodDef
     domain_of:
     - StudyEventDef
@@ -905,15 +905,15 @@ attributes:
     range: Alias
     inlined: true
     inlined_as_list: true
-  DocumentRefRef:
-    name: DocumentRefRef
+  documentRef:
+    name: documentRef
     description: The DocumentRef element is a container for page references in a PDF
       file.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
     identifier: false
-    alias: DocumentRefRef
+    alias: documentRef
     owner: MethodDef
     domain_of:
     - AnnotatedCRF

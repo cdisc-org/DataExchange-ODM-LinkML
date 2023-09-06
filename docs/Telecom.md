@@ -11,8 +11,8 @@ URI: [odm:Telecom](http://www.cdisc.org/ns/odm/v2.0/Telecom)
 ```mermaid
 erDiagram
 Telecom {
-    TelecomTypeType TelecomType  
-    text ValueRef  
+    TelecomTypeType telecomType  
+    text value  
 }
 
 
@@ -28,8 +28,8 @@ Telecom {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [TelecomType](TelecomType.md) | 1..1 <br/> [TelecomTypeType](TelecomTypeType.md) |  | direct |
-| [ValueRef](ValueRef.md) | 1..1 <br/> [text](text.md) | Human-readable designation of the trial phase. | direct |
+| [telecomType](telecomType.md) | 1..1 <br/> [TelecomTypeType](TelecomTypeType.md) |  | direct |
+| [value](value.md) | 1..1 <br/> [text](text.md) | Human-readable designation of the trial phase. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -40,9 +40,9 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [User](User.md) | [TelecomRef](TelecomRef.md) | range | [Telecom](Telecom.md) |
-| [Organization](Organization.md) | [TelecomRef](TelecomRef.md) | range | [Telecom](Telecom.md) |
-| [Location](Location.md) | [TelecomRef](TelecomRef.md) | range | [Telecom](Telecom.md) |
+| [User](User.md) | [telecom](telecom.md) | range | [Telecom](Telecom.md) |
+| [Organization](Organization.md) | [telecom](telecom.md) | range | [Telecom](Telecom.md) |
+| [Location](Location.md) | [telecom](telecom.md) | range | [Telecom](Telecom.md) |
 
 
 
@@ -97,11 +97,11 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Telecom
 rank: 1000
 slots:
-- TelecomType
-- ValueRef
+- telecomType
+- value
 slot_usage:
-  TelecomType:
-    name: TelecomType
+  telecomType:
+    name: telecomType
     comments:
     - 'Required
 
@@ -112,8 +112,8 @@ slot_usage:
     - Telecom
     range: TelecomTypeType
     required: true
-  ValueRef:
-    name: ValueRef
+  value:
+    name: value
     comments:
     - 'Required
 
@@ -143,8 +143,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Telecom
 rank: 1000
 slot_usage:
-  TelecomType:
-    name: TelecomType
+  telecomType:
+    name: telecomType
     comments:
     - 'Required
 
@@ -155,8 +155,8 @@ slot_usage:
     - Telecom
     range: TelecomTypeType
     required: true
-  ValueRef:
-    name: ValueRef
+  value:
+    name: value
     comments:
     - 'Required
 
@@ -170,8 +170,8 @@ slot_usage:
     range: text
     required: true
 attributes:
-  TelecomType:
-    name: TelecomType
+  telecomType:
+    name: telecomType
     comments:
     - 'Required
 
@@ -180,14 +180,14 @@ attributes:
       Values are aligned with FHIR ContactPoint/System data element.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: TelecomType
+    alias: telecomType
     owner: Telecom
     domain_of:
     - Telecom
     range: TelecomTypeType
     required: true
-  ValueRef:
-    name: ValueRef
+  value:
+    name: value
     description: Human-readable designation of the trial phase.
     comments:
     - 'Required
@@ -196,7 +196,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: false
-    alias: ValueRef
+    alias: value
     owner: Telecom
     domain_of:
     - TrialPhase

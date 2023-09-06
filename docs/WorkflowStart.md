@@ -11,7 +11,7 @@ URI: [odm:WorkflowStart](http://www.cdisc.org/ns/odm/v2.0/WorkflowStart)
 ```mermaid
 erDiagram
 WorkflowStart {
-    oidref StartOID  
+    oidref startOID  
 }
 
 
@@ -27,7 +27,7 @@ WorkflowStart {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StartOID](StartOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the definition of the structural element that starts the workflo... | direct |
+| [startOID](startOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the definition of the structural element that starts the workflo... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -38,7 +38,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [WorkflowDef](WorkflowDef.md) | [WorkflowStartRef](WorkflowStartRef.md) | range | [WorkflowStart](WorkflowStart.md) |
+| [WorkflowDef](WorkflowDef.md) | [workflowStart](workflowStart.md) | range | [WorkflowStart](WorkflowStart.md) |
 
 
 
@@ -93,10 +93,10 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/WorkflowStart
 rank: 1000
 slots:
-- StartOID
+- startOID
 slot_usage:
-  StartOID:
-    name: StartOID
+  startOID:
+    name: startOID
     description: Reference to the definition of the structural element that starts
       the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or
       ItemDef element.
@@ -129,8 +129,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/WorkflowStart
 rank: 1000
 slot_usage:
-  StartOID:
-    name: StartOID
+  startOID:
+    name: startOID
     description: Reference to the definition of the structural element that starts
       the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or
       ItemDef element.
@@ -147,8 +147,8 @@ slot_usage:
     range: oidref
     required: true
 attributes:
-  StartOID:
-    name: StartOID
+  startOID:
+    name: startOID
     description: Reference to the definition of the structural element that starts
       the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or
       ItemDef element.
@@ -162,7 +162,7 @@ attributes:
       of the WorkflowDef .'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StartOID
+    alias: startOID
     owner: WorkflowStart
     domain_of:
     - WorkflowStart

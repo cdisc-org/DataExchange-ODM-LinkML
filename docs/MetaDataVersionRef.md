@@ -11,9 +11,9 @@ URI: [odm:MetaDataVersionRef](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersionRe
 ```mermaid
 erDiagram
 MetaDataVersionRef {
-    oidref StudyOID  
-    oidref MetaDataVersionOID  
-    date EffectiveDate  
+    oidref studyOID  
+    oidref metaDataVersionOID  
+    date effectiveDate  
 }
 
 
@@ -29,9 +29,9 @@ MetaDataVersionRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [StudyOID](StudyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the Study that uses this metadata version. | direct |
-| [MetaDataVersionOID](MetaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | References the MetaDataVersion (within the above Study). | direct |
-| [EffectiveDate](EffectiveDate.md) | 1..1 <br/> [date](date.md) | Datetime stamp when this MetaDataVersion was published at this location. | direct |
+| [studyOID](studyOID.md) | 1..1 <br/> [oidref](oidref.md) | References the Study that uses this metadata version. | direct |
+| [metaDataVersionOID](metaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | References the MetaDataVersion (within the above Study). | direct |
+| [effectiveDate](effectiveDate.md) | 1..1 <br/> [date](date.md) | Datetime stamp when this MetaDataVersion was published at this location. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -42,7 +42,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Location](Location.md) | [MetaDataVersionRefRef](MetaDataVersionRefRef.md) | range | [MetaDataVersionRef](MetaDataVersionRef.md) |
+| [Location](Location.md) | [metaDataVersionRef](metaDataVersionRef.md) | range | [MetaDataVersionRef](MetaDataVersionRef.md) |
 
 
 
@@ -98,12 +98,12 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/MetaDataVersionRef
 rank: 1000
 slots:
-- StudyOID
-- MetaDataVersionOID
-- EffectiveDate
+- studyOID
+- metaDataVersionOID
+- effectiveDate
 slot_usage:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the Study that uses this metadata version.
     comments:
     - 'Required
@@ -120,8 +120,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: References the MetaDataVersion (within the above Study).
     comments:
     - 'Required
@@ -137,8 +137,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  EffectiveDate:
-    name: EffectiveDate
+  effectiveDate:
+    name: effectiveDate
     description: Datetime stamp when this MetaDataVersion was published at this location.
     comments:
     - 'Required
@@ -169,8 +169,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/MetaDataVersionRef
 rank: 1000
 slot_usage:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the Study that uses this metadata version.
     comments:
     - 'Required
@@ -187,8 +187,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: References the MetaDataVersion (within the above Study).
     comments:
     - 'Required
@@ -204,8 +204,8 @@ slot_usage:
     - KeySet
     range: oidref
     required: true
-  EffectiveDate:
-    name: EffectiveDate
+  effectiveDate:
+    name: effectiveDate
     description: Datetime stamp when this MetaDataVersion was published at this location.
     comments:
     - 'Required
@@ -219,8 +219,8 @@ slot_usage:
     range: date
     required: true
 attributes:
-  StudyOID:
-    name: StudyOID
+  studyOID:
+    name: studyOID
     description: References the Study that uses this metadata version.
     comments:
     - 'Required
@@ -228,7 +228,7 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: StudyOID
+    alias: studyOID
     owner: MetaDataVersionRef
     domain_of:
     - Include
@@ -241,8 +241,8 @@ attributes:
     - KeySet
     range: oidref
     required: true
-  MetaDataVersionOID:
-    name: MetaDataVersionOID
+  metaDataVersionOID:
+    name: metaDataVersionOID
     description: References the MetaDataVersion (within the above Study).
     comments:
     - 'Required
@@ -250,7 +250,7 @@ attributes:
       range: oidref'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: MetaDataVersionOID
+    alias: metaDataVersionOID
     owner: MetaDataVersionRef
     domain_of:
     - Include
@@ -262,8 +262,8 @@ attributes:
     - KeySet
     range: oidref
     required: true
-  EffectiveDate:
-    name: EffectiveDate
+  effectiveDate:
+    name: effectiveDate
     description: Datetime stamp when this MetaDataVersion was published at this location.
     comments:
     - 'Required
@@ -274,7 +274,7 @@ attributes:
       element that references this MetaDataVersionOID.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: EffectiveDate
+    alias: effectiveDate
     owner: MetaDataVersionRef
     domain_of:
     - MetaDataVersionRef

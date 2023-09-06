@@ -11,9 +11,9 @@ URI: [odm:ExternalCodeLib](http://www.cdisc.org/ns/odm/v2.0/ExternalCodeLib)
 ```mermaid
 erDiagram
 ExternalCodeLib {
-    name Library  
-    name Method  
-    text Version  
+    nameType library  
+    nameType method  
+    text version  
     text ref  
     uriorcurie href  
 }
@@ -31,9 +31,9 @@ ExternalCodeLib {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [Library](Library.md) | 1..1 <br/> [name](name.md) | The name of the external library containing the FormalExpression. | direct |
-| [Method](Method.md) | 0..1 <br/> [name](name.md) | The name of the method or function that contains the FormalExpression code. | direct |
-| [Version](Version.md) | 0..1 <br/> [text](text.md) | The version of the code contained in the external library. | direct |
+| [library](library.md) | 1..1 <br/> [nameType](nameType.md) | The name of the external library containing the FormalExpression. | direct |
+| [method](method.md) | 0..1 <br/> [nameType](nameType.md) | The name of the method or function that contains the FormalExpression code. | direct |
+| [version](version.md) | 0..1 <br/> [text](text.md) | The version of the code contained in the external library. | direct |
 | [ref](ref.md) | 0..1 <br/> [text](text.md) | Reference to a local instance (e.g. file) of the external library containing ... | direct |
 | [href](href.md) | 0..1 <br/> [uriorcurie](uriorcurie.md) | URL of an external code external library such as GitHub or Bitbucket. | direct |
 
@@ -46,7 +46,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [FormalExpression](FormalExpression.md) | [ExternalCodeLibRef](ExternalCodeLibRef.md) | range | [ExternalCodeLib](ExternalCodeLib.md) |
+| [FormalExpression](FormalExpression.md) | [externalCodeLib](externalCodeLib.md) | range | [ExternalCodeLib](ExternalCodeLib.md) |
 
 
 
@@ -108,14 +108,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ExternalCodeLib
 rank: 1000
 slots:
-- Library
-- Method
-- Version
+- library
+- method
+- version
 - ref
 - href
 slot_usage:
-  Library:
-    name: Library
+  library:
+    name: library
     description: The name of the external library containing the FormalExpression.
     comments:
     - 'Required
@@ -123,10 +123,10 @@ slot_usage:
       range: text'
     domain_of:
     - ExternalCodeLib
-    range: name
+    range: nameType
     required: true
-  Method:
-    name: Method
+  method:
+    name: method
     description: The name of the method or function that contains the FormalExpression
       code.
     comments:
@@ -135,9 +135,9 @@ slot_usage:
       range: text'
     domain_of:
     - ExternalCodeLib
-    range: name
-  Version:
-    name: Version
+    range: nameType
+  version:
+    name: version
     description: The version of the code contained in the external library.
     comments:
     - 'Optional
@@ -197,8 +197,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ExternalCodeLib
 rank: 1000
 slot_usage:
-  Library:
-    name: Library
+  library:
+    name: library
     description: The name of the external library containing the FormalExpression.
     comments:
     - 'Required
@@ -206,10 +206,10 @@ slot_usage:
       range: text'
     domain_of:
     - ExternalCodeLib
-    range: name
+    range: nameType
     required: true
-  Method:
-    name: Method
+  method:
+    name: method
     description: The name of the method or function that contains the FormalExpression
       code.
     comments:
@@ -218,9 +218,9 @@ slot_usage:
       range: text'
     domain_of:
     - ExternalCodeLib
-    range: name
-  Version:
-    name: Version
+    range: nameType
+  version:
+    name: version
     description: The version of the code contained in the external library.
     comments:
     - 'Optional
@@ -257,8 +257,8 @@ slot_usage:
     - Coding
     range: uriorcurie
 attributes:
-  Library:
-    name: Library
+  library:
+    name: library
     description: The name of the external library containing the FormalExpression.
     comments:
     - 'Required
@@ -266,14 +266,14 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Library
+    alias: library
     owner: ExternalCodeLib
     domain_of:
     - ExternalCodeLib
-    range: name
+    range: nameType
     required: true
-  Method:
-    name: Method
+  method:
+    name: method
     description: The name of the method or function that contains the FormalExpression
       code.
     comments:
@@ -282,13 +282,13 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Method
+    alias: method
     owner: ExternalCodeLib
     domain_of:
     - ExternalCodeLib
-    range: name
-  Version:
-    name: Version
+    range: nameType
+  version:
+    name: version
     description: The version of the code contained in the external library.
     comments:
     - 'Optional
@@ -296,7 +296,7 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    alias: Version
+    alias: version
     owner: ExternalCodeLib
     domain_of:
     - Standard
