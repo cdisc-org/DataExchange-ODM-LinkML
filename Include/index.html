@@ -94,8 +94,8 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Include">odm:Include</a></p>
 <pre class="mermaid"><code>erDiagram
 Include {
-    oidref StudyOID  
-    oidref MetaDataVersionOID  
+    oidref studyOID  
+    oidref metaDataVersionOID  
     uriorcurie href  
 }
 
@@ -114,13 +114,13 @@ Include {
 </thead>
 <tbody>
 <tr>
-<td><a href="../StudyOID/">StudyOID</a></td>
+<td><a href="../studyOID/">studyOID</a></td>
 <td>1..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>References the Study that provides a prior metadata version. This attribute a...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../MetaDataVersionOID/">MetaDataVersionOID</a></td>
+<td><a href="../metaDataVersionOID/">metaDataVersionOID</a></td>
 <td>1..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>References a prior MetaDataVersion within the Study referenced by the StudyOI...</td>
 <td>direct</td>
@@ -147,7 +147,7 @@ Include {
 <tbody>
 <tr>
 <td><a href="../MetaDataVersion/">MetaDataVersion</a></td>
-<td><a href="../IncludeRef/">IncludeRef</a></td>
+<td><a href="../include/">include</a></td>
 <td>range</td>
 <td><a href="./">Include</a></td>
 </tr>
@@ -192,12 +192,12 @@ Include {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/Include</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyOID</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersionOID</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyOID</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">metaDataVersionOID</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">href</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">StudyOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyOID</span>
+<span class="w">  </span><span class="nt">studyOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">References the Study that provides a prior metadata version. This</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">attribute allows an Include element to reference a metadata version in another</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">study. Thus, it is possible for many studies to share a set of common metadata</span>
@@ -217,8 +217,8 @@ Include {
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KeySet</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">MetaDataVersionOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersionOID</span>
+<span class="w">  </span><span class="nt">metaDataVersionOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">metaDataVersionOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">References a prior MetaDataVersion within the Study referenced by</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the StudyOID attribute.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -267,8 +267,8 @@ Include {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/Include</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">StudyOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyOID</span>
+<span class="w">  </span><span class="nt">studyOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">References the Study that provides a prior metadata version. This</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">attribute allows an Include element to reference a metadata version in another</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">study. Thus, it is possible for many studies to share a set of common metadata</span>
@@ -288,8 +288,8 @@ Include {
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KeySet</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">MetaDataVersionOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersionOID</span>
+<span class="w">  </span><span class="nt">metaDataVersionOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">metaDataVersionOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">References a prior MetaDataVersion within the Study referenced by</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the StudyOID attribute.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -327,8 +327,8 @@ Include {
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">StudyOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyOID</span>
+<span class="w">  </span><span class="nt">studyOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">References the Study that provides a prior metadata version. This</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">attribute allows an Include element to reference a metadata version in another</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">study. Thus, it is possible for many studies to share a set of common metadata</span>
@@ -339,7 +339,7 @@ Include {
 <span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">oidref'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyOID</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyOID</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Include</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Include</span>
@@ -352,8 +352,8 @@ Include {
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KeySet</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">MetaDataVersionOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersionOID</span>
+<span class="w">  </span><span class="nt">metaDataVersionOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">metaDataVersionOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">References a prior MetaDataVersion within the Study referenced by</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the StudyOID attribute.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -362,7 +362,7 @@ Include {
 <span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">oidref'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersionOID</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">metaDataVersionOID</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Include</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Include</span>

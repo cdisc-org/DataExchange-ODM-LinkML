@@ -107,204 +107,204 @@
 <h2 id="schema-diagram">Schema Diagram</h2>
 <pre class="mermaid"><code>erDiagram
 ODMFileMetadata {
-    FileType FileTypeRef  
-    Granularity GranularityRef  
-    Context ContextRef  
-    oid FileOID  
-    datetime CreationDateTime  
-    oidref PriorFileOID  
-    datetime AsOfDateTime  
-    ODMVersion ODMVersionRef  
-    text Originator  
-    text SourceSystem  
-    text SourceSystemVersion  
+    FileType fileType  
+    Granularity granularity  
+    Context context  
+    oid fileOID  
+    datetime creationDateTime  
+    oidref priorFileOID  
+    datetime asOfDateTime  
+    ODMVersion oDMVersion  
+    text originator  
+    text sourceSystem  
+    text sourceSystemVersion  
 }
 Association {
-    oidref StudyOID  
-    oidref MetaDataVersionOID  
+    oidref studyOID  
+    oidref metaDataVersionOID  
 }
 Annotation {
-    positiveInteger SeqNum  
-    TransactionType TransactionTypeRef  
-    oid ID  
+    positiveInteger seqNum  
+    TransactionType transactionType  
+    oid iD  
 }
 KeySet {
-    oidref StudyOID  
-    subjectKey SubjectKey  
-    oidref MetaDataVersionOID  
-    oidref StudyEventOID  
-    repeatKey StudyEventRepeatKey  
-    oidref ItemGroupOID  
-    repeatKey ItemGroupRepeatKey  
-    oidref ItemOID  
+    oidref studyOID  
+    subjectKeyType subjectKey  
+    oidref metaDataVersionOID  
+    oidref studyEventOID  
+    repeatKey studyEventRepeatKey  
+    oidref itemGroupOID  
+    repeatKey itemGroupRepeatKey  
+    oidref itemOID  
 }
 ClinicalData {
-    oidref StudyOID  
-    oidref MetaDataVersionOID  
+    oidref studyOID  
+    oidref metaDataVersionOID  
 }
 Signature {
-    oid ID  
+    oid iD  
 }
 AuditRecord {
-    EditPointType EditPoint  
-    YesOrNo UsedMethod  
+    EditPointType editPoint  
+    YesOrNo usedMethod  
 }
 Query {
-    oid OID  
-    QuerySourceType Source  
-    text Target  
-    QueryType Type  
-    QueryStateType State  
-    datetime LastUpdateDatetime  
-    name Name  
+    oid oID  
+    QuerySourceType source  
+    text target  
+    QueryType type  
+    QueryStateType state  
+    datetime lastUpdateDatetime  
+    nameType name  
 }
 ItemGroupData {
-    oidref ItemGroupOID  
-    repeatKey ItemGroupRepeatKey  
-    TransactionType TransactionTypeRef  
-    positiveInteger ItemGroupDataSeq  
+    oidref itemGroupOID  
+    repeatKey itemGroupRepeatKey  
+    TransactionType transactionType  
+    positiveInteger itemGroupDataSeq  
 }
 SubjectData {
-    subjectKey SubjectKey  
-    TransactionType TransactionTypeRef  
+    subjectKeyType subjectKey  
+    TransactionType transactionType  
 }
 ReferenceData {
-    oidref StudyOID  
-    oidref MetaDataVersionOID  
+    oidref studyOID  
+    oidref metaDataVersionOID  
 }
 AdminData {
-    oidref StudyOID  
+    oidref studyOID  
 }
 SignatureDef {
-    oid OID  
-    SignMethod Methodology  
+    oid oID  
+    SignMethod methodology  
 }
 Location {
-    oid OID  
-    name Name  
-    text Role  
-    oidref OrganizationOID  
+    oid oID  
+    nameType name  
+    text role  
+    oidref organizationOID  
 }
 Organization {
-    oid OID  
-    name Name  
-    text Role  
-    OrganizationType Type  
-    oidref LocationOID  
-    oidref PartOfOrganizationOID  
+    oid oID  
+    nameType name  
+    text role  
+    OrganizationType type  
+    oidref locationOID  
+    oidref partOfOrganizationOID  
 }
 User {
-    oid OID  
-    UserType UserTypeRef  
-    oidref OrganizationOID  
-    oidref LocationOID  
+    oid oID  
+    UserType userType  
+    oidref organizationOID  
+    oidref locationOID  
 }
 Study {
-    oid OID  
-    name StudyName  
-    name ProtocolName  
-    name VersionID  
-    name VersionName  
-    name Status  
+    oid oID  
+    nameType studyName  
+    nameType protocolName  
+    nameType versionID  
+    nameType versionName  
+    nameType status  
 }
 MetaDataVersion {
-    oid OID  
-    name Name  
-    oidref CommentOID  
+    oid oID  
+    nameType name  
+    oidref commentOID  
 }
 Description {
 
 }
 
-ODMFileMetadata ||--|o Description : "DescriptionRef"
-ODMFileMetadata ||--}o Study : "StudyRef"
-ODMFileMetadata ||--}o AdminData : "AdminDataRef"
-ODMFileMetadata ||--}o ReferenceData : "ReferenceDataRef"
-ODMFileMetadata ||--}o ClinicalData : "ClinicalDataRef"
-ODMFileMetadata ||--}o Association : "AssociationRef"
-Association ||--|o KeySet : "KeySetRef"
-Association ||--|o Annotation : "AnnotationRef"
-Annotation ||--|o Comment : "CommentRef"
-Annotation ||--}o Coding : "CodingRef"
-Annotation ||--}o Flag : "FlagRef"
-ClinicalData ||--}o SubjectData : "SubjectDataRef"
-ClinicalData ||--}o ItemGroupData : "ItemGroupDataRef"
-ClinicalData ||--}o Query : "QueryRef"
-ClinicalData ||--|o AuditRecord : "AuditRecordRef"
-ClinicalData ||--|o Signature : "SignatureRefRef"
-ClinicalData ||--|o Annotation : "AnnotationRef"
-Signature ||--|o UserRef : "UserRefRef"
-Signature ||--|o LocationRef : "LocationRefRef"
-Signature ||--|o SignatureRef : "SignatureRefRef"
-Signature ||--|o DateTimeStamp : "DateTimeStampRef"
-AuditRecord ||--|o UserRef : "UserRefRef"
-AuditRecord ||--|o LocationRef : "LocationRefRef"
-AuditRecord ||--|o DateTimeStamp : "DateTimeStampRef"
-AuditRecord ||--|o ReasonForChange : "ReasonForChangeRef"
-AuditRecord ||--|o SourceID : "SourceIDRef"
-Query ||--|o Value : "ValueRef"
-Query ||--}o AuditRecord : "AuditRecordRef"
-ItemGroupData ||--}o Query : "QueryRef"
-ItemGroupData ||--}o ItemGroupData : "ItemGroupDataRef"
-ItemGroupData ||--}o ItemData : "ItemDataRef"
-ItemGroupData ||--|o AuditRecord : "AuditRecordRef"
-ItemGroupData ||--|o Signature : "SignatureRefRef"
-ItemGroupData ||--|o Annotation : "AnnotationRef"
-SubjectData ||--|o InvestigatorRef : "InvestigatorRefRef"
-SubjectData ||--|o SiteRef : "SiteRefRef"
-SubjectData ||--}o StudyEventData : "StudyEventDataRef"
-SubjectData ||--}o Query : "QueryRef"
-SubjectData ||--|o AuditRecord : "AuditRecordRef"
-SubjectData ||--|o Signature : "SignatureRefRef"
-SubjectData ||--|o Annotation : "AnnotationRef"
-ReferenceData ||--}o ItemGroupData : "ItemGroupDataRef"
-ReferenceData ||--|o AuditRecord : "AuditRecordRef"
-ReferenceData ||--|o Signature : "SignatureRefRef"
-ReferenceData ||--|o Annotation : "AnnotationRef"
-AdminData ||--}o User : "UserRefRef"
-AdminData ||--}o Organization : "OrganizationRef"
-AdminData ||--}o Location : "LocationRefRef"
-AdminData ||--}o SignatureDef : "SignatureDefRef"
-SignatureDef ||--|o Meaning : "MeaningRef"
-SignatureDef ||--|o LegalReason : "LegalReasonRef"
-Location ||--|o Description : "DescriptionRef"
-Location ||--}o MetaDataVersionRef : "MetaDataVersionRefRef"
-Location ||--}o Address : "AddressRef"
-Location ||--}o Telecom : "TelecomRef"
-Location ||--}o Query : "QueryRef"
-Organization ||--|o Description : "DescriptionRef"
-Organization ||--}o Address : "AddressRef"
-Organization ||--}o Telecom : "TelecomRef"
-User ||--|o UserName : "UserNameRef"
-User ||--|o Prefix : "PrefixRef"
-User ||--|o Suffix : "SuffixRef"
-User ||--|o FullName : "FullNameRef"
-User ||--|o GivenName : "GivenNameRef"
-User ||--|o FamilyName : "FamilyNameRef"
-User ||--|o Image : "ImageRef"
-User ||--}o Address : "AddressRef"
-User ||--}o Telecom : "TelecomRef"
-Study ||--|o Description : "DescriptionRef"
-Study ||--}o MetaDataVersion : "MetaDataVersionRefRef"
-MetaDataVersion ||--|o Description : "DescriptionRef"
-MetaDataVersion ||--|o Include : "IncludeRef"
-MetaDataVersion ||--|o Standards : "StandardsRef"
-MetaDataVersion ||--|o AnnotatedCRF : "AnnotatedCRFRef"
-MetaDataVersion ||--|o SupplementalDoc : "SupplementalDocRef"
-MetaDataVersion ||--}o ValueListDef : "ValueListDefRef"
-MetaDataVersion ||--}o WhereClauseDef : "WhereClauseDefRef"
-MetaDataVersion ||--|o Protocol : "ProtocolRef"
-MetaDataVersion ||--}o WorkflowDef : "WorkflowDefRef"
-MetaDataVersion ||--}o StudyEventGroupDef : "StudyEventGroupDefRef"
-MetaDataVersion ||--}o StudyEventDef : "StudyEventDefRef"
-MetaDataVersion ||--}o ItemGroupDef : "ItemGroupDefRef"
-MetaDataVersion ||--}o ItemDef : "ItemDefRef"
-MetaDataVersion ||--}o CodeList : "CodeListRefRef"
-MetaDataVersion ||--}o ConditionDef : "ConditionDefRef"
-MetaDataVersion ||--}o MethodDef : "MethodDefRef"
-MetaDataVersion ||--}o CommentDef : "CommentDefRef"
-MetaDataVersion ||--}o Leaf : "LeafRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+ODMFileMetadata ||--|o Description : "description"
+ODMFileMetadata ||--}o Study : "study"
+ODMFileMetadata ||--}o AdminData : "adminData"
+ODMFileMetadata ||--}o ReferenceData : "referenceData"
+ODMFileMetadata ||--}o ClinicalData : "clinicalData"
+ODMFileMetadata ||--}o Association : "association"
+Association ||--|o KeySet : "keySet"
+Association ||--|o Annotation : "annotation"
+Annotation ||--|o Comment : "comment"
+Annotation ||--}o Coding : "coding"
+Annotation ||--}o Flag : "flag"
+ClinicalData ||--}o SubjectData : "subjectData"
+ClinicalData ||--}o ItemGroupData : "itemGroupData"
+ClinicalData ||--}o Query : "query"
+ClinicalData ||--|o AuditRecord : "auditRecord"
+ClinicalData ||--|o Signature : "signature"
+ClinicalData ||--|o Annotation : "annotation"
+Signature ||--|o UserRef : "userRef"
+Signature ||--|o LocationRef : "locationRef"
+Signature ||--|o SignatureRef : "signatureRef"
+Signature ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o UserRef : "userRef"
+AuditRecord ||--|o LocationRef : "locationRef"
+AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o ReasonForChange : "reasonForChange"
+AuditRecord ||--|o SourceID : "sourceID"
+Query ||--|o Value : "value"
+Query ||--}o AuditRecord : "auditRecord"
+ItemGroupData ||--}o Query : "query"
+ItemGroupData ||--}o ItemGroupData : "itemGroupData"
+ItemGroupData ||--}o ItemData : "itemData"
+ItemGroupData ||--|o AuditRecord : "auditRecord"
+ItemGroupData ||--|o Signature : "signature"
+ItemGroupData ||--|o Annotation : "annotation"
+SubjectData ||--|o InvestigatorRef : "investigatorRef"
+SubjectData ||--|o SiteRef : "siteRef"
+SubjectData ||--}o StudyEventData : "studyEventData"
+SubjectData ||--}o Query : "query"
+SubjectData ||--|o AuditRecord : "auditRecord"
+SubjectData ||--|o Signature : "signature"
+SubjectData ||--|o Annotation : "annotation"
+ReferenceData ||--}o ItemGroupData : "itemGroupData"
+ReferenceData ||--|o AuditRecord : "auditRecord"
+ReferenceData ||--|o Signature : "signature"
+ReferenceData ||--|o Annotation : "annotation"
+AdminData ||--}o User : "user"
+AdminData ||--}o Organization : "organization"
+AdminData ||--}o Location : "location"
+AdminData ||--}o SignatureDef : "signatureDef"
+SignatureDef ||--|o Meaning : "meaning"
+SignatureDef ||--|o LegalReason : "legalReason"
+Location ||--|o Description : "description"
+Location ||--}o MetaDataVersionRef : "metaDataVersionRef"
+Location ||--}o Address : "address"
+Location ||--}o Telecom : "telecom"
+Location ||--}o Query : "query"
+Organization ||--|o Description : "description"
+Organization ||--}o Address : "address"
+Organization ||--}o Telecom : "telecom"
+User ||--|o UserName : "userName"
+User ||--|o Prefix : "prefix"
+User ||--|o Suffix : "suffix"
+User ||--|o FullName : "fullName"
+User ||--|o GivenName : "givenName"
+User ||--|o FamilyName : "familyName"
+User ||--|o Image : "image"
+User ||--}o Address : "address"
+User ||--}o Telecom : "telecom"
+Study ||--|o Description : "description"
+Study ||--}o MetaDataVersion : "metaDataVersion"
+MetaDataVersion ||--|o Description : "description"
+MetaDataVersion ||--|o Include : "include"
+MetaDataVersion ||--|o Standards : "standards"
+MetaDataVersion ||--|o AnnotatedCRF : "annotatedCRF"
+MetaDataVersion ||--|o SupplementalDoc : "supplementalDoc"
+MetaDataVersion ||--}o ValueListDef : "valueListDef"
+MetaDataVersion ||--}o WhereClauseDef : "whereClauseDef"
+MetaDataVersion ||--|o Protocol : "protocol"
+MetaDataVersion ||--}o WorkflowDef : "workflowDef"
+MetaDataVersion ||--}o StudyEventGroupDef : "studyEventGroupDef"
+MetaDataVersion ||--}o StudyEventDef : "studyEventDef"
+MetaDataVersion ||--}o ItemGroupDef : "itemGroupDef"
+MetaDataVersion ||--}o ItemDef : "itemDef"
+MetaDataVersion ||--}o CodeList : "codeList"
+MetaDataVersion ||--}o ConditionDef : "conditionDef"
+MetaDataVersion ||--}o MethodDef : "methodDef"
+MetaDataVersion ||--}o CommentDef : "commentDef"
+MetaDataVersion ||--}o Leaf : "leaf"
+Description ||--}o TranslatedText : "translatedText"
 </code></pre>
 <h2 id="classes">Classes</h2>
 <p><em>Classes provide templates for organizing data. Data objects instantiate classes in the schema. Each class has a set of slots (aka fields, attributes) that are applicable to it. See <a href="https://linkml.io/linkml/schemas/models.html#classes">LinkML documentation</a> for more information.</em></p>
@@ -574,7 +574,7 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 </tr>
 <tr>
 <td><a href="StudyEndPointRef/">StudyEndPointRef</a></td>
-<td>Go to start of metadata</td>
+<td>A reference to a StudyEndPoint as it occurs within a specific StudyObjective.</td>
 </tr>
 <tr>
 <td><a href="StudyEndPoints/">StudyEndPoints</a></td>
@@ -925,583 +925,579 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 </thead>
 <tbody>
 <tr>
-<td><a href="IsNull/">IsNull</a></td>
-<td>Flag specifying that an item's value is to be set to null. In the interest of...</td>
+<td><a href="epochOID/">epochOID</a></td>
+<td>Reference to an Epoch element defined in the study.</td>
 </tr>
 <tr>
-<td><a href="Mandatory/">Mandatory</a></td>
-<td>Indicator of whether this StudyEventGroup must appear in the study clinical d...</td>
+<td><a href="asOfDateTime/">asOfDateTime</a></td>
+<td>The date/time at which the source database was queried in order to create thi...</td>
 </tr>
 <tr>
-<td><a href="Role/">Role</a></td>
-<td>The Role for the referenced ItemDef. The Role attribute provides a single rol...</td>
+<td><a href="studyInterventionOID/">studyInterventionOID</a></td>
+<td>Reference to a StudyIntervention</td>
 </tr>
 <tr>
-<td><a href="Longitude/">Longitude</a></td>
-<td>Longitude component of geoposition coordinates in decimal degrees. May requir...</td>
-</tr>
-<tr>
-<td><a href="OID/">OID</a></td>
-<td>Unique identifier of the version within the XML document.</td>
-</tr>
-<tr>
-<td><a href="leafID/">leafID</a></td>
-<td>References a leaf element that provides a reference to another ODM document. ...</td>
-</tr>
-<tr>
-<td><a href="CodeRef/">CodeRef</a></td>
-<td>A string pattern that identifies a concept as defined by the code system.</td>
-</tr>
-<tr>
-<td><a href="SignatureOID/">SignatureOID</a></td>
-<td>Reference to the SignatureDef .</td>
-</tr>
-<tr>
-<td><a href="FileOID/">FileOID</a></td>
-<td>A unique identifier for this file.</td>
-</tr>
-<tr>
-<td><a href="SystemVersion/">SystemVersion</a></td>
-<td>Identifies the version of the code system</td>
-</tr>
-<tr>
-<td><a href="ContextRef/">ContextRef</a></td>
-<td>Identifies applicable domain or scope of the mapping.</td>
-</tr>
-<tr>
-<td><a href="TitleRef/">TitleRef</a></td>
-<td>Text with the label for the document or dataset.</td>
-</tr>
-<tr>
-<td><a href="PriorFileOID/">PriorFileOID</a></td>
-<td>Reference to the previous file (if any) in a series.</td>
-</tr>
-<tr>
-<td><a href="Altitude/">Altitude</a></td>
-<td>Height above sea level in meters.</td>
-</tr>
-<tr>
-<td><a href="MimeType/">MimeType</a></td>
-<td>Media type of the image</td>
-</tr>
-<tr>
-<td><a href="TransactionTypeRef/">TransactionTypeRef</a></td>
-<td>Identifies the transaction type when /ODM/@FileType is Transactional and ther...</td>
-</tr>
-<tr>
-<td><a href="EndConditionOID/">EndConditionOID</a></td>
-<td>The EndConditionOID references a ConditionDef defining the condition under wh...</td>
-</tr>
-<tr>
-<td><a href="Repeating/">Repeating</a></td>
-<td>The Repeating flag indicates when this type of study event can occur repeated...</td>
-</tr>
-<tr>
-<td><a href="Attribute/">Attribute</a></td>
-<td>Field provided by the Name attribute where the data or information can be obt...</td>
-</tr>
-<tr>
-<td><a href="DatasetName/">DatasetName</a></td>
-<td>Name of a file containing the ItemGroupData for this ItemGroupDef. The name a...</td>
-</tr>
-<tr>
-<td><a href="Level/">Level</a></td>
-<td>Defined level for the Study Objective</td>
-</tr>
-<tr>
-<td><a href="Length/">Length</a></td>
-<td>The Length attribute is optional when DataType is text, string,</td>
-</tr>
-<tr>
-<td><a href="PartOfOrganizationOID/">PartOfOrganizationOID</a></td>
-<td>Reference to a parent organization.</td>
-</tr>
-<tr>
-<td><a href="Latitude/">Latitude</a></td>
-<td>Latitude component of geoposition coordinate in decimal degrees degrees. May ...</td>
-</tr>
-<tr>
-<td><a href="StudyEventRepeatKey/">StudyEventRepeatKey</a></td>
-<td>A key used to distinguish between repeats of the same type of study event for...</td>
-</tr>
-<tr>
-<td><a href="SourceOID/">SourceOID</a></td>
-<td>References the definition of the source structural element for the transition...</td>
-</tr>
-<tr>
-<td><a href="Target/">Target</a></td>
-<td>Element upon which the Query is raised. The parent element is the Target when...</td>
-</tr>
-<tr>
-<td><a href="ShortName/">ShortName</a></td>
-<td>Short name or code for the parameter.</td>
-</tr>
-<tr>
-<td><a href="ArmOID/">ArmOID</a></td>
-<td>Reference to an Arm element defined in the study.</td>
-</tr>
-<tr>
-<td><a href="ProtocolName/">ProtocolName</a></td>
-<td>Protocol identifier or protocol number assigned to the study. It is used by t...</td>
-</tr>
-<tr>
-<td><a href="Source/">Source</a></td>
-<td>Indicates the party responsible for the data's origin type.</td>
-</tr>
-<tr>
-<td><a href="ItemGroupRepeatKey/">ItemGroupRepeatKey</a></td>
-<td>A key used to distinguish between repeats of the same type of item group.</td>
-</tr>
-<tr>
-<td><a href="Purpose/">Purpose</a></td>
-<td>Purpose of the ItemGroup.</td>
-</tr>
-<tr>
-<td><a href="SoftHard/">SoftHard</a></td>
-<td>Type of range check. Soft indicates that a warning occurs when the RangeCheck...</td>
-</tr>
-<tr>
-<td><a href="UserOID/">UserOID</a></td>
+<td><a href="userOID/">userOID</a></td>
 <td>Reference to a User definition.</td>
 </tr>
 <tr>
-<td><a href="Name/">Name</a></td>
+<td><a href="metaDataVersionOID/">metaDataVersionOID</a></td>
+<td>References a prior MetaDataVersion within the Study referenced by the StudyOI...</td>
+</tr>
+<tr>
+<td><a href="name/">name</a></td>
 <td>General observation Sub Class.</td>
 </tr>
 <tr>
-<td><a href="ItemGroupOID/">ItemGroupOID</a></td>
-<td>Reference to the ItemGroupDef .</td>
+<td><a href="systemName/">systemName</a></td>
+<td>Human readable name for the code system.</td>
 </tr>
 <tr>
-<td><a href="CommentOID/">CommentOID</a></td>
-<td>The Comment identifier that this value refers to. Needed when the WhereClause...</td>
+<td><a href="imageFileName/">imageFileName</a></td>
+<td>The file name of or file path to the picture</td>
 </tr>
 <tr>
-<td><a href="DurationTarget/">DurationTarget</a></td>
-<td>Constrains the duration of an activity represented by a Study, Epoch, StudyEv...</td>
-</tr>
-<tr>
-<td><a href="Term/">Term</a></td>
-<td>Longer name. Provides the full name of the parameter.</td>
-</tr>
-<tr>
-<td><a href="DataTypeRef/">DataTypeRef</a></td>
-<td>The DataType attribute specifies how the corresponding value</td>
-</tr>
-<tr>
-<td><a href="StudyEventOID/">StudyEventOID</a></td>
-<td>Reference to the StudyEventDef .</td>
-</tr>
-<tr>
-<td><a href="Label/">Label</a></td>
-<td>Used to link the value to a named MethodDef parameter.</td>
-</tr>
-<tr>
-<td><a href="EndOID/">EndOID</a></td>
-<td>Reference to the definition of the structural element that ends the workflow....</td>
-</tr>
-<tr>
-<td><a href="SponsorOrSite/">SponsorOrSite</a></td>
-<td>Source of the comment.</td>
-</tr>
-<tr>
-<td><a href="Core/">Core</a></td>
-<td>CDASH, ADaM, SDTM, and SEND Core designations.</td>
-</tr>
-<tr>
-<td><a href="EditPoint/">EditPoint</a></td>
-<td>Identifies the phase of data processing in which update action occurred.</td>
-</tr>
-<tr>
-<td><a href="StructuralElementOID/">StructuralElementOID</a></td>
-<td>OID of a structural element such as a Study, Epoch, StudyEventGroup, StudyEve...</td>
-</tr>
-<tr>
-<td><a href="SubjectKey/">SubjectKey</a></td>
-<td>Unique identifier for the Subject.</td>
-</tr>
-<tr>
-<td><a href="UserTypeRef/">UserTypeRef</a></td>
-<td>User's role in the study.</td>
-</tr>
-<tr>
-<td><a href="SourceSystemVersion/">SourceSystemVersion</a></td>
-<td>The version of the "SourceSystem" above.</td>
-</tr>
-<tr>
-<td><a href="StudyTargetPopulationOID/">StudyTargetPopulationOID</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Status/">Status</a></td>
-<td>Status of Standard.</td>
-</tr>
-<tr>
-<td><a href="StudyEventGroupOID/">StudyEventGroupOID</a></td>
-<td>Reference to the StudyEventGroupDef .</td>
-</tr>
-<tr>
-<td><a href="State/">State</a></td>
-<td>Status of the Query</td>
-</tr>
-<tr>
-<td><a href="IsReferenceData/">IsReferenceData</a></td>
-<td>Specifies whether this ItemGroupDef is used for non-subject data.</td>
-</tr>
-<tr>
-<td><a href="DefinitionRef/">DefinitionRef</a></td>
-<td>A free-text definition of the parameter</td>
-</tr>
-<tr>
-<td><a href="GranularityRef/">GranularityRef</a></td>
+<td><a href="granularity/">granularity</a></td>
 <td>Granularity is intended to give the sender a shorthand way to Describes the s...</td>
 </tr>
 <tr>
-<td><a href="LastPage/">LastPage</a></td>
-<td>Last page in a range of pages.</td>
+<td><a href="studyName/">studyName</a></td>
+<td>Sponsoring organization's internal name for the study. If no internal name is...</td>
 </tr>
 <tr>
-<td><a href="ConditionOID/">ConditionOID</a></td>
-<td>Reference to a ConditionDef defining the condition under which the transition...</td>
-</tr>
-<tr>
-<td><a href="SeqNum/">SeqNum</a></td>
-<td>When more than 1 Value element exists this attribute uniquely identifies each...</td>
-</tr>
-<tr>
-<td><a href="HasNoData/">HasNoData</a></td>
-<td>Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d...</td>
-</tr>
-<tr>
-<td><a href="UnitsItemOID/">UnitsItemOID</a></td>
-<td>Reference to a sibling ItemRef element that represents the unit specification...</td>
-</tr>
-<tr>
-<td><a href="System/">System</a></td>
+<td><a href="system/">system</a></td>
 <td>Identifies the code system that defines the code. If the code is taken from a...</td>
 </tr>
 <tr>
-<td><a href="ODMVersionRef/">ODMVersionRef</a></td>
-<td>The version of the ODM standard used.</td>
+<td><a href="target/">target</a></td>
+<td>Element upon which the Query is raised. The parent element is the Target when...</td>
 </tr>
 <tr>
-<td><a href="Originator/">Originator</a></td>
-<td>The organization that generated the ODM file.</td>
-</tr>
-<tr>
-<td><a href="PreSpecifiedValue/">PreSpecifiedValue</a></td>
-<td>Prefill value or a default value for a field that is automatically populated.</td>
-</tr>
-<tr>
-<td><a href="CollectionExceptionConditionOID/">CollectionExceptionConditionOID</a></td>
-<td>Reference to a ConditionDef</td>
-</tr>
-<tr>
-<td><a href="TimepointTarget/">TimepointTarget</a></td>
-<td>The planned time between the 2 activities defined by the transition in the wo...</td>
-</tr>
-<tr>
-<td><a href="StartOID/">StartOID</a></td>
-<td>Reference to the definition of the structural element that starts the workflo...</td>
-</tr>
-<tr>
-<td><a href="language/">language</a></td>
-<td>language context for internationalisation and localisation</td>
-</tr>
-<tr>
-<td><a href="WhereClauseOID/">WhereClauseOID</a></td>
-<td>Reference to the unique ID of a WhereClauseDef element</td>
-</tr>
-<tr>
-<td><a href="PageRefs/">PageRefs</a></td>
-<td>List of PDF pages separated by a space.</td>
-</tr>
-<tr>
-<td><a href="KeySequence/">KeySequence</a></td>
-<td>Indicates that this item is a key for the enclosing element. It also provides...</td>
-</tr>
-<tr>
-<td><a href="Path/">Path</a></td>
+<td><a href="path/">path</a></td>
 <td>Provides the machine-executable instruction or template for it to obtain the ...</td>
 </tr>
 <tr>
-<td><a href="SequenceNumber/">SequenceNumber</a></td>
-<td>Order of the Epoch</td>
+<td><a href="mimeType/">mimeType</a></td>
+<td>Media type of the image</td>
 </tr>
 <tr>
-<td><a href="ItemGroupDataSeq/">ItemGroupDataSeq</a></td>
-<td>Unique sequence # for each ItemGroupData child element (record) in the contai...</td>
+<td><a href="targetTransitionOID/">targetTransitionOID</a></td>
+<td>Reference to the Transition that is one of the targets of the branching.</td>
 </tr>
 <tr>
-<td><a href="href/">href</a></td>
-<td>URL that can be used to identify the location of a document or dataset file r...</td>
+<td><a href="leafID/">leafID</a></td>
+<td>Unique identifier for the Leaf element with the document location.</td>
 </tr>
 <tr>
-<td><a href="Library/">Library</a></td>
-<td>The name of the external library containing the FormalExpression.</td>
+<td><a href="archiveLocationID/">archiveLocationID</a></td>
+<td>Reference to the unique ID of a leaf element that provides the actual locatio...</td>
 </tr>
 <tr>
-<td><a href="TimepointPreWindow/">TimepointPreWindow</a></td>
-<td>Specifies the amount of time prior to the TimepointTarget, the time between t...</td>
+<td><a href="methodology/">methodology</a></td>
+<td>Defines the type of electronic signature, including the meaning as required b...</td>
 </tr>
 <tr>
-<td><a href="Version/">Version</a></td>
-<td>Version of Standard.</td>
+<td><a href="variableSet/">variableSet</a></td>
+<td>ADaM variable set, e.g. Dose, Analysis Parameter, Treatment Timing.</td>
 </tr>
 <tr>
-<td><a href="PredecessorOID/">PredecessorOID</a></td>
-<td>Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that occurs immed...</td>
+<td><a href="creationDateTime/">creationDateTime</a></td>
+<td>Time of creation of the file containing the document.</td>
+</tr>
+<tr>
+<td><a href="datasetName/">datasetName</a></td>
+<td>Name of a file containing the ItemGroupData for this ItemGroupDef. The name a...</td>
+</tr>
+<tr>
+<td><a href="domain/">domain</a></td>
+<td>Identifies the scope or CDISC SDTMIG/SENDIG Domain of the ItemGroup data. The...</td>
+</tr>
+<tr>
+<td><a href="workflowOID/">workflowOID</a></td>
+<td>Reference to a WorkflowDef</td>
+</tr>
+<tr>
+<td><a href="editPoint/">editPoint</a></td>
+<td>Identifies the phase of data processing in which update action occurred.</td>
+</tr>
+<tr>
+<td><a href="lastUpdateDatetime/">lastUpdateDatetime</a></td>
+<td>When was this Query updated? Will correspond to the creation date or the last...</td>
+</tr>
+<tr>
+<td><a href="softHard/">softHard</a></td>
+<td>Type of range check. Soft indicates that a warning occurs when the RangeCheck...</td>
+</tr>
+<tr>
+<td><a href="itemOID/">itemOID</a></td>
+<td>Reference to the ItemDef .</td>
 </tr>
 <tr>
 <td><a href="ref/">ref</a></td>
 <td>Reference to a local instance (e.g. file) of the external library containing ...</td>
 </tr>
 <tr>
-<td><a href="OrganizationOID/">OrganizationOID</a></td>
-<td>Reference to an Organization elment.</td>
+<td><a href="isNull/">isNull</a></td>
+<td>Flag specifying that an item's value is to be set to null. In the interest of...</td>
 </tr>
 <tr>
-<td><a href="Type/">Type</a></td>
-<td>Type of page for page references indicated in the PageRefs attribute.</td>
+<td><a href="language/">language</a></td>
+<td>language context for internationalisation and localisation</td>
 </tr>
 <tr>
-<td><a href="VersionName/">VersionName</a></td>
-<td>Short descriptive label for the version of the study, e.g. "Initial go live" ...</td>
-</tr>
-<tr>
-<td><a href="RoleCodeListOID/">RoleCodeListOID</a></td>
-<td>Reference to a CodeList that defines the allowable values of Role for the Stu...</td>
-</tr>
-<tr>
-<td><a href="TelecomType/">TelecomType</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="MetaDataVersionOID/">MetaDataVersionOID</a></td>
-<td>References a prior MetaDataVersion within the Study referenced by the StudyOI...</td>
-</tr>
-<tr>
-<td><a href="TimepointPostWindow/">TimepointPostWindow</a></td>
+<td><a href="timepointPostWindow/">timepointPostWindow</a></td>
 <td>Specifies the amount of time after the TimepointTarget, the time between the ...</td>
 </tr>
 <tr>
-<td><a href="RepeatingLimit/">RepeatingLimit</a></td>
-<td>Maximum number of repeats.</td>
-</tr>
-<tr>
-<td><a href="FirstPage/">FirstPage</a></td>
-<td>First page in a range of pages.</td>
-</tr>
-<tr>
-<td><a href="StartConditionOID/">StartConditionOID</a></td>
-<td>The StartConditionOID references a ConditionDef specifying a condition that m...</td>
-</tr>
-<tr>
-<td><a href="ID/">ID</a></td>
-<td>Unique identifier for the leaf that is referenced.</td>
-</tr>
-<tr>
-<td><a href="Methodology/">Methodology</a></td>
-<td>Defines the type of electronic signature, including the meaning as required b...</td>
-</tr>
-<tr>
-<td><a href="SuccessorOID/">SuccessorOID</a></td>
-<td>Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs immedi...</td>
-</tr>
-<tr>
-<td><a href="EffectiveDate/">EffectiveDate</a></td>
-<td>Datetime stamp when this MetaDataVersion was published at this location.</td>
-</tr>
-<tr>
-<td><a href="IsNonStandard/">IsNonStandard</a></td>
-<td>Required for ADaM, SDTM, or SEND if StandardOID is not provided.</td>
-</tr>
-<tr>
-<td><a href="LastUpdateDatetime/">LastUpdateDatetime</a></td>
-<td>When was this Query updated? Will correspond to the creation date or the last...</td>
-</tr>
-<tr>
-<td><a href="StudyOID/">StudyOID</a></td>
-<td>References the Study that provides a prior metadata version. This attribute a...</td>
-</tr>
-<tr>
-<td><a href="CodeListOID/">CodeListOID</a></td>
+<td><a href="codeListOID/">codeListOID</a></td>
 <td>Reference to the CodeList definition that provides the allowable values for I...</td>
 </tr>
 <tr>
-<td><a href="Category/">Category</a></td>
-<td>The Category attribute is typically used to indicate the study phase appropri...</td>
+<td><a href="level/">level</a></td>
+<td>Defined level for the Study Objective</td>
 </tr>
 <tr>
-<td><a href="DurationPreWindow/">DurationPreWindow</a></td>
-<td>Defines the amount of time by which the targetted duration may be reduced.</td>
+<td><a href="hasNoData/">hasNoData</a></td>
+<td>Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d...</td>
 </tr>
 <tr>
-<td><a href="StudyEndPointOID/">StudyEndPointOID</a></td>
-<td>Reference to the StudyEndPoint .</td>
-</tr>
-<tr>
-<td><a href="Dictionary/">Dictionary</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="ValueRef/">ValueRef</a></td>
-<td>Human-readable designation of the trial phase.</td>
-</tr>
-<tr>
-<td><a href="Rank/">Rank</a></td>
-<td>Numeric significance of the CodeListItem relative to others in the CodeList. ...</td>
-</tr>
-<tr>
-<td><a href="PublishingSet/">PublishingSet</a></td>
-<td>Set of published files of Standard when Type="CT" (e.g. SDTM, ADaM, SEND, CDA...</td>
-</tr>
-<tr>
-<td><a href="UsedMethod/">UsedMethod</a></td>
-<td>Indicates that the action was made by the system rather than a data entry for...</td>
-</tr>
-<tr>
-<td><a href="TransitionOID/">TransitionOID</a></td>
-<td>References the workflow Transition on which the timing constraint must be exe...</td>
-</tr>
-<tr>
-<td><a href="Structure/">Structure</a></td>
-<td>Description of the level of detail represented by individual records in the I...</td>
-</tr>
-<tr>
-<td><a href="LeafID/">LeafID</a></td>
-<td>Unique identifier for the Leaf element with the document location.</td>
-</tr>
-<tr>
-<td><a href="LocationOID/">LocationOID</a></td>
-<td>Reference to a Location element.</td>
-</tr>
-<tr>
-<td><a href="ComparatorRef/">ComparatorRef</a></td>
-<td>Comparison operator used to compare the item and value(s).</td>
-</tr>
-<tr>
-<td><a href="CreationDateTime/">CreationDateTime</a></td>
-<td>Time of creation of the file containing the document.</td>
-</tr>
-<tr>
-<td><a href="ExtendedValue/">ExtendedValue</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="TimepointRelativeTarget/">TimepointRelativeTarget</a></td>
-<td>The relative timing between two activities or groups of activities.</td>
-</tr>
-<tr>
-<td><a href="TargetTransitionOID/">TargetTransitionOID</a></td>
-<td>Reference to the Transition that is one of the targets of the branching.</td>
-</tr>
-<tr>
-<td><a href="VersionID/">VersionID</a></td>
-<td>Identifier for the specific version of the study in the source system that th...</td>
-</tr>
-<tr>
-<td><a href="WorkflowOID/">WorkflowOID</a></td>
-<td>Reference to a WorfkflowDef</td>
-</tr>
-<tr>
-<td><a href="AsOfDateTime/">AsOfDateTime</a></td>
-<td>The date/time at which the source database was queried in order to create thi...</td>
-</tr>
-<tr>
-<td><a href="SourceSystem/">SourceSystem</a></td>
-<td>The computer system or database management system that is the source of the i...</td>
-</tr>
-<tr>
-<td><a href="DisplayFormat/">DisplayFormat</a></td>
-<td>Display format supports data visualization of numeric float and date values.</td>
-</tr>
-<tr>
-<td><a href="StandardOID/">StandardOID</a></td>
-<td>Reference to a Standard element.</td>
-</tr>
-<tr>
-<td><a href="OrderNumber/">OrderNumber</a></td>
-<td>Indicates the order in which this StudyEventGroup appears in Metadata display...</td>
-</tr>
-<tr>
-<td><a href="ArchiveLocationID/">ArchiveLocationID</a></td>
-<td>Reference to the unique ID of a leaf element that provides the actual locatio...</td>
-</tr>
-<tr>
-<td><a href="TargetOID/">TargetOID</a></td>
-<td>References the definition of the target structural element for the transition...</td>
-</tr>
-<tr>
-<td><a href="ParentClass/">ParentClass</a></td>
-<td>Parent class of the Sub Class</td>
-</tr>
-<tr>
-<td><a href="Method/">Method</a></td>
-<td>The name of the method or function that contains the FormalExpression code.</td>
-</tr>
-<tr>
-<td><a href="ImageFileName/">ImageFileName</a></td>
-<td>The file name of or file path to the picture</td>
-</tr>
-<tr>
-<td><a href="ItemOID/">ItemOID</a></td>
-<td>Reference to the ItemDef .</td>
-</tr>
-<tr>
-<td><a href="SystemName/">SystemName</a></td>
-<td>Human readable name for the code system.</td>
-</tr>
-<tr>
-<td><a href="Other/">Other</a></td>
-<td>Flag to indicate that the Item represents "other" content added to an ItemGro...</td>
-</tr>
-<tr>
-<td><a href="StudyName/">StudyName</a></td>
-<td>Sponsoring organization's internal name for the study. If no internal name is...</td>
-</tr>
-<tr>
-<td><a href="StudyInterventionOID/">StudyInterventionOID</a></td>
-<td>Reference to a StudyIntervention</td>
-</tr>
-<tr>
-<td><a href="VariableSet/">VariableSet</a></td>
-<td>ADaM variable set, e.g. Dose, Analysis Parameter, Treatment Timing.</td>
-</tr>
-<tr>
-<td><a href="Repeat/">Repeat</a></td>
-<td>Indicates that the item serves as the item over which repeats are to be perfo...</td>
-</tr>
-<tr>
-<td><a href="Domain/">Domain</a></td>
-<td>Identifies the scope or CDISC SDTMIG/SENDIG Domain of the ItemGroup data. The...</td>
-</tr>
-<tr>
-<td><a href="FileTypeRef/">FileTypeRef</a></td>
-<td>Snapshot means that the document contains only the current state of the data ...</td>
-</tr>
-<tr>
-<td><a href="EpochOID/">EpochOID</a></td>
-<td>Reference to an Epoch element defined in the study.</td>
-</tr>
-<tr>
-<td><a href="DurationPostWindow/">DurationPostWindow</a></td>
-<td>Defines the amount of time by which the targetted duration may be increased.</td>
-</tr>
-<tr>
-<td><a href="CodedValue/">CodedValue</a></td>
-<td>Value of the codelist item (as it would occur in clinical data).</td>
-</tr>
-<tr>
-<td><a href="ValueListOID/">ValueListOID</a></td>
+<td><a href="valueListOID/">valueListOID</a></td>
 <td>Reference to the unique ID of a ValueListDef element that provides value-leve...</td>
 </tr>
 <tr>
-<td><a href="MethodOID/">MethodOID</a></td>
+<td><a href="comparator/">comparator</a></td>
+<td>Comparison operator used to compare the item and value(s).</td>
+</tr>
+<tr>
+<td><a href="type/">type</a></td>
+<td>Type of page for page references indicated in the PageRefs attribute.</td>
+</tr>
+<tr>
+<td><a href="conditionOID/">conditionOID</a></td>
+<td>Reference to a ConditionDef defining the condition under which the transition...</td>
+</tr>
+<tr>
+<td><a href="timepointTarget/">timepointTarget</a></td>
+<td>The planned time between the 2 activities defined by the transition in the wo...</td>
+</tr>
+<tr>
+<td><a href="altitude/">altitude</a></td>
+<td>Height above sea level in meters.</td>
+</tr>
+<tr>
+<td><a href="userType/">userType</a></td>
+<td>User's role in the study.</td>
+</tr>
+<tr>
+<td><a href="fileOID/">fileOID</a></td>
+<td>A unique identifier for this file.</td>
+</tr>
+<tr>
+<td><a href="transitionOID/">transitionOID</a></td>
+<td>References the workflow Transition on which the timing constraint must be exe...</td>
+</tr>
+<tr>
+<td><a href="studyEventRepeatKey/">studyEventRepeatKey</a></td>
+<td>A key used to distinguish between repeats of the same type of study event for...</td>
+</tr>
+<tr>
+<td><a href="definition/">definition</a></td>
+<td>A free-text definition of the parameter</td>
+</tr>
+<tr>
+<td><a href="subjectKey/">subjectKey</a></td>
+<td>Unique identifier for the Subject.</td>
+</tr>
+<tr>
+<td><a href="dictionary/">dictionary</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="isReferenceData/">isReferenceData</a></td>
+<td>Specifies whether this ItemGroupDef is used for non-subject data.</td>
+</tr>
+<tr>
+<td><a href="other/">other</a></td>
+<td>Flag to indicate that the Item represents "other" content added to an ItemGro...</td>
+</tr>
+<tr>
+<td><a href="preSpecifiedValue/">preSpecifiedValue</a></td>
+<td>Prefill value or a default value for a field that is automatically populated.</td>
+</tr>
+<tr>
+<td><a href="studyOID/">studyOID</a></td>
+<td>References the Study that provides a prior metadata version. This attribute a...</td>
+</tr>
+<tr>
+<td><a href="fileType/">fileType</a></td>
+<td>Snapshot means that the document contains only the current state of the data ...</td>
+</tr>
+<tr>
+<td><a href="publishingSet/">publishingSet</a></td>
+<td>Set of published files of Standard when Type="CT" (e.g. SDTM, ADaM, SEND, CDA...</td>
+</tr>
+<tr>
+<td><a href="value/">value</a></td>
+<td>Human-readable designation of the trial phase.</td>
+</tr>
+<tr>
+<td><a href="source/">source</a></td>
+<td>Indicates the party responsible for the data's origin type.</td>
+</tr>
+<tr>
+<td><a href="iD/">iD</a></td>
+<td>Unique identifier for the leaf that is referenced.</td>
+</tr>
+<tr>
+<td><a href="state/">state</a></td>
+<td>Status of the Query</td>
+</tr>
+<tr>
+<td><a href="versionID/">versionID</a></td>
+<td>Identifier for the specific version of the study in the source system that th...</td>
+</tr>
+<tr>
+<td><a href="collectionExceptionConditionOID/">collectionExceptionConditionOID</a></td>
+<td>Reference to a ConditionDef</td>
+</tr>
+<tr>
+<td><a href="title/">title</a></td>
+<td>Text with the label for the document or dataset.</td>
+</tr>
+<tr>
+<td><a href="methodOID/">methodOID</a></td>
 <td>Reference to a MethodDef that will provide one or more data rows as output. T...</td>
 </tr>
 <tr>
-<td><a href="TranslatedTextRef/">TranslatedTextRef</a></td>
+<td><a href="core/">core</a></td>
+<td>CDASH, ADaM, SDTM, and SEND Core designations.</td>
+</tr>
+<tr>
+<td><a href="longitude/">longitude</a></td>
+<td>Longitude component of geoposition coordinates in decimal degrees. May requir...</td>
+</tr>
+<tr>
+<td><a href="itemGroupDataSeq/">itemGroupDataSeq</a></td>
+<td>Unique sequence # for each ItemGroupData child element (record) in the contai...</td>
+</tr>
+<tr>
+<td><a href="itemGroupRepeatKey/">itemGroupRepeatKey</a></td>
+<td>A key used to distinguish between repeats of the same type of item group.</td>
+</tr>
+<tr>
+<td><a href="structure/">structure</a></td>
+<td>Description of the level of detail represented by individual records in the I...</td>
+</tr>
+<tr>
+<td><a href="label/">label</a></td>
+<td>Used to link the value to a named MethodDef parameter.</td>
+</tr>
+<tr>
+<td><a href="pageRefs/">pageRefs</a></td>
+<td>List of PDF pages separated by a space.</td>
+</tr>
+<tr>
+<td><a href="attribute/">attribute</a></td>
+<td>Field provided by the Name attribute where the data or information can be obt...</td>
+</tr>
+<tr>
+<td><a href="structuralElementOID/">structuralElementOID</a></td>
+<td>OID of a structural element such as a Study, Epoch, StudyEventGroup, StudyEve...</td>
+</tr>
+<tr>
+<td><a href="roleCodeListOID/">roleCodeListOID</a></td>
+<td>Reference to a CodeList that defines the allowable values of Role for the Stu...</td>
+</tr>
+<tr>
+<td><a href="mandatory/">mandatory</a></td>
+<td>Indicator of whether this StudyEventGroup must appear in the study clinical d...</td>
+</tr>
+<tr>
+<td><a href="codedValue/">codedValue</a></td>
+<td>Value of the codelist item (as it would occur in clinical data).</td>
+</tr>
+<tr>
+<td><a href="studyEventOID/">studyEventOID</a></td>
+<td>Reference to the StudyEventDef .</td>
+</tr>
+<tr>
+<td><a href="displayFormat/">displayFormat</a></td>
+<td>Display format supports data visualization of numeric float and date values.</td>
+</tr>
+<tr>
+<td><a href="repeatingLimit/">repeatingLimit</a></td>
+<td>Maximum number of repeats.</td>
+</tr>
+<tr>
+<td><a href="context/">context</a></td>
+<td>Identifies applicable domain or scope of the mapping.</td>
+</tr>
+<tr>
+<td><a href="versionName/">versionName</a></td>
+<td>Short descriptive label for the version of the study, e.g. "Initial go live" ...</td>
+</tr>
+<tr>
+<td><a href="successorOID/">successorOID</a></td>
+<td>Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs immedi...</td>
+</tr>
+<tr>
+<td><a href="code/">code</a></td>
+<td>A string pattern that identifies a concept as defined by the code system.</td>
+</tr>
+<tr>
+<td><a href="itemGroupOID/">itemGroupOID</a></td>
+<td>Reference to the ItemGroupDef .</td>
+</tr>
+<tr>
+<td><a href="priorFileOID/">priorFileOID</a></td>
+<td>Reference to the previous file (if any) in a series.</td>
+</tr>
+<tr>
+<td><a href="startOID/">startOID</a></td>
+<td>Reference to the definition of the structural element that starts the workflo...</td>
+</tr>
+<tr>
+<td><a href="studyEventGroupOID/">studyEventGroupOID</a></td>
+<td>Reference to the StudyEventGroupDef .</td>
+</tr>
+<tr>
+<td><a href="length/">length</a></td>
+<td>The Length attribute is optional when DataType is text, string,</td>
+</tr>
+<tr>
+<td><a href="sourceSystemVersion/">sourceSystemVersion</a></td>
+<td>The version of the "SourceSystem" above.</td>
+</tr>
+<tr>
+<td><a href="unitsItemOID/">unitsItemOID</a></td>
+<td>Reference to a sibling ItemRef element that represents the unit specification...</td>
+</tr>
+<tr>
+<td><a href="partOfOrganizationOID/">partOfOrganizationOID</a></td>
+<td>Reference to a parent organization.</td>
+</tr>
+<tr>
+<td><a href="endConditionOID/">endConditionOID</a></td>
+<td>The EndConditionOID references a ConditionDef defining the condition under wh...</td>
+</tr>
+<tr>
+<td><a href="orderNumber/">orderNumber</a></td>
+<td>Indicates the order in which this StudyEventGroup appears in Metadata display...</td>
+</tr>
+<tr>
+<td><a href="durationTarget/">durationTarget</a></td>
+<td>Constrains the duration of an activity represented by a Study, Epoch, StudyEv...</td>
+</tr>
+<tr>
+<td><a href="status/">status</a></td>
+<td>Status of Standard.</td>
+</tr>
+<tr>
+<td><a href="extendedValue/">extendedValue</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="predecessorOID/">predecessorOID</a></td>
+<td>Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that occurs immed...</td>
+</tr>
+<tr>
+<td><a href="firstPage/">firstPage</a></td>
+<td>First page in a range of pages.</td>
+</tr>
+<tr>
+<td><a href="seqNum/">seqNum</a></td>
+<td>When more than 1 Value element exists this attribute uniquely identifies each...</td>
+</tr>
+<tr>
+<td><a href="locationOID/">locationOID</a></td>
+<td>Reference to a Location element.</td>
+</tr>
+<tr>
+<td><a href="sourceSystem/">sourceSystem</a></td>
+<td>The computer system or database management system that is the source of the i...</td>
+</tr>
+<tr>
+<td><a href="sponsorOrSite/">sponsorOrSite</a></td>
+<td>Source of the comment.</td>
+</tr>
+<tr>
+<td><a href="category/">category</a></td>
+<td>The Category attribute is typically used to indicate the study phase appropri...</td>
+</tr>
+<tr>
+<td><a href="repeat/">repeat</a></td>
+<td>Indicates that the item serves as the item over which repeats are to be perfo...</td>
+</tr>
+<tr>
+<td><a href="studyEndPointOID/">studyEndPointOID</a></td>
+<td>Reference to the StudyEndPoint .</td>
+</tr>
+<tr>
+<td><a href="repeating/">repeating</a></td>
+<td>The Repeating flag indicates when this type of study event can occur repeated...</td>
+</tr>
+<tr>
+<td><a href="originator/">originator</a></td>
+<td>The organization that generated the ODM file.</td>
+</tr>
+<tr>
+<td><a href="shortName/">shortName</a></td>
+<td>Short name or code for the parameter.</td>
+</tr>
+<tr>
+<td><a href="armOID/">armOID</a></td>
+<td>Reference to an Arm element defined in the study.</td>
+</tr>
+<tr>
+<td><a href="standardOID/">standardOID</a></td>
+<td>Reference to a Standard element.</td>
+</tr>
+<tr>
+<td><a href="role/">role</a></td>
+<td>The Role for the referenced ItemDef. The Role attribute provides a single rol...</td>
+</tr>
+<tr>
+<td><a href="version/">version</a></td>
+<td>Version of Standard.</td>
+</tr>
+<tr>
+<td><a href="latitude/">latitude</a></td>
+<td>Latitude component of geoposition coordinate in decimal degrees degrees. May ...</td>
+</tr>
+<tr>
+<td><a href="whereClauseOID/">whereClauseOID</a></td>
+<td>Reference to the unique ID of a WhereClauseDef element</td>
+</tr>
+<tr>
+<td><a href="durationPostWindow/">durationPostWindow</a></td>
+<td>Defines the amount of time by which the targetted duration may be increased.</td>
+</tr>
+<tr>
+<td><a href="organizationOID/">organizationOID</a></td>
+<td>Reference to an Organization elment.</td>
+</tr>
+<tr>
+<td><a href="sourceOID/">sourceOID</a></td>
+<td>References the definition of the source structural element for the transition...</td>
+</tr>
+<tr>
+<td><a href="protocolName/">protocolName</a></td>
+<td>Protocol identifier or protocol number assigned to the study. It is used by t...</td>
+</tr>
+<tr>
+<td><a href="systemVersion/">systemVersion</a></td>
+<td>Identifies the version of the code system</td>
+</tr>
+<tr>
+<td><a href="parentClass/">parentClass</a></td>
+<td>Parent class of the Sub Class</td>
+</tr>
+<tr>
+<td><a href="commentOID/">commentOID</a></td>
+<td>The Comment identifier that this value refers to. Needed when the WhereClause...</td>
+</tr>
+<tr>
+<td><a href="term/">term</a></td>
+<td>Longer name. Provides the full name of the parameter.</td>
+</tr>
+<tr>
+<td><a href="endOID/">endOID</a></td>
+<td>Reference to the definition of the structural element that ends the workflow....</td>
+</tr>
+<tr>
+<td><a href="oID/">oID</a></td>
+<td>Unique identifier of the version within the XML document.</td>
+</tr>
+<tr>
+<td><a href="isNonStandard/">isNonStandard</a></td>
+<td>Required for ADaM, SDTM, or SEND if StandardOID is not provided.</td>
+</tr>
+<tr>
+<td><a href="lastPage/">lastPage</a></td>
+<td>Last page in a range of pages.</td>
+</tr>
+<tr>
+<td><a href="effectiveDate/">effectiveDate</a></td>
+<td>Datetime stamp when this MetaDataVersion was published at this location.</td>
+</tr>
+<tr>
+<td><a href="rank/">rank</a></td>
+<td>Numeric significance of the CodeListItem relative to others in the CodeList. ...</td>
+</tr>
+<tr>
+<td><a href="sequenceNumber/">sequenceNumber</a></td>
+<td>Order of the Epoch</td>
+</tr>
+<tr>
+<td><a href="studyTargetPopulationOID/">studyTargetPopulationOID</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="startConditionOID/">startConditionOID</a></td>
+<td>The StartConditionOID references a ConditionDef specifying a condition that m...</td>
+</tr>
+<tr>
+<td><a href="href/">href</a></td>
+<td>URL that can be used to identify the location of a document or dataset file r...</td>
+</tr>
+<tr>
+<td><a href="oDMVersion/">oDMVersion</a></td>
+<td>The version of the ODM standard used.</td>
+</tr>
+<tr>
+<td><a href="timepointPreWindow/">timepointPreWindow</a></td>
+<td>Specifies the amount of time prior to the TimepointTarget, the time between t...</td>
+</tr>
+<tr>
+<td><a href="usedMethod/">usedMethod</a></td>
+<td>Indicates that the action was made by the system rather than a data entry for...</td>
+</tr>
+<tr>
+<td><a href="library/">library</a></td>
+<td>The name of the external library containing the FormalExpression.</td>
+</tr>
+<tr>
+<td><a href="timepointRelativeTarget/">timepointRelativeTarget</a></td>
+<td>The relative timing between two activities or groups of activities.</td>
+</tr>
+<tr>
+<td><a href="keySequence/">keySequence</a></td>
+<td>Indicates that this item is a key for the enclosing element. It also provides...</td>
+</tr>
+<tr>
+<td><a href="method/">method</a></td>
+<td>The name of the method or function that contains the FormalExpression code.</td>
+</tr>
+<tr>
+<td><a href="transactionType/">transactionType</a></td>
+<td>Identifies the transaction type when /ODM/@FileType is Transactional and ther...</td>
+</tr>
+<tr>
+<td><a href="dataType/">dataType</a></td>
+<td>The DataType attribute specifies how the corresponding value</td>
+</tr>
+<tr>
+<td><a href="targetOID/">targetOID</a></td>
+<td>References the definition of the target structural element for the transition...</td>
+</tr>
+<tr>
+<td><a href="telecomType/">telecomType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="durationPreWindow/">durationPreWindow</a></td>
+<td>Defines the amount of time by which the targetted duration may be reduced.</td>
+</tr>
+<tr>
+<td><a href="signatureOID/">signatureOID</a></td>
+<td>Reference to the SignatureDef .</td>
+</tr>
+<tr>
+<td><a href="purpose/">purpose</a></td>
+<td>Purpose of the ItemGroup.</td>
+</tr>
+<tr>
+<td><a href="translatedText/">translatedText</a></td>
 <td>TranslatedText reference: Human-readable text that is appropriate for a parti...</td>
 </tr>
 <tr>
@@ -1509,543 +1505,575 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 <td>multi-line text content from between XML tags</td>
 </tr>
 <tr>
-<td><a href="DescriptionRef/">DescriptionRef</a></td>
+<td><a href="description/">description</a></td>
 <td>Description reference: A free-text description of the containing metadata com...</td>
 </tr>
 <tr>
-<td><a href="MetaDataVersionRefRef/">MetaDataVersionRefRef</a></td>
-<td>MetaDataVersionRef reference: A reference to a MetaDataVersion used at the co...</td>
+<td><a href="metaDataVersion/">metaDataVersion</a></td>
+<td>MetaDataVersion reference: The metadata for a study is defined in a series of...</td>
 </tr>
 <tr>
-<td><a href="IncludeRef/">IncludeRef</a></td>
+<td><a href="include/">include</a></td>
 <td>Include reference: The Include metadata element allows a reference to a prior...</td>
 </tr>
 <tr>
-<td><a href="StandardsRef/">StandardsRef</a></td>
+<td><a href="standards/">standards</a></td>
 <td>Standards reference: The Standards element provides a container for the list ...</td>
 </tr>
 <tr>
-<td><a href="AnnotatedCRFRef/">AnnotatedCRFRef</a></td>
+<td><a href="annotatedCRF/">annotatedCRF</a></td>
 <td>AnnotatedCRF reference: An Annotated Case Report Form (CRF) is a Portable Fil...</td>
 </tr>
 <tr>
-<td><a href="SupplementalDocRef/">SupplementalDocRef</a></td>
+<td><a href="supplementalDoc/">supplementalDoc</a></td>
 <td>SupplementalDoc reference: Supplemental data definitions</td>
 </tr>
 <tr>
-<td><a href="ValueListDefRef/">ValueListDefRef</a></td>
+<td><a href="valueListDef/">valueListDef</a></td>
 <td>ValueListDef reference: The following table specifies the XML structure for v...</td>
 </tr>
 <tr>
-<td><a href="WhereClauseDefRef/">WhereClauseDefRef</a></td>
+<td><a href="whereClauseDef/">whereClauseDef</a></td>
 <td>WhereClauseDef reference: The WhereClauseDef element specifies a condition.</td>
 </tr>
 <tr>
-<td><a href="ProtocolRef/">ProtocolRef</a></td>
+<td><a href="protocol/">protocol</a></td>
 <td>Protocol reference: The Protocol element lists the kinds of study events that...</td>
 </tr>
 <tr>
-<td><a href="WorkflowDefRef/">WorkflowDefRef</a></td>
+<td><a href="workflowDef/">workflowDef</a></td>
 <td>WorkflowDef reference: A WorkflowDef defines an automated workflow for a stud...</td>
 </tr>
 <tr>
-<td><a href="StudyEventGroupDefRef/">StudyEventGroupDefRef</a></td>
+<td><a href="studyEventGroupDef/">studyEventGroupDef</a></td>
 <td>StudyEventGroupDef reference: StudyEventGroupDef is a study building block th...</td>
 </tr>
 <tr>
-<td><a href="StudyEventDefRef/">StudyEventDefRef</a></td>
+<td><a href="studyEventDef/">studyEventDef</a></td>
 <td>StudyEventDef reference: StudyEventDef represents the definition of an activi...</td>
 </tr>
 <tr>
-<td><a href="ItemGroupDefRef/">ItemGroupDefRef</a></td>
+<td><a href="itemGroupDef/">itemGroupDef</a></td>
 <td>ItemGroupDef reference: An ItemGroupDef describes a type of variable or field...</td>
 </tr>
 <tr>
-<td><a href="ItemDefRef/">ItemDefRef</a></td>
+<td><a href="itemDef/">itemDef</a></td>
 <td>ItemDef reference: An ItemDef describes a type of item that can occur within ...</td>
 </tr>
 <tr>
-<td><a href="CodeListRefRef/">CodeListRefRef</a></td>
-<td>CodeListRef reference: A reference to a CodeList definition.</td>
+<td><a href="codeList/">codeList</a></td>
+<td>CodeList reference: Defines a discrete set of permitted values for an item, o...</td>
 </tr>
 <tr>
-<td><a href="ConditionDefRef/">ConditionDefRef</a></td>
+<td><a href="conditionDef/">conditionDef</a></td>
 <td>ConditionDef reference: A ConditionDef defines a boolean condition.</td>
 </tr>
 <tr>
-<td><a href="MethodDefRef/">MethodDefRef</a></td>
+<td><a href="methodDef/">methodDef</a></td>
 <td>MethodDef reference: A MethodDef defines how a data value can be obtained fro...</td>
 </tr>
 <tr>
-<td><a href="CommentDefRef/">CommentDefRef</a></td>
+<td><a href="commentDef/">commentDef</a></td>
 <td>CommentDef reference: The Comment element allows referencing short comments s...</td>
 </tr>
 <tr>
-<td><a href="LeafRef/">LeafRef</a></td>
+<td><a href="leaf/">leaf</a></td>
 <td>Leaf reference: Contains the XLink information referenced by DocumentRef or A...</td>
 </tr>
 <tr>
-<td><a href="PDFPageRefRef/">PDFPageRefRef</a></td>
+<td><a href="pDFPageRef/">pDFPageRef</a></td>
 <td>The PDFPageRef element is a container for page references in a PDF file.</td>
 </tr>
 <tr>
-<td><a href="StandardRef/">StandardRef</a></td>
+<td><a href="standard/">standard</a></td>
 <td>Definition of a standard referenced in the Define-XML document.</td>
 </tr>
 <tr>
-<td><a href="DocumentRefRef/">DocumentRefRef</a></td>
+<td><a href="documentRef/">documentRef</a></td>
 <td>The DocumentRef element is a container for page references in a PDF file.</td>
 </tr>
 <tr>
-<td><a href="ItemRefRef/">ItemRefRef</a></td>
+<td><a href="itemRef/">itemRef</a></td>
 <td>ItemRef reference: A reference to an ItemDef as it occurs within a specific I...</td>
 </tr>
 <tr>
-<td><a href="RangeCheckRef/">RangeCheckRef</a></td>
+<td><a href="rangeCheck/">rangeCheck</a></td>
 <td>RangeCheck reference: A RangeCheck defines a constraint on the value of the e...</td>
 </tr>
 <tr>
-<td><a href="WorkflowRefRef/">WorkflowRefRef</a></td>
+<td><a href="workflowRef/">workflowRef</a></td>
 <td>WorkflowRef reference: The WorkflowRef references a workflow definition</td>
 </tr>
 <tr>
-<td><a href="CodingRef/">CodingRef</a></td>
+<td><a href="coding/">coding</a></td>
 <td>Coding reference: Coding references a symbol from a defined code system. It u...</td>
 </tr>
 <tr>
-<td><a href="StudyEventGroupRefRef/">StudyEventGroupRefRef</a></td>
+<td><a href="studyEventGroupRef/">studyEventGroupRef</a></td>
 <td>StudyEventGroupRef reference: This element references a StudyEventGroupDef as...</td>
 </tr>
 <tr>
-<td><a href="StudyEventRefRef/">StudyEventRefRef</a></td>
+<td><a href="studyEventRef/">studyEventRef</a></td>
 <td>StudyEventRef reference: This element references a StudyEventDef as it occurs...</td>
 </tr>
 <tr>
-<td><a href="ItemGroupRefRef/">ItemGroupRefRef</a></td>
+<td><a href="itemGroupRef/">itemGroupRef</a></td>
 <td>ItemGroupRef reference: ItemGroupRef references an ItemGroupDef as it occurs ...</td>
 </tr>
 <tr>
-<td><a href="AliasRef/">AliasRef</a></td>
+<td><a href="alias/">alias</a></td>
 <td>Alias reference: An Alias provides an additional name for an element. The Con...</td>
 </tr>
 <tr>
-<td><a href="ClassRef/">ClassRef</a></td>
+<td><a href="classRef/">classRef</a></td>
 <td>Class reference: The Class element identifies which predefined Class within t...</td>
 </tr>
 <tr>
-<td><a href="OriginRef/">OriginRef</a></td>
+<td><a href="origin/">origin</a></td>
 <td>Origin reference: Origin defines the source metadata, where applicable, for O...</td>
 </tr>
 <tr>
-<td><a href="SubClassRef/">SubClassRef</a></td>
+<td><a href="subClass/">subClass</a></td>
 <td>SubClass reference: This element contains SubClass definitions.</td>
 </tr>
 <tr>
-<td><a href="WhereClauseRefRef/">WhereClauseRefRef</a></td>
+<td><a href="whereClauseRef/">whereClauseRef</a></td>
 <td>WhereClauseRef reference: The WhereClauseRef references the WhereClauseDef el...</td>
 </tr>
 <tr>
-<td><a href="SourceItemsRef/">SourceItemsRef</a></td>
+<td><a href="sourceItems/">sourceItems</a></td>
 <td>SourceItems reference: Identifies source items as needed to support automated...</td>
 </tr>
 <tr>
-<td><a href="SourceItemRef/">SourceItemRef</a></td>
+<td><a href="sourceItem/">sourceItem</a></td>
 <td>SourceItem reference: Provides the information needed to identify the source ...</td>
 </tr>
 <tr>
-<td><a href="ResourceRef/">ResourceRef</a></td>
+<td><a href="resource/">resource</a></td>
 <td>Resource reference: Describes an external resource used as the source for the...</td>
 </tr>
 <tr>
-<td><a href="SelectionRef/">SelectionRef</a></td>
+<td><a href="selection/">selection</a></td>
 <td>Selection reference: Template for machine-readable/executable expression for ...</td>
 </tr>
 <tr>
-<td><a href="QuestionRef/">QuestionRef</a></td>
+<td><a href="question/">question</a></td>
 <td>Question reference: A label shown to a human user when prompted to provide da...</td>
 </tr>
 <tr>
-<td><a href="PromptRef/">PromptRef</a></td>
+<td><a href="prompt/">prompt</a></td>
 <td>Prompt reference: A prompt text shown to a human user when prompted to provid...</td>
 </tr>
 <tr>
-<td><a href="CRFCompletionInstructionsRef/">CRFCompletionInstructionsRef</a></td>
+<td><a href="cRFCompletionInstructions/">cRFCompletionInstructions</a></td>
 <td>CRFCompletionInstructions reference: Instructions for the clinical site on ho...</td>
 </tr>
 <tr>
-<td><a href="ImplementationNotesRef/">ImplementationNotesRef</a></td>
+<td><a href="implementationNotes/">implementationNotes</a></td>
 <td>ImplementationNotes reference: Further information, such as rationale and imp...</td>
 </tr>
 <tr>
-<td><a href="CDISCNotesRef/">CDISCNotesRef</a></td>
+<td><a href="cDISCNotes/">cDISCNotes</a></td>
 <td>CDISCNotes reference: Explanatory text for the variable.</td>
 </tr>
 <tr>
-<td><a href="ValueListRefRef/">ValueListRefRef</a></td>
+<td><a href="codeListRef/">codeListRef</a></td>
+<td>CodeListRef reference: A reference to a CodeList definition.</td>
+</tr>
+<tr>
+<td><a href="valueListRef/">valueListRef</a></td>
 <td>ValueListRef reference: The ValueListRef element is the OID of the ValueListD...</td>
 </tr>
 <tr>
-<td><a href="ErrorMessageRef/">ErrorMessageRef</a></td>
+<td><a href="errorMessage/">errorMessage</a></td>
 <td>ErrorMessage reference: Error message provided to user when the range check f...</td>
 </tr>
 <tr>
-<td><a href="MethodSignatureRef/">MethodSignatureRef</a></td>
+<td><a href="methodSignature/">methodSignature</a></td>
 <td>MethodSignature reference: A MethodSignature defines the parameters and retur...</td>
 </tr>
 <tr>
-<td><a href="FormalExpressionRef/">FormalExpressionRef</a></td>
+<td><a href="formalExpression/">formalExpression</a></td>
 <td>FormalExpression reference: A FormalExpression used within a ConditionDef or ...</td>
 </tr>
 <tr>
-<td><a href="CheckValueRef/">CheckValueRef</a></td>
+<td><a href="checkValue/">checkValue</a></td>
 <td>CheckValue reference: A comparison value used in a range check.</td>
 </tr>
 <tr>
-<td><a href="CodeListItemRef/">CodeListItemRef</a></td>
+<td><a href="codeListItem/">codeListItem</a></td>
 <td>CodeListItem reference: Defines an individual member value of a codelist. It ...</td>
 </tr>
 <tr>
-<td><a href="DecodeRef/">DecodeRef</a></td>
+<td><a href="decode/">decode</a></td>
 <td>Decode reference: The displayed value relating to the CodeListItem/@CodedValu...</td>
 </tr>
 <tr>
-<td><a href="ParameterRef/">ParameterRef</a></td>
+<td><a href="parameter/">parameter</a></td>
 <td>Parameter reference: The Parameter element represents a method parameter used...</td>
 </tr>
 <tr>
-<td><a href="ReturnValueRef/">ReturnValueRef</a></td>
+<td><a href="returnValue/">returnValue</a></td>
 <td>ReturnValue reference: The ReturnValue element represents a return value used...</td>
 </tr>
 <tr>
-<td><a href="ExternalCodeLibRef/">ExternalCodeLibRef</a></td>
+<td><a href="externalCodeLib/">externalCodeLib</a></td>
 <td>ExternalCodeLib reference: The ExternalCodeLib element references a FormalExp...</td>
 </tr>
 <tr>
-<td><a href="StudySummaryRef/">StudySummaryRef</a></td>
+<td><a href="studySummary/">studySummary</a></td>
 <td>StudySummary reference: The StudyParameter element allows to provide a set of...</td>
 </tr>
 <tr>
-<td><a href="StudyStructureRef/">StudyStructureRef</a></td>
+<td><a href="studyStructure/">studyStructure</a></td>
 <td>StudyStructure reference: The StudyStructure element describes the general st...</td>
 </tr>
 <tr>
-<td><a href="TrialPhaseRef/">TrialPhaseRef</a></td>
+<td><a href="trialPhase/">trialPhase</a></td>
 <td>TrialPhase reference: The TrialPhase element designates the phase of the stud...</td>
 </tr>
 <tr>
-<td><a href="StudyTimingsRef/">StudyTimingsRef</a></td>
+<td><a href="studyTimings/">studyTimings</a></td>
 <td>StudyTimings reference: The StudyTimings element is a container element for i...</td>
 </tr>
 <tr>
-<td><a href="StudyIndicationsRef/">StudyIndicationsRef</a></td>
+<td><a href="studyIndications/">studyIndications</a></td>
 <td>StudyIndications reference: StudyIndications is a container element for indiv...</td>
 </tr>
 <tr>
-<td><a href="StudyInterventionsRef/">StudyInterventionsRef</a></td>
+<td><a href="studyInterventions/">studyInterventions</a></td>
 <td>StudyInterventions reference: The StudyInterventions element is a container e...</td>
 </tr>
 <tr>
-<td><a href="StudyObjectivesRef/">StudyObjectivesRef</a></td>
+<td><a href="studyObjectives/">studyObjectives</a></td>
 <td>StudyObjectives reference: The StudyObjectives is a container element for ind...</td>
 </tr>
 <tr>
-<td><a href="StudyEndPointsRef/">StudyEndPointsRef</a></td>
+<td><a href="studyEndPoints/">studyEndPoints</a></td>
 <td>StudyEndPoints reference: The StudyEndPoints element is a container element f...</td>
 </tr>
 <tr>
-<td><a href="StudyTargetPopulationRefRef/">StudyTargetPopulationRefRef</a></td>
-<td>StudyTargetPopulationRef reference: The StudyTargetPopulationRef references a...</td>
+<td><a href="studyTargetPopulation/">studyTargetPopulation</a></td>
+<td>StudyTargetPopulation reference: The StudyTargetPopulation describes the popu...</td>
 </tr>
 <tr>
-<td><a href="StudyEstimandsRef/">StudyEstimandsRef</a></td>
+<td><a href="studyEstimands/">studyEstimands</a></td>
 <td>StudyEstimands reference: StudyEstimands is a container element for individua...</td>
 </tr>
 <tr>
-<td><a href="InclusionExclusionCriteriaRef/">InclusionExclusionCriteriaRef</a></td>
+<td><a href="inclusionExclusionCriteria/">inclusionExclusionCriteria</a></td>
 <td>InclusionExclusionCriteria reference: The InclusionExclusionCriteria element ...</td>
 </tr>
 <tr>
-<td><a href="ArmRef/">ArmRef</a></td>
+<td><a href="arm/">arm</a></td>
 <td>Arm reference: An Arm element provides the declaration of a study arm. Arms d...</td>
 </tr>
 <tr>
-<td><a href="EpochRef/">EpochRef</a></td>
+<td><a href="epoch/">epoch</a></td>
 <td>Epoch reference: The planned period of subjects' participation in the trial i...</td>
 </tr>
 <tr>
-<td><a href="StudyIndicationRef/">StudyIndicationRef</a></td>
+<td><a href="studyIndication/">studyIndication</a></td>
 <td>StudyIndication reference: This element describes a study indication (e.g., c...</td>
 </tr>
 <tr>
-<td><a href="StudyInterventionRefRef/">StudyInterventionRefRef</a></td>
-<td>StudyInterventionRef reference: The StudyInterventionRef references an interv...</td>
+<td><a href="studyIntervention/">studyIntervention</a></td>
+<td>StudyIntervention reference: This element describes a study intervention (e.g...</td>
 </tr>
 <tr>
-<td><a href="StudyObjectiveRef/">StudyObjectiveRef</a></td>
+<td><a href="studyObjective/">studyObjective</a></td>
 <td>StudyObjective reference: The reason for performing a study in terms of the s...</td>
 </tr>
 <tr>
-<td><a href="StudyEndPointRefRef/">StudyEndPointRefRef</a></td>
-<td>StudyEndPointRef reference: Go to start of metadata</td>
+<td><a href="studyEndPointRef/">studyEndPointRef</a></td>
+<td>StudyEndPointRef reference: A reference to a StudyEndPoint as it occurs withi...</td>
 </tr>
 <tr>
-<td><a href="StudyEstimandRef/">StudyEstimandRef</a></td>
+<td><a href="studyEndPoint/">studyEndPoint</a></td>
+<td>StudyEndPoint reference: A study end point reflects an outcome measure of int...</td>
+</tr>
+<tr>
+<td><a href="studyEstimand/">studyEstimand</a></td>
 <td>StudyEstimand reference: A precise description of the treatment effect reflec...</td>
 </tr>
 <tr>
-<td><a href="IntercurrentEventRef/">IntercurrentEventRef</a></td>
+<td><a href="studyTargetPopulationRef/">studyTargetPopulationRef</a></td>
+<td>StudyTargetPopulationRef reference: The StudyTargetPopulationRef references a...</td>
+</tr>
+<tr>
+<td><a href="studyInterventionRef/">studyInterventionRef</a></td>
+<td>StudyInterventionRef reference: The StudyInterventionRef references an interv...</td>
+</tr>
+<tr>
+<td><a href="intercurrentEvent/">intercurrentEvent</a></td>
 <td>IntercurrentEvent reference: The IntercurrentEvent element describes an inter...</td>
 </tr>
 <tr>
-<td><a href="SummaryMeasureRef/">SummaryMeasureRef</a></td>
+<td><a href="summaryMeasure/">summaryMeasure</a></td>
 <td>SummaryMeasure reference: The SummaryMeasure element describes a summary meas...</td>
 </tr>
 <tr>
-<td><a href="InclusionCriteriaRef/">InclusionCriteriaRef</a></td>
+<td><a href="inclusionCriteria/">inclusionCriteria</a></td>
 <td>InclusionCriteria reference: The InclusionCriteria is a container element for...</td>
 </tr>
 <tr>
-<td><a href="ExclusionCriteriaRef/">ExclusionCriteriaRef</a></td>
+<td><a href="exclusionCriteria/">exclusionCriteria</a></td>
 <td>ExclusionCriteria reference: The ExclusionCriteria is a container element for...</td>
 </tr>
 <tr>
-<td><a href="CriterionRef/">CriterionRef</a></td>
+<td><a href="criterion/">criterion</a></td>
 <td>Criterion reference: The Criterion represents either an inclusion or an exclu...</td>
 </tr>
 <tr>
-<td><a href="StudyParameterRef/">StudyParameterRef</a></td>
+<td><a href="studyParameter/">studyParameter</a></td>
 <td>StudyParameter reference: A StudyParameter defines a study design parameter f...</td>
 </tr>
 <tr>
-<td><a href="ParameterValueRef/">ParameterValueRef</a></td>
+<td><a href="parameterValue/">parameterValue</a></td>
 <td>ParameterValue reference: This element contains the value of the study parame...</td>
 </tr>
 <tr>
-<td><a href="StudyTimingRef/">StudyTimingRef</a></td>
+<td><a href="studyTiming/">studyTiming</a></td>
 <td>StudyTiming reference: The StudyTiming element defines a timing constraint wi...</td>
 </tr>
 <tr>
-<td><a href="AbsoluteTimingConstraintRef/">AbsoluteTimingConstraintRef</a></td>
+<td><a href="absoluteTimingConstraint/">absoluteTimingConstraint</a></td>
 <td>AbsoluteTimingConstraint reference: The element AbsoluteTimingConstraint is u...</td>
 </tr>
 <tr>
-<td><a href="RelativeTimingConstraintRef/">RelativeTimingConstraintRef</a></td>
+<td><a href="relativeTimingConstraint/">relativeTimingConstraint</a></td>
 <td>RelativeTimingConstraint reference: The RelativeTimingConstraint element desc...</td>
 </tr>
 <tr>
-<td><a href="TransitionTimingConstraintRef/">TransitionTimingConstraintRef</a></td>
+<td><a href="transitionTimingConstraint/">transitionTimingConstraint</a></td>
 <td>TransitionTimingConstraint reference: The TransitionTimingConstraint element ...</td>
 </tr>
 <tr>
-<td><a href="DurationTimingConstraintRef/">DurationTimingConstraintRef</a></td>
+<td><a href="durationTimingConstraint/">durationTimingConstraint</a></td>
 <td>DurationTimingConstraint reference: The DurationTimingConstraint constrains t...</td>
 </tr>
 <tr>
-<td><a href="WorkflowStartRef/">WorkflowStartRef</a></td>
+<td><a href="workflowStart/">workflowStart</a></td>
 <td>WorkflowStart reference: WorkflowStart references a structural element that b...</td>
 </tr>
 <tr>
-<td><a href="WorkflowEndRef/">WorkflowEndRef</a></td>
+<td><a href="workflowEnd/">workflowEnd</a></td>
 <td>WorkflowEnd reference: A WorkflowEnd references a structural element with whi...</td>
 </tr>
 <tr>
-<td><a href="TransitionRef/">TransitionRef</a></td>
+<td><a href="transition/">transition</a></td>
 <td>Transition reference: A Transition defines a link between 2 structural elemen...</td>
 </tr>
 <tr>
-<td><a href="BranchingRef/">BranchingRef</a></td>
+<td><a href="branching/">branching</a></td>
 <td>Branching reference: This element describes the branching in a workflow from ...</td>
 </tr>
 <tr>
-<td><a href="TargetTransitionRef/">TargetTransitionRef</a></td>
+<td><a href="targetTransition/">targetTransition</a></td>
 <td>TargetTransition reference: TargetTransition provides a reference to a Transi...</td>
 </tr>
 <tr>
-<td><a href="DefaultTransitionRef/">DefaultTransitionRef</a></td>
+<td><a href="defaultTransition/">defaultTransition</a></td>
 <td>DefaultTransition reference: The DefaultTransition references the Transition ...</td>
 </tr>
 <tr>
-<td><a href="UserRefRef/">UserRefRef</a></td>
-<td>UserRef reference: A reference to information about a specific user of a clin...</td>
+<td><a href="user/">user</a></td>
+<td>User reference: Information about a specific user of a clinical data collecti...</td>
 </tr>
 <tr>
-<td><a href="OrganizationRef/">OrganizationRef</a></td>
+<td><a href="organization/">organization</a></td>
 <td>Organization reference: An organization can reference a parent organization. ...</td>
 </tr>
 <tr>
-<td><a href="LocationRefRef/">LocationRefRef</a></td>
-<td>LocationRef reference: A reference to the user's physical location.</td>
+<td><a href="location/">location</a></td>
+<td>Location reference: A physical location associated with data collection and/o...</td>
 </tr>
 <tr>
-<td><a href="SignatureDefRef/">SignatureDefRef</a></td>
+<td><a href="signatureDef/">signatureDef</a></td>
 <td>SignatureDef reference: Provides Metadata for signatures included in the /ODM...</td>
 </tr>
 <tr>
-<td><a href="UserNameRef/">UserNameRef</a></td>
+<td><a href="userName/">userName</a></td>
 <td>UserName reference: The user's login identification in the sender's system.</td>
 </tr>
 <tr>
-<td><a href="PrefixRef/">PrefixRef</a></td>
+<td><a href="prefix/">prefix</a></td>
 <td>Prefix reference: Title or other prefix. Maps to FHIR HumanName.prefix (https...</td>
 </tr>
 <tr>
-<td><a href="SuffixRef/">SuffixRef</a></td>
+<td><a href="suffix/">suffix</a></td>
 <td>Suffix reference: This element may include credentials, or suffixes (e.g., Jr...</td>
 </tr>
 <tr>
-<td><a href="FullNameRef/">FullNameRef</a></td>
+<td><a href="fullName/">fullName</a></td>
 <td>FullName reference: The user's full formal name. May be a combination of Pref...</td>
 </tr>
 <tr>
-<td><a href="GivenNameRef/">GivenNameRef</a></td>
+<td><a href="givenName/">givenName</a></td>
 <td>GivenName reference: The user's initial given name or all given names.</td>
 </tr>
 <tr>
-<td><a href="FamilyNameRef/">FamilyNameRef</a></td>
+<td><a href="familyName/">familyName</a></td>
 <td>FamilyName reference: The user's surname (family name).</td>
 </tr>
 <tr>
-<td><a href="ImageRef/">ImageRef</a></td>
+<td><a href="image/">image</a></td>
 <td>Image reference: A visual depiction of the user.</td>
 </tr>
 <tr>
-<td><a href="AddressRef/">AddressRef</a></td>
+<td><a href="address/">address</a></td>
 <td>Address reference: The postal address for a user, location, or organization.</td>
 </tr>
 <tr>
-<td><a href="TelecomRef/">TelecomRef</a></td>
+<td><a href="telecom/">telecom</a></td>
 <td>Telecom reference: The telecommunication contacts points of a user, a locatio...</td>
 </tr>
 <tr>
-<td><a href="QueryRef/">QueryRef</a></td>
+<td><a href="metaDataVersionRef/">metaDataVersionRef</a></td>
+<td>MetaDataVersionRef reference: A reference to a MetaDataVersion used at the co...</td>
+</tr>
+<tr>
+<td><a href="query/">query</a></td>
 <td>Query reference: The Query element represents a request for clarification on ...</td>
 </tr>
 <tr>
-<td><a href="StreetNameRef/">StreetNameRef</a></td>
+<td><a href="streetName/">streetName</a></td>
 <td>StreetName reference: The street name part of a user's postal address.</td>
 </tr>
 <tr>
-<td><a href="HouseNumberRef/">HouseNumberRef</a></td>
+<td><a href="houseNumber/">houseNumber</a></td>
 <td>HouseNumber reference: The house number part of a user's postal address.</td>
 </tr>
 <tr>
-<td><a href="CityRef/">CityRef</a></td>
+<td><a href="city/">city</a></td>
 <td>City reference: The city name part of a user's postal address.</td>
 </tr>
 <tr>
-<td><a href="StateProvRef/">StateProvRef</a></td>
+<td><a href="stateProv/">stateProv</a></td>
 <td>StateProv reference: The state or province name part of a user's postal addre...</td>
 </tr>
 <tr>
-<td><a href="CountryRef/">CountryRef</a></td>
+<td><a href="country/">country</a></td>
 <td>Country reference: The country name part of a user's postal address. For CDIS...</td>
 </tr>
 <tr>
-<td><a href="PostalCodeRef/">PostalCodeRef</a></td>
+<td><a href="postalCode/">postalCode</a></td>
 <td>PostalCode reference: The postal code part of a user's postal address.</td>
 </tr>
 <tr>
-<td><a href="GeoPositionRef/">GeoPositionRef</a></td>
+<td><a href="geoPosition/">geoPosition</a></td>
 <td>GeoPosition reference: The geographical position using the World Geodetic Sys...</td>
 </tr>
 <tr>
-<td><a href="OtherTextRef/">OtherTextRef</a></td>
+<td><a href="otherText/">otherText</a></td>
 <td>OtherText reference: Any other text needed as part of a user's postal address...</td>
 </tr>
 <tr>
-<td><a href="MeaningRef/">MeaningRef</a></td>
+<td><a href="meaning/">meaning</a></td>
 <td>Meaning reference: A short name or description for this signature. It should ...</td>
 </tr>
 <tr>
-<td><a href="LegalReasonRef/">LegalReasonRef</a></td>
+<td><a href="legalReason/">legalReason</a></td>
 <td>LegalReason reference: The responsibility statement associated with a signatu...</td>
 </tr>
 <tr>
-<td><a href="ItemGroupDataRef/">ItemGroupDataRef</a></td>
+<td><a href="itemGroupData/">itemGroupData</a></td>
 <td>ItemGroupData reference: Clinical data corresponding to an ItemGroupRef defin...</td>
 </tr>
 <tr>
-<td><a href="AuditRecordRef/">AuditRecordRef</a></td>
+<td><a href="auditRecord/">auditRecord</a></td>
 <td>AuditRecord reference: An AuditRecord carries information pertaining to the c...</td>
 </tr>
 <tr>
-<td><a href="SignatureRefRef/">SignatureRefRef</a></td>
-<td>SignatureRef reference: A reference to the signature meaning.</td>
+<td><a href="signature/">signature</a></td>
+<td>Signature reference: An electronic signature applies to a collection of clini...</td>
 </tr>
 <tr>
-<td><a href="AnnotationRef/">AnnotationRef</a></td>
+<td><a href="annotation/">annotation</a></td>
 <td>Annotation reference: A general note about clinical data. If an annotation ha...</td>
 </tr>
 <tr>
-<td><a href="SubjectDataRef/">SubjectDataRef</a></td>
+<td><a href="subjectData/">subjectData</a></td>
 <td>SubjectData reference: Clinical data for a single subject.</td>
 </tr>
 <tr>
-<td><a href="InvestigatorRefRef/">InvestigatorRefRef</a></td>
+<td><a href="investigatorRef/">investigatorRef</a></td>
 <td>InvestigatorRef reference: Provides a reference to the user who created the S...</td>
 </tr>
 <tr>
-<td><a href="SiteRefRef/">SiteRefRef</a></td>
+<td><a href="siteRef/">siteRef</a></td>
 <td>SiteRef reference: Provides a reference to the site that the SubjectData reco...</td>
 </tr>
 <tr>
-<td><a href="StudyEventDataRef/">StudyEventDataRef</a></td>
+<td><a href="studyEventData/">studyEventData</a></td>
 <td>StudyEventData reference: Clinical data for a study event (visit). The model ...</td>
 </tr>
 <tr>
-<td><a href="ItemDataRef/">ItemDataRef</a></td>
+<td><a href="itemData/">itemData</a></td>
 <td>ItemData reference: The ItemData element is used for transmission of the clin...</td>
 </tr>
 <tr>
-<td><a href="DateTimeStampRef/">DateTimeStampRef</a></td>
+<td><a href="userRef/">userRef</a></td>
+<td>UserRef reference: A reference to information about a specific user of a clin...</td>
+</tr>
+<tr>
+<td><a href="locationRef/">locationRef</a></td>
+<td>LocationRef reference: A reference to the user's physical location.</td>
+</tr>
+<tr>
+<td><a href="dateTimeStamp/">dateTimeStamp</a></td>
 <td>DateTimeStamp reference: Date and time when an action was performed.</td>
 </tr>
 <tr>
-<td><a href="ReasonForChangeRef/">ReasonForChangeRef</a></td>
+<td><a href="reasonForChange/">reasonForChange</a></td>
 <td>ReasonForChange reference: A user-supplied reason for a data change.</td>
 </tr>
 <tr>
-<td><a href="SourceIDRef/">SourceIDRef</a></td>
+<td><a href="sourceID/">sourceID</a></td>
 <td>SourceID reference: Information that identifies the source of the data within...</td>
 </tr>
 <tr>
-<td><a href="StudyRef/">StudyRef</a></td>
+<td><a href="signatureRef/">signatureRef</a></td>
+<td>SignatureRef reference: A reference to the signature meaning.</td>
+</tr>
+<tr>
+<td><a href="study/">study</a></td>
 <td>Study reference: This element collects static structural information about an...</td>
 </tr>
 <tr>
-<td><a href="AdminDataRef/">AdminDataRef</a></td>
+<td><a href="adminData/">adminData</a></td>
 <td>AdminData reference: Administrative information about users, locations, organ...</td>
 </tr>
 <tr>
-<td><a href="ReferenceDataRef/">ReferenceDataRef</a></td>
+<td><a href="referenceData/">referenceData</a></td>
 <td>ReferenceData reference: Reference data provides information on how to interp...</td>
 </tr>
 <tr>
-<td><a href="ClinicalDataRef/">ClinicalDataRef</a></td>
+<td><a href="clinicalData/">clinicalData</a></td>
 <td>ClinicalData reference: Clinical data for 1 or more subjects.</td>
 </tr>
 <tr>
-<td><a href="AssociationRef/">AssociationRef</a></td>
+<td><a href="association/">association</a></td>
 <td>Association reference: An association permits an annotation to be placed on a...</td>
 </tr>
 <tr>
-<td><a href="KeySetRef/">KeySetRef</a></td>
+<td><a href="keySet/">keySet</a></td>
 <td>KeySet reference: A KeySet references a single entity (e.g., a study, a subje...</td>
 </tr>
 <tr>
-<td><a href="CommentRef/">CommentRef</a></td>
+<td><a href="comment/">comment</a></td>
 <td>Comment reference: A free-text (uninterpreted) comment about clinical data. T...</td>
 </tr>
 <tr>
-<td><a href="FlagRef/">FlagRef</a></td>
+<td><a href="flag/">flag</a></td>
 <td>Flag reference: A machine-processable annotation.</td>
 </tr>
 <tr>
-<td><a href="FlagValueRef/">FlagValueRef</a></td>
+<td><a href="flagValue/">flagValue</a></td>
 <td>FlagValue reference: The value of the flag. The meaning of this value is typi...</td>
 </tr>
 <tr>
-<td><a href="FlagTypeRef/">FlagTypeRef</a></td>
+<td><a href="flagType/">flagType</a></td>
 <td>FlagType reference: The type of flag. This determines the purpose and semanti...</td>
 </tr>
 </tbody>
@@ -2062,35 +2090,35 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 <tbody>
 <tr>
 <td><a href="DataType/">DataType</a></td>
-<td>Enumeration used in DataTypeRef</td>
+<td>Enumeration used in dataType</td>
 </tr>
 <tr>
 <td><a href="CLDataType/">CLDataType</a></td>
-<td>Enumeration used in DataTypeRef</td>
+<td>Enumeration used in dataType</td>
 </tr>
 <tr>
 <td><a href="FileType/">FileType</a></td>
-<td>Enumeration used in FileTypeRef</td>
+<td>Enumeration used in fileType</td>
 </tr>
 <tr>
 <td><a href="Granularity/">Granularity</a></td>
-<td>Enumeration used in GranularityRef</td>
+<td>Enumeration used in granularity</td>
 </tr>
 <tr>
 <td><a href="Context/">Context</a></td>
-<td>Enumeration used in ContextRef</td>
+<td>Enumeration used in context</td>
 </tr>
 <tr>
 <td><a href="EventType/">EventType</a></td>
-<td>Enumeration used in Type</td>
+<td>Enumeration used in type</td>
 </tr>
 <tr>
 <td><a href="BranchingType/">BranchingType</a></td>
-<td>Enumeration used in Type</td>
+<td>Enumeration used in type</td>
 </tr>
 <tr>
 <td><a href="StudyObjectiveLevel/">StudyObjectiveLevel</a></td>
-<td>Enumeration used in Level</td>
+<td>Enumeration used in level</td>
 </tr>
 <tr>
 <td><a href="TrialPhaseTypeEnum/">TrialPhaseTypeEnum</a></td>
@@ -2098,67 +2126,67 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 </tr>
 <tr>
 <td><a href="StudyEndPointType/">StudyEndPointType</a></td>
-<td>Enumeration used in Type</td>
+<td>Enumeration used in type</td>
 </tr>
 <tr>
 <td><a href="StudyEstimandLevel/">StudyEstimandLevel</a></td>
-<td>Enumeration used in Level</td>
+<td>Enumeration used in level</td>
 </tr>
 <tr>
 <td><a href="RelativeTimingConstraintType/">RelativeTimingConstraintType</a></td>
-<td>Enumeration used in Type</td>
+<td>Enumeration used in type</td>
 </tr>
 <tr>
 <td><a href="Comparator/">Comparator</a></td>
-<td>Enumeration used in ComparatorRef</td>
+<td>Enumeration used in comparator</td>
 </tr>
 <tr>
 <td><a href="SoftOrHard/">SoftOrHard</a></td>
-<td>Enumeration used in SoftHard</td>
+<td>Enumeration used in softHard</td>
 </tr>
 <tr>
 <td><a href="TransactionType/">TransactionType</a></td>
-<td>Enumeration used in TransactionTypeRef</td>
+<td>Enumeration used in transactionType</td>
 </tr>
 <tr>
 <td><a href="UserType/">UserType</a></td>
-<td>Enumeration used in UserTypeRef</td>
+<td>Enumeration used in userType</td>
 </tr>
 <tr>
 <td><a href="OrganizationType/">OrganizationType</a></td>
-<td>Enumeration used in Type</td>
+<td>Enumeration used in type</td>
 </tr>
 <tr>
 <td><a href="TelecomTypeType/">TelecomTypeType</a></td>
-<td>Enumeration used in TelecomType</td>
+<td>Enumeration used in telecomType</td>
 </tr>
 <tr>
 <td><a href="CommentType/">CommentType</a></td>
-<td>Enumeration used in SponsorOrSite</td>
+<td>Enumeration used in sponsorOrSite</td>
 </tr>
 <tr>
 <td><a href="SignMethod/">SignMethod</a></td>
-<td>Enumeration used in Methodology</td>
+<td>Enumeration used in methodology</td>
 </tr>
 <tr>
 <td><a href="EditPointType/">EditPointType</a></td>
-<td>Enumeration used in EditPoint</td>
+<td>Enumeration used in editPoint</td>
 </tr>
 <tr>
 <td><a href="YesOrNo/">YesOrNo</a></td>
-<td>Enumeration used in IsReferenceData, Mandatory, UsedMethod, Repeating</td>
+<td>Enumeration used in mandatory, repeating, isReferenceData, usedMethod</td>
 </tr>
 <tr>
 <td><a href="YesOnly/">YesOnly</a></td>
-<td>Enumeration used in IsNonStandard, Repeat, ExtendedValue, IsNull, Other, HasN...</td>
+<td>Enumeration used in extendedValue, hasNoData, repeat, other, isNull, isNonSta...</td>
 </tr>
 <tr>
 <td><a href="MethodType/">MethodType</a></td>
-<td>Enumeration used in Type</td>
+<td>Enumeration used in type</td>
 </tr>
 <tr>
 <td><a href="ItemGroupRepeatingType/">ItemGroupRepeatingType</a></td>
-<td>Enumeration used in Repeating</td>
+<td>Enumeration used in repeating</td>
 </tr>
 <tr>
 <td><a href="ItemGroupTypeTypeEnum/">ItemGroupTypeTypeEnum</a></td>
@@ -2166,15 +2194,15 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 </tr>
 <tr>
 <td><a href="QuerySourceType/">QuerySourceType</a></td>
-<td>Enumeration used in Source</td>
+<td>Enumeration used in source</td>
 </tr>
 <tr>
 <td><a href="QueryType/">QueryType</a></td>
-<td>Enumeration used in Type</td>
+<td>Enumeration used in type</td>
 </tr>
 <tr>
 <td><a href="QueryStateType/">QueryStateType</a></td>
-<td>Enumeration used in State</td>
+<td>Enumeration used in state</td>
 </tr>
 <tr>
 <td><a href="DefCoreType/">DefCoreType</a></td>
@@ -2186,23 +2214,23 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 </tr>
 <tr>
 <td><a href="OriginSource/">OriginSource</a></td>
-<td>Enumeration used in Source</td>
+<td>Enumeration used in source</td>
 </tr>
 <tr>
 <td><a href="OriginType/">OriginType</a></td>
-<td>Enumeration used in Type</td>
+<td>Enumeration used in type</td>
 </tr>
 <tr>
 <td><a href="PDFPageType/">PDFPageType</a></td>
-<td>Enumeration used in Type</td>
+<td>Enumeration used in type</td>
 </tr>
 <tr>
 <td><a href="StandardName/">StandardName</a></td>
-<td>Enumeration used in Name</td>
+<td>Enumeration used in name</td>
 </tr>
 <tr>
 <td><a href="StandardPublishingSet/">StandardPublishingSet</a></td>
-<td>Enumeration used in PublishingSet</td>
+<td>Enumeration used in publishingSet</td>
 </tr>
 <tr>
 <td><a href="StandardStatusEnum/">StandardStatusEnum</a></td>
@@ -2210,7 +2238,7 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 </tr>
 <tr>
 <td><a href="StandardType/">StandardType</a></td>
-<td>Enumeration used in Type</td>
+<td>Enumeration used in type</td>
 </tr>
 <tr>
 <td><a href="DictionaryNameTypeEnum/">DictionaryNameTypeEnum</a></td>
@@ -2218,11 +2246,11 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 </tr>
 <tr>
 <td><a href="ItemGroupClass/">ItemGroupClass</a></td>
-<td>Enumeration used in Name</td>
+<td>Enumeration used in name</td>
 </tr>
 <tr>
 <td><a href="ItemGroupSubClass/">ItemGroupSubClass</a></td>
-<td>Enumeration used in Name</td>
+<td>Enumeration used in name</td>
 </tr>
 </tbody>
 </table>
@@ -2333,11 +2361,11 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 <td>https://wiki.cdisc.org/display/PUB/Data+Formats</td>
 </tr>
 <tr>
-<td><a href="value/">value</a></td>
+<td><a href="valueType/">valueType</a></td>
 <td>https://wiki.cdisc.org/display/PUB/Data+Formats</td>
 </tr>
 <tr>
-<td><a href="subjectKey/">subjectKey</a></td>
+<td><a href="subjectKeyType/">subjectKeyType</a></td>
 <td>https://wiki.cdisc.org/display/PUB/Data+Formats</td>
 </tr>
 <tr>
@@ -2345,7 +2373,7 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 <td>https://wiki.cdisc.org/display/PUB/Data+Formats</td>
 </tr>
 <tr>
-<td><a href="name/">name</a></td>
+<td><a href="nameType/">nameType</a></td>
 <td>https://wiki.cdisc.org/display/PUB/Data+Formats</td>
 </tr>
 <tr>
@@ -3015,5 +3043,5 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 </html>
 <!--
 MkDocs version : 1.5.1
-Build Date UTC : 2023-08-22 21:30:11.662879+00:00
+Build Date UTC : 2023-09-06 13:51:57.469358+00:00
 -->

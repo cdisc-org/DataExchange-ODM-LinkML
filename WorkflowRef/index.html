@@ -94,7 +94,7 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/WorkflowRef">odm:WorkflowRef</a></p>
 <pre class="mermaid"><code>erDiagram
 WorkflowRef {
-    oidref WorkflowOID  
+    oidref workflowOID  
 }
 
 
@@ -112,9 +112,9 @@ WorkflowRef {
 </thead>
 <tbody>
 <tr>
-<td><a href="../WorkflowOID/">WorkflowOID</a></td>
+<td><a href="../workflowOID/">workflowOID</a></td>
 <td>1..1 <br/> <a href="../oidref/">oidref</a></td>
-<td>Reference to a WorfkflowDef</td>
+<td>Reference to a WorkflowDef</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -133,37 +133,37 @@ WorkflowRef {
 <tbody>
 <tr>
 <td><a href="../StudyEventGroupDef/">StudyEventGroupDef</a></td>
-<td><a href="../WorkflowRefRef/">WorkflowRefRef</a></td>
+<td><a href="../workflowRef/">workflowRef</a></td>
 <td>range</td>
 <td><a href="./">WorkflowRef</a></td>
 </tr>
 <tr>
 <td><a href="../StudyEventDef/">StudyEventDef</a></td>
-<td><a href="../WorkflowRefRef/">WorkflowRefRef</a></td>
+<td><a href="../workflowRef/">workflowRef</a></td>
 <td>range</td>
 <td><a href="./">WorkflowRef</a></td>
 </tr>
 <tr>
 <td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
-<td><a href="../WorkflowRefRef/">WorkflowRefRef</a></td>
+<td><a href="../workflowRef/">workflowRef</a></td>
 <td>range</td>
 <td><a href="./">WorkflowRef</a></td>
 </tr>
 <tr>
 <td><a href="../Protocol/">Protocol</a></td>
-<td><a href="../WorkflowRefRef/">WorkflowRefRef</a></td>
+<td><a href="../workflowRef/">workflowRef</a></td>
 <td>range</td>
 <td><a href="./">WorkflowRef</a></td>
 </tr>
 <tr>
 <td><a href="../StudyStructure/">StudyStructure</a></td>
-<td><a href="../WorkflowRefRef/">WorkflowRefRef</a></td>
+<td><a href="../workflowRef/">workflowRef</a></td>
 <td>range</td>
 <td><a href="./">WorkflowRef</a></td>
 </tr>
 <tr>
 <td><a href="../Arm/">Arm</a></td>
-<td><a href="../WorkflowRefRef/">WorkflowRefRef</a></td>
+<td><a href="../workflowRef/">workflowRef</a></td>
 <td>range</td>
 <td><a href="./">WorkflowRef</a></td>
 </tr>
@@ -208,11 +208,11 @@ WorkflowRef {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/WorkflowRef</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowOID</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workflowOID</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">WorkflowOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowOID</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to a WorfkflowDef</span>
+<span class="w">  </span><span class="nt">workflowOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workflowOID</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to a WorkflowDef</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
 
@@ -235,9 +235,9 @@ WorkflowRef {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/WorkflowRef</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">WorkflowOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowOID</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to a WorfkflowDef</span>
+<span class="w">  </span><span class="nt">workflowOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workflowOID</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to a WorkflowDef</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
 
@@ -249,9 +249,9 @@ WorkflowRef {
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">WorkflowOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowOID</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to a WorfkflowDef</span>
+<span class="w">  </span><span class="nt">workflowOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workflowOID</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to a WorkflowDef</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
 
@@ -260,7 +260,7 @@ WorkflowRef {
 <span class="w">      </span><span class="s">Must</span><span class="nv"> </span><span class="s">match</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">WorkflowDef</span><span class="nv"> </span><span class="s">child</span><span class="nv"> </span><span class="s">element</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">MetaDataVersion.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowOID</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workflowOID</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowRef</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowRef</span>

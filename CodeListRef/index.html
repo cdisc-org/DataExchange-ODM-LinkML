@@ -94,7 +94,7 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/CodeListRef">odm:CodeListRef</a></p>
 <pre class="mermaid"><code>erDiagram
 CodeListRef {
-    oidref CodeListOID  
+    oidref codeListOID  
 }
 
 
@@ -112,7 +112,7 @@ CodeListRef {
 </thead>
 <tbody>
 <tr>
-<td><a href="../CodeListOID/">CodeListOID</a></td>
+<td><a href="../codeListOID/">codeListOID</a></td>
 <td>1..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>Reference to the CodeList definition that provides the allowable values for I...</td>
 <td>direct</td>
@@ -133,7 +133,7 @@ CodeListRef {
 <tbody>
 <tr>
 <td><a href="../ItemDef/">ItemDef</a></td>
-<td><a href="../CodeListRefRef/">CodeListRefRef</a></td>
+<td><a href="../codeListRef/">codeListRef</a></td>
 <td>range</td>
 <td><a href="./">CodeListRef</a></td>
 </tr>
@@ -178,10 +178,10 @@ CodeListRef {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/CodeListRef</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeListOID</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codeListOID</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">CodeListOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeListOID</span>
+<span class="w">  </span><span class="nt">codeListOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codeListOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the CodeList definition that provides the allowable</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">values for ItemData that references the ItemDef.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -206,8 +206,8 @@ CodeListRef {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/CodeListRef</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">CodeListOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeListOID</span>
+<span class="w">  </span><span class="nt">codeListOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codeListOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the CodeList definition that provides the allowable</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">values for ItemData that references the ItemDef.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -221,8 +221,8 @@ CodeListRef {
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">CodeListOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeListOID</span>
+<span class="w">  </span><span class="nt">codeListOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codeListOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the CodeList definition that provides the allowable</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">values for ItemData that references the ItemDef.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -231,7 +231,7 @@ CodeListRef {
 <span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">oidref'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeListOID</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codeListOID</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeListRef</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeListRef</span>

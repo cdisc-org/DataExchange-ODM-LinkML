@@ -100,20 +100,20 @@ ExclusionCriteria {
 
 }
 Criterion {
-    oid OID  
-    name Name  
-    oidref ConditionOID  
+    oid oID  
+    nameType name  
+    oidref conditionOID  
 }
 InclusionCriteria {
 
 }
 
-InclusionExclusionCriteria ||--|o InclusionCriteria : "InclusionCriteriaRef"
-InclusionExclusionCriteria ||--|o ExclusionCriteria : "ExclusionCriteriaRef"
-ExclusionCriteria ||--}o Criterion : "CriterionRef"
-Criterion ||--|o Description : "DescriptionRef"
-Criterion ||--}o Coding : "CodingRef"
-InclusionCriteria ||--}o Criterion : "CriterionRef"
+InclusionExclusionCriteria ||--|o InclusionCriteria : "inclusionCriteria"
+InclusionExclusionCriteria ||--|o ExclusionCriteria : "exclusionCriteria"
+ExclusionCriteria ||--}o Criterion : "criterion"
+Criterion ||--|o Description : "description"
+Criterion ||--}o Coding : "coding"
+InclusionCriteria ||--}o Criterion : "criterion"
 </code></pre>
 <!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
@@ -128,13 +128,13 @@ InclusionCriteria ||--}o Criterion : "CriterionRef"
 </thead>
 <tbody>
 <tr>
-<td><a href="../InclusionCriteriaRef/">InclusionCriteriaRef</a></td>
+<td><a href="../inclusionCriteria/">inclusionCriteria</a></td>
 <td>0..1 <br/> <a href="../InclusionCriteria/">InclusionCriteria</a></td>
 <td>InclusionCriteria reference: The InclusionCriteria is a container element for...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../ExclusionCriteriaRef/">ExclusionCriteriaRef</a></td>
+<td><a href="../exclusionCriteria/">exclusionCriteria</a></td>
 <td>0..1 <br/> <a href="../ExclusionCriteria/">ExclusionCriteria</a></td>
 <td>ExclusionCriteria reference: The ExclusionCriteria is a container element for...</td>
 <td>direct</td>
@@ -155,7 +155,7 @@ InclusionCriteria ||--}o Criterion : "CriterionRef"
 <tbody>
 <tr>
 <td><a href="../Protocol/">Protocol</a></td>
-<td><a href="../InclusionExclusionCriteriaRef/">InclusionExclusionCriteriaRef</a></td>
+<td><a href="../inclusionExclusionCriteria/">inclusionExclusionCriteria</a></td>
 <td>range</td>
 <td><a href="./">InclusionExclusionCriteria</a></td>
 </tr>
@@ -204,17 +204,17 @@ InclusionCriteria ||--}o Criterion : "CriterionRef"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/InclusionExclusionCriteria</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionCriteriaRef</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExclusionCriteriaRef</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inclusionCriteria</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exclusionCriteria</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">InclusionCriteriaRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionCriteriaRef</span>
+<span class="w">  </span><span class="nt">inclusionCriteria</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inclusionCriteria</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionExclusionCriteria</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionCriteria</span>
 <span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">  </span><span class="nt">ExclusionCriteriaRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExclusionCriteriaRef</span>
+<span class="w">  </span><span class="nt">exclusionCriteria</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exclusionCriteria</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionExclusionCriteria</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExclusionCriteria</span>
@@ -235,21 +235,21 @@ InclusionCriteria ||--}o Criterion : "CriterionRef"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/InclusionExclusionCriteria</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">InclusionCriteriaRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionCriteriaRef</span>
+<span class="w">  </span><span class="nt">inclusionCriteria</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inclusionCriteria</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionExclusionCriteria</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionCriteria</span>
 <span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">  </span><span class="nt">ExclusionCriteriaRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExclusionCriteriaRef</span>
+<span class="w">  </span><span class="nt">exclusionCriteria</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exclusionCriteria</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionExclusionCriteria</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExclusionCriteria</span>
 <span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">InclusionCriteriaRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionCriteriaRef</span>
+<span class="w">  </span><span class="nt">inclusionCriteria</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inclusionCriteria</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'InclusionCriteria</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">InclusionCriteria</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">container</span>
 <span class="w">      </span><span class="s">element</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Criterion</span><span class="nv"> </span><span class="s">elements</span><span class="nv"> </span><span class="s">describing</span><span class="nv"> </span><span class="s">inclusion</span><span class="nv"> </span><span class="s">criteria</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">subjects</span><span class="nv"> </span><span class="s">in</span>
 <span class="w">      </span><span class="s">the</span><span class="nv"> </span><span class="s">study.</span><span class="nv"> </span><span class="s">When</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">provided,</span><span class="nv"> </span><span class="s">subjects</span><span class="nv"> </span><span class="s">must</span><span class="nv"> </span><span class="s">meet</span><span class="nv"> </span><span class="s">each</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">criteria</span>
@@ -257,14 +257,14 @@ InclusionCriteria ||--}o Criterion : "CriterionRef"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionCriteriaRef</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inclusionCriteria</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionExclusionCriteria</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionExclusionCriteria</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionCriteria</span>
 <span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">  </span><span class="nt">ExclusionCriteriaRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExclusionCriteriaRef</span>
+<span class="w">  </span><span class="nt">exclusionCriteria</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exclusionCriteria</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'ExclusionCriteria</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">ExclusionCriteria</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">container</span>
 <span class="w">      </span><span class="s">element</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Criterion</span><span class="nv"> </span><span class="s">elements</span><span class="nv"> </span><span class="s">describing</span><span class="nv"> </span><span class="s">exclusion</span><span class="nv"> </span><span class="s">criteria</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">subjects</span><span class="nv"> </span><span class="s">in</span>
 <span class="w">      </span><span class="s">the</span><span class="nv"> </span><span class="s">study.</span><span class="nv"> </span><span class="s">When</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">provided,</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">meeting</span><span class="nv"> </span><span class="s">any</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">criteria</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">list</span>
@@ -272,7 +272,7 @@ InclusionCriteria ||--}o Criterion : "CriterionRef"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExclusionCriteriaRef</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exclusionCriteria</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionExclusionCriteria</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionExclusionCriteria</span>

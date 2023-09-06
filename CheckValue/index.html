@@ -94,7 +94,7 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/CheckValue">odm:CheckValue</a></p>
 <pre class="mermaid"><code>erDiagram
 CheckValue {
-    value content  
+    valueType content  
 }
 
 
@@ -113,7 +113,7 @@ CheckValue {
 <tbody>
 <tr>
 <td><a href="../content/">content</a></td>
-<td>0..1 <br/> <a href="../value/">value</a></td>
+<td>0..1 <br/> <a href="../valueType/">valueType</a></td>
 <td>multi-line text content from between XML tags</td>
 <td>direct</td>
 </tr>
@@ -133,7 +133,7 @@ CheckValue {
 <tbody>
 <tr>
 <td><a href="../RangeCheck/">RangeCheck</a></td>
-<td><a href="../CheckValueRef/">CheckValueRef</a></td>
+<td><a href="../checkValue/">checkValue</a></td>
 <td>range</td>
 <td><a href="./">CheckValue</a></td>
 </tr>
@@ -209,7 +209,7 @@ CheckValue {
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FlagValue</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FlagType</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Value</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">valueType</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">odm:CheckValue</span>
 </code></pre></div>
 </details>
@@ -251,7 +251,7 @@ CheckValue {
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FlagValue</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FlagType</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Value</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">valueType</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">content</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content</span>
@@ -287,7 +287,7 @@ CheckValue {
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FlagValue</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FlagType</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Value</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">valueType</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">odm:CheckValue</span>
 </code></pre></div>

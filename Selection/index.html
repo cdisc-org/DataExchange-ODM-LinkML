@@ -94,7 +94,7 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Selection">odm:Selection</a></p>
 <pre class="mermaid"><code>erDiagram
 Selection {
-    text Path  
+    text path  
 }
 
 
@@ -112,7 +112,7 @@ Selection {
 </thead>
 <tbody>
 <tr>
-<td><a href="../Path/">Path</a></td>
+<td><a href="../path/">path</a></td>
 <td>1..1 <br/> <a href="../text/">text</a></td>
 <td>Provides the machine-executable instruction or template for it to obtain the ...</td>
 <td>direct</td>
@@ -133,7 +133,7 @@ Selection {
 <tbody>
 <tr>
 <td><a href="../Resource/">Resource</a></td>
-<td><a href="../SelectionRef/">SelectionRef</a></td>
+<td><a href="../selection/">selection</a></td>
 <td>range</td>
 <td><a href="./">Selection</a></td>
 </tr>
@@ -179,10 +179,10 @@ Selection {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/Selection</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Path</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">path</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">Path</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Path</span>
+<span class="w">  </span><span class="nt">path</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">path</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Provides the machine-executable instruction or template for it to</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">obtain the data or information from the resource. The value of the Path attribute</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">can either be an absolute path, or a relative path starting from the information</span>
@@ -208,8 +208,8 @@ Selection {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/Selection</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">Path</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Path</span>
+<span class="w">  </span><span class="nt">path</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">path</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Provides the machine-executable instruction or template for it to</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">obtain the data or information from the resource. The value of the Path attribute</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">can either be an absolute path, or a relative path starting from the information</span>
@@ -223,8 +223,8 @@ Selection {
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">Path</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Path</span>
+<span class="w">  </span><span class="nt">path</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">path</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Provides the machine-executable instruction or template for it to</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">obtain the data or information from the resource. The value of the Path attribute</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">can either be an absolute path, or a relative path starting from the information</span>
@@ -235,7 +235,7 @@ Selection {
 <span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Path</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">path</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Selection</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Selection</span>

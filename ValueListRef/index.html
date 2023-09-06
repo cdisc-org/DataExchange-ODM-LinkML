@@ -94,7 +94,7 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ValueListRef">odm:ValueListRef</a></p>
 <pre class="mermaid"><code>erDiagram
 ValueListRef {
-    oidref ValueListOID  
+    oidref valueListOID  
 }
 
 
@@ -112,7 +112,7 @@ ValueListRef {
 </thead>
 <tbody>
 <tr>
-<td><a href="../ValueListOID/">ValueListOID</a></td>
+<td><a href="../valueListOID/">valueListOID</a></td>
 <td>1..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>Reference to the unique ID of a ValueListDef element that provides value-leve...</td>
 <td>direct</td>
@@ -133,7 +133,7 @@ ValueListRef {
 <tbody>
 <tr>
 <td><a href="../ItemDef/">ItemDef</a></td>
-<td><a href="../ValueListRefRef/">ValueListRefRef</a></td>
+<td><a href="../valueListRef/">valueListRef</a></td>
 <td>range</td>
 <td><a href="./">ValueListRef</a></td>
 </tr>
@@ -181,10 +181,10 @@ ValueListRef {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/ValueListRef</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueListOID</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">valueListOID</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ValueListOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueListOID</span>
+<span class="w">  </span><span class="nt">valueListOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">valueListOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the unique ID of a ValueListDef element that provides</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value-level metadata.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -212,8 +212,8 @@ ValueListRef {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/ValueListRef</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ValueListOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueListOID</span>
+<span class="w">  </span><span class="nt">valueListOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">valueListOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the unique ID of a ValueListDef element that provides</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value-level metadata.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -227,8 +227,8 @@ ValueListRef {
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ValueListOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueListOID</span>
+<span class="w">  </span><span class="nt">valueListOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">valueListOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the unique ID of a ValueListDef element that provides</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value-level metadata.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -239,7 +239,7 @@ ValueListRef {
 <span class="w">      </span><span class="s">Must</span><span class="nv"> </span><span class="s">match</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">ValueListDef</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">same</span><span class="nv"> </span><span class="s">MetaDataVersion.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueListOID</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">valueListOID</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueListRef</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueListRef</span>

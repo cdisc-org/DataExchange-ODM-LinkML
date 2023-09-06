@@ -97,28 +97,28 @@ StudySummary {
 
 }
 StudyParameter {
-    oid OID  
-    name Term  
-    name ShortName  
+    oid oID  
+    nameType term  
+    nameType shortName  
 }
 Coding {
-    text CodeRef  
-    uriorcurie System  
-    text SystemName  
-    text SystemVersion  
-    text Label  
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
     uriorcurie href  
     uriorcurie ref  
-    text CommentOID  
+    text commentOID  
 }
 ParameterValue {
-    text ValueRef  
+    text value  
 }
 
-StudySummary ||--}o StudyParameter : "StudyParameterRef"
-StudyParameter ||--|o ParameterValue : "ParameterValueRef"
-StudyParameter ||--}o Coding : "CodingRef"
-ParameterValue ||--}o Coding : "CodingRef"
+StudySummary ||--}o StudyParameter : "studyParameter"
+StudyParameter ||--|o ParameterValue : "parameterValue"
+StudyParameter ||--}o Coding : "coding"
+ParameterValue ||--}o Coding : "coding"
 </code></pre>
 <!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
@@ -133,7 +133,7 @@ ParameterValue ||--}o Coding : "CodingRef"
 </thead>
 <tbody>
 <tr>
-<td><a href="../StudyParameterRef/">StudyParameterRef</a></td>
+<td><a href="../studyParameter/">studyParameter</a></td>
 <td>0..* <br/> <a href="../StudyParameter/">StudyParameter</a></td>
 <td>StudyParameter reference: A StudyParameter defines a study design parameter f...</td>
 <td>direct</td>
@@ -154,7 +154,7 @@ ParameterValue ||--}o Coding : "CodingRef"
 <tbody>
 <tr>
 <td><a href="../Protocol/">Protocol</a></td>
-<td><a href="../StudySummaryRef/">StudySummaryRef</a></td>
+<td><a href="../studySummary/">studySummary</a></td>
 <td>range</td>
 <td><a href="./">StudySummary</a></td>
 </tr>
@@ -201,10 +201,10 @@ ParameterValue ||--}o Coding : "CodingRef"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/StudySummary</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyParameterRef</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyParameter</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">StudyParameterRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyParameterRef</span>
+<span class="w">  </span><span class="nt">studyParameter</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyParameter</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudySummary</span>
@@ -225,8 +225,8 @@ ParameterValue ||--}o Coding : "CodingRef"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/StudySummary</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">StudyParameterRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyParameterRef</span>
+<span class="w">  </span><span class="nt">studyParameter</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyParameter</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudySummary</span>
@@ -234,8 +234,8 @@ ParameterValue ||--}o Coding : "CodingRef"
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">StudyParameterRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyParameterRef</span>
+<span class="w">  </span><span class="nt">studyParameter</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyParameter</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'StudyParameter</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">StudyParameter</span><span class="nv"> </span><span class="s">defines</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">study</span><span class="nv"> </span><span class="s">design</span>
 <span class="w">      </span><span class="s">parameter</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">which</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">value</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">values</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">delivered</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">ParameterValue</span>
 <span class="w">      </span><span class="s">child</span><span class="nv"> </span><span class="s">element</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">elements.'</span>
@@ -243,7 +243,7 @@ ParameterValue ||--}o Coding : "CodingRef"
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyParameterRef</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyParameter</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudySummary</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudySummary</span>

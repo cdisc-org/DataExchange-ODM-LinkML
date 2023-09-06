@@ -97,9 +97,9 @@ StudyEstimands {
 
 }
 StudyEstimand {
-    oid OID  
-    name Name  
-    StudyEstimandLevel Level  
+    oid oID  
+    nameType name  
+    StudyEstimandLevel level  
 }
 SummaryMeasure {
 
@@ -108,29 +108,29 @@ IntercurrentEvent {
 
 }
 StudyEndPointRef {
-    oidref StudyEndPointOID  
-    positiveInteger OrderNumber  
+    oidref studyEndPointOID  
+    positiveInteger orderNumber  
 }
 StudyInterventionRef {
-    oidref StudyInterventionOID  
+    oidref studyInterventionOID  
 }
 StudyTargetPopulationRef {
-    oidref StudyTargetPopulationOID  
+    oidref studyTargetPopulationOID  
 }
 Description {
 
 }
 
-StudyEstimands ||--}o StudyEstimand : "StudyEstimandRef"
-StudyEstimand ||--|o Description : "DescriptionRef"
-StudyEstimand ||--|o StudyTargetPopulationRef : "StudyTargetPopulationRefRef"
-StudyEstimand ||--|o StudyInterventionRef : "StudyInterventionRefRef"
-StudyEstimand ||--|o StudyEndPointRef : "StudyEndPointRefRef"
-StudyEstimand ||--}o IntercurrentEvent : "IntercurrentEventRef"
-StudyEstimand ||--|o SummaryMeasure : "SummaryMeasureRef"
-SummaryMeasure ||--|o Description : "DescriptionRef"
-IntercurrentEvent ||--|o Description : "DescriptionRef"
-Description ||--}o TranslatedText : "TranslatedTextRef"
+StudyEstimands ||--}o StudyEstimand : "studyEstimand"
+StudyEstimand ||--|o Description : "description"
+StudyEstimand ||--|o StudyTargetPopulationRef : "studyTargetPopulationRef"
+StudyEstimand ||--|o StudyInterventionRef : "studyInterventionRef"
+StudyEstimand ||--|o StudyEndPointRef : "studyEndPointRef"
+StudyEstimand ||--}o IntercurrentEvent : "intercurrentEvent"
+StudyEstimand ||--|o SummaryMeasure : "summaryMeasure"
+SummaryMeasure ||--|o Description : "description"
+IntercurrentEvent ||--|o Description : "description"
+Description ||--}o TranslatedText : "translatedText"
 </code></pre>
 <!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
@@ -145,7 +145,7 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 </thead>
 <tbody>
 <tr>
-<td><a href="../StudyEstimandRef/">StudyEstimandRef</a></td>
+<td><a href="../studyEstimand/">studyEstimand</a></td>
 <td>0..* <br/> <a href="../StudyEstimand/">StudyEstimand</a></td>
 <td>StudyEstimand reference: A precise description of the treatment effect reflec...</td>
 <td>direct</td>
@@ -166,7 +166,7 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 <tbody>
 <tr>
 <td><a href="../Protocol/">Protocol</a></td>
-<td><a href="../StudyEstimandsRef/">StudyEstimandsRef</a></td>
+<td><a href="../studyEstimands/">studyEstimands</a></td>
 <td>range</td>
 <td><a href="./">StudyEstimands</a></td>
 </tr>
@@ -211,10 +211,10 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/StudyEstimands</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEstimandRef</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyEstimand</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">StudyEstimandRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEstimandRef</span>
+<span class="w">  </span><span class="nt">studyEstimand</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyEstimand</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEstimands</span>
@@ -233,8 +233,8 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/StudyEstimands</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">StudyEstimandRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEstimandRef</span>
+<span class="w">  </span><span class="nt">studyEstimand</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyEstimand</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEstimands</span>
@@ -242,8 +242,8 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">StudyEstimandRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEstimandRef</span>
+<span class="w">  </span><span class="nt">studyEstimand</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyEstimand</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'StudyEstimand</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">precise</span><span class="nv"> </span><span class="s">description</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">treatment</span>
 <span class="w">      </span><span class="s">effect</span><span class="nv"> </span><span class="s">reflecting</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">clinical</span><span class="nv"> </span><span class="s">question</span><span class="nv"> </span><span class="s">posed</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">given</span><span class="nv"> </span><span class="s">clinical</span><span class="nv"> </span><span class="s">trial</span><span class="nv"> </span><span class="s">objective.</span>
 <span class="w">      </span><span class="s">It</span><span class="nv"> </span><span class="s">summarises</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">population</span><span class="nv"> </span><span class="s">level</span><span class="nv"> </span><span class="s">what</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">outcomes</span><span class="nv"> </span><span class="s">would</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">same</span><span class="nv"> </span><span class="s">patients</span>
@@ -252,7 +252,7 @@ Description ||--}o TranslatedText : "TranslatedTextRef"
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEstimandRef</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyEstimand</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEstimands</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyEstimands</span>

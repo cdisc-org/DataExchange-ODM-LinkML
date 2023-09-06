@@ -94,17 +94,17 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/DocumentRef">odm:DocumentRef</a></p>
 <pre class="mermaid"><code>erDiagram
 DocumentRef {
-    oid LeafID  
+    oid leafID  
 }
 PDFPageRef {
-    text PageRefs  
-    positiveInteger FirstPage  
-    positiveInteger LastPage  
-    PDFPageType Type  
-    text TitleRef  
+    text pageRefs  
+    positiveInteger firstPage  
+    positiveInteger lastPage  
+    PDFPageType type  
+    text title  
 }
 
-DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
 </code></pre>
 <!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
@@ -119,13 +119,13 @@ DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
 </thead>
 <tbody>
 <tr>
-<td><a href="../LeafID/">LeafID</a></td>
+<td><a href="../leafID/">leafID</a></td>
 <td>1..1 <br/> <a href="../oid/">oid</a></td>
 <td>Reference to the unique ID of the Leaf element that contains the location of ...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../PDFPageRefRef/">PDFPageRefRef</a></td>
+<td><a href="../pDFPageRef/">pDFPageRef</a></td>
 <td>0..* <br/> <a href="../PDFPageRef/">PDFPageRef</a></td>
 <td>The PDFPageRef element is a container for page references in a PDF file.</td>
 <td>direct</td>
@@ -146,31 +146,31 @@ DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
 <tbody>
 <tr>
 <td><a href="../AnnotatedCRF/">AnnotatedCRF</a></td>
-<td><a href="../DocumentRefRef/">DocumentRefRef</a></td>
+<td><a href="../documentRef/">documentRef</a></td>
 <td>range</td>
 <td><a href="./">DocumentRef</a></td>
 </tr>
 <tr>
 <td><a href="../SupplementalDoc/">SupplementalDoc</a></td>
-<td><a href="../DocumentRefRef/">DocumentRefRef</a></td>
+<td><a href="../documentRef/">documentRef</a></td>
 <td>range</td>
 <td><a href="./">DocumentRef</a></td>
 </tr>
 <tr>
 <td><a href="../Origin/">Origin</a></td>
-<td><a href="../DocumentRefRef/">DocumentRefRef</a></td>
+<td><a href="../documentRef/">documentRef</a></td>
 <td>range</td>
 <td><a href="./">DocumentRef</a></td>
 </tr>
 <tr>
 <td><a href="../MethodDef/">MethodDef</a></td>
-<td><a href="../DocumentRefRef/">DocumentRefRef</a></td>
+<td><a href="../documentRef/">documentRef</a></td>
 <td>range</td>
 <td><a href="./">DocumentRef</a></td>
 </tr>
 <tr>
 <td><a href="../CommentDef/">CommentDef</a></td>
-<td><a href="../DocumentRefRef/">DocumentRefRef</a></td>
+<td><a href="../documentRef/">documentRef</a></td>
 <td>range</td>
 <td><a href="./">DocumentRef</a></td>
 </tr>
@@ -215,11 +215,11 @@ DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/DocumentRef</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LeafID</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PDFPageRefRef</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">leafID</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pDFPageRef</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">LeafID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LeafID</span>
+<span class="w">  </span><span class="nt">leafID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">leafID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the unique ID of the Leaf element that contains the</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">location of a file containing a document.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -228,10 +228,11 @@ DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
 <span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text'</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DocumentRef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SourceItem</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oid</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">PDFPageRefRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PDFPageRefRef</span>
+<span class="w">  </span><span class="nt">pDFPageRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pDFPageRef</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The PDFPageRef element is a container for page references in a PDF</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">file.</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -252,8 +253,8 @@ DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/DocumentRef</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">LeafID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LeafID</span>
+<span class="w">  </span><span class="nt">leafID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">leafID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the unique ID of the Leaf element that contains the</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">location of a file containing a document.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -262,10 +263,11 @@ DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
 <span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text'</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DocumentRef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SourceItem</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oid</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">PDFPageRefRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PDFPageRefRef</span>
+<span class="w">  </span><span class="nt">pDFPageRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pDFPageRef</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The PDFPageRef element is a container for page references in a PDF</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">file.</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -275,8 +277,8 @@ DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">LeafID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LeafID</span>
+<span class="w">  </span><span class="nt">leafID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">leafID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the unique ID of the Leaf element that contains the</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">location of a file containing a document.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -285,21 +287,22 @@ DocumentRef ||--}o PDFPageRef : "PDFPageRefRef"
 <span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">text'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LeafID</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">leafID</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DocumentRef</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DocumentRef</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SourceItem</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oid</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">PDFPageRefRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PDFPageRefRef</span>
+<span class="w">  </span><span class="nt">pDFPageRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pDFPageRef</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The PDFPageRef element is a container for page references in a PDF</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">file.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PDFPageRefRef</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pDFPageRef</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DocumentRef</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DocumentRef</span>

@@ -94,7 +94,7 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/WorkflowStart">odm:WorkflowStart</a></p>
 <pre class="mermaid"><code>erDiagram
 WorkflowStart {
-    oidref StartOID  
+    oidref startOID  
 }
 
 
@@ -112,7 +112,7 @@ WorkflowStart {
 </thead>
 <tbody>
 <tr>
-<td><a href="../StartOID/">StartOID</a></td>
+<td><a href="../startOID/">startOID</a></td>
 <td>1..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>Reference to the definition of the structural element that starts the workflo...</td>
 <td>direct</td>
@@ -133,7 +133,7 @@ WorkflowStart {
 <tbody>
 <tr>
 <td><a href="../WorkflowDef/">WorkflowDef</a></td>
-<td><a href="../WorkflowStartRef/">WorkflowStartRef</a></td>
+<td><a href="../workflowStart/">workflowStart</a></td>
 <td>range</td>
 <td><a href="./">WorkflowStart</a></td>
 </tr>
@@ -179,10 +179,10 @@ WorkflowStart {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/WorkflowStart</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StartOID</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">startOID</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">StartOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StartOID</span>
+<span class="w">  </span><span class="nt">startOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">startOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the definition of the structural element that starts</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">ItemDef element.</span>
@@ -211,8 +211,8 @@ WorkflowStart {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/WorkflowStart</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">StartOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StartOID</span>
+<span class="w">  </span><span class="nt">startOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">startOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the definition of the structural element that starts</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">ItemDef element.</span>
@@ -229,8 +229,8 @@ WorkflowStart {
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">StartOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StartOID</span>
+<span class="w">  </span><span class="nt">startOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">startOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the definition of the structural element that starts</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">ItemDef element.</span>
@@ -244,7 +244,7 @@ WorkflowStart {
 <span class="w">      </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">WorkflowDef</span><span class="nv"> </span><span class="s">.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StartOID</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">startOID</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowStart</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowStart</span>

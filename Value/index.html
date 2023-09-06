@@ -94,7 +94,7 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Value">odm:Value</a></p>
 <pre class="mermaid"><code>erDiagram
 Value {
-    positiveInteger SeqNum  
+    positiveInteger seqNum  
     text content  
 }
 
@@ -113,7 +113,7 @@ Value {
 </thead>
 <tbody>
 <tr>
-<td><a href="../SeqNum/">SeqNum</a></td>
+<td><a href="../seqNum/">seqNum</a></td>
 <td>0..1 <br/> <a href="../positiveInteger/">positiveInteger</a></td>
 <td>When more than 1 Value element exists this attribute uniquely identifies each...</td>
 <td>direct</td>
@@ -140,13 +140,13 @@ Value {
 <tbody>
 <tr>
 <td><a href="../ItemData/">ItemData</a></td>
-<td><a href="../ValueRef/">ValueRef</a></td>
+<td><a href="../value/">value</a></td>
 <td>range</td>
 <td><a href="./">Value</a></td>
 </tr>
 <tr>
 <td><a href="../Query/">Query</a></td>
-<td><a href="../ValueRef/">ValueRef</a></td>
+<td><a href="../value/">value</a></td>
 <td>range</td>
 <td><a href="./">Value</a></td>
 </tr>
@@ -193,11 +193,11 @@ Value {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/Value</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SeqNum</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">seqNum</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">SeqNum</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SeqNum</span>
+<span class="w">  </span><span class="nt">seqNum</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">seqNum</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">When more than 1 Value element exists this attribute uniquely identifies</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">each Value and defines the order of a Value in a list of Values.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -252,8 +252,8 @@ Value {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/Value</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">SeqNum</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SeqNum</span>
+<span class="w">  </span><span class="nt">seqNum</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">seqNum</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">When more than 1 Value element exists this attribute uniquely identifies</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">each Value and defines the order of a Value in a list of Values.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -295,8 +295,8 @@ Value {
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Value</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">SeqNum</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SeqNum</span>
+<span class="w">  </span><span class="nt">seqNum</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">seqNum</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">When more than 1 Value element exists this attribute uniquely identifies</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">each Value and defines the order of a Value in a list of Values.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
@@ -305,7 +305,7 @@ Value {
 <span class="w">      </span><span class="s">Must</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">unique</span><span class="nv"> </span><span class="s">within</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">ItemData</span><span class="nv"> </span><span class="s">element.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SeqNum</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">seqNum</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Value</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Annotation</span>

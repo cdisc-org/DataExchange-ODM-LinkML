@@ -94,7 +94,7 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/WorkflowEnd">odm:WorkflowEnd</a></p>
 <pre class="mermaid"><code>erDiagram
 WorkflowEnd {
-    oidref EndOID  
+    oidref endOID  
     text content  
 }
 
@@ -113,7 +113,7 @@ WorkflowEnd {
 </thead>
 <tbody>
 <tr>
-<td><a href="../EndOID/">EndOID</a></td>
+<td><a href="../endOID/">endOID</a></td>
 <td>1..1 <br/> <a href="../oidref/">oidref</a></td>
 <td>Reference to the definition of the structural element that ends the workflow....</td>
 <td>direct</td>
@@ -140,7 +140,7 @@ WorkflowEnd {
 <tbody>
 <tr>
 <td><a href="../WorkflowDef/">WorkflowDef</a></td>
-<td><a href="../WorkflowEndRef/">WorkflowEndRef</a></td>
+<td><a href="../workflowEnd/">workflowEnd</a></td>
 <td>range</td>
 <td><a href="./">WorkflowEnd</a></td>
 </tr>
@@ -186,11 +186,11 @@ WorkflowEnd {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/WorkflowEnd</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EndOID</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">endOID</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">EndOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EndOID</span>
+<span class="w">  </span><span class="nt">endOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">endOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the definition of the structural element that ends the</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">element.</span>
@@ -249,8 +249,8 @@ WorkflowEnd {
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/WorkflowEnd</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">EndOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EndOID</span>
+<span class="w">  </span><span class="nt">endOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">endOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the definition of the structural element that ends the</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">element.</span>
@@ -297,8 +297,8 @@ WorkflowEnd {
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Value</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">EndOID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EndOID</span>
+<span class="w">  </span><span class="nt">endOID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">endOID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reference to the definition of the structural element that ends the</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">element.</span>
@@ -312,7 +312,7 @@ WorkflowEnd {
 <span class="w">      </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">WorkflowDef.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EndOID</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">endOID</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowEnd</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowEnd</span>

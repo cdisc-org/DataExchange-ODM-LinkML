@@ -95,7 +95,7 @@
 <pre class="mermaid"><code>erDiagram
 TranslatedText {
     languageType language  
-    text Type  
+    text type  
     contentType content  
 }
 
@@ -120,7 +120,7 @@ TranslatedText {
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../Type/">Type</a></td>
+<td><a href="../type/">type</a></td>
 <td>1..1 <br/> <a href="../text/">text</a></td>
 <td>Contains IANA media type of the TranslatedText element contents.</td>
 <td>direct</td>
@@ -147,61 +147,61 @@ TranslatedText {
 <tbody>
 <tr>
 <td><a href="../Description/">Description</a></td>
-<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td><a href="../translatedText/">translatedText</a></td>
 <td>range</td>
 <td><a href="./">TranslatedText</a></td>
 </tr>
 <tr>
 <td><a href="../Question/">Question</a></td>
-<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td><a href="../translatedText/">translatedText</a></td>
 <td>range</td>
 <td><a href="./">TranslatedText</a></td>
 </tr>
 <tr>
 <td><a href="../Definition/">Definition</a></td>
-<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td><a href="../translatedText/">translatedText</a></td>
 <td>range</td>
 <td><a href="./">TranslatedText</a></td>
 </tr>
 <tr>
 <td><a href="../Prompt/">Prompt</a></td>
-<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td><a href="../translatedText/">translatedText</a></td>
 <td>range</td>
 <td><a href="./">TranslatedText</a></td>
 </tr>
 <tr>
 <td><a href="../CRFCompletionInstructions/">CRFCompletionInstructions</a></td>
-<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td><a href="../translatedText/">translatedText</a></td>
 <td>range</td>
 <td><a href="./">TranslatedText</a></td>
 </tr>
 <tr>
 <td><a href="../ImplementationNotes/">ImplementationNotes</a></td>
-<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td><a href="../translatedText/">translatedText</a></td>
 <td>range</td>
 <td><a href="./">TranslatedText</a></td>
 </tr>
 <tr>
 <td><a href="../CDISCNotes/">CDISCNotes</a></td>
-<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td><a href="../translatedText/">translatedText</a></td>
 <td>range</td>
 <td><a href="./">TranslatedText</a></td>
 </tr>
 <tr>
 <td><a href="../ErrorMessage/">ErrorMessage</a></td>
-<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td><a href="../translatedText/">translatedText</a></td>
 <td>range</td>
 <td><a href="./">TranslatedText</a></td>
 </tr>
 <tr>
 <td><a href="../Decode/">Decode</a></td>
-<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td><a href="../translatedText/">translatedText</a></td>
 <td>range</td>
 <td><a href="./">TranslatedText</a></td>
 </tr>
 <tr>
 <td><a href="../Comment/">Comment</a></td>
-<td><a href="../TranslatedTextRef/">TranslatedTextRef</a></td>
+<td><a href="../translatedText/">translatedText</a></td>
 <td>range</td>
 <td><a href="./">TranslatedText</a></td>
 </tr>
@@ -249,7 +249,7 @@ TranslatedText {
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">language</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Type</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span>
@@ -272,8 +272,8 @@ TranslatedText {
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TranslatedText</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">languageType</span>
-<span class="w">  </span><span class="nt">Type</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Type</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Contains IANA media type of the TranslatedText element contents.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
@@ -372,8 +372,8 @@ TranslatedText {
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TranslatedText</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">languageType</span>
-<span class="w">  </span><span class="nt">Type</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Type</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Contains IANA media type of the TranslatedText element contents.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
@@ -463,8 +463,8 @@ TranslatedText {
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TranslatedText</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">languageType</span>
-<span class="w">  </span><span class="nt">Type</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Type</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Contains IANA media type of the TranslatedText element contents.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
@@ -483,7 +483,7 @@ TranslatedText {
 <span class="w">      </span><span class="s">&lt;area&gt;</span><span class="nv"> </span><span class="s">Color</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">&lt;span</span><span class="nv"> </span><span class="s">style="color:xxx"&gt;'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Type</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TranslatedText</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TranslatedText</span>

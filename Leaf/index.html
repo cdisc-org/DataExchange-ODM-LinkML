@@ -94,14 +94,14 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Leaf">odm:Leaf</a></p>
 <pre class="mermaid"><code>erDiagram
 Leaf {
-    oid ID  
+    oid iD  
     uriorcurie href  
 }
 Title {
     text content  
 }
 
-Leaf ||--|o Title : "TitleRef"
+Leaf ||--|o Title : "title"
 </code></pre>
 <!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
@@ -116,7 +116,7 @@ Leaf ||--|o Title : "TitleRef"
 </thead>
 <tbody>
 <tr>
-<td><a href="../ID/">ID</a></td>
+<td><a href="../iD/">iD</a></td>
 <td>1..1 <br/> <a href="../oid/">oid</a></td>
 <td>Unique ID for the Leaf. See Section 2.13, Element Identifiers and References ...</td>
 <td>direct</td>
@@ -128,7 +128,7 @@ Leaf ||--|o Title : "TitleRef"
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../TitleRef/">TitleRef</a></td>
+<td><a href="../title/">title</a></td>
 <td>0..1 <br/> <a href="../Title/">Title</a></td>
 <td>Text with the label for the document or dataset.</td>
 <td>direct</td>
@@ -149,13 +149,13 @@ Leaf ||--|o Title : "TitleRef"
 <tbody>
 <tr>
 <td><a href="../MetaDataVersion/">MetaDataVersion</a></td>
-<td><a href="../LeafRef/">LeafRef</a></td>
+<td><a href="../leaf/">leaf</a></td>
 <td>range</td>
 <td><a href="./">Leaf</a></td>
 </tr>
 <tr>
 <td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
-<td><a href="../LeafRef/">LeafRef</a></td>
+<td><a href="../leaf/">leaf</a></td>
 <td>range</td>
 <td><a href="./">Leaf</a></td>
 </tr>
@@ -200,12 +200,12 @@ Leaf ||--|o Title : "TitleRef"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/Leaf</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ID</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iD</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">href</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TitleRef</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ID</span>
+<span class="w">  </span><span class="nt">iD</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iD</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Unique</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Leaf.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">Section</span><span class="nv"> </span><span class="s">2.13,</span><span class="nv"> </span><span class="s">Element</span><span class="nv"> </span><span class="s">Identifiers</span><span class="nv"> </span><span class="s">and</span>
 <span class="w">      </span><span class="s">References</span><span class="nv"> </span><span class="s">,</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">considerations.</span><span class="nv"> </span><span class="s">Business</span><span class="nv"> </span><span class="s">Rule:</span><span class="nv"> </span><span class="s">Leaf</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">attributes</span><span class="nv"> </span><span class="s">must</span>
 <span class="w">      </span><span class="s">be</span><span class="nv"> </span><span class="s">unique</span><span class="nv"> </span><span class="s">within</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">ODM</span><span class="nv"> </span><span class="s">document</span><span class="nv"> </span><span class="s">(i.e.,</span><span class="nv"> </span><span class="s">there</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">Leaf</span><span class="nv"> </span><span class="s">elements</span><span class="nv"> </span><span class="s">with</span>
@@ -242,8 +242,8 @@ Leaf ||--|o Title : "TitleRef"
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">TitleRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TitleRef</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Text with the label for the document or dataset.</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PDFPageRef</span>
@@ -262,8 +262,8 @@ Leaf ||--|o Title : "TitleRef"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/Leaf</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ID</span>
+<span class="w">  </span><span class="nt">iD</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iD</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Unique</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Leaf.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">Section</span><span class="nv"> </span><span class="s">2.13,</span><span class="nv"> </span><span class="s">Element</span><span class="nv"> </span><span class="s">Identifiers</span><span class="nv"> </span><span class="s">and</span>
 <span class="w">      </span><span class="s">References</span><span class="nv"> </span><span class="s">,</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">considerations.</span><span class="nv"> </span><span class="s">Business</span><span class="nv"> </span><span class="s">Rule:</span><span class="nv"> </span><span class="s">Leaf</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">attributes</span><span class="nv"> </span><span class="s">must</span>
 <span class="w">      </span><span class="s">be</span><span class="nv"> </span><span class="s">unique</span><span class="nv"> </span><span class="s">within</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">ODM</span><span class="nv"> </span><span class="s">document</span><span class="nv"> </span><span class="s">(i.e.,</span><span class="nv"> </span><span class="s">there</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">Leaf</span><span class="nv"> </span><span class="s">elements</span><span class="nv"> </span><span class="s">with</span>
@@ -300,8 +300,8 @@ Leaf ||--|o Title : "TitleRef"
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">TitleRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TitleRef</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Text with the label for the document or dataset.</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PDFPageRef</span>
@@ -309,8 +309,8 @@ Leaf ||--|o Title : "TitleRef"
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Title</span>
 <span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ID</span>
+<span class="w">  </span><span class="nt">iD</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iD</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Unique</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Leaf.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">Section</span><span class="nv"> </span><span class="s">2.13,</span><span class="nv"> </span><span class="s">Element</span><span class="nv"> </span><span class="s">Identifiers</span><span class="nv"> </span><span class="s">and</span>
 <span class="w">      </span><span class="s">References</span><span class="nv"> </span><span class="s">,</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">considerations.</span><span class="nv"> </span><span class="s">Business</span><span class="nv"> </span><span class="s">Rule:</span><span class="nv"> </span><span class="s">Leaf</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">attributes</span><span class="nv"> </span><span class="s">must</span>
 <span class="w">      </span><span class="s">be</span><span class="nv"> </span><span class="s">unique</span><span class="nv"> </span><span class="s">within</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">ODM</span><span class="nv"> </span><span class="s">document</span><span class="nv"> </span><span class="s">(i.e.,</span><span class="nv"> </span><span class="s">there</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">Leaf</span><span class="nv"> </span><span class="s">elements</span><span class="nv"> </span><span class="s">with</span>
@@ -324,7 +324,7 @@ Leaf ||--|o Title : "TitleRef"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ID</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iD</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Leaf</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Leaf</span>
@@ -356,13 +356,13 @@ Leaf ||--|o Title : "TitleRef"
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">TitleRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TitleRef</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Text with the label for the document or dataset.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TitleRef</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Leaf</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PDFPageRef</span>
