@@ -40,9 +40,9 @@ class ODMLinkMLTransformer():
         self.schema_builder.add_defaults()
         self.schema_builder.schema.title = 'CDISC Operational Data Model v2'
         self.schema_builder.schema.description = 'ODM is a vendor-neutral, platform-independent format for exchanging and archiving clinical and translational research data, along with their associated metadata, administrative data, reference data, and audit information.'
-        self.schema_builder.schema.prefixes['nci'] = Prefix('nci', 'http://ncicb.nci.nih.gov/xml/odm/EVS/CDISC')
-        self.schema_builder.schema.prefixes['xml'] = Prefix('xml', 'http://www.w3.org/XML/1998/namespace')
-        self.schema_builder.schema.prefixes['xhtml'] = Prefix('xhtml', 'http://www.w3.org/1999/xhtml')
+        self.schema_builder.schema.prefixes['ncit'] = Prefix('ncit', 'http://purl.obolibrary.org/obo/NCIT_')
+        self.schema_builder.schema.prefixes['xml'] = Prefix('xml', 'http://www.w3.org/XML/1998/namespace#')
+        self.schema_builder.schema.prefixes['xhtml'] = Prefix('xhtml', 'http://www.w3.org/1999/xhtml#')
         self.schema = SchemaView(self.schema_builder.schema)
 
         groups = self.structure.get('xs:group', [])
@@ -66,7 +66,6 @@ class ODMLinkMLTransformer():
         """
         # Changed ODMVersion simple type to ODMVersionType to avoid collision with slot name
         # Forced slot names to begin with lower-case letter to avoid collision with classes
-
 
         # New Type for renamed XML Schema-specific element: internationalisation/localisation attribute
         range = LANGUAGE_KEY + 'Type'
@@ -153,13 +152,13 @@ class ODMLinkMLTransformer():
         
     @staticmethod
     def map_type(ref) -> str:
+        # Correct any incompatible or colliding type names
         # Remove prefixes for LinkML type references
         if ref is None:
             return None
         result = re.search(r'{.*?}(\w+)', ref)
         ref = result.group(1) if result else ref
         ref = ref.replace('@', '')
-        # Correct any incompatible or colliding type names
         type_map = {
             'xs:anyURI': 'uriorcurie',
             'xs:ID': 'oid',
@@ -175,12 +174,23 @@ class ODMLinkMLTransformer():
             return type_map[ref]
         else:
             return ref.split(':')[-1].strip()
+    
+    @staticmethod
+    def map_context(context) -> str:
+        # determine prefix from provided xsd annotation context
+        context_map = {
+            'nci:ExtCodeID': 'ncit'
+        }
+        if context in context_map.keys():
+            return context_map[context]
+        else:
+            print('Unmapped context:', context)
+            return context 
 
     @staticmethod
     def is_identifier(ref) -> bool:
         identifiers = ['OID', 'leafID', 'ID']
         return True if ref in identifiers else None
-        
 
     def print_debug(self, *args) -> None:
         if DEBUG:
@@ -258,6 +268,7 @@ class ODMLinkMLTransformer():
         self.print_debug('creating enumeration', enum_name)
         this_enum = EnumDefinition(name = enum_name)
         values = {}
+        enum_meaning = None
         for v in enumerations:
             this_value = {}
             if isinstance(v, str):
@@ -267,7 +278,8 @@ class ODMLinkMLTransformer():
                 appinfo = v.get('xs:annotation', {}).get('xs:appinfo')
                 if appinfo:
                     aliases = appinfo[0].get('odm:Alias', {})
-                enum_meaning = ':'.join([aliases[0].get('Context'), aliases[0].get('Name')]) if appinfo else None
+                    enum_meaning = ':'.join([self.map_context(aliases[0].get('Context')), 
+                                             aliases[0].get('Name')])
                 enum_documentation = v.get('xs:annotation', {}).get('xs:documentation')
                 enum_description = '\n'.join(enum_documentation) if enum_documentation else None
                 this_value['description'] = enum_description or None
@@ -277,9 +289,9 @@ class ODMLinkMLTransformer():
         this_enum.permissible_values = values
 
         if alias:
-            this_enum.code_set = alias[0].get('Context')
+            this_enum.conforms_to = self.map_context(alias[0].get('Context'))
             this_enum.aliases = alias[0].get('Name')
-            this_enum.conforms_to = ':'.join([alias[0].get('Context'), alias[0].get('Name')])
+            this_enum.code_set = ':'.join([this_enum.conforms_to, this_enum.aliases])
         self.schema.add_enum(this_enum)
 
 
@@ -303,7 +315,8 @@ class ODMLinkMLTransformer():
             if appinfo:
                 alias = appinfo[0].get('odm:Alias')
                 if alias:
-                    type.exact_mappings = [':'.join([a.get('Context'), a.get('Name')]) for a in alias]
+                    type.exact_mappings = [':'.join([self.map_context(a.get('Context')), 
+                                                     a.get('Name')]) for a in alias]
 
         # Assemble enumerations at current level
         enumerations = restriction.get('xs:enumeration', {})

@@ -11,15 +11,15 @@ prefixes:
   odm:
     prefix_prefix: odm
     prefix_reference: http://www.cdisc.org/ns/odm/v2.0/
-  nci:
-    prefix_prefix: nci
-    prefix_reference: http://ncicb.nci.nih.gov/xml/odm/EVS/CDISC
+  ncit:
+    prefix_prefix: ncit
+    prefix_reference: http://purl.obolibrary.org/obo/NCIT_
   xml:
     prefix_prefix: xml
-    prefix_reference: http://www.w3.org/XML/1998/namespace
+    prefix_reference: http://www.w3.org/XML/1998/namespace#
   xhtml:
     prefix_prefix: xhtml
-    prefix_reference: http://www.w3.org/1999/xhtml
+    prefix_reference: http://www.w3.org/1999/xhtml#
   xsd:
     prefix_prefix: xsd
     prefix_reference: http://www.w3.org/2001/XMLSchema#
@@ -617,7 +617,7 @@ types:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     see_also: https://wiki.cdisc.org/display/PUB/Data+Formats
     exact_mappings:
-    - nci:ExtCodeID:C66737
+    - ncit:C66737
     base: str
     uri: odm:TrialPhaseType
   ItemGroupTypeType:
@@ -641,7 +641,7 @@ types:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     see_also: https://wiki.cdisc.org/display/PUB/Data+Formats
     exact_mappings:
-    - nci:ExtCodeID:C172332
+    - ncit:C172332
     base: str
     uri: odm:StandardStatus
   DictionaryNameType:
@@ -651,7 +651,7 @@ types:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     see_also: https://wiki.cdisc.org/display/PUB/Data+Formats
     exact_mappings:
-    - nci:ExtCodeID:C66788
+    - ncit:C66788
     base: str
     uri: odm:DictionaryNameType
   ItemGroupClassSubClass:
@@ -957,37 +957,37 @@ enums:
         is_a: StudyObjectiveLevel
   TrialPhaseTypeEnum:
     name: TrialPhaseTypeEnum
-    conforms_to: nci:ExtCodeID:C66737
+    conforms_to: ncit
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     aliases: C66737
-    code_set: nci:ExtCodeID
+    code_set: ncit:C66737
     permissible_values:
       NOT APPLICABLE:
-        meaning: nci:ExtCodeID:C48660
+        meaning: ncit:C48660
       PHASE 0 TRIAL:
-        meaning: nci:ExtCodeID:C54721
+        meaning: ncit:C54721
       PHASE I TRIAL:
-        meaning: nci:ExtCodeID:C15600
+        meaning: ncit:C15600
       PHASE I/II TRIAL:
-        meaning: nci:ExtCodeID:C15693
+        meaning: ncit:C15693
       PHASE II TRIAL:
-        meaning: nci:ExtCodeID:C15601
+        meaning: ncit:C15601
       PHASE II/III TRIAL:
-        meaning: nci:ExtCodeID:C15694
+        meaning: ncit:C15694
       PHASE IIA TRIAL:
-        meaning: nci:ExtCodeID:C49686
+        meaning: ncit:C49686
       PHASE IIB TRIAL:
-        meaning: nci:ExtCodeID:C49688
+        meaning: ncit:C49688
       PHASE III TRIAL:
-        meaning: nci:ExtCodeID:C15602
+        meaning: ncit:C15602
       PHASE IIIA TRIAL:
-        meaning: nci:ExtCodeID:C49687
+        meaning: ncit:C49687
       PHASE IIIB TRIAL:
-        meaning: nci:ExtCodeID:C49689
+        meaning: ncit:C49689
       PHASE IV TRIAL:
-        meaning: nci:ExtCodeID:C15603
+        meaning: ncit:C15603
       PHASE V TRIAL:
-        meaning: nci:ExtCodeID:C47865
+        meaning: ncit:C47865
   StudyEndPointType:
     name: StudyEndPointType
     description: Enumeration used in type
@@ -1160,7 +1160,7 @@ enums:
         is_a: EditPointType
   YesOrNo:
     name: YesOrNo
-    description: Enumeration used in mandatory, repeating, isReferenceData, usedMethod
+    description: Enumeration used in repeating, isReferenceData, usedMethod, mandatory
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     permissible_values:
       'Yes':
@@ -1169,8 +1169,8 @@ enums:
         is_a: YesOrNo
   YesOnly:
     name: YesOnly
-    description: Enumeration used in extendedValue, hasNoData, repeat, other, isNull,
-      isNonStandard
+    description: Enumeration used in extendedValue, isNonStandard, other, repeat,
+      isNull, hasNoData
     from_schema: http://www.cdisc.org/ns/odm/v2.0
   MethodType:
     name: MethodType
@@ -1270,16 +1270,16 @@ enums:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     permissible_values:
       Investigator:
-        meaning: nci:ExtCodeID:C25936
+        meaning: ncit:C25936
         is_a: OriginSource
       Sponsor:
-        meaning: nci:ExtCodeID:C70793
+        meaning: ncit:C70793
         is_a: OriginSource
       Subject:
-        meaning: nci:ExtCodeID:C41189
+        meaning: ncit:C41189
         is_a: OriginSource
       Vendor:
-        meaning: nci:ExtCodeID:C68608
+        meaning: ncit:C68608
         is_a: OriginSource
   OriginType:
     name: OriginType
@@ -1287,27 +1287,28 @@ enums:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     permissible_values:
       Assigned:
-        meaning: nci:ExtCodeID:C170547
+        meaning: ncit:C170547
         is_a: OriginType
       Collected:
-        meaning: nci:ExtCodeID:C170548
+        meaning: ncit:C170548
         is_a: OriginType
       Derived:
-        meaning: nci:ExtCodeID:C170549
+        meaning: ncit:C170549
         is_a: OriginType
       EHR:
+        meaning: ncit:C170549
         is_a: OriginType
       Not Available:
-        meaning: nci:ExtCodeID:C126101
+        meaning: ncit:C126101
         is_a: OriginType
       Other:
-        meaning: nci:ExtCodeID:C17649
+        meaning: ncit:C17649
         is_a: OriginType
       Predecessor:
-        meaning: nci:ExtCodeID:C170550
+        meaning: ncit:C170550
         is_a: OriginType
       Protocol:
-        meaning: nci:ExtCodeID:C170551
+        meaning: ncit:C170551
         is_a: OriginType
   PDFPageType:
     name: PDFPageType
@@ -1320,171 +1321,171 @@ enums:
         is_a: PDFPageType
   StandardName:
     name: StandardName
-    conforms_to: nci:ExtCodeID:C170452
+    conforms_to: ncit
     description: Enumeration used in name
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     aliases: C170452
-    code_set: nci:ExtCodeID
+    code_set: ncit:C170452
     permissible_values:
       ADaMIG:
-        meaning: nci:ExtCodeID:C170552
+        meaning: ncit:C170552
         is_a: StandardName
       CDISC/NCI:
-        meaning: nci:ExtCodeID:C163415
+        meaning: ncit:C163415
         is_a: StandardName
       SDTMIG:
-        meaning: nci:ExtCodeID:C170455
+        meaning: ncit:C170455
         is_a: StandardName
       SDTMIG-AP:
-        meaning: nci:ExtCodeID:C170553
+        meaning: ncit:C170553
         is_a: StandardName
       SDTMIG-MD:
-        meaning: nci:ExtCodeID:C170554
+        meaning: ncit:C170554
         is_a: StandardName
       SENDIG:
-        meaning: nci:ExtCodeID:C170456
+        meaning: ncit:C170456
         is_a: StandardName
       SENDIG-AR:
-        meaning: nci:ExtCodeID:C181230
+        meaning: ncit:C181230
         is_a: StandardName
       SENDIG-DART:
-        meaning: nci:ExtCodeID:C170556
+        meaning: ncit:C170556
         is_a: StandardName
   StandardPublishingSet:
     name: StandardPublishingSet
-    conforms_to: nci:ExtCodeID:C172331
+    conforms_to: ncit
     description: Enumeration used in publishingSet
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     aliases: C172331
-    code_set: nci:ExtCodeID
+    code_set: ncit:C172331
     permissible_values:
       ADaM:
-        meaning: nci:ExtCodeID:C180548
+        meaning: ncit:C180548
         is_a: StandardPublishingSet
       CDASH:
-        meaning: nci:ExtCodeID:C180549
+        meaning: ncit:C180549
         is_a: StandardPublishingSet
       DEFINE-XML:
-        meaning: nci:ExtCodeID:C180550
+        meaning: ncit:C180550
         is_a: StandardPublishingSet
       SDTM:
-        meaning: nci:ExtCodeID:C180551
+        meaning: ncit:C180551
         is_a: StandardPublishingSet
       SEND:
-        meaning: nci:ExtCodeID:C180552
+        meaning: ncit:C180552
         is_a: StandardPublishingSet
   StandardStatusEnum:
     name: StandardStatusEnum
-    conforms_to: nci:ExtCodeID:C172332
+    conforms_to: ncit
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     aliases: C172332
-    code_set: nci:ExtCodeID
+    code_set: ncit:C172332
     permissible_values:
       Draft:
-        meaning: nci:ExtCodeID:C172453
+        meaning: ncit:C172453
       Final:
-        meaning: nci:ExtCodeID:C172455
+        meaning: ncit:C172455
       Provisional:
-        meaning: nci:ExtCodeID:C172454
+        meaning: ncit:C172454
   StandardType:
     name: StandardType
-    conforms_to: nci:ExtCodeID:C170451
+    conforms_to: ncit
     description: Enumeration used in type
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     aliases: C170451
-    code_set: nci:ExtCodeID
+    code_set: ncit:C170451
     permissible_values:
       CT:
-        meaning: nci:ExtCodeID:C163415
+        meaning: ncit:C163415
         is_a: StandardType
       IG:
-        meaning: nci:ExtCodeID:C170454
+        meaning: ncit:C170454
         is_a: StandardType
   DictionaryNameTypeEnum:
     name: DictionaryNameTypeEnum
-    conforms_to: nci:ExtCodeID:C66788
+    conforms_to: ncit
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     aliases: C66788
-    code_set: nci:ExtCodeID
+    code_set: ncit:C66788
     permissible_values:
       CDISC CT:
-        meaning: nci:ExtCodeID:C163415
+        meaning: ncit:C163415
       COSTART:
-        meaning: nci:ExtCodeID:C49471
+        meaning: ncit:C49471
       CTCAE:
-        meaning: nci:ExtCodeID:C49704
+        meaning: ncit:C49704
       D-U-N-S NUMBER:
-        meaning: nci:ExtCodeID:C134003
+        meaning: ncit:C134003
       ICD:
-        meaning: nci:ExtCodeID:C49474
+        meaning: ncit:C49474
       LOINC:
-        meaning: nci:ExtCodeID:C49476
+        meaning: ncit:C49476
       MED-RT:
-        meaning: nci:ExtCodeID:C163416
+        meaning: ncit:C163416
       MedDRA:
-        meaning: nci:ExtCodeID:C43820
+        meaning: ncit:C43820
       SNOMED:
-        meaning: nci:ExtCodeID:C53489
+        meaning: ncit:C53489
       UNII:
-        meaning: nci:ExtCodeID:C163417
+        meaning: ncit:C163417
       WHO ATC CLASSIFICATION SYSTEM:
-        meaning: nci:ExtCodeID:C154331
+        meaning: ncit:C154331
       WHOART:
-        meaning: nci:ExtCodeID:C49468
+        meaning: ncit:C49468
       WHODD:
-        meaning: nci:ExtCodeID:C49475
+        meaning: ncit:C49475
   ItemGroupClass:
     name: ItemGroupClass
-    conforms_to: nci:ExtCodeID:C103329
+    conforms_to: ncit
     description: Enumeration used in name
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     aliases: C103329
-    code_set: nci:ExtCodeID
+    code_set: ncit:C103329
     permissible_values:
       ADAM OTHER:
-        meaning: nci:ExtCodeID:C103375
+        meaning: ncit:C103375
         is_a: ItemGroupClass
       BASIC DATA STRUCTURE:
-        meaning: nci:ExtCodeID:C103371
+        meaning: ncit:C103371
         is_a: ItemGroupClass
       DEVICE LEVEL ANALYSIS DATASET:
-        meaning: nci:ExtCodeID:C177921
+        meaning: ncit:C177921
         is_a: ItemGroupClass
       EVENTS:
-        meaning: nci:ExtCodeID:C103372
+        meaning: ncit:C103372
         is_a: ItemGroupClass
       FINDINGS:
-        meaning: nci:ExtCodeID:C103373
+        meaning: ncit:C103373
         is_a: ItemGroupClass
       FINDINGS ABOUT:
-        meaning: nci:ExtCodeID:C135396
+        meaning: ncit:C135396
         is_a: ItemGroupClass
       INTERVENTIONS:
-        meaning: nci:ExtCodeID:C103374
+        meaning: ncit:C103374
         is_a: ItemGroupClass
       MEDICAL DEVICE BASIC DATA STRUCTURE:
-        meaning: nci:ExtCodeID:C177922
+        meaning: ncit:C177922
         is_a: ItemGroupClass
       MEDICAL DEVICE OCCURRENCE DATA STRUCTURE:
-        meaning: nci:ExtCodeID:C177923
+        meaning: ncit:C177923
         is_a: ItemGroupClass
       OCCURRENCE DATA STRUCTURE:
-        meaning: nci:ExtCodeID:C123454
+        meaning: ncit:C123454
         is_a: ItemGroupClass
       RELATIONSHIP:
-        meaning: nci:ExtCodeID:C103376
+        meaning: ncit:C103376
         is_a: ItemGroupClass
       SPECIAL PURPOSE:
-        meaning: nci:ExtCodeID:C103377
+        meaning: ncit:C103377
         is_a: ItemGroupClass
       STUDY REFERENCE:
-        meaning: nci:ExtCodeID:C147271
+        meaning: ncit:C147271
         is_a: ItemGroupClass
       SUBJECT LEVEL ANALYSIS DATASET:
-        meaning: nci:ExtCodeID:C103378
+        meaning: ncit:C103378
         is_a: ItemGroupClass
       TRIAL DESIGN:
-        meaning: nci:ExtCodeID:C103379
+        meaning: ncit:C103379
         is_a: ItemGroupClass
   ItemGroupSubClass:
     name: ItemGroupSubClass
@@ -1492,45 +1493,29 @@ enums:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     permissible_values:
       ADVERSE EVENT:
-        meaning: nci:ExtCodeID:C176265
+        meaning: ncit:C176265
         is_a: ItemGroupSubClass
       MEDICAL DEVICE TIME-TO-EVENT:
-        meaning: nci:ExtCodeID:C177920
+        meaning: ncit:C177920
         is_a: ItemGroupSubClass
       NON-COMPARTMENTAL ANALYSIS:
-        meaning: nci:ExtCodeID:C172452
+        meaning: ncit:C172452
         is_a: ItemGroupSubClass
       TIME-TO-EVENT:
-        meaning: nci:ExtCodeID:C165637
+        meaning: ncit:C165637
         is_a: ItemGroupSubClass
 slots:
-  epochOID:
-    name: epochOID
-    description: Reference to an Epoch element defined in the study.
+  method:
+    name: method
+    description: The name of the method or function that contains the FormalExpression
+      code.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  asOfDateTime:
-    name: asOfDateTime
-    description: The date/time at which the source database was queried in order to
-      create this document.
+    range: nameType
+  sponsorOrSite:
+    name: sponsorOrSite
+    description: Source of the comment.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: datetime
-  studyInterventionOID:
-    name: studyInterventionOID
-    description: Reference to a StudyIntervention
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  userOID:
-    name: userOID
-    description: Reference to a User definition.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  metaDataVersionOID:
-    name: metaDataVersionOID
-    description: References a prior MetaDataVersion within the Study referenced by
-      the StudyOID attribute.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
+    range: CommentType
   name:
     name: name
     description: General observation Sub Class.
@@ -1541,67 +1526,77 @@ slots:
     - range: StandardName
     - range: ItemGroupClass
     - range: ItemGroupSubClass
-  systemName:
-    name: systemName
-    description: Human readable name for the code system.
+  category:
+    name: category
+    description: The Category attribute is typically used to indicate the study phase
+      appropriate to this type of study event. Examples might include screening, pretreatment,
+      treatment, and follow-up.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
-  imageFileName:
-    name: imageFileName
-    description: The file name of or file path to the picture
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: fileName
-  granularity:
-    name: granularity
-    description: Granularity is intended to give the sender a shorthand way to Describes
-      the scope of information in the document, for certain common types of documents.
-      All means the entire study; Metadata means the Study/MetaDataVersion element;
-      AdminData and ReferenceData mean the corresponding elements; AllClinicalData
-      means all of the ClinicalData collected for the study. SingleSite, means all
-      of the Clinical Data for a single study site. SingleSubject means all of the
-      Clinical Data for a single Subject.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: Granularity
-  studyName:
-    name: studyName
-    description: Sponsoring organization's internal name for the study. If no internal
-      name is available, the value is expected to be the same value as ProtocolName.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: nameType
-  system:
-    name: system
-    description: Identifies the code system that defines the code. If the code is
-      taken from a code system resource then the URL for the code system should be
-      used.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: uriorcurie
-  target:
-    name: target
-    description: Element upon which the Query is raised. The parent element is the
-      Target when the Target attribute is omitted.
+  variableSet:
+    name: variableSet
+    description: ADaM variable set, e.g. Dose, Analysis Parameter, Treatment Timing.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
-  path:
-    name: path
-    description: Provides the machine-executable instruction or template for it to
-      obtain the data or information from the resource. The value of the Path attribute
-      can either be an absolute path, or a relative path starting from the information
-      in the "Name" and "Attribute" attributes of the parent Resource element.
+  unitsItemOID:
+    name: unitsItemOID
+    description: Reference to a sibling ItemRef element that represents the unit specification
+      for this ItemRef (defines the associated units variable).
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
+    range: oidref
+  transitionOID:
+    name: transitionOID
+    description: References the workflow Transition on which the timing constraint
+      must be executed.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  timepointPostWindow:
+    name: timepointPostWindow
+    description: Specifies the amount of time after the TimepointTarget, the time
+      between the two activities, may be lengthened.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: durationDatetime
+  repeating:
+    name: repeating
+    description: The Repeating flag indicates when this type of study event can occur
+      repeatedly within any given subject. When Repeating is "Yes" multiple instances
+      of StudyEventData for this StudyEventDef may be collected for a study subject.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: YesOrNo
+    - range: ItemGroupRepeatingType
+  startOID:
+    name: startOID
+    description: Reference to the definition of the structural element that starts
+      the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or
+      ItemDef element.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  durationPreWindow:
+    name: durationPreWindow
+    description: Defines the amount of time by which the targetted duration may be
+      reduced.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: durationDatetime
+  structuralElementOID:
+    name: structuralElementOID
+    description: OID of a structural element such as a Study, Epoch, StudyEventGroup,
+      StudyEvent, ItemGroup, Item
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  partOfOrganizationOID:
+    name: partOfOrganizationOID
+    description: Reference to a parent organization.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
   mimeType:
     name: mimeType
     description: Media type of the image
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
-  targetTransitionOID:
-    name: targetTransitionOID
-    description: Reference to the Transition that is one of the targets of the branching.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  leafID:
-    name: leafID
-    description: Unique identifier for the Leaf element with the document location.
+  fileOID:
+    name: fileOID
+    description: A unique identifier for this file.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oid
   archiveLocationID:
@@ -1610,71 +1605,11 @@ slots:
       location and file name of the data file.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  methodology:
-    name: methodology
-    description: Defines the type of electronic signature, including the meaning as
-      required by 21 CFR Part 11 .
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: SignMethod
-  variableSet:
-    name: variableSet
-    description: ADaM variable set, e.g. Dose, Analysis Parameter, Treatment Timing.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  creationDateTime:
-    name: creationDateTime
-    description: Time of creation of the file containing the document.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: datetime
-  datasetName:
-    name: datasetName
-    description: Name of a file containing the ItemGroupData for this ItemGroupDef.
-      The name applies to the object itself rather then providing a mapping to a different
-      object.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: nameType
-  domain:
-    name: domain
-    description: Identifies the scope or CDISC SDTMIG/SENDIG Domain of the ItemGroup
-      data. The domain applies to the object itself rather then providing a mapping
-      to a different object.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  workflowOID:
-    name: workflowOID
-    description: Reference to a WorkflowDef
+  collectionExceptionConditionOID:
+    name: collectionExceptionConditionOID
+    description: Reference to a ConditionDef
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  editPoint:
-    name: editPoint
-    description: Identifies the phase of data processing in which update action occurred.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: EditPointType
-  lastUpdateDatetime:
-    name: lastUpdateDatetime
-    description: When was this Query updated? Will correspond to the creation date
-      or the last updated date?
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: datetime
-  softHard:
-    name: softHard
-    description: Type of range check. Soft indicates that a warning occurs when the
-      RangeCheck fails. Hard indicates that an error occurs when the RangeCheck fails.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: SoftOrHard
-  itemOID:
-    name: itemOID
-    description: Reference to the ItemDef .
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  ref:
-    name: ref
-    description: Reference to a local instance (e.g. file) of the external library
-      containing the FormalExpression code.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: text
-    - range: uriorcurie
   isNull:
     name: isNull
     description: Flag specifying that an item's value is to be set to null. In the
@@ -1686,47 +1621,6 @@ slots:
       cases where the source system would not create a record.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: YesOnly
-  language:
-    name: language
-    description: language context for internationalisation and localisation
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: languageType
-  timepointPostWindow:
-    name: timepointPostWindow
-    description: Specifies the amount of time after the TimepointTarget, the time
-      between the two activities, may be lengthened.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
-  codeListOID:
-    name: codeListOID
-    description: Reference to the CodeList definition that provides the allowable
-      values for ItemData that references the ItemDef.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  level:
-    name: level
-    description: Defined level for the Study Objective
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: StudyObjectiveLevel
-    - range: StudyEstimandLevel
-  hasNoData:
-    name: hasNoData
-    description: Used to indicate that an ItemGroupDef has no data. May be used at
-      sponsor's discretion or if required by a regulatory authority
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOnly
-  valueListOID:
-    name: valueListOID
-    description: Reference to the unique ID of a ValueListDef element that provides
-      value-level metadata.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  comparator:
-    name: comparator
-    description: Comparison operator used to compare the item and value(s).
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: Comparator
   type:
     name: type
     description: Type of page for page references indicated in the PageRefs attribute.
@@ -1744,6 +1638,156 @@ slots:
     - range: BranchingType
     - range: OrganizationType
     - range: QueryType
+  userOID:
+    name: userOID
+    description: Reference to a User definition.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  sourceSystem:
+    name: sourceSystem
+    description: The computer system or database management system that is the source
+      of the information in this file.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  source:
+    name: source
+    description: Indicates the party responsible for the data's origin type.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: OriginSource
+    - range: QuerySourceType
+  versionID:
+    name: versionID
+    description: Identifier for the specific version of the study in the source system
+      that the enclosed Study element metadata refers to.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: nameType
+  mandatory:
+    name: mandatory
+    description: Indicator of whether this StudyEventGroup must appear in the study
+      clinical data for each subject per the study protocol.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOrNo
+  language:
+    name: language
+    description: language context for internationalisation and localisation
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: languageType
+  endConditionOID:
+    name: endConditionOID
+    description: The EndConditionOID references a ConditionDef defining the condition
+      under which the transition can be completed. As long as the condition is not
+      met, the transition to the next actitivity or event must be considered to be
+      temporary blocked. When the target structural element can be considered to be
+      a "visit," the condition can be regarded as a visit entry criterion.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  system:
+    name: system
+    description: Identifies the code system that defines the code. If the code is
+      taken from a code system resource then the URL for the code system should be
+      used.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: uriorcurie
+  methodOID:
+    name: methodOID
+    description: Reference to a MethodDef that will provide one or more data rows
+      as output. The MethodDef is used to prepopulate items
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  commentOID:
+    name: commentOID
+    description: "The Comment identifier that this value refers to. Needed when the\
+      \ WhereClause references Items across different domains.\n                The\
+      \ Comment would define any join assumptions."
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: oidref
+    - range: text
+  length:
+    name: length
+    description: "The Length attribute is optional when DataType is text, string,\n\
+      \                    integer, or float; and should not be used for the other\n\
+      \                    datatypes."
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: positiveInteger
+  target:
+    name: target
+    description: Element upon which the Query is raised. The parent element is the
+      Target when the Target attribute is omitted.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  level:
+    name: level
+    description: Defined level for the Study Objective
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: StudyObjectiveLevel
+    - range: StudyEstimandLevel
+  version:
+    name: version
+    description: Version of Standard.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  imageFileName:
+    name: imageFileName
+    description: The file name of or file path to the picture
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: fileName
+  creationDateTime:
+    name: creationDateTime
+    description: Time of creation of the file containing the document.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: datetime
+  armOID:
+    name: armOID
+    description: Reference to an Arm element defined in the study.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  timepointPreWindow:
+    name: timepointPreWindow
+    description: Specifies the amount of time prior to the TimepointTarget, the time
+      between the two activities, may be shortened.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: durationDatetime
+  isReferenceData:
+    name: isReferenceData
+    description: Specifies whether this ItemGroupDef is used for non-subject data.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOrNo
+  effectiveDate:
+    name: effectiveDate
+    description: Datetime stamp when this MetaDataVersion was published at this location.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: date
+  label:
+    name: label
+    description: Used to link the value to a named MethodDef parameter.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  subjectKey:
+    name: subjectKey
+    description: Unique identifier for the Subject.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: subjectKeyType
+  iD:
+    name: iD
+    description: Unique identifier for the leaf that is referenced.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    identifier: true
+    range: oid
+  preSpecifiedValue:
+    name: preSpecifiedValue
+    description: Prefill value or a default value for a field that is automatically
+      populated.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  asOfDateTime:
+    name: asOfDateTime
+    description: The date/time at which the source database was queried in order to
+      create this document.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: datetime
   conditionOID:
     name: conditionOID
     description: Reference to a ConditionDef defining the condition under which the
@@ -1752,78 +1796,43 @@ slots:
       branching state. When the condition evaluates to true, the branch is entered.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  timepointTarget:
-    name: timepointTarget
-    description: The planned time between the 2 activities defined by the transition
-      in the workflow.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: durationDatetime
-  altitude:
-    name: altitude
-    description: Height above sea level in meters.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: decimal
-  userType:
-    name: userType
-    description: User's role in the study.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: UserType
-  fileOID:
-    name: fileOID
-    description: A unique identifier for this file.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oid
-  transitionOID:
-    name: transitionOID
-    description: References the workflow Transition on which the timing constraint
-      must be executed.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  studyEventRepeatKey:
-    name: studyEventRepeatKey
-    description: A key used to distinguish between repeats of the same type of study
-      event for a single subject.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: repeatKey
-  definition:
-    name: definition
-    description: A free-text definition of the parameter
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    identifier: false
-    range: Definition
-  subjectKey:
-    name: subjectKey
-    description: Unique identifier for the Subject.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: subjectKeyType
-  dictionary:
-    name: dictionary
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: DictionaryNameType
-  isReferenceData:
-    name: isReferenceData
-    description: Specifies whether this ItemGroupDef is used for non-subject data.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOrNo
-  other:
-    name: other
-    description: Flag to indicate that the Item represents "other" content added to
-      an ItemGroup.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOnly
-  preSpecifiedValue:
-    name: preSpecifiedValue
-    description: Prefill value or a default value for a field that is automatically
-      populated.
+  purpose:
+    name: purpose
+    description: Purpose of the ItemGroup.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: text
+  successorOID:
+    name: successorOID
+    description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs
+      immediately after the RelativeTimepointTarget.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
   studyOID:
     name: studyOID
     description: References the Study that provides a prior metadata version. This
       attribute allows an Include element to reference a metadata version in another
       study. Thus, it is possible for many studies to share a set of common metadata
       definitions
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  definition:
+    name: definition
+    description: A free-text definition of the parameter
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    identifier: false
+    range: Definition
+  code:
+    name: code
+    description: A string pattern that identifies a concept as defined by the code
+      system.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    identifier: false
+    range: Code
+  endOID:
+    name: endOID
+    description: Reference to the definition of the structural element that ends the
+      workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef
+      element.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
   fileType:
@@ -1834,412 +1843,8 @@ slots:
       means the document contains only ClinicalData/Query elements.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: FileType
-  publishingSet:
-    name: publishingSet
-    description: Set of published files of Standard when Type="CT" (e.g. SDTM, ADaM,
-      SEND, CDASH, COA).
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: StandardPublishingSet
-  value:
-    name: value
-    description: Human-readable designation of the trial phase.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    identifier: false
-    range: Value
-  source:
-    name: source
-    description: Indicates the party responsible for the data's origin type.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: OriginSource
-    - range: QuerySourceType
-  iD:
-    name: iD
-    description: Unique identifier for the leaf that is referenced.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    identifier: true
-    range: oid
-  state:
-    name: state
-    description: Status of the Query
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: QueryStateType
-  versionID:
-    name: versionID
-    description: Identifier for the specific version of the study in the source system
-      that the enclosed Study element metadata refers to.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: nameType
-  collectionExceptionConditionOID:
-    name: collectionExceptionConditionOID
-    description: Reference to a ConditionDef
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  title:
-    name: title
-    description: Text with the label for the document or dataset.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    identifier: false
-    range: Title
-  methodOID:
-    name: methodOID
-    description: Reference to a MethodDef that will provide one or more data rows
-      as output. The MethodDef is used to prepopulate items
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  core:
-    name: core
-    description: CDASH, ADaM, SDTM, and SEND Core designations.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: CoreType
-  longitude:
-    name: longitude
-    description: Longitude component of geoposition coordinates in decimal degrees.
-      May require conversion from degrees, minutes, seconds format.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: decimal
-  itemGroupDataSeq:
-    name: itemGroupDataSeq
-    description: 'Unique sequence # for each ItemGroupData child element (record)
-      in the container element. The ItemGroupDataSeq attribute doesn’t have any other
-      meaning than the sequence in which the items are saved and exchanged for each
-      ItemGroupDef. It is equivalent to the observation # in a dataset.'
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: positiveInteger
-  itemGroupRepeatKey:
-    name: itemGroupRepeatKey
-    description: A key used to distinguish between repeats of the same type of item
-      group.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: repeatKey
-  structure:
-    name: structure
-    description: Description of the level of detail represented by individual records
-      in the ItemGroup
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  label:
-    name: label
-    description: Used to link the value to a named MethodDef parameter.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  pageRefs:
-    name: pageRefs
-    description: List of PDF pages separated by a space.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  attribute:
-    name: attribute
-    description: Field provided by the Name attribute where the data or information
-      can be obtained. Examples are "valueQuantity.value" or "valueQuantity.unit"
-      for the case of an HL7-FHIR "Observation", "Repeating" for the case of an ODM
-      ItemGroupDef element, "unit" for the case of an HL7-CDA doseQuantity, "Code"
-      or "Name" for the case of field 5 (which is composite) of an HL7-v2 OBX message.
-      The Name and Attribute attributes are meant to provide traceability documentation.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  structuralElementOID:
-    name: structuralElementOID
-    description: OID of a structural element such as a Study, Epoch, StudyEventGroup,
-      StudyEvent, ItemGroup, Item
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  roleCodeListOID:
-    name: roleCodeListOID
-    description: Reference to a CodeList that defines the allowable values of Role
-      for the Study.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  mandatory:
-    name: mandatory
-    description: Indicator of whether this StudyEventGroup must appear in the study
-      clinical data for each subject per the study protocol.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOrNo
-  codedValue:
-    name: codedValue
-    description: Value of the codelist item (as it would occur in clinical data).
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: valueType
-  studyEventOID:
-    name: studyEventOID
-    description: Reference to the StudyEventDef .
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  displayFormat:
-    name: displayFormat
-    description: Display format supports data visualization of numeric float and date
-      values.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  repeatingLimit:
-    name: repeatingLimit
-    description: Maximum number of repeats.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: positiveInteger
-  context:
-    name: context
-    description: Identifies applicable domain or scope of the mapping.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: text
-    - range: Context
-  versionName:
-    name: versionName
-    description: Short descriptive label for the version of the study, e.g. "Initial
-      go live" when VersionID = "<study version ID for Initial go live>". VersionName
-      may be provided when a VersionID is provided.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: nameType
-  successorOID:
-    name: successorOID
-    description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs
-      immediately after the RelativeTimepointTarget.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  code:
-    name: code
-    description: A string pattern that identifies a concept as defined by the code
-      system.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    identifier: false
-    range: Code
-  itemGroupOID:
-    name: itemGroupOID
-    description: Reference to the ItemGroupDef .
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  priorFileOID:
-    name: priorFileOID
-    description: Reference to the previous file (if any) in a series.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  startOID:
-    name: startOID
-    description: Reference to the definition of the structural element that starts
-      the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or
-      ItemDef element.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  studyEventGroupOID:
-    name: studyEventGroupOID
-    description: Reference to the StudyEventGroupDef .
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  length:
-    name: length
-    description: "The Length attribute is optional when DataType is text, string,\n\
-      \                    integer, or float; and should not be used for the other\n\
-      \                    datatypes."
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: positiveInteger
-  sourceSystemVersion:
-    name: sourceSystemVersion
-    description: The version of the "SourceSystem" above.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  unitsItemOID:
-    name: unitsItemOID
-    description: Reference to a sibling ItemRef element that represents the unit specification
-      for this ItemRef (defines the associated units variable).
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  partOfOrganizationOID:
-    name: partOfOrganizationOID
-    description: Reference to a parent organization.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  endConditionOID:
-    name: endConditionOID
-    description: The EndConditionOID references a ConditionDef defining the condition
-      under which the transition can be completed. As long as the condition is not
-      met, the transition to the next actitivity or event must be considered to be
-      temporary blocked. When the target structural element can be considered to be
-      a "visit," the condition can be regarded as a visit entry criterion.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  orderNumber:
-    name: orderNumber
-    description: Indicates the order in which this StudyEventGroup appears in Metadata
-      displays or data entry applications.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: positiveInteger
-  durationTarget:
-    name: durationTarget
-    description: Constrains the duration of an activity represented by a Study, Epoch,
-      StudyEventGroupDef, StudyEventDef, ItemGroupDef or ItemDef. Specifies the planned
-      duration of the referenced structural element.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
-  status:
-    name: status
-    description: Status of Standard.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: nameType
-    - range: StandardStatus
-  extendedValue:
-    name: extendedValue
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOnly
-  predecessorOID:
-    name: predecessorOID
-    description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that
-      occurs immediately before the RelativeTimepointTarget.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  firstPage:
-    name: firstPage
-    description: First page in a range of pages.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: positiveInteger
-  seqNum:
-    name: seqNum
-    description: When more than 1 Value element exists this attribute uniquely identifies
-      each Value and defines the order of a Value in a list of Values.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: positiveInteger
-  locationOID:
-    name: locationOID
-    description: Reference to a Location element.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  sourceSystem:
-    name: sourceSystem
-    description: The computer system or database management system that is the source
-      of the information in this file.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  sponsorOrSite:
-    name: sponsorOrSite
-    description: Source of the comment.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: CommentType
-  category:
-    name: category
-    description: The Category attribute is typically used to indicate the study phase
-      appropriate to this type of study event. Examples might include screening, pretreatment,
-      treatment, and follow-up.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  repeat:
-    name: repeat
-    description: Indicates that the item serves as the item over which repeats are
-      to be performed.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: YesOnly
-  studyEndPointOID:
-    name: studyEndPointOID
-    description: Reference to the StudyEndPoint .
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  repeating:
-    name: repeating
-    description: The Repeating flag indicates when this type of study event can occur
-      repeatedly within any given subject. When Repeating is "Yes" multiple instances
-      of StudyEventData for this StudyEventDef may be collected for a study subject.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: YesOrNo
-    - range: ItemGroupRepeatingType
-  originator:
-    name: originator
-    description: The organization that generated the ODM file.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  shortName:
-    name: shortName
-    description: Short name or code for the parameter.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: nameType
-  armOID:
-    name: armOID
-    description: Reference to an Arm element defined in the study.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  standardOID:
-    name: standardOID
-    description: Reference to a Standard element.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  role:
-    name: role
-    description: The Role for the referenced ItemDef. The Role attribute provides
-      a single role name describing the use of this data item. If the Role is defined
-      by a standard terminology, RoleCodeListOID may be used to reference a CodeList
-      that defines the full set roles from which the Role attribute value is to be
-      taken.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  version:
-    name: version
-    description: Version of Standard.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  latitude:
-    name: latitude
-    description: Latitude component of geoposition coordinate in decimal degrees degrees.
-      May require conversion from degrees, minutes, seconds format.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: decimal
-  whereClauseOID:
-    name: whereClauseOID
-    description: Reference to the unique ID of a WhereClauseDef element
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  durationPostWindow:
-    name: durationPostWindow
-    description: Defines the amount of time by which the targetted duration may be
-      increased.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
-  organizationOID:
-    name: organizationOID
-    description: Reference to an Organization elment.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  sourceOID:
-    name: sourceOID
-    description: References the definition of the source structural element for the
-      transition. The structural element may be a StudyEventGroupDef, StudyEventDef,
-      ItemGroupDef, ItemDef, or Branching element.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  protocolName:
-    name: protocolName
-    description: Protocol identifier or protocol number assigned to the study. It
-      is used by the regulatory authority or clinical trial registry.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: nameType
-  systemVersion:
-    name: systemVersion
-    description: Identifies the version of the code system
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
-  parentClass:
-    name: parentClass
-    description: Parent class of the Sub Class
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: ItemGroupClassSubClass
-  commentOID:
-    name: commentOID
-    description: "The Comment identifier that this value refers to. Needed when the\
-      \ WhereClause references Items across different domains.\n                The\
-      \ Comment would define any join assumptions."
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: oidref
-    - range: text
-  term:
-    name: term
-    description: Longer name. Provides the full name of the parameter.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: nameType
-  endOID:
-    name: endOID
-    description: Reference to the definition of the structural element that ends the
-      workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef
-      element.
+  studyTargetPopulationOID:
+    name: studyTargetPopulationOID
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
   oID:
@@ -2248,21 +1853,226 @@ slots:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     identifier: true
     range: oid
-  isNonStandard:
-    name: isNonStandard
-    description: Required for ADaM, SDTM, or SEND if StandardOID is not provided.
+  status:
+    name: status
+    description: Status of Standard.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: nameType
+    - range: StandardStatus
+  hasNoData:
+    name: hasNoData
+    description: Used to indicate that an ItemGroupDef has no data. May be used at
+      sponsor's discretion or if required by a regulatory authority
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: YesOnly
+  latitude:
+    name: latitude
+    description: Latitude component of geoposition coordinate in decimal degrees degrees.
+      May require conversion from degrees, minutes, seconds format.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: decimal
   lastPage:
     name: lastPage
     description: Last page in a range of pages.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: positiveInteger
-  effectiveDate:
-    name: effectiveDate
-    description: Datetime stamp when this MetaDataVersion was published at this location.
+  predecessorOID:
+    name: predecessorOID
+    description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that
+      occurs immediately before the RelativeTimepointTarget.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: date
+    range: oidref
+  metaDataVersionOID:
+    name: metaDataVersionOID
+    description: References a prior MetaDataVersion within the Study referenced by
+      the StudyOID attribute.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  standardOID:
+    name: standardOID
+    description: Reference to a Standard element.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  altitude:
+    name: altitude
+    description: Height above sea level in meters.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: decimal
+  dictionary:
+    name: dictionary
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: DictionaryNameType
+  oDMVersion:
+    name: oDMVersion
+    description: The version of the ODM standard used.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ODMVersion
+  repeatingLimit:
+    name: repeatingLimit
+    description: Maximum number of repeats.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: positiveInteger
+  targetTransitionOID:
+    name: targetTransitionOID
+    description: Reference to the Transition that is one of the targets of the branching.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  targetOID:
+    name: targetOID
+    description: References the definition of the target structural element for the
+      transition. The structural element may be a StudyEventGroupDef, StudyEventDef,
+      ItemGroupDef, ItemDef, or Branching element. The latter will be used when there
+      is a branching definition necessary as a result of the transition.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  studyName:
+    name: studyName
+    description: Sponsoring organization's internal name for the study. If no internal
+      name is available, the value is expected to be the same value as ProtocolName.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: nameType
+  codedValue:
+    name: codedValue
+    description: Value of the codelist item (as it would occur in clinical data).
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: valueType
+  userType:
+    name: userType
+    description: User's role in the study.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: UserType
+  studyEventRepeatKey:
+    name: studyEventRepeatKey
+    description: A key used to distinguish between repeats of the same type of study
+      event for a single subject.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: repeatKey
+  structure:
+    name: structure
+    description: Description of the level of detail represented by individual records
+      in the ItemGroup
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  ref:
+    name: ref
+    description: Reference to a local instance (e.g. file) of the external library
+      containing the FormalExpression code.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: text
+    - range: uriorcurie
+  pageRefs:
+    name: pageRefs
+    description: List of PDF pages separated by a space.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  transactionType:
+    name: transactionType
+    description: Identifies the transaction type when /ODM/@FileType is Transactional
+      and there is no child element.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: TransactionType
+  workflowOID:
+    name: workflowOID
+    description: Reference to a WorkflowDef
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  extendedValue:
+    name: extendedValue
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOnly
+  itemGroupDataSeq:
+    name: itemGroupDataSeq
+    description: 'Unique sequence # for each ItemGroupData child element (record)
+      in the container element. The ItemGroupDataSeq attribute doesn’t have any other
+      meaning than the sequence in which the items are saved and exchanged for each
+      ItemGroupDef. It is equivalent to the observation # in a dataset.'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: positiveInteger
+  timepointRelativeTarget:
+    name: timepointRelativeTarget
+    description: The relative timing between two activities or groups of activities.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: durationDatetime
+  path:
+    name: path
+    description: Provides the machine-executable instruction or template for it to
+      obtain the data or information from the resource. The value of the Path attribute
+      can either be an absolute path, or a relative path starting from the information
+      in the "Name" and "Attribute" attributes of the parent Resource element.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  shortName:
+    name: shortName
+    description: Short name or code for the parameter.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: nameType
+  durationPostWindow:
+    name: durationPostWindow
+    description: Defines the amount of time by which the targetted duration may be
+      increased.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: durationDatetime
+  telecomType:
+    name: telecomType
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: TelecomTypeType
+  other:
+    name: other
+    description: Flag to indicate that the Item represents "other" content added to
+      an ItemGroup.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOnly
+  firstPage:
+    name: firstPage
+    description: First page in a range of pages.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: positiveInteger
+  protocolName:
+    name: protocolName
+    description: Protocol identifier or protocol number assigned to the study. It
+      is used by the regulatory authority or clinical trial registry.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: nameType
+  studyEndPointOID:
+    name: studyEndPointOID
+    description: Reference to the StudyEndPoint .
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  methodology:
+    name: methodology
+    description: Defines the type of electronic signature, including the meaning as
+      required by 21 CFR Part 11 .
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: SignMethod
+  studyEventOID:
+    name: studyEventOID
+    description: Reference to the StudyEventDef .
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  sequenceNumber:
+    name: sequenceNumber
+    description: Order of the Epoch
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: positiveInteger
+  studyInterventionOID:
+    name: studyInterventionOID
+    description: Reference to a StudyIntervention
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  timepointTarget:
+    name: timepointTarget
+    description: The planned time between the 2 activities defined by the transition
+      in the workflow.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: durationDatetime
+  core:
+    name: core
+    description: CDASH, ADaM, SDTM, and SEND Core designations.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: CoreType
   rank:
     name: rank
     description: Numeric significance of the CodeListItem relative to others in the
@@ -2275,15 +2085,219 @@ slots:
       and "Medium".
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: decimal
-  sequenceNumber:
-    name: sequenceNumber
-    description: Order of the Epoch
+  title:
+    name: title
+    description: Text with the label for the document or dataset.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: positiveInteger
-  studyTargetPopulationOID:
-    name: studyTargetPopulationOID
+    identifier: false
+    range: Title
+  datasetName:
+    name: datasetName
+    description: Name of a file containing the ItemGroupData for this ItemGroupDef.
+      The name applies to the object itself rather then providing a mapping to a different
+      object.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: nameType
+  roleCodeListOID:
+    name: roleCodeListOID
+    description: Reference to a CodeList that defines the allowable values of Role
+      for the Study.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
+  itemGroupRepeatKey:
+    name: itemGroupRepeatKey
+    description: A key used to distinguish between repeats of the same type of item
+      group.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: repeatKey
+  codeListOID:
+    name: codeListOID
+    description: Reference to the CodeList definition that provides the allowable
+      values for ItemData that references the ItemDef.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  value:
+    name: value
+    description: Human-readable designation of the trial phase.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    identifier: false
+    range: Value
+  durationTarget:
+    name: durationTarget
+    description: Constrains the duration of an activity represented by a Study, Epoch,
+      StudyEventGroupDef, StudyEventDef, ItemGroupDef or ItemDef. Specifies the planned
+      duration of the referenced structural element.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: durationDatetime
+  granularity:
+    name: granularity
+    description: Granularity is intended to give the sender a shorthand way to Describes
+      the scope of information in the document, for certain common types of documents.
+      All means the entire study; Metadata means the Study/MetaDataVersion element;
+      AdminData and ReferenceData mean the corresponding elements; AllClinicalData
+      means all of the ClinicalData collected for the study. SingleSite, means all
+      of the Clinical Data for a single study site. SingleSubject means all of the
+      Clinical Data for a single Subject.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Granularity
+  state:
+    name: state
+    description: Status of the Query
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: QueryStateType
+  isNonStandard:
+    name: isNonStandard
+    description: Required for ADaM, SDTM, or SEND if StandardOID is not provided.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOnly
+  parentClass:
+    name: parentClass
+    description: Parent class of the Sub Class
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: ItemGroupClassSubClass
+  role:
+    name: role
+    description: The Role for the referenced ItemDef. The Role attribute provides
+      a single role name describing the use of this data item. If the Role is defined
+      by a standard terminology, RoleCodeListOID may be used to reference a CodeList
+      that defines the full set roles from which the Role attribute value is to be
+      taken.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  signatureOID:
+    name: signatureOID
+    description: Reference to the SignatureDef .
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  context:
+    name: context
+    description: Identifies applicable domain or scope of the mapping.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: text
+    - range: Context
+  orderNumber:
+    name: orderNumber
+    description: Indicates the order in which this StudyEventGroup appears in Metadata
+      displays or data entry applications.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: positiveInteger
+  term:
+    name: term
+    description: Longer name. Provides the full name of the parameter.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: nameType
+  leafID:
+    name: leafID
+    description: Unique identifier for the Leaf element with the document location.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oid
+  epochOID:
+    name: epochOID
+    description: Reference to an Epoch element defined in the study.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  sourceOID:
+    name: sourceOID
+    description: References the definition of the source structural element for the
+      transition. The structural element may be a StudyEventGroupDef, StudyEventDef,
+      ItemGroupDef, ItemDef, or Branching element.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  locationOID:
+    name: locationOID
+    description: Reference to a Location element.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  dataType:
+    name: dataType
+    description: "The DataType attribute specifies how the corresponding value\n \
+      \                   elements are to be interpreted for comparison and storage."
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    any_of:
+    - range: DataType
+    - range: CLDataType
+  library:
+    name: library
+    description: The name of the external library containing the FormalExpression.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: nameType
+  seqNum:
+    name: seqNum
+    description: When more than 1 Value element exists this attribute uniquely identifies
+      each Value and defines the order of a Value in a list of Values.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: positiveInteger
+  systemVersion:
+    name: systemVersion
+    description: Identifies the version of the code system
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  originator:
+    name: originator
+    description: The organization that generated the ODM file.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  longitude:
+    name: longitude
+    description: Longitude component of geoposition coordinates in decimal degrees.
+      May require conversion from degrees, minutes, seconds format.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: decimal
+  priorFileOID:
+    name: priorFileOID
+    description: Reference to the previous file (if any) in a series.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  attribute:
+    name: attribute
+    description: Field provided by the Name attribute where the data or information
+      can be obtained. Examples are "valueQuantity.value" or "valueQuantity.unit"
+      for the case of an HL7-FHIR "Observation", "Repeating" for the case of an ODM
+      ItemGroupDef element, "unit" for the case of an HL7-CDA doseQuantity, "Code"
+      or "Name" for the case of field 5 (which is composite) of an HL7-v2 OBX message.
+      The Name and Attribute attributes are meant to provide traceability documentation.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  sourceSystemVersion:
+    name: sourceSystemVersion
+    description: The version of the "SourceSystem" above.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  itemGroupOID:
+    name: itemGroupOID
+    description: Reference to the ItemGroupDef .
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  softHard:
+    name: softHard
+    description: Type of range check. Soft indicates that a warning occurs when the
+      RangeCheck fails. Hard indicates that an error occurs when the RangeCheck fails.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: SoftOrHard
+  studyEventGroupOID:
+    name: studyEventGroupOID
+    description: Reference to the StudyEventGroupDef .
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
+  displayFormat:
+    name: displayFormat
+    description: Display format supports data visualization of numeric float and date
+      values.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  systemName:
+    name: systemName
+    description: Human readable name for the code system.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
+  domain:
+    name: domain
+    description: Identifies the scope or CDISC SDTMIG/SENDIG Domain of the ItemGroup
+      data. The domain applies to the object itself rather then providing a mapping
+      to a different object.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: text
   startConditionOID:
     name: startConditionOID
     description: The StartConditionOID references a ConditionDef specifying a condition
@@ -2294,6 +2308,30 @@ slots:
       that must be met for a subject to transition from screening to enrollment.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
+  comparator:
+    name: comparator
+    description: Comparison operator used to compare the item and value(s).
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: Comparator
+  publishingSet:
+    name: publishingSet
+    description: Set of published files of Standard when Type="CT" (e.g. SDTM, ADaM,
+      SEND, CDASH, COA).
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: StandardPublishingSet
+  keySequence:
+    name: keySequence
+    description: Indicates that this item is a key for the enclosing element. It also
+      provides an ordering for the keys.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: positiveInteger
+  versionName:
+    name: versionName
+    description: Short descriptive label for the version of the study, e.g. "Initial
+      go live" when VersionID = "<study version ID for Initial go live>". VersionName
+      may be provided when a VersionID is provided.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: nameType
   href:
     name: href
     description: URL that can be used to identify the location of a document or dataset
@@ -2302,87 +2340,50 @@ slots:
     any_of:
     - range: uriorcurie
     - range: text
-  oDMVersion:
-    name: oDMVersion
-    description: The version of the ODM standard used.
+  itemOID:
+    name: itemOID
+    description: Reference to the ItemDef .
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: ODMVersion
-  timepointPreWindow:
-    name: timepointPreWindow
-    description: Specifies the amount of time prior to the TimepointTarget, the time
-      between the two activities, may be shortened.
+    range: oidref
+  valueListOID:
+    name: valueListOID
+    description: Reference to the unique ID of a ValueListDef element that provides
+      value-level metadata.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
+    range: oidref
+  lastUpdateDatetime:
+    name: lastUpdateDatetime
+    description: When was this Query updated? Will correspond to the creation date
+      or the last updated date?
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: datetime
+  editPoint:
+    name: editPoint
+    description: Identifies the phase of data processing in which update action occurred.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: EditPointType
+  repeat:
+    name: repeat
+    description: Indicates that the item serves as the item over which repeats are
+      to be performed.
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: YesOnly
+  whereClauseOID:
+    name: whereClauseOID
+    description: Reference to the unique ID of a WhereClauseDef element
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    range: oidref
   usedMethod:
     name: usedMethod
     description: Indicates that the action was made by the system rather than a data
       entry form user action.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: YesOrNo
-  library:
-    name: library
-    description: The name of the external library containing the FormalExpression.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: nameType
-  timepointRelativeTarget:
-    name: timepointRelativeTarget
-    description: The relative timing between two activities or groups of activities.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
-  keySequence:
-    name: keySequence
-    description: Indicates that this item is a key for the enclosing element. It also
-      provides an ordering for the keys.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: positiveInteger
-  method:
-    name: method
-    description: The name of the method or function that contains the FormalExpression
-      code.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: nameType
-  transactionType:
-    name: transactionType
-    description: Identifies the transaction type when /ODM/@FileType is Transactional
-      and there is no child element.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: TransactionType
-  dataType:
-    name: dataType
-    description: "The DataType attribute specifies how the corresponding value\n \
-      \                   elements are to be interpreted for comparison and storage."
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    any_of:
-    - range: DataType
-    - range: CLDataType
-  targetOID:
-    name: targetOID
-    description: References the definition of the target structural element for the
-      transition. The structural element may be a StudyEventGroupDef, StudyEventDef,
-      ItemGroupDef, ItemDef, or Branching element. The latter will be used when there
-      is a branching definition necessary as a result of the transition.
+  organizationOID:
+    name: organizationOID
+    description: Reference to an Organization elment.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     range: oidref
-  telecomType:
-    name: telecomType
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: TelecomTypeType
-  durationPreWindow:
-    name: durationPreWindow
-    description: Defines the amount of time by which the targetted duration may be
-      reduced.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: durationDatetime
-  signatureOID:
-    name: signatureOID
-    description: Reference to the SignatureDef .
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: oidref
-  purpose:
-    name: purpose
-    description: Purpose of the ItemGroup.
-    from_schema: http://www.cdisc.org/ns/odm/v2.0
-    range: text
   translatedText:
     name: translatedText
     description: 'TranslatedText reference: Human-readable text that is appropriate
@@ -2636,8 +2637,8 @@ slots:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     identifier: false
     range: Alias
-  classRef:
-    name: classRef
+  itemGroupClass:
+    name: itemGroupClass
     description: 'Class reference: The Class element identifies which predefined Class
       within the model applies to the definition of the dataset.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
@@ -4618,7 +4619,7 @@ classes:
     - hasNoData
     - commentOID
     - description
-    - classRef
+    - itemGroupClass
     - coding
     - workflowRef
     - origin
@@ -4787,7 +4788,7 @@ classes:
       description:
         range: Description
         maximum_cardinality: 1
-      classRef:
+      itemGroupClass:
         range: Class
         maximum_cardinality: 1
       coding:
