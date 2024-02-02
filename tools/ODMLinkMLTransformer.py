@@ -106,7 +106,8 @@ class ODMLinkMLTransformer():
         }
         if ref in slot_map.keys():
             ref = slot_map[ref]
-        return ref[0].lower() + ref[1:]
+        
+        return ref if ref in ["OID"] else ref[0].lower() + ref[1:]
         
     @staticmethod
     def map_range(range) -> str:
