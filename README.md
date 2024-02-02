@@ -61,7 +61,7 @@ More detailed relationship and cardinality constraints still need to be ported f
 
 As content is added, refresh documentation and diagrams using `mkdocs` to keep it up to date with the latest batch of generated .md files
 
-    gen-doc ODM.yaml --directory docs/ --template-directory docs/docgen --hierarchical-class-view --include-top-level-diagram --diagram-type er_diagram --sort-by rank
+    gen-doc ODM.yaml --directory docs/ --template-directory docs/docgen --hierarchical-class-view --diagram-type er_diagram --sort-by rank
     mkdocs build
 
 to check the updated documentation changes locally
