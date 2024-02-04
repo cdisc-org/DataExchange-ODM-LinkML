@@ -16,7 +16,7 @@
 <script>hljs.highlightAll();</script>
 </head>
 <body>
-<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 <div class="container">
 <a class="navbar-brand" href="..">DataExchange-ODM-LinkML</a>
 <!-- Expander button -->
@@ -94,9 +94,36 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/StudyTargetPopulationRef">odm:StudyTargetPopulationRef</a></p>
 <pre class="mermaid"><code>erDiagram
 StudyTargetPopulationRef {
-    oidref studyTargetPopulationOID  
+
+}
+StudyTargetPopulation {
+    oid OID  
+    nameType name  
+}
+FormalExpression {
+    text context  
+}
+Coding {
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
+    uriorcurie href  
+    uriorcurie ref  
+    text commentOID  
+}
+Description {
+
 }
 
+StudyTargetPopulationRef ||--|| StudyTargetPopulation : "studyTargetPopulationOID"
+StudyTargetPopulation ||--|o Description : "description"
+StudyTargetPopulation ||--}o Coding : "coding"
+StudyTargetPopulation ||--}o FormalExpression : "formalExpression"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+Description ||--}o TranslatedText : "translatedText"
 
 </code></pre>
 <!-- no inheritance hierarchy -->
@@ -113,8 +140,8 @@ StudyTargetPopulationRef {
 <tbody>
 <tr>
 <td><a href="../studyTargetPopulationOID/">studyTargetPopulationOID</a></td>
-<td>1..1 <br/> <a href="../oidref/">oidref</a></td>
-<td></td>
+<td>1..1 <br/> <a href="../StudyTargetPopulation/">StudyTargetPopulation</a></td>
+<td>StudyTargetPopulation reference: The StudyTargetPopulation describes the popu...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -185,7 +212,7 @@ StudyTargetPopulationRef {
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyTargetPopulationOID</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyTargetPopulationRef</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyTargetPopulation</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">odm:StudyTargetPopulationRef</span>
 </code></pre></div>
@@ -204,18 +231,20 @@ StudyTargetPopulationRef {
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyTargetPopulationOID</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyTargetPopulationRef</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyTargetPopulation</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">studyTargetPopulationOID</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyTargetPopulationOID</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'StudyTargetPopulation</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">StudyTargetPopulation</span><span class="nv"> </span><span class="s">describes</span>
+<span class="w">      </span><span class="s">the</span><span class="nv"> </span><span class="s">population</span><span class="nv"> </span><span class="s">targeted</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">clinical</span><span class="nv"> </span><span class="s">study.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyTargetPopulationOID</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyTargetPopulationRef</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyTargetPopulationRef</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyTargetPopulation</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">odm:StudyTargetPopulationRef</span>
 </code></pre></div>
@@ -297,5 +326,12 @@ StudyTargetPopulationRef {
 </div>
 </div>
 </div>
-</body>
+<script>window.mermaidConfig = {default: {
+    startOnLoad: false,
+    mermaid: {
+        er: {
+            useMaxWidth: true
+        }
+    }
+}}</script></body>
 </html>

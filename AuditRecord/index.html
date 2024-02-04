@@ -16,7 +16,7 @@
 <script>hljs.highlightAll();</script>
 </head>
 <body>
-<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 <div class="container">
 <a class="navbar-brand" href="..">DataExchange-ODM-LinkML</a>
 <!-- Expander button -->
@@ -107,10 +107,19 @@ DateTimeStamp {
     datetime content  
 }
 LocationRef {
-    oidref locationOID  
+
+}
+Location {
+    oid OID  
+    nameType name  
+    text role  
 }
 UserRef {
-    oidref userOID  
+
+}
+User {
+    oid OID  
+    UserType userType  
 }
 
 AuditRecord ||--|o UserRef : "userRef"
@@ -118,6 +127,26 @@ AuditRecord ||--|o LocationRef : "locationRef"
 AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
 AuditRecord ||--|o ReasonForChange : "reasonForChange"
 AuditRecord ||--|o SourceID : "sourceID"
+LocationRef ||--|| Location : "locationOID"
+Location ||--|o Organization : "organizationOID"
+Location ||--|o Description : "description"
+Location ||--}o MetaDataVersionRef : "metaDataVersionRef"
+Location ||--}o Address : "address"
+Location ||--}o Telecom : "telecom"
+Location ||--}o Query : "query"
+UserRef ||--|| User : "userOID"
+User ||--|o Organization : "organizationOID"
+User ||--|o Location : "locationOID"
+User ||--|o UserName : "userName"
+User ||--|o Prefix : "prefix"
+User ||--|o Suffix : "suffix"
+User ||--|o FullName : "fullName"
+User ||--|o GivenName : "givenName"
+User ||--|o FamilyName : "familyName"
+User ||--|o Image : "image"
+User ||--}o Address : "address"
+User ||--}o Telecom : "telecom"
+
 </code></pre>
 <!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
@@ -432,7 +461,6 @@ AuditRecord ||--|o SourceID : "sourceID"
 <span class="w">      </span><span class="s">of</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">clinical</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">collection</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">management</span><span class="nv"> </span><span class="s">system.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">userRef</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuditRecord</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -445,7 +473,6 @@ AuditRecord ||--|o SourceID : "sourceID"
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'LocationRef</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">reference</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">user</span><span class="se">''</span><span class="s">s</span><span class="nv"> </span><span class="s">physical</span><span class="nv"> </span><span class="s">location.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">locationRef</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuditRecord</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -458,7 +485,6 @@ AuditRecord ||--|o SourceID : "sourceID"
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'DateTimeStamp</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">Date</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">time</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">action</span><span class="nv"> </span><span class="s">was</span><span class="nv"> </span><span class="s">performed.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dateTimeStamp</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuditRecord</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -471,7 +497,6 @@ AuditRecord ||--|o SourceID : "sourceID"
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'ReasonForChange</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">user-supplied</span><span class="nv"> </span><span class="s">reason</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">change.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reasonForChange</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuditRecord</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -484,7 +509,6 @@ AuditRecord ||--|o SourceID : "sourceID"
 <span class="w">      </span><span class="s">data</span><span class="nv"> </span><span class="s">within</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">originating</span><span class="nv"> </span><span class="s">system.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sourceID</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuditRecord</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -571,5 +595,12 @@ AuditRecord ||--|o SourceID : "sourceID"
 </div>
 </div>
 </div>
-</body>
+<script>window.mermaidConfig = {default: {
+    startOnLoad: false,
+    mermaid: {
+        er: {
+            useMaxWidth: true
+        }
+    }
+}}</script></body>
 </html>

@@ -16,7 +16,7 @@
 <script>hljs.highlightAll();</script>
 </head>
 <body>
-<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 <div class="container">
 <a class="navbar-brand" href="..">DataExchange-ODM-LinkML</a>
 <!-- Expander button -->
@@ -94,9 +94,38 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/ValueListRef">odm:ValueListRef</a></p>
 <pre class="mermaid"><code>erDiagram
 ValueListRef {
-    oidref valueListOID  
+
+}
+ValueListDef {
+    oid OID  
+}
+ItemRef {
+    positiveInteger keySequence  
+    YesOnly isNonStandard  
+    YesOnly hasNoData  
+    YesOnly repeat  
+    YesOnly other  
+    text role  
+    CoreType core  
+    text preSpecifiedValue  
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+}
+Description {
+
 }
 
+ValueListRef ||--|| ValueListDef : "valueListOID"
+ValueListDef ||--|o Description : "description"
+ValueListDef ||--}o ItemRef : "itemRef"
+ItemRef ||--|| ItemDef : "itemOID"
+ItemRef ||--|o MethodDef : "methodOID"
+ItemRef ||--|o ItemDef : "unitsItemOID"
+ItemRef ||--|o CodeList : "roleCodeListOID"
+ItemRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+ItemRef ||--}o Origin : "origin"
+ItemRef ||--}o WhereClauseRef : "whereClauseRef"
+Description ||--}o TranslatedText : "translatedText"
 
 </code></pre>
 <!-- no inheritance hierarchy -->
@@ -113,7 +142,7 @@ ValueListRef {
 <tbody>
 <tr>
 <td><a href="../valueListOID/">valueListOID</a></td>
-<td>1..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>1..1 <br/> <a href="../ValueListDef/">ValueListDef</a></td>
 <td>Reference to the unique ID of a ValueListDef element that provides value-leve...</td>
 <td>direct</td>
 </tr>
@@ -195,7 +224,7 @@ ValueListRef {
 <span class="w">      </span><span class="s">Must</span><span class="nv"> </span><span class="s">match</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">ValueListDef</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">same</span><span class="nv"> </span><span class="s">MetaDataVersion.'</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueListRef</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueListDef</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">odm:ValueListRef</span>
 </code></pre></div>
@@ -224,7 +253,7 @@ ValueListRef {
 <span class="w">      </span><span class="s">Must</span><span class="nv"> </span><span class="s">match</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">ValueListDef</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">same</span><span class="nv"> </span><span class="s">MetaDataVersion.'</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueListRef</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueListDef</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">valueListOID</span><span class="p">:</span>
@@ -243,7 +272,7 @@ ValueListRef {
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueListRef</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueListRef</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ValueListDef</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">odm:ValueListRef</span>
 </code></pre></div>
@@ -325,5 +354,12 @@ ValueListRef {
 </div>
 </div>
 </div>
-</body>
+<script>window.mermaidConfig = {default: {
+    startOnLoad: false,
+    mermaid: {
+        er: {
+            useMaxWidth: true
+        }
+    }
+}}</script></body>
 </html>

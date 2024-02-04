@@ -16,7 +16,7 @@
 <script>hljs.highlightAll();</script>
 </head>
 <body>
-<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 <div class="container">
 <a class="navbar-brand" href="..">DataExchange-ODM-LinkML</a>
 <!-- Expander button -->
@@ -97,10 +97,14 @@ StudyStructure {
 
 }
 WorkflowRef {
-    oidref workflowOID  
+
+}
+WorkflowDef {
+    oid OID  
+    nameType name  
 }
 Epoch {
-    oid oID  
+    oid OID  
     nameType name  
     positiveInteger sequenceNumber  
 }
@@ -108,7 +112,7 @@ Description {
 
 }
 Arm {
-    oid oID  
+    oid OID  
     nameType name  
 }
 
@@ -116,10 +120,17 @@ StudyStructure ||--|o Description : "description"
 StudyStructure ||--}o Arm : "arm"
 StudyStructure ||--}o Epoch : "epoch"
 StudyStructure ||--|o WorkflowRef : "workflowRef"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+WorkflowDef ||--|o Description : "description"
+WorkflowDef ||--|o WorkflowStart : "workflowStart"
+WorkflowDef ||--}o WorkflowEnd : "workflowEnd"
+WorkflowDef ||--}o Transition : "transition"
+WorkflowDef ||--}o Branching : "branching"
 Epoch ||--|o Description : "description"
 Description ||--}o TranslatedText : "translatedText"
 Arm ||--|o Description : "description"
 Arm ||--|o WorkflowRef : "workflowRef"
+
 </code></pre>
 <!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
@@ -380,7 +391,6 @@ Arm ||--|o WorkflowRef : "workflowRef"
 <span class="w">      </span><span class="s">metadata</span><span class="nv"> </span><span class="s">component,</span><span class="nv"> </span><span class="s">unless</span><span class="nv"> </span><span class="s">restricted</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">Business</span><span class="nv"> </span><span class="s">Rules.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyStructure</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -429,7 +439,6 @@ Arm ||--|o WorkflowRef : "workflowRef"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">arm</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyStructure</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -448,7 +457,6 @@ Arm ||--|o WorkflowRef : "workflowRef"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">epoch</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyStructure</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -461,7 +469,6 @@ Arm ||--|o WorkflowRef : "workflowRef"
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'WorkflowRef</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">WorkflowRef</span><span class="nv"> </span><span class="s">references</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">workflow</span><span class="nv"> </span><span class="s">definition'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workflowRef</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StudyStructure</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -553,5 +560,12 @@ Arm ||--|o WorkflowRef : "workflowRef"
 </div>
 </div>
 </div>
-</body>
+<script>window.mermaidConfig = {default: {
+    startOnLoad: false,
+    mermaid: {
+        er: {
+            useMaxWidth: true
+        }
+    }
+}}</script></body>
 </html>

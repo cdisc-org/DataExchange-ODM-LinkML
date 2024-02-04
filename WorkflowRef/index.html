@@ -16,7 +16,7 @@
 <script>hljs.highlightAll();</script>
 </head>
 <body>
-<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 <div class="container">
 <a class="navbar-brand" href="..">DataExchange-ODM-LinkML</a>
 <!-- Expander button -->
@@ -94,9 +94,45 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/WorkflowRef">odm:WorkflowRef</a></p>
 <pre class="mermaid"><code>erDiagram
 WorkflowRef {
-    oidref workflowOID  
+
+}
+WorkflowDef {
+    oid OID  
+    nameType name  
+}
+Branching {
+    oid OID  
+    nameType name  
+    BranchingType type  
+}
+Transition {
+    oid OID  
+    nameType name  
+    string sourceOID  
+    string targetOID  
+}
+WorkflowEnd {
+    string endOID  
+    text content  
+}
+WorkflowStart {
+    string startOID  
+}
+Description {
+
 }
 
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+WorkflowDef ||--|o Description : "description"
+WorkflowDef ||--|o WorkflowStart : "workflowStart"
+WorkflowDef ||--}o WorkflowEnd : "workflowEnd"
+WorkflowDef ||--}o Transition : "transition"
+WorkflowDef ||--}o Branching : "branching"
+Branching ||--}o TargetTransition : "targetTransition"
+Branching ||--}o DefaultTransition : "defaultTransition"
+Transition ||--|o ConditionDef : "startConditionOID"
+Transition ||--|o ConditionDef : "endConditionOID"
+Description ||--}o TranslatedText : "translatedText"
 
 </code></pre>
 <!-- no inheritance hierarchy -->
@@ -113,7 +149,7 @@ WorkflowRef {
 <tbody>
 <tr>
 <td><a href="../workflowOID/">workflowOID</a></td>
-<td>1..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>1..1 <br/> <a href="../WorkflowDef/">WorkflowDef</a></td>
 <td>Reference to a WorkflowDef</td>
 <td>direct</td>
 </tr>
@@ -221,7 +257,7 @@ WorkflowRef {
 <span class="w">      </span><span class="s">Must</span><span class="nv"> </span><span class="s">match</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">WorkflowDef</span><span class="nv"> </span><span class="s">child</span><span class="nv"> </span><span class="s">element</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">MetaDataVersion.'</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowRef</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowDef</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">odm:WorkflowRef</span>
 </code></pre></div>
@@ -246,7 +282,7 @@ WorkflowRef {
 <span class="w">      </span><span class="s">Must</span><span class="nv"> </span><span class="s">match</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">WorkflowDef</span><span class="nv"> </span><span class="s">child</span><span class="nv"> </span><span class="s">element</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">MetaDataVersion.'</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowRef</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowDef</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">workflowOID</span><span class="p">:</span>
@@ -264,7 +300,7 @@ WorkflowRef {
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowRef</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowRef</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowDef</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">odm:WorkflowRef</span>
 </code></pre></div>
@@ -346,5 +382,12 @@ WorkflowRef {
 </div>
 </div>
 </div>
-</body>
+<script>window.mermaidConfig = {default: {
+    startOnLoad: false,
+    mermaid: {
+        er: {
+            useMaxWidth: true
+        }
+    }
+}}</script></body>
 </html>

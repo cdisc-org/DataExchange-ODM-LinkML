@@ -16,7 +16,7 @@
 <script>hljs.highlightAll();</script>
 </head>
 <body>
-<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 <div class="container">
 <a class="navbar-brand" href="..">DataExchange-ODM-LinkML</a>
 <!-- Expander button -->
@@ -78,7 +78,7 @@
 </div></div>
 <div class="col-md-9" role="main">
 <h1 id="enum-yesonly">Enum: YesOnly</h1>
-<p><em>Enumeration used in extendedValue, isNonStandard, other, repeat, isNull, hasNoData</em></p>
+<p><em>Enumeration used in other, hasNoData, isNull, extendedValue, isNonStandard, repeat</em></p>
 <p>URI: <a href="YesOnly">YesOnly</a></p>
 <p><em>This is a dynamic enum</em></p>
 <h2 id="slots">Slots</h2>
@@ -91,28 +91,28 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../isNull/">isNull</a></td>
-<td>Flag specifying that an item's value is to be set to null. In the interest of...</td>
-</tr>
-<tr>
-<td><a href="../hasNoData/">hasNoData</a></td>
-<td>Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d...</td>
-</tr>
-<tr>
-<td><a href="../extendedValue/">extendedValue</a></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="../other/">other</a></td>
 <td>Flag to indicate that the Item represents "other" content added to an ItemGro...</td>
+</tr>
+<tr>
+<td><a href="../isNull/">isNull</a></td>
+<td>Flag specifying that an item's value is to be set to null. In the interest of...</td>
 </tr>
 <tr>
 <td><a href="../isNonStandard/">isNonStandard</a></td>
 <td>Required for ADaM, SDTM, or SEND if StandardOID is not provided.</td>
 </tr>
 <tr>
+<td><a href="../extendedValue/">extendedValue</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../repeat/">repeat</a></td>
 <td>Indicates that the item serves as the item over which repeats are to be perfo...</td>
+</tr>
+<tr>
+<td><a href="../hasNoData/">hasNoData</a></td>
+<td>Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d...</td>
 </tr>
 <tr>
 <td><a href="../isNonStandard/">isNonStandard</a></td>
@@ -164,8 +164,8 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YesOnly</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Enumeration used in extendedValue, isNonStandard, other, repeat, isNull,</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">hasNoData</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Enumeration used in other, hasNoData, isNull, extendedValue, isNonStandard,</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">repeat</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 </code></pre></div>

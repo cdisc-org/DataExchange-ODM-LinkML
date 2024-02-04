@@ -16,7 +16,7 @@
 <script>hljs.highlightAll();</script>
 </head>
 <body>
-<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 <div class="container">
 <a class="navbar-brand" href="..">DataExchange-ODM-LinkML</a>
 <!-- Expander button -->
@@ -100,9 +100,8 @@ ExclusionCriteria {
 
 }
 Criterion {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref conditionOID  
 }
 InclusionCriteria {
 
@@ -111,9 +110,11 @@ InclusionCriteria {
 InclusionExclusionCriteria ||--|o InclusionCriteria : "inclusionCriteria"
 InclusionExclusionCriteria ||--|o ExclusionCriteria : "exclusionCriteria"
 ExclusionCriteria ||--}o Criterion : "criterion"
+Criterion ||--|| ConditionDef : "conditionOID"
 Criterion ||--|o Description : "description"
 Criterion ||--}o Coding : "coding"
 InclusionCriteria ||--}o Criterion : "criterion"
+
 </code></pre>
 <!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
@@ -256,7 +257,6 @@ InclusionCriteria ||--}o Criterion : "criterion"
 <span class="w">      </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">order</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">enroll</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">study.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inclusionCriteria</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionExclusionCriteria</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -271,7 +271,6 @@ InclusionCriteria ||--}o Criterion : "criterion"
 <span class="w">      </span><span class="s">may</span><span class="nv"> </span><span class="s">lead</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">exclusion</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">enrollment</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">study.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exclusionCriteria</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InclusionExclusionCriteria</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -358,5 +357,12 @@ InclusionCriteria ||--}o Criterion : "criterion"
 </div>
 </div>
 </div>
-</body>
+<script>window.mermaidConfig = {default: {
+    startOnLoad: false,
+    mermaid: {
+        er: {
+            useMaxWidth: true
+        }
+    }
+}}</script></body>
 </html>

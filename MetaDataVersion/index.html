@@ -16,7 +16,7 @@
 <script>hljs.highlightAll();</script>
 </head>
 <body>
-<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 <div class="container">
 <a class="navbar-brand" href="..">DataExchange-ODM-LinkML</a>
 <!-- Expander button -->
@@ -94,19 +94,18 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion">odm:MetaDataVersion</a></p>
 <pre class="mermaid"><code>erDiagram
 MetaDataVersion {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref commentOID  
 }
 Leaf {
-    oid iD  
+    oid ID  
     uriorcurie href  
 }
 Title {
     text content  
 }
 CommentDef {
-    oid oID  
+    oid OID  
 }
 DocumentRef {
     oid leafID  
@@ -115,10 +114,9 @@ Description {
 
 }
 MethodDef {
-    oid oID  
+    oid OID  
     nameType name  
     MethodType type  
-    oidref commentOID  
 }
 Alias {
     text context  
@@ -131,16 +129,13 @@ MethodSignature {
 
 }
 ConditionDef {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref commentOID  
 }
 CodeList {
-    oid oID  
+    oid OID  
     nameType name  
     CLDataType dataType  
-    oidref commentOID  
-    oidref standardOID  
     YesOnly isNonStandard  
 }
 Coding {
@@ -159,27 +154,32 @@ CodeListItem {
     YesOnly other  
     positiveInteger orderNumber  
     YesOnly extendedValue  
-    oidref commentOID  
+}
+Standard {
+    oid OID  
+    StandardName name  
+    StandardType type  
+    StandardPublishingSet publishingSet  
+    text version  
+    StandardStatus status  
 }
 ItemDef {
-    oid oID  
+    oid OID  
     nameType name  
     DataType dataType  
     positiveInteger length  
     text displayFormat  
     text variableSet  
-    oidref commentOID  
 }
 ValueListRef {
-    oidref valueListOID  
+
 }
 CodeListRef {
-    oidref codeListOID  
+
 }
 RangeCheck {
     Comparator comparator  
     SoftOrHard softHard  
-    oidref itemOID  
 }
 CDISCNotes {
 
@@ -200,106 +200,94 @@ Definition {
 
 }
 ItemGroupDef {
-    oid oID  
+    oid OID  
     nameType name  
     ItemGroupRepeatingType repeating  
     positiveInteger repeatingLimit  
     YesOrNo isReferenceData  
     text structure  
-    oidref archiveLocationID  
     nameType datasetName  
     text domain  
     ItemGroupTypeType type  
     text purpose  
-    oidref standardOID  
     YesOnly isNonStandard  
     YesOnly hasNoData  
-    oidref commentOID  
 }
 ItemRef {
-    oidref itemOID  
     positiveInteger keySequence  
     YesOnly isNonStandard  
     YesOnly hasNoData  
-    oidref methodOID  
-    oidref unitsItemOID  
     YesOnly repeat  
     YesOnly other  
     text role  
-    oidref roleCodeListOID  
     CoreType core  
     text preSpecifiedValue  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
 }
 ItemGroupRef {
-    oidref itemGroupOID  
-    oidref methodOID  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
 }
 Origin {
     OriginType type  
     OriginSource source  
 }
 WorkflowRef {
-    oidref workflowOID  
+
 }
 Class {
     ItemGroupClass name  
 }
 StudyEventDef {
-    oid oID  
+    oid OID  
     nameType name  
     YesOrNo repeating  
     EventType type  
     text category  
-    oidref commentOID  
 }
 StudyEventGroupDef {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref armOID  
-    oidref epochOID  
-    oidref commentOID  
 }
 StudyEventRef {
-    oidref studyEventOID  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
 }
 StudyEventGroupRef {
-    oidref studyEventGroupOID  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
+}
+Epoch {
+    oid OID  
+    nameType name  
+    positiveInteger sequenceNumber  
+}
+Arm {
+    oid OID  
+    nameType name  
 }
 WorkflowDef {
-    oid oID  
+    oid OID  
     nameType name  
 }
 Branching {
-    oid oID  
+    oid OID  
     nameType name  
     BranchingType type  
 }
 Transition {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref sourceOID  
-    oidref targetOID  
-    oidref startConditionOID  
-    oidref endConditionOID  
+    string sourceOID  
+    string targetOID  
 }
 WorkflowEnd {
-    oidref endOID  
+    string endOID  
     text content  
 }
 WorkflowStart {
-    oidref startOID  
+    string startOID  
 }
 Protocol {
 
@@ -311,7 +299,7 @@ StudyEstimands {
 
 }
 StudyTargetPopulation {
-    oid oID  
+    oid OID  
     nameType name  
 }
 StudyEndPoints {
@@ -339,11 +327,10 @@ StudySummary {
 
 }
 WhereClauseDef {
-    oid oID  
-    oidref commentOID  
+    oid OID  
 }
 ValueListDef {
-    oid oID  
+    oid OID  
 }
 SupplementalDoc {
 
@@ -354,21 +341,19 @@ AnnotatedCRF {
 Standards {
 
 }
-Standard {
-    oid oID  
-    StandardName name  
-    StandardType type  
-    StandardPublishingSet publishingSet  
-    text version  
-    StandardStatus status  
-    oidref commentOID  
-}
 Include {
-    oidref studyOID  
-    oidref metaDataVersionOID  
     uriorcurie href  
 }
+Study {
+    oid OID  
+    nameType studyName  
+    nameType protocolName  
+    nameType versionID  
+    nameType versionName  
+    nameType status  
+}
 
+MetaDataVersion ||--|o CommentDef : "commentOID"
 MetaDataVersion ||--|o Description : "description"
 MetaDataVersion ||--|o Include : "include"
 MetaDataVersion ||--|o Standards : "standards"
@@ -392,6 +377,7 @@ CommentDef ||--|o Description : "description"
 CommentDef ||--}o DocumentRef : "documentRef"
 DocumentRef ||--}o PDFPageRef : "pDFPageRef"
 Description ||--}o TranslatedText : "translatedText"
+MethodDef ||--|o CommentDef : "commentOID"
 MethodDef ||--|o Description : "description"
 MethodDef ||--|o MethodSignature : "methodSignature"
 MethodDef ||--}o FormalExpression : "formalExpression"
@@ -401,18 +387,24 @@ FormalExpression ||--|o Code : "code"
 FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
 MethodSignature ||--}o Parameter : "parameter"
 MethodSignature ||--}o ReturnValue : "returnValue"
+ConditionDef ||--|o CommentDef : "commentOID"
 ConditionDef ||--|o Description : "description"
 ConditionDef ||--|o MethodSignature : "methodSignature"
 ConditionDef ||--}o FormalExpression : "formalExpression"
 ConditionDef ||--}o Alias : "alias"
+CodeList ||--|o CommentDef : "commentOID"
+CodeList ||--|o Standard : "standardOID"
 CodeList ||--|o Description : "description"
 CodeList ||--}o CodeListItem : "codeListItem"
 CodeList ||--}o Coding : "coding"
 CodeList ||--}o Alias : "alias"
+CodeListItem ||--|o CommentDef : "commentOID"
 CodeListItem ||--|o Description : "description"
 CodeListItem ||--|o Decode : "decode"
 CodeListItem ||--}o Coding : "coding"
 CodeListItem ||--}o Alias : "alias"
+Standard ||--|o CommentDef : "commentOID"
+ItemDef ||--|o CommentDef : "commentOID"
 ItemDef ||--|o Description : "description"
 ItemDef ||--|o Definition : "definition"
 ItemDef ||--|o Question : "question"
@@ -425,6 +417,9 @@ ItemDef ||--|o CodeListRef : "codeListRef"
 ItemDef ||--|o ValueListRef : "valueListRef"
 ItemDef ||--}o Coding : "coding"
 ItemDef ||--}o Alias : "alias"
+ValueListRef ||--|| ValueListDef : "valueListOID"
+CodeListRef ||--|| CodeList : "codeListOID"
+RangeCheck ||--|o ItemDef : "itemOID"
 RangeCheck ||--|o ErrorMessage : "errorMessage"
 RangeCheck ||--|o MethodSignature : "methodSignature"
 RangeCheck ||--}o FormalExpression : "formalExpression"
@@ -435,6 +430,9 @@ CRFCompletionInstructions ||--}o TranslatedText : "translatedText"
 Prompt ||--}o TranslatedText : "translatedText"
 Question ||--}o TranslatedText : "translatedText"
 Definition ||--}o TranslatedText : "translatedText"
+ItemGroupDef ||--|o Leaf : "archiveLocationID"
+ItemGroupDef ||--|o Standard : "standardOID"
+ItemGroupDef ||--|o CommentDef : "commentOID"
 ItemGroupDef ||--|o Description : "description"
 ItemGroupDef ||--|o Class : "itemGroupClass"
 ItemGroupDef ||--}o Coding : "coding"
@@ -444,24 +442,44 @@ ItemGroupDef ||--}o Alias : "alias"
 ItemGroupDef ||--|o Leaf : "leaf"
 ItemGroupDef ||--}o ItemGroupRef : "itemGroupRef"
 ItemGroupDef ||--}o ItemRef : "itemRef"
+ItemRef ||--|| ItemDef : "itemOID"
+ItemRef ||--|o MethodDef : "methodOID"
+ItemRef ||--|o ItemDef : "unitsItemOID"
+ItemRef ||--|o CodeList : "roleCodeListOID"
+ItemRef ||--|o ConditionDef : "collectionExceptionConditionOID"
 ItemRef ||--}o Origin : "origin"
 ItemRef ||--}o WhereClauseRef : "whereClauseRef"
+ItemGroupRef ||--|| ItemGroupDef : "itemGroupOID"
+ItemGroupRef ||--|o MethodDef : "methodOID"
+ItemGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
 Origin ||--|o Description : "description"
 Origin ||--|o SourceItems : "sourceItems"
 Origin ||--}o Coding : "coding"
 Origin ||--}o DocumentRef : "documentRef"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
 Class ||--}o SubClass : "subClass"
+StudyEventDef ||--|o CommentDef : "commentOID"
 StudyEventDef ||--|o Description : "description"
 StudyEventDef ||--}o ItemGroupRef : "itemGroupRef"
 StudyEventDef ||--|o WorkflowRef : "workflowRef"
 StudyEventDef ||--}o Coding : "coding"
 StudyEventDef ||--}o Alias : "alias"
+StudyEventGroupDef ||--|o Arm : "armOID"
+StudyEventGroupDef ||--|o Epoch : "epochOID"
+StudyEventGroupDef ||--|o CommentDef : "commentOID"
 StudyEventGroupDef ||--|o Description : "description"
 StudyEventGroupDef ||--|o WorkflowRef : "workflowRef"
 StudyEventGroupDef ||--}o Coding : "coding"
 StudyEventGroupDef ||--}o StudyEventGroupRef : "studyEventGroupRef"
 StudyEventGroupDef ||--}o StudyEventRef : "studyEventRef"
+StudyEventRef ||--|| StudyEventDef : "studyEventOID"
+StudyEventRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+StudyEventGroupRef ||--|| StudyEventGroupDef : "studyEventGroupOID"
+StudyEventGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
 StudyEventGroupRef ||--|o Description : "description"
+Epoch ||--|o Description : "description"
+Arm ||--|o Description : "description"
+Arm ||--|o WorkflowRef : "workflowRef"
 WorkflowDef ||--|o Description : "description"
 WorkflowDef ||--|o WorkflowStart : "workflowStart"
 WorkflowDef ||--}o WorkflowEnd : "workflowEnd"
@@ -469,6 +487,8 @@ WorkflowDef ||--}o Transition : "transition"
 WorkflowDef ||--}o Branching : "branching"
 Branching ||--}o TargetTransition : "targetTransition"
 Branching ||--}o DefaultTransition : "defaultTransition"
+Transition ||--|o ConditionDef : "startConditionOID"
+Transition ||--|o ConditionDef : "endConditionOID"
 Protocol ||--|o Description : "description"
 Protocol ||--|o StudySummary : "studySummary"
 Protocol ||--|o StudyStructure : "studyStructure"
@@ -501,12 +521,18 @@ StudyStructure ||--}o Arm : "arm"
 StudyStructure ||--}o Epoch : "epoch"
 StudyStructure ||--|o WorkflowRef : "workflowRef"
 StudySummary ||--}o StudyParameter : "studyParameter"
+WhereClauseDef ||--|o CommentDef : "commentOID"
 WhereClauseDef ||--}o RangeCheck : "rangeCheck"
 ValueListDef ||--|o Description : "description"
 ValueListDef ||--}o ItemRef : "itemRef"
 SupplementalDoc ||--}o DocumentRef : "documentRef"
 AnnotatedCRF ||--}o DocumentRef : "documentRef"
 Standards ||--}o Standard : "standard"
+Include ||--|| Study : "studyOID"
+Include ||--|| MetaDataVersion : "metaDataVersionOID"
+Study ||--|o Description : "description"
+Study ||--}o MetaDataVersion : "metaDataVersion"
+
 </code></pre>
 <!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
@@ -521,7 +547,7 @@ Standards ||--}o Standard : "standard"
 </thead>
 <tbody>
 <tr>
-<td><a href="../oID/">oID</a></td>
+<td><a href="../OID/">OID</a></td>
 <td>1..1 <br/> <a href="../oid/">oid</a></td>
 <td>Unique identifier.</td>
 <td>direct</td>
@@ -534,7 +560,7 @@ Standards ||--}o Standard : "standard"
 </tr>
 <tr>
 <td><a href="../commentOID/">commentOID</a></td>
-<td>0..1 <br/> <a href="../oidref/">oidref</a></td>
+<td>0..1 <br/> <a href="../CommentDef/">CommentDef</a></td>
 <td>Reference to a CommentDef element.</td>
 <td>direct</td>
 </tr>
@@ -666,6 +692,48 @@ Standards ||--}o Standard : "standard"
 <td>range</td>
 <td><a href="./">MetaDataVersion</a></td>
 </tr>
+<tr>
+<td><a href="../Include/">Include</a></td>
+<td><a href="../metaDataVersionOID/">metaDataVersionOID</a></td>
+<td>range</td>
+<td><a href="./">MetaDataVersion</a></td>
+</tr>
+<tr>
+<td><a href="../SourceItem/">SourceItem</a></td>
+<td><a href="../metaDataVersionOID/">metaDataVersionOID</a></td>
+<td>range</td>
+<td><a href="./">MetaDataVersion</a></td>
+</tr>
+<tr>
+<td><a href="../MetaDataVersionRef/">MetaDataVersionRef</a></td>
+<td><a href="../metaDataVersionOID/">metaDataVersionOID</a></td>
+<td>range</td>
+<td><a href="./">MetaDataVersion</a></td>
+</tr>
+<tr>
+<td><a href="../ReferenceData/">ReferenceData</a></td>
+<td><a href="../metaDataVersionOID/">metaDataVersionOID</a></td>
+<td>range</td>
+<td><a href="./">MetaDataVersion</a></td>
+</tr>
+<tr>
+<td><a href="../ClinicalData/">ClinicalData</a></td>
+<td><a href="../metaDataVersionOID/">metaDataVersionOID</a></td>
+<td>range</td>
+<td><a href="./">MetaDataVersion</a></td>
+</tr>
+<tr>
+<td><a href="../Association/">Association</a></td>
+<td><a href="../metaDataVersionOID/">metaDataVersionOID</a></td>
+<td>range</td>
+<td><a href="./">MetaDataVersion</a></td>
+</tr>
+<tr>
+<td><a href="../KeySet/">KeySet</a></td>
+<td><a href="../metaDataVersionOID/">metaDataVersionOID</a></td>
+<td>range</td>
+<td><a href="./">MetaDataVersion</a></td>
+</tr>
 </tbody>
 </table>
 <h2 id="see-also">See Also</h2>
@@ -711,7 +779,7 @@ Standards ||--}o Standard : "standard"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/MetaDataVersion</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oID</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OID</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">commentOID</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
@@ -733,13 +801,14 @@ Standards ||--}o Standard : "standard"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">commentDef</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">leaf</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">oID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oID</span>
+<span class="w">  </span><span class="nt">OID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unique identifier.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
 
 <span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">oid'</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Study</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
@@ -843,7 +912,7 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MethodDef</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConditionDef</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CommentDef</span>
 <span class="w">  </span><span class="nt">description</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1028,13 +1097,14 @@ Standards ||--}o Standard : "standard"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/MetaDataVersion</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">oID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oID</span>
+<span class="w">  </span><span class="nt">OID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unique identifier.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
 
 <span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">oid'</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Study</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
@@ -1138,7 +1208,7 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MethodDef</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConditionDef</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CommentDef</span>
 <span class="w">  </span><span class="nt">description</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1308,8 +1378,8 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">oID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oID</span>
+<span class="w">  </span><span class="nt">OID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unique identifier.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
@@ -1318,7 +1388,7 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oID</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OID</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Study</span>
@@ -1431,14 +1501,13 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MethodDef</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConditionDef</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coding</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oidref</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CommentDef</span>
 <span class="w">  </span><span class="nt">description</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Description</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">free-text</span><span class="nv"> </span><span class="s">description</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">containing</span>
 <span class="w">      </span><span class="s">metadata</span><span class="nv"> </span><span class="s">component,</span><span class="nv"> </span><span class="s">unless</span><span class="nv"> </span><span class="s">restricted</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">Business</span><span class="nv"> </span><span class="s">Rules.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1486,7 +1555,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">      </span><span class="s">to</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">prior</span><span class="nv"> </span><span class="s">metadata</span><span class="nv"> </span><span class="s">version.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">include</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1500,7 +1568,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">      </span><span class="s">Study..'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standards</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1514,7 +1581,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">      </span><span class="s">fields</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">variables</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">discrete</span><span class="nv"> </span><span class="s">variable</span><span class="nv"> </span><span class="s">values</span><span class="nv"> </span><span class="s">contained</span><span class="nv"> </span><span class="s">within</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">datasets.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">annotatedCRF</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1526,7 +1592,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'SupplementalDoc</span><span class="nv"> </span><span class="s">reference:</span><span class="nv"> </span><span class="s">Supplemental</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">definitions'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">supplementalDoc</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1541,7 +1606,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">valueListDef</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1556,7 +1620,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">whereClauseDef</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1571,7 +1634,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">      </span><span class="s">must</span><span class="nv"> </span><span class="s">occur</span><span class="nv"> </span><span class="s">within</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">these</span><span class="nv"> </span><span class="s">study</span><span class="nv"> </span><span class="s">events.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">protocol</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1585,7 +1647,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workflowDef</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1601,7 +1662,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyEventGroupDef</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1619,7 +1679,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyEventDef</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1634,7 +1693,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">itemGroupDef</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1650,7 +1708,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">itemDef</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1667,7 +1724,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codeList</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1681,7 +1737,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conditionDef</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1696,7 +1751,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">methodDef</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1713,7 +1767,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">commentDef</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1728,7 +1781,6 @@ Standards ||--}o Standard : "standard"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">leaf</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1817,5 +1869,12 @@ Standards ||--}o Standard : "standard"
 </div>
 </div>
 </div>
-</body>
+<script>window.mermaidConfig = {default: {
+    startOnLoad: false,
+    mermaid: {
+        er: {
+            useMaxWidth: true
+        }
+    }
+}}</script></body>
 </html>

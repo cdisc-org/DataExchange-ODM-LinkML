@@ -16,7 +16,7 @@
 <script>hljs.highlightAll();</script>
 </head>
 <body>
-<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 <div class="container">
 <a class="navbar-brand" href="..">DataExchange-ODM-LinkML</a>
 <!-- Expander button -->
@@ -94,7 +94,7 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Study">odm:Study</a></p>
 <pre class="mermaid"><code>erDiagram
 Study {
-    oid oID  
+    oid OID  
     nameType studyName  
     nameType protocolName  
     nameType versionID  
@@ -102,90 +102,76 @@ Study {
     nameType status  
 }
 MetaDataVersion {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref commentOID  
 }
 Leaf {
-    oid iD  
+    oid ID  
     uriorcurie href  
 }
 CommentDef {
-    oid oID  
+    oid OID  
 }
 MethodDef {
-    oid oID  
+    oid OID  
     nameType name  
     MethodType type  
-    oidref commentOID  
 }
 ConditionDef {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref commentOID  
 }
 CodeList {
-    oid oID  
+    oid OID  
     nameType name  
     CLDataType dataType  
-    oidref commentOID  
-    oidref standardOID  
     YesOnly isNonStandard  
 }
 ItemDef {
-    oid oID  
+    oid OID  
     nameType name  
     DataType dataType  
     positiveInteger length  
     text displayFormat  
     text variableSet  
-    oidref commentOID  
 }
 ItemGroupDef {
-    oid oID  
+    oid OID  
     nameType name  
     ItemGroupRepeatingType repeating  
     positiveInteger repeatingLimit  
     YesOrNo isReferenceData  
     text structure  
-    oidref archiveLocationID  
     nameType datasetName  
     text domain  
     ItemGroupTypeType type  
     text purpose  
-    oidref standardOID  
     YesOnly isNonStandard  
     YesOnly hasNoData  
-    oidref commentOID  
 }
 StudyEventDef {
-    oid oID  
+    oid OID  
     nameType name  
     YesOrNo repeating  
     EventType type  
     text category  
-    oidref commentOID  
 }
 StudyEventGroupDef {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref armOID  
-    oidref epochOID  
-    oidref commentOID  
 }
 WorkflowDef {
-    oid oID  
+    oid OID  
     nameType name  
 }
 Protocol {
 
 }
 WhereClauseDef {
-    oid oID  
-    oidref commentOID  
+    oid OID  
 }
 ValueListDef {
-    oid oID  
+    oid OID  
 }
 SupplementalDoc {
 
@@ -197,8 +183,6 @@ Standards {
 
 }
 Include {
-    oidref studyOID  
-    oidref metaDataVersionOID  
     uriorcurie href  
 }
 Description {
@@ -207,6 +191,7 @@ Description {
 
 Study ||--|o Description : "description"
 Study ||--}o MetaDataVersion : "metaDataVersion"
+MetaDataVersion ||--|o CommentDef : "commentOID"
 MetaDataVersion ||--|o Description : "description"
 MetaDataVersion ||--|o Include : "include"
 MetaDataVersion ||--|o Standards : "standards"
@@ -228,19 +213,24 @@ MetaDataVersion ||--}o Leaf : "leaf"
 Leaf ||--|o Title : "title"
 CommentDef ||--|o Description : "description"
 CommentDef ||--}o DocumentRef : "documentRef"
+MethodDef ||--|o CommentDef : "commentOID"
 MethodDef ||--|o Description : "description"
 MethodDef ||--|o MethodSignature : "methodSignature"
 MethodDef ||--}o FormalExpression : "formalExpression"
 MethodDef ||--}o Alias : "alias"
 MethodDef ||--}o DocumentRef : "documentRef"
+ConditionDef ||--|o CommentDef : "commentOID"
 ConditionDef ||--|o Description : "description"
 ConditionDef ||--|o MethodSignature : "methodSignature"
 ConditionDef ||--}o FormalExpression : "formalExpression"
 ConditionDef ||--}o Alias : "alias"
+CodeList ||--|o CommentDef : "commentOID"
+CodeList ||--|o Standard : "standardOID"
 CodeList ||--|o Description : "description"
 CodeList ||--}o CodeListItem : "codeListItem"
 CodeList ||--}o Coding : "coding"
 CodeList ||--}o Alias : "alias"
+ItemDef ||--|o CommentDef : "commentOID"
 ItemDef ||--|o Description : "description"
 ItemDef ||--|o Definition : "definition"
 ItemDef ||--|o Question : "question"
@@ -253,6 +243,9 @@ ItemDef ||--|o CodeListRef : "codeListRef"
 ItemDef ||--|o ValueListRef : "valueListRef"
 ItemDef ||--}o Coding : "coding"
 ItemDef ||--}o Alias : "alias"
+ItemGroupDef ||--|o Leaf : "archiveLocationID"
+ItemGroupDef ||--|o Standard : "standardOID"
+ItemGroupDef ||--|o CommentDef : "commentOID"
 ItemGroupDef ||--|o Description : "description"
 ItemGroupDef ||--|o Class : "itemGroupClass"
 ItemGroupDef ||--}o Coding : "coding"
@@ -262,11 +255,15 @@ ItemGroupDef ||--}o Alias : "alias"
 ItemGroupDef ||--|o Leaf : "leaf"
 ItemGroupDef ||--}o ItemGroupRef : "itemGroupRef"
 ItemGroupDef ||--}o ItemRef : "itemRef"
+StudyEventDef ||--|o CommentDef : "commentOID"
 StudyEventDef ||--|o Description : "description"
 StudyEventDef ||--}o ItemGroupRef : "itemGroupRef"
 StudyEventDef ||--|o WorkflowRef : "workflowRef"
 StudyEventDef ||--}o Coding : "coding"
 StudyEventDef ||--}o Alias : "alias"
+StudyEventGroupDef ||--|o Arm : "armOID"
+StudyEventGroupDef ||--|o Epoch : "epochOID"
+StudyEventGroupDef ||--|o CommentDef : "commentOID"
 StudyEventGroupDef ||--|o Description : "description"
 StudyEventGroupDef ||--|o WorkflowRef : "workflowRef"
 StudyEventGroupDef ||--}o Coding : "coding"
@@ -292,13 +289,17 @@ Protocol ||--|o InclusionExclusionCriteria : "inclusionExclusionCriteria"
 Protocol ||--}o StudyEventGroupRef : "studyEventGroupRef"
 Protocol ||--|o WorkflowRef : "workflowRef"
 Protocol ||--}o Alias : "alias"
+WhereClauseDef ||--|o CommentDef : "commentOID"
 WhereClauseDef ||--}o RangeCheck : "rangeCheck"
 ValueListDef ||--|o Description : "description"
 ValueListDef ||--}o ItemRef : "itemRef"
 SupplementalDoc ||--}o DocumentRef : "documentRef"
 AnnotatedCRF ||--}o DocumentRef : "documentRef"
 Standards ||--}o Standard : "standard"
+Include ||--|| Study : "studyOID"
+Include ||--|| MetaDataVersion : "metaDataVersionOID"
 Description ||--}o TranslatedText : "translatedText"
+
 </code></pre>
 <!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
@@ -313,7 +314,7 @@ Description ||--}o TranslatedText : "translatedText"
 </thead>
 <tbody>
 <tr>
-<td><a href="../oID/">oID</a></td>
+<td><a href="../OID/">OID</a></td>
 <td>1..1 <br/> <a href="../oid/">oid</a></td>
 <td>Unique identifier for the study.</td>
 <td>direct</td>
@@ -375,6 +376,54 @@ Description ||--}o TranslatedText : "translatedText"
 </thead>
 <tbody>
 <tr>
+<td><a href="../Include/">Include</a></td>
+<td><a href="../studyOID/">studyOID</a></td>
+<td>range</td>
+<td><a href="./">Study</a></td>
+</tr>
+<tr>
+<td><a href="../SourceItem/">SourceItem</a></td>
+<td><a href="../studyOID/">studyOID</a></td>
+<td>range</td>
+<td><a href="./">Study</a></td>
+</tr>
+<tr>
+<td><a href="../AdminData/">AdminData</a></td>
+<td><a href="../studyOID/">studyOID</a></td>
+<td>range</td>
+<td><a href="./">Study</a></td>
+</tr>
+<tr>
+<td><a href="../MetaDataVersionRef/">MetaDataVersionRef</a></td>
+<td><a href="../studyOID/">studyOID</a></td>
+<td>range</td>
+<td><a href="./">Study</a></td>
+</tr>
+<tr>
+<td><a href="../ReferenceData/">ReferenceData</a></td>
+<td><a href="../studyOID/">studyOID</a></td>
+<td>range</td>
+<td><a href="./">Study</a></td>
+</tr>
+<tr>
+<td><a href="../ClinicalData/">ClinicalData</a></td>
+<td><a href="../studyOID/">studyOID</a></td>
+<td>range</td>
+<td><a href="./">Study</a></td>
+</tr>
+<tr>
+<td><a href="../Association/">Association</a></td>
+<td><a href="../studyOID/">studyOID</a></td>
+<td>range</td>
+<td><a href="./">Study</a></td>
+</tr>
+<tr>
+<td><a href="../KeySet/">KeySet</a></td>
+<td><a href="../studyOID/">studyOID</a></td>
+<td>range</td>
+<td><a href="./">Study</a></td>
+</tr>
+<tr>
 <td><a href="../ODMFileMetadata/">ODMFileMetadata</a></td>
 <td><a href="../study/">study</a></td>
 <td>range</td>
@@ -422,7 +471,7 @@ Description ||--}o TranslatedText : "translatedText"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/Study</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oID</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OID</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">studyName</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">protocolName</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">versionID</span>
@@ -431,13 +480,14 @@ Description ||--}o TranslatedText : "translatedText"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">metaDataVersion</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">oID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oID</span>
+<span class="w">  </span><span class="nt">OID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unique identifier for the study.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
 
 <span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">oid'</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Study</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
@@ -602,13 +652,14 @@ Description ||--}o TranslatedText : "translatedText"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/Study</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">oID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oID</span>
+<span class="w">  </span><span class="nt">OID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unique identifier for the study.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
 
 <span class="w">      </span><span class="s">range:</span><span class="nv"> </span><span class="s">oid'</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Study</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetaDataVersion</span>
@@ -761,8 +812,8 @@ Description ||--}o TranslatedText : "translatedText"
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">oID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oID</span>
+<span class="w">  </span><span class="nt">OID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unique identifier for the study.</span>
 <span class="w">    </span><span class="nt">comments</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Required</span>
@@ -771,7 +822,7 @@ Description ||--}o TranslatedText : "translatedText"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oID</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OID</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Study</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Study</span>
@@ -901,7 +952,6 @@ Description ||--}o TranslatedText : "translatedText"
 <span class="w">      </span><span class="s">metadata</span><span class="nv"> </span><span class="s">component,</span><span class="nv"> </span><span class="s">unless</span><span class="nv"> </span><span class="s">restricted</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">Business</span><span class="nv"> </span><span class="s">Rules.'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Study</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -954,7 +1004,6 @@ Description ||--}o TranslatedText : "translatedText"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">metaDataVersion</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Study</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1042,5 +1091,12 @@ Description ||--}o TranslatedText : "translatedText"
 </div>
 </div>
 </div>
-</body>
+<script>window.mermaidConfig = {default: {
+    startOnLoad: false,
+    mermaid: {
+        er: {
+            useMaxWidth: true
+        }
+    }
+}}</script></body>
 </html>

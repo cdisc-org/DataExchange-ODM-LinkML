@@ -16,7 +16,7 @@
 <script>hljs.highlightAll();</script>
 </head>
 <body>
-<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 <div class="container">
 <a class="navbar-brand" href="..">DataExchange-ODM-LinkML</a>
 <!-- Expander button -->
@@ -94,7 +94,7 @@
 <p>URI: <a href="http://www.cdisc.org/ns/odm/v2.0/Leaf">odm:Leaf</a></p>
 <pre class="mermaid"><code>erDiagram
 Leaf {
-    oid iD  
+    oid ID  
     uriorcurie href  
 }
 Title {
@@ -102,6 +102,7 @@ Title {
 }
 
 Leaf ||--|o Title : "title"
+
 </code></pre>
 <!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
@@ -116,7 +117,7 @@ Leaf ||--|o Title : "title"
 </thead>
 <tbody>
 <tr>
-<td><a href="../iD/">iD</a></td>
+<td><a href="../ID/">ID</a></td>
 <td>1..1 <br/> <a href="../oid/">oid</a></td>
 <td>Unique ID for the Leaf. See Section 2.13, Element Identifiers and References ...</td>
 <td>direct</td>
@@ -155,7 +156,19 @@ Leaf ||--|o Title : "title"
 </tr>
 <tr>
 <td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
+<td><a href="../archiveLocationID/">archiveLocationID</a></td>
+<td>range</td>
+<td><a href="./">Leaf</a></td>
+</tr>
+<tr>
+<td><a href="../ItemGroupDef/">ItemGroupDef</a></td>
 <td><a href="../leaf/">leaf</a></td>
+<td>range</td>
+<td><a href="./">Leaf</a></td>
+</tr>
+<tr>
+<td><a href="../SourceItem/">SourceItem</a></td>
+<td><a href="../leafID/">leafID</a></td>
 <td>range</td>
 <td><a href="./">Leaf</a></td>
 </tr>
@@ -200,12 +213,12 @@ Leaf ||--|o Title : "title"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/Leaf</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iD</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ID</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">href</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">iD</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iD</span>
+<span class="w">  </span><span class="nt">ID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Unique</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Leaf.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">Section</span><span class="nv"> </span><span class="s">2.13,</span><span class="nv"> </span><span class="s">Element</span><span class="nv"> </span><span class="s">Identifiers</span><span class="nv"> </span><span class="s">and</span>
 <span class="w">      </span><span class="s">References</span><span class="nv"> </span><span class="s">,</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">considerations.</span><span class="nv"> </span><span class="s">Business</span><span class="nv"> </span><span class="s">Rule:</span><span class="nv"> </span><span class="s">Leaf</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">attributes</span><span class="nv"> </span><span class="s">must</span>
 <span class="w">      </span><span class="s">be</span><span class="nv"> </span><span class="s">unique</span><span class="nv"> </span><span class="s">within</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">ODM</span><span class="nv"> </span><span class="s">document</span><span class="nv"> </span><span class="s">(i.e.,</span><span class="nv"> </span><span class="s">there</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">Leaf</span><span class="nv"> </span><span class="s">elements</span><span class="nv"> </span><span class="s">with</span>
@@ -216,6 +229,7 @@ Leaf ||--|o Title : "title"
 <span class="w">      </span><span class="s">enum</span><span class="nv"> </span><span class="s">values:</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">Leaf</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">based</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">XML</span><span class="nv"> </span><span class="s">xs:ID</span><span class="nv"> </span><span class="s">datatype,</span><span class="nv"> </span><span class="s">which</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">Non-Colonized</span>
 <span class="w">      </span><span class="s">Name;</span><span class="nv"> </span><span class="s">therefore,</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">attributes</span><span class="nv"> </span><span class="s">must</span><span class="nv"> </span><span class="s">start</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">either</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">letter</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">underscore</span>
 <span class="w">      </span><span class="s">(_),</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">may</span><span class="nv"> </span><span class="s">contain</span><span class="nv"> </span><span class="s">only</span><span class="nv"> </span><span class="s">letters,</span><span class="nv"> </span><span class="s">digits,</span><span class="nv"> </span><span class="s">underscores,</span><span class="nv"> </span><span class="s">hyphens</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">periods.'</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Leaf</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Signature</span>
@@ -262,8 +276,8 @@ Leaf ||--|o Title : "title"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://wiki.cdisc.org/display/PUB/Leaf</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">iD</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iD</span>
+<span class="w">  </span><span class="nt">ID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Unique</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Leaf.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">Section</span><span class="nv"> </span><span class="s">2.13,</span><span class="nv"> </span><span class="s">Element</span><span class="nv"> </span><span class="s">Identifiers</span><span class="nv"> </span><span class="s">and</span>
 <span class="w">      </span><span class="s">References</span><span class="nv"> </span><span class="s">,</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">considerations.</span><span class="nv"> </span><span class="s">Business</span><span class="nv"> </span><span class="s">Rule:</span><span class="nv"> </span><span class="s">Leaf</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">attributes</span><span class="nv"> </span><span class="s">must</span>
 <span class="w">      </span><span class="s">be</span><span class="nv"> </span><span class="s">unique</span><span class="nv"> </span><span class="s">within</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">ODM</span><span class="nv"> </span><span class="s">document</span><span class="nv"> </span><span class="s">(i.e.,</span><span class="nv"> </span><span class="s">there</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">Leaf</span><span class="nv"> </span><span class="s">elements</span><span class="nv"> </span><span class="s">with</span>
@@ -274,6 +288,7 @@ Leaf ||--|o Title : "title"
 <span class="w">      </span><span class="s">enum</span><span class="nv"> </span><span class="s">values:</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">Leaf</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">based</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">XML</span><span class="nv"> </span><span class="s">xs:ID</span><span class="nv"> </span><span class="s">datatype,</span><span class="nv"> </span><span class="s">which</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">Non-Colonized</span>
 <span class="w">      </span><span class="s">Name;</span><span class="nv"> </span><span class="s">therefore,</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">attributes</span><span class="nv"> </span><span class="s">must</span><span class="nv"> </span><span class="s">start</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">either</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">letter</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">underscore</span>
 <span class="w">      </span><span class="s">(_),</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">may</span><span class="nv"> </span><span class="s">contain</span><span class="nv"> </span><span class="s">only</span><span class="nv"> </span><span class="s">letters,</span><span class="nv"> </span><span class="s">digits,</span><span class="nv"> </span><span class="s">underscores,</span><span class="nv"> </span><span class="s">hyphens</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">periods.'</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Leaf</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Signature</span>
@@ -309,8 +324,8 @@ Leaf ||--|o Title : "title"
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Title</span>
 <span class="w">    </span><span class="nt">maximum_cardinality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">iD</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iD</span>
+<span class="w">  </span><span class="nt">ID</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ID</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Unique</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Leaf.</span><span class="nv"> </span><span class="s">See</span><span class="nv"> </span><span class="s">Section</span><span class="nv"> </span><span class="s">2.13,</span><span class="nv"> </span><span class="s">Element</span><span class="nv"> </span><span class="s">Identifiers</span><span class="nv"> </span><span class="s">and</span>
 <span class="w">      </span><span class="s">References</span><span class="nv"> </span><span class="s">,</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">OID</span><span class="nv"> </span><span class="s">considerations.</span><span class="nv"> </span><span class="s">Business</span><span class="nv"> </span><span class="s">Rule:</span><span class="nv"> </span><span class="s">Leaf</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">attributes</span><span class="nv"> </span><span class="s">must</span>
 <span class="w">      </span><span class="s">be</span><span class="nv"> </span><span class="s">unique</span><span class="nv"> </span><span class="s">within</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">ODM</span><span class="nv"> </span><span class="s">document</span><span class="nv"> </span><span class="s">(i.e.,</span><span class="nv"> </span><span class="s">there</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">Leaf</span><span class="nv"> </span><span class="s">elements</span><span class="nv"> </span><span class="s">with</span>
@@ -324,7 +339,7 @@ Leaf ||--|o Title : "title"
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iD</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ID</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Leaf</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Leaf</span>
@@ -361,7 +376,6 @@ Leaf ||--|o Title : "title"
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Text with the label for the document or dataset.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.cdisc.org/ns/odm/v2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Leaf</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -449,5 +463,12 @@ Leaf ||--|o Title : "title"
 </div>
 </div>
 </div>
-</body>
+<script>window.mermaidConfig = {default: {
+    startOnLoad: false,
+    mermaid: {
+        er: {
+            useMaxWidth: true
+        }
+    }
+}}</script></body>
 </html>
