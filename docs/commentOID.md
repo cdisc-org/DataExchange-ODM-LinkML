@@ -89,8 +89,8 @@ domain_of:
 - Coding
 range: string
 any_of:
-- range: oidref
 - range: text
+- range: CommentDef
 
 ```
 </details>

@@ -59,7 +59,6 @@ description: 'User reference: Information about a specific user of a clinical da
   collection or data management system.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: user
 domain_of:
 - AdminData

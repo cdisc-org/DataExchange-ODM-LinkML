@@ -59,7 +59,6 @@ description: 'StudyTimings reference: The StudyTimings element is a container el
   for individual StudyTiming elements.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyTimings
 domain_of:
 - Protocol

@@ -59,7 +59,6 @@ description: 'Prefix reference: Title or other prefix. Maps to FHIR HumanName.pr
   (https://www.hl7.org/fhir/datatypes.html#humanname).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: prefix
 domain_of:
 - User

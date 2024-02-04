@@ -59,7 +59,6 @@ description: 'LegalReason reference: The responsibility statement associated wit
   a signature (e.g., "The signer accepts responsibility for the accuracy of this data.").'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: legalReason
 domain_of:
 - SignatureDef

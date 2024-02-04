@@ -62,7 +62,6 @@ description: 'Epoch reference: The planned period of subjects'' participation in
   study being assigned the sequence number 1. Sequence numbers are subsequent.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: epoch
 domain_of:
 - StudyStructure

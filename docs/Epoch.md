@@ -11,7 +11,7 @@ URI: [odm:Epoch](http://www.cdisc.org/ns/odm/v2.0/Epoch)
 ```mermaid
 erDiagram
 Epoch {
-    oid oID  
+    oid OID  
     nameType name  
     positiveInteger sequenceNumber  
 }
@@ -38,7 +38,7 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Epoch. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Epoch. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name of the study epoch. | direct |
 | [sequenceNumber](sequenceNumber.md) | 1..1 <br/> [positiveInteger](positiveInteger.md) | Order of the Epoch | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
@@ -52,6 +52,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [StudyEventGroupDef](StudyEventGroupDef.md) | [epochOID](epochOID.md) | range | [Epoch](Epoch.md) |
 | [StudyStructure](StudyStructure.md) | [epoch](epoch.md) | range | [Epoch](Epoch.md) |
 
 
@@ -110,13 +111,13 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Epoch
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - sequenceNumber
 - description
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the Epoch.
     comments:
     - 'Required
@@ -124,6 +125,7 @@ slot_usage:
       range: oid
 
       The Epoch/@OID must be unique within the Study'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -281,8 +283,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Epoch
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the Epoch.
     comments:
     - 'Required
@@ -290,6 +292,7 @@ slot_usage:
       range: oid
 
       The Epoch/@OID must be unique within the Study'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -428,8 +431,8 @@ slot_usage:
     range: Description
     maximum_cardinality: 1
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the Epoch.
     comments:
     - 'Required
@@ -440,7 +443,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: Epoch
     domain_of:
     - Study
@@ -552,7 +555,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: Epoch
     domain_of:

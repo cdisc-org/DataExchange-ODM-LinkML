@@ -58,7 +58,6 @@ name: standard
 description: Definition of a standard referenced in the Define-XML document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: standard
 domain_of:
 - Standards

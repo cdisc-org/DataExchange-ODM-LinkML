@@ -59,7 +59,6 @@ description: 'WorkflowEnd reference: A WorkflowEnd references a structural eleme
   with which the workflows ends.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: workflowEnd
 domain_of:
 - WorkflowDef

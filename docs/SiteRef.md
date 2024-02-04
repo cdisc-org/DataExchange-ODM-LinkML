@@ -11,10 +11,67 @@ URI: [odm:SiteRef](http://www.cdisc.org/ns/odm/v2.0/SiteRef)
 ```mermaid
 erDiagram
 SiteRef {
-    oidref locationOID  
+
+}
+Location {
+    oid OID  
+    nameType name  
+    text role  
+}
+Query {
+    oid OID  
+    QuerySourceType source  
+    text target  
+    QueryType type  
+    QueryStateType state  
+    datetime lastUpdateDatetime  
+    nameType name  
+}
+Telecom {
+    TelecomTypeType telecomType  
+    text value  
+}
+Address {
+
+}
+MetaDataVersionRef {
+    date effectiveDate  
+}
+Description {
+
+}
+Organization {
+    oid OID  
+    nameType name  
+    text role  
+    OrganizationType type  
 }
 
-
+SiteRef ||--|| Location : "locationOID"
+Location ||--|o Organization : "organizationOID"
+Location ||--|o Description : "description"
+Location ||--}o MetaDataVersionRef : "metaDataVersionRef"
+Location ||--}o Address : "address"
+Location ||--}o Telecom : "telecom"
+Location ||--}o Query : "query"
+Query ||--|o Value : "value"
+Query ||--}o AuditRecord : "auditRecord"
+Address ||--|o StreetName : "streetName"
+Address ||--|o HouseNumber : "houseNumber"
+Address ||--|o City : "city"
+Address ||--|o StateProv : "stateProv"
+Address ||--|o Country : "country"
+Address ||--|o PostalCode : "postalCode"
+Address ||--|o GeoPosition : "geoPosition"
+Address ||--|o OtherText : "otherText"
+MetaDataVersionRef ||--|| Study : "studyOID"
+MetaDataVersionRef ||--|| MetaDataVersion : "metaDataVersionOID"
+Description ||--}o TranslatedText : "translatedText"
+Organization ||--|o Location : "locationOID"
+Organization ||--|o Organization : "partOfOrganizationOID"
+Organization ||--|o Description : "description"
+Organization ||--}o Address : "address"
+Organization ||--}o Telecom : "telecom"
 
 ```
 
@@ -27,7 +84,7 @@ SiteRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [locationOID](locationOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a Location definition. | direct |
+| [locationOID](locationOID.md) | 1..1 <br/> [Location](Location.md) | Reference to a Location definition. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -110,7 +167,7 @@ slot_usage:
     - Organization
     - SiteRef
     - LocationRef
-    range: oidref
+    range: Location
     required: true
 class_uri: odm:SiteRef
 
@@ -144,7 +201,7 @@ slot_usage:
     - Organization
     - SiteRef
     - LocationRef
-    range: oidref
+    range: Location
     required: true
 attributes:
   locationOID:
@@ -166,7 +223,7 @@ attributes:
     - Organization
     - SiteRef
     - LocationRef
-    range: oidref
+    range: Location
     required: true
 class_uri: odm:SiteRef
 

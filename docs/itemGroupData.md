@@ -62,7 +62,6 @@ description: 'ItemGroupData reference: Clinical data corresponding to an ItemGro
   defined in the active MetaDataVersion.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: itemGroupData
 domain_of:
 - ReferenceData

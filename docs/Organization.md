@@ -11,12 +11,10 @@ URI: [odm:Organization](http://www.cdisc.org/ns/odm/v2.0/Organization)
 ```mermaid
 erDiagram
 Organization {
-    oid oID  
+    oid OID  
     nameType name  
     text role  
     OrganizationType type  
-    oidref locationOID  
-    oidref partOfOrganizationOID  
 }
 Telecom {
     TelecomTypeType telecomType  
@@ -59,7 +57,26 @@ TranslatedText {
     text type  
     contentType content  
 }
+Location {
+    oid OID  
+    nameType name  
+    text role  
+}
+Query {
+    oid OID  
+    QuerySourceType source  
+    text target  
+    QueryType type  
+    QueryStateType state  
+    datetime lastUpdateDatetime  
+    nameType name  
+}
+MetaDataVersionRef {
+    date effectiveDate  
+}
 
+Organization ||--|o Location : "locationOID"
+Organization ||--|o Organization : "partOfOrganizationOID"
 Organization ||--|o Description : "description"
 Organization ||--}o Address : "address"
 Organization ||--}o Telecom : "telecom"
@@ -72,6 +89,16 @@ Address ||--|o PostalCode : "postalCode"
 Address ||--|o GeoPosition : "geoPosition"
 Address ||--|o OtherText : "otherText"
 Description ||--}o TranslatedText : "translatedText"
+Location ||--|o Organization : "organizationOID"
+Location ||--|o Description : "description"
+Location ||--}o MetaDataVersionRef : "metaDataVersionRef"
+Location ||--}o Address : "address"
+Location ||--}o Telecom : "telecom"
+Location ||--}o Query : "query"
+Query ||--|o Value : "value"
+Query ||--}o AuditRecord : "auditRecord"
+MetaDataVersionRef ||--|| Study : "studyOID"
+MetaDataVersionRef ||--|| MetaDataVersion : "metaDataVersionOID"
 
 ```
 
@@ -84,12 +111,12 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the organization. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the organization. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Formal, human readable name of the organization. | direct |
 | [role](role.md) | 0..1 <br/> [text](text.md) | Role of the organization in the current study. | direct |
 | [type](type.md) | 1..1 <br/> [OrganizationType](OrganizationType.md) | Categorization of organizations associated with clinical studies. | direct |
-| [locationOID](locationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a location where data is collected and/or study subjects are tre... | direct |
-| [partOfOrganizationOID](partOfOrganizationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a parent organization. | direct |
+| [locationOID](locationOID.md) | 0..1 <br/> [Location](Location.md) | Reference to a location where data is collected and/or study subjects are tre... | direct |
+| [partOfOrganizationOID](partOfOrganizationOID.md) | 0..1 <br/> [Organization](Organization.md) | Reference to a parent organization. | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [address](address.md) | 0..* <br/> [Address](Address.md) | Address reference: The postal address for a user, location, or organization. | direct |
 | [telecom](telecom.md) | 0..* <br/> [Telecom](Telecom.md) | Telecom reference: The telecommunication contacts points of a user, a locatio... | direct |
@@ -104,6 +131,9 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [AdminData](AdminData.md) | [organization](organization.md) | range | [Organization](Organization.md) |
+| [User](User.md) | [organizationOID](organizationOID.md) | range | [Organization](Organization.md) |
+| [Organization](Organization.md) | [partOfOrganizationOID](partOfOrganizationOID.md) | range | [Organization](Organization.md) |
+| [Location](Location.md) | [organizationOID](organizationOID.md) | range | [Organization](Organization.md) |
 
 
 
@@ -159,7 +189,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Organization
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - role
 - type
@@ -169,8 +199,8 @@ slots:
 - address
 - telecom
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the organization.
     comments:
     - 'Required
@@ -178,6 +208,7 @@ slot_usage:
       range: oid
 
       Must be unique within the Organization elements for a study.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -316,7 +347,7 @@ slot_usage:
     - Organization
     - SiteRef
     - LocationRef
-    range: oidref
+    range: Location
   partOfOrganizationOID:
     name: partOfOrganizationOID
     description: Reference to a parent organization.
@@ -328,7 +359,7 @@ slot_usage:
       Must match the OID Organization within the study.'
     domain_of:
     - Organization
-    range: oidref
+    range: Organization
   description:
     name: description
     domain_of:
@@ -408,8 +439,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Organization
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the organization.
     comments:
     - 'Required
@@ -417,6 +448,7 @@ slot_usage:
       range: oid
 
       Must be unique within the Organization elements for a study.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -555,7 +587,7 @@ slot_usage:
     - Organization
     - SiteRef
     - LocationRef
-    range: oidref
+    range: Location
   partOfOrganizationOID:
     name: partOfOrganizationOID
     description: Reference to a parent organization.
@@ -567,7 +599,7 @@ slot_usage:
       Must match the OID Organization within the study.'
     domain_of:
     - Organization
-    range: oidref
+    range: Organization
   description:
     name: description
     domain_of:
@@ -630,8 +662,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the organization.
     comments:
     - 'Required
@@ -642,7 +674,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: Organization
     domain_of:
     - Study
@@ -798,7 +830,7 @@ attributes:
     - Organization
     - SiteRef
     - LocationRef
-    range: oidref
+    range: Location
   partOfOrganizationOID:
     name: partOfOrganizationOID
     description: Reference to a parent organization.
@@ -814,14 +846,13 @@ attributes:
     owner: Organization
     domain_of:
     - Organization
-    range: oidref
+    range: Organization
   description:
     name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: Organization
     domain_of:
@@ -869,7 +900,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: address
     owner: Organization
     domain_of:
@@ -886,7 +916,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: telecom
     owner: Organization
     domain_of:

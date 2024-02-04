@@ -59,7 +59,6 @@ description: 'TargetTransition reference: TargetTransition provides a reference 
   a Transition element that is the target of a branching.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: targetTransition
 domain_of:
 - Branching

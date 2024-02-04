@@ -14,7 +14,7 @@ StudySummary {
 
 }
 StudyParameter {
-    oid oID  
+    oid OID  
     nameType term  
     nameType shortName  
 }
@@ -160,7 +160,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: studyParameter
     owner: StudySummary
     domain_of:

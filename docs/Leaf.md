@@ -11,7 +11,7 @@ URI: [odm:Leaf](http://www.cdisc.org/ns/odm/v2.0/Leaf)
 ```mermaid
 erDiagram
 Leaf {
-    oid iD  
+    oid ID  
     uriorcurie href  
 }
 Title {
@@ -31,7 +31,7 @@ Leaf ||--|o Title : "title"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [iD](iD.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the Leaf. See Section 2.13, Element Identifiers and References ... | direct |
+| [ID](ID.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the Leaf. See Section 2.13, Element Identifiers and References ... | direct |
 | [href](href.md) | 1..1 <br/> [uriorcurie](uriorcurie.md) | URL that can be used to identify the location of a document or dataset file r... | direct |
 | [title](title.md) | 0..1 <br/> [Title](Title.md) | Text with the label for the document or dataset. | direct |
 
@@ -45,7 +45,9 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [MetaDataVersion](MetaDataVersion.md) | [leaf](leaf.md) | range | [Leaf](Leaf.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [archiveLocationID](archiveLocationID.md) | range | [Leaf](Leaf.md) |
 | [ItemGroupDef](ItemGroupDef.md) | [leaf](leaf.md) | range | [Leaf](Leaf.md) |
+| [SourceItem](SourceItem.md) | [leafID](leafID.md) | range | [Leaf](Leaf.md) |
 
 
 
@@ -99,12 +101,12 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Leaf
 rank: 1000
 slots:
-- iD
+- ID
 - href
 - title
 slot_usage:
-  iD:
-    name: iD
+  ID:
+    name: ID
     description: 'Unique ID for the Leaf. See Section 2.13, Element Identifiers and
       References , for OID considerations. Business Rule: Leaf ID attributes must
       be unique within the ODM document (i.e., there can be no 2 Leaf elements with
@@ -115,6 +117,7 @@ slot_usage:
       enum values: The Leaf ID is based on the XML xs:ID datatype, which is a Non-Colonized
       Name; therefore, ID attributes must start with either a letter or underscore
       (_), and may contain only letters, digits, underscores, hyphens and periods.'
+    identifier: true
     domain_of:
     - Leaf
     - Signature
@@ -165,8 +168,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Leaf
 rank: 1000
 slot_usage:
-  iD:
-    name: iD
+  ID:
+    name: ID
     description: 'Unique ID for the Leaf. See Section 2.13, Element Identifiers and
       References , for OID considerations. Business Rule: Leaf ID attributes must
       be unique within the ODM document (i.e., there can be no 2 Leaf elements with
@@ -177,6 +180,7 @@ slot_usage:
       enum values: The Leaf ID is based on the XML xs:ID datatype, which is a Non-Colonized
       Name; therefore, ID attributes must start with either a letter or underscore
       (_), and may contain only letters, digits, underscores, hyphens and periods.'
+    identifier: true
     domain_of:
     - Leaf
     - Signature
@@ -212,8 +216,8 @@ slot_usage:
     range: Title
     maximum_cardinality: 1
 attributes:
-  iD:
-    name: iD
+  ID:
+    name: ID
     description: 'Unique ID for the Leaf. See Section 2.13, Element Identifiers and
       References , for OID considerations. Business Rule: Leaf ID attributes must
       be unique within the ODM document (i.e., there can be no 2 Leaf elements with
@@ -227,7 +231,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: iD
+    alias: ID
     owner: Leaf
     domain_of:
     - Leaf
@@ -264,7 +268,6 @@ attributes:
     description: Text with the label for the document or dataset.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: title
     owner: Leaf
     domain_of:

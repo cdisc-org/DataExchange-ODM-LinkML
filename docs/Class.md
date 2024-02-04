@@ -43,7 +43,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ItemGroupDef](ItemGroupDef.md) | [classRef](classRef.md) | range | [Class](Class.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [itemGroupClass](itemGroupClass.md) | range | [Class](Class.md) |
 
 
 
@@ -289,7 +289,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: subClass
     owner: Class
     domain_of:

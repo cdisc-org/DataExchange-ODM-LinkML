@@ -59,7 +59,6 @@ name: locationRef
 description: 'LocationRef reference: A reference to the user''s physical location.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: locationRef
 domain_of:
 - AuditRecord

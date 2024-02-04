@@ -60,7 +60,6 @@ name: address
 description: 'Address reference: The postal address for a user, location, or organization.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: address
 domain_of:
 - User

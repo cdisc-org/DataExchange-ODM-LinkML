@@ -11,7 +11,7 @@ URI: [odm:StudyTargetPopulation](http://www.cdisc.org/ns/odm/v2.0/StudyTargetPop
 ```mermaid
 erDiagram
 StudyTargetPopulation {
-    oid oID  
+    oid OID  
     nameType name  
 }
 FormalExpression {
@@ -64,7 +64,7 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyTargetPopulation element. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyTargetPopulation element. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name for the StudyTargetPopulation. | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
@@ -80,6 +80,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Protocol](Protocol.md) | [studyTargetPopulation](studyTargetPopulation.md) | range | [StudyTargetPopulation](StudyTargetPopulation.md) |
+| [StudyTargetPopulationRef](StudyTargetPopulationRef.md) | [studyTargetPopulationOID](studyTargetPopulationOID.md) | range | [StudyTargetPopulation](StudyTargetPopulation.md) |
 
 
 
@@ -134,14 +135,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyTargetPopulation
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - description
 - coding
 - formalExpression
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyTargetPopulation element.
     comments:
     - 'Required
@@ -149,6 +150,7 @@ slot_usage:
       range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -325,8 +327,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyTargetPopulation
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyTargetPopulation element.
     comments:
     - 'Required
@@ -334,6 +336,7 @@ slot_usage:
       range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -494,8 +497,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyTargetPopulation element.
     comments:
     - 'Required
@@ -506,7 +509,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: StudyTargetPopulation
     domain_of:
     - Study
@@ -601,7 +604,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: StudyTargetPopulation
     domain_of:
@@ -654,7 +656,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: coding
     owner: StudyTargetPopulation
     domain_of:
@@ -689,7 +690,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: formalExpression
     owner: StudyTargetPopulation
     domain_of:

@@ -59,7 +59,6 @@ class ODMLinkMLTransformer():
         _ = self.apply_class_relationships()
         _ = self.hardcoded_modifications()
 
-
     def hardcoded_modifications(self):
         """
         Content that is different from the Source Schema
@@ -93,6 +92,101 @@ class ODMLinkMLTransformer():
             self.schema.add_class(clashing_class)
             self.schema.delete_class('ODM')
 
+        # Improvements on XML: create direct references instead of oidref, simplify classes with a single attribute
+        for class_name, class_def in self.schema.schema.classes.items():
+            # print(class_name)
+            for slot_name in class_def.slots:
+                if 'any_of' in self.schema.schema.classes[class_name]['slot_usage'][slot_name]:
+                    # add references to permitted ranges in slot_usage
+                    ranges = self.schema.schema.classes[class_name]['slot_usage'][slot_name]['any_of']
+                    reference_index = next((index for index, d in enumerate(ranges) if d.get('range') == 'oidref'), -1)
+                    if reference_index >= 0:
+                        any_of = self.schema.schema.classes[class_name]['slot_usage'][slot_name]['any_of']
+                        any_of.pop(reference_index)
+                        any_of_new = list(set(any_of + [{'range': r} for r in self.find_reference_targets(slot_name)]))
+                        self.schema.schema.classes[class_name]['slot_usage'][slot_name]['any_of'] = any_of_new
+                elif 'range' in self.schema.schema.classes[class_name]['slot_usage'][slot_name]:
+                    # replace range reference in slot_usage
+                    if self.schema.schema.classes[class_name]['slot_usage'][slot_name]['range'] == 'oidref':
+                        matches = self.find_reference_targets(slot_name)
+                        if len(matches) > 1:
+                            self.schema.schema.classes[class_name]['slot_usage'][slot_name]['range'] = None
+                            self.schema.schema.classes[class_name]['slot_usage'][slot_name]['any_of'] = [{'range': m} for m in matches]
+                        if len(matches) == 1:
+                            self.schema.schema.classes[class_name]['slot_usage'][slot_name]['range'] = matches[0]
+                if len(self.schema.schema.slots[slot_name]['any_of']) > 0:
+                    # add references to permitted ranges in slot
+                    ranges = self.schema.schema.slots[slot_name]['any_of']
+                    reference_index = next((index for index, d in enumerate(ranges) if d.get('range') == 'oidref'), -1)
+                    if reference_index >= 0:
+                        any_of = self.schema.schema.slots[slot_name]['any_of']
+                        any_of.pop(reference_index)
+                        any_of_new = any_of + [{'range': r} for r in self.find_reference_targets(slot_name)]
+                        self.schema.schema.slots[slot_name]['any_of'] = any_of_new
+                elif 'range' in self.schema.schema.slots[slot_name]:
+                    # replace range reference in slot
+                    if self.schema.schema.slots[slot_name]['range'] == 'oidref':
+                        matches = self.find_reference_targets(slot_name)
+                        if len(matches) > 1:
+                            self.schema.schema.slots[slot_name]['range'] = None
+                            self.schema.schema.slots[slot_name]['any_of'] = [{'range': m} for m in matches]
+                        if len(matches) == 1:
+                            self.schema.schema.slots[slot_name]['range'] = matches[0]
+
+                # Simplify structures where the only slot is 'content' i.e. multi-line text from XML
+                # Find references to these classes from slot ranges then remove the class, and instead make the slot range 'text'
+                slot_usage = self.schema.schema.classes[class_name]['slot_usage'][slot_name]
+                slot = self.schema.schema.slots[slot_name]
+                multivalued = slot_usage['multivalued'] if 'multivalued' in slot_usage else False
+                multivalued = multivalued or slot['multivalued'] if 'multivalued' in slot else False
+                if not multivalued and len(class_def.slots) == 1:
+                    range = slot_usage['range'] if 'range' in slot_usage else None
+                    print('Consider removing', class_name, 'and replacing its references with', range, 'since it only has 1 slot', slot_name)
+
+    # Feedback for XML Schema
+    #               
+    # DocumentRef.leafID is identifier 'oid' while SourceItem.leafID is reference 'oidref'
+    # Consider giving different names since one is a reference and the other is an identifier
+    #
+    # Coding.commentOID is range 'text' when it should be 'oidref' for consistency with other ways this slot gets used
+    # This does not get linked to CommentDef because links expect 'oidref' type in XML schema         
+    #
+    # Potential ambiguity issues with Signature/SignatureDef, Comment/CommentDef, Transition/TargetTransition
+    
+    def find_reference_targets(self, slot_name) -> list:
+        """
+        Detect direct references to classes by parsing name i.e. <prefixWords>OID
+        such that "unitsItemOID" detects "ItemDef" as a reference target.
+        Exceptions capture mappings not matching prefix or with ambiguous classes
+        """
+        exceptions = {
+            'priorFileOID' : ['ODMFileMetadata'],
+            'commentOID': ['CommentDef'],
+            'leafID': ['Leaf'],
+            'archiveLocationID': ['Leaf'],
+            'targetTransitionOID': ['Transition'],
+            'signatureOID': ['SignatureDef'],
+            'startOID' : ['StudyEventGroupDef', 'StudyEventDef', 'ItemGroupDef', 'ItemDef'],
+            'endOID' : ['StudyEventGroupDef', 'StudyEventDef', 'ItemGroupDef', 'ItemDef'],
+            'predecessorOID' : ['StudyEventGroupDef', 'StudyEventDef', 'ItemGroupDef', 'ItemDef'],
+            'successorOID' : ['StudyEventGroupDef', 'StudyEventDef', 'ItemGroupDef', 'ItemDef'],
+            'structuralElementOID' : ['Study', 'Epoch', 'StudyEventGroupDef', 'StudyEventDef', 'ItemGroupDef', 'ItemDef'],
+            'sourceOID' : ['StudyEventGroupDef', 'StudyEventDef', 'ItemGroupDef', 'ItemDef', 'Branching'],
+            'targetOID' : ['StudyEventGroupDef', 'StudyEventDef', 'ItemGroupDef', 'ItemDef', 'Branching']
+        }
+        if slot_name in exceptions:
+            return exceptions[slot_name]
+        else:
+            prefix_words = re.findall(r"[A-Z]?[a-z]+", slot_name.rstrip("OID"))
+            potential_matches = [''.join(prefix_words[i:])  for i, _ in enumerate(prefix_words)]
+            potential_matches = [m[0].upper() + m[1:] for m in potential_matches]
+            potential_matches = potential_matches + [m + 'Def' for m in potential_matches]
+            matches = [m for m in potential_matches if m in self.class_names]
+            if len(matches):
+                return matches
+            print(f'no match for {slot_name} referencing any of {potential_matches}')
+            return None
+
     @staticmethod
     def map_slot_name(ref) -> str:
         # Slot names that are not permissible Python names
@@ -107,7 +201,7 @@ class ODMLinkMLTransformer():
         if ref in slot_map.keys():
             ref = slot_map[ref]
         
-        return ref if ref in ["OID"] else ref[0].lower() + ref[1:]
+        return ref if ref in ['OID', 'ID'] else ref[0].lower() + ref[1:]
         
     @staticmethod
     def map_range(range) -> str:
@@ -189,9 +283,8 @@ class ODMLinkMLTransformer():
             return context 
 
     @staticmethod
-    def is_identifier(ref) -> bool:
-        identifiers = ['OID', 'leafID', 'ID']
-        return True if ref in identifiers else None
+    def is_identifier(range) -> bool:
+        return bool(range in ['oid'])
 
     def print_debug(self, *args) -> None:
         if DEBUG:
@@ -255,7 +348,7 @@ class ODMLinkMLTransformer():
                     slot.range = ranges[0]
             else:
                 print('no range found for slot', slot_name, ranges, ref, description)
-            if self.is_identifier(slot_name):
+            if self.is_identifier(slot.range):
                 slot.identifier = True
             self.schema.add_slot(slot)
 
@@ -426,6 +519,8 @@ class ODMLinkMLTransformer():
             required = True if (attrib.get('use') == 'required') else None
             this_slot_usage = {'required': required}
             range = self.map_type(attrib.get('type')) or self.map_range(attrib_name)
+            if self.is_identifier(range):
+                this_slot_usage['identifier'] = True
             simpleType = attrib.get('xs:simpleType')
             if not range and not simpleType:
                 print('no type/s provided for', attrib_name, 'in', group_name)
@@ -552,7 +647,8 @@ class ODMLinkMLTransformer():
         if ref_name:
             this_slot = SlotDefinition(ref_name)
             this_slot['range'] = range
-            this_slot['identifier'] = bool(self.is_identifier(ref_name))
+            if self.is_identifier(range):
+                this_slot['identifier'] = True
             this_slot['description'] = mapped.get('description')
             this_slot['name'] = ref_name
             if ref_name not in self.slot_names:

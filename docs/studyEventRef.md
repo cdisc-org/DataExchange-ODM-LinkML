@@ -60,7 +60,6 @@ description: 'StudyEventRef reference: This element references a StudyEventDef a
   the types of study events that are allowed to occur within the study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyEventRef
 domain_of:
 - StudyEventGroupDef

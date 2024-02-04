@@ -28,7 +28,7 @@ URI: [odm:signatureOID](http://www.cdisc.org/ns/odm/v2.0/signatureOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [SignatureDef](SignatureDef.md)
 
 
 
@@ -61,7 +61,7 @@ rank: 1000
 alias: signatureOID
 domain_of:
 - SignatureRef
-range: oidref
+range: SignatureDef
 
 ```
 </details>

@@ -59,7 +59,6 @@ description: 'Comment reference: A free-text (uninterpreted) comment about clini
   data. The comment may have come from the sponsor or the clinical site.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: comment
 domain_of:
 - Annotation

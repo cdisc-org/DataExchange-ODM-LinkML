@@ -11,10 +11,8 @@ URI: [odm:TransitionTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/Transitio
 ```mermaid
 erDiagram
 TransitionTimingConstraint {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref transitionOID  
-    oidref methodOID  
     RelativeTimingConstraintType type  
     durationDatetime timepointTarget  
     durationDatetime timepointPreWindow  
@@ -28,9 +26,62 @@ TranslatedText {
     text type  
     contentType content  
 }
+MethodDef {
+    oid OID  
+    nameType name  
+    MethodType type  
+}
+DocumentRef {
+    oid leafID  
+}
+Alias {
+    text context  
+    text name  
+}
+FormalExpression {
+    text context  
+}
+MethodSignature {
 
+}
+CommentDef {
+    oid OID  
+}
+Transition {
+    oid OID  
+    nameType name  
+    string sourceOID  
+    string targetOID  
+}
+ConditionDef {
+    oid OID  
+    nameType name  
+}
+
+TransitionTimingConstraint ||--|| Transition : "transitionOID"
+TransitionTimingConstraint ||--|o MethodDef : "methodOID"
 TransitionTimingConstraint ||--|o Description : "description"
 Description ||--}o TranslatedText : "translatedText"
+MethodDef ||--|o CommentDef : "commentOID"
+MethodDef ||--|o Description : "description"
+MethodDef ||--|o MethodSignature : "methodSignature"
+MethodDef ||--}o FormalExpression : "formalExpression"
+MethodDef ||--}o Alias : "alias"
+MethodDef ||--}o DocumentRef : "documentRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+MethodSignature ||--}o Parameter : "parameter"
+MethodSignature ||--}o ReturnValue : "returnValue"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+Transition ||--|o ConditionDef : "startConditionOID"
+Transition ||--|o ConditionDef : "endConditionOID"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
 
 ```
 
@@ -43,10 +94,10 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human-readable name. | direct |
-| [transitionOID](transitionOID.md) | 1..1 <br/> [oidref](oidref.md) | References the workflow Transition on which the timing constraint must be exe... | direct |
-| [methodOID](methodOID.md) | 0..1 <br/> [oidref](oidref.md) | R eferences a MethodDef that returns a durationDatetime. Use of a method allo... | direct |
+| [transitionOID](transitionOID.md) | 1..1 <br/> [Transition](Transition.md) | References the workflow Transition on which the timing constraint must be exe... | direct |
+| [methodOID](methodOID.md) | 0..1 <br/> [MethodDef](MethodDef.md) | R eferences a MethodDef that returns a durationDatetime. Use of a method allo... | direct |
 | [type](type.md) | 0..1 <br/> [RelativeTimingConstraintType](RelativeTimingConstraintType.md) | Defines how the timing is to be defined between the two activities, starting ... | direct |
 | [timepointTarget](timepointTarget.md) | 1..1 <br/> [durationDatetime](durationDatetime.md) | The planned time between the 2 activities defined by the transition in the wo... | direct |
 | [timepointPreWindow](timepointPreWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Specifies the amount of time prior to the TimepointTarget, the time between t... | direct |
@@ -120,7 +171,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/TransitionTimingConstraint
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - transitionOID
 - methodOID
@@ -130,13 +181,14 @@ slots:
 - timepointPostWindow
 - description
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -230,7 +282,7 @@ slot_usage:
       range: oidref'
     domain_of:
     - TransitionTimingConstraint
-    range: oidref
+    range: Transition
     required: true
   methodOID:
     name: methodOID
@@ -252,7 +304,7 @@ slot_usage:
     - ItemGroupRef
     - ItemRef
     - TransitionTimingConstraint
-    range: oidref
+    range: MethodDef
   type:
     name: type
     description: Defines how the timing is to be defined between the two activities,
@@ -389,13 +441,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/TransitionTimingConstraint
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -489,7 +542,7 @@ slot_usage:
       range: oidref'
     domain_of:
     - TransitionTimingConstraint
-    range: oidref
+    range: Transition
     required: true
   methodOID:
     name: methodOID
@@ -511,7 +564,7 @@ slot_usage:
     - ItemGroupRef
     - ItemRef
     - TransitionTimingConstraint
-    range: oidref
+    range: MethodDef
   type:
     name: type
     description: Defines how the timing is to be defined between the two activities,
@@ -629,8 +682,8 @@ slot_usage:
     range: Description
     maximum_cardinality: 1
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
@@ -639,7 +692,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: TransitionTimingConstraint
     domain_of:
     - Study
@@ -742,7 +795,7 @@ attributes:
     owner: TransitionTimingConstraint
     domain_of:
     - TransitionTimingConstraint
-    range: oidref
+    range: Transition
     required: true
   methodOID:
     name: methodOID
@@ -768,7 +821,7 @@ attributes:
     - ItemGroupRef
     - ItemRef
     - TransitionTimingConstraint
-    range: oidref
+    range: MethodDef
   type:
     name: type
     description: Defines how the timing is to be defined between the two activities,
@@ -866,7 +919,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: TransitionTimingConstraint
     domain_of:

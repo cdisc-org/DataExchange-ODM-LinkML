@@ -59,7 +59,6 @@ description: 'Standards reference: The Standards element provides a container fo
   the list of Standard elements referenced in the MetaDataVersion for the Study..'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: standards
 domain_of:
 - MetaDataVersion

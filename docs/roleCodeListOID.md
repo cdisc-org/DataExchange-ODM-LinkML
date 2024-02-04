@@ -28,7 +28,7 @@ URI: [odm:roleCodeListOID](http://www.cdisc.org/ns/odm/v2.0/roleCodeListOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [CodeList](CodeList.md)
 
 
 
@@ -62,7 +62,7 @@ rank: 1000
 alias: roleCodeListOID
 domain_of:
 - ItemRef
-range: oidref
+range: CodeList
 
 ```
 </details>

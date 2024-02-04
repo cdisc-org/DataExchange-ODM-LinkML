@@ -28,7 +28,7 @@ URI: [odm:structuralElementOID](http://www.cdisc.org/ns/odm/v2.0/structuralEleme
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [string](string.md)
 
 
 
@@ -62,7 +62,14 @@ rank: 1000
 alias: structuralElementOID
 domain_of:
 - DurationTimingConstraint
-range: oidref
+range: string
+any_of:
+- range: Study
+- range: Epoch
+- range: StudyEventGroupDef
+- range: StudyEventDef
+- range: ItemGroupDef
+- range: ItemDef
 
 ```
 </details>

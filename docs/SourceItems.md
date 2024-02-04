@@ -24,11 +24,6 @@ Coding {
     text commentOID  
 }
 SourceItem {
-    oidref itemOID  
-    oidref itemGroupOID  
-    oidref metaDataVersionOID  
-    oidref studyOID  
-    oidref leafID  
     nameType name  
 }
 Resource {
@@ -37,12 +32,102 @@ Resource {
     text attribute  
     text label  
 }
+Leaf {
+    oid ID  
+    uriorcurie href  
+}
+Study {
+    oid OID  
+    nameType studyName  
+    nameType protocolName  
+    nameType versionID  
+    nameType versionName  
+    nameType status  
+}
+MetaDataVersion {
+    oid OID  
+    nameType name  
+}
+ItemGroupDef {
+    oid OID  
+    nameType name  
+    ItemGroupRepeatingType repeating  
+    positiveInteger repeatingLimit  
+    YesOrNo isReferenceData  
+    text structure  
+    nameType datasetName  
+    text domain  
+    ItemGroupTypeType type  
+    text purpose  
+    YesOnly isNonStandard  
+    YesOnly hasNoData  
+}
+ItemDef {
+    oid OID  
+    nameType name  
+    DataType dataType  
+    positiveInteger length  
+    text displayFormat  
+    text variableSet  
+}
 
 SourceItems ||--}o SourceItem : "sourceItem"
 SourceItems ||--}o Coding : "coding"
+SourceItem ||--|o ItemDef : "itemOID"
+SourceItem ||--|o ItemGroupDef : "itemGroupOID"
+SourceItem ||--|o MetaDataVersion : "metaDataVersionOID"
+SourceItem ||--|o Study : "studyOID"
+SourceItem ||--|o Leaf : "leafID"
 SourceItem ||--}o Resource : "resource"
 SourceItem ||--}o Coding : "coding"
 Resource ||--}o Selection : "selection"
+Leaf ||--|o Title : "title"
+Study ||--|o Description : "description"
+Study ||--}o MetaDataVersion : "metaDataVersion"
+MetaDataVersion ||--|o CommentDef : "commentOID"
+MetaDataVersion ||--|o Description : "description"
+MetaDataVersion ||--|o Include : "include"
+MetaDataVersion ||--|o Standards : "standards"
+MetaDataVersion ||--|o AnnotatedCRF : "annotatedCRF"
+MetaDataVersion ||--|o SupplementalDoc : "supplementalDoc"
+MetaDataVersion ||--}o ValueListDef : "valueListDef"
+MetaDataVersion ||--}o WhereClauseDef : "whereClauseDef"
+MetaDataVersion ||--|o Protocol : "protocol"
+MetaDataVersion ||--}o WorkflowDef : "workflowDef"
+MetaDataVersion ||--}o StudyEventGroupDef : "studyEventGroupDef"
+MetaDataVersion ||--}o StudyEventDef : "studyEventDef"
+MetaDataVersion ||--}o ItemGroupDef : "itemGroupDef"
+MetaDataVersion ||--}o ItemDef : "itemDef"
+MetaDataVersion ||--}o CodeList : "codeList"
+MetaDataVersion ||--}o ConditionDef : "conditionDef"
+MetaDataVersion ||--}o MethodDef : "methodDef"
+MetaDataVersion ||--}o CommentDef : "commentDef"
+MetaDataVersion ||--}o Leaf : "leaf"
+ItemGroupDef ||--|o Leaf : "archiveLocationID"
+ItemGroupDef ||--|o Standard : "standardOID"
+ItemGroupDef ||--|o CommentDef : "commentOID"
+ItemGroupDef ||--|o Description : "description"
+ItemGroupDef ||--|o Class : "itemGroupClass"
+ItemGroupDef ||--}o Coding : "coding"
+ItemGroupDef ||--|o WorkflowRef : "workflowRef"
+ItemGroupDef ||--}o Origin : "origin"
+ItemGroupDef ||--}o Alias : "alias"
+ItemGroupDef ||--|o Leaf : "leaf"
+ItemGroupDef ||--}o ItemGroupRef : "itemGroupRef"
+ItemGroupDef ||--}o ItemRef : "itemRef"
+ItemDef ||--|o CommentDef : "commentOID"
+ItemDef ||--|o Description : "description"
+ItemDef ||--|o Definition : "definition"
+ItemDef ||--|o Question : "question"
+ItemDef ||--|o Prompt : "prompt"
+ItemDef ||--|o CRFCompletionInstructions : "cRFCompletionInstructions"
+ItemDef ||--|o ImplementationNotes : "implementationNotes"
+ItemDef ||--|o CDISCNotes : "cDISCNotes"
+ItemDef ||--}o RangeCheck : "rangeCheck"
+ItemDef ||--|o CodeListRef : "codeListRef"
+ItemDef ||--|o ValueListRef : "valueListRef"
+ItemDef ||--}o Coding : "coding"
+ItemDef ||--}o Alias : "alias"
 
 ```
 
@@ -212,7 +297,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: sourceItem
     owner: SourceItems
     domain_of:
@@ -231,7 +315,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: coding
     owner: SourceItems
     domain_of:

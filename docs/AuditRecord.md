@@ -24,10 +24,19 @@ DateTimeStamp {
     datetime content  
 }
 LocationRef {
-    oidref locationOID  
+
+}
+Location {
+    oid OID  
+    nameType name  
+    text role  
 }
 UserRef {
-    oidref userOID  
+
+}
+User {
+    oid OID  
+    UserType userType  
 }
 
 AuditRecord ||--|o UserRef : "userRef"
@@ -35,6 +44,25 @@ AuditRecord ||--|o LocationRef : "locationRef"
 AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
 AuditRecord ||--|o ReasonForChange : "reasonForChange"
 AuditRecord ||--|o SourceID : "sourceID"
+LocationRef ||--|| Location : "locationOID"
+Location ||--|o Organization : "organizationOID"
+Location ||--|o Description : "description"
+Location ||--}o MetaDataVersionRef : "metaDataVersionRef"
+Location ||--}o Address : "address"
+Location ||--}o Telecom : "telecom"
+Location ||--}o Query : "query"
+UserRef ||--|| User : "userOID"
+User ||--|o Organization : "organizationOID"
+User ||--|o Location : "locationOID"
+User ||--|o UserName : "userName"
+User ||--|o Prefix : "prefix"
+User ||--|o Suffix : "suffix"
+User ||--|o FullName : "fullName"
+User ||--|o GivenName : "givenName"
+User ||--|o FamilyName : "familyName"
+User ||--|o Image : "image"
+User ||--}o Address : "address"
+User ||--}o Telecom : "telecom"
 
 ```
 
@@ -290,7 +318,6 @@ attributes:
       of a clinical data collection or data management system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: userRef
     owner: AuditRecord
     domain_of:
@@ -303,7 +330,6 @@ attributes:
     description: 'LocationRef reference: A reference to the user''s physical location.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: locationRef
     owner: AuditRecord
     domain_of:
@@ -316,7 +342,6 @@ attributes:
     description: 'DateTimeStamp reference: Date and time when an action was performed.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: dateTimeStamp
     owner: AuditRecord
     domain_of:
@@ -329,7 +354,6 @@ attributes:
     description: 'ReasonForChange reference: A user-supplied reason for a data change.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: reasonForChange
     owner: AuditRecord
     domain_of:
@@ -342,7 +366,6 @@ attributes:
       data within an originating system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: sourceID
     owner: AuditRecord
     domain_of:

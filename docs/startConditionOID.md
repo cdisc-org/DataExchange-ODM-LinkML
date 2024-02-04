@@ -28,7 +28,7 @@ URI: [odm:startConditionOID](http://www.cdisc.org/ns/odm/v2.0/startConditionOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [ConditionDef](ConditionDef.md)
 
 
 
@@ -66,7 +66,7 @@ rank: 1000
 alias: startConditionOID
 domain_of:
 - Transition
-range: oidref
+range: ConditionDef
 
 ```
 </details>

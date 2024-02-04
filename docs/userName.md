@@ -59,7 +59,6 @@ description: 'UserName reference: The user''s login identification in the sender
   system.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: userName
 domain_of:
 - User

@@ -59,7 +59,6 @@ description: 'IntercurrentEvent reference: The IntercurrentEvent element describ
   an intercurrent event for an estimand (e.g., treatment discontinuation).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: intercurrentEvent
 domain_of:
 - StudyEstimand

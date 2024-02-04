@@ -59,7 +59,6 @@ description: 'CRFCompletionInstructions reference: Instructions for the clinical
   on how to enter collected information on the CRF.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: cRFCompletionInstructions
 domain_of:
 - ItemDef

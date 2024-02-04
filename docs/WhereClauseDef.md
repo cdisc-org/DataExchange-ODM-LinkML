@@ -11,13 +11,11 @@ URI: [odm:WhereClauseDef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseDef)
 ```mermaid
 erDiagram
 WhereClauseDef {
-    oid oID  
-    oidref commentOID  
+    oid OID  
 }
 RangeCheck {
     Comparator comparator  
     SoftOrHard softHard  
-    oidref itemOID  
 }
 CheckValue {
     valueType content  
@@ -31,8 +29,27 @@ MethodSignature {
 ErrorMessage {
 
 }
+ItemDef {
+    oid OID  
+    nameType name  
+    DataType dataType  
+    positiveInteger length  
+    text displayFormat  
+    text variableSet  
+}
+CommentDef {
+    oid OID  
+}
+DocumentRef {
+    oid leafID  
+}
+Description {
 
+}
+
+WhereClauseDef ||--|o CommentDef : "commentOID"
 WhereClauseDef ||--}o RangeCheck : "rangeCheck"
+RangeCheck ||--|o ItemDef : "itemOID"
 RangeCheck ||--|o ErrorMessage : "errorMessage"
 RangeCheck ||--|o MethodSignature : "methodSignature"
 RangeCheck ||--}o FormalExpression : "formalExpression"
@@ -42,6 +59,23 @@ FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
 MethodSignature ||--}o Parameter : "parameter"
 MethodSignature ||--}o ReturnValue : "returnValue"
 ErrorMessage ||--}o TranslatedText : "translatedText"
+ItemDef ||--|o CommentDef : "commentOID"
+ItemDef ||--|o Description : "description"
+ItemDef ||--|o Definition : "definition"
+ItemDef ||--|o Question : "question"
+ItemDef ||--|o Prompt : "prompt"
+ItemDef ||--|o CRFCompletionInstructions : "cRFCompletionInstructions"
+ItemDef ||--|o ImplementationNotes : "implementationNotes"
+ItemDef ||--|o CDISCNotes : "cDISCNotes"
+ItemDef ||--}o RangeCheck : "rangeCheck"
+ItemDef ||--|o CodeListRef : "codeListRef"
+ItemDef ||--|o ValueListRef : "valueListRef"
+ItemDef ||--}o Coding : "coding"
+ItemDef ||--}o Alias : "alias"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -54,8 +88,8 @@ ErrorMessage ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the WhereClauseDef. See Section 2.13, Element Identifiers and R... | direct |
-| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a CommentDef that describes how to join the dat... | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the WhereClauseDef. See Section 2.13, Element Identifiers and R... | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [CommentDef](CommentDef.md) | Reference to the unique ID of a CommentDef that describes how to join the dat... | direct |
 | [rangeCheck](rangeCheck.md) | 0..* <br/> [RangeCheck](RangeCheck.md) | A WhereClause element defines a condition by using one or more RangeCheck ele... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
@@ -68,6 +102,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [MetaDataVersion](MetaDataVersion.md) | [whereClauseDef](whereClauseDef.md) | range | [WhereClauseDef](WhereClauseDef.md) |
+| [WhereClauseRef](WhereClauseRef.md) | [whereClauseOID](whereClauseOID.md) | range | [WhereClauseDef](WhereClauseDef.md) |
 
 
 
@@ -121,18 +156,19 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/WhereClauseDef
 rank: 1000
 slots:
-- oID
+- OID
 - commentOID
 - rangeCheck
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique ID for the WhereClauseDef. See Section 2.13, Element Identifiers
       and References , for OID considerations.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -197,7 +233,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   rangeCheck:
     name: rangeCheck
     description: A WhereClause element defines a condition by using one or more RangeCheck
@@ -225,14 +261,15 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/WhereClauseDef
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique ID for the WhereClauseDef. See Section 2.13, Element Identifiers
       and References , for OID considerations.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -297,7 +334,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   rangeCheck:
     name: rangeCheck
     description: A WhereClause element defines a condition by using one or more RangeCheck
@@ -310,8 +347,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique ID for the WhereClauseDef. See Section 2.13, Element Identifiers
       and References , for OID considerations.
     comments:
@@ -321,7 +358,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: WhereClauseDef
     domain_of:
     - Study
@@ -391,7 +428,7 @@ attributes:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   rangeCheck:
     name: rangeCheck
     description: A WhereClause element defines a condition by using one or more RangeCheck
@@ -399,7 +436,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: rangeCheck
     owner: WhereClauseDef
     domain_of:

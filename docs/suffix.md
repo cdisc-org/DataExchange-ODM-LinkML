@@ -59,7 +59,6 @@ description: 'Suffix reference: This element may include credentials, or suffixe
   (e.g., Jr., III).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: suffix
 domain_of:
 - User

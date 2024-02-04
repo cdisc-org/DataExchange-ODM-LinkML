@@ -11,35 +11,36 @@ URI: [odm:WorkflowDef](http://www.cdisc.org/ns/odm/v2.0/WorkflowDef)
 ```mermaid
 erDiagram
 WorkflowDef {
-    oid oID  
+    oid OID  
     nameType name  
 }
 Branching {
-    oid oID  
+    oid OID  
     nameType name  
     BranchingType type  
 }
 DefaultTransition {
-    oidref targetTransitionOID  
+
 }
 TargetTransition {
-    oidref targetTransitionOID  
-    oidref conditionOID  
+
 }
 Transition {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref sourceOID  
-    oidref targetOID  
-    oidref startConditionOID  
-    oidref endConditionOID  
+    string sourceOID  
+    string targetOID  
+}
+ConditionDef {
+    oid OID  
+    nameType name  
 }
 WorkflowEnd {
-    oidref endOID  
+    string endOID  
     text content  
 }
 WorkflowStart {
-    oidref startOID  
+    string startOID  
 }
 Description {
 
@@ -57,6 +58,16 @@ WorkflowDef ||--}o Transition : "transition"
 WorkflowDef ||--}o Branching : "branching"
 Branching ||--}o TargetTransition : "targetTransition"
 Branching ||--}o DefaultTransition : "defaultTransition"
+DefaultTransition ||--|| Transition : "targetTransitionOID"
+TargetTransition ||--|| Transition : "targetTransitionOID"
+TargetTransition ||--|o ConditionDef : "conditionOID"
+Transition ||--|o ConditionDef : "startConditionOID"
+Transition ||--|o ConditionDef : "endConditionOID"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
 Description ||--}o TranslatedText : "translatedText"
 
 ```
@@ -70,7 +81,7 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the workflow. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the workflow. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable label for the workflow. | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [workflowStart](workflowStart.md) | 0..1 <br/> [WorkflowStart](WorkflowStart.md) | WorkflowStart reference: WorkflowStart references a structural element that b... | direct |
@@ -88,6 +99,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [MetaDataVersion](MetaDataVersion.md) | [workflowDef](workflowDef.md) | range | [WorkflowDef](WorkflowDef.md) |
+| [WorkflowRef](WorkflowRef.md) | [workflowOID](workflowOID.md) | range | [WorkflowDef](WorkflowDef.md) |
 
 
 
@@ -141,7 +153,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/WorkflowDef
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - description
 - workflowStart
@@ -149,8 +161,8 @@ slots:
 - transition
 - branching
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the workflow.
     comments:
     - 'Required
@@ -158,6 +170,7 @@ slot_usage:
       range: oid
 
       The OID attribute value must be unique within the Study.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -330,8 +343,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/WorkflowDef
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the workflow.
     comments:
     - 'Required
@@ -339,6 +352,7 @@ slot_usage:
       range: oid
 
       The OID attribute value must be unique within the Study.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -496,8 +510,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the workflow.
     comments:
     - 'Required
@@ -508,7 +522,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: WorkflowDef
     domain_of:
     - Study
@@ -605,7 +619,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: WorkflowDef
     domain_of:
@@ -653,7 +666,6 @@ attributes:
       that begins the automated workflow.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: workflowStart
     owner: WorkflowDef
     domain_of:
@@ -667,7 +679,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: workflowEnd
     owner: WorkflowDef
     domain_of:
@@ -684,7 +695,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: transition
     owner: WorkflowDef
     domain_of:
@@ -700,7 +710,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: branching
     owner: WorkflowDef
     domain_of:

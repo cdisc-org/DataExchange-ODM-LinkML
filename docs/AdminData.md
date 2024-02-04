@@ -11,10 +11,10 @@ URI: [odm:AdminData](http://www.cdisc.org/ns/odm/v2.0/AdminData)
 ```mermaid
 erDiagram
 AdminData {
-    oidref studyOID  
+
 }
 SignatureDef {
-    oid oID  
+    oid OID  
     SignMethod methodology  
 }
 LegalReason {
@@ -24,13 +24,12 @@ Meaning {
     text content  
 }
 Location {
-    oid oID  
+    oid OID  
     nameType name  
     text role  
-    oidref organizationOID  
 }
 Query {
-    oid oID  
+    oid OID  
     QuerySourceType source  
     text target  
     QueryType type  
@@ -46,26 +45,20 @@ Address {
 
 }
 MetaDataVersionRef {
-    oidref studyOID  
-    oidref metaDataVersionOID  
     date effectiveDate  
 }
 Description {
 
 }
 Organization {
-    oid oID  
+    oid OID  
     nameType name  
     text role  
     OrganizationType type  
-    oidref locationOID  
-    oidref partOfOrganizationOID  
 }
 User {
-    oid oID  
+    oid OID  
     UserType userType  
-    oidref organizationOID  
-    oidref locationOID  
 }
 Image {
     fileName imageFileName  
@@ -90,13 +83,27 @@ Prefix {
 UserName {
     text content  
 }
+Study {
+    oid OID  
+    nameType studyName  
+    nameType protocolName  
+    nameType versionID  
+    nameType versionName  
+    nameType status  
+}
+MetaDataVersion {
+    oid OID  
+    nameType name  
+}
 
+AdminData ||--|o Study : "studyOID"
 AdminData ||--}o User : "user"
 AdminData ||--}o Organization : "organization"
 AdminData ||--}o Location : "location"
 AdminData ||--}o SignatureDef : "signatureDef"
 SignatureDef ||--|o Meaning : "meaning"
 SignatureDef ||--|o LegalReason : "legalReason"
+Location ||--|o Organization : "organizationOID"
 Location ||--|o Description : "description"
 Location ||--}o MetaDataVersionRef : "metaDataVersionRef"
 Location ||--}o Address : "address"
@@ -112,10 +119,16 @@ Address ||--|o Country : "country"
 Address ||--|o PostalCode : "postalCode"
 Address ||--|o GeoPosition : "geoPosition"
 Address ||--|o OtherText : "otherText"
+MetaDataVersionRef ||--|| Study : "studyOID"
+MetaDataVersionRef ||--|| MetaDataVersion : "metaDataVersionOID"
 Description ||--}o TranslatedText : "translatedText"
+Organization ||--|o Location : "locationOID"
+Organization ||--|o Organization : "partOfOrganizationOID"
 Organization ||--|o Description : "description"
 Organization ||--}o Address : "address"
 Organization ||--}o Telecom : "telecom"
+User ||--|o Organization : "organizationOID"
+User ||--|o Location : "locationOID"
 User ||--|o UserName : "userName"
 User ||--|o Prefix : "prefix"
 User ||--|o Suffix : "suffix"
@@ -125,6 +138,27 @@ User ||--|o FamilyName : "familyName"
 User ||--|o Image : "image"
 User ||--}o Address : "address"
 User ||--}o Telecom : "telecom"
+Study ||--|o Description : "description"
+Study ||--}o MetaDataVersion : "metaDataVersion"
+MetaDataVersion ||--|o CommentDef : "commentOID"
+MetaDataVersion ||--|o Description : "description"
+MetaDataVersion ||--|o Include : "include"
+MetaDataVersion ||--|o Standards : "standards"
+MetaDataVersion ||--|o AnnotatedCRF : "annotatedCRF"
+MetaDataVersion ||--|o SupplementalDoc : "supplementalDoc"
+MetaDataVersion ||--}o ValueListDef : "valueListDef"
+MetaDataVersion ||--}o WhereClauseDef : "whereClauseDef"
+MetaDataVersion ||--|o Protocol : "protocol"
+MetaDataVersion ||--}o WorkflowDef : "workflowDef"
+MetaDataVersion ||--}o StudyEventGroupDef : "studyEventGroupDef"
+MetaDataVersion ||--}o StudyEventDef : "studyEventDef"
+MetaDataVersion ||--}o ItemGroupDef : "itemGroupDef"
+MetaDataVersion ||--}o ItemDef : "itemDef"
+MetaDataVersion ||--}o CodeList : "codeList"
+MetaDataVersion ||--}o ConditionDef : "conditionDef"
+MetaDataVersion ||--}o MethodDef : "methodDef"
+MetaDataVersion ||--}o CommentDef : "commentDef"
+MetaDataVersion ||--}o Leaf : "leaf"
 
 ```
 
@@ -137,7 +171,7 @@ User ||--}o Telecom : "telecom"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [studyOID](studyOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Study . | direct |
+| [studyOID](studyOID.md) | 0..1 <br/> [Study](Study.md) | Reference to a Study . | direct |
 | [user](user.md) | 0..* <br/> [User](User.md) | User reference: Information about a specific user of a clinical data collecti... | direct |
 | [organization](organization.md) | 0..* <br/> [Organization](Organization.md) | Organization reference: An organization can reference a parent organization. ... | direct |
 | [location](location.md) | 0..* <br/> [Location](Location.md) | Location reference: A physical location associated with data collection and/o... | direct |
@@ -231,7 +265,7 @@ slot_usage:
     - ClinicalData
     - Association
     - KeySet
-    range: oidref
+    range: Study
   user:
     name: user
     multivalued: true
@@ -299,7 +333,7 @@ slot_usage:
     - ClinicalData
     - Association
     - KeySet
-    range: oidref
+    range: Study
   user:
     name: user
     multivalued: true
@@ -355,7 +389,7 @@ attributes:
     - ClinicalData
     - Association
     - KeySet
-    range: oidref
+    range: Study
   user:
     name: user
     description: 'User reference: Information about a specific user of a clinical
@@ -363,7 +397,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: user
     owner: AdminData
     domain_of:
@@ -379,7 +412,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: organization
     owner: AdminData
     domain_of:
@@ -394,7 +426,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: location
     owner: AdminData
     domain_of:
@@ -409,7 +440,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: signatureDef
     owner: AdminData
     domain_of:

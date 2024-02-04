@@ -11,10 +11,9 @@ URI: [odm:MethodDef](http://www.cdisc.org/ns/odm/v2.0/MethodDef)
 ```mermaid
 erDiagram
 MethodDef {
-    oid oID  
+    oid OID  
     nameType name  
     MethodType type  
-    oidref commentOID  
 }
 DocumentRef {
     oid leafID  
@@ -66,7 +65,11 @@ TranslatedText {
     text type  
     contentType content  
 }
+CommentDef {
+    oid OID  
+}
 
+MethodDef ||--|o CommentDef : "commentOID"
 MethodDef ||--|o Description : "description"
 MethodDef ||--|o MethodSignature : "methodSignature"
 MethodDef ||--}o FormalExpression : "formalExpression"
@@ -78,6 +81,8 @@ FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
 MethodSignature ||--}o Parameter : "parameter"
 MethodSignature ||--}o ReturnValue : "returnValue"
 Description ||--}o TranslatedText : "translatedText"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
 
 ```
 
@@ -90,10 +95,10 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifer for the MethodDef element. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifer for the MethodDef element. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name for the method. | direct |
 | [type](type.md) | 0..1 <br/> [MethodType](MethodType.md) | Computation: derivation involving one or more variables. Imputation: derivati... | direct |
-| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef with information related to this MethodDef. | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [CommentDef](CommentDef.md) | Reference to a CommentDef with information related to this MethodDef. | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [methodSignature](methodSignature.md) | 0..1 <br/> [MethodSignature](MethodSignature.md) | MethodSignature reference: A MethodSignature defines the parameters and retur... | direct |
 | [formalExpression](formalExpression.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
@@ -110,6 +115,9 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [MetaDataVersion](MetaDataVersion.md) | [methodDef](methodDef.md) | range | [MethodDef](MethodDef.md) |
+| [ItemGroupRef](ItemGroupRef.md) | [methodOID](methodOID.md) | range | [MethodDef](MethodDef.md) |
+| [ItemRef](ItemRef.md) | [methodOID](methodOID.md) | range | [MethodDef](MethodDef.md) |
+| [TransitionTimingConstraint](TransitionTimingConstraint.md) | [methodOID](methodOID.md) | range | [MethodDef](MethodDef.md) |
 
 
 
@@ -164,7 +172,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/MethodDef
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - type
 - commentOID
@@ -174,13 +182,14 @@ slots:
 - alias
 - documentRef
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifer for the MethodDef element.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -309,7 +318,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     domain_of:
@@ -415,13 +424,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/MethodDef
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifer for the MethodDef element.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -550,7 +560,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     domain_of:
@@ -640,8 +650,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifer for the MethodDef element.
     comments:
     - 'Required
@@ -650,7 +660,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: MethodDef
     domain_of:
     - Study
@@ -792,14 +802,13 @@ attributes:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: MethodDef
     domain_of:
@@ -849,7 +858,6 @@ attributes:
       Most Methods use one or more input parameters and return one or more values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: methodSignature
     owner: MethodDef
     domain_of:
@@ -870,7 +878,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: formalExpression
     owner: MethodDef
     domain_of:
@@ -890,7 +897,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: alias
     owner: MethodDef
     domain_of:
@@ -912,7 +918,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: documentRef
     owner: MethodDef
     domain_of:

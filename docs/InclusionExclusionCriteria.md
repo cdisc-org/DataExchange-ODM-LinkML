@@ -17,9 +17,8 @@ ExclusionCriteria {
 
 }
 Criterion {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref conditionOID  
 }
 InclusionCriteria {
 
@@ -28,6 +27,7 @@ InclusionCriteria {
 InclusionExclusionCriteria ||--|o InclusionCriteria : "inclusionCriteria"
 InclusionExclusionCriteria ||--|o ExclusionCriteria : "exclusionCriteria"
 ExclusionCriteria ||--}o Criterion : "criterion"
+Criterion ||--|| ConditionDef : "conditionOID"
 Criterion ||--|o Description : "description"
 Criterion ||--}o Coding : "coding"
 InclusionCriteria ||--}o Criterion : "criterion"
@@ -169,7 +169,6 @@ attributes:
       in the list in order to enroll in the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: inclusionCriteria
     owner: InclusionExclusionCriteria
     domain_of:
@@ -184,7 +183,6 @@ attributes:
       may lead to exclusion of enrollment in the study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: exclusionCriteria
     owner: InclusionExclusionCriteria
     domain_of:

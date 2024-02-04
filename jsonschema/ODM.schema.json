@@ -4,16 +4,16 @@
             "additionalProperties": false,
             "description": "The element AbsoluteTimingConstraint is used to specify when an activity, represented by either a StudyEventGroup or StudyEvent, can take place.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier.",
+                    "type": "string"
+                },
                 "description": {
                     "$ref": "#/$defs/Description",
                     "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
                 },
                 "name": {
                     "description": "Human readable name.",
-                    "type": "string"
-                },
-                "oID": {
-                    "description": "Unique identifier.",
                     "type": "string"
                 },
                 "studyEventGroupOID": {
@@ -61,7 +61,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name",
                 "timepointTarget"
             ],
@@ -187,6 +187,10 @@
             "additionalProperties": false,
             "description": "A general note about clinical data. If an annotation has both a comment and flags, the flags should be related to the comment.",
             "properties": {
+                "ID": {
+                    "description": "Unique identifier for the leaf that is referenced.",
+                    "type": "string"
+                },
                 "coding": {
                     "description": "Coding reference: Coding references a symbol from a defined code system. It uses a code defined in a terminology system to associate semantics with a given term, codelist, variable, or group of variables. The presence of a Coding element associates a meaning to its parent element. Including multiple Coding elements for a given parent indicates synonymous meanings provided by different code systems or code system versions.",
                     "items": {
@@ -205,10 +209,6 @@
                     },
                     "type": "array"
                 },
-                "iD": {
-                    "description": "Unique identifier for the leaf that is referenced.",
-                    "type": "string"
-                },
                 "seqNum": {
                     "description": "When more than 1 Value element exists this attribute uniquely identifies each Value and defines the order of a Value in a list of Values.",
                     "type": "integer"
@@ -220,7 +220,7 @@
             },
             "required": [
                 "seqNum",
-                "iD"
+                "ID"
             ],
             "title": "Annotation",
             "type": "object"
@@ -229,6 +229,10 @@
             "additionalProperties": false,
             "description": "An Arm element provides the declaration of a study arm. Arms do not have any ordering relative to one another.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the Arm definition.",
+                    "type": "string"
+                },
                 "description": {
                     "$ref": "#/$defs/Description",
                     "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
@@ -237,17 +241,13 @@
                     "description": "Human readable name of the study arm.",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique identifier for the Arm definition.",
-                    "type": "string"
-                },
                 "workflowRef": {
                     "$ref": "#/$defs/WorkflowRef",
                     "description": "WorkflowRef reference: The WorkflowRef references a workflow definition"
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name"
             ],
             "title": "Arm",
@@ -321,6 +321,10 @@
             "additionalProperties": false,
             "description": "This element describes the branching in a workflow from a source (start) structural element to 2 or more target structural elements, over a Transition element.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
                 "defaultTransition": {
                     "description": "DefaultTransition reference: The DefaultTransition references the Transition that needs to be executed when none of the TargetTransitions can be executed.",
                     "items": {
@@ -330,10 +334,6 @@
                 },
                 "name": {
                     "description": "General observation Sub Class.",
-                    "type": "string"
-                },
-                "oID": {
-                    "description": "Unique identifier of the version within the XML document.",
                     "type": "string"
                 },
                 "targetTransition": {
@@ -349,7 +349,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name",
                 "type"
             ],
@@ -521,6 +521,10 @@
             "additionalProperties": false,
             "description": "Defines a discrete set of permitted values for an item, or provides a reference to a codelist or dictionary maintained by an external organization via the Coding element, or a combination of both. Examples provided under Coding.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the Codelist element.",
+                    "type": "string"
+                },
                 "alias": {
                     "description": "Alias reference: An Alias provides an additional name for an element. The Context attribute specifies the application domain in which this additional name is relevant.",
                     "items": {
@@ -562,17 +566,13 @@
                     "description": "Human readable name for the Codelist.",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique identifier for the Codelist element.",
-                    "type": "string"
-                },
                 "standardOID": {
                     "description": "Reference to a Standard element.",
                     "type": "string"
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name",
                 "dataType"
             ],
@@ -716,6 +716,10 @@
             "additionalProperties": false,
             "description": "The Comment element allows referencing short comments self-contained in the XML document or long comments normally included in external documents. For comments included in external documents, the reference could include specific pages of a document where the comments are included.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier.",
+                    "type": "string"
+                },
                 "description": {
                     "$ref": "#/$defs/Description",
                     "description": "Text of the comment."
@@ -726,14 +730,10 @@
                         "$ref": "#/$defs/DocumentRef"
                     },
                     "type": "array"
-                },
-                "oID": {
-                    "description": "Unique identifier.",
-                    "type": "string"
                 }
             },
             "required": [
-                "oID"
+                "OID"
             ],
             "title": "CommentDef",
             "type": "object"
@@ -766,6 +766,10 @@
             "additionalProperties": false,
             "description": "A ConditionDef defines a boolean condition.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier.",
+                    "type": "string"
+                },
                 "alias": {
                     "description": "Alias reference: An Alias provides an additional name for an element. The Context attribute specifies the application domain in which this additional name is relevant.",
                     "items": {
@@ -795,14 +799,10 @@
                 "name": {
                     "description": "Human-readable name for the Condition.",
                     "type": "string"
-                },
-                "oID": {
-                    "description": "Unique identifier.",
-                    "type": "string"
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name"
             ],
             "title": "ConditionDef",
@@ -834,6 +834,10 @@
             "additionalProperties": false,
             "description": "The Criterion represents either an inclusion or an exclusion criterion, depending on the parent element (i.e., InclusionCriteria, ExclusionCriteria).",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier.",
+                    "type": "string"
+                },
                 "coding": {
                     "description": "Coding reference: Coding references a symbol from a defined code system. It uses a code defined in a terminology system to associate semantics with a given term, codelist, variable, or group of variables. The presence of a Coding element associates a meaning to its parent element. Including multiple Coding elements for a given parent indicates synonymous meanings provided by different code systems or code system versions.",
                     "items": {
@@ -852,14 +856,10 @@
                 "name": {
                     "description": "Criterion name.",
                     "type": "string"
-                },
-                "oID": {
-                    "description": "Unique identifier.",
-                    "type": "string"
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name",
                 "conditionOID"
             ],
@@ -1026,6 +1026,10 @@
             "additionalProperties": false,
             "description": "The DurationTimingConstraint constrains the duration of an activity represented by a study, epoch, StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef. It is used to constrain the duration of the visit, activity, or any other structural element.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier.",
+                    "type": "string"
+                },
                 "description": {
                     "$ref": "#/$defs/Description",
                     "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
@@ -1046,17 +1050,33 @@
                     "description": "Human readable name for the DurationTimingConstraint.",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique identifier.",
-                    "type": "string"
-                },
                 "structuralElementOID": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
                     "description": "OID of a structural element such as a Study, Epoch, StudyEventGroup, StudyEvent, ItemGroup, Item",
                     "type": "string"
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name",
                 "structuralElementOID",
                 "durationTarget"
@@ -1078,6 +1098,10 @@
             "additionalProperties": false,
             "description": "The planned period of subjects' participation in the trial is divided into sequential epochs. Each epoch is a period of time that serves a purpose in the trial as a whole. Epochs cannot overlap. The sequence of the epoch in the study is provided by the SequenceNumber attribute, the first epoch in the study being assigned the sequence number 1. Sequence numbers are subsequent.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the Epoch.",
+                    "type": "string"
+                },
                 "description": {
                     "$ref": "#/$defs/Description",
                     "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
@@ -1086,17 +1110,13 @@
                     "description": "Human readable name of the study epoch.",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique identifier for the Epoch.",
-                    "type": "string"
-                },
                 "sequenceNumber": {
                     "description": "Order of the Epoch",
                     "type": "integer"
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name",
                 "sequenceNumber"
             ],
@@ -1509,6 +1529,10 @@
             "additionalProperties": false,
             "description": "An ItemDef describes a type of item that can occur within a study. Item properties include name, datatype, range, or codelist restrictions, and several other properties.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the ItemDef element.",
+                    "type": "string"
+                },
                 "alias": {
                     "description": "Alias reference: An Alias provides an additional name for an element. The Context attribute specifies the application domain in which this additional name is relevant.",
                     "items": {
@@ -1567,10 +1591,6 @@
                     "description": "Human readable name for the ItemDef.",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique identifier for the ItemDef element.",
-                    "type": "string"
-                },
                 "prompt": {
                     "$ref": "#/$defs/Prompt",
                     "description": "Prompt reference: A prompt text shown to a human user when prompted to provide data for an item on paper or on a screen. The Prompt is a short version of the question."
@@ -1596,7 +1616,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name",
                 "dataType"
             ],
@@ -1689,6 +1709,10 @@
             "additionalProperties": false,
             "description": "An ItemGroupDef describes a type of variable or field grouping that can occur within a study.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the ItemGroupDef element.",
+                    "type": "string"
+                },
                 "alias": {
                     "description": "Alias reference: An Alias provides an additional name for an element. The Context attribute specifies the application domain in which this additional name is relevant.",
                     "items": {
@@ -1699,10 +1723,6 @@
                 "archiveLocationID": {
                     "description": "Reference to the unique ID of a leaf element that provides the actual location and file name of the data file.",
                     "type": "string"
-                },
-                "classRef": {
-                    "$ref": "#/$defs/Class",
-                    "description": "Class reference: The Class element identifies which predefined Class within the model applies to the definition of the dataset."
                 },
                 "coding": {
                     "description": "Coding reference: Coding references a symbol from a defined code system. It uses a code defined in a terminology system to associate semantics with a given term, codelist, variable, or group of variables. The presence of a Coding element associates a meaning to its parent element. Including multiple Coding elements for a given parent indicates synonymous meanings provided by different code systems or code system versions.",
@@ -1739,6 +1759,10 @@
                     "$ref": "#/$defs/YesOrNo",
                     "description": "Specifies whether this ItemGroupDef is used for non-subject data."
                 },
+                "itemGroupClass": {
+                    "$ref": "#/$defs/Class",
+                    "description": "Class reference: The Class element identifies which predefined Class within the model applies to the definition of the dataset."
+                },
                 "itemGroupRef": {
                     "description": "ItemGroupRef reference: ItemGroupRef references an ItemGroupDef as it occurs within a specific StudyEventDef or ItemGroupDef. The list of ItemGroupRefs identifies the types of item groups that are allowed to occur within this type of studyevent or (nested) item group. The ItemGroupRefs within a single StudyEventDef or ItemGroupDef must not have duplicate ItemGroupOID or OrderNumber attribute values.",
                     "items": {
@@ -1759,10 +1783,6 @@
                 },
                 "name": {
                     "description": "Human readable name for the ItemGroupDef.",
-                    "type": "string"
-                },
-                "oID": {
-                    "description": "Unique identifier for the ItemGroupDef element.",
                     "type": "string"
                 },
                 "origin": {
@@ -1802,7 +1822,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name",
                 "repeating",
                 "type"
@@ -2003,12 +2023,12 @@
             "additionalProperties": false,
             "description": "Contains the XLink information referenced by DocumentRef or ArchiveLocationID",
             "properties": {
-                "href": {
-                    "description": "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file. If the file is not located in the same folder as the ODM file, a relative file path should be included. Business Rule: For regulatory submissions to the FDA, the locations specified have to conform to locations allowed in the eCTD, in the Technical Conformance Guide for the relevant regulatory authority and the study data specifications.",
+                "ID": {
+                    "description": "Unique ID for the Leaf. See Section 2.13, Element Identifiers and References , for OID considerations. Business Rule: Leaf ID attributes must be unique within the ODM document (i.e., there can be no 2 Leaf elements with the same ID attribute).",
                     "type": "string"
                 },
-                "iD": {
-                    "description": "Unique ID for the Leaf. See Section 2.13, Element Identifiers and References , for OID considerations. Business Rule: Leaf ID attributes must be unique within the ODM document (i.e., there can be no 2 Leaf elements with the same ID attribute).",
+                "href": {
+                    "description": "URL that can be used to identify the location of a document or dataset file relative to the folder containing the ODM file. If the file is not located in the same folder as the ODM file, a relative file path should be included. Business Rule: For regulatory submissions to the FDA, the locations specified have to conform to locations allowed in the eCTD, in the Technical Conformance Guide for the relevant regulatory authority and the study data specifications.",
                     "type": "string"
                 },
                 "title": {
@@ -2017,7 +2037,7 @@
                 }
             },
             "required": [
-                "iD",
+                "ID",
                 "href"
             ],
             "title": "Leaf",
@@ -2039,6 +2059,10 @@
             "additionalProperties": false,
             "description": "A physical location associated with data collection and/or treatment of subjects.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier",
+                    "type": "string"
+                },
                 "address": {
                     "description": "Address reference: The postal address for a user, location, or organization.",
                     "items": {
@@ -2059,10 +2083,6 @@
                 },
                 "name": {
                     "description": "Human-readable identifier.",
-                    "type": "string"
-                },
-                "oID": {
-                    "description": "Unique identifier",
                     "type": "string"
                 },
                 "organizationOID": {
@@ -2089,7 +2109,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name"
             ],
             "title": "Location",
@@ -2126,6 +2146,10 @@
             "additionalProperties": false,
             "description": "The metadata for a study is defined in a series of MetaDataVersion elements. Through this mechanism (multiple MetaDataVersion elements), the model supports the incremental deployment of \"mid-stream study changes,\" and thus can handle a situation where multiple versions of the metadata are being used simultaneously (e.g., due to delays in IRB approval at various sites).",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier.",
+                    "type": "string"
+                },
                 "annotatedCRF": {
                     "$ref": "#/$defs/AnnotatedCRF",
                     "description": "AnnotatedCRF reference: An Annotated Case Report Form (CRF) is a Portable File Format (PDF) document that provides the mapping of data collection fields to the variables or discrete variable values contained within the datasets."
@@ -2195,10 +2219,6 @@
                     "description": "MetaDataVersion name.",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique identifier.",
-                    "type": "string"
-                },
                 "protocol": {
                     "$ref": "#/$defs/Protocol",
                     "description": "Protocol reference: The Protocol element lists the kinds of study events that can occur within a specific version of a study. All clinical data must occur within one of these study events."
@@ -2248,7 +2268,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name"
             ],
             "title": "MetaDataVersion",
@@ -2284,6 +2304,10 @@
             "additionalProperties": false,
             "description": "A MethodDef defines how a data value can be obtained from a collection of other data values.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifer for the MethodDef element.",
+                    "type": "string"
+                },
                 "alias": {
                     "description": "Alias reference: An Alias provides an additional name for an element. The Context attribute specifies the application domain in which this additional name is relevant.",
                     "items": {
@@ -2321,17 +2345,13 @@
                     "description": "Human readable name for the method.",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique identifer for the MethodDef element.",
-                    "type": "string"
-                },
                 "type": {
                     "$ref": "#/$defs/MethodType",
                     "description": "Computation: derivation involving one or more variables. Imputation: derivation based on other observations. Transpose: conversion of rows to columns or vice versa. Preload: retrieve and populate data from an external source."
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name"
             ],
             "title": "MethodDef",
@@ -2482,6 +2502,10 @@
             "additionalProperties": false,
             "description": "An organization can reference a parent organization. Users may be associated with an Organization. An Organization may be associated with a Location. A User, Location, or Organization may have an address.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the organization.",
+                    "type": "string"
+                },
                 "address": {
                     "description": "Address reference: The postal address for a user, location, or organization.",
                     "items": {
@@ -2499,10 +2523,6 @@
                 },
                 "name": {
                     "description": "Formal, human readable name of the organization.",
-                    "type": "string"
-                },
-                "oID": {
-                    "description": "Unique identifier for the organization.",
                     "type": "string"
                 },
                 "partOfOrganizationOID": {
@@ -2526,7 +2546,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name",
                 "type"
             ],
@@ -2832,6 +2852,10 @@
             "additionalProperties": false,
             "description": "The Query element represents a request for clarification on a data item collected for a clinical trial, specifically a request from a sponsor or sponsor\u2019s representative to an investigator to resolve an error or inconsistency discovered during data review. Queries can be created manually by individuals such as site monitors or data managers or automatically by systems. The full text of the Query exists in the Value child element. The optional Name attribute provide the means to provide a short identifier that can be included in listing or user interfaces.",
             "properties": {
+                "OID": {
+                    "description": "Query unique identifier",
+                    "type": "string"
+                },
                 "auditRecord": {
                     "description": "AuditRecord reference: An AuditRecord carries information pertaining to the creation, deletion, or modification of clinical data. This information includes who performed that action, and where, when, and why that action was performed.AuditRecord information describes a change to clinical data, but is not itself clinical data. The value of some clinical data can always be changed by a subsequent transaction, but history cannot be changed, only added to.",
                     "items": {
@@ -2846,10 +2870,6 @@
                 },
                 "name": {
                     "description": "Name for a query that can be used to identify the query in a listing or user interface.",
-                    "type": "string"
-                },
-                "oID": {
-                    "description": "Query unique identifier",
                     "type": "string"
                 },
                 "source": {
@@ -2874,7 +2894,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "source",
                 "state",
                 "lastUpdateDatetime"
@@ -3028,6 +3048,10 @@
             "additionalProperties": false,
             "description": "The RelativeTimingConstraint element describes a relative timing constraint between 2 activities or groups of activities, represented by StudyEventGroups, StudyEvents, ItemGroups, or Items.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier.",
+                    "type": "string"
+                },
                 "description": {
                     "$ref": "#/$defs/Description",
                     "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
@@ -3036,15 +3060,39 @@
                     "description": "Human readable name.",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique identifier.",
-                    "type": "string"
-                },
                 "predecessorOID": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
                     "description": "Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that occurs immediately before the RelativeTimepointTarget.",
                     "type": "string"
                 },
                 "successorOID": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
                     "description": "Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs immediately after the RelativeTimepointTarget.",
                     "type": "string"
                 },
@@ -3066,7 +3114,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name",
                 "timepointRelativeTarget"
             ],
@@ -3175,13 +3223,13 @@
             "additionalProperties": false,
             "description": "An electronic signature applies to a collection of clinical data. This indicates that some user accepts legal responsibility for that data. See 21 CFR Part 11. The signature identifies the person signing, the location of signing, the signature meaning (via the referenced SignatureDef), the date and time of signing, and (in the case of a digital signature) an encrypted hash of the included data.",
             "properties": {
+                "ID": {
+                    "description": "Unique identifier for the leaf that is referenced.",
+                    "type": "string"
+                },
                 "dateTimeStamp": {
                     "$ref": "#/$defs/DateTimeStamp",
                     "description": "DateTimeStamp reference: Date and time when an action was performed."
-                },
-                "iD": {
-                    "description": "Unique identifier for the leaf that is referenced.",
-                    "type": "string"
                 },
                 "locationRef": {
                     "$ref": "#/$defs/LocationRef",
@@ -3197,7 +3245,7 @@
                 }
             },
             "required": [
-                "iD"
+                "ID"
             ],
             "title": "Signature",
             "type": "object"
@@ -3206,6 +3254,10 @@
             "additionalProperties": false,
             "description": "Provides Metadata for signatures included in the /ODM/ClinicalData.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier.",
+                    "type": "string"
+                },
                 "legalReason": {
                     "$ref": "#/$defs/LegalReason",
                     "description": "LegalReason reference: The responsibility statement associated with a signature (e.g., \"The signer accepts responsibility for the accuracy of this data.\")."
@@ -3217,14 +3269,10 @@
                 "methodology": {
                     "$ref": "#/$defs/SignMethod",
                     "description": "Defines the type of electronic signature, including the meaning as required by 21 CFR Part 11 ."
-                },
-                "oID": {
-                    "description": "Unique identifier.",
-                    "type": "string"
                 }
             },
             "required": [
-                "oID"
+                "OID"
             ],
             "title": "SignatureDef",
             "type": "object"
@@ -3352,6 +3400,10 @@
             "additionalProperties": false,
             "description": "The Standard element describes each standard used within the MetaDataVersion element.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the standard.",
+                    "type": "string"
+                },
                 "commentOID": {
                     "description": "Reference to the unique ID of a CommentDef element that contains the comment for the Standard element Business Rule: Must match the OID of a CommentDef in the same MetaDataVersion",
                     "type": "string"
@@ -3359,10 +3411,6 @@
                 "name": {
                     "$ref": "#/$defs/StandardName",
                     "description": "Name of the external standard to which the data conforms."
-                },
-                "oID": {
-                    "description": "Unique identifier for the standard.",
-                    "type": "string"
                 },
                 "publishingSet": {
                     "$ref": "#/$defs/StandardPublishingSet",
@@ -3382,7 +3430,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name",
                 "type",
                 "version",
@@ -3480,6 +3528,10 @@
             "additionalProperties": false,
             "description": "This element collects static structural information about an individual study.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the study.",
+                    "type": "string"
+                },
                 "description": {
                     "$ref": "#/$defs/Description",
                     "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
@@ -3490,10 +3542,6 @@
                         "$ref": "#/$defs/MetaDataVersion"
                     },
                     "type": "array"
-                },
-                "oID": {
-                    "description": "Unique identifier for the study.",
-                    "type": "string"
                 },
                 "protocolName": {
                     "description": "Protocol identifier or protocol number assigned to the study. It is used by the regulatory authority or clinical trial registry.",
@@ -3517,7 +3565,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "studyName",
                 "protocolName"
             ],
@@ -3528,6 +3576,10 @@
             "additionalProperties": false,
             "description": "A study end point reflects an outcome measure of interest that is statistically analyzed to address a particular research question for the study. It typically specifies the type of assessments made; the timing of those assessments; the assessment tools used; and other details, as applicable, such as how multiple assessments within an individual are to be combined.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the StudyEndPoint element",
+                    "type": "string"
+                },
                 "description": {
                     "$ref": "#/$defs/Description",
                     "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
@@ -3547,17 +3599,13 @@
                     "description": "Human readable identifier for the StudyEndPoint element.",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique identifier for the StudyEndPoint element",
-                    "type": "string"
-                },
                 "type": {
                     "$ref": "#/$defs/StudyEndPointType",
                     "description": "The type of end point. Simple: measures the change of a single outcome that is meaningful in the context of the disease being studied. Humane: the point at which pain and/or distress is terminated, minimized, or reduced. Surrogate: a measure of effect of a specific treatment that may correlate with a real clinical endpoint but does not necessarily have a guaranteed relationship (e.g., a biomarker). Combined: end point that is a combination of several measures. Example: A heart attack study may report the incidence of the combined endpoint of chest pain, myocardial infarction, or death."
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name"
             ],
             "title": "StudyEndPoint",
@@ -3612,6 +3660,10 @@
             "additionalProperties": false,
             "description": "A precise description of the treatment effect reflecting the clinical question posed by a given clinical trial objective. It summarises at a population level what the outcomes would be in the same patients under different treatment conditions being compared.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the StudyEstimand element.",
+                    "type": "string"
+                },
                 "description": {
                     "$ref": "#/$defs/Description",
                     "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
@@ -3629,10 +3681,6 @@
                 },
                 "name": {
                     "description": "Human readable name for the Study Estimand.",
-                    "type": "string"
-                },
-                "oID": {
-                    "description": "Unique identifier for the StudyEstimand element.",
                     "type": "string"
                 },
                 "studyEndPointRef": {
@@ -3653,7 +3701,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name"
             ],
             "title": "StudyEstimand",
@@ -3737,6 +3785,10 @@
             "additionalProperties": false,
             "description": "StudyEventDef represents the definition of an activity in a study where data is collected. For example, a study event may represent a set of item groups that represent data collection instruments to be completed for a subject during a visit in a study. The visit occurs as part of a study workflow, and the workflow is referenced in the study event.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the StudyEventDef element.",
+                    "type": "string"
+                },
                 "alias": {
                     "description": "Alias reference: An Alias provides an additional name for an element. The Context attribute specifies the application domain in which this additional name is relevant.",
                     "items": {
@@ -3774,10 +3826,6 @@
                     "description": "Human readable-name for the study event.",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique identifier for the StudyEventDef element.",
-                    "type": "string"
-                },
                 "repeating": {
                     "$ref": "#/$defs/YesOrNo",
                     "description": "The Repeating flag indicates when this type of study event can occur repeatedly within any given subject. When Repeating is \"Yes\" multiple instances of StudyEventData for this StudyEventDef may be collected for a study subject."
@@ -3792,7 +3840,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name",
                 "repeating",
                 "type"
@@ -3804,6 +3852,10 @@
             "additionalProperties": false,
             "description": "StudyEventGroupDef is a study building block that groups a number of smaller building blocks, which can themselves be StudyEventGroups or StudyEvents. It thus allows nesting of building blocks.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the StudyEventGroupDef element.",
+                    "type": "string"
+                },
                 "armOID": {
                     "description": "Reference to an Arm element defined in the study.",
                     "type": "string"
@@ -3831,10 +3883,6 @@
                     "description": "Human readable identifier for the StudyEventGroupDef element.",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique identifier for the StudyEventGroupDef element.",
-                    "type": "string"
-                },
                 "studyEventGroupRef": {
                     "description": "StudyEventGroupRef reference: This element references a StudyEventGroupDef as it occurs within a specific version of a study. The list of StudyEventGroupRefs identifies the types of study group events that are allowed to occur within the study.",
                     "items": {
@@ -3855,7 +3903,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name"
             ],
             "title": "StudyEventGroupDef",
@@ -3925,6 +3973,10 @@
             "additionalProperties": false,
             "description": "This element describes a study indication (e.g., condition, disease) for the clinical study. The human-readable description is provided in the Description element. The Coding element can be used to provide a machine-readable code for the indication (e.g., SNOMED-CT code 26929004 for \"Alzheimer's disease\").",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
                 "coding": {
                     "description": "Coding reference: Coding references a symbol from a defined code system. It uses a code defined in a terminology system to associate semantics with a given term, codelist, variable, or group of variables. The presence of a Coding element associates a meaning to its parent element. Including multiple Coding elements for a given parent indicates synonymous meanings provided by different code systems or code system versions.",
                     "items": {
@@ -3935,14 +3987,10 @@
                 "description": {
                     "$ref": "#/$defs/Description",
                     "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
-                },
-                "oID": {
-                    "description": "Unique identifier of the version within the XML document.",
-                    "type": "string"
                 }
             },
             "required": [
-                "oID"
+                "OID"
             ],
             "title": "StudyIndication",
             "type": "object"
@@ -3966,6 +4014,10 @@
             "additionalProperties": false,
             "description": "This element describes a study intervention (e.g., medication, treatment, therapy) for the clinical study. The human-readable description is provided in the Description element. The Coding element can be used to provide a machine-readable code for the indication (e.g., ATC M01AE01 code for \"Ibuprofen\" when used as a nonsteroidal anti-inflammatory drug).",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier of the version within the XML document.",
+                    "type": "string"
+                },
                 "coding": {
                     "description": "Coding reference: Coding references a symbol from a defined code system. It uses a code defined in a terminology system to associate semantics with a given term, codelist, variable, or group of variables. The presence of a Coding element associates a meaning to its parent element. Including multiple Coding elements for a given parent indicates synonymous meanings provided by different code systems or code system versions.",
                     "items": {
@@ -3976,14 +4028,10 @@
                 "description": {
                     "$ref": "#/$defs/Description",
                     "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
-                },
-                "oID": {
-                    "description": "Unique identifier of the version within the XML document.",
-                    "type": "string"
                 }
             },
             "required": [
-                "oID"
+                "OID"
             ],
             "title": "StudyIntervention",
             "type": "object"
@@ -4022,6 +4070,10 @@
             "additionalProperties": false,
             "description": "The reason for performing a study in terms of the scientific questions to be answered by the analysis of data collected during the study.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the StudyObjective element.",
+                    "type": "string"
+                },
                 "description": {
                     "$ref": "#/$defs/Description",
                     "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
@@ -4034,10 +4086,6 @@
                     "description": "Name of the study objective",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique identifier for the StudyObjective element.",
-                    "type": "string"
-                },
                 "studyEndPointRef": {
                     "description": "StudyEndPointRef reference: A reference to a StudyEndPoint as it occurs within a specific StudyObjective.",
                     "items": {
@@ -4047,7 +4095,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name"
             ],
             "title": "StudyObjective",
@@ -4082,16 +4130,16 @@
             "additionalProperties": false,
             "description": "A StudyParameter defines a study design parameter for which the value or values are delivered in the ParameterValue child element or elements.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for StudyParameter. Note a StudyParameter can be referenced from other elements.",
+                    "type": "string"
+                },
                 "coding": {
                     "description": "Coding reference: Coding references a symbol from a defined code system. It uses a code defined in a terminology system to associate semantics with a given term, codelist, variable, or group of variables. The presence of a Coding element associates a meaning to its parent element. Including multiple Coding elements for a given parent indicates synonymous meanings provided by different code systems or code system versions.",
                     "items": {
                         "$ref": "#/$defs/Coding"
                     },
                     "type": "array"
-                },
-                "oID": {
-                    "description": "Unique identifier for StudyParameter. Note a StudyParameter can be referenced from other elements.",
-                    "type": "string"
                 },
                 "parameterValue": {
                     "$ref": "#/$defs/ParameterValue",
@@ -4107,7 +4155,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "term"
             ],
             "title": "StudyParameter",
@@ -4162,6 +4210,10 @@
             "additionalProperties": false,
             "description": "The StudyTargetPopulation describes the population targeted for the clinical study.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the StudyTargetPopulation element.",
+                    "type": "string"
+                },
                 "coding": {
                     "description": "Coding reference: Coding references a symbol from a defined code system. It uses a code defined in a terminology system to associate semantics with a given term, codelist, variable, or group of variables. The presence of a Coding element associates a meaning to its parent element. Including multiple Coding elements for a given parent indicates synonymous meanings provided by different code systems or code system versions.",
                     "items": {
@@ -4183,14 +4235,10 @@
                 "name": {
                     "description": "Human readable name for the StudyTargetPopulation.",
                     "type": "string"
-                },
-                "oID": {
-                    "description": "Unique identifier for the StudyTargetPopulation element.",
-                    "type": "string"
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name"
             ],
             "title": "StudyTargetPopulation",
@@ -4201,6 +4249,7 @@
             "description": "The StudyTargetPopulationRef references a StudyTargetPopulation to which the estimand applies.",
             "properties": {
                 "studyTargetPopulationOID": {
+                    "description": "StudyTargetPopulation reference: The StudyTargetPopulation describes the population targeted for the clinical study.",
                     "type": "string"
                 }
             },
@@ -4214,6 +4263,10 @@
             "additionalProperties": false,
             "description": "The StudyTiming element defines a timing constraint within the study, which can be an absolute timing constraint (e.g., start of the screening visit must be between 1 January 2022 and 31 December 2022), a relative timing constraint (e.g., visit 2 must be within 30 days after visit 1 with a window of +/- 1 week), a transition timing constraint (i.e., timing constraint on a transition within a defined workflow), or a duration timing constraint (e.g., the duration of visit 2 is planned to take hours with a window of 30 minutes).",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for a StudyTiming element.",
+                    "type": "string"
+                },
                 "absoluteTimingConstraint": {
                     "description": "AbsoluteTimingConstraint reference: The element AbsoluteTimingConstraint is used to specify when an activity, represented by either a StudyEventGroup or StudyEvent, can take place.",
                     "items": {
@@ -4232,10 +4285,6 @@
                     "description": "Human readable identifier for a StudyTiming element.",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique identifier for a StudyTiming element.",
-                    "type": "string"
-                },
                 "relativeTimingConstraint": {
                     "description": "RelativeTimingConstraint reference: The RelativeTimingConstraint element describes a relative timing constraint between 2 activities or groups of activities, represented by StudyEventGroups, StudyEvents, ItemGroups, or Items.",
                     "items": {
@@ -4252,7 +4301,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name"
             ],
             "title": "StudyTiming",
@@ -4464,6 +4513,10 @@
             "additionalProperties": false,
             "description": "A Transition defines a link between 2 structural elements in a workflow. When the execution of the transition is dependent upon a timing constraint that is either directly defined or calculated, a TransitionTimingConstraint must be defined, referencing the current Transition.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the Transition element.",
+                    "type": "string"
+                },
                 "endConditionOID": {
                     "description": "The EndConditionOID references a ConditionDef defining the condition under which the transition can be completed. As long as the condition is not met, the transition to the next actitivity or event must be considered to be temporary blocked. When the target structural element can be considered to be a \"visit,\" the condition can be regarded as a visit entry criterion.",
                     "type": "string"
@@ -4472,11 +4525,24 @@
                     "description": "Human readable name for the transition between two structural elements in a WorkflowDef element.",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique identifier for the Transition element.",
-                    "type": "string"
-                },
                 "sourceOID": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
                     "description": "References the definition of the source structural element for the transition. The structural element may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, ItemDef, or Branching element.",
                     "type": "string"
                 },
@@ -4485,12 +4551,29 @@
                     "type": "string"
                 },
                 "targetOID": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
                     "description": "References the definition of the target structural element for the transition. The structural element may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, ItemDef, or Branching element. The latter will be used when there is a branching definition necessary as a result of the transition.",
                     "type": "string"
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name",
                 "sourceOID",
                 "targetOID"
@@ -4502,6 +4585,10 @@
             "additionalProperties": false,
             "description": "The TransitionTimingConstraint element defines a timing constraint on a transition between structural elements as defined in a workflow. As such, it is a non-blocking constraint. This means that the transition is set on hold as long as the timing condition is not fulfilled, and is executed as soon as the timing condition is fulfilled.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier.",
+                    "type": "string"
+                },
                 "description": {
                     "$ref": "#/$defs/Description",
                     "description": "Description reference: A free-text description of the containing metadata component, unless restricted by Business Rules."
@@ -4512,10 +4599,6 @@
                 },
                 "name": {
                     "description": "Human-readable name.",
-                    "type": "string"
-                },
-                "oID": {
-                    "description": "Unique identifier.",
                     "type": "string"
                 },
                 "timepointPostWindow": {
@@ -4540,7 +4623,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name",
                 "transitionOID",
                 "timepointTarget"
@@ -4614,6 +4697,10 @@
             "additionalProperties": false,
             "description": "Information about a specific user of a clinical data collection or data management system.",
             "properties": {
+                "OID": {
+                    "description": "Business Rules",
+                    "type": "string"
+                },
                 "address": {
                     "description": "Address reference: The postal address for a user, location, or organization.",
                     "items": {
@@ -4639,10 +4726,6 @@
                 },
                 "locationOID": {
                     "description": "Reference to a Location element.",
-                    "type": "string"
-                },
-                "oID": {
-                    "description": "Business Rules",
                     "type": "string"
                 },
                 "organizationOID": {
@@ -4674,7 +4757,7 @@
                 }
             },
             "required": [
-                "oID"
+                "OID"
             ],
             "title": "User",
             "type": "object"
@@ -4742,6 +4825,10 @@
             "additionalProperties": false,
             "description": "The following table specifies the XML structure for valuelist metadata. The ValueListDef element contains ItemRef elements that reference ItemDef elements that provide the value-level metadata details",
             "properties": {
+                "OID": {
+                    "description": "Unique ID for the Value List See Section 2.13, Element Identifiers and References , for OID considerations.",
+                    "type": "string"
+                },
                 "description": {
                     "$ref": "#/$defs/Description",
                     "description": "Description of the value list."
@@ -4752,14 +4839,10 @@
                         "$ref": "#/$defs/ItemRef"
                     },
                     "type": "array"
-                },
-                "oID": {
-                    "description": "Unique ID for the Value List See Section 2.13, Element Identifiers and References , for OID considerations.",
-                    "type": "string"
                 }
             },
             "required": [
-                "oID"
+                "OID"
             ],
             "title": "ValueListDef",
             "type": "object"
@@ -4783,12 +4866,12 @@
             "additionalProperties": false,
             "description": "The WhereClauseDef element specifies a condition.",
             "properties": {
-                "commentOID": {
-                    "description": "Reference to the unique ID of a CommentDef that describes how to join the datasets when the WhereClause includes references to variables in different datasets.",
+                "OID": {
+                    "description": "Unique ID for the WhereClauseDef. See Section 2.13, Element Identifiers and References , for OID considerations.",
                     "type": "string"
                 },
-                "oID": {
-                    "description": "Unique ID for the WhereClauseDef. See Section 2.13, Element Identifiers and References , for OID considerations.",
+                "commentOID": {
+                    "description": "Reference to the unique ID of a CommentDef that describes how to join the datasets when the WhereClause includes references to variables in different datasets.",
                     "type": "string"
                 },
                 "rangeCheck": {
@@ -4800,7 +4883,7 @@
                 }
             },
             "required": [
-                "oID"
+                "OID"
             ],
             "title": "WhereClauseDef",
             "type": "object"
@@ -4824,6 +4907,10 @@
             "additionalProperties": false,
             "description": "A WorkflowDef defines an automated workflow for a study.",
             "properties": {
+                "OID": {
+                    "description": "Unique identifier for the workflow.",
+                    "type": "string"
+                },
                 "branching": {
                     "description": "Branching reference: This element describes the branching in a workflow from a source (start) structural element to 2 or more target structural elements, over a Transition element.",
                     "items": {
@@ -4837,10 +4924,6 @@
                 },
                 "name": {
                     "description": "Human readable label for the workflow.",
-                    "type": "string"
-                },
-                "oID": {
-                    "description": "Unique identifier for the workflow.",
                     "type": "string"
                 },
                 "transition": {
@@ -4863,7 +4946,7 @@
                 }
             },
             "required": [
-                "oID",
+                "OID",
                 "name"
             ],
             "title": "WorkflowDef",
@@ -4878,6 +4961,20 @@
                     "type": "string"
                 },
                 "endOID": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
                     "description": "Reference to the definition of the structural element that ends the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef element.",
                     "type": "string"
                 }
@@ -4908,6 +5005,20 @@
             "description": "WorkflowStart references a structural element that begins the automated workflow.",
             "properties": {
                 "startOID": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
                     "description": "Reference to the definition of the structural element that starts the workflow. It may be a StudyEventGroupDef, StudyEventDef, ItemGroupDef, or ItemDef element.",
                     "type": "string"
                 }
@@ -4919,13 +5030,13 @@
             "type": "object"
         },
         "YesOnly": {
-            "description": "Enumeration used in extendedValue, hasNoData, repeat, other, isNull, isNonStandard",
+            "description": "Enumeration used in other, hasNoData, isNull, extendedValue, isNonStandard, repeat",
             "enum": [],
             "title": "YesOnly",
             "type": "string"
         },
         "YesOrNo": {
-            "description": "Enumeration used in mandatory, repeating, isReferenceData, usedMethod",
+            "description": "Enumeration used in isReferenceData, repeating, usedMethod, mandatory",
             "enum": [
                 "Yes",
                 "No"

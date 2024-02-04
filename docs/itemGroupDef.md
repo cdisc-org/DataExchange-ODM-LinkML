@@ -59,7 +59,6 @@ description: 'ItemGroupDef reference: An ItemGroupDef describes a type of variab
   or field grouping that can occur within a study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: itemGroupDef
 domain_of:
 - MetaDataVersion

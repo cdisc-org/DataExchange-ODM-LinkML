@@ -11,10 +11,29 @@ URI: [odm:StudyInterventionRef](http://www.cdisc.org/ns/odm/v2.0/StudyInterventi
 ```mermaid
 erDiagram
 StudyInterventionRef {
-    oidref studyInterventionOID  
+
+}
+StudyIntervention {
+    oid OID  
+}
+Coding {
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
+    uriorcurie href  
+    uriorcurie ref  
+    text commentOID  
+}
+Description {
+
 }
 
-
+StudyInterventionRef ||--|| StudyIntervention : "studyInterventionOID"
+StudyIntervention ||--|o Description : "description"
+StudyIntervention ||--}o Coding : "coding"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -27,7 +46,7 @@ StudyInterventionRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [studyInterventionOID](studyInterventionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a StudyIntervention | direct |
+| [studyInterventionOID](studyInterventionOID.md) | 1..1 <br/> [StudyIntervention](StudyIntervention.md) | Reference to a StudyIntervention | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -104,7 +123,7 @@ slot_usage:
       range: oidref'
     domain_of:
     - StudyInterventionRef
-    range: oidref
+    range: StudyIntervention
     required: true
 class_uri: odm:StudyInterventionRef
 
@@ -132,7 +151,7 @@ slot_usage:
       range: oidref'
     domain_of:
     - StudyInterventionRef
-    range: oidref
+    range: StudyIntervention
     required: true
 attributes:
   studyInterventionOID:
@@ -148,7 +167,7 @@ attributes:
     owner: StudyInterventionRef
     domain_of:
     - StudyInterventionRef
-    range: oidref
+    range: StudyIntervention
     required: true
 class_uri: odm:StudyInterventionRef
 

@@ -17,7 +17,7 @@ SubjectData {
 Annotation {
     positiveInteger seqNum  
     TransactionType transactionType  
-    oid iD  
+    oid ID  
 }
 Flag {
 
@@ -36,19 +36,19 @@ Comment {
     CommentType sponsorOrSite  
 }
 Signature {
-    oid iD  
+    oid ID  
 }
 DateTimeStamp {
     datetime content  
 }
 SignatureRef {
-    oidref signatureOID  
+
 }
 LocationRef {
-    oidref locationOID  
+
 }
 UserRef {
-    oidref userOID  
+
 }
 AuditRecord {
     EditPointType editPoint  
@@ -61,7 +61,7 @@ ReasonForChange {
     text content  
 }
 Query {
-    oid oID  
+    oid OID  
     QuerySourceType source  
     text target  
     QueryType type  
@@ -74,21 +74,35 @@ Value {
     text content  
 }
 StudyEventData {
-    oidref studyEventOID  
     repeatKey studyEventRepeatKey  
     TransactionType transactionType  
 }
 ItemGroupData {
-    oidref itemGroupOID  
     repeatKey itemGroupRepeatKey  
     TransactionType transactionType  
     positiveInteger itemGroupDataSeq  
 }
+StudyEventDef {
+    oid OID  
+    nameType name  
+    YesOrNo repeating  
+    EventType type  
+    text category  
+}
 SiteRef {
-    oidref locationOID  
+
+}
+Location {
+    oid OID  
+    nameType name  
+    text role  
 }
 InvestigatorRef {
-    oidref userOID  
+
+}
+User {
+    oid OID  
+    UserType userType  
 }
 
 SubjectData ||--|o InvestigatorRef : "investigatorRef"
@@ -108,6 +122,9 @@ Signature ||--|o UserRef : "userRef"
 Signature ||--|o LocationRef : "locationRef"
 Signature ||--|o SignatureRef : "signatureRef"
 Signature ||--|o DateTimeStamp : "dateTimeStamp"
+SignatureRef ||--|| SignatureDef : "signatureOID"
+LocationRef ||--|| Location : "locationOID"
+UserRef ||--|| User : "userOID"
 AuditRecord ||--|o UserRef : "userRef"
 AuditRecord ||--|o LocationRef : "locationRef"
 AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
@@ -115,17 +132,44 @@ AuditRecord ||--|o ReasonForChange : "reasonForChange"
 AuditRecord ||--|o SourceID : "sourceID"
 Query ||--|o Value : "value"
 Query ||--}o AuditRecord : "auditRecord"
+StudyEventData ||--|| StudyEventDef : "studyEventOID"
 StudyEventData ||--}o ItemGroupData : "itemGroupData"
 StudyEventData ||--}o Query : "query"
 StudyEventData ||--|o AuditRecord : "auditRecord"
 StudyEventData ||--|o Signature : "signature"
 StudyEventData ||--|o Annotation : "annotation"
+ItemGroupData ||--|| ItemGroupDef : "itemGroupOID"
 ItemGroupData ||--}o Query : "query"
 ItemGroupData ||--}o ItemGroupData : "itemGroupData"
 ItemGroupData ||--}o ItemData : "itemData"
 ItemGroupData ||--|o AuditRecord : "auditRecord"
 ItemGroupData ||--|o Signature : "signature"
 ItemGroupData ||--|o Annotation : "annotation"
+StudyEventDef ||--|o CommentDef : "commentOID"
+StudyEventDef ||--|o Description : "description"
+StudyEventDef ||--}o ItemGroupRef : "itemGroupRef"
+StudyEventDef ||--|o WorkflowRef : "workflowRef"
+StudyEventDef ||--}o Coding : "coding"
+StudyEventDef ||--}o Alias : "alias"
+SiteRef ||--|| Location : "locationOID"
+Location ||--|o Organization : "organizationOID"
+Location ||--|o Description : "description"
+Location ||--}o MetaDataVersionRef : "metaDataVersionRef"
+Location ||--}o Address : "address"
+Location ||--}o Telecom : "telecom"
+Location ||--}o Query : "query"
+InvestigatorRef ||--|| User : "userOID"
+User ||--|o Organization : "organizationOID"
+User ||--|o Location : "locationOID"
+User ||--|o UserName : "userName"
+User ||--|o Prefix : "prefix"
+User ||--|o Suffix : "suffix"
+User ||--|o FullName : "fullName"
+User ||--|o GivenName : "givenName"
+User ||--|o FamilyName : "familyName"
+User ||--|o Image : "image"
+User ||--}o Address : "address"
+User ||--}o Telecom : "telecom"
 
 ```
 
@@ -490,7 +534,6 @@ attributes:
       created the SubjectData record in the source system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: investigatorRef
     owner: SubjectData
     domain_of:
@@ -503,7 +546,6 @@ attributes:
       record is associated with in the source system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: siteRef
     owner: SubjectData
     domain_of:
@@ -518,7 +560,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: studyEventData
     owner: SubjectData
     domain_of:
@@ -539,7 +580,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: query
     owner: SubjectData
     domain_of:
@@ -562,7 +602,6 @@ attributes:
       by a subsequent transaction, but history cannot be changed, only added to.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: auditRecord
     owner: SubjectData
     domain_of:
@@ -585,7 +624,6 @@ attributes:
       hash of the included data.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: signature
     owner: SubjectData
     domain_of:
@@ -604,7 +642,6 @@ attributes:
       comment.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: annotation
     owner: SubjectData
     domain_of:

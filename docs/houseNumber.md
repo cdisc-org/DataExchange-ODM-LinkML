@@ -58,7 +58,6 @@ name: houseNumber
 description: 'HouseNumber reference: The house number part of a user''s postal address.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: houseNumber
 domain_of:
 - Address

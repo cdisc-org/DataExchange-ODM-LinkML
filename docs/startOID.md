@@ -28,7 +28,7 @@ URI: [odm:startOID](http://www.cdisc.org/ns/odm/v2.0/startOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [string](string.md)
 
 
 
@@ -63,7 +63,12 @@ rank: 1000
 alias: startOID
 domain_of:
 - WorkflowStart
-range: oidref
+range: string
+any_of:
+- range: StudyEventGroupDef
+- range: StudyEventDef
+- range: ItemGroupDef
+- range: ItemDef
 
 ```
 </details>

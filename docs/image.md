@@ -58,7 +58,6 @@ name: image
 description: 'Image reference: A visual depiction of the user.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: image
 domain_of:
 - User

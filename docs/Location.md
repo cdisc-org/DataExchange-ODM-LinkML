@@ -11,13 +11,12 @@ URI: [odm:Location](http://www.cdisc.org/ns/odm/v2.0/Location)
 ```mermaid
 erDiagram
 Location {
-    oid oID  
+    oid OID  
     nameType name  
     text role  
-    oidref organizationOID  
 }
 Query {
-    oid oID  
+    oid OID  
     QuerySourceType source  
     text target  
     QueryType type  
@@ -67,9 +66,19 @@ StreetName {
     text content  
 }
 MetaDataVersionRef {
-    oidref studyOID  
-    oidref metaDataVersionOID  
     date effectiveDate  
+}
+MetaDataVersion {
+    oid OID  
+    nameType name  
+}
+Study {
+    oid OID  
+    nameType studyName  
+    nameType protocolName  
+    nameType versionID  
+    nameType versionName  
+    nameType status  
 }
 Description {
 
@@ -79,7 +88,14 @@ TranslatedText {
     text type  
     contentType content  
 }
+Organization {
+    oid OID  
+    nameType name  
+    text role  
+    OrganizationType type  
+}
 
+Location ||--|o Organization : "organizationOID"
 Location ||--|o Description : "description"
 Location ||--}o MetaDataVersionRef : "metaDataVersionRef"
 Location ||--}o Address : "address"
@@ -100,7 +116,35 @@ Address ||--|o Country : "country"
 Address ||--|o PostalCode : "postalCode"
 Address ||--|o GeoPosition : "geoPosition"
 Address ||--|o OtherText : "otherText"
+MetaDataVersionRef ||--|| Study : "studyOID"
+MetaDataVersionRef ||--|| MetaDataVersion : "metaDataVersionOID"
+MetaDataVersion ||--|o CommentDef : "commentOID"
+MetaDataVersion ||--|o Description : "description"
+MetaDataVersion ||--|o Include : "include"
+MetaDataVersion ||--|o Standards : "standards"
+MetaDataVersion ||--|o AnnotatedCRF : "annotatedCRF"
+MetaDataVersion ||--|o SupplementalDoc : "supplementalDoc"
+MetaDataVersion ||--}o ValueListDef : "valueListDef"
+MetaDataVersion ||--}o WhereClauseDef : "whereClauseDef"
+MetaDataVersion ||--|o Protocol : "protocol"
+MetaDataVersion ||--}o WorkflowDef : "workflowDef"
+MetaDataVersion ||--}o StudyEventGroupDef : "studyEventGroupDef"
+MetaDataVersion ||--}o StudyEventDef : "studyEventDef"
+MetaDataVersion ||--}o ItemGroupDef : "itemGroupDef"
+MetaDataVersion ||--}o ItemDef : "itemDef"
+MetaDataVersion ||--}o CodeList : "codeList"
+MetaDataVersion ||--}o ConditionDef : "conditionDef"
+MetaDataVersion ||--}o MethodDef : "methodDef"
+MetaDataVersion ||--}o CommentDef : "commentDef"
+MetaDataVersion ||--}o Leaf : "leaf"
+Study ||--|o Description : "description"
+Study ||--}o MetaDataVersion : "metaDataVersion"
 Description ||--}o TranslatedText : "translatedText"
+Organization ||--|o Location : "locationOID"
+Organization ||--|o Organization : "partOfOrganizationOID"
+Organization ||--|o Description : "description"
+Organization ||--}o Address : "address"
+Organization ||--}o Telecom : "telecom"
 
 ```
 
@@ -113,10 +157,10 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human-readable identifier. | direct |
 | [role](role.md) | 0..1 <br/> [text](text.md) | Specifies the role of this location in the study. | direct |
-| [organizationOID](organizationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an organization. | direct |
+| [organizationOID](organizationOID.md) | 0..1 <br/> [Organization](Organization.md) | Reference to an organization. | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [metaDataVersionRef](metaDataVersionRef.md) | 0..* <br/> [MetaDataVersionRef](MetaDataVersionRef.md) | MetaDataVersionRef reference: A reference to a MetaDataVersion used at the co... | direct |
 | [address](address.md) | 0..* <br/> [Address](Address.md) | Address reference: The postal address for a user, location, or organization. | direct |
@@ -133,6 +177,10 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [AdminData](AdminData.md) | [location](location.md) | range | [Location](Location.md) |
+| [User](User.md) | [locationOID](locationOID.md) | range | [Location](Location.md) |
+| [Organization](Organization.md) | [locationOID](locationOID.md) | range | [Location](Location.md) |
+| [SiteRef](SiteRef.md) | [locationOID](locationOID.md) | range | [Location](Location.md) |
+| [LocationRef](LocationRef.md) | [locationOID](locationOID.md) | range | [Location](Location.md) |
 
 
 
@@ -187,7 +235,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Location
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - role
 - organizationOID
@@ -197,8 +245,8 @@ slots:
 - telecom
 - query
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier
     comments:
     - 'Required
@@ -206,6 +254,7 @@ slot_usage:
       range: oid
 
       Must be unique for a study.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -313,7 +362,7 @@ slot_usage:
     domain_of:
     - User
     - Location
-    range: oidref
+    range: Organization
   description:
     name: description
     domain_of:
@@ -413,8 +462,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Location
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier
     comments:
     - 'Required
@@ -422,6 +471,7 @@ slot_usage:
       range: oid
 
       Must be unique for a study.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -529,7 +579,7 @@ slot_usage:
     domain_of:
     - User
     - Location
-    range: oidref
+    range: Organization
   description:
     name: description
     domain_of:
@@ -613,8 +663,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier
     comments:
     - 'Required
@@ -625,7 +675,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: Location
     domain_of:
     - Study
@@ -746,14 +796,13 @@ attributes:
     domain_of:
     - User
     - Location
-    range: oidref
+    range: Organization
   description:
     name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: Location
     domain_of:
@@ -803,7 +852,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: metaDataVersionRef
     owner: Location
     domain_of:
@@ -817,7 +865,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: address
     owner: Location
     domain_of:
@@ -834,7 +881,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: telecom
     owner: Location
     domain_of:
@@ -857,7 +903,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: query
     owner: Location
     domain_of:

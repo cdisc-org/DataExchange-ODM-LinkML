@@ -13,17 +13,15 @@ erDiagram
 Annotation {
     positiveInteger seqNum  
     TransactionType transactionType  
-    oid iD  
+    oid ID  
 }
 Flag {
 
 }
 FlagType {
-    oidref codeListOID  
     nameType content  
 }
 FlagValue {
-    oidref codeListOID  
     nameType content  
 }
 Coding {
@@ -50,6 +48,8 @@ Annotation ||--}o Coding : "coding"
 Annotation ||--}o Flag : "flag"
 Flag ||--|o FlagValue : "flagValue"
 Flag ||--|o FlagType : "flagType"
+FlagType ||--|| CodeList : "codeListOID"
+FlagValue ||--|| CodeList : "codeListOID"
 Comment ||--}o TranslatedText : "translatedText"
 
 ```
@@ -65,7 +65,7 @@ Comment ||--}o TranslatedText : "translatedText"
 | ---  | --- | --- | --- |
 | [seqNum](seqNum.md) | 1..1 <br/> [positiveInteger](positiveInteger.md) | When more than 1 Value element exists this attribute uniquely identifies each... | direct |
 | [transactionType](transactionType.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... | direct |
-| [iD](iD.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the leaf that is referenced. | direct |
+| [ID](ID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the leaf that is referenced. | direct |
 | [comment](comment.md) | 0..1 <br/> [Comment](Comment.md) | Comment reference: A free-text (uninterpreted) comment about clinical data. T... | direct |
 | [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 | [flag](flag.md) | 0..* <br/> [Flag](Flag.md) | Flag reference: A machine-processable annotation. | direct |
@@ -142,7 +142,7 @@ rank: 1000
 slots:
 - seqNum
 - transactionType
-- iD
+- ID
 - comment
 - coding
 - flag
@@ -175,8 +175,9 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-  iD:
-    name: iD
+  ID:
+    name: ID
+    identifier: true
     domain_of:
     - Leaf
     - Signature
@@ -264,8 +265,9 @@ slot_usage:
     - ItemData
     - Annotation
     range: TransactionType
-  iD:
-    name: iD
+  ID:
+    name: ID
+    identifier: true
     domain_of:
     - Leaf
     - Signature
@@ -349,13 +351,13 @@ attributes:
     - ItemData
     - Annotation
     range: TransactionType
-  iD:
-    name: iD
+  ID:
+    name: ID
     description: Unique identifier for the leaf that is referenced.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: iD
+    alias: ID
     owner: Annotation
     domain_of:
     - Leaf
@@ -369,7 +371,6 @@ attributes:
       data. The comment may have come from the sponsor or the clinical site.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: comment
     owner: Annotation
     domain_of:
@@ -387,7 +388,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: coding
     owner: Annotation
     domain_of:
@@ -416,7 +416,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: flag
     owner: Annotation
     domain_of:

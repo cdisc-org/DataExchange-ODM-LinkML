@@ -11,11 +11,51 @@ URI: [odm:TargetTransition](http://www.cdisc.org/ns/odm/v2.0/TargetTransition)
 ```mermaid
 erDiagram
 TargetTransition {
-    oidref targetTransitionOID  
-    oidref conditionOID  
+
+}
+ConditionDef {
+    oid OID  
+    nameType name  
+}
+Alias {
+    text context  
+    text name  
+}
+FormalExpression {
+    text context  
+}
+MethodSignature {
+
+}
+Description {
+
+}
+CommentDef {
+    oid OID  
+}
+Transition {
+    oid OID  
+    nameType name  
+    string sourceOID  
+    string targetOID  
 }
 
-
+TargetTransition ||--|| Transition : "targetTransitionOID"
+TargetTransition ||--|o ConditionDef : "conditionOID"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+MethodSignature ||--}o Parameter : "parameter"
+MethodSignature ||--}o ReturnValue : "returnValue"
+Description ||--}o TranslatedText : "translatedText"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+Transition ||--|o ConditionDef : "startConditionOID"
+Transition ||--|o ConditionDef : "endConditionOID"
 
 ```
 
@@ -28,8 +68,8 @@ TargetTransition {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [targetTransitionOID](targetTransitionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the Transition that is one of the targets of the branching. | direct |
-| [conditionOID](conditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef defining the condition under which the transition... | direct |
+| [targetTransitionOID](targetTransitionOID.md) | 1..1 <br/> [Transition](Transition.md) | Reference to the Transition that is one of the targets of the branching. | direct |
+| [conditionOID](conditionOID.md) | 0..1 <br/> [ConditionDef](ConditionDef.md) | Reference to a ConditionDef defining the condition under which the transition... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -111,7 +151,7 @@ slot_usage:
     domain_of:
     - TargetTransition
     - DefaultTransition
-    range: oidref
+    range: Transition
     required: true
   conditionOID:
     name: conditionOID
@@ -129,7 +169,7 @@ slot_usage:
     domain_of:
     - TargetTransition
     - Criterion
-    range: oidref
+    range: ConditionDef
 class_uri: odm:TargetTransition
 
 ```
@@ -160,7 +200,7 @@ slot_usage:
     domain_of:
     - TargetTransition
     - DefaultTransition
-    range: oidref
+    range: Transition
     required: true
   conditionOID:
     name: conditionOID
@@ -178,7 +218,7 @@ slot_usage:
     domain_of:
     - TargetTransition
     - Criterion
-    range: oidref
+    range: ConditionDef
 attributes:
   targetTransitionOID:
     name: targetTransitionOID
@@ -197,7 +237,7 @@ attributes:
     domain_of:
     - TargetTransition
     - DefaultTransition
-    range: oidref
+    range: Transition
     required: true
   conditionOID:
     name: conditionOID
@@ -219,7 +259,7 @@ attributes:
     domain_of:
     - TargetTransition
     - Criterion
-    range: oidref
+    range: ConditionDef
 class_uri: odm:TargetTransition
 
 ```

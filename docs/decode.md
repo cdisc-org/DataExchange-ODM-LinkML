@@ -61,7 +61,6 @@ description: 'Decode reference: The displayed value relating to the CodeListItem
   different languages on a case report form or tabular data summary.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: decode
 domain_of:
 - CodeListItem

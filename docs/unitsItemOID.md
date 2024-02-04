@@ -28,7 +28,7 @@ URI: [odm:unitsItemOID](http://www.cdisc.org/ns/odm/v2.0/unitsItemOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [ItemDef](ItemDef.md)
 
 
 
@@ -62,7 +62,7 @@ rank: 1000
 alias: unitsItemOID
 domain_of:
 - ItemRef
-range: oidref
+range: ItemDef
 
 ```
 </details>

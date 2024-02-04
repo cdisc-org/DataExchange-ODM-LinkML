@@ -28,7 +28,7 @@ URI: [odm:whereClauseOID](http://www.cdisc.org/ns/odm/v2.0/whereClauseOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [WhereClauseDef](WhereClauseDef.md)
 
 
 
@@ -61,7 +61,7 @@ rank: 1000
 alias: whereClauseOID
 domain_of:
 - WhereClauseRef
-range: oidref
+range: WhereClauseDef
 
 ```
 </details>

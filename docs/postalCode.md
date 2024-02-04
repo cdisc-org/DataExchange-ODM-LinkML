@@ -58,7 +58,6 @@ name: postalCode
 description: 'PostalCode reference: The postal code part of a user''s postal address.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: postalCode
 domain_of:
 - Address

@@ -58,7 +58,6 @@ name: clinicalData
 description: 'ClinicalData reference: Clinical data for 1 or more subjects.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: clinicalData
 domain_of:
 - ODMFileMetadata

@@ -59,7 +59,6 @@ description: 'StudyTargetPopulationRef reference: The StudyTargetPopulationRef r
   a StudyTargetPopulation to which the estimand applies.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyTargetPopulationRef
 domain_of:
 - StudyEstimand

@@ -11,9 +11,8 @@ URI: [odm:Criterion](http://www.cdisc.org/ns/odm/v2.0/Criterion)
 ```mermaid
 erDiagram
 Criterion {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref conditionOID  
 }
 Coding {
     text code  
@@ -33,10 +32,39 @@ TranslatedText {
     text type  
     contentType content  
 }
+ConditionDef {
+    oid OID  
+    nameType name  
+}
+Alias {
+    text context  
+    text name  
+}
+FormalExpression {
+    text context  
+}
+MethodSignature {
 
+}
+CommentDef {
+    oid OID  
+}
+
+Criterion ||--|| ConditionDef : "conditionOID"
 Criterion ||--|o Description : "description"
 Criterion ||--}o Coding : "coding"
 Description ||--}o TranslatedText : "translatedText"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+MethodSignature ||--}o Parameter : "parameter"
+MethodSignature ||--}o ReturnValue : "returnValue"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
 
 ```
 
@@ -49,9 +77,9 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Criterion name. | direct |
-| [conditionOID](conditionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef element. | direct |
+| [conditionOID](conditionOID.md) | 1..1 <br/> [ConditionDef](ConditionDef.md) | Reference to a ConditionDef element. | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 
@@ -120,17 +148,18 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Criterion
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - conditionOID
 - description
 - coding
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - Required
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -222,7 +251,7 @@ slot_usage:
     domain_of:
     - TargetTransition
     - Criterion
-    range: oidref
+    range: ConditionDef
     required: true
   description:
     name: description
@@ -305,11 +334,12 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Criterion
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - Required
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -401,7 +431,7 @@ slot_usage:
     domain_of:
     - TargetTransition
     - Criterion
-    range: oidref
+    range: ConditionDef
     required: true
   description:
     name: description
@@ -468,15 +498,15 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: Criterion
     domain_of:
     - Study
@@ -577,7 +607,7 @@ attributes:
     domain_of:
     - TargetTransition
     - Criterion
-    range: oidref
+    range: ConditionDef
     required: true
   description:
     name: description
@@ -585,7 +615,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: Criterion
     domain_of:
@@ -638,7 +667,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: coding
     owner: Criterion
     domain_of:

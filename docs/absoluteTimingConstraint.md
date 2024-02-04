@@ -60,7 +60,6 @@ description: 'AbsoluteTimingConstraint reference: The element AbsoluteTimingCons
   StudyEvent, can take place.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: absoluteTimingConstraint
 domain_of:
 - StudyTiming

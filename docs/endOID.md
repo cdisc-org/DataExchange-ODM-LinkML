@@ -28,7 +28,7 @@ URI: [odm:endOID](http://www.cdisc.org/ns/odm/v2.0/endOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [string](string.md)
 
 
 
@@ -62,7 +62,12 @@ rank: 1000
 alias: endOID
 domain_of:
 - WorkflowEnd
-range: oidref
+range: string
+any_of:
+- range: StudyEventGroupDef
+- range: StudyEventDef
+- range: ItemGroupDef
+- range: ItemDef
 
 ```
 </details>

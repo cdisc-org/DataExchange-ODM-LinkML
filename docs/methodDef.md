@@ -59,7 +59,6 @@ description: 'MethodDef reference: A MethodDef defines how a data value can be o
   from a collection of other data values.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: methodDef
 domain_of:
 - MetaDataVersion

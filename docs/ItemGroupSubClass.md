@@ -13,10 +13,10 @@ URI: [ItemGroupSubClass](ItemGroupSubClass)
 
 | Value | Meaning | Description |
 | --- | --- | --- |
-| ADVERSE EVENT | nci:ExtCodeID:C176265 |  |
-| MEDICAL DEVICE TIME-TO-EVENT | nci:ExtCodeID:C177920 |  |
-| NON-COMPARTMENTAL ANALYSIS | nci:ExtCodeID:C172452 |  |
-| TIME-TO-EVENT | nci:ExtCodeID:C165637 |  |
+| ADVERSE EVENT | ncit:C176265 |  |
+| MEDICAL DEVICE TIME-TO-EVENT | ncit:C177920 |  |
+| NON-COMPARTMENTAL ANALYSIS | ncit:C172452 |  |
+| TIME-TO-EVENT | ncit:C165637 |  |
 
 
 
@@ -59,19 +59,19 @@ rank: 1000
 permissible_values:
   ADVERSE EVENT:
     text: ADVERSE EVENT
-    meaning: nci:ExtCodeID:C176265
+    meaning: ncit:C176265
     is_a: ItemGroupSubClass
   MEDICAL DEVICE TIME-TO-EVENT:
     text: MEDICAL DEVICE TIME-TO-EVENT
-    meaning: nci:ExtCodeID:C177920
+    meaning: ncit:C177920
     is_a: ItemGroupSubClass
   NON-COMPARTMENTAL ANALYSIS:
     text: NON-COMPARTMENTAL ANALYSIS
-    meaning: nci:ExtCodeID:C172452
+    meaning: ncit:C172452
     is_a: ItemGroupSubClass
   TIME-TO-EVENT:
     text: TIME-TO-EVENT
-    meaning: nci:ExtCodeID:C165637
+    meaning: ncit:C165637
     is_a: ItemGroupSubClass
 
 ```

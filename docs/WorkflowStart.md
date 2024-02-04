@@ -11,7 +11,7 @@ URI: [odm:WorkflowStart](http://www.cdisc.org/ns/odm/v2.0/WorkflowStart)
 ```mermaid
 erDiagram
 WorkflowStart {
-    oidref startOID  
+    string startOID  
 }
 
 
@@ -27,7 +27,7 @@ WorkflowStart {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [startOID](startOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the definition of the structural element that starts the workflo... | direct |
+| [startOID](startOID.md) | 1..1 <br/> [string](string.md) | Reference to the definition of the structural element that starts the workflo... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -110,8 +110,12 @@ slot_usage:
       of the WorkflowDef .'
     domain_of:
     - WorkflowStart
-    range: oidref
     required: true
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
 class_uri: odm:WorkflowStart
 
 ```
@@ -144,8 +148,12 @@ slot_usage:
       of the WorkflowDef .'
     domain_of:
     - WorkflowStart
-    range: oidref
     required: true
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
 attributes:
   startOID:
     name: startOID
@@ -166,8 +174,13 @@ attributes:
     owner: WorkflowStart
     domain_of:
     - WorkflowStart
-    range: oidref
+    range: string
     required: true
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
 class_uri: odm:WorkflowStart
 
 ```

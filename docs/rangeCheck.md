@@ -62,7 +62,6 @@ description: 'RangeCheck reference: A RangeCheck defines a constraint on the val
   is specified using either Comparator and CheckValue or using FormalExpressions.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: rangeCheck
 domain_of:
 - WhereClauseDef

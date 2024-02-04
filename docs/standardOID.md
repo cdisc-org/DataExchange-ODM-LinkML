@@ -29,7 +29,7 @@ URI: [odm:standardOID](http://www.cdisc.org/ns/odm/v2.0/standardOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [Standard](Standard.md)
 
 
 
@@ -63,7 +63,7 @@ alias: standardOID
 domain_of:
 - ItemGroupDef
 - CodeList
-range: oidref
+range: Standard
 
 ```
 </details>

@@ -11,7 +11,7 @@ URI: [odm:CommentDef](http://www.cdisc.org/ns/odm/v2.0/CommentDef)
 ```mermaid
 erDiagram
 CommentDef {
-    oid oID  
+    oid OID  
 }
 DocumentRef {
     oid leafID  
@@ -48,7 +48,7 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Text of the comment. | direct |
 | [documentRef](documentRef.md) | 0..* <br/> [DocumentRef](DocumentRef.md) | The DocumentRef element is a container for page references in a PDF file. | direct |
 
@@ -61,7 +61,18 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [MetaDataVersion](MetaDataVersion.md) | [commentOID](commentOID.md) | range | [CommentDef](CommentDef.md) |
 | [MetaDataVersion](MetaDataVersion.md) | [commentDef](commentDef.md) | range | [CommentDef](CommentDef.md) |
+| [Standard](Standard.md) | [commentOID](commentOID.md) | range | [CommentDef](CommentDef.md) |
+| [WhereClauseDef](WhereClauseDef.md) | [commentOID](commentOID.md) | range | [CommentDef](CommentDef.md) |
+| [StudyEventGroupDef](StudyEventGroupDef.md) | [commentOID](commentOID.md) | range | [CommentDef](CommentDef.md) |
+| [StudyEventDef](StudyEventDef.md) | [commentOID](commentOID.md) | range | [CommentDef](CommentDef.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [commentOID](commentOID.md) | range | [CommentDef](CommentDef.md) |
+| [ItemDef](ItemDef.md) | [commentOID](commentOID.md) | range | [CommentDef](CommentDef.md) |
+| [CodeList](CodeList.md) | [commentOID](commentOID.md) | range | [CommentDef](CommentDef.md) |
+| [CodeListItem](CodeListItem.md) | [commentOID](commentOID.md) | range | [CommentDef](CommentDef.md) |
+| [MethodDef](MethodDef.md) | [commentOID](commentOID.md) | range | [CommentDef](CommentDef.md) |
+| [ConditionDef](ConditionDef.md) | [commentOID](commentOID.md) | range | [CommentDef](CommentDef.md) |
 
 
 
@@ -118,17 +129,18 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/CommentDef
 rank: 1000
 slots:
-- oID
+- OID
 - description
 - documentRef
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -243,13 +255,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/CommentDef
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -346,8 +359,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
@@ -356,7 +369,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: CommentDef
     domain_of:
     - Study
@@ -402,7 +415,6 @@ attributes:
     description: Text of the comment.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: CommentDef
     domain_of:
@@ -451,7 +463,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: documentRef
     owner: CommentDef
     domain_of:

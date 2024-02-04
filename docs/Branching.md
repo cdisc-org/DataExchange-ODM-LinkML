@@ -11,20 +11,39 @@ URI: [odm:Branching](http://www.cdisc.org/ns/odm/v2.0/Branching)
 ```mermaid
 erDiagram
 Branching {
-    oid oID  
+    oid OID  
     nameType name  
     BranchingType type  
 }
 DefaultTransition {
-    oidref targetTransitionOID  
+
+}
+Transition {
+    oid OID  
+    nameType name  
+    string sourceOID  
+    string targetOID  
 }
 TargetTransition {
-    oidref targetTransitionOID  
-    oidref conditionOID  
+
+}
+ConditionDef {
+    oid OID  
+    nameType name  
 }
 
 Branching ||--}o TargetTransition : "targetTransition"
 Branching ||--}o DefaultTransition : "defaultTransition"
+DefaultTransition ||--|| Transition : "targetTransitionOID"
+Transition ||--|o ConditionDef : "startConditionOID"
+Transition ||--|o ConditionDef : "endConditionOID"
+TargetTransition ||--|| Transition : "targetTransitionOID"
+TargetTransition ||--|o ConditionDef : "conditionOID"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
 
 ```
 
@@ -37,7 +56,7 @@ Branching ||--}o DefaultTransition : "defaultTransition"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier of the version within the XML document. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier of the version within the XML document. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | General observation Sub Class. | direct |
 | [type](type.md) | 1..1 <br/> [BranchingType](BranchingType.md) | Type of page for page references indicated in the PageRefs attribute. | direct |
 | [targetTransition](targetTransition.md) | 0..* <br/> [TargetTransition](TargetTransition.md) | TargetTransition reference: TargetTransition provides a reference to a Transi... | direct |
@@ -107,20 +126,21 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Branching
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - type
 - targetTransition
 - defaultTransition
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     comments:
     - 'Required
 
       range: oid
 
       The Branching/@OID attribute must be unique within the Study/MetaDataVersion.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -264,14 +284,15 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Branching
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     comments:
     - 'Required
 
       range: oid
 
       The Branching/@OID attribute must be unique within the Study/MetaDataVersion.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -399,8 +420,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier of the version within the XML document.
     comments:
     - 'Required
@@ -411,7 +432,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: Branching
     domain_of:
     - Study
@@ -540,7 +561,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: targetTransition
     owner: Branching
     domain_of:
@@ -556,7 +576,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: defaultTransition
     owner: Branching
     domain_of:

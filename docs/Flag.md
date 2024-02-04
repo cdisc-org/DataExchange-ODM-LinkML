@@ -14,16 +14,28 @@ Flag {
 
 }
 FlagType {
-    oidref codeListOID  
     nameType content  
 }
+CodeList {
+    oid OID  
+    nameType name  
+    CLDataType dataType  
+    YesOnly isNonStandard  
+}
 FlagValue {
-    oidref codeListOID  
     nameType content  
 }
 
 Flag ||--|o FlagValue : "flagValue"
 Flag ||--|o FlagType : "flagType"
+FlagType ||--|| CodeList : "codeListOID"
+CodeList ||--|o CommentDef : "commentOID"
+CodeList ||--|o Standard : "standardOID"
+CodeList ||--|o Description : "description"
+CodeList ||--}o CodeListItem : "codeListItem"
+CodeList ||--}o Coding : "coding"
+CodeList ||--}o Alias : "alias"
+FlagValue ||--|| CodeList : "codeListOID"
 
 ```
 
@@ -153,7 +165,6 @@ attributes:
       be a member of the referenced CodeList'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: flagValue
     owner: Flag
     domain_of:
@@ -166,7 +177,6 @@ attributes:
       and semantics of the flag.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: flagType
     owner: Flag
     domain_of:

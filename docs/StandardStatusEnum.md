@@ -8,9 +8,9 @@ URI: [StandardStatusEnum](StandardStatusEnum)
 
 | Value | Meaning | Description |
 | --- | --- | --- |
-| Draft | nci:ExtCodeID:C172453 |  |
-| Final | nci:ExtCodeID:C172455 |  |
-| Provisional | nci:ExtCodeID:C172454 |  |
+| Draft | ncit:C172453 |  |
+| Final | ncit:C172455 |  |
+| Provisional | ncit:C172454 |  |
 
 
 
@@ -46,22 +46,22 @@ URI: [StandardStatusEnum](StandardStatusEnum)
 <details>
 ```yaml
 name: StandardStatusEnum
-conforms_to: nci:ExtCodeID:C172332
+conforms_to: ncit
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 aliases:
 - C172332
 rank: 1000
-code_set: nci:ExtCodeID
+code_set: ncit:C172332
 permissible_values:
   Draft:
     text: Draft
-    meaning: nci:ExtCodeID:C172453
+    meaning: ncit:C172453
   Final:
     text: Final
-    meaning: nci:ExtCodeID:C172455
+    meaning: ncit:C172455
   Provisional:
     text: Provisional
-    meaning: nci:ExtCodeID:C172454
+    meaning: ncit:C172454
 
 ```
 </details>

@@ -29,7 +29,7 @@ URI: [odm:conditionOID](http://www.cdisc.org/ns/odm/v2.0/conditionOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [ConditionDef](ConditionDef.md)
 
 
 
@@ -66,7 +66,7 @@ alias: conditionOID
 domain_of:
 - TargetTransition
 - Criterion
-range: oidref
+range: ConditionDef
 
 ```
 </details>

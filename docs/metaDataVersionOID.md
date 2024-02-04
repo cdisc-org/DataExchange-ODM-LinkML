@@ -34,7 +34,7 @@ URI: [odm:metaDataVersionOID](http://www.cdisc.org/ns/odm/v2.0/metaDataVersionOI
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [MetaDataVersion](MetaDataVersion.md)
 
 
 
@@ -74,7 +74,7 @@ domain_of:
 - ClinicalData
 - Association
 - KeySet
-range: oidref
+range: MetaDataVersion
 
 ```
 </details>

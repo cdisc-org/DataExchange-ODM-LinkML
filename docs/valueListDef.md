@@ -60,7 +60,6 @@ description: 'ValueListDef reference: The following table specifies the XML stru
   reference ItemDef elements that provide the value-level metadata details'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: valueListDef
 domain_of:
 - MetaDataVersion

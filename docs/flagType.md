@@ -59,7 +59,6 @@ description: 'FlagType reference: The type of flag. This determines the purpose 
   semantics of the flag.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: flagType
 domain_of:
 - Flag

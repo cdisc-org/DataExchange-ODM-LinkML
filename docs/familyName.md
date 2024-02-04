@@ -58,7 +58,6 @@ name: familyName
 description: 'FamilyName reference: The user''s surname (family name).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: familyName
 domain_of:
 - User

@@ -11,10 +11,38 @@ URI: [odm:ValueListRef](http://www.cdisc.org/ns/odm/v2.0/ValueListRef)
 ```mermaid
 erDiagram
 ValueListRef {
-    oidref valueListOID  
+
+}
+ValueListDef {
+    oid OID  
+}
+ItemRef {
+    positiveInteger keySequence  
+    YesOnly isNonStandard  
+    YesOnly hasNoData  
+    YesOnly repeat  
+    YesOnly other  
+    text role  
+    CoreType core  
+    text preSpecifiedValue  
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+}
+Description {
+
 }
 
-
+ValueListRef ||--|| ValueListDef : "valueListOID"
+ValueListDef ||--|o Description : "description"
+ValueListDef ||--}o ItemRef : "itemRef"
+ItemRef ||--|| ItemDef : "itemOID"
+ItemRef ||--|o MethodDef : "methodOID"
+ItemRef ||--|o ItemDef : "unitsItemOID"
+ItemRef ||--|o CodeList : "roleCodeListOID"
+ItemRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+ItemRef ||--}o Origin : "origin"
+ItemRef ||--}o WhereClauseRef : "whereClauseRef"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -27,7 +55,7 @@ ValueListRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [valueListOID](valueListOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a ValueListDef element that provides value-leve... | direct |
+| [valueListOID](valueListOID.md) | 1..1 <br/> [ValueListDef](ValueListDef.md) | Reference to the unique ID of a ValueListDef element that provides value-leve... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -109,7 +137,7 @@ slot_usage:
       Must match the OID of a ValueListDef in the same MetaDataVersion.'
     domain_of:
     - ValueListRef
-    range: oidref
+    range: ValueListDef
     required: true
 class_uri: odm:ValueListRef
 
@@ -142,7 +170,7 @@ slot_usage:
       Must match the OID of a ValueListDef in the same MetaDataVersion.'
     domain_of:
     - ValueListRef
-    range: oidref
+    range: ValueListDef
     required: true
 attributes:
   valueListOID:
@@ -161,7 +189,7 @@ attributes:
     owner: ValueListRef
     domain_of:
     - ValueListRef
-    range: oidref
+    range: ValueListDef
     required: true
 class_uri: odm:ValueListRef
 

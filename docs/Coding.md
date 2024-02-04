@@ -384,7 +384,6 @@ attributes:
       referencing the complete set of codes from the MedDRA code system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: code
     owner: Coding
     domain_of:

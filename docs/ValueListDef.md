@@ -11,31 +11,49 @@ URI: [odm:ValueListDef](http://www.cdisc.org/ns/odm/v2.0/ValueListDef)
 ```mermaid
 erDiagram
 ValueListDef {
-    oid oID  
+    oid OID  
 }
 ItemRef {
-    oidref itemOID  
     positiveInteger keySequence  
     YesOnly isNonStandard  
     YesOnly hasNoData  
-    oidref methodOID  
-    oidref unitsItemOID  
     YesOnly repeat  
     YesOnly other  
     text role  
-    oidref roleCodeListOID  
     CoreType core  
     text preSpecifiedValue  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
 }
 WhereClauseRef {
-    oidref whereClauseOID  
+
 }
 Origin {
     OriginType type  
     OriginSource source  
+}
+ConditionDef {
+    oid OID  
+    nameType name  
+}
+CodeList {
+    oid OID  
+    nameType name  
+    CLDataType dataType  
+    YesOnly isNonStandard  
+}
+ItemDef {
+    oid OID  
+    nameType name  
+    DataType dataType  
+    positiveInteger length  
+    text displayFormat  
+    text variableSet  
+}
+MethodDef {
+    oid OID  
+    nameType name  
+    MethodType type  
 }
 Description {
 
@@ -48,12 +66,48 @@ TranslatedText {
 
 ValueListDef ||--|o Description : "description"
 ValueListDef ||--}o ItemRef : "itemRef"
+ItemRef ||--|| ItemDef : "itemOID"
+ItemRef ||--|o MethodDef : "methodOID"
+ItemRef ||--|o ItemDef : "unitsItemOID"
+ItemRef ||--|o CodeList : "roleCodeListOID"
+ItemRef ||--|o ConditionDef : "collectionExceptionConditionOID"
 ItemRef ||--}o Origin : "origin"
 ItemRef ||--}o WhereClauseRef : "whereClauseRef"
+WhereClauseRef ||--|| WhereClauseDef : "whereClauseOID"
 Origin ||--|o Description : "description"
 Origin ||--|o SourceItems : "sourceItems"
 Origin ||--}o Coding : "coding"
 Origin ||--}o DocumentRef : "documentRef"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
+CodeList ||--|o CommentDef : "commentOID"
+CodeList ||--|o Standard : "standardOID"
+CodeList ||--|o Description : "description"
+CodeList ||--}o CodeListItem : "codeListItem"
+CodeList ||--}o Coding : "coding"
+CodeList ||--}o Alias : "alias"
+ItemDef ||--|o CommentDef : "commentOID"
+ItemDef ||--|o Description : "description"
+ItemDef ||--|o Definition : "definition"
+ItemDef ||--|o Question : "question"
+ItemDef ||--|o Prompt : "prompt"
+ItemDef ||--|o CRFCompletionInstructions : "cRFCompletionInstructions"
+ItemDef ||--|o ImplementationNotes : "implementationNotes"
+ItemDef ||--|o CDISCNotes : "cDISCNotes"
+ItemDef ||--}o RangeCheck : "rangeCheck"
+ItemDef ||--|o CodeListRef : "codeListRef"
+ItemDef ||--|o ValueListRef : "valueListRef"
+ItemDef ||--}o Coding : "coding"
+ItemDef ||--}o Alias : "alias"
+MethodDef ||--|o CommentDef : "commentOID"
+MethodDef ||--|o Description : "description"
+MethodDef ||--|o MethodSignature : "methodSignature"
+MethodDef ||--}o FormalExpression : "formalExpression"
+MethodDef ||--}o Alias : "alias"
+MethodDef ||--}o DocumentRef : "documentRef"
 Description ||--}o TranslatedText : "translatedText"
 
 ```
@@ -67,7 +121,7 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the Value List See Section 2.13, Element Identifiers and Refere... | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique ID for the Value List See Section 2.13, Element Identifiers and Refere... | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description of the value list. | direct |
 | [itemRef](itemRef.md) | 0..* <br/> [ItemRef](ItemRef.md) | The ItemRef element contains the reference to the value attributes definition... | direct |
 
@@ -81,6 +135,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [MetaDataVersion](MetaDataVersion.md) | [valueListDef](valueListDef.md) | range | [ValueListDef](ValueListDef.md) |
+| [ValueListRef](ValueListRef.md) | [valueListOID](valueListOID.md) | range | [ValueListDef](ValueListDef.md) |
 
 
 
@@ -136,18 +191,19 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ValueListDef
 rank: 1000
 slots:
-- oID
+- OID
 - description
 - itemRef
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique ID for the Value List See Section 2.13, Element Identifiers
       and References , for OID considerations.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -258,14 +314,15 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ValueListDef
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique ID for the Value List See Section 2.13, Element Identifiers
       and References , for OID considerations.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -359,8 +416,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique ID for the Value List See Section 2.13, Element Identifiers
       and References , for OID considerations.
     comments:
@@ -370,7 +427,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: ValueListDef
     domain_of:
     - Study
@@ -416,7 +473,6 @@ attributes:
     description: Description of the value list.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: ValueListDef
     domain_of:
@@ -465,7 +521,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: itemRef
     owner: ValueListDef
     domain_of:

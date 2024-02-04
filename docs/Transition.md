@@ -11,15 +11,46 @@ URI: [odm:Transition](http://www.cdisc.org/ns/odm/v2.0/Transition)
 ```mermaid
 erDiagram
 Transition {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref sourceOID  
-    oidref targetOID  
-    oidref startConditionOID  
-    oidref endConditionOID  
+    string sourceOID  
+    string targetOID  
+}
+ConditionDef {
+    oid OID  
+    nameType name  
+}
+Alias {
+    text context  
+    text name  
+}
+FormalExpression {
+    text context  
+}
+MethodSignature {
+
+}
+Description {
+
+}
+CommentDef {
+    oid OID  
 }
 
-
+Transition ||--|o ConditionDef : "startConditionOID"
+Transition ||--|o ConditionDef : "endConditionOID"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+MethodSignature ||--}o Parameter : "parameter"
+MethodSignature ||--}o ReturnValue : "returnValue"
+Description ||--}o TranslatedText : "translatedText"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
 
 ```
 
@@ -32,12 +63,12 @@ Transition {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Transition element. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Transition element. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name for the transition between two structural elements in a W... | direct |
-| [sourceOID](sourceOID.md) | 1..1 <br/> [oidref](oidref.md) | References the definition of the source structural element for the transition... | direct |
-| [targetOID](targetOID.md) | 1..1 <br/> [oidref](oidref.md) | References the definition of the target structural element for the transition... | direct |
-| [startConditionOID](startConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | The StartConditionOID references a ConditionDef specifying a condition that m... | direct |
-| [endConditionOID](endConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | The EndConditionOID references a ConditionDef defining the condition under wh... | direct |
+| [sourceOID](sourceOID.md) | 1..1 <br/> [string](string.md) | References the definition of the source structural element for the transition... | direct |
+| [targetOID](targetOID.md) | 1..1 <br/> [string](string.md) | References the definition of the target structural element for the transition... | direct |
+| [startConditionOID](startConditionOID.md) | 0..1 <br/> [ConditionDef](ConditionDef.md) | The StartConditionOID references a ConditionDef specifying a condition that m... | direct |
+| [endConditionOID](endConditionOID.md) | 0..1 <br/> [ConditionDef](ConditionDef.md) | The EndConditionOID references a ConditionDef defining the condition under wh... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -48,7 +79,10 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [TransitionTimingConstraint](TransitionTimingConstraint.md) | [transitionOID](transitionOID.md) | range | [Transition](Transition.md) |
 | [WorkflowDef](WorkflowDef.md) | [transition](transition.md) | range | [Transition](Transition.md) |
+| [TargetTransition](TargetTransition.md) | [targetTransitionOID](targetTransitionOID.md) | range | [Transition](Transition.md) |
+| [DefaultTransition](DefaultTransition.md) | [targetTransitionOID](targetTransitionOID.md) | range | [Transition](Transition.md) |
 
 
 
@@ -105,15 +139,15 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Transition
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - sourceOID
 - targetOID
 - startConditionOID
 - endConditionOID
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the Transition element.
     comments:
     - 'Required
@@ -121,6 +155,7 @@ slot_usage:
       range: oid
 
       The Transition/@OID values must be unique within a study.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -222,8 +257,13 @@ slot_usage:
       element of the WorkflowDef .'
     domain_of:
     - Transition
-    range: oidref
     required: true
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
+    - range: Branching
   targetOID:
     name: targetOID
     description: References the definition of the target structural element for the
@@ -240,8 +280,13 @@ slot_usage:
       element of the WorkflowDef .'
     domain_of:
     - Transition
-    range: oidref
     required: true
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
+    - range: Branching
   startConditionOID:
     name: startConditionOID
     description: The StartConditionOID references a ConditionDef specifying a condition
@@ -259,7 +304,7 @@ slot_usage:
       of the MetaDataVersion parent element of the WorkflowDef .'
     domain_of:
     - Transition
-    range: oidref
+    range: ConditionDef
   endConditionOID:
     name: endConditionOID
     description: The EndConditionOID references a ConditionDef defining the condition
@@ -276,7 +321,7 @@ slot_usage:
       of the MetaDataVersion parent element of the WorkflowDef .'
     domain_of:
     - Transition
-    range: oidref
+    range: ConditionDef
 class_uri: odm:Transition
 
 ```
@@ -296,8 +341,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Transition
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the Transition element.
     comments:
     - 'Required
@@ -305,6 +350,7 @@ slot_usage:
       range: oid
 
       The Transition/@OID values must be unique within a study.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -406,8 +452,13 @@ slot_usage:
       element of the WorkflowDef .'
     domain_of:
     - Transition
-    range: oidref
     required: true
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
+    - range: Branching
   targetOID:
     name: targetOID
     description: References the definition of the target structural element for the
@@ -424,8 +475,13 @@ slot_usage:
       element of the WorkflowDef .'
     domain_of:
     - Transition
-    range: oidref
     required: true
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
+    - range: Branching
   startConditionOID:
     name: startConditionOID
     description: The StartConditionOID references a ConditionDef specifying a condition
@@ -443,7 +499,7 @@ slot_usage:
       of the MetaDataVersion parent element of the WorkflowDef .'
     domain_of:
     - Transition
-    range: oidref
+    range: ConditionDef
   endConditionOID:
     name: endConditionOID
     description: The EndConditionOID references a ConditionDef defining the condition
@@ -460,10 +516,10 @@ slot_usage:
       of the MetaDataVersion parent element of the WorkflowDef .'
     domain_of:
     - Transition
-    range: oidref
+    range: ConditionDef
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the Transition element.
     comments:
     - 'Required
@@ -474,7 +530,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: Transition
     domain_of:
     - Study
@@ -585,8 +641,14 @@ attributes:
     owner: Transition
     domain_of:
     - Transition
-    range: oidref
+    range: string
     required: true
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
+    - range: Branching
   targetOID:
     name: targetOID
     description: References the definition of the target structural element for the
@@ -607,8 +669,14 @@ attributes:
     owner: Transition
     domain_of:
     - Transition
-    range: oidref
+    range: string
     required: true
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
+    - range: Branching
   startConditionOID:
     name: startConditionOID
     description: The StartConditionOID references a ConditionDef specifying a condition
@@ -630,7 +698,7 @@ attributes:
     owner: Transition
     domain_of:
     - Transition
-    range: oidref
+    range: ConditionDef
   endConditionOID:
     name: endConditionOID
     description: The EndConditionOID references a ConditionDef defining the condition
@@ -651,7 +719,7 @@ attributes:
     owner: Transition
     domain_of:
     - Transition
-    range: oidref
+    range: ConditionDef
 class_uri: odm:Transition
 
 ```

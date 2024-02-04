@@ -154,7 +154,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: documentRef
     owner: SupplementalDoc
     domain_of:

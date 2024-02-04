@@ -11,10 +11,8 @@ URI: [odm:StudyEventGroupRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupRe
 ```mermaid
 erDiagram
 StudyEventGroupRef {
-    oidref studyEventGroupOID  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
 }
 Description {
 
@@ -24,9 +22,83 @@ TranslatedText {
     text type  
     contentType content  
 }
+ConditionDef {
+    oid OID  
+    nameType name  
+}
+Alias {
+    text context  
+    text name  
+}
+FormalExpression {
+    text context  
+}
+MethodSignature {
 
+}
+CommentDef {
+    oid OID  
+}
+StudyEventGroupDef {
+    oid OID  
+    nameType name  
+}
+StudyEventRef {
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+}
+Coding {
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
+    uriorcurie href  
+    uriorcurie ref  
+    text commentOID  
+}
+WorkflowRef {
+
+}
+Epoch {
+    oid OID  
+    nameType name  
+    positiveInteger sequenceNumber  
+}
+Arm {
+    oid OID  
+    nameType name  
+}
+
+StudyEventGroupRef ||--|| StudyEventGroupDef : "studyEventGroupOID"
+StudyEventGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
 StudyEventGroupRef ||--|o Description : "description"
 Description ||--}o TranslatedText : "translatedText"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+MethodSignature ||--}o Parameter : "parameter"
+MethodSignature ||--}o ReturnValue : "returnValue"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+StudyEventGroupDef ||--|o Arm : "armOID"
+StudyEventGroupDef ||--|o Epoch : "epochOID"
+StudyEventGroupDef ||--|o CommentDef : "commentOID"
+StudyEventGroupDef ||--|o Description : "description"
+StudyEventGroupDef ||--|o WorkflowRef : "workflowRef"
+StudyEventGroupDef ||--}o Coding : "coding"
+StudyEventGroupDef ||--}o StudyEventGroupRef : "studyEventGroupRef"
+StudyEventGroupDef ||--}o StudyEventRef : "studyEventRef"
+StudyEventRef ||--|| StudyEventDef : "studyEventOID"
+StudyEventRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+Epoch ||--|o Description : "description"
+Arm ||--|o Description : "description"
+Arm ||--|o WorkflowRef : "workflowRef"
 
 ```
 
@@ -39,10 +111,10 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [studyEventGroupOID](studyEventGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventGroupDef . | direct |
+| [studyEventGroupOID](studyEventGroupOID.md) | 1..1 <br/> [StudyEventGroupDef](StudyEventGroupDef.md) | Reference to the StudyEventGroupDef . | direct |
 | [orderNumber](orderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEventGroup appears in Metadata display... | direct |
 | [mandatory](mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | Indicator of whether this StudyEventGroup must appear in the study clinical d... | direct |
-| [collectionExceptionConditionOID](collectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef | direct |
+| [collectionExceptionConditionOID](collectionExceptionConditionOID.md) | 0..1 <br/> [ConditionDef](ConditionDef.md) | Reference to a ConditionDef | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
@@ -131,7 +203,7 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
-    range: oidref
+    range: StudyEventGroupDef
     required: true
   orderNumber:
     name: orderNumber
@@ -187,7 +259,7 @@ slot_usage:
     - StudyEventRef
     - ItemGroupRef
     - ItemRef
-    range: oidref
+    range: ConditionDef
   description:
     name: description
     domain_of:
@@ -261,7 +333,7 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
-    range: oidref
+    range: StudyEventGroupDef
     required: true
   orderNumber:
     name: orderNumber
@@ -317,7 +389,7 @@ slot_usage:
     - StudyEventRef
     - ItemGroupRef
     - ItemRef
-    range: oidref
+    range: ConditionDef
   description:
     name: description
     domain_of:
@@ -378,7 +450,7 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
-    range: oidref
+    range: StudyEventGroupDef
     required: true
   orderNumber:
     name: orderNumber
@@ -446,14 +518,13 @@ attributes:
     - StudyEventRef
     - ItemGroupRef
     - ItemRef
-    range: oidref
+    range: ConditionDef
   description:
     name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: StudyEventGroupRef
     domain_of:

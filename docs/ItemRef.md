@@ -11,24 +11,22 @@ URI: [odm:ItemRef](http://www.cdisc.org/ns/odm/v2.0/ItemRef)
 ```mermaid
 erDiagram
 ItemRef {
-    oidref itemOID  
     positiveInteger keySequence  
     YesOnly isNonStandard  
     YesOnly hasNoData  
-    oidref methodOID  
-    oidref unitsItemOID  
     YesOnly repeat  
     YesOnly other  
     text role  
-    oidref roleCodeListOID  
     CoreType core  
     text preSpecifiedValue  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
 }
 WhereClauseRef {
-    oidref whereClauseOID  
+
+}
+WhereClauseDef {
+    oid OID  
 }
 Origin {
     OriginType type  
@@ -53,9 +51,96 @@ SourceItems {
 Description {
 
 }
+ConditionDef {
+    oid OID  
+    nameType name  
+}
+Alias {
+    text context  
+    text name  
+}
+FormalExpression {
+    text context  
+}
+MethodSignature {
 
+}
+CommentDef {
+    oid OID  
+}
+CodeList {
+    oid OID  
+    nameType name  
+    CLDataType dataType  
+    YesOnly isNonStandard  
+}
+CodeListItem {
+    valueType codedValue  
+    decimal rank  
+    YesOnly other  
+    positiveInteger orderNumber  
+    YesOnly extendedValue  
+}
+Standard {
+    oid OID  
+    StandardName name  
+    StandardType type  
+    StandardPublishingSet publishingSet  
+    text version  
+    StandardStatus status  
+}
+ItemDef {
+    oid OID  
+    nameType name  
+    DataType dataType  
+    positiveInteger length  
+    text displayFormat  
+    text variableSet  
+}
+ValueListRef {
+
+}
+CodeListRef {
+
+}
+RangeCheck {
+    Comparator comparator  
+    SoftOrHard softHard  
+}
+CDISCNotes {
+
+}
+ImplementationNotes {
+
+}
+CRFCompletionInstructions {
+
+}
+Prompt {
+
+}
+Question {
+
+}
+Definition {
+
+}
+MethodDef {
+    oid OID  
+    nameType name  
+    MethodType type  
+}
+
+ItemRef ||--|| ItemDef : "itemOID"
+ItemRef ||--|o MethodDef : "methodOID"
+ItemRef ||--|o ItemDef : "unitsItemOID"
+ItemRef ||--|o CodeList : "roleCodeListOID"
+ItemRef ||--|o ConditionDef : "collectionExceptionConditionOID"
 ItemRef ||--}o Origin : "origin"
 ItemRef ||--}o WhereClauseRef : "whereClauseRef"
+WhereClauseRef ||--|| WhereClauseDef : "whereClauseOID"
+WhereClauseDef ||--|o CommentDef : "commentOID"
+WhereClauseDef ||--}o RangeCheck : "rangeCheck"
 Origin ||--|o Description : "description"
 Origin ||--|o SourceItems : "sourceItems"
 Origin ||--}o Coding : "coding"
@@ -64,6 +149,61 @@ DocumentRef ||--}o PDFPageRef : "pDFPageRef"
 SourceItems ||--}o SourceItem : "sourceItem"
 SourceItems ||--}o Coding : "coding"
 Description ||--}o TranslatedText : "translatedText"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+MethodSignature ||--}o Parameter : "parameter"
+MethodSignature ||--}o ReturnValue : "returnValue"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+CodeList ||--|o CommentDef : "commentOID"
+CodeList ||--|o Standard : "standardOID"
+CodeList ||--|o Description : "description"
+CodeList ||--}o CodeListItem : "codeListItem"
+CodeList ||--}o Coding : "coding"
+CodeList ||--}o Alias : "alias"
+CodeListItem ||--|o CommentDef : "commentOID"
+CodeListItem ||--|o Description : "description"
+CodeListItem ||--|o Decode : "decode"
+CodeListItem ||--}o Coding : "coding"
+CodeListItem ||--}o Alias : "alias"
+Standard ||--|o CommentDef : "commentOID"
+ItemDef ||--|o CommentDef : "commentOID"
+ItemDef ||--|o Description : "description"
+ItemDef ||--|o Definition : "definition"
+ItemDef ||--|o Question : "question"
+ItemDef ||--|o Prompt : "prompt"
+ItemDef ||--|o CRFCompletionInstructions : "cRFCompletionInstructions"
+ItemDef ||--|o ImplementationNotes : "implementationNotes"
+ItemDef ||--|o CDISCNotes : "cDISCNotes"
+ItemDef ||--}o RangeCheck : "rangeCheck"
+ItemDef ||--|o CodeListRef : "codeListRef"
+ItemDef ||--|o ValueListRef : "valueListRef"
+ItemDef ||--}o Coding : "coding"
+ItemDef ||--}o Alias : "alias"
+ValueListRef ||--|| ValueListDef : "valueListOID"
+CodeListRef ||--|| CodeList : "codeListOID"
+RangeCheck ||--|o ItemDef : "itemOID"
+RangeCheck ||--|o ErrorMessage : "errorMessage"
+RangeCheck ||--|o MethodSignature : "methodSignature"
+RangeCheck ||--}o FormalExpression : "formalExpression"
+RangeCheck ||--}o CheckValue : "checkValue"
+CDISCNotes ||--}o TranslatedText : "translatedText"
+ImplementationNotes ||--}o TranslatedText : "translatedText"
+CRFCompletionInstructions ||--}o TranslatedText : "translatedText"
+Prompt ||--}o TranslatedText : "translatedText"
+Question ||--}o TranslatedText : "translatedText"
+Definition ||--}o TranslatedText : "translatedText"
+MethodDef ||--|o CommentDef : "commentOID"
+MethodDef ||--|o Description : "description"
+MethodDef ||--|o MethodSignature : "methodSignature"
+MethodDef ||--}o FormalExpression : "formalExpression"
+MethodDef ||--}o Alias : "alias"
+MethodDef ||--}o DocumentRef : "documentRef"
 
 ```
 
@@ -76,21 +216,21 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [itemOID](itemOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the ItemDef . | direct |
+| [itemOID](itemOID.md) | 1..1 <br/> [ItemDef](ItemDef.md) | Reference to the ItemDef . | direct |
 | [keySequence](keySequence.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates that this item is a key for the enclosing element. It also provides... | direct |
 | [isNonStandard](isNonStandard.md) | 0..1 <br/> [YesOnly](YesOnly.md) | A non-standard variable is one that is not defined in the SDTMIG or the under... | direct |
 | [hasNoData](hasNoData.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Used to indicate that an ItemRef that represent a dataset's variable has no d... | direct |
-| [methodOID](methodOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a MethodDef used to derive the value of this item. | direct |
-| [unitsItemOID](unitsItemOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a sibling ItemRef element that represents the unit specification... | direct |
+| [methodOID](methodOID.md) | 0..1 <br/> [MethodDef](MethodDef.md) | Reference to a MethodDef used to derive the value of this item. | direct |
+| [unitsItemOID](unitsItemOID.md) | 0..1 <br/> [ItemDef](ItemDef.md) | Reference to a sibling ItemRef element that represents the unit specification... | direct |
 | [repeat](repeat.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Indicates that the item serves as the item over which repeats are to be perfo... | direct |
 | [other](other.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Flag to indicate that the Item represents "other" content added to an ItemGro... | direct |
 | [role](role.md) | 0..1 <br/> [text](text.md) | The Role for the referenced ItemDef. The Role attribute provides a single rol... | direct |
-| [roleCodeListOID](roleCodeListOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CodeList that defines the allowable values of Role for the Stu... | direct |
+| [roleCodeListOID](roleCodeListOID.md) | 0..1 <br/> [CodeList](CodeList.md) | Reference to a CodeList that defines the allowable values of Role for the Stu... | direct |
 | [core](core.md) | 0..1 <br/> [CoreType](CoreType.md) | CDASH, ADaM, SDTM, and SEND Core designations. | direct |
 | [preSpecifiedValue](preSpecifiedValue.md) | 0..1 <br/> [text](text.md) | Prefill value or a default value for a field that is automatically populated. | direct |
 | [orderNumber](orderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this ItemRef appears in Metadata displays or dat... | direct |
 | [mandatory](mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | Indicator of whether this ItemGroup must appear in the study clinical data fo... | direct |
-| [collectionExceptionConditionOID](collectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef that defines the circumstances under which collec... | direct |
+| [collectionExceptionConditionOID](collectionExceptionConditionOID.md) | 0..1 <br/> [ConditionDef](ConditionDef.md) | Reference to a ConditionDef that defines the circumstances under which collec... | direct |
 | [origin](origin.md) | 0..* <br/> [Origin](Origin.md) | Origin reference: Origin defines the source metadata, where applicable, for O... | direct |
 | [whereClauseRef](whereClauseRef.md) | 0..* <br/> [WhereClauseRef](WhereClauseRef.md) | WhereClauseRef reference: The WhereClauseRef references the WhereClauseDef el... | direct |
 
@@ -195,7 +335,7 @@ slot_usage:
     - RangeCheck
     - ItemData
     - KeySet
-    range: oidref
+    range: ItemDef
     required: true
   keySequence:
     name: keySequence
@@ -257,7 +397,7 @@ slot_usage:
     - ItemGroupRef
     - ItemRef
     - TransitionTimingConstraint
-    range: oidref
+    range: MethodDef
   unitsItemOID:
     name: unitsItemOID
     description: Reference to a sibling ItemRef element that represents the unit specification
@@ -272,7 +412,7 @@ slot_usage:
       this Item.'
     domain_of:
     - ItemRef
-    range: oidref
+    range: ItemDef
   repeat:
     name: repeat
     description: Indicates that the item serves as the item over which repeats are
@@ -331,7 +471,7 @@ slot_usage:
       If Role is defined, RoleCodeListOID is still optional.'
     domain_of:
     - ItemRef
-    range: oidref
+    range: CodeList
   core:
     name: core
     description: CDASH, ADaM, SDTM, and SEND Core designations.
@@ -417,7 +557,7 @@ slot_usage:
     - StudyEventRef
     - ItemGroupRef
     - ItemRef
-    range: oidref
+    range: ConditionDef
   origin:
     name: origin
     multivalued: true
@@ -470,7 +610,7 @@ slot_usage:
     - RangeCheck
     - ItemData
     - KeySet
-    range: oidref
+    range: ItemDef
     required: true
   keySequence:
     name: keySequence
@@ -532,7 +672,7 @@ slot_usage:
     - ItemGroupRef
     - ItemRef
     - TransitionTimingConstraint
-    range: oidref
+    range: MethodDef
   unitsItemOID:
     name: unitsItemOID
     description: Reference to a sibling ItemRef element that represents the unit specification
@@ -547,7 +687,7 @@ slot_usage:
       this Item.'
     domain_of:
     - ItemRef
-    range: oidref
+    range: ItemDef
   repeat:
     name: repeat
     description: Indicates that the item serves as the item over which repeats are
@@ -606,7 +746,7 @@ slot_usage:
       If Role is defined, RoleCodeListOID is still optional.'
     domain_of:
     - ItemRef
-    range: oidref
+    range: CodeList
   core:
     name: core
     description: CDASH, ADaM, SDTM, and SEND Core designations.
@@ -692,7 +832,7 @@ slot_usage:
     - StudyEventRef
     - ItemGroupRef
     - ItemRef
-    range: oidref
+    range: ConditionDef
   origin:
     name: origin
     multivalued: true
@@ -732,7 +872,7 @@ attributes:
     - RangeCheck
     - ItemData
     - KeySet
-    range: oidref
+    range: ItemDef
     required: true
   keySequence:
     name: keySequence
@@ -810,7 +950,7 @@ attributes:
     - ItemGroupRef
     - ItemRef
     - TransitionTimingConstraint
-    range: oidref
+    range: MethodDef
   unitsItemOID:
     name: unitsItemOID
     description: Reference to a sibling ItemRef element that represents the unit specification
@@ -829,7 +969,7 @@ attributes:
     owner: ItemRef
     domain_of:
     - ItemRef
-    range: oidref
+    range: ItemDef
   repeat:
     name: repeat
     description: Indicates that the item serves as the item over which repeats are
@@ -904,7 +1044,7 @@ attributes:
     owner: ItemRef
     domain_of:
     - ItemRef
-    range: oidref
+    range: CodeList
   core:
     name: core
     description: CDASH, ADaM, SDTM, and SEND Core designations.
@@ -1010,7 +1150,7 @@ attributes:
     - StudyEventRef
     - ItemGroupRef
     - ItemRef
-    range: oidref
+    range: ConditionDef
   origin:
     name: origin
     description: 'Origin reference: Origin defines the source metadata, where applicable,
@@ -1021,7 +1161,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: origin
     owner: ItemRef
     domain_of:
@@ -1038,7 +1177,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: whereClauseRef
     owner: ItemRef
     domain_of:

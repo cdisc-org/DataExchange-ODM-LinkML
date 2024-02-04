@@ -58,7 +58,6 @@ name: subjectData
 description: 'SubjectData reference: Clinical data for a single subject.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: subjectData
 domain_of:
 - ClinicalData

@@ -11,13 +11,12 @@ URI: [odm:ItemDef](http://www.cdisc.org/ns/odm/v2.0/ItemDef)
 ```mermaid
 erDiagram
 ItemDef {
-    oid oID  
+    oid OID  
     nameType name  
     DataType dataType  
     positiveInteger length  
     text displayFormat  
     text variableSet  
-    oidref commentOID  
 }
 Alias {
     text context  
@@ -34,15 +33,23 @@ Coding {
     text commentOID  
 }
 ValueListRef {
-    oidref valueListOID  
+
+}
+ValueListDef {
+    oid OID  
 }
 CodeListRef {
-    oidref codeListOID  
+
+}
+CodeList {
+    oid OID  
+    nameType name  
+    CLDataType dataType  
+    YesOnly isNonStandard  
 }
 RangeCheck {
     Comparator comparator  
     SoftOrHard softHard  
-    oidref itemOID  
 }
 CheckValue {
     valueType content  
@@ -82,7 +89,14 @@ Definition {
 Description {
 
 }
+CommentDef {
+    oid OID  
+}
+DocumentRef {
+    oid leafID  
+}
 
+ItemDef ||--|o CommentDef : "commentOID"
 ItemDef ||--|o Description : "description"
 ItemDef ||--|o Definition : "definition"
 ItemDef ||--|o Question : "question"
@@ -95,6 +109,17 @@ ItemDef ||--|o CodeListRef : "codeListRef"
 ItemDef ||--|o ValueListRef : "valueListRef"
 ItemDef ||--}o Coding : "coding"
 ItemDef ||--}o Alias : "alias"
+ValueListRef ||--|| ValueListDef : "valueListOID"
+ValueListDef ||--|o Description : "description"
+ValueListDef ||--}o ItemRef : "itemRef"
+CodeListRef ||--|| CodeList : "codeListOID"
+CodeList ||--|o CommentDef : "commentOID"
+CodeList ||--|o Standard : "standardOID"
+CodeList ||--|o Description : "description"
+CodeList ||--}o CodeListItem : "codeListItem"
+CodeList ||--}o Coding : "coding"
+CodeList ||--}o Alias : "alias"
+RangeCheck ||--|o ItemDef : "itemOID"
 RangeCheck ||--|o ErrorMessage : "errorMessage"
 RangeCheck ||--|o MethodSignature : "methodSignature"
 RangeCheck ||--}o FormalExpression : "formalExpression"
@@ -111,6 +136,9 @@ Prompt ||--}o TranslatedText : "translatedText"
 Question ||--}o TranslatedText : "translatedText"
 Definition ||--}o TranslatedText : "translatedText"
 Description ||--}o TranslatedText : "translatedText"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
 
 ```
 
@@ -123,13 +151,13 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the ItemDef element. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the ItemDef element. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name for the ItemDef. | direct |
 | [dataType](dataType.md) | 1..1 <br/> [DataType](DataType.md) | Specification of the allowable values and the intended use of the correspondi... | direct |
 | [length](length.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Specifies the number of characters allowed for the ItemData/Value when it is ... | direct |
 | [displayFormat](displayFormat.md) | 0..1 <br/> [text](text.md) | Display format supports data visualization of numeric float and date values. | direct |
 | [variableSet](variableSet.md) | 0..1 <br/> [text](text.md) | ADaM variable set, e.g. Dose, Analysis Parameter, Treatment Timing. | direct |
-| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef with sponsor provided information related to this I... | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [CommentDef](CommentDef.md) | Reference to a CommentDef with sponsor provided information related to this I... | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [definition](definition.md) | 0..1 <br/> [Definition](Definition.md) | A free-text definition of the parameter | direct |
 | [question](question.md) | 0..1 <br/> [Question](Question.md) | Question reference: A label shown to a human user when prompted to provide da... | direct |
@@ -153,6 +181,12 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [MetaDataVersion](MetaDataVersion.md) | [itemDef](itemDef.md) | range | [ItemDef](ItemDef.md) |
+| [ItemRef](ItemRef.md) | [itemOID](itemOID.md) | range | [ItemDef](ItemDef.md) |
+| [ItemRef](ItemRef.md) | [unitsItemOID](unitsItemOID.md) | range | [ItemDef](ItemDef.md) |
+| [SourceItem](SourceItem.md) | [itemOID](itemOID.md) | range | [ItemDef](ItemDef.md) |
+| [RangeCheck](RangeCheck.md) | [itemOID](itemOID.md) | range | [ItemDef](ItemDef.md) |
+| [ItemData](ItemData.md) | [itemOID](itemOID.md) | range | [ItemDef](ItemDef.md) |
+| [KeySet](KeySet.md) | [itemOID](itemOID.md) | range | [ItemDef](ItemDef.md) |
 
 
 
@@ -208,7 +242,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ItemDef
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - dataType
 - length
@@ -228,13 +262,14 @@ slots:
 - coding
 - alias
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the ItemDef element.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -389,7 +424,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     domain_of:
@@ -546,13 +581,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ItemDef
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the ItemDef element.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -707,7 +743,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     domain_of:
@@ -847,8 +883,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the ItemDef element.
     comments:
     - 'Required
@@ -857,7 +893,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: ItemDef
     domain_of:
     - Study
@@ -1037,14 +1073,13 @@ attributes:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: ItemDef
     domain_of:
@@ -1091,7 +1126,6 @@ attributes:
     description: A free-text definition of the parameter
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: definition
     owner: ItemDef
     domain_of:
@@ -1106,7 +1140,6 @@ attributes:
       to provide data for an item on paper or on a screen.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: question
     owner: ItemDef
     domain_of:
@@ -1120,7 +1153,6 @@ attributes:
       of the question.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: prompt
     owner: ItemDef
     domain_of:
@@ -1133,7 +1165,6 @@ attributes:
       site on how to enter collected information on the CRF.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: cRFCompletionInstructions
     owner: ItemDef
     domain_of:
@@ -1147,7 +1178,6 @@ attributes:
       fields.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: implementationNotes
     owner: ItemDef
     domain_of:
@@ -1159,7 +1189,6 @@ attributes:
     description: 'CDISCNotes reference: Explanatory text for the variable.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: cDISCNotes
     owner: ItemDef
     domain_of:
@@ -1175,7 +1204,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: rangeCheck
     owner: ItemDef
     domain_of:
@@ -1189,7 +1217,6 @@ attributes:
     description: 'CodeListRef reference: A reference to a CodeList definition.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: codeListRef
     owner: ItemDef
     domain_of:
@@ -1204,7 +1231,6 @@ attributes:
       be provided as a child element on the ItemDef for the variable definition.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: valueListRef
     owner: ItemDef
     domain_of:
@@ -1222,7 +1248,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: coding
     owner: ItemDef
     domain_of:
@@ -1253,7 +1278,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: alias
     owner: ItemDef
     domain_of:

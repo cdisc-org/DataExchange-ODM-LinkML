@@ -32,7 +32,7 @@ URI: [odm:itemOID](http://www.cdisc.org/ns/odm/v2.0/itemOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [ItemDef](ItemDef.md)
 
 
 
@@ -69,7 +69,7 @@ domain_of:
 - RangeCheck
 - ItemData
 - KeySet
-range: oidref
+range: ItemDef
 
 ```
 </details>

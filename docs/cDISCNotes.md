@@ -58,7 +58,6 @@ name: cDISCNotes
 description: 'CDISCNotes reference: Explanatory text for the variable.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: cDISCNotes
 domain_of:
 - ItemDef

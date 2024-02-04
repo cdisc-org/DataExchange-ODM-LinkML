@@ -59,7 +59,6 @@ description: 'ImplementationNotes reference: Further information, such as ration
   and implementation instructions, on how to implement the CRF data collection fields.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: implementationNotes
 domain_of:
 - ItemDef

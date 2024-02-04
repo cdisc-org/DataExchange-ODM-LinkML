@@ -63,7 +63,6 @@ description: 'ItemGroupRef reference: ItemGroupRef references an ItemGroupDef as
   or ItemGroupDef must not have duplicate ItemGroupOID or OrderNumber attribute values.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: itemGroupRef
 domain_of:
 - StudyEventDef

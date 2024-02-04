@@ -11,10 +11,27 @@ URI: [odm:DefaultTransition](http://www.cdisc.org/ns/odm/v2.0/DefaultTransition)
 ```mermaid
 erDiagram
 DefaultTransition {
-    oidref targetTransitionOID  
+
+}
+Transition {
+    oid OID  
+    nameType name  
+    string sourceOID  
+    string targetOID  
+}
+ConditionDef {
+    oid OID  
+    nameType name  
 }
 
-
+DefaultTransition ||--|| Transition : "targetTransitionOID"
+Transition ||--|o ConditionDef : "startConditionOID"
+Transition ||--|o ConditionDef : "endConditionOID"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
 
 ```
 
@@ -27,7 +44,7 @@ DefaultTransition {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [targetTransitionOID](targetTransitionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the Transition that is the default target of the branching. | direct |
+| [targetTransitionOID](targetTransitionOID.md) | 1..1 <br/> [Transition](Transition.md) | Reference to the Transition that is the default target of the branching. | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -108,7 +125,7 @@ slot_usage:
     domain_of:
     - TargetTransition
     - DefaultTransition
-    range: oidref
+    range: Transition
     required: true
 class_uri: odm:DefaultTransition
 
@@ -140,7 +157,7 @@ slot_usage:
     domain_of:
     - TargetTransition
     - DefaultTransition
-    range: oidref
+    range: Transition
     required: true
 attributes:
   targetTransitionOID:
@@ -160,7 +177,7 @@ attributes:
     domain_of:
     - TargetTransition
     - DefaultTransition
-    range: oidref
+    range: Transition
     required: true
 class_uri: odm:DefaultTransition
 

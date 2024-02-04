@@ -59,7 +59,6 @@ description: 'AdminData reference: Administrative information about users, locat
   organizations, and electronic signatures.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: adminData
 domain_of:
 - ODMFileMetadata

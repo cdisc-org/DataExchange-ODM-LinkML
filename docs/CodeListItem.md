@@ -16,7 +16,6 @@ CodeListItem {
     YesOnly other  
     positiveInteger orderNumber  
     YesOnly extendedValue  
-    oidref commentOID  
 }
 Alias {
     text context  
@@ -43,13 +42,23 @@ TranslatedText {
 Description {
 
 }
+CommentDef {
+    oid OID  
+}
+DocumentRef {
+    oid leafID  
+}
 
+CodeListItem ||--|o CommentDef : "commentOID"
 CodeListItem ||--|o Description : "description"
 CodeListItem ||--|o Decode : "decode"
 CodeListItem ||--}o Coding : "coding"
 CodeListItem ||--}o Alias : "alias"
 Decode ||--}o TranslatedText : "translatedText"
 Description ||--}o TranslatedText : "translatedText"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
 
 ```
 
@@ -67,7 +76,7 @@ Description ||--}o TranslatedText : "translatedText"
 | [other](other.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Flag to indicate that the term represents "other" content. | direct |
 | [orderNumber](orderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Ordering on the CodeListItems (within a containing CodeListItem) for use when... | direct |
 | [extendedValue](extendedValue.md) | 0..1 <br/> [YesOnly](YesOnly.md) |  | direct |
-| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef . | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [CommentDef](CommentDef.md) | Reference to a CommentDef . | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [decode](decode.md) | 0..1 <br/> [Decode](Decode.md) | Decode reference: The displayed value relating to the CodeListItem/@CodedValu... | direct |
 | [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
@@ -231,7 +240,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     domain_of:
@@ -417,7 +426,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     domain_of:
@@ -611,14 +620,13 @@ attributes:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: CodeListItem
     domain_of:
@@ -668,7 +676,6 @@ attributes:
       provided in different languages on a case report form or tabular data summary.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: decode
     owner: CodeListItem
     domain_of:
@@ -686,7 +693,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: coding
     owner: CodeListItem
     domain_of:
@@ -717,7 +723,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: alias
     owner: CodeListItem
     domain_of:

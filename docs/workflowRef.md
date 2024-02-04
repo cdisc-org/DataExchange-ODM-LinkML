@@ -63,7 +63,6 @@ name: workflowRef
 description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: workflowRef
 domain_of:
 - StudyEventGroupDef

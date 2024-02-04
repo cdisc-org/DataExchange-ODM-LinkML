@@ -59,7 +59,6 @@ description: 'SummaryMeasure reference: The SummaryMeasure element describes a s
   measure for an estimand (e.g., proportion of patients with an improvement).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: summaryMeasure
 domain_of:
 - StudyEstimand

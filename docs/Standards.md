@@ -14,16 +14,21 @@ Standards {
 
 }
 Standard {
-    oid oID  
+    oid OID  
     StandardName name  
     StandardType type  
     StandardPublishingSet publishingSet  
     text version  
     StandardStatus status  
-    oidref commentOID  
+}
+CommentDef {
+    oid OID  
 }
 
 Standards ||--}o Standard : "standard"
+Standard ||--|o CommentDef : "commentOID"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
 
 ```
 
@@ -146,7 +151,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: standard
     owner: Standards
     domain_of:

@@ -11,11 +11,15 @@ URI: [odm:Arm](http://www.cdisc.org/ns/odm/v2.0/Arm)
 ```mermaid
 erDiagram
 Arm {
-    oid oID  
+    oid OID  
     nameType name  
 }
 WorkflowRef {
-    oidref workflowOID  
+
+}
+WorkflowDef {
+    oid OID  
+    nameType name  
 }
 Description {
 
@@ -28,6 +32,12 @@ TranslatedText {
 
 Arm ||--|o Description : "description"
 Arm ||--|o WorkflowRef : "workflowRef"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+WorkflowDef ||--|o Description : "description"
+WorkflowDef ||--|o WorkflowStart : "workflowStart"
+WorkflowDef ||--}o WorkflowEnd : "workflowEnd"
+WorkflowDef ||--}o Transition : "transition"
+WorkflowDef ||--}o Branching : "branching"
 Description ||--}o TranslatedText : "translatedText"
 
 ```
@@ -41,7 +51,7 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Arm definition. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Arm definition. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name of the study arm. | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [workflowRef](workflowRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
@@ -55,6 +65,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [StudyEventGroupDef](StudyEventGroupDef.md) | [armOID](armOID.md) | range | [Arm](Arm.md) |
 | [StudyStructure](StudyStructure.md) | [arm](arm.md) | range | [Arm](Arm.md) |
 
 
@@ -110,18 +121,19 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Arm
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - description
 - workflowRef
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the Arm definition.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -274,13 +286,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Arm
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the Arm definition.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -417,8 +430,8 @@ slot_usage:
     range: WorkflowRef
     maximum_cardinality: 1
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the Arm definition.
     comments:
     - 'Required
@@ -427,7 +440,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: Arm
     domain_of:
     - Study
@@ -522,7 +535,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: Arm
     domain_of:
@@ -569,7 +581,6 @@ attributes:
     description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: workflowRef
     owner: Arm
     domain_of:

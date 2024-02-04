@@ -60,7 +60,6 @@ description: 'StudyObjective reference: The reason for performing a study in ter
   the study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyObjective
 domain_of:
 - StudyObjectives

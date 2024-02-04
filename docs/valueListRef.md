@@ -61,7 +61,6 @@ description: 'ValueListRef reference: The ValueListRef element is the OID of the
   a child element on the ItemDef for the variable definition.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: valueListRef
 domain_of:
 - ItemDef

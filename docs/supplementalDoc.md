@@ -58,7 +58,6 @@ name: supplementalDoc
 description: 'SupplementalDoc reference: Supplemental data definitions'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: supplementalDoc
 domain_of:
 - MetaDataVersion

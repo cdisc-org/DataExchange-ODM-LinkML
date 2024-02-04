@@ -62,7 +62,6 @@ description: 'StudyIntervention reference: This element describes a study interv
   "Ibuprofen" when used as a nonsteroidal anti-inflammatory drug).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyIntervention
 domain_of:
 - StudyInterventions

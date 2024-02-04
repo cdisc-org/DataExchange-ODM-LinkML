@@ -16,7 +16,6 @@ ODMFileMetadata {
     Context context  
     oid fileOID  
     datetime creationDateTime  
-    oidref priorFileOID  
     datetime asOfDateTime  
     ODMVersion oDMVersion  
     text originator  
@@ -24,37 +23,42 @@ ODMFileMetadata {
     text sourceSystemVersion  
 }
 Association {
-    oidref studyOID  
-    oidref metaDataVersionOID  
+
 }
 Annotation {
     positiveInteger seqNum  
     TransactionType transactionType  
-    oid iD  
+    oid ID  
 }
 KeySet {
-    oidref studyOID  
     subjectKeyType subjectKey  
-    oidref metaDataVersionOID  
-    oidref studyEventOID  
     repeatKey studyEventRepeatKey  
-    oidref itemGroupOID  
     repeatKey itemGroupRepeatKey  
-    oidref itemOID  
+}
+MetaDataVersion {
+    oid OID  
+    nameType name  
+}
+Study {
+    oid OID  
+    nameType studyName  
+    nameType protocolName  
+    nameType versionID  
+    nameType versionName  
+    nameType status  
 }
 ClinicalData {
-    oidref studyOID  
-    oidref metaDataVersionOID  
+
 }
 Signature {
-    oid iD  
+    oid ID  
 }
 AuditRecord {
     EditPointType editPoint  
     YesOrNo usedMethod  
 }
 Query {
-    oid oID  
+    oid OID  
     QuerySourceType source  
     text target  
     QueryType type  
@@ -63,7 +67,6 @@ Query {
     nameType name  
 }
 ItemGroupData {
-    oidref itemGroupOID  
     repeatKey itemGroupRepeatKey  
     TransactionType transactionType  
     positiveInteger itemGroupDataSeq  
@@ -73,123 +76,59 @@ SubjectData {
     TransactionType transactionType  
 }
 ReferenceData {
-    oidref studyOID  
-    oidref metaDataVersionOID  
+
 }
 AdminData {
-    oidref studyOID  
+
 }
 SignatureDef {
-    oid oID  
+    oid OID  
     SignMethod methodology  
 }
 Location {
-    oid oID  
+    oid OID  
     nameType name  
     text role  
-    oidref organizationOID  
 }
 Organization {
-    oid oID  
+    oid OID  
     nameType name  
     text role  
     OrganizationType type  
-    oidref locationOID  
-    oidref partOfOrganizationOID  
 }
 User {
-    oid oID  
+    oid OID  
     UserType userType  
-    oidref organizationOID  
-    oidref locationOID  
-}
-Study {
-    oid oID  
-    nameType studyName  
-    nameType protocolName  
-    nameType versionID  
-    nameType versionName  
-    nameType status  
-}
-MetaDataVersion {
-    oid oID  
-    nameType name  
-    oidref commentOID  
 }
 Description {
 
 }
+TranslatedText {
+    languageType language  
+    text type  
+    contentType content  
+}
 
+ODMFileMetadata ||--|o ODMFileMetadata : "priorFileOID"
 ODMFileMetadata ||--|o Description : "description"
 ODMFileMetadata ||--}o Study : "study"
 ODMFileMetadata ||--}o AdminData : "adminData"
 ODMFileMetadata ||--}o ReferenceData : "referenceData"
 ODMFileMetadata ||--}o ClinicalData : "clinicalData"
 ODMFileMetadata ||--}o Association : "association"
+Association ||--|| Study : "studyOID"
+Association ||--|| MetaDataVersion : "metaDataVersionOID"
 Association ||--|o KeySet : "keySet"
 Association ||--|o Annotation : "annotation"
 Annotation ||--|o Comment : "comment"
 Annotation ||--}o Coding : "coding"
 Annotation ||--}o Flag : "flag"
-ClinicalData ||--}o SubjectData : "subjectData"
-ClinicalData ||--}o ItemGroupData : "itemGroupData"
-ClinicalData ||--}o Query : "query"
-ClinicalData ||--|o AuditRecord : "auditRecord"
-ClinicalData ||--|o Signature : "signature"
-ClinicalData ||--|o Annotation : "annotation"
-Signature ||--|o UserRef : "userRef"
-Signature ||--|o LocationRef : "locationRef"
-Signature ||--|o SignatureRef : "signatureRef"
-Signature ||--|o DateTimeStamp : "dateTimeStamp"
-AuditRecord ||--|o UserRef : "userRef"
-AuditRecord ||--|o LocationRef : "locationRef"
-AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
-AuditRecord ||--|o ReasonForChange : "reasonForChange"
-AuditRecord ||--|o SourceID : "sourceID"
-Query ||--|o Value : "value"
-Query ||--}o AuditRecord : "auditRecord"
-ItemGroupData ||--}o Query : "query"
-ItemGroupData ||--}o ItemGroupData : "itemGroupData"
-ItemGroupData ||--}o ItemData : "itemData"
-ItemGroupData ||--|o AuditRecord : "auditRecord"
-ItemGroupData ||--|o Signature : "signature"
-ItemGroupData ||--|o Annotation : "annotation"
-SubjectData ||--|o InvestigatorRef : "investigatorRef"
-SubjectData ||--|o SiteRef : "siteRef"
-SubjectData ||--}o StudyEventData : "studyEventData"
-SubjectData ||--}o Query : "query"
-SubjectData ||--|o AuditRecord : "auditRecord"
-SubjectData ||--|o Signature : "signature"
-SubjectData ||--|o Annotation : "annotation"
-ReferenceData ||--}o ItemGroupData : "itemGroupData"
-ReferenceData ||--|o AuditRecord : "auditRecord"
-ReferenceData ||--|o Signature : "signature"
-ReferenceData ||--|o Annotation : "annotation"
-AdminData ||--}o User : "user"
-AdminData ||--}o Organization : "organization"
-AdminData ||--}o Location : "location"
-AdminData ||--}o SignatureDef : "signatureDef"
-SignatureDef ||--|o Meaning : "meaning"
-SignatureDef ||--|o LegalReason : "legalReason"
-Location ||--|o Description : "description"
-Location ||--}o MetaDataVersionRef : "metaDataVersionRef"
-Location ||--}o Address : "address"
-Location ||--}o Telecom : "telecom"
-Location ||--}o Query : "query"
-Organization ||--|o Description : "description"
-Organization ||--}o Address : "address"
-Organization ||--}o Telecom : "telecom"
-User ||--|o UserName : "userName"
-User ||--|o Prefix : "prefix"
-User ||--|o Suffix : "suffix"
-User ||--|o FullName : "fullName"
-User ||--|o GivenName : "givenName"
-User ||--|o FamilyName : "familyName"
-User ||--|o Image : "image"
-User ||--}o Address : "address"
-User ||--}o Telecom : "telecom"
-Study ||--|o Description : "description"
-Study ||--}o MetaDataVersion : "metaDataVersion"
+KeySet ||--|| Study : "studyOID"
+KeySet ||--|o MetaDataVersion : "metaDataVersionOID"
+KeySet ||--|o StudyEventDef : "studyEventOID"
+KeySet ||--|o ItemGroupDef : "itemGroupOID"
+KeySet ||--|o ItemDef : "itemOID"
+MetaDataVersion ||--|o CommentDef : "commentOID"
 MetaDataVersion ||--|o Description : "description"
 MetaDataVersion ||--|o Include : "include"
 MetaDataVersion ||--|o Standards : "standards"
@@ -208,6 +147,76 @@ MetaDataVersion ||--}o ConditionDef : "conditionDef"
 MetaDataVersion ||--}o MethodDef : "methodDef"
 MetaDataVersion ||--}o CommentDef : "commentDef"
 MetaDataVersion ||--}o Leaf : "leaf"
+Study ||--|o Description : "description"
+Study ||--}o MetaDataVersion : "metaDataVersion"
+ClinicalData ||--|| Study : "studyOID"
+ClinicalData ||--|| MetaDataVersion : "metaDataVersionOID"
+ClinicalData ||--}o SubjectData : "subjectData"
+ClinicalData ||--}o ItemGroupData : "itemGroupData"
+ClinicalData ||--}o Query : "query"
+ClinicalData ||--|o AuditRecord : "auditRecord"
+ClinicalData ||--|o Signature : "signature"
+ClinicalData ||--|o Annotation : "annotation"
+Signature ||--|o UserRef : "userRef"
+Signature ||--|o LocationRef : "locationRef"
+Signature ||--|o SignatureRef : "signatureRef"
+Signature ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o UserRef : "userRef"
+AuditRecord ||--|o LocationRef : "locationRef"
+AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
+AuditRecord ||--|o ReasonForChange : "reasonForChange"
+AuditRecord ||--|o SourceID : "sourceID"
+Query ||--|o Value : "value"
+Query ||--}o AuditRecord : "auditRecord"
+ItemGroupData ||--|| ItemGroupDef : "itemGroupOID"
+ItemGroupData ||--}o Query : "query"
+ItemGroupData ||--}o ItemGroupData : "itemGroupData"
+ItemGroupData ||--}o ItemData : "itemData"
+ItemGroupData ||--|o AuditRecord : "auditRecord"
+ItemGroupData ||--|o Signature : "signature"
+ItemGroupData ||--|o Annotation : "annotation"
+SubjectData ||--|o InvestigatorRef : "investigatorRef"
+SubjectData ||--|o SiteRef : "siteRef"
+SubjectData ||--}o StudyEventData : "studyEventData"
+SubjectData ||--}o Query : "query"
+SubjectData ||--|o AuditRecord : "auditRecord"
+SubjectData ||--|o Signature : "signature"
+SubjectData ||--|o Annotation : "annotation"
+ReferenceData ||--|| Study : "studyOID"
+ReferenceData ||--|| MetaDataVersion : "metaDataVersionOID"
+ReferenceData ||--}o ItemGroupData : "itemGroupData"
+ReferenceData ||--|o AuditRecord : "auditRecord"
+ReferenceData ||--|o Signature : "signature"
+ReferenceData ||--|o Annotation : "annotation"
+AdminData ||--|o Study : "studyOID"
+AdminData ||--}o User : "user"
+AdminData ||--}o Organization : "organization"
+AdminData ||--}o Location : "location"
+AdminData ||--}o SignatureDef : "signatureDef"
+SignatureDef ||--|o Meaning : "meaning"
+SignatureDef ||--|o LegalReason : "legalReason"
+Location ||--|o Organization : "organizationOID"
+Location ||--|o Description : "description"
+Location ||--}o MetaDataVersionRef : "metaDataVersionRef"
+Location ||--}o Address : "address"
+Location ||--}o Telecom : "telecom"
+Location ||--}o Query : "query"
+Organization ||--|o Location : "locationOID"
+Organization ||--|o Organization : "partOfOrganizationOID"
+Organization ||--|o Description : "description"
+Organization ||--}o Address : "address"
+Organization ||--}o Telecom : "telecom"
+User ||--|o Organization : "organizationOID"
+User ||--|o Location : "locationOID"
+User ||--|o UserName : "userName"
+User ||--|o Prefix : "prefix"
+User ||--|o Suffix : "suffix"
+User ||--|o FullName : "fullName"
+User ||--|o GivenName : "givenName"
+User ||--|o FamilyName : "familyName"
+User ||--|o Image : "image"
+User ||--}o Address : "address"
+User ||--}o Telecom : "telecom"
 Description ||--}o TranslatedText : "translatedText"
 
 ```
@@ -226,7 +235,7 @@ Description ||--}o TranslatedText : "translatedText"
 | [context](context.md) | 0..1 <br/> [Context](Context.md) | Indicates the intended usage of the ODM document. Archive - indicates that th... | direct |
 | [fileOID](fileOID.md) | 1..1 <br/> [oid](oid.md) | A unique identifier for this file. | direct |
 | [creationDateTime](creationDateTime.md) | 1..1 <br/> [datetime](datetime.md) | Time of creation of the file containing the document. | direct |
-| [priorFileOID](priorFileOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to the previous file (if any) in a series. | direct |
+| [priorFileOID](priorFileOID.md) | 0..1 <br/> [ODMFileMetadata](ODMFileMetadata.md) | Reference to the previous file (if any) in a series. | direct |
 | [asOfDateTime](asOfDateTime.md) | 0..1 <br/> [datetime](datetime.md) | The date/time at which the source database was queried in order to create thi... | direct |
 | [oDMVersion](oDMVersion.md) | 0..1 <br/> [ODMVersion](ODMVersion.md) | The version of the ODM standard used. | direct |
 | [originator](originator.md) | 0..1 <br/> [text](text.md) | The organization that generated the ODM file. | direct |
@@ -242,6 +251,13 @@ Description ||--}o TranslatedText : "translatedText"
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
 
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [ODMFileMetadata](ODMFileMetadata.md) | [priorFileOID](priorFileOID.md) | range | [ODMFileMetadata](ODMFileMetadata.md) |
 
 
 
@@ -368,6 +384,7 @@ slot_usage:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - ODMFileMetadata
     range: oid
@@ -392,7 +409,7 @@ slot_usage:
       range: oidref'
     domain_of:
     - ODMFileMetadata
-    range: oidref
+    range: ODMFileMetadata
   asOfDateTime:
     name: asOfDateTime
     description: The date/time at which the source database was queried in order to
@@ -598,6 +615,7 @@ slot_usage:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - ODMFileMetadata
     range: oid
@@ -622,7 +640,7 @@ slot_usage:
       range: oidref'
     domain_of:
     - ODMFileMetadata
-    range: oidref
+    range: ODMFileMetadata
   asOfDateTime:
     name: asOfDateTime
     description: The date/time at which the source database was queried in order to
@@ -825,6 +843,7 @@ attributes:
       range: oid'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: fileOID
     owner: ODMFileMetadata
     domain_of:
@@ -859,7 +878,7 @@ attributes:
     owner: ODMFileMetadata
     domain_of:
     - ODMFileMetadata
-    range: oidref
+    range: ODMFileMetadata
   asOfDateTime:
     name: asOfDateTime
     description: The date/time at which the source database was queried in order to
@@ -938,7 +957,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: ODMFileMetadata
     domain_of:
@@ -987,7 +1005,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: study
     owner: ODMFileMetadata
     domain_of:
@@ -1002,7 +1019,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: adminData
     owner: ODMFileMetadata
     domain_of:
@@ -1019,7 +1035,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: referenceData
     owner: ODMFileMetadata
     domain_of:
@@ -1033,7 +1048,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: clinicalData
     owner: ODMFileMetadata
     domain_of:
@@ -1049,7 +1063,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: association
     owner: ODMFileMetadata
     domain_of:

@@ -11,10 +11,45 @@ URI: [odm:WorkflowRef](http://www.cdisc.org/ns/odm/v2.0/WorkflowRef)
 ```mermaid
 erDiagram
 WorkflowRef {
-    oidref workflowOID  
+
+}
+WorkflowDef {
+    oid OID  
+    nameType name  
+}
+Branching {
+    oid OID  
+    nameType name  
+    BranchingType type  
+}
+Transition {
+    oid OID  
+    nameType name  
+    string sourceOID  
+    string targetOID  
+}
+WorkflowEnd {
+    string endOID  
+    text content  
+}
+WorkflowStart {
+    string startOID  
+}
+Description {
+
 }
 
-
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+WorkflowDef ||--|o Description : "description"
+WorkflowDef ||--|o WorkflowStart : "workflowStart"
+WorkflowDef ||--}o WorkflowEnd : "workflowEnd"
+WorkflowDef ||--}o Transition : "transition"
+WorkflowDef ||--}o Branching : "branching"
+Branching ||--}o TargetTransition : "targetTransition"
+Branching ||--}o DefaultTransition : "defaultTransition"
+Transition ||--|o ConditionDef : "startConditionOID"
+Transition ||--|o ConditionDef : "endConditionOID"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -27,7 +62,7 @@ WorkflowRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [workflowOID](workflowOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a WorkflowDef | direct |
+| [workflowOID](workflowOID.md) | 1..1 <br/> [WorkflowDef](WorkflowDef.md) | Reference to a WorkflowDef | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -110,7 +145,7 @@ slot_usage:
       Must match the OID of a WorkflowDef child element of this MetaDataVersion.'
     domain_of:
     - WorkflowRef
-    range: oidref
+    range: WorkflowDef
     required: true
 class_uri: odm:WorkflowRef
 
@@ -139,7 +174,7 @@ slot_usage:
       Must match the OID of a WorkflowDef child element of this MetaDataVersion.'
     domain_of:
     - WorkflowRef
-    range: oidref
+    range: WorkflowDef
     required: true
 attributes:
   workflowOID:
@@ -157,7 +192,7 @@ attributes:
     owner: WorkflowRef
     domain_of:
     - WorkflowRef
-    range: oidref
+    range: WorkflowDef
     required: true
 class_uri: odm:WorkflowRef
 

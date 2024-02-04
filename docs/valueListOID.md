@@ -28,7 +28,7 @@ URI: [odm:valueListOID](http://www.cdisc.org/ns/odm/v2.0/valueListOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [ValueListDef](ValueListDef.md)
 
 
 
@@ -62,7 +62,7 @@ rank: 1000
 alias: valueListOID
 domain_of:
 - ValueListRef
-range: oidref
+range: ValueListDef
 
 ```
 </details>

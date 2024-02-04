@@ -11,10 +11,29 @@ URI: [odm:WhereClauseRef](http://www.cdisc.org/ns/odm/v2.0/WhereClauseRef)
 ```mermaid
 erDiagram
 WhereClauseRef {
-    oidref whereClauseOID  
+
+}
+WhereClauseDef {
+    oid OID  
+}
+RangeCheck {
+    Comparator comparator  
+    SoftOrHard softHard  
+}
+CommentDef {
+    oid OID  
 }
 
-
+WhereClauseRef ||--|| WhereClauseDef : "whereClauseOID"
+WhereClauseDef ||--|o CommentDef : "commentOID"
+WhereClauseDef ||--}o RangeCheck : "rangeCheck"
+RangeCheck ||--|o ItemDef : "itemOID"
+RangeCheck ||--|o ErrorMessage : "errorMessage"
+RangeCheck ||--|o MethodSignature : "methodSignature"
+RangeCheck ||--}o FormalExpression : "formalExpression"
+RangeCheck ||--}o CheckValue : "checkValue"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
 
 ```
 
@@ -27,7 +46,7 @@ WhereClauseRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [whereClauseOID](whereClauseOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a WhereClauseDef element | direct |
+| [whereClauseOID](whereClauseOID.md) | 1..1 <br/> [WhereClauseDef](WhereClauseDef.md) | Reference to the unique ID of a WhereClauseDef element | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -104,7 +123,7 @@ slot_usage:
       range: oidref'
     domain_of:
     - WhereClauseRef
-    range: oidref
+    range: WhereClauseDef
     required: true
 class_uri: odm:WhereClauseRef
 
@@ -132,7 +151,7 @@ slot_usage:
       range: oidref'
     domain_of:
     - WhereClauseRef
-    range: oidref
+    range: WhereClauseDef
     required: true
 attributes:
   whereClauseOID:
@@ -148,7 +167,7 @@ attributes:
     owner: WhereClauseRef
     domain_of:
     - WhereClauseRef
-    range: oidref
+    range: WhereClauseDef
     required: true
 class_uri: odm:WhereClauseRef
 

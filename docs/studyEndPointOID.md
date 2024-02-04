@@ -28,7 +28,7 @@ URI: [odm:studyEndPointOID](http://www.cdisc.org/ns/odm/v2.0/studyEndPointOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [StudyEndPoint](StudyEndPoint.md)
 
 
 
@@ -61,7 +61,7 @@ rank: 1000
 alias: studyEndPointOID
 domain_of:
 - StudyEndPointRef
-range: oidref
+range: StudyEndPoint
 
 ```
 </details>

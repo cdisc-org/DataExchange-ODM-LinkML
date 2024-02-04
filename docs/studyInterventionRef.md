@@ -59,7 +59,6 @@ description: 'StudyInterventionRef reference: The StudyInterventionRef reference
   an intervention that is taken as the treatment for the estimand.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyInterventionRef
 domain_of:
 - StudyEstimand

@@ -59,7 +59,6 @@ description: 'WorkflowDef reference: A WorkflowDef defines an automated workflow
   a study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: workflowDef
 domain_of:
 - MetaDataVersion

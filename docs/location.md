@@ -59,7 +59,6 @@ description: 'Location reference: A physical location associated with data colle
   and/or treatment of subjects.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: location
 domain_of:
 - AdminData

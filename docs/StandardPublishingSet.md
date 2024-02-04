@@ -13,11 +13,11 @@ URI: [StandardPublishingSet](StandardPublishingSet)
 
 | Value | Meaning | Description |
 | --- | --- | --- |
-| ADaM | nci:ExtCodeID:C180548 |  |
-| CDASH | nci:ExtCodeID:C180549 |  |
-| DEFINE-XML | nci:ExtCodeID:C180550 |  |
-| SDTM | nci:ExtCodeID:C180551 |  |
-| SEND | nci:ExtCodeID:C180552 |  |
+| ADaM | ncit:C180548 |  |
+| CDASH | ncit:C180549 |  |
+| DEFINE-XML | ncit:C180550 |  |
+| SDTM | ncit:C180551 |  |
+| SEND | ncit:C180552 |  |
 
 
 
@@ -60,33 +60,33 @@ URI: [StandardPublishingSet](StandardPublishingSet)
 <details>
 ```yaml
 name: StandardPublishingSet
-conforms_to: nci:ExtCodeID:C172331
+conforms_to: ncit
 description: Enumeration used in publishingSet
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 aliases:
 - C172331
 rank: 1000
-code_set: nci:ExtCodeID
+code_set: ncit:C172331
 permissible_values:
   ADaM:
     text: ADaM
-    meaning: nci:ExtCodeID:C180548
+    meaning: ncit:C180548
     is_a: StandardPublishingSet
   CDASH:
     text: CDASH
-    meaning: nci:ExtCodeID:C180549
+    meaning: ncit:C180549
     is_a: StandardPublishingSet
   DEFINE-XML:
     text: DEFINE-XML
-    meaning: nci:ExtCodeID:C180550
+    meaning: ncit:C180550
     is_a: StandardPublishingSet
   SDTM:
     text: SDTM
-    meaning: nci:ExtCodeID:C180551
+    meaning: ncit:C180551
     is_a: StandardPublishingSet
   SEND:
     text: SEND
-    meaning: nci:ExtCodeID:C180552
+    meaning: ncit:C180552
     is_a: StandardPublishingSet
 
 ```

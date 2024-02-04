@@ -58,7 +58,6 @@ name: conditionDef
 description: 'ConditionDef reference: A ConditionDef defines a boolean condition.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: conditionDef
 domain_of:
 - MetaDataVersion

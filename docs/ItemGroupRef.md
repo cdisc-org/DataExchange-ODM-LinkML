@@ -11,14 +11,145 @@ URI: [odm:ItemGroupRef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupRef)
 ```mermaid
 erDiagram
 ItemGroupRef {
-    oidref itemGroupOID  
-    oidref methodOID  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
+}
+ConditionDef {
+    oid OID  
+    nameType name  
+}
+Alias {
+    text context  
+    text name  
+}
+FormalExpression {
+    text context  
+}
+MethodSignature {
+
+}
+Description {
+
+}
+CommentDef {
+    oid OID  
+}
+MethodDef {
+    oid OID  
+    nameType name  
+    MethodType type  
+}
+DocumentRef {
+    oid leafID  
+}
+ItemGroupDef {
+    oid OID  
+    nameType name  
+    ItemGroupRepeatingType repeating  
+    positiveInteger repeatingLimit  
+    YesOrNo isReferenceData  
+    text structure  
+    nameType datasetName  
+    text domain  
+    ItemGroupTypeType type  
+    text purpose  
+    YesOnly isNonStandard  
+    YesOnly hasNoData  
+}
+ItemRef {
+    positiveInteger keySequence  
+    YesOnly isNonStandard  
+    YesOnly hasNoData  
+    YesOnly repeat  
+    YesOnly other  
+    text role  
+    CoreType core  
+    text preSpecifiedValue  
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+}
+Leaf {
+    oid ID  
+    uriorcurie href  
+}
+Origin {
+    OriginType type  
+    OriginSource source  
+}
+WorkflowRef {
+
+}
+Coding {
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
+    uriorcurie href  
+    uriorcurie ref  
+    text commentOID  
+}
+Class {
+    ItemGroupClass name  
+}
+Standard {
+    oid OID  
+    StandardName name  
+    StandardType type  
+    StandardPublishingSet publishingSet  
+    text version  
+    StandardStatus status  
 }
 
-
+ItemGroupRef ||--|| ItemGroupDef : "itemGroupOID"
+ItemGroupRef ||--|o MethodDef : "methodOID"
+ItemGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+MethodSignature ||--}o Parameter : "parameter"
+MethodSignature ||--}o ReturnValue : "returnValue"
+Description ||--}o TranslatedText : "translatedText"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+MethodDef ||--|o CommentDef : "commentOID"
+MethodDef ||--|o Description : "description"
+MethodDef ||--|o MethodSignature : "methodSignature"
+MethodDef ||--}o FormalExpression : "formalExpression"
+MethodDef ||--}o Alias : "alias"
+MethodDef ||--}o DocumentRef : "documentRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
+ItemGroupDef ||--|o Leaf : "archiveLocationID"
+ItemGroupDef ||--|o Standard : "standardOID"
+ItemGroupDef ||--|o CommentDef : "commentOID"
+ItemGroupDef ||--|o Description : "description"
+ItemGroupDef ||--|o Class : "itemGroupClass"
+ItemGroupDef ||--}o Coding : "coding"
+ItemGroupDef ||--|o WorkflowRef : "workflowRef"
+ItemGroupDef ||--}o Origin : "origin"
+ItemGroupDef ||--}o Alias : "alias"
+ItemGroupDef ||--|o Leaf : "leaf"
+ItemGroupDef ||--}o ItemGroupRef : "itemGroupRef"
+ItemGroupDef ||--}o ItemRef : "itemRef"
+ItemRef ||--|| ItemDef : "itemOID"
+ItemRef ||--|o MethodDef : "methodOID"
+ItemRef ||--|o ItemDef : "unitsItemOID"
+ItemRef ||--|o CodeList : "roleCodeListOID"
+ItemRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+ItemRef ||--}o Origin : "origin"
+ItemRef ||--}o WhereClauseRef : "whereClauseRef"
+Leaf ||--|o Title : "title"
+Origin ||--|o Description : "description"
+Origin ||--|o SourceItems : "sourceItems"
+Origin ||--}o Coding : "coding"
+Origin ||--}o DocumentRef : "documentRef"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+Class ||--}o SubClass : "subClass"
+Standard ||--|o CommentDef : "commentOID"
 
 ```
 
@@ -31,11 +162,11 @@ ItemGroupRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [itemGroupOID](itemGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the ItemGroupDef . | direct |
-| [methodOID](methodOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a MethodDef that will provide one or more data rows as output. T... | direct |
+| [itemGroupOID](itemGroupOID.md) | 1..1 <br/> [ItemGroupDef](ItemGroupDef.md) | Reference to the ItemGroupDef . | direct |
+| [methodOID](methodOID.md) | 0..1 <br/> [MethodDef](MethodDef.md) | Reference to a MethodDef that will provide one or more data rows as output. T... | direct |
 | [orderNumber](orderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this ItemGroup appears in Metadata displays or d... | direct |
 | [mandatory](mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | The Mandatory flag indicates that the clinical data for an instance of the co... | direct |
-| [collectionExceptionConditionOID](collectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
+| [collectionExceptionConditionOID](collectionExceptionConditionOID.md) | 0..1 <br/> [ConditionDef](ConditionDef.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -125,7 +256,7 @@ slot_usage:
     - SourceItem
     - ItemGroupData
     - KeySet
-    range: oidref
+    range: ItemGroupDef
     required: true
   methodOID:
     name: methodOID
@@ -141,7 +272,7 @@ slot_usage:
     - ItemGroupRef
     - ItemRef
     - TransitionTimingConstraint
-    range: oidref
+    range: MethodDef
   orderNumber:
     name: orderNumber
     description: Indicates the order in which this ItemGroup appears in Metadata displays
@@ -205,7 +336,7 @@ slot_usage:
     - StudyEventRef
     - ItemGroupRef
     - ItemRef
-    range: oidref
+    range: ConditionDef
 class_uri: odm:ItemGroupRef
 
 ```
@@ -240,7 +371,7 @@ slot_usage:
     - SourceItem
     - ItemGroupData
     - KeySet
-    range: oidref
+    range: ItemGroupDef
     required: true
   methodOID:
     name: methodOID
@@ -256,7 +387,7 @@ slot_usage:
     - ItemGroupRef
     - ItemRef
     - TransitionTimingConstraint
-    range: oidref
+    range: MethodDef
   orderNumber:
     name: orderNumber
     description: Indicates the order in which this ItemGroup appears in Metadata displays
@@ -320,7 +451,7 @@ slot_usage:
     - StudyEventRef
     - ItemGroupRef
     - ItemRef
-    range: oidref
+    range: ConditionDef
 attributes:
   itemGroupOID:
     name: itemGroupOID
@@ -340,7 +471,7 @@ attributes:
     - SourceItem
     - ItemGroupData
     - KeySet
-    range: oidref
+    range: ItemGroupDef
     required: true
   methodOID:
     name: methodOID
@@ -360,7 +491,7 @@ attributes:
     - ItemGroupRef
     - ItemRef
     - TransitionTimingConstraint
-    range: oidref
+    range: MethodDef
   orderNumber:
     name: orderNumber
     description: Indicates the order in which this ItemGroup appears in Metadata displays
@@ -436,7 +567,7 @@ attributes:
     - StudyEventRef
     - ItemGroupRef
     - ItemRef
-    range: oidref
+    range: ConditionDef
 class_uri: odm:ItemGroupRef
 
 ```

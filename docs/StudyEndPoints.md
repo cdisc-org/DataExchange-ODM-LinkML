@@ -14,7 +14,7 @@ StudyEndPoints {
 
 }
 StudyEndPoint {
-    oid oID  
+    oid OID  
     nameType name  
     StudyEndPointType type  
     StudyEstimandLevel level  
@@ -157,7 +157,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: studyEndPoint
     owner: StudyEndPoints
     domain_of:

@@ -60,7 +60,6 @@ description: 'Association reference: An association permits an annotation to be 
   identify the start and end of the annotated "link.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: association
 domain_of:
 - ODMFileMetadata

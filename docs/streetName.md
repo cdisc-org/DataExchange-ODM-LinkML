@@ -58,7 +58,6 @@ name: streetName
 description: 'StreetName reference: The street name part of a user''s postal address.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: streetName
 domain_of:
 - Address

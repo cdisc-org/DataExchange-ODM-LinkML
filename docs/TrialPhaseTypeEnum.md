@@ -8,19 +8,19 @@ URI: [TrialPhaseTypeEnum](TrialPhaseTypeEnum)
 
 | Value | Meaning | Description |
 | --- | --- | --- |
-| NOT APPLICABLE | nci:ExtCodeID:C48660 |  |
-| PHASE 0 TRIAL | nci:ExtCodeID:C54721 |  |
-| PHASE I TRIAL | nci:ExtCodeID:C15600 |  |
-| PHASE I/II TRIAL | nci:ExtCodeID:C15693 |  |
-| PHASE II TRIAL | nci:ExtCodeID:C15601 |  |
-| PHASE II/III TRIAL | nci:ExtCodeID:C15694 |  |
-| PHASE IIA TRIAL | nci:ExtCodeID:C49686 |  |
-| PHASE IIB TRIAL | nci:ExtCodeID:C49688 |  |
-| PHASE III TRIAL | nci:ExtCodeID:C15602 |  |
-| PHASE IIIA TRIAL | nci:ExtCodeID:C49687 |  |
-| PHASE IIIB TRIAL | nci:ExtCodeID:C49689 |  |
-| PHASE IV TRIAL | nci:ExtCodeID:C15603 |  |
-| PHASE V TRIAL | nci:ExtCodeID:C47865 |  |
+| NOT APPLICABLE | ncit:C48660 |  |
+| PHASE 0 TRIAL | ncit:C54721 |  |
+| PHASE I TRIAL | ncit:C15600 |  |
+| PHASE I/II TRIAL | ncit:C15693 |  |
+| PHASE II TRIAL | ncit:C15601 |  |
+| PHASE II/III TRIAL | ncit:C15694 |  |
+| PHASE IIA TRIAL | ncit:C49686 |  |
+| PHASE IIB TRIAL | ncit:C49688 |  |
+| PHASE III TRIAL | ncit:C15602 |  |
+| PHASE IIIA TRIAL | ncit:C49687 |  |
+| PHASE IIIB TRIAL | ncit:C49689 |  |
+| PHASE IV TRIAL | ncit:C15603 |  |
+| PHASE V TRIAL | ncit:C47865 |  |
 
 
 
@@ -56,52 +56,52 @@ URI: [TrialPhaseTypeEnum](TrialPhaseTypeEnum)
 <details>
 ```yaml
 name: TrialPhaseTypeEnum
-conforms_to: nci:ExtCodeID:C66737
+conforms_to: ncit
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 aliases:
 - C66737
 rank: 1000
-code_set: nci:ExtCodeID
+code_set: ncit:C66737
 permissible_values:
   NOT APPLICABLE:
     text: NOT APPLICABLE
-    meaning: nci:ExtCodeID:C48660
+    meaning: ncit:C48660
   PHASE 0 TRIAL:
     text: PHASE 0 TRIAL
-    meaning: nci:ExtCodeID:C54721
+    meaning: ncit:C54721
   PHASE I TRIAL:
     text: PHASE I TRIAL
-    meaning: nci:ExtCodeID:C15600
+    meaning: ncit:C15600
   PHASE I/II TRIAL:
     text: PHASE I/II TRIAL
-    meaning: nci:ExtCodeID:C15693
+    meaning: ncit:C15693
   PHASE II TRIAL:
     text: PHASE II TRIAL
-    meaning: nci:ExtCodeID:C15601
+    meaning: ncit:C15601
   PHASE II/III TRIAL:
     text: PHASE II/III TRIAL
-    meaning: nci:ExtCodeID:C15694
+    meaning: ncit:C15694
   PHASE IIA TRIAL:
     text: PHASE IIA TRIAL
-    meaning: nci:ExtCodeID:C49686
+    meaning: ncit:C49686
   PHASE IIB TRIAL:
     text: PHASE IIB TRIAL
-    meaning: nci:ExtCodeID:C49688
+    meaning: ncit:C49688
   PHASE III TRIAL:
     text: PHASE III TRIAL
-    meaning: nci:ExtCodeID:C15602
+    meaning: ncit:C15602
   PHASE IIIA TRIAL:
     text: PHASE IIIA TRIAL
-    meaning: nci:ExtCodeID:C49687
+    meaning: ncit:C49687
   PHASE IIIB TRIAL:
     text: PHASE IIIB TRIAL
-    meaning: nci:ExtCodeID:C49689
+    meaning: ncit:C49689
   PHASE IV TRIAL:
     text: PHASE IV TRIAL
-    meaning: nci:ExtCodeID:C15603
+    meaning: ncit:C15603
   PHASE V TRIAL:
     text: PHASE V TRIAL
-    meaning: nci:ExtCodeID:C47865
+    meaning: ncit:C47865
 
 ```
 </details>

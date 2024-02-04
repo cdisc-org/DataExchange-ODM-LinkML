@@ -14,7 +14,7 @@ StudyInterventions {
 
 }
 StudyIntervention {
-    oid oID  
+    oid OID  
 }
 Coding {
     text code  
@@ -158,7 +158,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: studyIntervention
     owner: StudyInterventions
     domain_of:

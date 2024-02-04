@@ -60,7 +60,6 @@ description: 'Organization reference: An organization can reference a parent org
   with a Location. A User, Location, or Organization may have an address.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: organization
 domain_of:
 - AdminData

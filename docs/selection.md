@@ -59,7 +59,6 @@ description: 'Selection reference: Template for machine-readable/executable expr
   for retrieving the data or information from an external resource.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: selection
 domain_of:
 - Resource

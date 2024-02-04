@@ -69,7 +69,6 @@ description: 'TranslatedText reference: Human-readable text that is appropriate 
   a set of alternative textual renditions for different languages and types.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: translatedText
 domain_of:
 - Description

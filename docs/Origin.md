@@ -38,11 +38,6 @@ SourceItems {
 
 }
 SourceItem {
-    oidref itemOID  
-    oidref itemGroupOID  
-    oidref metaDataVersionOID  
-    oidref studyOID  
-    oidref leafID  
     nameType name  
 }
 Description {
@@ -61,6 +56,11 @@ Origin ||--}o DocumentRef : "documentRef"
 DocumentRef ||--}o PDFPageRef : "pDFPageRef"
 SourceItems ||--}o SourceItem : "sourceItem"
 SourceItems ||--}o Coding : "coding"
+SourceItem ||--|o ItemDef : "itemOID"
+SourceItem ||--|o ItemGroupDef : "itemGroupOID"
+SourceItem ||--|o MetaDataVersion : "metaDataVersionOID"
+SourceItem ||--|o Study : "studyOID"
+SourceItem ||--|o Leaf : "leafID"
 SourceItem ||--}o Resource : "resource"
 SourceItem ||--}o Coding : "coding"
 Description ||--}o TranslatedText : "translatedText"
@@ -490,7 +490,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: Origin
     domain_of:
@@ -538,7 +537,6 @@ attributes:
       automated data capture and end-to-end traceability.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: sourceItems
     owner: Origin
     domain_of:
@@ -556,7 +554,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: coding
     owner: Origin
     domain_of:
@@ -586,7 +583,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: documentRef
     owner: Origin
     domain_of:

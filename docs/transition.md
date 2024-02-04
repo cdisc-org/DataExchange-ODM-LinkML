@@ -61,7 +61,6 @@ description: 'Transition reference: A Transition defines a link between 2 struct
   must be defined, referencing the current Transition.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: transition
 domain_of:
 - WorkflowDef

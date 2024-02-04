@@ -61,7 +61,6 @@ description: 'Telecom reference: The telecommunication contacts points of a user
   a location, or an organization. The Type attribute designates the type of contact.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: telecom
 domain_of:
 - User

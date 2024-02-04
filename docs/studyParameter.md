@@ -60,7 +60,6 @@ description: 'StudyParameter reference: A StudyParameter defines a study design 
   or elements.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyParameter
 domain_of:
 - StudySummary

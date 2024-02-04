@@ -66,7 +66,6 @@ description: 'ExternalCodeLib reference: The ExternalCodeLib element references 
   provides the version of the external FormalExpression code referenced.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: externalCodeLib
 domain_of:
 - FormalExpression

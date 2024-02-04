@@ -60,7 +60,6 @@ description: 'Branching reference: This element describes the branching in a wor
   over a Transition element.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: branching
 domain_of:
 - WorkflowDef

@@ -60,7 +60,6 @@ description: 'ItemData reference: The ItemData element is used for transmission 
   a single item group.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: itemData
 domain_of:
 - ItemGroupData

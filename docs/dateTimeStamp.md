@@ -59,7 +59,6 @@ name: dateTimeStamp
 description: 'DateTimeStamp reference: Date and time when an action was performed.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: dateTimeStamp
 domain_of:
 - AuditRecord

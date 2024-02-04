@@ -61,7 +61,6 @@ description: 'ReferenceData reference: Reference data provides information on ho
   Trial Design datasets.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: referenceData
 domain_of:
 - ODMFileMetadata

@@ -67,7 +67,6 @@ description: 'Alias reference: An Alias provides an additional name for an eleme
   name is relevant.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: alias
 domain_of:
 - StudyEventDef

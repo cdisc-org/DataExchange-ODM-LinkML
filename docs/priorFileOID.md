@@ -28,7 +28,7 @@ URI: [odm:priorFileOID](http://www.cdisc.org/ns/odm/v2.0/priorFileOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [ODMFileMetadata](ODMFileMetadata.md)
 
 
 
@@ -61,7 +61,7 @@ rank: 1000
 alias: priorFileOID
 domain_of:
 - ODMFileMetadata
-range: oidref
+range: ODMFileMetadata
 
 ```
 </details>

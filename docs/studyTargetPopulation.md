@@ -59,7 +59,6 @@ description: 'StudyTargetPopulation reference: The StudyTargetPopulation describ
   the population targeted for the clinical study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyTargetPopulation
 domain_of:
 - Protocol

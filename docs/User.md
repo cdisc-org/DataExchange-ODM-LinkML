@@ -11,10 +11,8 @@ URI: [odm:User](http://www.cdisc.org/ns/odm/v2.0/User)
 ```mermaid
 erDiagram
 User {
-    oid oID  
+    oid OID  
     UserType userType  
-    oidref organizationOID  
-    oidref locationOID  
 }
 Telecom {
     TelecomTypeType telecomType  
@@ -72,7 +70,35 @@ Prefix {
 UserName {
     text content  
 }
+Location {
+    oid OID  
+    nameType name  
+    text role  
+}
+Query {
+    oid OID  
+    QuerySourceType source  
+    text target  
+    QueryType type  
+    QueryStateType state  
+    datetime lastUpdateDatetime  
+    nameType name  
+}
+MetaDataVersionRef {
+    date effectiveDate  
+}
+Description {
 
+}
+Organization {
+    oid OID  
+    nameType name  
+    text role  
+    OrganizationType type  
+}
+
+User ||--|o Organization : "organizationOID"
+User ||--|o Location : "locationOID"
 User ||--|o UserName : "userName"
 User ||--|o Prefix : "prefix"
 User ||--|o Suffix : "suffix"
@@ -90,6 +116,22 @@ Address ||--|o Country : "country"
 Address ||--|o PostalCode : "postalCode"
 Address ||--|o GeoPosition : "geoPosition"
 Address ||--|o OtherText : "otherText"
+Location ||--|o Organization : "organizationOID"
+Location ||--|o Description : "description"
+Location ||--}o MetaDataVersionRef : "metaDataVersionRef"
+Location ||--}o Address : "address"
+Location ||--}o Telecom : "telecom"
+Location ||--}o Query : "query"
+Query ||--|o Value : "value"
+Query ||--}o AuditRecord : "auditRecord"
+MetaDataVersionRef ||--|| Study : "studyOID"
+MetaDataVersionRef ||--|| MetaDataVersion : "metaDataVersionOID"
+Description ||--}o TranslatedText : "translatedText"
+Organization ||--|o Location : "locationOID"
+Organization ||--|o Organization : "partOfOrganizationOID"
+Organization ||--|o Description : "description"
+Organization ||--}o Address : "address"
+Organization ||--}o Telecom : "telecom"
 
 ```
 
@@ -102,10 +144,10 @@ Address ||--|o OtherText : "otherText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Business Rules | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Business Rules | direct |
 | [userType](userType.md) | 0..1 <br/> [UserType](UserType.md) | User's role in the study. | direct |
-| [organizationOID](organizationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to an Organization elment. | direct |
-| [locationOID](locationOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Location element. | direct |
+| [organizationOID](organizationOID.md) | 0..1 <br/> [Organization](Organization.md) | Reference to an Organization elment. | direct |
+| [locationOID](locationOID.md) | 0..1 <br/> [Location](Location.md) | Reference to a Location element. | direct |
 | [userName](userName.md) | 0..1 <br/> [UserName](UserName.md) | UserName reference: The user's login identification in the sender's system. | direct |
 | [prefix](prefix.md) | 0..1 <br/> [Prefix](Prefix.md) | Prefix reference: Title or other prefix. Maps to FHIR HumanName.prefix (https... | direct |
 | [suffix](suffix.md) | 0..1 <br/> [Suffix](Suffix.md) | Suffix reference: This element may include credentials, or suffixes (e.g., Jr... | direct |
@@ -126,6 +168,8 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [AdminData](AdminData.md) | [user](user.md) | range | [User](User.md) |
+| [InvestigatorRef](InvestigatorRef.md) | [userOID](userOID.md) | range | [User](User.md) |
+| [UserRef](UserRef.md) | [userOID](userOID.md) | range | [User](User.md) |
 
 
 
@@ -180,7 +224,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/User
 rank: 1000
 slots:
-- oID
+- OID
 - userType
 - organizationOID
 - locationOID
@@ -194,8 +238,8 @@ slots:
 - address
 - telecom
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Business Rules
     comments:
     - 'Required
@@ -204,6 +248,7 @@ slot_usage:
 
       For each UserRef/@UserOID value in an AuditRecord or Signature element in the
       Clinical Data there must be a User element with a matching OID attribute.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -271,7 +316,7 @@ slot_usage:
     domain_of:
     - User
     - Location
-    range: oidref
+    range: Organization
   locationOID:
     name: locationOID
     description: Reference to a Location element.
@@ -287,7 +332,7 @@ slot_usage:
     - Organization
     - SiteRef
     - LocationRef
-    range: oidref
+    range: Location
   userName:
     name: userName
     domain_of:
@@ -367,8 +412,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/User
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Business Rules
     comments:
     - 'Required
@@ -377,6 +422,7 @@ slot_usage:
 
       For each UserRef/@UserOID value in an AuditRecord or Signature element in the
       Clinical Data there must be a User element with a matching OID attribute.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -444,7 +490,7 @@ slot_usage:
     domain_of:
     - User
     - Location
-    range: oidref
+    range: Organization
   locationOID:
     name: locationOID
     description: Reference to a Location element.
@@ -460,7 +506,7 @@ slot_usage:
     - Organization
     - SiteRef
     - LocationRef
-    range: oidref
+    range: Location
   userName:
     name: userName
     domain_of:
@@ -524,8 +570,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Business Rules
     comments:
     - 'Required
@@ -537,7 +583,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: User
     domain_of:
     - Study
@@ -614,7 +660,7 @@ attributes:
     domain_of:
     - User
     - Location
-    range: oidref
+    range: Organization
   locationOID:
     name: locationOID
     description: Reference to a Location element.
@@ -634,14 +680,13 @@ attributes:
     - Organization
     - SiteRef
     - LocationRef
-    range: oidref
+    range: Location
   userName:
     name: userName
     description: 'UserName reference: The user''s login identification in the sender''s
       system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: userName
     owner: User
     domain_of:
@@ -654,7 +699,6 @@ attributes:
       (https://www.hl7.org/fhir/datatypes.html#humanname).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: prefix
     owner: User
     domain_of:
@@ -667,7 +711,6 @@ attributes:
       (e.g., Jr., III).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: suffix
     owner: User
     domain_of:
@@ -680,7 +723,6 @@ attributes:
       of Prefix, GivenName, FamilyName & Suffix. Intended to be used for display.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: fullName
     owner: User
     domain_of:
@@ -693,7 +735,6 @@ attributes:
       names.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: givenName
     owner: User
     domain_of:
@@ -705,7 +746,6 @@ attributes:
     description: 'FamilyName reference: The user''s surname (family name).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: familyName
     owner: User
     domain_of:
@@ -717,7 +757,6 @@ attributes:
     description: 'Image reference: A visual depiction of the user.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: image
     owner: User
     domain_of:
@@ -730,7 +769,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: address
     owner: User
     domain_of:
@@ -747,7 +785,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: telecom
     owner: User
     domain_of:

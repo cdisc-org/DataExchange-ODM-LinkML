@@ -59,7 +59,6 @@ description: 'DefaultTransition reference: The DefaultTransition references the 
   that needs to be executed when none of the TargetTransitions can be executed.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: defaultTransition
 domain_of:
 - Branching

@@ -59,7 +59,6 @@ description: 'Parameter reference: The Parameter element represents a method par
   used as part of a MethodSignature in MethodDef, ConditionDef, or RangeCheck.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: parameter
 domain_of:
 - MethodSignature

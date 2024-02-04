@@ -11,7 +11,7 @@ URI: [odm:Query](http://www.cdisc.org/ns/odm/v2.0/Query)
 ```mermaid
 erDiagram
 Query {
-    oid oID  
+    oid OID  
     QuerySourceType source  
     text target  
     QueryType type  
@@ -33,10 +33,10 @@ DateTimeStamp {
     datetime content  
 }
 LocationRef {
-    oidref locationOID  
+
 }
 UserRef {
-    oidref userOID  
+
 }
 Value {
     positiveInteger seqNum  
@@ -50,6 +50,8 @@ AuditRecord ||--|o LocationRef : "locationRef"
 AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
 AuditRecord ||--|o ReasonForChange : "reasonForChange"
 AuditRecord ||--|o SourceID : "sourceID"
+LocationRef ||--|| Location : "locationOID"
+UserRef ||--|| User : "userOID"
 
 ```
 
@@ -62,7 +64,7 @@ AuditRecord ||--|o SourceID : "sourceID"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Query unique identifier | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Query unique identifier | direct |
 | [source](source.md) | 1..1 <br/> [QuerySourceType](QuerySourceType.md) | Origin of the Query. | direct |
 | [target](target.md) | 0..1 <br/> [text](text.md) | Element upon which the Query is raised. The parent element is the Target when... | direct |
 | [type](type.md) | 0..1 <br/> [QueryType](QueryType.md) | Indicates whether Is the Query was raised manually by a user or automatically... | direct |
@@ -146,7 +148,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Query
 rank: 1000
 slots:
-- oID
+- OID
 - source
 - target
 - type
@@ -156,11 +158,12 @@ slots:
 - value
 - auditRecord
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Query unique identifier
     comments:
     - Must be unique within a Study.
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -342,11 +345,12 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Query
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Query unique identifier
     comments:
     - Must be unique within a Study.
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -507,15 +511,15 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Query unique identifier
     comments:
     - Must be unique within a Study.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: Query
     domain_of:
     - Study
@@ -681,7 +685,6 @@ attributes:
     description: Human-readable designation of the trial phase.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: value
     owner: Query
     domain_of:
@@ -703,7 +706,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: auditRecord
     owner: Query
     domain_of:

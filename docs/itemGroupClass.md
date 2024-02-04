@@ -1,11 +1,11 @@
-# Slot: archiveLocationID
+# Slot: itemGroupClass
 
 
-_Reference to the unique ID of a leaf element that provides the actual location and file name of the data file._
+_Class reference: The Class element identifies which predefined Class within the model applies to the definition of the dataset._
 
 
 
-URI: [odm:archiveLocationID](http://www.cdisc.org/ns/odm/v2.0/archiveLocationID)
+URI: [odm:itemGroupClass](http://www.cdisc.org/ns/odm/v2.0/itemGroupClass)
 
 
 
@@ -28,7 +28,7 @@ URI: [odm:archiveLocationID](http://www.cdisc.org/ns/odm/v2.0/archiveLocationID)
 
 ## Properties
 
-* Range: [Leaf](Leaf.md)
+* Range: [Class](Class.md)
 
 
 
@@ -54,15 +54,15 @@ URI: [odm:archiveLocationID](http://www.cdisc.org/ns/odm/v2.0/archiveLocationID)
 
 <details>
 ```yaml
-name: archiveLocationID
-description: Reference to the unique ID of a leaf element that provides the actual
-  location and file name of the data file.
+name: itemGroupClass
+description: 'Class reference: The Class element identifies which predefined Class
+  within the model applies to the definition of the dataset.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-alias: archiveLocationID
+alias: itemGroupClass
 domain_of:
 - ItemGroupDef
-range: Leaf
+range: Class
 
 ```
 </details>

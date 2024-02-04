@@ -28,7 +28,7 @@ URI: [odm:transitionOID](http://www.cdisc.org/ns/odm/v2.0/transitionOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [Transition](Transition.md)
 
 
 
@@ -62,7 +62,7 @@ rank: 1000
 alias: transitionOID
 domain_of:
 - TransitionTimingConstraint
-range: oidref
+range: Transition
 
 ```
 </details>

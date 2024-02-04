@@ -58,7 +58,6 @@ name: reasonForChange
 description: 'ReasonForChange reference: A user-supplied reason for a data change.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: reasonForChange
 domain_of:
 - AuditRecord

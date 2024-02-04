@@ -59,7 +59,6 @@ description: 'SourceItem reference: Provides the information needed to identify 
   source metadata.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: sourceItem
 domain_of:
 - SourceItems

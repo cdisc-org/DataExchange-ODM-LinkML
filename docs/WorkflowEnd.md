@@ -11,7 +11,7 @@ URI: [odm:WorkflowEnd](http://www.cdisc.org/ns/odm/v2.0/WorkflowEnd)
 ```mermaid
 erDiagram
 WorkflowEnd {
-    oidref endOID  
+    string endOID  
     text content  
 }
 
@@ -28,7 +28,7 @@ WorkflowEnd {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [endOID](endOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the definition of the structural element that ends the workflow.... | direct |
+| [endOID](endOID.md) | 1..1 <br/> [string](string.md) | Reference to the definition of the structural element that ends the workflow.... | direct |
 | [content](content.md) | 0..1 <br/> [text](text.md) | multi-line text content from between XML tags | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
@@ -113,8 +113,12 @@ slot_usage:
       of the WorkflowDef.'
     domain_of:
     - WorkflowEnd
-    range: oidref
     required: true
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
   content:
     name: content
     domain_of:
@@ -177,8 +181,12 @@ slot_usage:
       of the WorkflowDef.'
     domain_of:
     - WorkflowEnd
-    range: oidref
     required: true
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
   content:
     name: content
     domain_of:
@@ -229,8 +237,13 @@ attributes:
     owner: WorkflowEnd
     domain_of:
     - WorkflowEnd
-    range: oidref
+    range: string
     required: true
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
   content:
     name: content
     description: multi-line text content from between XML tags

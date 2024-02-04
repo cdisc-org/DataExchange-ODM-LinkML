@@ -217,7 +217,6 @@ attributes:
       of the referenced coding system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: value
     owner: ParameterValue
     domain_of:
@@ -239,7 +238,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: coding
     owner: ParameterValue
     domain_of:

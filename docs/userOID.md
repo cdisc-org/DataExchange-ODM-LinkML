@@ -29,7 +29,7 @@ URI: [odm:userOID](http://www.cdisc.org/ns/odm/v2.0/userOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [User](User.md)
 
 
 
@@ -63,7 +63,7 @@ alias: userOID
 domain_of:
 - InvestigatorRef
 - UserRef
-range: oidref
+range: User
 
 ```
 </details>

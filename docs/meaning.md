@@ -60,7 +60,6 @@ description: 'Meaning reference: A short name or description for this signature.
   signature is applied in the user interface.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: meaning
 domain_of:
 - SignatureDef

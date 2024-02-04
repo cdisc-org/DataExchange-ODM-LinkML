@@ -11,11 +11,9 @@ URI: [odm:CodeList](http://www.cdisc.org/ns/odm/v2.0/CodeList)
 ```mermaid
 erDiagram
 CodeList {
-    oid oID  
+    oid OID  
     nameType name  
     CLDataType dataType  
-    oidref commentOID  
-    oidref standardOID  
     YesOnly isNonStandard  
 }
 Alias {
@@ -38,7 +36,6 @@ CodeListItem {
     YesOnly other  
     positiveInteger orderNumber  
     YesOnly extendedValue  
-    oidref commentOID  
 }
 Decode {
 
@@ -46,17 +43,34 @@ Decode {
 Description {
 
 }
+CommentDef {
+    oid OID  
+}
+Standard {
+    oid OID  
+    StandardName name  
+    StandardType type  
+    StandardPublishingSet publishingSet  
+    text version  
+    StandardStatus status  
+}
 
+CodeList ||--|o CommentDef : "commentOID"
+CodeList ||--|o Standard : "standardOID"
 CodeList ||--|o Description : "description"
 CodeList ||--}o CodeListItem : "codeListItem"
 CodeList ||--}o Coding : "coding"
 CodeList ||--}o Alias : "alias"
+CodeListItem ||--|o CommentDef : "commentOID"
 CodeListItem ||--|o Description : "description"
 CodeListItem ||--|o Decode : "decode"
 CodeListItem ||--}o Coding : "coding"
 CodeListItem ||--}o Alias : "alias"
 Decode ||--}o TranslatedText : "translatedText"
 Description ||--}o TranslatedText : "translatedText"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+Standard ||--|o CommentDef : "commentOID"
 
 ```
 
@@ -69,11 +83,11 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Codelist element. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the Codelist element. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name for the Codelist. | direct |
 | [dataType](dataType.md) | 1..1 <br/> [CLDataType](CLDataType.md) | Specifies the DataType for codes defined in this codelist. | direct |
-| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef Element. | direct |
-| [standardOID](standardOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Standard element. | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [CommentDef](CommentDef.md) | Reference to a CommentDef Element. | direct |
+| [standardOID](standardOID.md) | 0..1 <br/> [Standard](Standard.md) | Reference to a Standard element. | direct |
 | [isNonStandard](isNonStandard.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Used when the controlled terminology includes a set of EnumeratedItem or Code... | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [codeListItem](codeListItem.md) | 0..* <br/> [CodeListItem](CodeListItem.md) | CodeListItem reference: Defines an individual member value of a codelist. It ... | direct |
@@ -90,6 +104,10 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [MetaDataVersion](MetaDataVersion.md) | [codeList](codeList.md) | range | [CodeList](CodeList.md) |
+| [ItemRef](ItemRef.md) | [roleCodeListOID](roleCodeListOID.md) | range | [CodeList](CodeList.md) |
+| [CodeListRef](CodeListRef.md) | [codeListOID](codeListOID.md) | range | [CodeList](CodeList.md) |
+| [FlagValue](FlagValue.md) | [codeListOID](codeListOID.md) | range | [CodeList](CodeList.md) |
+| [FlagType](FlagType.md) | [codeListOID](codeListOID.md) | range | [CodeList](CodeList.md) |
 
 
 
@@ -145,7 +163,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/CodeList
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - dataType
 - commentOID
@@ -156,11 +174,12 @@ slots:
 - coding
 - alias
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the Codelist element.
     comments:
     - Required
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -272,7 +291,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   standardOID:
     name: standardOID
     description: Reference to a Standard element.
@@ -281,7 +300,7 @@ slot_usage:
     domain_of:
     - ItemGroupDef
     - CodeList
-    range: oidref
+    range: Standard
   isNonStandard:
     name: isNonStandard
     description: Used when the controlled terminology includes a set of EnumeratedItem
@@ -398,11 +417,12 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/CodeList
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the Codelist element.
     comments:
     - Required
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -514,7 +534,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   standardOID:
     name: standardOID
     description: Reference to a Standard element.
@@ -523,7 +543,7 @@ slot_usage:
     domain_of:
     - ItemGroupDef
     - CodeList
-    range: oidref
+    range: Standard
   isNonStandard:
     name: isNonStandard
     description: Used when the controlled terminology includes a set of EnumeratedItem
@@ -623,15 +643,15 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the Codelist element.
     comments:
     - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: CodeList
     domain_of:
     - Study
@@ -756,7 +776,7 @@ attributes:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   standardOID:
     name: standardOID
     description: Reference to a Standard element.
@@ -769,7 +789,7 @@ attributes:
     domain_of:
     - ItemGroupDef
     - CodeList
-    range: oidref
+    range: Standard
   isNonStandard:
     name: isNonStandard
     description: Used when the controlled terminology includes a set of EnumeratedItem
@@ -791,7 +811,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: CodeList
     domain_of:
@@ -840,7 +859,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: codeListItem
     owner: CodeList
     domain_of:
@@ -859,7 +877,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: coding
     owner: CodeList
     domain_of:
@@ -890,7 +907,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: alias
     owner: CodeList
     domain_of:

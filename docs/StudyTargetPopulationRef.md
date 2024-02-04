@@ -11,10 +11,36 @@ URI: [odm:StudyTargetPopulationRef](http://www.cdisc.org/ns/odm/v2.0/StudyTarget
 ```mermaid
 erDiagram
 StudyTargetPopulationRef {
-    oidref studyTargetPopulationOID  
+
+}
+StudyTargetPopulation {
+    oid OID  
+    nameType name  
+}
+FormalExpression {
+    text context  
+}
+Coding {
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
+    uriorcurie href  
+    uriorcurie ref  
+    text commentOID  
+}
+Description {
+
 }
 
-
+StudyTargetPopulationRef ||--|| StudyTargetPopulation : "studyTargetPopulationOID"
+StudyTargetPopulation ||--|o Description : "description"
+StudyTargetPopulation ||--}o Coding : "coding"
+StudyTargetPopulation ||--}o FormalExpression : "formalExpression"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -27,7 +53,7 @@ StudyTargetPopulationRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [studyTargetPopulationOID](studyTargetPopulationOID.md) | 1..1 <br/> [oidref](oidref.md) |  | direct |
+| [studyTargetPopulationOID](studyTargetPopulationOID.md) | 1..1 <br/> [StudyTargetPopulation](StudyTargetPopulation.md) | StudyTargetPopulation reference: The StudyTargetPopulation describes the popu... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -99,7 +125,7 @@ slot_usage:
     name: studyTargetPopulationOID
     domain_of:
     - StudyTargetPopulationRef
-    range: oidref
+    range: StudyTargetPopulation
     required: true
 class_uri: odm:StudyTargetPopulationRef
 
@@ -122,18 +148,20 @@ slot_usage:
     name: studyTargetPopulationOID
     domain_of:
     - StudyTargetPopulationRef
-    range: oidref
+    range: StudyTargetPopulation
     required: true
 attributes:
   studyTargetPopulationOID:
     name: studyTargetPopulationOID
+    description: 'StudyTargetPopulation reference: The StudyTargetPopulation describes
+      the population targeted for the clinical study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     alias: studyTargetPopulationOID
     owner: StudyTargetPopulationRef
     domain_of:
     - StudyTargetPopulationRef
-    range: oidref
+    range: StudyTargetPopulation
     required: true
 class_uri: odm:StudyTargetPopulationRef
 

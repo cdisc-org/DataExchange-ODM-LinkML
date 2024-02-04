@@ -28,7 +28,7 @@ URI: [odm:workflowOID](http://www.cdisc.org/ns/odm/v2.0/workflowOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [WorkflowDef](WorkflowDef.md)
 
 
 
@@ -61,7 +61,7 @@ rank: 1000
 alias: workflowOID
 domain_of:
 - WorkflowRef
-range: oidref
+range: WorkflowDef
 
 ```
 </details>

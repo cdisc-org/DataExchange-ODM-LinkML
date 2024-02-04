@@ -68,7 +68,6 @@ description: 'Signature reference: An electronic signature applies to a collecti
   hash of the included data.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: signature
 domain_of:
 - ReferenceData

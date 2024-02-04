@@ -60,7 +60,6 @@ description: 'RelativeTimingConstraint reference: The RelativeTimingConstraint e
   represented by StudyEventGroups, StudyEvents, ItemGroups, or Items.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: relativeTimingConstraint
 domain_of:
 - StudyTiming

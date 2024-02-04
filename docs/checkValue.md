@@ -58,7 +58,6 @@ name: checkValue
 description: 'CheckValue reference: A comparison value used in a range check.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: checkValue
 domain_of:
 - RangeCheck

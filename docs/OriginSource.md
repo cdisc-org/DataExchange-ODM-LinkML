@@ -13,10 +13,10 @@ URI: [OriginSource](OriginSource)
 
 | Value | Meaning | Description |
 | --- | --- | --- |
-| Investigator | nci:ExtCodeID:C25936 |  |
-| Sponsor | nci:ExtCodeID:C70793 |  |
-| Subject | nci:ExtCodeID:C41189 |  |
-| Vendor | nci:ExtCodeID:C68608 |  |
+| Investigator | ncit:C25936 |  |
+| Sponsor | ncit:C70793 |  |
+| Subject | ncit:C41189 |  |
+| Vendor | ncit:C68608 |  |
 
 
 
@@ -59,19 +59,19 @@ rank: 1000
 permissible_values:
   Investigator:
     text: Investigator
-    meaning: nci:ExtCodeID:C25936
+    meaning: ncit:C25936
     is_a: OriginSource
   Sponsor:
     text: Sponsor
-    meaning: nci:ExtCodeID:C70793
+    meaning: ncit:C70793
     is_a: OriginSource
   Subject:
     text: Subject
-    meaning: nci:ExtCodeID:C41189
+    meaning: ncit:C41189
     is_a: OriginSource
   Vendor:
     text: Vendor
-    meaning: nci:ExtCodeID:C68608
+    meaning: ncit:C68608
     is_a: OriginSource
 
 ```

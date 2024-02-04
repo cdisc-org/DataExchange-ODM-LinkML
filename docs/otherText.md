@@ -59,7 +59,6 @@ description: 'OtherText reference: Any other text needed as part of a user''s po
   address.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: otherText
 domain_of:
 - Address

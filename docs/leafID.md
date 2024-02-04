@@ -1,7 +1,7 @@
 # Slot: leafID
 
 
-_Unique identifier for the Leaf element with the document location._
+_Reference to the unique ID of the Leaf element that contains the location of a file containing a document._
 
 
 
@@ -29,7 +29,7 @@ URI: [odm:leafID](http://www.cdisc.org/ns/odm/v2.0/leafID)
 
 ## Properties
 
-* Range: [oid](oid.md)
+* Range: [Leaf](Leaf.md)
 
 
 
@@ -56,14 +56,15 @@ URI: [odm:leafID](http://www.cdisc.org/ns/odm/v2.0/leafID)
 <details>
 ```yaml
 name: leafID
-description: Unique identifier for the Leaf element with the document location.
+description: Reference to the unique ID of the Leaf element that contains the location
+  of a file containing a document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: leafID
 domain_of:
 - DocumentRef
 - SourceItem
-range: oid
+range: Leaf
 
 ```
 </details>

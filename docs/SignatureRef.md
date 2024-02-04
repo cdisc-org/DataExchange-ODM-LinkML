@@ -11,10 +11,22 @@ URI: [odm:SignatureRef](http://www.cdisc.org/ns/odm/v2.0/SignatureRef)
 ```mermaid
 erDiagram
 SignatureRef {
-    oidref signatureOID  
+
+}
+SignatureDef {
+    oid OID  
+    SignMethod methodology  
+}
+LegalReason {
+    text content  
+}
+Meaning {
+    text content  
 }
 
-
+SignatureRef ||--|| SignatureDef : "signatureOID"
+SignatureDef ||--|o Meaning : "meaning"
+SignatureDef ||--|o LegalReason : "legalReason"
 
 ```
 
@@ -27,7 +39,7 @@ SignatureRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [signatureOID](signatureOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the SignatureDef . | direct |
+| [signatureOID](signatureOID.md) | 1..1 <br/> [SignatureDef](SignatureDef.md) | Reference to the SignatureDef . | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -103,7 +115,7 @@ slot_usage:
       range: oidref'
     domain_of:
     - SignatureRef
-    range: oidref
+    range: SignatureDef
     required: true
 class_uri: odm:SignatureRef
 
@@ -130,7 +142,7 @@ slot_usage:
       range: oidref'
     domain_of:
     - SignatureRef
-    range: oidref
+    range: SignatureDef
     required: true
 attributes:
   signatureOID:
@@ -146,7 +158,7 @@ attributes:
     owner: SignatureRef
     domain_of:
     - SignatureRef
-    range: oidref
+    range: SignatureDef
     required: true
 class_uri: odm:SignatureRef
 

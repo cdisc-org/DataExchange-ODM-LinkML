@@ -11,14 +11,13 @@ URI: [odm:ItemData](http://www.cdisc.org/ns/odm/v2.0/ItemData)
 ```mermaid
 erDiagram
 ItemData {
-    oidref itemOID  
     TransactionType transactionType  
     YesOnly isNull  
 }
 Annotation {
     positiveInteger seqNum  
     TransactionType transactionType  
-    oid iD  
+    oid ID  
 }
 Flag {
 
@@ -37,19 +36,19 @@ Comment {
     CommentType sponsorOrSite  
 }
 Signature {
-    oid iD  
+    oid ID  
 }
 DateTimeStamp {
     datetime content  
 }
 SignatureRef {
-    oidref signatureOID  
+
 }
 LocationRef {
-    oidref locationOID  
+
 }
 UserRef {
-    oidref userOID  
+
 }
 AuditRecord {
     EditPointType editPoint  
@@ -62,7 +61,7 @@ ReasonForChange {
     text content  
 }
 Query {
-    oid oID  
+    oid OID  
     QuerySourceType source  
     text target  
     QueryType type  
@@ -74,7 +73,54 @@ Value {
     positiveInteger seqNum  
     text content  
 }
+ItemDef {
+    oid OID  
+    nameType name  
+    DataType dataType  
+    positiveInteger length  
+    text displayFormat  
+    text variableSet  
+}
+Alias {
+    text context  
+    text name  
+}
+ValueListRef {
 
+}
+CodeListRef {
+
+}
+RangeCheck {
+    Comparator comparator  
+    SoftOrHard softHard  
+}
+CDISCNotes {
+
+}
+ImplementationNotes {
+
+}
+CRFCompletionInstructions {
+
+}
+Prompt {
+
+}
+Question {
+
+}
+Definition {
+
+}
+Description {
+
+}
+CommentDef {
+    oid OID  
+}
+
+ItemData ||--|| ItemDef : "itemOID"
 ItemData ||--}o Value : "value"
 ItemData ||--}o Query : "query"
 ItemData ||--|o AuditRecord : "auditRecord"
@@ -90,6 +136,9 @@ Signature ||--|o UserRef : "userRef"
 Signature ||--|o LocationRef : "locationRef"
 Signature ||--|o SignatureRef : "signatureRef"
 Signature ||--|o DateTimeStamp : "dateTimeStamp"
+SignatureRef ||--|| SignatureDef : "signatureOID"
+LocationRef ||--|| Location : "locationOID"
+UserRef ||--|| User : "userOID"
 AuditRecord ||--|o UserRef : "userRef"
 AuditRecord ||--|o LocationRef : "locationRef"
 AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
@@ -97,6 +146,35 @@ AuditRecord ||--|o ReasonForChange : "reasonForChange"
 AuditRecord ||--|o SourceID : "sourceID"
 Query ||--|o Value : "value"
 Query ||--}o AuditRecord : "auditRecord"
+ItemDef ||--|o CommentDef : "commentOID"
+ItemDef ||--|o Description : "description"
+ItemDef ||--|o Definition : "definition"
+ItemDef ||--|o Question : "question"
+ItemDef ||--|o Prompt : "prompt"
+ItemDef ||--|o CRFCompletionInstructions : "cRFCompletionInstructions"
+ItemDef ||--|o ImplementationNotes : "implementationNotes"
+ItemDef ||--|o CDISCNotes : "cDISCNotes"
+ItemDef ||--}o RangeCheck : "rangeCheck"
+ItemDef ||--|o CodeListRef : "codeListRef"
+ItemDef ||--|o ValueListRef : "valueListRef"
+ItemDef ||--}o Coding : "coding"
+ItemDef ||--}o Alias : "alias"
+ValueListRef ||--|| ValueListDef : "valueListOID"
+CodeListRef ||--|| CodeList : "codeListOID"
+RangeCheck ||--|o ItemDef : "itemOID"
+RangeCheck ||--|o ErrorMessage : "errorMessage"
+RangeCheck ||--|o MethodSignature : "methodSignature"
+RangeCheck ||--}o FormalExpression : "formalExpression"
+RangeCheck ||--}o CheckValue : "checkValue"
+CDISCNotes ||--}o TranslatedText : "translatedText"
+ImplementationNotes ||--}o TranslatedText : "translatedText"
+CRFCompletionInstructions ||--}o TranslatedText : "translatedText"
+Prompt ||--}o TranslatedText : "translatedText"
+Question ||--}o TranslatedText : "translatedText"
+Definition ||--}o TranslatedText : "translatedText"
+Description ||--}o TranslatedText : "translatedText"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
 
 ```
 
@@ -109,7 +187,7 @@ Query ||--}o AuditRecord : "auditRecord"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [itemOID](itemOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to an ItemDef in the MetaDataVersion identified in the ClinicalData... | direct |
+| [itemOID](itemOID.md) | 1..1 <br/> [ItemDef](ItemDef.md) | Reference to an ItemDef in the MetaDataVersion identified in the ClinicalData... | direct |
 | [transactionType](transactionType.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Records the TransactionType for this ItemData instance in the source system. | direct |
 | [isNull](isNull.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Flag specifying that an item's value is to be set to null. In the interest of... | direct |
 | [value](value.md) | 0..* <br/> [Value](Value.md) | Human-readable designation of the trial phase. | direct |
@@ -205,7 +283,7 @@ slot_usage:
     - RangeCheck
     - ItemData
     - KeySet
-    range: oidref
+    range: ItemDef
     required: true
   transactionType:
     name: transactionType
@@ -328,7 +406,7 @@ slot_usage:
     - RangeCheck
     - ItemData
     - KeySet
-    range: oidref
+    range: ItemDef
     required: true
   transactionType:
     name: transactionType
@@ -439,7 +517,7 @@ attributes:
     - RangeCheck
     - ItemData
     - KeySet
-    range: oidref
+    range: ItemDef
     required: true
   transactionType:
     name: transactionType
@@ -485,7 +563,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: value
     owner: ItemData
     domain_of:
@@ -510,7 +587,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: query
     owner: ItemData
     domain_of:
@@ -533,7 +609,6 @@ attributes:
       by a subsequent transaction, but history cannot be changed, only added to.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: auditRecord
     owner: ItemData
     domain_of:
@@ -556,7 +631,6 @@ attributes:
       hash of the included data.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: signature
     owner: ItemData
     domain_of:
@@ -575,7 +649,6 @@ attributes:
       comment.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: annotation
     owner: ItemData
     domain_of:

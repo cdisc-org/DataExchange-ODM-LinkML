@@ -59,7 +59,6 @@ description: 'StudyInterventions reference: The StudyInterventions element is a 
   element for individual StudyIntervention elements.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyInterventions
 domain_of:
 - Protocol

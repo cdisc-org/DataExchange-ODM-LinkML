@@ -59,7 +59,6 @@ description: 'TrialPhase reference: The TrialPhase element designates the phase 
   the study in the clinical trial.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: trialPhase
 domain_of:
 - Protocol

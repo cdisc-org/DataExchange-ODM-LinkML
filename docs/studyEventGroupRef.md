@@ -62,7 +62,6 @@ description: 'StudyEventGroupRef reference: This element references a StudyEvent
   study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyEventGroupRef
 domain_of:
 - StudyEventGroupDef

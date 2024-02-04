@@ -60,7 +60,6 @@ description: 'StudyEndPointRef reference: A reference to a StudyEndPoint as it o
   within a specific StudyObjective.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyEndPointRef
 domain_of:
 - StudyObjective

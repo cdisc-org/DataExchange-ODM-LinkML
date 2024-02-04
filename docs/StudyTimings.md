@@ -14,42 +14,38 @@ StudyTimings {
 
 }
 StudyTiming {
-    oid oID  
+    oid OID  
     nameType name  
 }
 DurationTimingConstraint {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref structuralElementOID  
+    string structuralElementOID  
     durationDatetime durationTarget  
     durationDatetime durationPreWindow  
     durationDatetime durationPostWindow  
 }
 TransitionTimingConstraint {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref transitionOID  
-    oidref methodOID  
     RelativeTimingConstraintType type  
     durationDatetime timepointTarget  
     durationDatetime timepointPreWindow  
     durationDatetime timepointPostWindow  
 }
 RelativeTimingConstraint {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref predecessorOID  
-    oidref successorOID  
+    string predecessorOID  
+    string successorOID  
     RelativeTimingConstraintType type  
     durationDatetime timepointRelativeTarget  
     durationDatetime timepointPreWindow  
     durationDatetime timepointPostWindow  
 }
 AbsoluteTimingConstraint {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref studyEventGroupOID  
-    oidref studyEventOID  
     string timepointTarget  
     durationDatetime timepointPreWindow  
     durationDatetime timepointPostWindow  
@@ -61,8 +57,12 @@ StudyTiming ||--}o RelativeTimingConstraint : "relativeTimingConstraint"
 StudyTiming ||--}o TransitionTimingConstraint : "transitionTimingConstraint"
 StudyTiming ||--}o DurationTimingConstraint : "durationTimingConstraint"
 DurationTimingConstraint ||--|o Description : "description"
+TransitionTimingConstraint ||--|| Transition : "transitionOID"
+TransitionTimingConstraint ||--|o MethodDef : "methodOID"
 TransitionTimingConstraint ||--|o Description : "description"
 RelativeTimingConstraint ||--|o Description : "description"
+AbsoluteTimingConstraint ||--|o StudyEventGroupDef : "studyEventGroupOID"
+AbsoluteTimingConstraint ||--|o StudyEventDef : "studyEventOID"
 AbsoluteTimingConstraint ||--|o Description : "description"
 
 ```
@@ -191,7 +191,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: studyTiming
     owner: StudyTimings
     domain_of:

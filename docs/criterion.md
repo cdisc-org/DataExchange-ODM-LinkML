@@ -61,7 +61,6 @@ description: 'Criterion reference: The Criterion represents either an inclusion 
   ExclusionCriteria).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: criterion
 domain_of:
 - InclusionCriteria

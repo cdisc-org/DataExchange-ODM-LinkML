@@ -59,7 +59,6 @@ description: 'SourceID reference: Information that identifies the source of the 
   within an originating system.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: sourceID
 domain_of:
 - AuditRecord

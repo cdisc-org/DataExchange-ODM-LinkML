@@ -60,7 +60,6 @@ description: 'MetaDataVersionRef reference: A reference to a MetaDataVersion use
   metadata may change over the course of the study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: metaDataVersionRef
 domain_of:
 - Location

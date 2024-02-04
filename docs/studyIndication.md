@@ -62,7 +62,6 @@ description: 'StudyIndication reference: This element describes a study indicati
   disease").'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyIndication
 domain_of:
 - StudyIndications

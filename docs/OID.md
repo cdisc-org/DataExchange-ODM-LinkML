@@ -1,11 +1,11 @@
-# Slot: oID
+# Slot: OID
 
 
 _Unique identifier of the version within the XML document._
 
 
 
-URI: [odm:oID](http://www.cdisc.org/ns/odm/v2.0/oID)
+URI: [odm:OID](http://www.cdisc.org/ns/odm/v2.0/OID)
 
 
 
@@ -91,12 +91,12 @@ URI: [odm:oID](http://www.cdisc.org/ns/odm/v2.0/oID)
 
 <details>
 ```yaml
-name: oID
+name: OID
 description: Unique identifier of the version within the XML document.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: true
-alias: oID
+alias: OID
 domain_of:
 - Study
 - MetaDataVersion

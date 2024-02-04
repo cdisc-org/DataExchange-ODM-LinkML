@@ -59,7 +59,6 @@ description: 'GeoPosition reference: The geographical position using the World G
   System WGS84.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: geoPosition
 domain_of:
 - Address

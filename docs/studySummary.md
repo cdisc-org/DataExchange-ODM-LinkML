@@ -60,7 +60,6 @@ description: 'StudySummary reference: The StudyParameter element allows to provi
   and maximum age of the participants, or planned number of arms.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studySummary
 domain_of:
 - Protocol

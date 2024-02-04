@@ -60,7 +60,6 @@ description: 'AnnotatedCRF reference: An Annotated Case Report Form (CRF) is a P
   the variables or discrete variable values contained within the datasets.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: annotatedCRF
 domain_of:
 - MetaDataVersion

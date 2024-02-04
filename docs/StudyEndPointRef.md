@@ -11,11 +11,27 @@ URI: [odm:StudyEndPointRef](http://www.cdisc.org/ns/odm/v2.0/StudyEndPointRef)
 ```mermaid
 erDiagram
 StudyEndPointRef {
-    oidref studyEndPointOID  
     positiveInteger orderNumber  
 }
+StudyEndPoint {
+    oid OID  
+    nameType name  
+    StudyEndPointType type  
+    StudyEstimandLevel level  
+}
+FormalExpression {
+    text context  
+}
+Description {
 
+}
 
+StudyEndPointRef ||--|| StudyEndPoint : "studyEndPointOID"
+StudyEndPoint ||--|o Description : "description"
+StudyEndPoint ||--}o FormalExpression : "formalExpression"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -28,7 +44,7 @@ StudyEndPointRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [studyEndPointOID](studyEndPointOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEndPoint . | direct |
+| [studyEndPointOID](studyEndPointOID.md) | 1..1 <br/> [StudyEndPoint](StudyEndPoint.md) | Reference to the StudyEndPoint . | direct |
 | [orderNumber](orderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEndPointRef appears in Metadata displa... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
@@ -107,7 +123,7 @@ slot_usage:
       Must match the OID atttribute for a StudyEndPoint in the Study/MetaDataVersion/Protocol.'
     domain_of:
     - StudyEndPointRef
-    range: oidref
+    range: StudyEndPoint
     required: true
   orderNumber:
     name: orderNumber
@@ -153,7 +169,7 @@ slot_usage:
       Must match the OID atttribute for a StudyEndPoint in the Study/MetaDataVersion/Protocol.'
     domain_of:
     - StudyEndPointRef
-    range: oidref
+    range: StudyEndPoint
     required: true
   orderNumber:
     name: orderNumber
@@ -188,7 +204,7 @@ attributes:
     owner: StudyEndPointRef
     domain_of:
     - StudyEndPointRef
-    range: oidref
+    range: StudyEndPoint
     required: true
   orderNumber:
     name: orderNumber

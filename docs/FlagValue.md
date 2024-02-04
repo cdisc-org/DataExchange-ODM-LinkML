@@ -11,11 +11,66 @@ URI: [odm:FlagValue](http://www.cdisc.org/ns/odm/v2.0/FlagValue)
 ```mermaid
 erDiagram
 FlagValue {
-    oidref codeListOID  
     nameType content  
 }
+CodeList {
+    oid OID  
+    nameType name  
+    CLDataType dataType  
+    YesOnly isNonStandard  
+}
+Alias {
+    text context  
+    text name  
+}
+Coding {
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
+    uriorcurie href  
+    uriorcurie ref  
+    text commentOID  
+}
+CodeListItem {
+    valueType codedValue  
+    decimal rank  
+    YesOnly other  
+    positiveInteger orderNumber  
+    YesOnly extendedValue  
+}
+Description {
 
+}
+Standard {
+    oid OID  
+    StandardName name  
+    StandardType type  
+    StandardPublishingSet publishingSet  
+    text version  
+    StandardStatus status  
+}
+CommentDef {
+    oid OID  
+}
 
+FlagValue ||--|| CodeList : "codeListOID"
+CodeList ||--|o CommentDef : "commentOID"
+CodeList ||--|o Standard : "standardOID"
+CodeList ||--|o Description : "description"
+CodeList ||--}o CodeListItem : "codeListItem"
+CodeList ||--}o Coding : "coding"
+CodeList ||--}o Alias : "alias"
+CodeListItem ||--|o CommentDef : "commentOID"
+CodeListItem ||--|o Description : "description"
+CodeListItem ||--|o Decode : "decode"
+CodeListItem ||--}o Coding : "coding"
+CodeListItem ||--}o Alias : "alias"
+Description ||--}o TranslatedText : "translatedText"
+Standard ||--|o CommentDef : "commentOID"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
 
 ```
 
@@ -28,7 +83,7 @@ FlagValue {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [codeListOID](codeListOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the CodeList definition. | direct |
+| [codeListOID](codeListOID.md) | 1..1 <br/> [CodeList](CodeList.md) | Reference to the CodeList definition. | direct |
 | [content](content.md) | 0..1 <br/> [nameType](nameType.md) | multi-line text content from between XML tags | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
@@ -113,7 +168,7 @@ slot_usage:
     - CodeListRef
     - FlagValue
     - FlagType
-    range: oidref
+    range: CodeList
     required: true
   content:
     name: content
@@ -177,7 +232,7 @@ slot_usage:
     - CodeListRef
     - FlagValue
     - FlagType
-    range: oidref
+    range: CodeList
     required: true
   content:
     name: content
@@ -228,7 +283,7 @@ attributes:
     - CodeListRef
     - FlagValue
     - FlagType
-    range: oidref
+    range: CodeList
     required: true
   content:
     name: content

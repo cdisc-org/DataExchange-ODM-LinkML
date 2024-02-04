@@ -28,7 +28,7 @@ URI: [odm:armOID](http://www.cdisc.org/ns/odm/v2.0/armOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [Arm](Arm.md)
 
 
 
@@ -61,7 +61,7 @@ rank: 1000
 alias: armOID
 domain_of:
 - StudyEventGroupDef
-range: oidref
+range: Arm
 
 ```
 </details>

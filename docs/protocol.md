@@ -60,7 +60,6 @@ description: 'Protocol reference: The Protocol element lists the kinds of study 
   within one of these study events.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: protocol
 domain_of:
 - MetaDataVersion

@@ -11,7 +11,6 @@ URI: [odm:ItemGroupData](http://www.cdisc.org/ns/odm/v2.0/ItemGroupData)
 ```mermaid
 erDiagram
 ItemGroupData {
-    oidref itemGroupOID  
     repeatKey itemGroupRepeatKey  
     TransactionType transactionType  
     positiveInteger itemGroupDataSeq  
@@ -19,7 +18,7 @@ ItemGroupData {
 Annotation {
     positiveInteger seqNum  
     TransactionType transactionType  
-    oid iD  
+    oid ID  
 }
 Flag {
 
@@ -38,19 +37,19 @@ Comment {
     CommentType sponsorOrSite  
 }
 Signature {
-    oid iD  
+    oid ID  
 }
 DateTimeStamp {
     datetime content  
 }
 SignatureRef {
-    oidref signatureOID  
+
 }
 LocationRef {
-    oidref locationOID  
+
 }
 UserRef {
-    oidref userOID  
+
 }
 AuditRecord {
     EditPointType editPoint  
@@ -63,12 +62,11 @@ ReasonForChange {
     text content  
 }
 ItemData {
-    oidref itemOID  
     TransactionType transactionType  
     YesOnly isNull  
 }
 Query {
-    oid oID  
+    oid OID  
     QuerySourceType source  
     text target  
     QueryType type  
@@ -80,7 +78,78 @@ Value {
     positiveInteger seqNum  
     text content  
 }
+ItemDef {
+    oid OID  
+    nameType name  
+    DataType dataType  
+    positiveInteger length  
+    text displayFormat  
+    text variableSet  
+}
+ItemGroupDef {
+    oid OID  
+    nameType name  
+    ItemGroupRepeatingType repeating  
+    positiveInteger repeatingLimit  
+    YesOrNo isReferenceData  
+    text structure  
+    nameType datasetName  
+    text domain  
+    ItemGroupTypeType type  
+    text purpose  
+    YesOnly isNonStandard  
+    YesOnly hasNoData  
+}
+ItemRef {
+    positiveInteger keySequence  
+    YesOnly isNonStandard  
+    YesOnly hasNoData  
+    YesOnly repeat  
+    YesOnly other  
+    text role  
+    CoreType core  
+    text preSpecifiedValue  
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+}
+ItemGroupRef {
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+}
+Leaf {
+    oid ID  
+    uriorcurie href  
+}
+Alias {
+    text context  
+    text name  
+}
+Origin {
+    OriginType type  
+    OriginSource source  
+}
+WorkflowRef {
 
+}
+Class {
+    ItemGroupClass name  
+}
+Description {
+
+}
+CommentDef {
+    oid OID  
+}
+Standard {
+    oid OID  
+    StandardName name  
+    StandardType type  
+    StandardPublishingSet publishingSet  
+    text version  
+    StandardStatus status  
+}
+
+ItemGroupData ||--|| ItemGroupDef : "itemGroupOID"
 ItemGroupData ||--}o Query : "query"
 ItemGroupData ||--}o ItemGroupData : "itemGroupData"
 ItemGroupData ||--}o ItemData : "itemData"
@@ -97,11 +166,15 @@ Signature ||--|o UserRef : "userRef"
 Signature ||--|o LocationRef : "locationRef"
 Signature ||--|o SignatureRef : "signatureRef"
 Signature ||--|o DateTimeStamp : "dateTimeStamp"
+SignatureRef ||--|| SignatureDef : "signatureOID"
+LocationRef ||--|| Location : "locationOID"
+UserRef ||--|| User : "userOID"
 AuditRecord ||--|o UserRef : "userRef"
 AuditRecord ||--|o LocationRef : "locationRef"
 AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
 AuditRecord ||--|o ReasonForChange : "reasonForChange"
 AuditRecord ||--|o SourceID : "sourceID"
+ItemData ||--|| ItemDef : "itemOID"
 ItemData ||--}o Value : "value"
 ItemData ||--}o Query : "query"
 ItemData ||--|o AuditRecord : "auditRecord"
@@ -109,6 +182,52 @@ ItemData ||--|o Signature : "signature"
 ItemData ||--|o Annotation : "annotation"
 Query ||--|o Value : "value"
 Query ||--}o AuditRecord : "auditRecord"
+ItemDef ||--|o CommentDef : "commentOID"
+ItemDef ||--|o Description : "description"
+ItemDef ||--|o Definition : "definition"
+ItemDef ||--|o Question : "question"
+ItemDef ||--|o Prompt : "prompt"
+ItemDef ||--|o CRFCompletionInstructions : "cRFCompletionInstructions"
+ItemDef ||--|o ImplementationNotes : "implementationNotes"
+ItemDef ||--|o CDISCNotes : "cDISCNotes"
+ItemDef ||--}o RangeCheck : "rangeCheck"
+ItemDef ||--|o CodeListRef : "codeListRef"
+ItemDef ||--|o ValueListRef : "valueListRef"
+ItemDef ||--}o Coding : "coding"
+ItemDef ||--}o Alias : "alias"
+ItemGroupDef ||--|o Leaf : "archiveLocationID"
+ItemGroupDef ||--|o Standard : "standardOID"
+ItemGroupDef ||--|o CommentDef : "commentOID"
+ItemGroupDef ||--|o Description : "description"
+ItemGroupDef ||--|o Class : "itemGroupClass"
+ItemGroupDef ||--}o Coding : "coding"
+ItemGroupDef ||--|o WorkflowRef : "workflowRef"
+ItemGroupDef ||--}o Origin : "origin"
+ItemGroupDef ||--}o Alias : "alias"
+ItemGroupDef ||--|o Leaf : "leaf"
+ItemGroupDef ||--}o ItemGroupRef : "itemGroupRef"
+ItemGroupDef ||--}o ItemRef : "itemRef"
+ItemRef ||--|| ItemDef : "itemOID"
+ItemRef ||--|o MethodDef : "methodOID"
+ItemRef ||--|o ItemDef : "unitsItemOID"
+ItemRef ||--|o CodeList : "roleCodeListOID"
+ItemRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+ItemRef ||--}o Origin : "origin"
+ItemRef ||--}o WhereClauseRef : "whereClauseRef"
+ItemGroupRef ||--|| ItemGroupDef : "itemGroupOID"
+ItemGroupRef ||--|o MethodDef : "methodOID"
+ItemGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+Leaf ||--|o Title : "title"
+Origin ||--|o Description : "description"
+Origin ||--|o SourceItems : "sourceItems"
+Origin ||--}o Coding : "coding"
+Origin ||--}o DocumentRef : "documentRef"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+Class ||--}o SubClass : "subClass"
+Description ||--}o TranslatedText : "translatedText"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+Standard ||--|o CommentDef : "commentOID"
 
 ```
 
@@ -121,7 +240,7 @@ Query ||--}o AuditRecord : "auditRecord"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [itemGroupOID](itemGroupOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to an ItemGroupDef for the MetaDataVersion identified in the Clinic... | direct |
+| [itemGroupOID](itemGroupOID.md) | 1..1 <br/> [ItemGroupDef](ItemGroupDef.md) | Reference to an ItemGroupDef for the MetaDataVersion identified in the Clinic... | direct |
 | [itemGroupRepeatKey](itemGroupRepeatKey.md) | 0..1 <br/> [repeatKey](repeatKey.md) | A key used to distinguish between repeats of the same type of item group. | direct |
 | [transactionType](transactionType.md) | 0..1 <br/> [TransactionType](TransactionType.md) | The TransactionType attribute need not be present in a Snapshot document. | direct |
 | [itemGroupDataSeq](itemGroupDataSeq.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Unique sequence # for each ItemGroupData child element (record) in the contai... | direct |
@@ -223,7 +342,7 @@ slot_usage:
     - SourceItem
     - ItemGroupData
     - KeySet
-    range: oidref
+    range: ItemGroupDef
     required: true
   itemGroupRepeatKey:
     name: itemGroupRepeatKey
@@ -365,7 +484,7 @@ slot_usage:
     - SourceItem
     - ItemGroupData
     - KeySet
-    range: oidref
+    range: ItemGroupDef
     required: true
   itemGroupRepeatKey:
     name: itemGroupRepeatKey
@@ -495,7 +614,7 @@ attributes:
     - SourceItem
     - ItemGroupData
     - KeySet
-    range: oidref
+    range: ItemGroupDef
     required: true
   itemGroupRepeatKey:
     name: itemGroupRepeatKey
@@ -565,7 +684,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: query
     owner: ItemGroupData
     domain_of:
@@ -585,7 +703,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: itemGroupData
     owner: ItemGroupData
     domain_of:
@@ -604,7 +721,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: itemData
     owner: ItemGroupData
     domain_of:
@@ -622,7 +738,6 @@ attributes:
       by a subsequent transaction, but history cannot be changed, only added to.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: auditRecord
     owner: ItemGroupData
     domain_of:
@@ -645,7 +760,6 @@ attributes:
       hash of the included data.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: signature
     owner: ItemGroupData
     domain_of:
@@ -664,7 +778,6 @@ attributes:
       comment.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: annotation
     owner: ItemGroupData
     domain_of:

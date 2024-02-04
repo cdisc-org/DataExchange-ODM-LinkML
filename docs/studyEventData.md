@@ -60,7 +60,6 @@ description: 'StudyEventData reference: Clinical data for a study event (visit).
   collected for a series of patient visits).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyEventData
 domain_of:
 - SubjectData

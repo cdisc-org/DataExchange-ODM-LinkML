@@ -11,10 +11,10 @@ URI: [odm:RelativeTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/RelativeTim
 ```mermaid
 erDiagram
 RelativeTimingConstraint {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref predecessorOID  
-    oidref successorOID  
+    string predecessorOID  
+    string successorOID  
     RelativeTimingConstraintType type  
     durationDatetime timepointRelativeTarget  
     durationDatetime timepointPreWindow  
@@ -43,10 +43,10 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name. | direct |
-| [predecessorOID](predecessorOID.md) | 0..1 <br/> [oidref](oidref.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that occurs immed... | direct |
-| [successorOID](successorOID.md) | 0..1 <br/> [oidref](oidref.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs immedi... | direct |
+| [predecessorOID](predecessorOID.md) | 0..1 <br/> [string](string.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item that occurs immed... | direct |
+| [successorOID](successorOID.md) | 0..1 <br/> [string](string.md) | Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs immedi... | direct |
 | [type](type.md) | 0..1 <br/> [RelativeTimingConstraintType](RelativeTimingConstraintType.md) | Defines how the timing is to be defined between the two activities, starting ... | direct |
 | [timepointRelativeTarget](timepointRelativeTarget.md) | 1..1 <br/> [durationDatetime](durationDatetime.md) | The relative timing between two activities or groups of activities. | direct |
 | [timepointPreWindow](timepointPreWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Adds a lower bound to a time window for the RelativeTimepointTarget. | direct |
@@ -118,7 +118,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/RelativeTimingConstraint
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - predecessorOID
 - successorOID
@@ -128,11 +128,12 @@ slots:
 - timepointPostWindow
 - description
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - Required
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -222,7 +223,11 @@ slot_usage:
     - Required
     domain_of:
     - RelativeTimingConstraint
-    range: oidref
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
   successorOID:
     name: successorOID
     description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs
@@ -231,7 +236,11 @@ slot_usage:
     - Required
     domain_of:
     - RelativeTimingConstraint
-    range: oidref
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
   type:
     name: type
     description: Defines how the timing is to be defined between the two activities,
@@ -343,11 +352,12 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/RelativeTimingConstraint
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - Required
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -437,7 +447,11 @@ slot_usage:
     - Required
     domain_of:
     - RelativeTimingConstraint
-    range: oidref
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
   successorOID:
     name: successorOID
     description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs
@@ -446,7 +460,11 @@ slot_usage:
     - Required
     domain_of:
     - RelativeTimingConstraint
-    range: oidref
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
   type:
     name: type
     description: Defines how the timing is to be defined between the two activities,
@@ -541,15 +559,15 @@ slot_usage:
     range: Description
     maximum_cardinality: 1
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - Required
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: RelativeTimingConstraint
     domain_of:
     - Study
@@ -648,7 +666,12 @@ attributes:
     owner: RelativeTimingConstraint
     domain_of:
     - RelativeTimingConstraint
-    range: oidref
+    range: string
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
   successorOID:
     name: successorOID
     description: Identifies a StudyEventGroup, StudyEvent, ItemGroup or Item tha occurs
@@ -661,7 +684,12 @@ attributes:
     owner: RelativeTimingConstraint
     domain_of:
     - RelativeTimingConstraint
-    range: oidref
+    range: string
+    any_of:
+    - range: StudyEventGroupDef
+    - range: StudyEventDef
+    - range: ItemGroupDef
+    - range: ItemDef
   type:
     name: type
     description: Defines how the timing is to be defined between the two activities,
@@ -736,7 +764,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: RelativeTimingConstraint
     domain_of:

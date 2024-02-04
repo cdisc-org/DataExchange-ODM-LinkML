@@ -60,7 +60,6 @@ description: 'Leaf reference: Contains the XLink information referenced by Docum
   or ArchiveLocationID'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: leaf
 domain_of:
 - MetaDataVersion

@@ -1,11 +1,11 @@
-# Slot: iD
+# Slot: ID
 
 
 _Unique identifier for the leaf that is referenced._
 
 
 
-URI: [odm:iD](http://www.cdisc.org/ns/odm/v2.0/iD)
+URI: [odm:ID](http://www.cdisc.org/ns/odm/v2.0/ID)
 
 
 
@@ -58,12 +58,12 @@ URI: [odm:iD](http://www.cdisc.org/ns/odm/v2.0/iD)
 
 <details>
 ```yaml
-name: iD
+name: ID
 description: Unique identifier for the leaf that is referenced.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 identifier: true
-alias: iD
+alias: ID
 domain_of:
 - Leaf
 - Signature

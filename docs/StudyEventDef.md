@@ -11,12 +11,11 @@ URI: [odm:StudyEventDef](http://www.cdisc.org/ns/odm/v2.0/StudyEventDef)
 ```mermaid
 erDiagram
 StudyEventDef {
-    oid oID  
+    oid OID  
     nameType name  
     YesOrNo repeating  
     EventType type  
     text category  
-    oidref commentOID  
 }
 Alias {
     text context  
@@ -33,14 +32,38 @@ Coding {
     text commentOID  
 }
 WorkflowRef {
-    oidref workflowOID  
+
+}
+WorkflowDef {
+    oid OID  
+    nameType name  
 }
 ItemGroupRef {
-    oidref itemGroupOID  
-    oidref methodOID  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
+}
+ConditionDef {
+    oid OID  
+    nameType name  
+}
+MethodDef {
+    oid OID  
+    nameType name  
+    MethodType type  
+}
+ItemGroupDef {
+    oid OID  
+    nameType name  
+    ItemGroupRepeatingType repeating  
+    positiveInteger repeatingLimit  
+    YesOrNo isReferenceData  
+    text structure  
+    nameType datasetName  
+    text domain  
+    ItemGroupTypeType type  
+    text purpose  
+    YesOnly isNonStandard  
+    YesOnly hasNoData  
 }
 Description {
 
@@ -50,13 +73,55 @@ TranslatedText {
     text type  
     contentType content  
 }
+CommentDef {
+    oid OID  
+}
+DocumentRef {
+    oid leafID  
+}
 
+StudyEventDef ||--|o CommentDef : "commentOID"
 StudyEventDef ||--|o Description : "description"
 StudyEventDef ||--}o ItemGroupRef : "itemGroupRef"
 StudyEventDef ||--|o WorkflowRef : "workflowRef"
 StudyEventDef ||--}o Coding : "coding"
 StudyEventDef ||--}o Alias : "alias"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+WorkflowDef ||--|o Description : "description"
+WorkflowDef ||--|o WorkflowStart : "workflowStart"
+WorkflowDef ||--}o WorkflowEnd : "workflowEnd"
+WorkflowDef ||--}o Transition : "transition"
+WorkflowDef ||--}o Branching : "branching"
+ItemGroupRef ||--|| ItemGroupDef : "itemGroupOID"
+ItemGroupRef ||--|o MethodDef : "methodOID"
+ItemGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
+MethodDef ||--|o CommentDef : "commentOID"
+MethodDef ||--|o Description : "description"
+MethodDef ||--|o MethodSignature : "methodSignature"
+MethodDef ||--}o FormalExpression : "formalExpression"
+MethodDef ||--}o Alias : "alias"
+MethodDef ||--}o DocumentRef : "documentRef"
+ItemGroupDef ||--|o Leaf : "archiveLocationID"
+ItemGroupDef ||--|o Standard : "standardOID"
+ItemGroupDef ||--|o CommentDef : "commentOID"
+ItemGroupDef ||--|o Description : "description"
+ItemGroupDef ||--|o Class : "itemGroupClass"
+ItemGroupDef ||--}o Coding : "coding"
+ItemGroupDef ||--|o WorkflowRef : "workflowRef"
+ItemGroupDef ||--}o Origin : "origin"
+ItemGroupDef ||--}o Alias : "alias"
+ItemGroupDef ||--|o Leaf : "leaf"
+ItemGroupDef ||--}o ItemGroupRef : "itemGroupRef"
+ItemGroupDef ||--}o ItemRef : "itemRef"
 Description ||--}o TranslatedText : "translatedText"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
 
 ```
 
@@ -69,12 +134,12 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEventDef element. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEventDef element. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable-name for the study event. | direct |
 | [repeating](repeating.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | The Repeating flag indicates when this type of study event can occur repeated... | direct |
 | [type](type.md) | 1..1 <br/> [EventType](EventType.md) | Specifies the StudyEvent Type. The study protocol document usually specifies ... | direct |
 | [category](category.md) | 0..1 <br/> [text](text.md) | The Category attribute is typically used to indicate the study phase appropri... | direct |
-| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a sponsor comment or external document relevant to this StudyEve... | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [CommentDef](CommentDef.md) | Reference to a sponsor comment or external document relevant to this StudyEve... | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [itemGroupRef](itemGroupRef.md) | 0..* <br/> [ItemGroupRef](ItemGroupRef.md) | ItemGroupRef reference: ItemGroupRef references an ItemGroupDef as it occurs ... | direct |
 | [workflowRef](workflowRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
@@ -91,6 +156,10 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [MetaDataVersion](MetaDataVersion.md) | [studyEventDef](studyEventDef.md) | range | [StudyEventDef](StudyEventDef.md) |
+| [StudyEventRef](StudyEventRef.md) | [studyEventOID](studyEventOID.md) | range | [StudyEventDef](StudyEventDef.md) |
+| [AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) | [studyEventOID](studyEventOID.md) | range | [StudyEventDef](StudyEventDef.md) |
+| [StudyEventData](StudyEventData.md) | [studyEventOID](studyEventOID.md) | range | [StudyEventDef](StudyEventDef.md) |
+| [KeySet](KeySet.md) | [studyEventOID](studyEventOID.md) | range | [StudyEventDef](StudyEventDef.md) |
 
 
 
@@ -148,7 +217,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEventDef
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - repeating
 - type
@@ -160,8 +229,8 @@ slots:
 - coding
 - alias
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyEventDef element.
     comments:
     - 'Required
@@ -169,6 +238,7 @@ slot_usage:
       range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -331,7 +401,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     domain_of:
@@ -451,8 +521,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEventDef
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyEventDef element.
     comments:
     - 'Required
@@ -460,6 +530,7 @@ slot_usage:
       range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -622,7 +693,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     domain_of:
@@ -723,8 +794,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyEventDef element.
     comments:
     - 'Required
@@ -735,7 +806,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: StudyEventDef
     domain_of:
     - Study
@@ -919,14 +990,13 @@ attributes:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: StudyEventDef
     domain_of:
@@ -979,7 +1049,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: itemGroupRef
     owner: StudyEventDef
     domain_of:
@@ -993,7 +1062,6 @@ attributes:
     description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: workflowRef
     owner: StudyEventDef
     domain_of:
@@ -1016,7 +1084,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: coding
     owner: StudyEventDef
     domain_of:
@@ -1047,7 +1114,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: alias
     owner: StudyEventDef
     domain_of:

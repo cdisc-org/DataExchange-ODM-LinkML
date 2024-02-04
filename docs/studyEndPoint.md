@@ -62,7 +62,6 @@ description: 'StudyEndPoint reference: A study end point reflects an outcome mea
   such as how multiple assessments within an individual are to be combined.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyEndPoint
 domain_of:
 - StudyEndPoints

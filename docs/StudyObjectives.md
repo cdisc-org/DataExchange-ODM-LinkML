@@ -14,12 +14,11 @@ StudyObjectives {
 
 }
 StudyObjective {
-    oid oID  
+    oid OID  
     nameType name  
     StudyObjectiveLevel level  
 }
 StudyEndPointRef {
-    oidref studyEndPointOID  
     positiveInteger orderNumber  
 }
 Description {
@@ -29,6 +28,7 @@ Description {
 StudyObjectives ||--}o StudyObjective : "studyObjective"
 StudyObjective ||--|o Description : "description"
 StudyObjective ||--}o StudyEndPointRef : "studyEndPointRef"
+StudyEndPointRef ||--|| StudyEndPoint : "studyEndPointOID"
 Description ||--}o TranslatedText : "translatedText"
 
 ```
@@ -152,7 +152,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: studyObjective
     owner: StudyObjectives
     domain_of:

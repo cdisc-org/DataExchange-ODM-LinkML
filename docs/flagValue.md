@@ -60,7 +60,6 @@ description: 'FlagValue reference: The value of the flag. The meaning of this va
   of the referenced CodeList'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: flagValue
 domain_of:
 - Flag

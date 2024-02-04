@@ -63,7 +63,6 @@ description: 'InclusionExclusionCriteria reference: The InclusionExclusionCriter
   attribute.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: inclusionExclusionCriteria
 domain_of:
 - Protocol

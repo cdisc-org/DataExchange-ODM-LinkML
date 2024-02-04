@@ -11,16 +11,28 @@ URI: [odm:Standard](http://www.cdisc.org/ns/odm/v2.0/Standard)
 ```mermaid
 erDiagram
 Standard {
-    oid oID  
+    oid OID  
     StandardName name  
     StandardType type  
     StandardPublishingSet publishingSet  
     text version  
     StandardStatus status  
-    oidref commentOID  
+}
+CommentDef {
+    oid OID  
+}
+DocumentRef {
+    oid leafID  
+}
+Description {
+
 }
 
-
+Standard ||--|o CommentDef : "commentOID"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
+Description ||--}o TranslatedText : "translatedText"
 
 ```
 
@@ -33,13 +45,13 @@ Standard {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the standard. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the standard. | direct |
 | [name](name.md) | 1..1 <br/> [StandardName](StandardName.md) | Name of the external standard to which the data conforms. | direct |
 | [type](type.md) | 1..1 <br/> [StandardType](StandardType.md) | The type of standard. | direct |
 | [publishingSet](publishingSet.md) | 0..1 <br/> [StandardPublishingSet](StandardPublishingSet.md) | The name of the publishing set that contains the published standard. | direct |
 | [version](version.md) | 1..1 <br/> [text](text.md) | Version of the external standard to which the data conforms. | direct |
 | [status](status.md) | 1..1 <br/> [StandardStatus](StandardStatus.md) | Publishing status of the standard. | direct |
-| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a CommentDef element that contains the comment ... | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [CommentDef](CommentDef.md) | Reference to the unique ID of a CommentDef element that contains the comment ... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -51,6 +63,8 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Standards](Standards.md) | [standard](standard.md) | range | [Standard](Standard.md) |
+| [ItemGroupDef](ItemGroupDef.md) | [standardOID](standardOID.md) | range | [Standard](Standard.md) |
+| [CodeList](CodeList.md) | [standardOID](standardOID.md) | range | [Standard](Standard.md) |
 
 
 
@@ -105,7 +119,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Standard
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - type
 - publishingSet
@@ -113,13 +127,14 @@ slots:
 - status
 - commentOID
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the standard.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -310,7 +325,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
 class_uri: odm:Standard
 
 ```
@@ -328,13 +343,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Standard
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the standard.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -525,10 +541,10 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the standard.
     comments:
     - 'Required
@@ -537,7 +553,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: Standard
     domain_of:
     - Study
@@ -753,7 +769,7 @@ attributes:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
 class_uri: odm:Standard
 
 ```

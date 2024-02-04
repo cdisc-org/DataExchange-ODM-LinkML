@@ -60,7 +60,6 @@ description: 'Prompt reference: A prompt text shown to a human user when prompte
   of the question.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: prompt
 domain_of:
 - ItemDef

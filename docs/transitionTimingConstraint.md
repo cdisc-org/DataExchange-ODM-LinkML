@@ -62,7 +62,6 @@ description: 'TransitionTimingConstraint reference: The TransitionTimingConstrai
   and is executed as soon as the timing condition is fulfilled.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: transitionTimingConstraint
 domain_of:
 - StudyTiming

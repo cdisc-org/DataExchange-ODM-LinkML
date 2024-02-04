@@ -59,7 +59,6 @@ description: 'ParameterValue reference: This element contains the value of the s
   parameter as text content.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: parameterValue
 domain_of:
 - StudyParameter

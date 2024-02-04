@@ -58,7 +58,6 @@ name: subClass
 description: 'SubClass reference: This element contains SubClass definitions.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: subClass
 domain_of:
 - Class

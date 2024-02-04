@@ -59,7 +59,6 @@ description: 'StateProv reference: The state or province name part of a user''s 
   address.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: stateProv
 domain_of:
 - Address

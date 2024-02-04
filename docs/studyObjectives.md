@@ -59,7 +59,6 @@ description: 'StudyObjectives reference: The StudyObjectives is a container elem
   for individual StudyObjective elements.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyObjectives
 domain_of:
 - Protocol

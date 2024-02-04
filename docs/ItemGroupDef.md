@@ -11,55 +11,67 @@ URI: [odm:ItemGroupDef](http://www.cdisc.org/ns/odm/v2.0/ItemGroupDef)
 ```mermaid
 erDiagram
 ItemGroupDef {
-    oid oID  
+    oid OID  
     nameType name  
     ItemGroupRepeatingType repeating  
     positiveInteger repeatingLimit  
     YesOrNo isReferenceData  
     text structure  
-    oidref archiveLocationID  
     nameType datasetName  
     text domain  
     ItemGroupTypeType type  
     text purpose  
-    oidref standardOID  
     YesOnly isNonStandard  
     YesOnly hasNoData  
-    oidref commentOID  
 }
 ItemRef {
-    oidref itemOID  
     positiveInteger keySequence  
     YesOnly isNonStandard  
     YesOnly hasNoData  
-    oidref methodOID  
-    oidref unitsItemOID  
     YesOnly repeat  
     YesOnly other  
     text role  
-    oidref roleCodeListOID  
     CoreType core  
     text preSpecifiedValue  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
 }
 WhereClauseRef {
-    oidref whereClauseOID  
+
 }
 Origin {
     OriginType type  
     OriginSource source  
 }
+ConditionDef {
+    oid OID  
+    nameType name  
+}
+CodeList {
+    oid OID  
+    nameType name  
+    CLDataType dataType  
+    YesOnly isNonStandard  
+}
+ItemDef {
+    oid OID  
+    nameType name  
+    DataType dataType  
+    positiveInteger length  
+    text displayFormat  
+    text variableSet  
+}
+MethodDef {
+    oid OID  
+    nameType name  
+    MethodType type  
+}
 ItemGroupRef {
-    oidref itemGroupOID  
-    oidref methodOID  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
 }
 Leaf {
-    oid iD  
+    oid ID  
     uriorcurie href  
 }
 Title {
@@ -70,7 +82,11 @@ Alias {
     text name  
 }
 WorkflowRef {
-    oidref workflowOID  
+
+}
+WorkflowDef {
+    oid OID  
+    nameType name  
 }
 Coding {
     text code  
@@ -97,9 +113,26 @@ TranslatedText {
     text type  
     contentType content  
 }
+CommentDef {
+    oid OID  
+}
+DocumentRef {
+    oid leafID  
+}
+Standard {
+    oid OID  
+    StandardName name  
+    StandardType type  
+    StandardPublishingSet publishingSet  
+    text version  
+    StandardStatus status  
+}
 
+ItemGroupDef ||--|o Leaf : "archiveLocationID"
+ItemGroupDef ||--|o Standard : "standardOID"
+ItemGroupDef ||--|o CommentDef : "commentOID"
 ItemGroupDef ||--|o Description : "description"
-ItemGroupDef ||--|o Class : "classRef"
+ItemGroupDef ||--|o Class : "itemGroupClass"
 ItemGroupDef ||--}o Coding : "coding"
 ItemGroupDef ||--|o WorkflowRef : "workflowRef"
 ItemGroupDef ||--}o Origin : "origin"
@@ -107,15 +140,64 @@ ItemGroupDef ||--}o Alias : "alias"
 ItemGroupDef ||--|o Leaf : "leaf"
 ItemGroupDef ||--}o ItemGroupRef : "itemGroupRef"
 ItemGroupDef ||--}o ItemRef : "itemRef"
+ItemRef ||--|| ItemDef : "itemOID"
+ItemRef ||--|o MethodDef : "methodOID"
+ItemRef ||--|o ItemDef : "unitsItemOID"
+ItemRef ||--|o CodeList : "roleCodeListOID"
+ItemRef ||--|o ConditionDef : "collectionExceptionConditionOID"
 ItemRef ||--}o Origin : "origin"
 ItemRef ||--}o WhereClauseRef : "whereClauseRef"
+WhereClauseRef ||--|| WhereClauseDef : "whereClauseOID"
 Origin ||--|o Description : "description"
 Origin ||--|o SourceItems : "sourceItems"
 Origin ||--}o Coding : "coding"
 Origin ||--}o DocumentRef : "documentRef"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
+CodeList ||--|o CommentDef : "commentOID"
+CodeList ||--|o Standard : "standardOID"
+CodeList ||--|o Description : "description"
+CodeList ||--}o CodeListItem : "codeListItem"
+CodeList ||--}o Coding : "coding"
+CodeList ||--}o Alias : "alias"
+ItemDef ||--|o CommentDef : "commentOID"
+ItemDef ||--|o Description : "description"
+ItemDef ||--|o Definition : "definition"
+ItemDef ||--|o Question : "question"
+ItemDef ||--|o Prompt : "prompt"
+ItemDef ||--|o CRFCompletionInstructions : "cRFCompletionInstructions"
+ItemDef ||--|o ImplementationNotes : "implementationNotes"
+ItemDef ||--|o CDISCNotes : "cDISCNotes"
+ItemDef ||--}o RangeCheck : "rangeCheck"
+ItemDef ||--|o CodeListRef : "codeListRef"
+ItemDef ||--|o ValueListRef : "valueListRef"
+ItemDef ||--}o Coding : "coding"
+ItemDef ||--}o Alias : "alias"
+MethodDef ||--|o CommentDef : "commentOID"
+MethodDef ||--|o Description : "description"
+MethodDef ||--|o MethodSignature : "methodSignature"
+MethodDef ||--}o FormalExpression : "formalExpression"
+MethodDef ||--}o Alias : "alias"
+MethodDef ||--}o DocumentRef : "documentRef"
+ItemGroupRef ||--|| ItemGroupDef : "itemGroupOID"
+ItemGroupRef ||--|o MethodDef : "methodOID"
+ItemGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
 Leaf ||--|o Title : "title"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+WorkflowDef ||--|o Description : "description"
+WorkflowDef ||--|o WorkflowStart : "workflowStart"
+WorkflowDef ||--}o WorkflowEnd : "workflowEnd"
+WorkflowDef ||--}o Transition : "transition"
+WorkflowDef ||--}o Branching : "branching"
 Class ||--}o SubClass : "subClass"
 Description ||--}o TranslatedText : "translatedText"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+DocumentRef ||--}o PDFPageRef : "pDFPageRef"
+Standard ||--|o CommentDef : "commentOID"
 
 ```
 
@@ -128,23 +210,23 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the ItemGroupDef element. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the ItemGroupDef element. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name for the ItemGroupDef. | direct |
 | [repeating](repeating.md) | 1..1 <br/> [ItemGroupRepeatingType](ItemGroupRepeatingType.md) | The Repeating attribute indicates that the ItemGroup may occur repeatedly wit... | direct |
 | [repeatingLimit](repeatingLimit.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Maximum number of repeats. | direct |
 | [isReferenceData](isReferenceData.md) | 0..1 <br/> [YesOrNo](YesOrNo.md) | Specifies whether this ItemGroupDef is used for non-subject data. | direct |
 | [structure](structure.md) | 0..1 <br/> [text](text.md) | Description of the level of detail represented by individual records in the I... | direct |
-| [archiveLocationID](archiveLocationID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to the unique ID of a leaf element that provides the actual locatio... | direct |
+| [archiveLocationID](archiveLocationID.md) | 0..1 <br/> [Leaf](Leaf.md) | Reference to the unique ID of a leaf element that provides the actual locatio... | direct |
 | [datasetName](datasetName.md) | 0..1 <br/> [nameType](nameType.md) | Name of a file containing the ItemGroupData for this ItemGroupDef. The name a... | direct |
 | [domain](domain.md) | 0..1 <br/> [text](text.md) | Identifies the scope or CDISC SDTMIG/SENDIG Domain of the ItemGroup data. The... | direct |
 | [type](type.md) | 1..1 <br/> [ItemGroupTypeType](ItemGroupTypeType.md) | identifies the type of data structure the ItemGroup represents. Form - a CRF ... | direct |
 | [purpose](purpose.md) | 0..1 <br/> [text](text.md) | Purpose of the ItemGroup. | direct |
-| [standardOID](standardOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a Standard element. | direct |
+| [standardOID](standardOID.md) | 0..1 <br/> [Standard](Standard.md) | Reference to a Standard element. | direct |
 | [isNonStandard](isNonStandard.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Required for ADaM, SDTM, or SEND if StandardOID is not provided. | direct |
 | [hasNoData](hasNoData.md) | 0..1 <br/> [YesOnly](YesOnly.md) | Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d... | direct |
-| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef with sponsor provided information related to this I... | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [CommentDef](CommentDef.md) | Reference to a CommentDef with sponsor provided information related to this I... | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
-| [classRef](classRef.md) | 0..1 <br/> [Class](Class.md) | Class reference: The Class element identifies which predefined Class within t... | direct |
+| [itemGroupClass](itemGroupClass.md) | 0..1 <br/> [Class](Class.md) | Class reference: The Class element identifies which predefined Class within t... | direct |
 | [coding](coding.md) | 0..* <br/> [Coding](Coding.md) | Coding reference: Coding references a symbol from a defined code system. It u... | direct |
 | [workflowRef](workflowRef.md) | 0..1 <br/> [WorkflowRef](WorkflowRef.md) | WorkflowRef reference: The WorkflowRef references a workflow definition | direct |
 | [origin](origin.md) | 0..* <br/> [Origin](Origin.md) | Origin reference: Origin defines the source metadata, where applicable, for O... | direct |
@@ -163,6 +245,10 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [MetaDataVersion](MetaDataVersion.md) | [itemGroupDef](itemGroupDef.md) | range | [ItemGroupDef](ItemGroupDef.md) |
+| [ItemGroupRef](ItemGroupRef.md) | [itemGroupOID](itemGroupOID.md) | range | [ItemGroupDef](ItemGroupDef.md) |
+| [SourceItem](SourceItem.md) | [itemGroupOID](itemGroupOID.md) | range | [ItemGroupDef](ItemGroupDef.md) |
+| [ItemGroupData](ItemGroupData.md) | [itemGroupOID](itemGroupOID.md) | range | [ItemGroupDef](ItemGroupDef.md) |
+| [KeySet](KeySet.md) | [itemGroupOID](itemGroupOID.md) | range | [ItemGroupDef](ItemGroupDef.md) |
 
 
 
@@ -217,7 +303,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ItemGroupDef
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - repeating
 - repeatingLimit
@@ -233,7 +319,7 @@ slots:
 - hasNoData
 - commentOID
 - description
-- classRef
+- itemGroupClass
 - coding
 - workflowRef
 - origin
@@ -242,8 +328,8 @@ slots:
 - itemGroupRef
 - itemRef
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the ItemGroupDef element.
     comments:
     - 'Required
@@ -251,6 +337,7 @@ slot_usage:
       range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -410,7 +497,7 @@ slot_usage:
       If provided, the value must match the leaf ID attribute of the leaf child element.'
     domain_of:
     - ItemGroupDef
-    range: oidref
+    range: Leaf
   datasetName:
     name: datasetName
     description: Name of a file containing the ItemGroupData for this ItemGroupDef.
@@ -500,7 +587,7 @@ slot_usage:
     domain_of:
     - ItemGroupDef
     - CodeList
-    range: oidref
+    range: Standard
   isNonStandard:
     name: isNonStandard
     description: Required for ADaM, SDTM, or SEND if StandardOID is not provided.
@@ -553,7 +640,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     domain_of:
@@ -595,8 +682,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  classRef:
-    name: classRef
+  itemGroupClass:
+    name: itemGroupClass
     domain_of:
     - ItemGroupDef
     range: Class
@@ -701,8 +788,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/ItemGroupDef
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the ItemGroupDef element.
     comments:
     - 'Required
@@ -710,6 +797,7 @@ slot_usage:
       range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -869,7 +957,7 @@ slot_usage:
       If provided, the value must match the leaf ID attribute of the leaf child element.'
     domain_of:
     - ItemGroupDef
-    range: oidref
+    range: Leaf
   datasetName:
     name: datasetName
     description: Name of a file containing the ItemGroupData for this ItemGroupDef.
@@ -959,7 +1047,7 @@ slot_usage:
     domain_of:
     - ItemGroupDef
     - CodeList
-    range: oidref
+    range: Standard
   isNonStandard:
     name: isNonStandard
     description: Required for ADaM, SDTM, or SEND if StandardOID is not provided.
@@ -1012,7 +1100,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     domain_of:
@@ -1054,8 +1142,8 @@ slot_usage:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  classRef:
-    name: classRef
+  itemGroupClass:
+    name: itemGroupClass
     domain_of:
     - ItemGroupDef
     range: Class
@@ -1144,8 +1232,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the ItemGroupDef element.
     comments:
     - 'Required
@@ -1156,7 +1244,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: ItemGroupDef
     domain_of:
     - Study
@@ -1341,7 +1429,7 @@ attributes:
     owner: ItemGroupDef
     domain_of:
     - ItemGroupDef
-    range: oidref
+    range: Leaf
   datasetName:
     name: datasetName
     description: Name of a file containing the ItemGroupData for this ItemGroupDef.
@@ -1451,7 +1539,7 @@ attributes:
     domain_of:
     - ItemGroupDef
     - CodeList
-    range: oidref
+    range: Standard
   isNonStandard:
     name: isNonStandard
     description: Required for ADaM, SDTM, or SEND if StandardOID is not provided.
@@ -1516,14 +1604,13 @@ attributes:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: ItemGroupDef
     domain_of:
@@ -1565,14 +1652,13 @@ attributes:
     - ODMFileMetadata
     range: Description
     maximum_cardinality: 1
-  classRef:
-    name: classRef
+  itemGroupClass:
+    name: itemGroupClass
     description: 'Class reference: The Class element identifies which predefined Class
       within the model applies to the definition of the dataset.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
-    alias: classRef
+    alias: itemGroupClass
     owner: ItemGroupDef
     domain_of:
     - ItemGroupDef
@@ -1589,7 +1675,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: coding
     owner: ItemGroupDef
     domain_of:
@@ -1617,7 +1702,6 @@ attributes:
     description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: workflowRef
     owner: ItemGroupDef
     domain_of:
@@ -1639,7 +1723,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: origin
     owner: ItemGroupDef
     domain_of:
@@ -1656,7 +1739,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: alias
     owner: ItemGroupDef
     domain_of:
@@ -1677,7 +1759,6 @@ attributes:
       or ArchiveLocationID'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: leaf
     owner: ItemGroupDef
     domain_of:
@@ -1696,7 +1777,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: itemGroupRef
     owner: ItemGroupDef
     domain_of:
@@ -1713,7 +1793,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: itemRef
     owner: ItemGroupDef
     domain_of:

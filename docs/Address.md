@@ -261,7 +261,6 @@ attributes:
     description: 'StreetName reference: The street name part of a user''s postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: streetName
     owner: Address
     domain_of:
@@ -274,7 +273,6 @@ attributes:
       address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: houseNumber
     owner: Address
     domain_of:
@@ -286,7 +284,6 @@ attributes:
     description: 'City reference: The city name part of a user''s postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: city
     owner: Address
     domain_of:
@@ -299,7 +296,6 @@ attributes:
       postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: stateProv
     owner: Address
     domain_of:
@@ -313,7 +309,6 @@ attributes:
       ISO 3166 3-letter or US-GENC country code (e.g., FRA for France, JPN for Japan).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: country
     owner: Address
     domain_of:
@@ -325,7 +320,6 @@ attributes:
     description: 'PostalCode reference: The postal code part of a user''s postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: postalCode
     owner: Address
     domain_of:
@@ -338,7 +332,6 @@ attributes:
       Geodetic System WGS84.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: geoPosition
     owner: Address
     domain_of:
@@ -351,7 +344,6 @@ attributes:
       postal address.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: otherText
     owner: Address
     domain_of:

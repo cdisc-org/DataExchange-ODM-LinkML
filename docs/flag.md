@@ -58,7 +58,6 @@ name: flag
 description: 'Flag reference: A machine-processable annotation.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: flag
 domain_of:
 - Annotation

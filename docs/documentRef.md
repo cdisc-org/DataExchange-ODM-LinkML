@@ -62,7 +62,6 @@ name: documentRef
 description: The DocumentRef element is a container for page references in a PDF file.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: documentRef
 domain_of:
 - AnnotatedCRF

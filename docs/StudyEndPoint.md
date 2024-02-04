@@ -11,7 +11,7 @@ URI: [odm:StudyEndPoint](http://www.cdisc.org/ns/odm/v2.0/StudyEndPoint)
 ```mermaid
 erDiagram
 StudyEndPoint {
-    oid oID  
+    oid OID  
     nameType name  
     StudyEndPointType type  
     StudyEstimandLevel level  
@@ -55,7 +55,7 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEndPoint element | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEndPoint element | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable identifier for the StudyEndPoint element. | direct |
 | [type](type.md) | 0..1 <br/> [StudyEndPointType](StudyEndPointType.md) | The type of end point. Simple: measures the change of a single outcome that i... | direct |
 | [level](level.md) | 0..1 <br/> [StudyEstimandLevel](StudyEstimandLevel.md) | Level for the Study Endpoint. Primary endpoint(s) are typically efficacy meas... | direct |
@@ -71,6 +71,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [StudyEndPointRef](StudyEndPointRef.md) | [studyEndPointOID](studyEndPointOID.md) | range | [StudyEndPoint](StudyEndPoint.md) |
 | [StudyEndPoints](StudyEndPoints.md) | [studyEndPoint](studyEndPoint.md) | range | [StudyEndPoint](StudyEndPoint.md) |
 
 
@@ -129,15 +130,15 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEndPoint
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - type
 - level
 - description
 - formalExpression
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyEndPoint element
     comments:
     - 'Required
@@ -145,6 +146,7 @@ slot_usage:
       range: oid
 
       The OID attribute for the StudyEndPoint must be unique within the study.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -354,8 +356,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEndPoint
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyEndPoint element
     comments:
     - 'Required
@@ -363,6 +365,7 @@ slot_usage:
       range: oid
 
       The OID attribute for the StudyEndPoint must be unique within the study.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -553,8 +556,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyEndPoint element
     comments:
     - 'Required
@@ -565,7 +568,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: StudyEndPoint
     domain_of:
     - Study
@@ -721,7 +724,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: StudyEndPoint
     domain_of:
@@ -775,7 +777,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: formalExpression
     owner: StudyEndPoint
     domain_of:

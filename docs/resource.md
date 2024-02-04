@@ -59,7 +59,6 @@ description: 'Resource reference: Describes an external resource used as the sou
   for the parent ItemGroup or Item.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: resource
 domain_of:
 - SourceItem

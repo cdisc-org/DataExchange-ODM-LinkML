@@ -31,7 +31,7 @@ URI: [odm:studyEventOID](http://www.cdisc.org/ns/odm/v2.0/studyEventOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [StudyEventDef](StudyEventDef.md)
 
 
 
@@ -67,7 +67,7 @@ domain_of:
 - AbsoluteTimingConstraint
 - StudyEventData
 - KeySet
-range: oidref
+range: StudyEventDef
 
 ```
 </details>

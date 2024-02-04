@@ -60,7 +60,6 @@ description: 'WhereClauseRef reference: The WhereClauseRef references the WhereC
   by the referenced ItemDef.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: whereClauseRef
 domain_of:
 - ItemRef

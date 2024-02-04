@@ -11,7 +11,7 @@ URI: [odm:StudyParameter](http://www.cdisc.org/ns/odm/v2.0/StudyParameter)
 ```mermaid
 erDiagram
 StudyParameter {
-    oid oID  
+    oid OID  
     nameType term  
     nameType shortName  
 }
@@ -44,7 +44,7 @@ ParameterValue ||--}o Coding : "coding"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for StudyParameter. Note a StudyParameter can be referenced... | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for StudyParameter. Note a StudyParameter can be referenced... | direct |
 | [term](term.md) | 1..1 <br/> [nameType](nameType.md) | Longer name. Provides the full name of the parameter. | direct |
 | [shortName](shortName.md) | 0..1 <br/> [nameType](nameType.md) | Short name or code for the parameter. | direct |
 | [parameterValue](parameterValue.md) | 0..1 <br/> [ParameterValue](ParameterValue.md) | ParameterValue reference: This element contains the value of the study parame... | direct |
@@ -114,14 +114,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyParameter
 rank: 1000
 slots:
-- oID
+- OID
 - term
 - shortName
 - parameterValue
 - coding
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for StudyParameter. Note a StudyParameter can be
       referenced from other elements.
     comments:
@@ -130,6 +130,7 @@ slot_usage:
       range: oid
 
       Must be unique within the Protocol.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -246,8 +247,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyParameter
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for StudyParameter. Note a StudyParameter can be
       referenced from other elements.
     comments:
@@ -256,6 +257,7 @@ slot_usage:
       range: oid
 
       Must be unique within the Protocol.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -356,8 +358,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for StudyParameter. Note a StudyParameter can be
       referenced from other elements.
     comments:
@@ -369,7 +371,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: StudyParameter
     domain_of:
     - Study
@@ -455,7 +457,6 @@ attributes:
       study parameter as text content.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: parameterValue
     owner: StudyParameter
     domain_of:
@@ -473,7 +474,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: coding
     owner: StudyParameter
     domain_of:

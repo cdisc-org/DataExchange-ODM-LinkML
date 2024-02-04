@@ -59,7 +59,6 @@ name: code
 description: A string pattern that identifies a concept as defined by the code system.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: code
 domain_of:
 - FormalExpression

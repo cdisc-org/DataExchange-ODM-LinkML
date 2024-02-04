@@ -11,14 +11,13 @@ URI: [odm:StudyEventData](http://www.cdisc.org/ns/odm/v2.0/StudyEventData)
 ```mermaid
 erDiagram
 StudyEventData {
-    oidref studyEventOID  
     repeatKey studyEventRepeatKey  
     TransactionType transactionType  
 }
 Annotation {
     positiveInteger seqNum  
     TransactionType transactionType  
-    oid iD  
+    oid ID  
 }
 Flag {
 
@@ -37,19 +36,19 @@ Comment {
     CommentType sponsorOrSite  
 }
 Signature {
-    oid iD  
+    oid ID  
 }
 DateTimeStamp {
     datetime content  
 }
 SignatureRef {
-    oidref signatureOID  
+
 }
 LocationRef {
-    oidref locationOID  
+
 }
 UserRef {
-    oidref userOID  
+
 }
 AuditRecord {
     EditPointType editPoint  
@@ -62,7 +61,7 @@ ReasonForChange {
     text content  
 }
 Query {
-    oid oID  
+    oid OID  
     QuerySourceType source  
     text target  
     QueryType type  
@@ -75,17 +74,54 @@ Value {
     text content  
 }
 ItemGroupData {
-    oidref itemGroupOID  
     repeatKey itemGroupRepeatKey  
     TransactionType transactionType  
     positiveInteger itemGroupDataSeq  
 }
 ItemData {
-    oidref itemOID  
     TransactionType transactionType  
     YesOnly isNull  
 }
+ItemGroupDef {
+    oid OID  
+    nameType name  
+    ItemGroupRepeatingType repeating  
+    positiveInteger repeatingLimit  
+    YesOrNo isReferenceData  
+    text structure  
+    nameType datasetName  
+    text domain  
+    ItemGroupTypeType type  
+    text purpose  
+    YesOnly isNonStandard  
+    YesOnly hasNoData  
+}
+StudyEventDef {
+    oid OID  
+    nameType name  
+    YesOrNo repeating  
+    EventType type  
+    text category  
+}
+Alias {
+    text context  
+    text name  
+}
+WorkflowRef {
 
+}
+ItemGroupRef {
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+}
+Description {
+
+}
+CommentDef {
+    oid OID  
+}
+
+StudyEventData ||--|| StudyEventDef : "studyEventOID"
 StudyEventData ||--}o ItemGroupData : "itemGroupData"
 StudyEventData ||--}o Query : "query"
 StudyEventData ||--|o AuditRecord : "auditRecord"
@@ -101,6 +137,9 @@ Signature ||--|o UserRef : "userRef"
 Signature ||--|o LocationRef : "locationRef"
 Signature ||--|o SignatureRef : "signatureRef"
 Signature ||--|o DateTimeStamp : "dateTimeStamp"
+SignatureRef ||--|| SignatureDef : "signatureOID"
+LocationRef ||--|| Location : "locationOID"
+UserRef ||--|| User : "userOID"
 AuditRecord ||--|o UserRef : "userRef"
 AuditRecord ||--|o LocationRef : "locationRef"
 AuditRecord ||--|o DateTimeStamp : "dateTimeStamp"
@@ -108,17 +147,44 @@ AuditRecord ||--|o ReasonForChange : "reasonForChange"
 AuditRecord ||--|o SourceID : "sourceID"
 Query ||--|o Value : "value"
 Query ||--}o AuditRecord : "auditRecord"
+ItemGroupData ||--|| ItemGroupDef : "itemGroupOID"
 ItemGroupData ||--}o Query : "query"
 ItemGroupData ||--}o ItemGroupData : "itemGroupData"
 ItemGroupData ||--}o ItemData : "itemData"
 ItemGroupData ||--|o AuditRecord : "auditRecord"
 ItemGroupData ||--|o Signature : "signature"
 ItemGroupData ||--|o Annotation : "annotation"
+ItemData ||--|| ItemDef : "itemOID"
 ItemData ||--}o Value : "value"
 ItemData ||--}o Query : "query"
 ItemData ||--|o AuditRecord : "auditRecord"
 ItemData ||--|o Signature : "signature"
 ItemData ||--|o Annotation : "annotation"
+ItemGroupDef ||--|o Leaf : "archiveLocationID"
+ItemGroupDef ||--|o Standard : "standardOID"
+ItemGroupDef ||--|o CommentDef : "commentOID"
+ItemGroupDef ||--|o Description : "description"
+ItemGroupDef ||--|o Class : "itemGroupClass"
+ItemGroupDef ||--}o Coding : "coding"
+ItemGroupDef ||--|o WorkflowRef : "workflowRef"
+ItemGroupDef ||--}o Origin : "origin"
+ItemGroupDef ||--}o Alias : "alias"
+ItemGroupDef ||--|o Leaf : "leaf"
+ItemGroupDef ||--}o ItemGroupRef : "itemGroupRef"
+ItemGroupDef ||--}o ItemRef : "itemRef"
+StudyEventDef ||--|o CommentDef : "commentOID"
+StudyEventDef ||--|o Description : "description"
+StudyEventDef ||--}o ItemGroupRef : "itemGroupRef"
+StudyEventDef ||--|o WorkflowRef : "workflowRef"
+StudyEventDef ||--}o Coding : "coding"
+StudyEventDef ||--}o Alias : "alias"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+ItemGroupRef ||--|| ItemGroupDef : "itemGroupOID"
+ItemGroupRef ||--|o MethodDef : "methodOID"
+ItemGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+Description ||--}o TranslatedText : "translatedText"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
 
 ```
 
@@ -131,7 +197,7 @@ ItemData ||--|o Annotation : "annotation"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [studyEventOID](studyEventOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey ar... | direct |
+| [studyEventOID](studyEventOID.md) | 1..1 <br/> [StudyEventDef](StudyEventDef.md) | Reference to the StudyEventDef . The StudyEventOID and StudyEventRepeatKey ar... | direct |
 | [studyEventRepeatKey](studyEventRepeatKey.md) | 0..1 <br/> [repeatKey](repeatKey.md) | A key used to distinguish between repeats of the same type of study event for... | direct |
 | [transactionType](transactionType.md) | 0..1 <br/> [TransactionType](TransactionType.md) | Identifies the transaction type when /ODM/@FileType is Transactional and ther... | direct |
 | [itemGroupData](itemGroupData.md) | 0..* <br/> [ItemGroupData](ItemGroupData.md) | ItemGroupData reference: Clinical data corresponding to an ItemGroupRef defin... | direct |
@@ -230,7 +296,7 @@ slot_usage:
     - AbsoluteTimingConstraint
     - StudyEventData
     - KeySet
-    range: oidref
+    range: StudyEventDef
     required: true
   studyEventRepeatKey:
     name: studyEventRepeatKey
@@ -359,7 +425,7 @@ slot_usage:
     - AbsoluteTimingConstraint
     - StudyEventData
     - KeySet
-    range: oidref
+    range: StudyEventDef
     required: true
   studyEventRepeatKey:
     name: studyEventRepeatKey
@@ -475,7 +541,7 @@ attributes:
     - AbsoluteTimingConstraint
     - StudyEventData
     - KeySet
-    range: oidref
+    range: StudyEventDef
     required: true
   studyEventRepeatKey:
     name: studyEventRepeatKey
@@ -526,7 +592,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: itemGroupData
     owner: StudyEventData
     domain_of:
@@ -550,7 +615,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: query
     owner: StudyEventData
     domain_of:
@@ -573,7 +637,6 @@ attributes:
       by a subsequent transaction, but history cannot be changed, only added to.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: auditRecord
     owner: StudyEventData
     domain_of:
@@ -596,7 +659,6 @@ attributes:
       hash of the included data.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: signature
     owner: StudyEventData
     domain_of:
@@ -615,7 +677,6 @@ attributes:
       comment.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: annotation
     owner: StudyEventData
     domain_of:

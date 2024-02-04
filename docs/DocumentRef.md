@@ -115,6 +115,7 @@ slot_usage:
     - 'Required
 
       range: text'
+    identifier: true
     domain_of:
     - DocumentRef
     - SourceItem
@@ -154,6 +155,7 @@ slot_usage:
     - 'Required
 
       range: text'
+    identifier: true
     domain_of:
     - DocumentRef
     - SourceItem
@@ -180,6 +182,7 @@ attributes:
       range: text'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
+    identifier: true
     alias: leafID
     owner: DocumentRef
     domain_of:
@@ -194,7 +197,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: pDFPageRef
     owner: DocumentRef
     domain_of:

@@ -59,7 +59,6 @@ description: 'WorkflowStart reference: WorkflowStart references a structural ele
   that begins the automated workflow.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: workflowStart
 domain_of:
 - WorkflowDef

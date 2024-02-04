@@ -59,7 +59,6 @@ description: 'Question reference: A label shown to a human user when prompted to
   data for an item on paper or on a screen.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: question
 domain_of:
 - ItemDef

@@ -63,7 +63,6 @@ description: 'MethodSignature reference: A MethodSignature defines the parameter
   Most Methods use one or more input parameters and return one or more values.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: methodSignature
 domain_of:
 - RangeCheck

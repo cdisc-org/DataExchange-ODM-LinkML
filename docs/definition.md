@@ -60,7 +60,6 @@ name: definition
 description: A free-text definition of the parameter
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: definition
 domain_of:
 - ItemDef

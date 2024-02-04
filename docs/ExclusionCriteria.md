@@ -14,9 +14,8 @@ ExclusionCriteria {
 
 }
 Criterion {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref conditionOID  
 }
 Coding {
     text code  
@@ -31,11 +30,21 @@ Coding {
 Description {
 
 }
+ConditionDef {
+    oid OID  
+    nameType name  
+}
 
 ExclusionCriteria ||--}o Criterion : "criterion"
+Criterion ||--|| ConditionDef : "conditionOID"
 Criterion ||--|o Description : "description"
 Criterion ||--}o Coding : "coding"
 Description ||--}o TranslatedText : "translatedText"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
 
 ```
 
@@ -162,7 +171,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: criterion
     owner: ExclusionCriteria
     domain_of:

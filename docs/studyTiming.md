@@ -64,7 +64,6 @@ description: 'StudyTiming reference: The StudyTiming element defines a timing co
   of visit 2 is planned to take hours with a window of 30 minutes).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyTiming
 domain_of:
 - StudyTimings

@@ -11,13 +11,12 @@ URI: [odm:Association](http://www.cdisc.org/ns/odm/v2.0/Association)
 ```mermaid
 erDiagram
 Association {
-    oidref studyOID  
-    oidref metaDataVersionOID  
+
 }
 Annotation {
     positiveInteger seqNum  
     TransactionType transactionType  
-    oid iD  
+    oid ID  
 }
 Flag {
 
@@ -36,16 +35,54 @@ Comment {
     CommentType sponsorOrSite  
 }
 KeySet {
-    oidref studyOID  
     subjectKeyType subjectKey  
-    oidref metaDataVersionOID  
-    oidref studyEventOID  
     repeatKey studyEventRepeatKey  
-    oidref itemGroupOID  
     repeatKey itemGroupRepeatKey  
-    oidref itemOID  
+}
+ItemDef {
+    oid OID  
+    nameType name  
+    DataType dataType  
+    positiveInteger length  
+    text displayFormat  
+    text variableSet  
+}
+ItemGroupDef {
+    oid OID  
+    nameType name  
+    ItemGroupRepeatingType repeating  
+    positiveInteger repeatingLimit  
+    YesOrNo isReferenceData  
+    text structure  
+    nameType datasetName  
+    text domain  
+    ItemGroupTypeType type  
+    text purpose  
+    YesOnly isNonStandard  
+    YesOnly hasNoData  
+}
+StudyEventDef {
+    oid OID  
+    nameType name  
+    YesOrNo repeating  
+    EventType type  
+    text category  
+}
+MetaDataVersion {
+    oid OID  
+    nameType name  
+}
+Study {
+    oid OID  
+    nameType studyName  
+    nameType protocolName  
+    nameType versionID  
+    nameType versionName  
+    nameType status  
 }
 
+Association ||--|| Study : "studyOID"
+Association ||--|| MetaDataVersion : "metaDataVersionOID"
 Association ||--|o KeySet : "keySet"
 Association ||--|o Annotation : "annotation"
 Annotation ||--|o Comment : "comment"
@@ -54,6 +91,63 @@ Annotation ||--}o Flag : "flag"
 Flag ||--|o FlagValue : "flagValue"
 Flag ||--|o FlagType : "flagType"
 Comment ||--}o TranslatedText : "translatedText"
+KeySet ||--|| Study : "studyOID"
+KeySet ||--|o MetaDataVersion : "metaDataVersionOID"
+KeySet ||--|o StudyEventDef : "studyEventOID"
+KeySet ||--|o ItemGroupDef : "itemGroupOID"
+KeySet ||--|o ItemDef : "itemOID"
+ItemDef ||--|o CommentDef : "commentOID"
+ItemDef ||--|o Description : "description"
+ItemDef ||--|o Definition : "definition"
+ItemDef ||--|o Question : "question"
+ItemDef ||--|o Prompt : "prompt"
+ItemDef ||--|o CRFCompletionInstructions : "cRFCompletionInstructions"
+ItemDef ||--|o ImplementationNotes : "implementationNotes"
+ItemDef ||--|o CDISCNotes : "cDISCNotes"
+ItemDef ||--}o RangeCheck : "rangeCheck"
+ItemDef ||--|o CodeListRef : "codeListRef"
+ItemDef ||--|o ValueListRef : "valueListRef"
+ItemDef ||--}o Coding : "coding"
+ItemDef ||--}o Alias : "alias"
+ItemGroupDef ||--|o Leaf : "archiveLocationID"
+ItemGroupDef ||--|o Standard : "standardOID"
+ItemGroupDef ||--|o CommentDef : "commentOID"
+ItemGroupDef ||--|o Description : "description"
+ItemGroupDef ||--|o Class : "itemGroupClass"
+ItemGroupDef ||--}o Coding : "coding"
+ItemGroupDef ||--|o WorkflowRef : "workflowRef"
+ItemGroupDef ||--}o Origin : "origin"
+ItemGroupDef ||--}o Alias : "alias"
+ItemGroupDef ||--|o Leaf : "leaf"
+ItemGroupDef ||--}o ItemGroupRef : "itemGroupRef"
+ItemGroupDef ||--}o ItemRef : "itemRef"
+StudyEventDef ||--|o CommentDef : "commentOID"
+StudyEventDef ||--|o Description : "description"
+StudyEventDef ||--}o ItemGroupRef : "itemGroupRef"
+StudyEventDef ||--|o WorkflowRef : "workflowRef"
+StudyEventDef ||--}o Coding : "coding"
+StudyEventDef ||--}o Alias : "alias"
+MetaDataVersion ||--|o CommentDef : "commentOID"
+MetaDataVersion ||--|o Description : "description"
+MetaDataVersion ||--|o Include : "include"
+MetaDataVersion ||--|o Standards : "standards"
+MetaDataVersion ||--|o AnnotatedCRF : "annotatedCRF"
+MetaDataVersion ||--|o SupplementalDoc : "supplementalDoc"
+MetaDataVersion ||--}o ValueListDef : "valueListDef"
+MetaDataVersion ||--}o WhereClauseDef : "whereClauseDef"
+MetaDataVersion ||--|o Protocol : "protocol"
+MetaDataVersion ||--}o WorkflowDef : "workflowDef"
+MetaDataVersion ||--}o StudyEventGroupDef : "studyEventGroupDef"
+MetaDataVersion ||--}o StudyEventDef : "studyEventDef"
+MetaDataVersion ||--}o ItemGroupDef : "itemGroupDef"
+MetaDataVersion ||--}o ItemDef : "itemDef"
+MetaDataVersion ||--}o CodeList : "codeList"
+MetaDataVersion ||--}o ConditionDef : "conditionDef"
+MetaDataVersion ||--}o MethodDef : "methodDef"
+MetaDataVersion ||--}o CommentDef : "commentDef"
+MetaDataVersion ||--}o Leaf : "leaf"
+Study ||--|o Description : "description"
+Study ||--}o MetaDataVersion : "metaDataVersion"
 
 ```
 
@@ -66,8 +160,8 @@ Comment ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [studyOID](studyOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to an ODM Study element. | direct |
-| [metaDataVersionOID](metaDataVersionOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to a MetaDataVersion element. | direct |
+| [studyOID](studyOID.md) | 1..1 <br/> [Study](Study.md) | Reference to an ODM Study element. | direct |
+| [metaDataVersionOID](metaDataVersionOID.md) | 1..1 <br/> [MetaDataVersion](MetaDataVersion.md) | Reference to a MetaDataVersion element. | direct |
 | [keySet](keySet.md) | 0..1 <br/> [KeySet](KeySet.md) | KeySet reference: A KeySet references a single entity (e.g., a study, a subje... | direct |
 | [keySet](keySet.md) | 0..1 <br/> [KeySet](KeySet.md) | KeySet reference: A KeySet references a single entity (e.g., a study, a subje... | direct |
 | [annotation](annotation.md) | 0..1 <br/> [Annotation](Annotation.md) | Annotation reference: A general note about clinical data. If an annotation ha... | direct |
@@ -157,7 +251,7 @@ slot_usage:
     - ClinicalData
     - Association
     - KeySet
-    range: oidref
+    range: Study
     required: true
   metaDataVersionOID:
     name: metaDataVersionOID
@@ -172,7 +266,7 @@ slot_usage:
     - ClinicalData
     - Association
     - KeySet
-    range: oidref
+    range: MetaDataVersion
     required: true
   keySet:
     name: keySet
@@ -224,7 +318,7 @@ slot_usage:
     - ClinicalData
     - Association
     - KeySet
-    range: oidref
+    range: Study
     required: true
   metaDataVersionOID:
     name: metaDataVersionOID
@@ -239,7 +333,7 @@ slot_usage:
     - ClinicalData
     - Association
     - KeySet
-    range: oidref
+    range: MetaDataVersion
     required: true
   keySet:
     name: keySet
@@ -278,7 +372,7 @@ attributes:
     - ClinicalData
     - Association
     - KeySet
-    range: oidref
+    range: Study
     required: true
   metaDataVersionOID:
     name: metaDataVersionOID
@@ -297,7 +391,7 @@ attributes:
     - ClinicalData
     - Association
     - KeySet
-    range: oidref
+    range: MetaDataVersion
     required: true
   keySet:
     name: keySet
@@ -307,7 +401,6 @@ attributes:
       Data Keys).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: keySet
     owner: Association
     domain_of:
@@ -321,7 +414,6 @@ attributes:
       comment.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: annotation
     owner: Association
     domain_of:

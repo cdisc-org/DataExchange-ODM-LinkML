@@ -11,13 +11,78 @@ URI: [odm:StudyEventRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventRef)
 ```mermaid
 erDiagram
 StudyEventRef {
-    oidref studyEventOID  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
+}
+ConditionDef {
+    oid OID  
+    nameType name  
+}
+Alias {
+    text context  
+    text name  
+}
+FormalExpression {
+    text context  
+}
+MethodSignature {
+
+}
+Description {
+
+}
+CommentDef {
+    oid OID  
+}
+StudyEventDef {
+    oid OID  
+    nameType name  
+    YesOrNo repeating  
+    EventType type  
+    text category  
+}
+Coding {
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
+    uriorcurie href  
+    uriorcurie ref  
+    text commentOID  
+}
+WorkflowRef {
+
+}
+ItemGroupRef {
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
 }
 
-
+StudyEventRef ||--|| StudyEventDef : "studyEventOID"
+StudyEventRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+MethodSignature ||--}o Parameter : "parameter"
+MethodSignature ||--}o ReturnValue : "returnValue"
+Description ||--}o TranslatedText : "translatedText"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+StudyEventDef ||--|o CommentDef : "commentOID"
+StudyEventDef ||--|o Description : "description"
+StudyEventDef ||--}o ItemGroupRef : "itemGroupRef"
+StudyEventDef ||--|o WorkflowRef : "workflowRef"
+StudyEventDef ||--}o Coding : "coding"
+StudyEventDef ||--}o Alias : "alias"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+ItemGroupRef ||--|| ItemGroupDef : "itemGroupOID"
+ItemGroupRef ||--|o MethodDef : "methodOID"
+ItemGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
 
 ```
 
@@ -30,10 +95,10 @@ StudyEventRef {
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [studyEventOID](studyEventOID.md) | 1..1 <br/> [oidref](oidref.md) | Reference to the StudyEventDef . | direct |
+| [studyEventOID](studyEventOID.md) | 1..1 <br/> [StudyEventDef](StudyEventDef.md) | Reference to the StudyEventDef . | direct |
 | [orderNumber](orderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEventDef appears in Metadata displays ... | direct |
 | [mandatory](mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | The Mandatory flag indicates that the clinical data for the containing MetaDa... | direct |
-| [collectionExceptionConditionOID](collectionExceptionConditionOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
+| [collectionExceptionConditionOID](collectionExceptionConditionOID.md) | 0..1 <br/> [ConditionDef](ConditionDef.md) | Reference to a ConditionDef If the CollectionExceptionConditionOID attribute ... | direct |
 
 _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
 
@@ -119,7 +184,7 @@ slot_usage:
     - AbsoluteTimingConstraint
     - StudyEventData
     - KeySet
-    range: oidref
+    range: StudyEventDef
     required: true
   orderNumber:
     name: orderNumber
@@ -185,7 +250,7 @@ slot_usage:
     - StudyEventRef
     - ItemGroupRef
     - ItemRef
-    range: oidref
+    range: ConditionDef
 class_uri: odm:StudyEventRef
 
 ```
@@ -218,7 +283,7 @@ slot_usage:
     - AbsoluteTimingConstraint
     - StudyEventData
     - KeySet
-    range: oidref
+    range: StudyEventDef
     required: true
   orderNumber:
     name: orderNumber
@@ -284,7 +349,7 @@ slot_usage:
     - StudyEventRef
     - ItemGroupRef
     - ItemRef
-    range: oidref
+    range: ConditionDef
 attributes:
   studyEventOID:
     name: studyEventOID
@@ -304,7 +369,7 @@ attributes:
     - AbsoluteTimingConstraint
     - StudyEventData
     - KeySet
-    range: oidref
+    range: StudyEventDef
     required: true
   orderNumber:
     name: orderNumber
@@ -382,7 +447,7 @@ attributes:
     - StudyEventRef
     - ItemGroupRef
     - ItemRef
-    range: oidref
+    range: ConditionDef
 class_uri: odm:StudyEventRef
 
 ```

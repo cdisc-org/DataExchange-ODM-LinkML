@@ -28,7 +28,7 @@ URI: [odm:partOfOrganizationOID](http://www.cdisc.org/ns/odm/v2.0/partOfOrganiza
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [Organization](Organization.md)
 
 
 
@@ -61,7 +61,7 @@ rank: 1000
 alias: partOfOrganizationOID
 domain_of:
 - Organization
-range: oidref
+range: Organization
 
 ```
 </details>

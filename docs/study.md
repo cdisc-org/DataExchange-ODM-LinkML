@@ -59,7 +59,6 @@ description: 'Study reference: This element collects static structural informati
   about an individual study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: study
 domain_of:
 - ODMFileMetadata

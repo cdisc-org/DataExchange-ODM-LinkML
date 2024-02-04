@@ -59,7 +59,6 @@ description: 'FullName reference: The user''s full formal name. May be a combina
   of Prefix, GivenName, FamilyName & Suffix. Intended to be used for display.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: fullName
 domain_of:
 - User

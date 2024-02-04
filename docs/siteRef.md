@@ -59,7 +59,6 @@ description: 'SiteRef reference: Provides a reference to the site that the Subje
   record is associated with in the source system.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: siteRef
 domain_of:
 - SubjectData

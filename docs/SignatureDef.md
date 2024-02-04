@@ -11,7 +11,7 @@ URI: [odm:SignatureDef](http://www.cdisc.org/ns/odm/v2.0/SignatureDef)
 ```mermaid
 erDiagram
 SignatureDef {
-    oid oID  
+    oid OID  
     SignMethod methodology  
 }
 LegalReason {
@@ -35,7 +35,7 @@ SignatureDef ||--|o LegalReason : "legalReason"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [methodology](methodology.md) | 0..1 <br/> [SignMethod](SignMethod.md) | Defines the type of electronic signature, including the meaning as required b... | direct |
 | [meaning](meaning.md) | 0..1 <br/> [Meaning](Meaning.md) | Meaning reference: A short name or description for this signature. It should ... | direct |
 | [legalReason](legalReason.md) | 0..1 <br/> [LegalReason](LegalReason.md) | LegalReason reference: The responsibility statement associated with a signatu... | direct |
@@ -50,6 +50,7 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [AdminData](AdminData.md) | [signatureDef](signatureDef.md) | range | [SignatureDef](SignatureDef.md) |
+| [SignatureRef](SignatureRef.md) | [signatureOID](signatureOID.md) | range | [SignatureDef](SignatureDef.md) |
 
 
 
@@ -103,13 +104,13 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SignatureDef
 rank: 1000
 slots:
-- oID
+- OID
 - methodology
 - meaning
 - legalReason
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
@@ -117,6 +118,7 @@ slot_usage:
       range: oid
 
       Must be unique within a study.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -198,8 +200,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/SignatureDef
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
@@ -207,6 +209,7 @@ slot_usage:
       range: oid
 
       Must be unique within a study.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -273,8 +276,8 @@ slot_usage:
     range: LegalReason
     maximum_cardinality: 1
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
@@ -285,7 +288,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: SignatureDef
     domain_of:
     - Study
@@ -351,7 +354,6 @@ attributes:
       when the signature is applied in the user interface.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: meaning
     owner: SignatureDef
     domain_of:
@@ -365,7 +367,6 @@ attributes:
       data.").'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: legalReason
     owner: SignatureDef
     domain_of:

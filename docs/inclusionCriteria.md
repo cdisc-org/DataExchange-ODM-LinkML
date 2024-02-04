@@ -61,7 +61,6 @@ description: 'InclusionCriteria reference: The InclusionCriteria is a container 
   order to enroll in the study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: inclusionCriteria
 domain_of:
 - InclusionExclusionCriteria

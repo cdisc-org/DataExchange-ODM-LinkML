@@ -217,7 +217,6 @@ attributes:
       system.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: code
     owner: FormalExpression
     domain_of:
@@ -239,7 +238,6 @@ attributes:
       FormalExpression code referenced.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: externalCodeLib
     owner: FormalExpression
     domain_of:

@@ -13,8 +13,8 @@ URI: [StandardType](StandardType)
 
 | Value | Meaning | Description |
 | --- | --- | --- |
-| CT | nci:ExtCodeID:C163415 |  |
-| IG | nci:ExtCodeID:C170454 |  |
+| CT | ncit:C163415 |  |
+| IG | ncit:C170454 |  |
 
 
 
@@ -56,21 +56,21 @@ URI: [StandardType](StandardType)
 <details>
 ```yaml
 name: StandardType
-conforms_to: nci:ExtCodeID:C170451
+conforms_to: ncit
 description: Enumeration used in type
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 aliases:
 - C170451
 rank: 1000
-code_set: nci:ExtCodeID
+code_set: ncit:C170451
 permissible_values:
   CT:
     text: CT
-    meaning: nci:ExtCodeID:C163415
+    meaning: ncit:C163415
     is_a: StandardType
   IG:
     text: IG
-    meaning: nci:ExtCodeID:C170454
+    meaning: ncit:C170454
     is_a: StandardType
 
 ```

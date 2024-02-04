@@ -62,7 +62,6 @@ description: 'StudyEventDef reference: StudyEventDef represents the definition o
   and the workflow is referenced in the study event.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyEventDef
 domain_of:
 - MetaDataVersion

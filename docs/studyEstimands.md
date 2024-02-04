@@ -59,7 +59,6 @@ description: 'StudyEstimands reference: StudyEstimands is a container element fo
   individual StudyEstimand elements.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyEstimands
 domain_of:
 - Protocol

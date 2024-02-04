@@ -13,7 +13,6 @@ erDiagram
 RangeCheck {
     Comparator comparator  
     SoftOrHard softHard  
-    oidref itemOID  
 }
 CheckValue {
     valueType content  
@@ -54,7 +53,60 @@ TranslatedText {
     text type  
     contentType content  
 }
+ItemDef {
+    oid OID  
+    nameType name  
+    DataType dataType  
+    positiveInteger length  
+    text displayFormat  
+    text variableSet  
+}
+Alias {
+    text context  
+    text name  
+}
+Coding {
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
+    uriorcurie href  
+    uriorcurie ref  
+    text commentOID  
+}
+ValueListRef {
 
+}
+CodeListRef {
+
+}
+CDISCNotes {
+
+}
+ImplementationNotes {
+
+}
+CRFCompletionInstructions {
+
+}
+Prompt {
+
+}
+Question {
+
+}
+Definition {
+
+}
+Description {
+
+}
+CommentDef {
+    oid OID  
+}
+
+RangeCheck ||--|o ItemDef : "itemOID"
 RangeCheck ||--|o ErrorMessage : "errorMessage"
 RangeCheck ||--|o MethodSignature : "methodSignature"
 RangeCheck ||--}o FormalExpression : "formalExpression"
@@ -64,6 +116,30 @@ FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
 MethodSignature ||--}o Parameter : "parameter"
 MethodSignature ||--}o ReturnValue : "returnValue"
 ErrorMessage ||--}o TranslatedText : "translatedText"
+ItemDef ||--|o CommentDef : "commentOID"
+ItemDef ||--|o Description : "description"
+ItemDef ||--|o Definition : "definition"
+ItemDef ||--|o Question : "question"
+ItemDef ||--|o Prompt : "prompt"
+ItemDef ||--|o CRFCompletionInstructions : "cRFCompletionInstructions"
+ItemDef ||--|o ImplementationNotes : "implementationNotes"
+ItemDef ||--|o CDISCNotes : "cDISCNotes"
+ItemDef ||--}o RangeCheck : "rangeCheck"
+ItemDef ||--|o CodeListRef : "codeListRef"
+ItemDef ||--|o ValueListRef : "valueListRef"
+ItemDef ||--}o Coding : "coding"
+ItemDef ||--}o Alias : "alias"
+ValueListRef ||--|| ValueListDef : "valueListOID"
+CodeListRef ||--|| CodeList : "codeListOID"
+CDISCNotes ||--}o TranslatedText : "translatedText"
+ImplementationNotes ||--}o TranslatedText : "translatedText"
+CRFCompletionInstructions ||--}o TranslatedText : "translatedText"
+Prompt ||--}o TranslatedText : "translatedText"
+Question ||--}o TranslatedText : "translatedText"
+Definition ||--}o TranslatedText : "translatedText"
+Description ||--}o TranslatedText : "translatedText"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
 
 ```
 
@@ -78,7 +154,7 @@ ErrorMessage ||--}o TranslatedText : "translatedText"
 | ---  | --- | --- | --- |
 | [comparator](comparator.md) | 0..1 <br/> [Comparator](Comparator.md) | Comparison operator used to compare the item and value(s). | direct |
 | [softHard](softHard.md) | 0..1 <br/> [SoftOrHard](SoftOrHard.md) | Type of range check. Soft indicates that a warning occurs when the RangeCheck... | direct |
-| [itemOID](itemOID.md) | 0..1 <br/> [oidref](oidref.md) | Identifies a variable to compare against. | direct |
+| [itemOID](itemOID.md) | 0..1 <br/> [ItemDef](ItemDef.md) | Identifies a variable to compare against. | direct |
 | [errorMessage](errorMessage.md) | 0..1 <br/> [ErrorMessage](ErrorMessage.md) | ErrorMessage reference: Error message provided to user when the range check f... | direct |
 | [methodSignature](methodSignature.md) | 0..1 <br/> [MethodSignature](MethodSignature.md) | MethodSignature reference: A MethodSignature defines the parameters and retur... | direct |
 | [formalExpression](formalExpression.md) | 0..* <br/> [FormalExpression](FormalExpression.md) | FormalExpression reference: A FormalExpression used within a ConditionDef or ... | direct |
@@ -193,7 +269,7 @@ slot_usage:
     - RangeCheck
     - ItemData
     - KeySet
-    range: oidref
+    range: ItemDef
   errorMessage:
     name: errorMessage
     domain_of:
@@ -281,7 +357,7 @@ slot_usage:
     - RangeCheck
     - ItemData
     - KeySet
-    range: oidref
+    range: ItemDef
   errorMessage:
     name: errorMessage
     domain_of:
@@ -363,14 +439,13 @@ attributes:
     - RangeCheck
     - ItemData
     - KeySet
-    range: oidref
+    range: ItemDef
   errorMessage:
     name: errorMessage
     description: 'ErrorMessage reference: Error message provided to user when the
       range check fails.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: errorMessage
     owner: RangeCheck
     domain_of:
@@ -385,7 +460,6 @@ attributes:
       Most Methods use one or more input parameters and return one or more values.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: methodSignature
     owner: RangeCheck
     domain_of:
@@ -406,7 +480,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: formalExpression
     owner: RangeCheck
     domain_of:
@@ -424,7 +497,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: checkValue
     owner: RangeCheck
     domain_of:

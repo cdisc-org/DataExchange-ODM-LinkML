@@ -18,16 +18,26 @@ Alias {
     text name  
 }
 WorkflowRef {
-    oidref workflowOID  
+
+}
+WorkflowDef {
+    oid OID  
+    nameType name  
 }
 StudyEventGroupRef {
-    oidref studyEventGroupOID  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
 }
 Description {
 
+}
+ConditionDef {
+    oid OID  
+    nameType name  
+}
+StudyEventGroupDef {
+    oid OID  
+    nameType name  
 }
 InclusionExclusionCriteria {
 
@@ -42,12 +52,12 @@ StudyEstimands {
 
 }
 StudyEstimand {
-    oid oID  
+    oid OID  
     nameType name  
     StudyEstimandLevel level  
 }
 StudyTargetPopulation {
-    oid oID  
+    oid OID  
     nameType name  
 }
 FormalExpression {
@@ -67,7 +77,7 @@ StudyEndPoints {
 
 }
 StudyEndPoint {
-    oid oID  
+    oid OID  
     nameType name  
     StudyEndPointType type  
     StudyEstimandLevel level  
@@ -76,7 +86,7 @@ StudyObjectives {
 
 }
 StudyObjective {
-    oid oID  
+    oid OID  
     nameType name  
     StudyObjectiveLevel level  
 }
@@ -84,19 +94,19 @@ StudyInterventions {
 
 }
 StudyIntervention {
-    oid oID  
+    oid OID  
 }
 StudyIndications {
 
 }
 StudyIndication {
-    oid oID  
+    oid OID  
 }
 StudyTimings {
 
 }
 StudyTiming {
-    oid oID  
+    oid OID  
     nameType name  
 }
 TrialPhase {
@@ -106,19 +116,19 @@ StudyStructure {
 
 }
 Epoch {
-    oid oID  
+    oid OID  
     nameType name  
     positiveInteger sequenceNumber  
 }
 Arm {
-    oid oID  
+    oid OID  
     nameType name  
 }
 StudySummary {
 
 }
 StudyParameter {
-    oid oID  
+    oid OID  
     nameType term  
     nameType shortName  
 }
@@ -138,8 +148,29 @@ Protocol ||--|o InclusionExclusionCriteria : "inclusionExclusionCriteria"
 Protocol ||--}o StudyEventGroupRef : "studyEventGroupRef"
 Protocol ||--|o WorkflowRef : "workflowRef"
 Protocol ||--}o Alias : "alias"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+WorkflowDef ||--|o Description : "description"
+WorkflowDef ||--|o WorkflowStart : "workflowStart"
+WorkflowDef ||--}o WorkflowEnd : "workflowEnd"
+WorkflowDef ||--}o Transition : "transition"
+WorkflowDef ||--}o Branching : "branching"
+StudyEventGroupRef ||--|| StudyEventGroupDef : "studyEventGroupOID"
+StudyEventGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
 StudyEventGroupRef ||--|o Description : "description"
 Description ||--}o TranslatedText : "translatedText"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
+StudyEventGroupDef ||--|o Arm : "armOID"
+StudyEventGroupDef ||--|o Epoch : "epochOID"
+StudyEventGroupDef ||--|o CommentDef : "commentOID"
+StudyEventGroupDef ||--|o Description : "description"
+StudyEventGroupDef ||--|o WorkflowRef : "workflowRef"
+StudyEventGroupDef ||--}o Coding : "coding"
+StudyEventGroupDef ||--}o StudyEventGroupRef : "studyEventGroupRef"
+StudyEventGroupDef ||--}o StudyEventRef : "studyEventRef"
 InclusionExclusionCriteria ||--|o InclusionCriteria : "inclusionCriteria"
 InclusionExclusionCriteria ||--|o ExclusionCriteria : "exclusionCriteria"
 ExclusionCriteria ||--}o Criterion : "criterion"
@@ -602,7 +633,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: Protocol
     domain_of:
@@ -651,7 +681,6 @@ attributes:
       and maximum age of the participants, or planned number of arms.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: studySummary
     owner: Protocol
     domain_of:
@@ -664,7 +693,6 @@ attributes:
       general structure of a clinical study with arms, epochs, and workflows.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: studyStructure
     owner: Protocol
     domain_of:
@@ -677,7 +705,6 @@ attributes:
       of the study in the clinical trial.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: trialPhase
     owner: Protocol
     domain_of:
@@ -690,7 +717,6 @@ attributes:
       element for individual StudyTiming elements.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: studyTimings
     owner: Protocol
     domain_of:
@@ -703,7 +729,6 @@ attributes:
       for individual StudyIndication elements.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: studyIndications
     owner: Protocol
     domain_of:
@@ -716,7 +741,6 @@ attributes:
       a container element for individual StudyIntervention elements.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: studyInterventions
     owner: Protocol
     domain_of:
@@ -729,7 +753,6 @@ attributes:
       for individual StudyObjective elements.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: studyObjectives
     owner: Protocol
     domain_of:
@@ -742,7 +765,6 @@ attributes:
       element for individual StudyEndPoint elements.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: studyEndPoints
     owner: Protocol
     domain_of:
@@ -755,7 +777,6 @@ attributes:
       the population targeted for the clinical study.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: studyTargetPopulation
     owner: Protocol
     domain_of:
@@ -768,7 +789,6 @@ attributes:
       for individual StudyEstimand elements.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: studyEstimands
     owner: Protocol
     domain_of:
@@ -785,7 +805,6 @@ attributes:
       ConditionOID attribute.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: inclusionExclusionCriteria
     owner: Protocol
     domain_of:
@@ -801,7 +820,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: studyEventGroupRef
     owner: Protocol
     domain_of:
@@ -815,7 +833,6 @@ attributes:
     description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: workflowRef
     owner: Protocol
     domain_of:
@@ -835,7 +852,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: alias
     owner: Protocol
     domain_of:

@@ -263,7 +263,6 @@ attributes:
       attribute.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: value
     owner: TrialPhase
     domain_of:
@@ -280,7 +279,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: TrialPhase
     domain_of:

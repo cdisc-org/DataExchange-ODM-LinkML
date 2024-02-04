@@ -62,7 +62,6 @@ name: value
 description: Human-readable designation of the trial phase.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: value
 domain_of:
 - TrialPhase

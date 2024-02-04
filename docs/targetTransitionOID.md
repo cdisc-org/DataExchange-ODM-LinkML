@@ -29,7 +29,7 @@ URI: [odm:targetTransitionOID](http://www.cdisc.org/ns/odm/v2.0/targetTransition
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [Transition](Transition.md)
 
 
 
@@ -63,7 +63,7 @@ alias: targetTransitionOID
 domain_of:
 - TargetTransition
 - DefaultTransition
-range: oidref
+range: Transition
 
 ```
 </details>

@@ -11,7 +11,7 @@ URI: [odm:Study](http://www.cdisc.org/ns/odm/v2.0/Study)
 ```mermaid
 erDiagram
 Study {
-    oid oID  
+    oid OID  
     nameType studyName  
     nameType protocolName  
     nameType versionID  
@@ -19,90 +19,76 @@ Study {
     nameType status  
 }
 MetaDataVersion {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref commentOID  
 }
 Leaf {
-    oid iD  
+    oid ID  
     uriorcurie href  
 }
 CommentDef {
-    oid oID  
+    oid OID  
 }
 MethodDef {
-    oid oID  
+    oid OID  
     nameType name  
     MethodType type  
-    oidref commentOID  
 }
 ConditionDef {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref commentOID  
 }
 CodeList {
-    oid oID  
+    oid OID  
     nameType name  
     CLDataType dataType  
-    oidref commentOID  
-    oidref standardOID  
     YesOnly isNonStandard  
 }
 ItemDef {
-    oid oID  
+    oid OID  
     nameType name  
     DataType dataType  
     positiveInteger length  
     text displayFormat  
     text variableSet  
-    oidref commentOID  
 }
 ItemGroupDef {
-    oid oID  
+    oid OID  
     nameType name  
     ItemGroupRepeatingType repeating  
     positiveInteger repeatingLimit  
     YesOrNo isReferenceData  
     text structure  
-    oidref archiveLocationID  
     nameType datasetName  
     text domain  
     ItemGroupTypeType type  
     text purpose  
-    oidref standardOID  
     YesOnly isNonStandard  
     YesOnly hasNoData  
-    oidref commentOID  
 }
 StudyEventDef {
-    oid oID  
+    oid OID  
     nameType name  
     YesOrNo repeating  
     EventType type  
     text category  
-    oidref commentOID  
 }
 StudyEventGroupDef {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref armOID  
-    oidref epochOID  
-    oidref commentOID  
 }
 WorkflowDef {
-    oid oID  
+    oid OID  
     nameType name  
 }
 Protocol {
 
 }
 WhereClauseDef {
-    oid oID  
-    oidref commentOID  
+    oid OID  
 }
 ValueListDef {
-    oid oID  
+    oid OID  
 }
 SupplementalDoc {
 
@@ -114,8 +100,6 @@ Standards {
 
 }
 Include {
-    oidref studyOID  
-    oidref metaDataVersionOID  
     uriorcurie href  
 }
 Description {
@@ -124,6 +108,7 @@ Description {
 
 Study ||--|o Description : "description"
 Study ||--}o MetaDataVersion : "metaDataVersion"
+MetaDataVersion ||--|o CommentDef : "commentOID"
 MetaDataVersion ||--|o Description : "description"
 MetaDataVersion ||--|o Include : "include"
 MetaDataVersion ||--|o Standards : "standards"
@@ -145,19 +130,24 @@ MetaDataVersion ||--}o Leaf : "leaf"
 Leaf ||--|o Title : "title"
 CommentDef ||--|o Description : "description"
 CommentDef ||--}o DocumentRef : "documentRef"
+MethodDef ||--|o CommentDef : "commentOID"
 MethodDef ||--|o Description : "description"
 MethodDef ||--|o MethodSignature : "methodSignature"
 MethodDef ||--}o FormalExpression : "formalExpression"
 MethodDef ||--}o Alias : "alias"
 MethodDef ||--}o DocumentRef : "documentRef"
+ConditionDef ||--|o CommentDef : "commentOID"
 ConditionDef ||--|o Description : "description"
 ConditionDef ||--|o MethodSignature : "methodSignature"
 ConditionDef ||--}o FormalExpression : "formalExpression"
 ConditionDef ||--}o Alias : "alias"
+CodeList ||--|o CommentDef : "commentOID"
+CodeList ||--|o Standard : "standardOID"
 CodeList ||--|o Description : "description"
 CodeList ||--}o CodeListItem : "codeListItem"
 CodeList ||--}o Coding : "coding"
 CodeList ||--}o Alias : "alias"
+ItemDef ||--|o CommentDef : "commentOID"
 ItemDef ||--|o Description : "description"
 ItemDef ||--|o Definition : "definition"
 ItemDef ||--|o Question : "question"
@@ -170,8 +160,11 @@ ItemDef ||--|o CodeListRef : "codeListRef"
 ItemDef ||--|o ValueListRef : "valueListRef"
 ItemDef ||--}o Coding : "coding"
 ItemDef ||--}o Alias : "alias"
+ItemGroupDef ||--|o Leaf : "archiveLocationID"
+ItemGroupDef ||--|o Standard : "standardOID"
+ItemGroupDef ||--|o CommentDef : "commentOID"
 ItemGroupDef ||--|o Description : "description"
-ItemGroupDef ||--|o Class : "classRef"
+ItemGroupDef ||--|o Class : "itemGroupClass"
 ItemGroupDef ||--}o Coding : "coding"
 ItemGroupDef ||--|o WorkflowRef : "workflowRef"
 ItemGroupDef ||--}o Origin : "origin"
@@ -179,11 +172,15 @@ ItemGroupDef ||--}o Alias : "alias"
 ItemGroupDef ||--|o Leaf : "leaf"
 ItemGroupDef ||--}o ItemGroupRef : "itemGroupRef"
 ItemGroupDef ||--}o ItemRef : "itemRef"
+StudyEventDef ||--|o CommentDef : "commentOID"
 StudyEventDef ||--|o Description : "description"
 StudyEventDef ||--}o ItemGroupRef : "itemGroupRef"
 StudyEventDef ||--|o WorkflowRef : "workflowRef"
 StudyEventDef ||--}o Coding : "coding"
 StudyEventDef ||--}o Alias : "alias"
+StudyEventGroupDef ||--|o Arm : "armOID"
+StudyEventGroupDef ||--|o Epoch : "epochOID"
+StudyEventGroupDef ||--|o CommentDef : "commentOID"
 StudyEventGroupDef ||--|o Description : "description"
 StudyEventGroupDef ||--|o WorkflowRef : "workflowRef"
 StudyEventGroupDef ||--}o Coding : "coding"
@@ -209,12 +206,15 @@ Protocol ||--|o InclusionExclusionCriteria : "inclusionExclusionCriteria"
 Protocol ||--}o StudyEventGroupRef : "studyEventGroupRef"
 Protocol ||--|o WorkflowRef : "workflowRef"
 Protocol ||--}o Alias : "alias"
+WhereClauseDef ||--|o CommentDef : "commentOID"
 WhereClauseDef ||--}o RangeCheck : "rangeCheck"
 ValueListDef ||--|o Description : "description"
 ValueListDef ||--}o ItemRef : "itemRef"
 SupplementalDoc ||--}o DocumentRef : "documentRef"
 AnnotatedCRF ||--}o DocumentRef : "documentRef"
 Standards ||--}o Standard : "standard"
+Include ||--|| Study : "studyOID"
+Include ||--|| MetaDataVersion : "metaDataVersionOID"
 Description ||--}o TranslatedText : "translatedText"
 
 ```
@@ -228,7 +228,7 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the study. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the study. | direct |
 | [studyName](studyName.md) | 1..1 <br/> [nameType](nameType.md) | Sponsoring organization's internal name for the study. If no internal name is... | direct |
 | [protocolName](protocolName.md) | 1..1 <br/> [nameType](nameType.md) | Protocol identifier or protocol number assigned to the study. It is used by t... | direct |
 | [versionID](versionID.md) | 0..1 <br/> [nameType](nameType.md) | Identifier for the specific version of the study in the source system that th... | direct |
@@ -246,6 +246,14 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [Include](Include.md) | [studyOID](studyOID.md) | range | [Study](Study.md) |
+| [SourceItem](SourceItem.md) | [studyOID](studyOID.md) | range | [Study](Study.md) |
+| [AdminData](AdminData.md) | [studyOID](studyOID.md) | range | [Study](Study.md) |
+| [MetaDataVersionRef](MetaDataVersionRef.md) | [studyOID](studyOID.md) | range | [Study](Study.md) |
+| [ReferenceData](ReferenceData.md) | [studyOID](studyOID.md) | range | [Study](Study.md) |
+| [ClinicalData](ClinicalData.md) | [studyOID](studyOID.md) | range | [Study](Study.md) |
+| [Association](Association.md) | [studyOID](studyOID.md) | range | [Study](Study.md) |
+| [KeySet](KeySet.md) | [studyOID](studyOID.md) | range | [Study](Study.md) |
 | [ODMFileMetadata](ODMFileMetadata.md) | [study](study.md) | range | [Study](Study.md) |
 
 
@@ -301,7 +309,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Study
 rank: 1000
 slots:
-- oID
+- OID
 - studyName
 - protocolName
 - versionID
@@ -310,13 +318,14 @@ slots:
 - description
 - metaDataVersion
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the study.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -485,13 +494,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Study
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the study.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -644,8 +654,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the study.
     comments:
     - 'Required
@@ -654,7 +664,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: Study
     domain_of:
     - Study
@@ -784,7 +794,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: Study
     domain_of:
@@ -837,7 +846,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: metaDataVersion
     owner: Study
     domain_of:

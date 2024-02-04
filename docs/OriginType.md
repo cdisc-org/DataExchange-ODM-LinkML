@@ -13,14 +13,14 @@ URI: [OriginType](OriginType)
 
 | Value | Meaning | Description |
 | --- | --- | --- |
-| Assigned | nci:ExtCodeID:C170547 |  |
-| Collected | nci:ExtCodeID:C170548 |  |
-| Derived | nci:ExtCodeID:C170549 |  |
-| EHR | None |  |
-| Not Available | nci:ExtCodeID:C126101 |  |
-| Other | nci:ExtCodeID:C17649 |  |
-| Predecessor | nci:ExtCodeID:C170550 |  |
-| Protocol | nci:ExtCodeID:C170551 |  |
+| Assigned | ncit:C170547 |  |
+| Collected | ncit:C170548 |  |
+| Derived | ncit:C170549 |  |
+| EHR | ncit:C170549 |  |
+| Not Available | ncit:C126101 |  |
+| Other | ncit:C17649 |  |
+| Predecessor | ncit:C170550 |  |
+| Protocol | ncit:C170551 |  |
 
 
 
@@ -63,34 +63,35 @@ rank: 1000
 permissible_values:
   Assigned:
     text: Assigned
-    meaning: nci:ExtCodeID:C170547
+    meaning: ncit:C170547
     is_a: OriginType
   Collected:
     text: Collected
-    meaning: nci:ExtCodeID:C170548
+    meaning: ncit:C170548
     is_a: OriginType
   Derived:
     text: Derived
-    meaning: nci:ExtCodeID:C170549
+    meaning: ncit:C170549
     is_a: OriginType
   EHR:
     text: EHR
+    meaning: ncit:C170549
     is_a: OriginType
   Not Available:
     text: Not Available
-    meaning: nci:ExtCodeID:C126101
+    meaning: ncit:C126101
     is_a: OriginType
   Other:
     text: Other
-    meaning: nci:ExtCodeID:C17649
+    meaning: ncit:C17649
     is_a: OriginType
   Predecessor:
     text: Predecessor
-    meaning: nci:ExtCodeID:C170550
+    meaning: ncit:C170550
     is_a: OriginType
   Protocol:
     text: Protocol
-    meaning: nci:ExtCodeID:C170551
+    meaning: ncit:C170551
     is_a: OriginType
 
 ```

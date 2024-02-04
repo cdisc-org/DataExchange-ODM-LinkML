@@ -31,7 +31,7 @@ URI: [odm:locationOID](http://www.cdisc.org/ns/odm/v2.0/locationOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [Location](Location.md)
 
 
 
@@ -67,7 +67,7 @@ domain_of:
 - Organization
 - SiteRef
 - LocationRef
-range: oidref
+range: Location
 
 ```
 </details>

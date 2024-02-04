@@ -70,7 +70,6 @@ description: 'Query reference: The Query element represents a request for clarif
   interfaces.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: query
 domain_of:
 - Location

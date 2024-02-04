@@ -59,7 +59,6 @@ description: 'StudyStructure reference: The StudyStructure element describes the
   structure of a clinical study with arms, epochs, and workflows.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyStructure
 domain_of:
 - Protocol

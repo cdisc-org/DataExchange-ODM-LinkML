@@ -94,7 +94,6 @@ description: 'Description reference: A free-text description of the containing m
   component, unless restricted by Business Rules.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: description
 domain_of:
 - Study

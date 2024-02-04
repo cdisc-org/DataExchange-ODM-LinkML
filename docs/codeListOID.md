@@ -30,7 +30,7 @@ URI: [odm:codeListOID](http://www.cdisc.org/ns/odm/v2.0/codeListOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [CodeList](CodeList.md)
 
 
 
@@ -66,7 +66,7 @@ domain_of:
 - CodeListRef
 - FlagValue
 - FlagType
-range: oidref
+range: CodeList
 
 ```
 </details>

@@ -69,7 +69,6 @@ description: 'AuditRecord reference: An AuditRecord carries information pertaini
   but history cannot be changed, only added to.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: auditRecord
 domain_of:
 - ReferenceData

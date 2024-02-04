@@ -58,7 +58,6 @@ name: givenName
 description: 'GivenName reference: The user''s initial given name or all given names.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: givenName
 domain_of:
 - User

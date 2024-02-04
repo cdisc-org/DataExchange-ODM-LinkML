@@ -11,13 +11,18 @@ URI: [odm:StudyObjective](http://www.cdisc.org/ns/odm/v2.0/StudyObjective)
 ```mermaid
 erDiagram
 StudyObjective {
-    oid oID  
+    oid OID  
     nameType name  
     StudyObjectiveLevel level  
 }
 StudyEndPointRef {
-    oidref studyEndPointOID  
     positiveInteger orderNumber  
+}
+StudyEndPoint {
+    oid OID  
+    nameType name  
+    StudyEndPointType type  
+    StudyEstimandLevel level  
 }
 Description {
 
@@ -30,6 +35,9 @@ TranslatedText {
 
 StudyObjective ||--|o Description : "description"
 StudyObjective ||--}o StudyEndPointRef : "studyEndPointRef"
+StudyEndPointRef ||--|| StudyEndPoint : "studyEndPointOID"
+StudyEndPoint ||--|o Description : "description"
+StudyEndPoint ||--}o FormalExpression : "formalExpression"
 Description ||--}o TranslatedText : "translatedText"
 
 ```
@@ -43,7 +51,7 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyObjective element. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyObjective element. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Name of the study objective | direct |
 | [level](level.md) | 0..1 <br/> [StudyObjectiveLevel](StudyObjectiveLevel.md) | Defined level for the Study Objective | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
@@ -113,14 +121,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyObjective
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - level
 - description
 - studyEndPointRef
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyObjective element.
     comments:
     - 'Required
@@ -128,6 +136,7 @@ slot_usage:
       range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -296,8 +305,8 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyObjective
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyObjective element.
     comments:
     - 'Required
@@ -305,6 +314,7 @@ slot_usage:
       range: oid
 
       The OID attribute value must be unique within the Study/MetaDataVersion.'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -457,8 +467,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyObjective element.
     comments:
     - 'Required
@@ -469,7 +479,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: StudyObjective
     domain_of:
     - Study
@@ -586,7 +596,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: StudyObjective
     domain_of:
@@ -635,7 +644,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: studyEndPointRef
     owner: StudyObjective
     domain_of:

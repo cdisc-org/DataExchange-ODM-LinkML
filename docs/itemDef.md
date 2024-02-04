@@ -60,7 +60,6 @@ description: 'ItemDef reference: An ItemDef describes a type of item that can oc
   and several other properties.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: itemDef
 domain_of:
 - MetaDataVersion

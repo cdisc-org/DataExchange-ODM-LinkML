@@ -58,7 +58,6 @@ name: signatureRef
 description: 'SignatureRef reference: A reference to the signature meaning.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: signatureRef
 domain_of:
 - Signature

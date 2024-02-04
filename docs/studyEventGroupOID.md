@@ -29,7 +29,7 @@ URI: [odm:studyEventGroupOID](http://www.cdisc.org/ns/odm/v2.0/studyEventGroupOI
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [StudyEventGroupDef](StudyEventGroupDef.md)
 
 
 
@@ -63,7 +63,7 @@ alias: studyEventGroupOID
 domain_of:
 - StudyEventGroupRef
 - AbsoluteTimingConstraint
-range: oidref
+range: StudyEventGroupDef
 
 ```
 </details>

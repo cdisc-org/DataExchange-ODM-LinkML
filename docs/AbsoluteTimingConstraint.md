@@ -11,10 +11,8 @@ URI: [odm:AbsoluteTimingConstraint](http://www.cdisc.org/ns/odm/v2.0/AbsoluteTim
 ```mermaid
 erDiagram
 AbsoluteTimingConstraint {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref studyEventGroupOID  
-    oidref studyEventOID  
     string timepointTarget  
     durationDatetime timepointPreWindow  
     durationDatetime timepointPostWindow  
@@ -27,9 +25,91 @@ TranslatedText {
     text type  
     contentType content  
 }
+StudyEventDef {
+    oid OID  
+    nameType name  
+    YesOrNo repeating  
+    EventType type  
+    text category  
+}
+Alias {
+    text context  
+    text name  
+}
+Coding {
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
+    uriorcurie href  
+    uriorcurie ref  
+    text commentOID  
+}
+WorkflowRef {
 
+}
+ItemGroupRef {
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+}
+CommentDef {
+    oid OID  
+}
+StudyEventGroupDef {
+    oid OID  
+    nameType name  
+}
+StudyEventRef {
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+}
+StudyEventGroupRef {
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+}
+Epoch {
+    oid OID  
+    nameType name  
+    positiveInteger sequenceNumber  
+}
+Arm {
+    oid OID  
+    nameType name  
+}
+
+AbsoluteTimingConstraint ||--|o StudyEventGroupDef : "studyEventGroupOID"
+AbsoluteTimingConstraint ||--|o StudyEventDef : "studyEventOID"
 AbsoluteTimingConstraint ||--|o Description : "description"
 Description ||--}o TranslatedText : "translatedText"
+StudyEventDef ||--|o CommentDef : "commentOID"
+StudyEventDef ||--|o Description : "description"
+StudyEventDef ||--}o ItemGroupRef : "itemGroupRef"
+StudyEventDef ||--|o WorkflowRef : "workflowRef"
+StudyEventDef ||--}o Coding : "coding"
+StudyEventDef ||--}o Alias : "alias"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+ItemGroupRef ||--|| ItemGroupDef : "itemGroupOID"
+ItemGroupRef ||--|o MethodDef : "methodOID"
+ItemGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+StudyEventGroupDef ||--|o Arm : "armOID"
+StudyEventGroupDef ||--|o Epoch : "epochOID"
+StudyEventGroupDef ||--|o CommentDef : "commentOID"
+StudyEventGroupDef ||--|o Description : "description"
+StudyEventGroupDef ||--|o WorkflowRef : "workflowRef"
+StudyEventGroupDef ||--}o Coding : "coding"
+StudyEventGroupDef ||--}o StudyEventGroupRef : "studyEventGroupRef"
+StudyEventGroupDef ||--}o StudyEventRef : "studyEventRef"
+StudyEventRef ||--|| StudyEventDef : "studyEventOID"
+StudyEventRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+StudyEventGroupRef ||--|| StudyEventGroupDef : "studyEventGroupOID"
+StudyEventGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+StudyEventGroupRef ||--|o Description : "description"
+Epoch ||--|o Description : "description"
+Arm ||--|o Description : "description"
+Arm ||--|o WorkflowRef : "workflowRef"
 
 ```
 
@@ -42,10 +122,10 @@ Description ||--}o TranslatedText : "translatedText"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name. | direct |
-| [studyEventGroupOID](studyEventGroupOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to StudyEventGroup definition element. | direct |
-| [studyEventOID](studyEventOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to StudyEvent definition element. | direct |
+| [studyEventGroupOID](studyEventGroupOID.md) | 0..1 <br/> [StudyEventGroupDef](StudyEventGroupDef.md) | Reference to StudyEventGroup definition element. | direct |
+| [studyEventOID](studyEventOID.md) | 0..1 <br/> [StudyEventDef](StudyEventDef.md) | Reference to StudyEvent definition element. | direct |
 | [timepointTarget](timepointTarget.md) | 1..1 <br/> [string](string.md) | Specifies the targetted date, time, or datetime. | direct |
 | [timepointPreWindow](timepointPreWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Specifies the amount of time before the TimepointTarget that the activity may... | direct |
 | [timepointPostWindow](timepointPostWindow.md) | 0..1 <br/> [durationDatetime](durationDatetime.md) | Specifies the amount of time after the TimepointTarget that the activity can ... | direct |
@@ -115,7 +195,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/AbsoluteTimingConstraint
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - studyEventGroupOID
 - studyEventOID
@@ -124,13 +204,14 @@ slots:
 - timepointPostWindow
 - description
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -224,7 +305,7 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
-    range: oidref
+    range: StudyEventGroupDef
   studyEventOID:
     name: studyEventOID
     description: Reference to StudyEvent definition element.
@@ -237,7 +318,7 @@ slot_usage:
     - AbsoluteTimingConstraint
     - StudyEventData
     - KeySet
-    range: oidref
+    range: StudyEventDef
   timepointTarget:
     name: timepointTarget
     description: Specifies the targetted date, time, or datetime.
@@ -349,13 +430,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/AbsoluteTimingConstraint
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -449,7 +531,7 @@ slot_usage:
     domain_of:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
-    range: oidref
+    range: StudyEventGroupDef
   studyEventOID:
     name: studyEventOID
     description: Reference to StudyEvent definition element.
@@ -462,7 +544,7 @@ slot_usage:
     - AbsoluteTimingConstraint
     - StudyEventData
     - KeySet
-    range: oidref
+    range: StudyEventDef
   timepointTarget:
     name: timepointTarget
     description: Specifies the targetted date, time, or datetime.
@@ -558,8 +640,8 @@ slot_usage:
     range: Description
     maximum_cardinality: 1
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
@@ -568,7 +650,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: AbsoluteTimingConstraint
     domain_of:
     - Study
@@ -671,7 +753,7 @@ attributes:
     domain_of:
     - StudyEventGroupRef
     - AbsoluteTimingConstraint
-    range: oidref
+    range: StudyEventGroupDef
   studyEventOID:
     name: studyEventOID
     description: Reference to StudyEvent definition element.
@@ -688,7 +770,7 @@ attributes:
     - AbsoluteTimingConstraint
     - StudyEventData
     - KeySet
-    range: oidref
+    range: StudyEventDef
   timepointTarget:
     name: timepointTarget
     description: Specifies the targetted date, time, or datetime.
@@ -761,7 +843,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: AbsoluteTimingConstraint
     domain_of:

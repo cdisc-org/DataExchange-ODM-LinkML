@@ -2,8 +2,8 @@ type AbsoluteTimingConstraint
   {
     oID: Oid!
     name: NameType!
-    studyEventGroupOID: Oidref
-    studyEventOID: Oidref
+    studyEventGroupOID: StudyEventGroupDef
+    studyEventOID: StudyEventDef
     timepointTarget: String!
     timepointPreWindow: DurationDatetime
     timepointPostWindow: DurationDatetime
@@ -24,7 +24,7 @@ type Address
 
 type AdminData
   {
-    studyOID: Oidref
+    studyOID: Study
     user: [User]
     organization: [Organization]
     location: [Location]
@@ -62,8 +62,8 @@ type Arm
 
 type Association
   {
-    studyOID: Oidref!
-    metaDataVersionOID: Oidref!
+    studyOID: Study!
+    metaDataVersionOID: MetaDataVersion!
     keySet: KeySet
     annotation: Annotation
   }
@@ -111,8 +111,8 @@ type Class
 
 type ClinicalData
   {
-    studyOID: Oidref!
-    metaDataVersionOID: Oidref!
+    studyOID: Study!
+    metaDataVersionOID: MetaDataVersion!
     subjectData: [SubjectData]
     itemGroupData: [ItemGroupData]
     query: [Query]
@@ -131,8 +131,8 @@ type CodeList
     oID: Oid!
     name: NameType!
     dataType: CLDataType!
-    commentOID: Oidref
-    standardOID: Oidref
+    commentOID: CommentDef
+    standardOID: Standard
     isNonStandard: YesOnly
     description: Description
     codeListItem: [CodeListItem]
@@ -147,7 +147,7 @@ type CodeListItem
     other: YesOnly
     orderNumber: PositiveInteger
     extendedValue: YesOnly
-    commentOID: Oidref
+    commentOID: CommentDef
     description: Description
     decode: Decode
     coding: [Coding]
@@ -156,7 +156,7 @@ type CodeListItem
 
 type CodeListRef
   {
-    codeListOID: Oidref!
+    codeListOID: CodeList!
   }
 
 type Coding
@@ -188,7 +188,7 @@ type ConditionDef
   {
     oID: Oid!
     name: NameType!
-    commentOID: Oidref
+    commentOID: CommentDef
     description: Description
     methodSignature: MethodSignature
     formalExpression: [FormalExpression]
@@ -209,7 +209,7 @@ type Criterion
   {
     oID: Oid!
     name: NameType!
-    conditionOID: Oidref!
+    conditionOID: ConditionDef!
     description: Description
     coding: [Coding]
   }
@@ -226,7 +226,7 @@ type Decode
 
 type DefaultTransition
   {
-    targetTransitionOID: Oidref!
+    targetTransitionOID: Transition!
   }
 
 type Definition
@@ -249,7 +249,7 @@ type DurationTimingConstraint
   {
     oID: Oid!
     name: NameType!
-    structuralElementOID: Oidref!
+    structuralElementOID: String!
     durationTarget: DurationDatetime!
     durationPreWindow: DurationDatetime
     durationPostWindow: DurationDatetime
@@ -296,13 +296,13 @@ type Flag
 
 type FlagType
   {
-    codeListOID: Oidref!
+    codeListOID: CodeList!
     content: NameType
   }
 
 type FlagValue
   {
-    codeListOID: Oidref!
+    codeListOID: CodeList!
     content: NameType
   }
 
@@ -349,8 +349,8 @@ type ImplementationNotes
 
 type Include
   {
-    studyOID: Oidref!
-    metaDataVersionOID: Oidref!
+    studyOID: Study!
+    metaDataVersionOID: MetaDataVersion!
     href: Uriorcurie
   }
 
@@ -372,12 +372,12 @@ type IntercurrentEvent
 
 type InvestigatorRef
   {
-    userOID: Oidref!
+    userOID: User!
   }
 
 type ItemData
   {
-    itemOID: Oidref!
+    itemOID: ItemDef!
     transactionType: TransactionType
     isNull: YesOnly
     value: [Value]
@@ -395,7 +395,7 @@ type ItemDef
     length: PositiveInteger
     displayFormat: Text
     variableSet: Text
-    commentOID: Oidref
+    commentOID: CommentDef
     description: Description
     definition: Definition
     question: Question
@@ -412,7 +412,7 @@ type ItemDef
 
 type ItemGroupData
   {
-    itemGroupOID: Oidref!
+    itemGroupOID: ItemGroupDef!
     itemGroupRepeatKey: RepeatKey
     transactionType: TransactionType
     itemGroupDataSeq: PositiveInteger
@@ -432,17 +432,17 @@ type ItemGroupDef
     repeatingLimit: PositiveInteger
     isReferenceData: YesOrNo
     structure: Text
-    archiveLocationID: Oidref
+    archiveLocationID: Leaf
     datasetName: NameType
     domain: Text
     type: ItemGroupTypeType!
     purpose: Text
-    standardOID: Oidref
+    standardOID: Standard
     isNonStandard: YesOnly
     hasNoData: YesOnly
-    commentOID: Oidref
+    commentOID: CommentDef
     description: Description
-    classRef: Class
+    itemGroupClass: Class
     coding: [Coding]
     workflowRef: WorkflowRef
     origin: [Origin]
@@ -454,44 +454,44 @@ type ItemGroupDef
 
 type ItemGroupRef
   {
-    itemGroupOID: Oidref!
-    methodOID: Oidref
+    itemGroupOID: ItemGroupDef!
+    methodOID: MethodDef
     orderNumber: PositiveInteger
     mandatory: YesOrNo!
-    collectionExceptionConditionOID: Oidref
+    collectionExceptionConditionOID: ConditionDef
   }
 
 type ItemRef
   {
-    itemOID: Oidref!
+    itemOID: ItemDef!
     keySequence: PositiveInteger
     isNonStandard: YesOnly
     hasNoData: YesOnly
-    methodOID: Oidref
-    unitsItemOID: Oidref
+    methodOID: MethodDef
+    unitsItemOID: ItemDef
     repeat: YesOnly
     other: YesOnly
     role: Text
-    roleCodeListOID: Oidref
+    roleCodeListOID: CodeList
     core: CoreType
     preSpecifiedValue: Text
     orderNumber: PositiveInteger
     mandatory: YesOrNo!
-    collectionExceptionConditionOID: Oidref
+    collectionExceptionConditionOID: ConditionDef
     origin: [Origin]
     whereClauseRef: [WhereClauseRef]
   }
 
 type KeySet
   {
-    studyOID: Oidref!
+    studyOID: Study!
     subjectKey: SubjectKeyType
-    metaDataVersionOID: Oidref
-    studyEventOID: Oidref
+    metaDataVersionOID: MetaDataVersion
+    studyEventOID: StudyEventDef
     studyEventRepeatKey: RepeatKey
-    itemGroupOID: Oidref
+    itemGroupOID: ItemGroupDef
     itemGroupRepeatKey: RepeatKey
-    itemOID: Oidref
+    itemOID: ItemDef
   }
 
 type Leaf
@@ -511,7 +511,7 @@ type Location
     oID: Oid!
     name: NameType!
     role: Text
-    organizationOID: Oidref
+    organizationOID: Organization
     description: Description
     metaDataVersionRef: [MetaDataVersionRef]
     address: [Address]
@@ -521,7 +521,7 @@ type Location
 
 type LocationRef
   {
-    locationOID: Oidref!
+    locationOID: Location!
   }
 
 type Meaning
@@ -533,7 +533,7 @@ type MetaDataVersion
   {
     oID: Oid!
     name: NameType!
-    commentOID: Oidref
+    commentOID: CommentDef
     description: Description
     include: Include
     standards: Standards
@@ -556,8 +556,8 @@ type MetaDataVersion
 
 type MetaDataVersionRef
   {
-    studyOID: Oidref!
-    metaDataVersionOID: Oidref!
+    studyOID: Study!
+    metaDataVersionOID: MetaDataVersion!
     effectiveDate: Date!
   }
 
@@ -566,7 +566,7 @@ type MethodDef
     oID: Oid!
     name: NameType!
     type: MethodType
-    commentOID: Oidref
+    commentOID: CommentDef
     description: Description
     methodSignature: MethodSignature
     formalExpression: [FormalExpression]
@@ -587,7 +587,7 @@ type ODMFileMetadata
     context: Context
     fileOID: Oid!
     creationDateTime: Datetime!
-    priorFileOID: Oidref
+    priorFileOID: ODMFileMetadata
     asOfDateTime: Datetime
     oDMVersion: ODMVersion
     originator: Text
@@ -607,8 +607,8 @@ type Organization
     name: NameType!
     role: Text
     type: OrganizationType!
-    locationOID: Oidref
-    partOfOrganizationOID: Oidref
+    locationOID: Location
+    partOfOrganizationOID: Organization
     description: Description
     address: [Address]
     telecom: [Telecom]
@@ -708,7 +708,7 @@ type RangeCheck
   {
     comparator: Comparator
     softHard: SoftOrHard
-    itemOID: Oidref
+    itemOID: ItemDef
     errorMessage: ErrorMessage
     methodSignature: MethodSignature
     formalExpression: [FormalExpression]
@@ -722,8 +722,8 @@ type ReasonForChange
 
 type ReferenceData
   {
-    studyOID: Oidref!
-    metaDataVersionOID: Oidref!
+    studyOID: Study!
+    metaDataVersionOID: MetaDataVersion!
     itemGroupData: [ItemGroupData]
     auditRecord: AuditRecord
     signature: Signature
@@ -734,8 +734,8 @@ type RelativeTimingConstraint
   {
     oID: Oid!
     name: NameType!
-    predecessorOID: Oidref
-    successorOID: Oidref
+    predecessorOID: String
+    successorOID: String
     type: RelativeTimingConstraintType
     timepointRelativeTarget: DurationDatetime!
     timepointPreWindow: DurationDatetime
@@ -784,12 +784,12 @@ type SignatureDef
 
 type SignatureRef
   {
-    signatureOID: Oidref!
+    signatureOID: SignatureDef!
   }
 
 type SiteRef
   {
-    locationOID: Oidref!
+    locationOID: Location!
   }
 
 type SourceID
@@ -799,11 +799,11 @@ type SourceID
 
 type SourceItem
   {
-    itemOID: Oidref
-    itemGroupOID: Oidref
-    metaDataVersionOID: Oidref
-    studyOID: Oidref
-    leafID: Oidref
+    itemOID: ItemDef
+    itemGroupOID: ItemGroupDef
+    metaDataVersionOID: MetaDataVersion
+    studyOID: Study
+    leafID: Leaf
     name: NameType
     resource: [Resource]
     coding: [Coding]
@@ -823,7 +823,7 @@ type Standard
     publishingSet: StandardPublishingSet
     version: Text!
     status: StandardStatus!
-    commentOID: Oidref
+    commentOID: CommentDef
   }
 
 type Standards
@@ -865,7 +865,7 @@ type StudyEndPoint
 
 type StudyEndPointRef
   {
-    studyEndPointOID: Oidref!
+    studyEndPointOID: StudyEndPoint!
     orderNumber: PositiveInteger
   }
 
@@ -894,7 +894,7 @@ type StudyEstimands
 
 type StudyEventData
   {
-    studyEventOID: Oidref!
+    studyEventOID: StudyEventDef!
     studyEventRepeatKey: RepeatKey
     transactionType: TransactionType
     itemGroupData: [ItemGroupData]
@@ -911,7 +911,7 @@ type StudyEventDef
     repeating: YesOrNo!
     type: EventType!
     category: Text
-    commentOID: Oidref
+    commentOID: CommentDef
     description: Description
     itemGroupRef: [ItemGroupRef]
     workflowRef: WorkflowRef
@@ -923,9 +923,9 @@ type StudyEventGroupDef
   {
     oID: Oid!
     name: NameType!
-    armOID: Oidref
-    epochOID: Oidref
-    commentOID: Oidref
+    armOID: Arm
+    epochOID: Epoch
+    commentOID: CommentDef
     description: Description
     workflowRef: WorkflowRef
     coding: [Coding]
@@ -935,19 +935,19 @@ type StudyEventGroupDef
 
 type StudyEventGroupRef
   {
-    studyEventGroupOID: Oidref!
+    studyEventGroupOID: StudyEventGroupDef!
     orderNumber: PositiveInteger
     mandatory: YesOrNo!
-    collectionExceptionConditionOID: Oidref
+    collectionExceptionConditionOID: ConditionDef
     description: Description
   }
 
 type StudyEventRef
   {
-    studyEventOID: Oidref!
+    studyEventOID: StudyEventDef!
     orderNumber: PositiveInteger
     mandatory: YesOrNo!
-    collectionExceptionConditionOID: Oidref
+    collectionExceptionConditionOID: ConditionDef
   }
 
 type StudyIndication
@@ -971,7 +971,7 @@ type StudyIntervention
 
 type StudyInterventionRef
   {
-    studyInterventionOID: Oidref!
+    studyInterventionOID: StudyIntervention!
   }
 
 type StudyInterventions
@@ -1026,7 +1026,7 @@ type StudyTargetPopulation
 
 type StudyTargetPopulationRef
   {
-    studyTargetPopulationOID: Oidref!
+    studyTargetPopulationOID: StudyTargetPopulation!
   }
 
 type StudyTiming
@@ -1080,8 +1080,8 @@ type SupplementalDoc
 
 type TargetTransition
   {
-    targetTransitionOID: Oidref!
-    conditionOID: Oidref
+    targetTransitionOID: Transition!
+    conditionOID: ConditionDef
   }
 
 type Telecom
@@ -1099,18 +1099,18 @@ type Transition
   {
     oID: Oid!
     name: NameType!
-    sourceOID: Oidref!
-    targetOID: Oidref!
-    startConditionOID: Oidref
-    endConditionOID: Oidref
+    sourceOID: String!
+    targetOID: String!
+    startConditionOID: ConditionDef
+    endConditionOID: ConditionDef
   }
 
 type TransitionTimingConstraint
   {
     oID: Oid!
     name: NameType!
-    transitionOID: Oidref!
-    methodOID: Oidref
+    transitionOID: Transition!
+    methodOID: MethodDef
     type: RelativeTimingConstraintType
     timepointTarget: DurationDatetime!
     timepointPreWindow: DurationDatetime
@@ -1135,8 +1135,8 @@ type User
   {
     oID: Oid!
     userType: UserType
-    organizationOID: Oidref
-    locationOID: Oidref
+    organizationOID: Organization
+    locationOID: Location
     userName: UserName
     prefix: Prefix
     suffix: Suffix
@@ -1155,7 +1155,7 @@ type UserName
 
 type UserRef
   {
-    userOID: Oidref!
+    userOID: User!
   }
 
 type Value
@@ -1173,19 +1173,19 @@ type ValueListDef
 
 type ValueListRef
   {
-    valueListOID: Oidref!
+    valueListOID: ValueListDef!
   }
 
 type WhereClauseDef
   {
     oID: Oid!
-    commentOID: Oidref
+    commentOID: CommentDef
     rangeCheck: [RangeCheck]
   }
 
 type WhereClauseRef
   {
-    whereClauseOID: Oidref!
+    whereClauseOID: WhereClauseDef!
   }
 
 type WorkflowDef
@@ -1201,17 +1201,17 @@ type WorkflowDef
 
 type WorkflowEnd
   {
-    endOID: Oidref!
+    endOID: String!
     content: Text
   }
 
 type WorkflowRef
   {
-    workflowOID: Oidref!
+    workflowOID: WorkflowDef!
   }
 
 type WorkflowStart
   {
-    startOID: Oidref!
+    startOID: String!
   }
 

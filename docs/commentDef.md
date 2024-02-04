@@ -61,7 +61,6 @@ description: 'CommentDef reference: The Comment element allows referencing short
   specific pages of a document where the comments are included.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: commentDef
 domain_of:
 - MetaDataVersion

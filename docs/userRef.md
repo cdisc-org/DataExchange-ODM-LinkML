@@ -60,7 +60,6 @@ description: 'UserRef reference: A reference to information about a specific use
   of a clinical data collection or data management system.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: userRef
 domain_of:
 - AuditRecord

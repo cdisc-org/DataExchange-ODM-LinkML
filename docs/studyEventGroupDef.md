@@ -60,7 +60,6 @@ description: 'StudyEventGroupDef reference: StudyEventGroupDef is a study buildi
   or StudyEvents. It thus allows nesting of building blocks.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyEventGroupDef
 domain_of:
 - MetaDataVersion

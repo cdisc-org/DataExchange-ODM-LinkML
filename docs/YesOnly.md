@@ -3,7 +3,7 @@
 
 
 
-_Enumeration used in extendedValue, hasNoData, repeat, other, isNull, isNonStandard_
+_Enumeration used in other, hasNoData, isNull, extendedValue, isNonStandard, repeat_
 
 
 
@@ -18,12 +18,12 @@ _This is a dynamic enum_
 
 | Name | Description |
 | ---  | --- |
-| [isNull](isNull.md) | Flag specifying that an item's value is to be set to null. In the interest of... |
-| [hasNoData](hasNoData.md) | Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d... |
 | [other](other.md) | Flag to indicate that the Item represents "other" content added to an ItemGro... |
+| [isNull](isNull.md) | Flag specifying that an item's value is to be set to null. In the interest of... |
+| [isNonStandard](isNonStandard.md) | Required for ADaM, SDTM, or SEND if StandardOID is not provided. |
 | [extendedValue](extendedValue.md) |  |
 | [repeat](repeat.md) | Indicates that the item serves as the item over which repeats are to be perfo... |
-| [isNonStandard](isNonStandard.md) | Required for ADaM, SDTM, or SEND if StandardOID is not provided. |
+| [hasNoData](hasNoData.md) | Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d... |
 | [isNonStandard](isNonStandard.md) | Required for ADaM, SDTM, or SEND if StandardOID is not provided. |
 | [hasNoData](hasNoData.md) | Used to indicate that an ItemGroupDef has no data. May be used at sponsor's d... |
 | [isNonStandard](isNonStandard.md) | A non-standard variable is one that is not defined in the SDTMIG or the under... |
@@ -61,8 +61,8 @@ _This is a dynamic enum_
 <details>
 ```yaml
 name: YesOnly
-description: Enumeration used in extendedValue, hasNoData, repeat, other, isNull,
-  isNonStandard
+description: Enumeration used in other, hasNoData, isNull, extendedValue, isNonStandard,
+  repeat
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 

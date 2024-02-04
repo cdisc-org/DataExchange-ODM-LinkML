@@ -30,7 +30,7 @@ URI: [odm:methodOID](http://www.cdisc.org/ns/odm/v2.0/methodOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [MethodDef](MethodDef.md)
 
 
 
@@ -66,7 +66,7 @@ domain_of:
 - ItemGroupRef
 - ItemRef
 - TransitionTimingConstraint
-range: oidref
+range: MethodDef
 
 ```
 </details>

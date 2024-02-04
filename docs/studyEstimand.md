@@ -61,7 +61,6 @@ description: 'StudyEstimand reference: A precise description of the treatment ef
   treatment conditions being compared.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyEstimand
 domain_of:
 - StudyEstimands

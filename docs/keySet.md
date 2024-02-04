@@ -61,7 +61,6 @@ description: 'KeySet reference: A KeySet references a single entity (e.g., a stu
   Keys).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: keySet
 domain_of:
 - Association

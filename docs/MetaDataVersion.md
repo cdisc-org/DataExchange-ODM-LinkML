@@ -11,19 +11,18 @@ URI: [odm:MetaDataVersion](http://www.cdisc.org/ns/odm/v2.0/MetaDataVersion)
 ```mermaid
 erDiagram
 MetaDataVersion {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref commentOID  
 }
 Leaf {
-    oid iD  
+    oid ID  
     uriorcurie href  
 }
 Title {
     text content  
 }
 CommentDef {
-    oid oID  
+    oid OID  
 }
 DocumentRef {
     oid leafID  
@@ -32,10 +31,9 @@ Description {
 
 }
 MethodDef {
-    oid oID  
+    oid OID  
     nameType name  
     MethodType type  
-    oidref commentOID  
 }
 Alias {
     text context  
@@ -48,16 +46,13 @@ MethodSignature {
 
 }
 ConditionDef {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref commentOID  
 }
 CodeList {
-    oid oID  
+    oid OID  
     nameType name  
     CLDataType dataType  
-    oidref commentOID  
-    oidref standardOID  
     YesOnly isNonStandard  
 }
 Coding {
@@ -76,27 +71,32 @@ CodeListItem {
     YesOnly other  
     positiveInteger orderNumber  
     YesOnly extendedValue  
-    oidref commentOID  
+}
+Standard {
+    oid OID  
+    StandardName name  
+    StandardType type  
+    StandardPublishingSet publishingSet  
+    text version  
+    StandardStatus status  
 }
 ItemDef {
-    oid oID  
+    oid OID  
     nameType name  
     DataType dataType  
     positiveInteger length  
     text displayFormat  
     text variableSet  
-    oidref commentOID  
 }
 ValueListRef {
-    oidref valueListOID  
+
 }
 CodeListRef {
-    oidref codeListOID  
+
 }
 RangeCheck {
     Comparator comparator  
     SoftOrHard softHard  
-    oidref itemOID  
 }
 CDISCNotes {
 
@@ -117,106 +117,94 @@ Definition {
 
 }
 ItemGroupDef {
-    oid oID  
+    oid OID  
     nameType name  
     ItemGroupRepeatingType repeating  
     positiveInteger repeatingLimit  
     YesOrNo isReferenceData  
     text structure  
-    oidref archiveLocationID  
     nameType datasetName  
     text domain  
     ItemGroupTypeType type  
     text purpose  
-    oidref standardOID  
     YesOnly isNonStandard  
     YesOnly hasNoData  
-    oidref commentOID  
 }
 ItemRef {
-    oidref itemOID  
     positiveInteger keySequence  
     YesOnly isNonStandard  
     YesOnly hasNoData  
-    oidref methodOID  
-    oidref unitsItemOID  
     YesOnly repeat  
     YesOnly other  
     text role  
-    oidref roleCodeListOID  
     CoreType core  
     text preSpecifiedValue  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
 }
 ItemGroupRef {
-    oidref itemGroupOID  
-    oidref methodOID  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
 }
 Origin {
     OriginType type  
     OriginSource source  
 }
 WorkflowRef {
-    oidref workflowOID  
+
 }
 Class {
     ItemGroupClass name  
 }
 StudyEventDef {
-    oid oID  
+    oid OID  
     nameType name  
     YesOrNo repeating  
     EventType type  
     text category  
-    oidref commentOID  
 }
 StudyEventGroupDef {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref armOID  
-    oidref epochOID  
-    oidref commentOID  
 }
 StudyEventRef {
-    oidref studyEventOID  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
 }
 StudyEventGroupRef {
-    oidref studyEventGroupOID  
     positiveInteger orderNumber  
     YesOrNo mandatory  
-    oidref collectionExceptionConditionOID  
+}
+Epoch {
+    oid OID  
+    nameType name  
+    positiveInteger sequenceNumber  
+}
+Arm {
+    oid OID  
+    nameType name  
 }
 WorkflowDef {
-    oid oID  
+    oid OID  
     nameType name  
 }
 Branching {
-    oid oID  
+    oid OID  
     nameType name  
     BranchingType type  
 }
 Transition {
-    oid oID  
+    oid OID  
     nameType name  
-    oidref sourceOID  
-    oidref targetOID  
-    oidref startConditionOID  
-    oidref endConditionOID  
+    string sourceOID  
+    string targetOID  
 }
 WorkflowEnd {
-    oidref endOID  
+    string endOID  
     text content  
 }
 WorkflowStart {
-    oidref startOID  
+    string startOID  
 }
 Protocol {
 
@@ -228,7 +216,7 @@ StudyEstimands {
 
 }
 StudyTargetPopulation {
-    oid oID  
+    oid OID  
     nameType name  
 }
 StudyEndPoints {
@@ -256,11 +244,10 @@ StudySummary {
 
 }
 WhereClauseDef {
-    oid oID  
-    oidref commentOID  
+    oid OID  
 }
 ValueListDef {
-    oid oID  
+    oid OID  
 }
 SupplementalDoc {
 
@@ -271,21 +258,19 @@ AnnotatedCRF {
 Standards {
 
 }
-Standard {
-    oid oID  
-    StandardName name  
-    StandardType type  
-    StandardPublishingSet publishingSet  
-    text version  
-    StandardStatus status  
-    oidref commentOID  
-}
 Include {
-    oidref studyOID  
-    oidref metaDataVersionOID  
     uriorcurie href  
 }
+Study {
+    oid OID  
+    nameType studyName  
+    nameType protocolName  
+    nameType versionID  
+    nameType versionName  
+    nameType status  
+}
 
+MetaDataVersion ||--|o CommentDef : "commentOID"
 MetaDataVersion ||--|o Description : "description"
 MetaDataVersion ||--|o Include : "include"
 MetaDataVersion ||--|o Standards : "standards"
@@ -309,6 +294,7 @@ CommentDef ||--|o Description : "description"
 CommentDef ||--}o DocumentRef : "documentRef"
 DocumentRef ||--}o PDFPageRef : "pDFPageRef"
 Description ||--}o TranslatedText : "translatedText"
+MethodDef ||--|o CommentDef : "commentOID"
 MethodDef ||--|o Description : "description"
 MethodDef ||--|o MethodSignature : "methodSignature"
 MethodDef ||--}o FormalExpression : "formalExpression"
@@ -318,18 +304,24 @@ FormalExpression ||--|o Code : "code"
 FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
 MethodSignature ||--}o Parameter : "parameter"
 MethodSignature ||--}o ReturnValue : "returnValue"
+ConditionDef ||--|o CommentDef : "commentOID"
 ConditionDef ||--|o Description : "description"
 ConditionDef ||--|o MethodSignature : "methodSignature"
 ConditionDef ||--}o FormalExpression : "formalExpression"
 ConditionDef ||--}o Alias : "alias"
+CodeList ||--|o CommentDef : "commentOID"
+CodeList ||--|o Standard : "standardOID"
 CodeList ||--|o Description : "description"
 CodeList ||--}o CodeListItem : "codeListItem"
 CodeList ||--}o Coding : "coding"
 CodeList ||--}o Alias : "alias"
+CodeListItem ||--|o CommentDef : "commentOID"
 CodeListItem ||--|o Description : "description"
 CodeListItem ||--|o Decode : "decode"
 CodeListItem ||--}o Coding : "coding"
 CodeListItem ||--}o Alias : "alias"
+Standard ||--|o CommentDef : "commentOID"
+ItemDef ||--|o CommentDef : "commentOID"
 ItemDef ||--|o Description : "description"
 ItemDef ||--|o Definition : "definition"
 ItemDef ||--|o Question : "question"
@@ -342,6 +334,9 @@ ItemDef ||--|o CodeListRef : "codeListRef"
 ItemDef ||--|o ValueListRef : "valueListRef"
 ItemDef ||--}o Coding : "coding"
 ItemDef ||--}o Alias : "alias"
+ValueListRef ||--|| ValueListDef : "valueListOID"
+CodeListRef ||--|| CodeList : "codeListOID"
+RangeCheck ||--|o ItemDef : "itemOID"
 RangeCheck ||--|o ErrorMessage : "errorMessage"
 RangeCheck ||--|o MethodSignature : "methodSignature"
 RangeCheck ||--}o FormalExpression : "formalExpression"
@@ -352,8 +347,11 @@ CRFCompletionInstructions ||--}o TranslatedText : "translatedText"
 Prompt ||--}o TranslatedText : "translatedText"
 Question ||--}o TranslatedText : "translatedText"
 Definition ||--}o TranslatedText : "translatedText"
+ItemGroupDef ||--|o Leaf : "archiveLocationID"
+ItemGroupDef ||--|o Standard : "standardOID"
+ItemGroupDef ||--|o CommentDef : "commentOID"
 ItemGroupDef ||--|o Description : "description"
-ItemGroupDef ||--|o Class : "classRef"
+ItemGroupDef ||--|o Class : "itemGroupClass"
 ItemGroupDef ||--}o Coding : "coding"
 ItemGroupDef ||--|o WorkflowRef : "workflowRef"
 ItemGroupDef ||--}o Origin : "origin"
@@ -361,24 +359,44 @@ ItemGroupDef ||--}o Alias : "alias"
 ItemGroupDef ||--|o Leaf : "leaf"
 ItemGroupDef ||--}o ItemGroupRef : "itemGroupRef"
 ItemGroupDef ||--}o ItemRef : "itemRef"
+ItemRef ||--|| ItemDef : "itemOID"
+ItemRef ||--|o MethodDef : "methodOID"
+ItemRef ||--|o ItemDef : "unitsItemOID"
+ItemRef ||--|o CodeList : "roleCodeListOID"
+ItemRef ||--|o ConditionDef : "collectionExceptionConditionOID"
 ItemRef ||--}o Origin : "origin"
 ItemRef ||--}o WhereClauseRef : "whereClauseRef"
+ItemGroupRef ||--|| ItemGroupDef : "itemGroupOID"
+ItemGroupRef ||--|o MethodDef : "methodOID"
+ItemGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
 Origin ||--|o Description : "description"
 Origin ||--|o SourceItems : "sourceItems"
 Origin ||--}o Coding : "coding"
 Origin ||--}o DocumentRef : "documentRef"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
 Class ||--}o SubClass : "subClass"
+StudyEventDef ||--|o CommentDef : "commentOID"
 StudyEventDef ||--|o Description : "description"
 StudyEventDef ||--}o ItemGroupRef : "itemGroupRef"
 StudyEventDef ||--|o WorkflowRef : "workflowRef"
 StudyEventDef ||--}o Coding : "coding"
 StudyEventDef ||--}o Alias : "alias"
+StudyEventGroupDef ||--|o Arm : "armOID"
+StudyEventGroupDef ||--|o Epoch : "epochOID"
+StudyEventGroupDef ||--|o CommentDef : "commentOID"
 StudyEventGroupDef ||--|o Description : "description"
 StudyEventGroupDef ||--|o WorkflowRef : "workflowRef"
 StudyEventGroupDef ||--}o Coding : "coding"
 StudyEventGroupDef ||--}o StudyEventGroupRef : "studyEventGroupRef"
 StudyEventGroupDef ||--}o StudyEventRef : "studyEventRef"
+StudyEventRef ||--|| StudyEventDef : "studyEventOID"
+StudyEventRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+StudyEventGroupRef ||--|| StudyEventGroupDef : "studyEventGroupOID"
+StudyEventGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
 StudyEventGroupRef ||--|o Description : "description"
+Epoch ||--|o Description : "description"
+Arm ||--|o Description : "description"
+Arm ||--|o WorkflowRef : "workflowRef"
 WorkflowDef ||--|o Description : "description"
 WorkflowDef ||--|o WorkflowStart : "workflowStart"
 WorkflowDef ||--}o WorkflowEnd : "workflowEnd"
@@ -386,6 +404,8 @@ WorkflowDef ||--}o Transition : "transition"
 WorkflowDef ||--}o Branching : "branching"
 Branching ||--}o TargetTransition : "targetTransition"
 Branching ||--}o DefaultTransition : "defaultTransition"
+Transition ||--|o ConditionDef : "startConditionOID"
+Transition ||--|o ConditionDef : "endConditionOID"
 Protocol ||--|o Description : "description"
 Protocol ||--|o StudySummary : "studySummary"
 Protocol ||--|o StudyStructure : "studyStructure"
@@ -418,12 +438,17 @@ StudyStructure ||--}o Arm : "arm"
 StudyStructure ||--}o Epoch : "epoch"
 StudyStructure ||--|o WorkflowRef : "workflowRef"
 StudySummary ||--}o StudyParameter : "studyParameter"
+WhereClauseDef ||--|o CommentDef : "commentOID"
 WhereClauseDef ||--}o RangeCheck : "rangeCheck"
 ValueListDef ||--|o Description : "description"
 ValueListDef ||--}o ItemRef : "itemRef"
 SupplementalDoc ||--}o DocumentRef : "documentRef"
 AnnotatedCRF ||--}o DocumentRef : "documentRef"
 Standards ||--}o Standard : "standard"
+Include ||--|| Study : "studyOID"
+Include ||--|| MetaDataVersion : "metaDataVersionOID"
+Study ||--|o Description : "description"
+Study ||--}o MetaDataVersion : "metaDataVersion"
 
 ```
 
@@ -436,9 +461,9 @@ Standards ||--}o Standard : "standard"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | MetaDataVersion name. | direct |
-| [commentOID](commentOID.md) | 0..1 <br/> [oidref](oidref.md) | Reference to a CommentDef element. | direct |
+| [commentOID](commentOID.md) | 0..1 <br/> [CommentDef](CommentDef.md) | Reference to a CommentDef element. | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
 | [include](include.md) | 0..1 <br/> [Include](Include.md) | Include reference: The Include metadata element allows a reference to a prior... | direct |
 | [standards](standards.md) | 0..1 <br/> [Standards](Standards.md) | Standards reference: The Standards element provides a container for the list ... | direct |
@@ -468,6 +493,13 @@ _* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-c
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Study](Study.md) | [metaDataVersion](metaDataVersion.md) | range | [MetaDataVersion](MetaDataVersion.md) |
+| [Include](Include.md) | [metaDataVersionOID](metaDataVersionOID.md) | range | [MetaDataVersion](MetaDataVersion.md) |
+| [SourceItem](SourceItem.md) | [metaDataVersionOID](metaDataVersionOID.md) | range | [MetaDataVersion](MetaDataVersion.md) |
+| [MetaDataVersionRef](MetaDataVersionRef.md) | [metaDataVersionOID](metaDataVersionOID.md) | range | [MetaDataVersion](MetaDataVersion.md) |
+| [ReferenceData](ReferenceData.md) | [metaDataVersionOID](metaDataVersionOID.md) | range | [MetaDataVersion](MetaDataVersion.md) |
+| [ClinicalData](ClinicalData.md) | [metaDataVersionOID](metaDataVersionOID.md) | range | [MetaDataVersion](MetaDataVersion.md) |
+| [Association](Association.md) | [metaDataVersionOID](metaDataVersionOID.md) | range | [MetaDataVersion](MetaDataVersion.md) |
+| [KeySet](KeySet.md) | [metaDataVersionOID](metaDataVersionOID.md) | range | [MetaDataVersion](MetaDataVersion.md) |
 
 
 
@@ -525,7 +557,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/MetaDataVersion
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - commentOID
 - description
@@ -547,13 +579,14 @@ slots:
 - commentDef
 - leaf
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -657,7 +690,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     domain_of:
@@ -846,13 +879,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/MetaDataVersion
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -956,7 +990,7 @@ slot_usage:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     domain_of:
@@ -1126,8 +1160,8 @@ slot_usage:
     inlined: true
     inlined_as_list: true
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier.
     comments:
     - 'Required
@@ -1136,7 +1170,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: MetaDataVersion
     domain_of:
     - Study
@@ -1249,14 +1283,13 @@ attributes:
     - MethodDef
     - ConditionDef
     - Coding
-    range: oidref
+    range: CommentDef
   description:
     name: description
     description: 'Description reference: A free-text description of the containing
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: MetaDataVersion
     domain_of:
@@ -1304,7 +1337,6 @@ attributes:
       to a prior metadata version.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: include
     owner: MetaDataVersion
     domain_of:
@@ -1318,7 +1350,6 @@ attributes:
       Study..'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: standards
     owner: MetaDataVersion
     domain_of:
@@ -1332,7 +1363,6 @@ attributes:
       fields to the variables or discrete variable values contained within the datasets.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: annotatedCRF
     owner: MetaDataVersion
     domain_of:
@@ -1344,7 +1374,6 @@ attributes:
     description: 'SupplementalDoc reference: Supplemental data definitions'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: supplementalDoc
     owner: MetaDataVersion
     domain_of:
@@ -1359,7 +1388,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: valueListDef
     owner: MetaDataVersion
     domain_of:
@@ -1374,7 +1402,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: whereClauseDef
     owner: MetaDataVersion
     domain_of:
@@ -1389,7 +1416,6 @@ attributes:
       must occur within one of these study events.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: protocol
     owner: MetaDataVersion
     domain_of:
@@ -1403,7 +1429,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: workflowDef
     owner: MetaDataVersion
     domain_of:
@@ -1419,7 +1444,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: studyEventGroupDef
     owner: MetaDataVersion
     domain_of:
@@ -1437,7 +1461,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: studyEventDef
     owner: MetaDataVersion
     domain_of:
@@ -1452,7 +1475,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: itemGroupDef
     owner: MetaDataVersion
     domain_of:
@@ -1468,7 +1490,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: itemDef
     owner: MetaDataVersion
     domain_of:
@@ -1485,7 +1506,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: codeList
     owner: MetaDataVersion
     domain_of:
@@ -1499,7 +1519,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: conditionDef
     owner: MetaDataVersion
     domain_of:
@@ -1514,7 +1533,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: methodDef
     owner: MetaDataVersion
     domain_of:
@@ -1531,7 +1549,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: commentDef
     owner: MetaDataVersion
     domain_of:
@@ -1546,7 +1563,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: leaf
     owner: MetaDataVersion
     domain_of:

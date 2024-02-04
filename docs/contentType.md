@@ -7,7 +7,7 @@ _multi-line text content from between XML tags_
 
 
 
-URI: [xhtml:div](http://www.w3.org/1999/xhtmldiv)
+URI: [xhtml:div](http://www.w3.org/1999/xhtml#div)
 
 * [base](https://w3id.org/linkml/base): str
 

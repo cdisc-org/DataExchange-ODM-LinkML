@@ -62,7 +62,6 @@ description: 'MetaDataVersion reference: The metadata for a study is defined in 
   used simultaneously (e.g., due to delays in IRB approval at various sites).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: metaDataVersion
 domain_of:
 - Study

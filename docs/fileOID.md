@@ -30,6 +30,8 @@ URI: [odm:fileOID](http://www.cdisc.org/ns/odm/v2.0/fileOID)
 
 * Range: [oid](oid.md)
 
+* Required: True
+
 
 
 
@@ -58,10 +60,12 @@ name: fileOID
 description: A unique identifier for this file.
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
+identifier: true
 alias: fileOID
 domain_of:
 - ODMFileMetadata
 range: oid
+required: true
 
 ```
 </details>

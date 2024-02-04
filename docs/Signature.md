@@ -11,25 +11,60 @@ URI: [odm:Signature](http://www.cdisc.org/ns/odm/v2.0/Signature)
 ```mermaid
 erDiagram
 Signature {
-    oid iD  
+    oid ID  
 }
 DateTimeStamp {
     datetime content  
 }
 SignatureRef {
-    oidref signatureOID  
+
+}
+SignatureDef {
+    oid OID  
+    SignMethod methodology  
 }
 LocationRef {
-    oidref locationOID  
+
+}
+Location {
+    oid OID  
+    nameType name  
+    text role  
 }
 UserRef {
-    oidref userOID  
+
+}
+User {
+    oid OID  
+    UserType userType  
 }
 
 Signature ||--|o UserRef : "userRef"
 Signature ||--|o LocationRef : "locationRef"
 Signature ||--|o SignatureRef : "signatureRef"
 Signature ||--|o DateTimeStamp : "dateTimeStamp"
+SignatureRef ||--|| SignatureDef : "signatureOID"
+SignatureDef ||--|o Meaning : "meaning"
+SignatureDef ||--|o LegalReason : "legalReason"
+LocationRef ||--|| Location : "locationOID"
+Location ||--|o Organization : "organizationOID"
+Location ||--|o Description : "description"
+Location ||--}o MetaDataVersionRef : "metaDataVersionRef"
+Location ||--}o Address : "address"
+Location ||--}o Telecom : "telecom"
+Location ||--}o Query : "query"
+UserRef ||--|| User : "userOID"
+User ||--|o Organization : "organizationOID"
+User ||--|o Location : "locationOID"
+User ||--|o UserName : "userName"
+User ||--|o Prefix : "prefix"
+User ||--|o Suffix : "suffix"
+User ||--|o FullName : "fullName"
+User ||--|o GivenName : "givenName"
+User ||--|o FamilyName : "familyName"
+User ||--|o Image : "image"
+User ||--}o Address : "address"
+User ||--}o Telecom : "telecom"
 
 ```
 
@@ -42,7 +77,7 @@ Signature ||--|o DateTimeStamp : "dateTimeStamp"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [iD](iD.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the leaf that is referenced. | direct |
+| [ID](ID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the leaf that is referenced. | direct |
 | [userRef](userRef.md) | 0..1 <br/> [UserRef](UserRef.md) | UserRef reference: A reference to information about a specific user of a clin... | direct |
 | [locationRef](locationRef.md) | 0..1 <br/> [LocationRef](LocationRef.md) | LocationRef reference: A reference to the user's physical location. | direct |
 | [signatureRef](signatureRef.md) | 0..1 <br/> [SignatureRef](SignatureRef.md) | SignatureRef reference: A reference to the signature meaning. | direct |
@@ -120,14 +155,15 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Signature
 rank: 1000
 slots:
-- iD
+- ID
 - userRef
 - locationRef
 - signatureRef
 - dateTimeStamp
 slot_usage:
-  iD:
-    name: iD
+  ID:
+    name: ID
+    identifier: true
     domain_of:
     - Leaf
     - Signature
@@ -180,8 +216,9 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/Signature
 rank: 1000
 slot_usage:
-  iD:
-    name: iD
+  ID:
+    name: ID
+    identifier: true
     domain_of:
     - Leaf
     - Signature
@@ -215,13 +252,13 @@ slot_usage:
     range: DateTimeStamp
     maximum_cardinality: 1
 attributes:
-  iD:
-    name: iD
+  ID:
+    name: ID
     description: Unique identifier for the leaf that is referenced.
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: iD
+    alias: ID
     owner: Signature
     domain_of:
     - Leaf
@@ -235,7 +272,6 @@ attributes:
       of a clinical data collection or data management system.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: userRef
     owner: Signature
     domain_of:
@@ -248,7 +284,6 @@ attributes:
     description: 'LocationRef reference: A reference to the user''s physical location.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: locationRef
     owner: Signature
     domain_of:
@@ -261,7 +296,6 @@ attributes:
     description: 'SignatureRef reference: A reference to the signature meaning.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: signatureRef
     owner: Signature
     domain_of:
@@ -273,7 +307,6 @@ attributes:
     description: 'DateTimeStamp reference: Date and time when an action was performed.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: dateTimeStamp
     owner: Signature
     domain_of:

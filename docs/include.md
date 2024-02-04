@@ -59,7 +59,6 @@ description: 'Include reference: The Include metadata element allows a reference
   a prior metadata version.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: include
 domain_of:
 - MetaDataVersion

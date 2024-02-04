@@ -60,7 +60,6 @@ description: 'Country reference: The country name part of a user''s postal addre
   3166 3-letter or US-GENC country code (e.g., FRA for France, JPN for Japan).'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: country
 domain_of:
 - Address

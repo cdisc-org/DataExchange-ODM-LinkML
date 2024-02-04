@@ -59,7 +59,6 @@ description: 'InvestigatorRef reference: Provides a reference to the user who cr
   the SubjectData record in the source system.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: investigatorRef
 domain_of:
 - SubjectData

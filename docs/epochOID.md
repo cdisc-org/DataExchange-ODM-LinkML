@@ -28,7 +28,7 @@ URI: [odm:epochOID](http://www.cdisc.org/ns/odm/v2.0/epochOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [Epoch](Epoch.md)
 
 
 
@@ -61,7 +61,7 @@ rank: 1000
 alias: epochOID
 domain_of:
 - StudyEventGroupDef
-range: oidref
+range: Epoch
 
 ```
 </details>

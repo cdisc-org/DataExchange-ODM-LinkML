@@ -29,7 +29,7 @@ URI: [odm:organizationOID](http://www.cdisc.org/ns/odm/v2.0/organizationOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [Organization](Organization.md)
 
 
 
@@ -63,7 +63,7 @@ alias: organizationOID
 domain_of:
 - User
 - Location
-range: oidref
+range: Organization
 
 ```
 </details>

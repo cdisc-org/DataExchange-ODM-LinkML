@@ -59,7 +59,6 @@ description: 'StudyIndications reference: StudyIndications is a container elemen
   for individual StudyIndication elements.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyIndications
 domain_of:
 - Protocol

@@ -35,7 +35,7 @@ URI: [odm:studyOID](http://www.cdisc.org/ns/odm/v2.0/studyOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [Study](Study.md)
 
 
 
@@ -77,7 +77,7 @@ domain_of:
 - ClinicalData
 - Association
 - KeySet
-range: oidref
+range: Study
 
 ```
 </details>

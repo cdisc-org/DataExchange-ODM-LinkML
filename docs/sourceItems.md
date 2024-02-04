@@ -59,7 +59,6 @@ description: 'SourceItems reference: Identifies source items as needed to suppor
   automated data capture and end-to-end traceability.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: sourceItems
 domain_of:
 - Origin

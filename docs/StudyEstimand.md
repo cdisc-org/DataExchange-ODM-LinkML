@@ -11,7 +11,7 @@ URI: [odm:StudyEstimand](http://www.cdisc.org/ns/odm/v2.0/StudyEstimand)
 ```mermaid
 erDiagram
 StudyEstimand {
-    oid oID  
+    oid OID  
     nameType name  
     StudyEstimandLevel level  
 }
@@ -25,14 +25,26 @@ IntercurrentEvent {
 
 }
 StudyEndPointRef {
-    oidref studyEndPointOID  
     positiveInteger orderNumber  
 }
+StudyEndPoint {
+    oid OID  
+    nameType name  
+    StudyEndPointType type  
+    StudyEstimandLevel level  
+}
 StudyInterventionRef {
-    oidref studyInterventionOID  
+
+}
+StudyIntervention {
+    oid OID  
 }
 StudyTargetPopulationRef {
-    oidref studyTargetPopulationOID  
+
+}
+StudyTargetPopulation {
+    oid OID  
+    nameType name  
 }
 
 StudyEstimand ||--|o Description : "description"
@@ -44,6 +56,16 @@ StudyEstimand ||--|o SummaryMeasure : "summaryMeasure"
 SummaryMeasure ||--|o Description : "description"
 Description ||--}o TranslatedText : "translatedText"
 IntercurrentEvent ||--|o Description : "description"
+StudyEndPointRef ||--|| StudyEndPoint : "studyEndPointOID"
+StudyEndPoint ||--|o Description : "description"
+StudyEndPoint ||--}o FormalExpression : "formalExpression"
+StudyInterventionRef ||--|| StudyIntervention : "studyInterventionOID"
+StudyIntervention ||--|o Description : "description"
+StudyIntervention ||--}o Coding : "coding"
+StudyTargetPopulationRef ||--|| StudyTargetPopulation : "studyTargetPopulationOID"
+StudyTargetPopulation ||--|o Description : "description"
+StudyTargetPopulation ||--}o Coding : "coding"
+StudyTargetPopulation ||--}o FormalExpression : "formalExpression"
 
 ```
 
@@ -56,7 +78,7 @@ IntercurrentEvent ||--|o Description : "description"
 
 | Name | Cardinality* and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [oID](oID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEstimand element. | direct |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for the StudyEstimand element. | direct |
 | [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable name for the Study Estimand. | direct |
 | [level](level.md) | 0..1 <br/> [StudyEstimandLevel](StudyEstimandLevel.md) | Defined Level for the Study Estimand | direct |
 | [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
@@ -132,7 +154,7 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEstimand
 rank: 1000
 slots:
-- oID
+- OID
 - name
 - level
 - description
@@ -142,13 +164,14 @@ slots:
 - intercurrentEvent
 - summaryMeasure
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyEstimand element.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -337,13 +360,14 @@ see_also:
 - https://wiki.cdisc.org/display/PUB/StudyEstimand
 rank: 1000
 slot_usage:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyEstimand element.
     comments:
     - 'Required
 
       range: oid'
+    identifier: true
     domain_of:
     - Study
     - MetaDataVersion
@@ -514,8 +538,8 @@ slot_usage:
     range: SummaryMeasure
     maximum_cardinality: 1
 attributes:
-  oID:
-    name: oID
+  OID:
+    name: OID
     description: Unique identifier for the StudyEstimand element.
     comments:
     - 'Required
@@ -524,7 +548,7 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     identifier: true
-    alias: oID
+    alias: OID
     owner: StudyEstimand
     domain_of:
     - Study
@@ -635,7 +659,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: StudyEstimand
     domain_of:
@@ -683,7 +706,6 @@ attributes:
       references a StudyTargetPopulation to which the estimand applies.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: studyTargetPopulationRef
     owner: StudyEstimand
     domain_of:
@@ -696,7 +718,6 @@ attributes:
       an intervention that is taken as the treatment for the estimand.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: studyInterventionRef
     owner: StudyEstimand
     domain_of:
@@ -709,7 +730,6 @@ attributes:
       occurs within a specific StudyObjective.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: studyEndPointRef
     owner: StudyEstimand
     domain_of:
@@ -724,7 +744,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: intercurrentEvent
     owner: StudyEstimand
     domain_of:
@@ -738,7 +757,6 @@ attributes:
       summary measure for an estimand (e.g., proportion of patients with an improvement).'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: summaryMeasure
     owner: StudyEstimand
     domain_of:

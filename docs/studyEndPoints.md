@@ -59,7 +59,6 @@ description: 'StudyEndPoints reference: The StudyEndPoints element is a containe
   element for individual StudyEndPoint elements.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: studyEndPoints
 domain_of:
 - Protocol

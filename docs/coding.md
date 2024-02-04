@@ -78,7 +78,6 @@ description: 'Coding reference: Coding references a symbol from a defined code s
   or code system versions.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: coding
 domain_of:
 - StudyEventGroupDef

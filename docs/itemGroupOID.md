@@ -31,7 +31,7 @@ URI: [odm:itemGroupOID](http://www.cdisc.org/ns/odm/v2.0/itemGroupOID)
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [ItemGroupDef](ItemGroupDef.md)
 
 
 
@@ -67,7 +67,7 @@ domain_of:
 - SourceItem
 - ItemGroupData
 - KeySet
-range: oidref
+range: ItemGroupDef
 
 ```
 </details>

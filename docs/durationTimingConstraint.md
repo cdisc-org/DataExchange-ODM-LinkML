@@ -61,7 +61,6 @@ description: 'DurationTimingConstraint reference: The DurationTimingConstraint c
   or any other structural element.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: durationTimingConstraint
 domain_of:
 - StudyTiming

@@ -1,5 +1,10 @@
 # Slot: studyTargetPopulationOID
 
+
+_StudyTargetPopulation reference: The StudyTargetPopulation describes the population targeted for the clinical study._
+
+
+
 URI: [odm:studyTargetPopulationOID](http://www.cdisc.org/ns/odm/v2.0/studyTargetPopulationOID)
 
 
@@ -23,7 +28,7 @@ URI: [odm:studyTargetPopulationOID](http://www.cdisc.org/ns/odm/v2.0/studyTarget
 
 ## Properties
 
-* Range: [oidref](oidref.md)
+* Range: [StudyTargetPopulation](StudyTargetPopulation.md)
 
 
 
@@ -50,12 +55,14 @@ URI: [odm:studyTargetPopulationOID](http://www.cdisc.org/ns/odm/v2.0/studyTarget
 <details>
 ```yaml
 name: studyTargetPopulationOID
+description: 'StudyTargetPopulation reference: The StudyTargetPopulation describes
+  the population targeted for the clinical study.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
 alias: studyTargetPopulationOID
 domain_of:
 - StudyTargetPopulationRef
-range: oidref
+range: StudyTargetPopulation
 
 ```
 </details>

@@ -65,7 +65,6 @@ description: 'Annotation reference: A general note about clinical data. If an an
   has both a comment and flags, the flags should be related to the comment.'
 from_schema: http://www.cdisc.org/ns/odm/v2.0
 rank: 1000
-identifier: false
 alias: annotation
 domain_of:
 - ReferenceData

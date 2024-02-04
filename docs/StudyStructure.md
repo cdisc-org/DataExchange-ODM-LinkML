@@ -14,10 +14,14 @@ StudyStructure {
 
 }
 WorkflowRef {
-    oidref workflowOID  
+
+}
+WorkflowDef {
+    oid OID  
+    nameType name  
 }
 Epoch {
-    oid oID  
+    oid OID  
     nameType name  
     positiveInteger sequenceNumber  
 }
@@ -25,7 +29,7 @@ Description {
 
 }
 Arm {
-    oid oID  
+    oid OID  
     nameType name  
 }
 
@@ -33,6 +37,12 @@ StudyStructure ||--|o Description : "description"
 StudyStructure ||--}o Arm : "arm"
 StudyStructure ||--}o Epoch : "epoch"
 StudyStructure ||--|o WorkflowRef : "workflowRef"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+WorkflowDef ||--|o Description : "description"
+WorkflowDef ||--|o WorkflowStart : "workflowStart"
+WorkflowDef ||--}o WorkflowEnd : "workflowEnd"
+WorkflowDef ||--}o Transition : "transition"
+WorkflowDef ||--}o Branching : "branching"
 Epoch ||--|o Description : "description"
 Description ||--}o TranslatedText : "translatedText"
 Arm ||--|o Description : "description"
@@ -283,7 +293,6 @@ attributes:
       metadata component, unless restricted by Business Rules.'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: description
     owner: StudyStructure
     domain_of:
@@ -332,7 +341,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: arm
     owner: StudyStructure
     domain_of:
@@ -351,7 +359,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: epoch
     owner: StudyStructure
     domain_of:
@@ -364,7 +371,6 @@ attributes:
     description: 'WorkflowRef reference: The WorkflowRef references a workflow definition'
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
-    identifier: false
     alias: workflowRef
     owner: StudyStructure
     domain_of:

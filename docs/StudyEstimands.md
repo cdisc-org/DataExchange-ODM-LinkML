@@ -14,7 +14,7 @@ StudyEstimands {
 
 }
 StudyEstimand {
-    oid oID  
+    oid OID  
     nameType name  
     StudyEstimandLevel level  
 }
@@ -25,14 +25,13 @@ IntercurrentEvent {
 
 }
 StudyEndPointRef {
-    oidref studyEndPointOID  
     positiveInteger orderNumber  
 }
 StudyInterventionRef {
-    oidref studyInterventionOID  
+
 }
 StudyTargetPopulationRef {
-    oidref studyTargetPopulationOID  
+
 }
 Description {
 
@@ -47,6 +46,9 @@ StudyEstimand ||--}o IntercurrentEvent : "intercurrentEvent"
 StudyEstimand ||--|o SummaryMeasure : "summaryMeasure"
 SummaryMeasure ||--|o Description : "description"
 IntercurrentEvent ||--|o Description : "description"
+StudyEndPointRef ||--|| StudyEndPoint : "studyEndPointOID"
+StudyInterventionRef ||--|| StudyIntervention : "studyInterventionOID"
+StudyTargetPopulationRef ||--|| StudyTargetPopulation : "studyTargetPopulationOID"
 Description ||--}o TranslatedText : "translatedText"
 
 ```
@@ -169,7 +171,6 @@ attributes:
     from_schema: http://www.cdisc.org/ns/odm/v2.0
     rank: 1000
     multivalued: true
-    identifier: false
     alias: studyEstimand
     owner: StudyEstimands
     domain_of:
