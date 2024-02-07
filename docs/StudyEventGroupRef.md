@@ -1,0 +1,572 @@
+# Class: StudyEventGroupRef
+
+_This element references a StudyEventGroupDef as it occurs within a specific version of a study. The list of StudyEventGroupRefs identifies the types of study group events that are allowed to occur within the study._
+
+
+
+
+URI: [odm:StudyEventGroupRef](http://www.cdisc.org/ns/odm/v2.0/StudyEventGroupRef)
+
+
+```mermaid
+erDiagram
+StudyEventGroupRef {
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+}
+Description {
+
+}
+TranslatedText {
+    languageType language  
+    text type  
+    contentType content  
+}
+ConditionDef {
+    oid OID  
+    nameType name  
+}
+Alias {
+    text context  
+    text name  
+}
+FormalExpression {
+    text context  
+}
+MethodSignature {
+
+}
+CommentDef {
+    oid OID  
+}
+StudyEventGroupDef {
+    oid OID  
+    nameType name  
+}
+StudyEventRef {
+    positiveInteger orderNumber  
+    YesOrNo mandatory  
+}
+Coding {
+    text code  
+    uriorcurie system  
+    text systemName  
+    text systemVersion  
+    text label  
+    uriorcurie href  
+    uriorcurie ref  
+    text commentOID  
+}
+WorkflowRef {
+
+}
+Epoch {
+    oid OID  
+    nameType name  
+    positiveInteger sequenceNumber  
+}
+Arm {
+    oid OID  
+    nameType name  
+}
+
+StudyEventGroupRef ||--|| StudyEventGroupDef : "studyEventGroupOID"
+StudyEventGroupRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+StudyEventGroupRef ||--|o Description : "description"
+Description ||--}o TranslatedText : "translatedText"
+ConditionDef ||--|o CommentDef : "commentOID"
+ConditionDef ||--|o Description : "description"
+ConditionDef ||--|o MethodSignature : "methodSignature"
+ConditionDef ||--}o FormalExpression : "formalExpression"
+ConditionDef ||--}o Alias : "alias"
+FormalExpression ||--|o Code : "code"
+FormalExpression ||--|o ExternalCodeLib : "externalCodeLib"
+MethodSignature ||--}o Parameter : "parameter"
+MethodSignature ||--}o ReturnValue : "returnValue"
+CommentDef ||--|o Description : "description"
+CommentDef ||--}o DocumentRef : "documentRef"
+StudyEventGroupDef ||--|o Arm : "armOID"
+StudyEventGroupDef ||--|o Epoch : "epochOID"
+StudyEventGroupDef ||--|o CommentDef : "commentOID"
+StudyEventGroupDef ||--|o Description : "description"
+StudyEventGroupDef ||--|o WorkflowRef : "workflowRef"
+StudyEventGroupDef ||--}o Coding : "coding"
+StudyEventGroupDef ||--}o StudyEventGroupRef : "studyEventGroupRef"
+StudyEventGroupDef ||--}o StudyEventRef : "studyEventRef"
+StudyEventRef ||--|| StudyEventDef : "studyEventOID"
+StudyEventRef ||--|o ConditionDef : "collectionExceptionConditionOID"
+WorkflowRef ||--|| WorkflowDef : "workflowOID"
+Epoch ||--|o Description : "description"
+Arm ||--|o Description : "description"
+Arm ||--|o WorkflowRef : "workflowRef"
+
+```
+
+
+
+<!-- no inheritance hierarchy -->
+
+
+## Slots
+
+| Name | Cardinality* and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [studyEventGroupOID](studyEventGroupOID.md) | 1..1 <br/> [StudyEventGroupDef](StudyEventGroupDef.md) | Reference to the StudyEventGroupDef . | direct |
+| [orderNumber](orderNumber.md) | 0..1 <br/> [positiveInteger](positiveInteger.md) | Indicates the order in which this StudyEventGroup appears in Metadata display... | direct |
+| [mandatory](mandatory.md) | 1..1 <br/> [YesOrNo](YesOrNo.md) | Indicator of whether this StudyEventGroup must appear in the study clinical d... | direct |
+| [collectionExceptionConditionOID](collectionExceptionConditionOID.md) | 0..1 <br/> [ConditionDef](ConditionDef.md) | Reference to a ConditionDef | direct |
+| [description](description.md) | 0..1 <br/> [Description](Description.md) | Description reference: A free-text description of the containing metadata com... | direct |
+
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [StudyEventGroupDef](StudyEventGroupDef.md) | [studyEventGroupRef](studyEventGroupRef.md) | range | [StudyEventGroupRef](StudyEventGroupRef.md) |
+| [Protocol](Protocol.md) | [studyEventGroupRef](studyEventGroupRef.md) | range | [StudyEventGroupRef](StudyEventGroupRef.md) |
+
+
+
+
+
+
+## See Also
+
+* [https://wiki.cdisc.org/display/PUB/StudyEventGroupRef](https://wiki.cdisc.org/display/PUB/StudyEventGroupRef)
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | odm:StudyEventGroupRef |
+| native | odm:StudyEventGroupRef |
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: StudyEventGroupRef
+description: This element references a StudyEventGroupDef as it occurs within a specific
+  version of a study. The list of StudyEventGroupRefs identifies the types of study
+  group events that are allowed to occur within the study.
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/PUB/StudyEventGroupRef
+rank: 1000
+slots:
+- studyEventGroupOID
+- orderNumber
+- mandatory
+- collectionExceptionConditionOID
+- description
+slot_usage:
+  studyEventGroupOID:
+    name: studyEventGroupOID
+    description: Reference to the StudyEventGroupDef .
+    comments:
+    - 'Required
+
+      range: oidref
+
+      The StudyEventGroupOID value must match the OID attribute for a StudyEventGroupDef
+      in this Study/MetaDataVersion. The StudyEventGroupRefs within a Protocol must
+      not have duplicate StudyEventGroupOID values.'
+    domain_of:
+    - StudyEventGroupRef
+    - AbsoluteTimingConstraint
+    range: StudyEventGroupDef
+    required: true
+  orderNumber:
+    name: orderNumber
+    description: Indicates the order in which this StudyEventGroup appears in Metadata
+      displays or data entry applications.
+    comments:
+    - 'Optional
+
+      range: positiveInteger
+
+      The StudyEventGroupRefs within a Protocol must not have duplicate OrderNumber
+      values.'
+    domain_of:
+    - StudyEventGroupRef
+    - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
+    - Parameter
+    - ReturnValue
+    - StudyEndPointRef
+    range: positiveInteger
+  mandatory:
+    name: mandatory
+    description: Indicator of whether this StudyEventGroup must appear in the study
+      clinical data for each subject per the study protocol.
+    comments:
+    - 'Required
+
+      enum values: (Yes | No)
+
+      When the value is Yes, the data for each subject in the study must include a
+      StudyEventData element with this StudyEventGroupOID.'
+    domain_of:
+    - StudyEventGroupRef
+    - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    range: YesOrNo
+    required: true
+  collectionExceptionConditionOID:
+    name: collectionExceptionConditionOID
+    description: Reference to a ConditionDef
+    comments:
+    - 'Optional
+
+      range: oidref
+
+      The CollectionExceptionConditionOID value must match the OID attribute for a
+      ConditionDef in this Study/MetaDataVersion.'
+    domain_of:
+    - StudyEventGroupRef
+    - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    range: ConditionDef
+  description:
+    name: description
+    domain_of:
+    - Study
+    - MetaDataVersion
+    - ValueListDef
+    - StudyEventGroupRef
+    - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
+    - CommentDef
+    - Protocol
+    - StudyStructure
+    - TrialPhase
+    - StudyIndication
+    - StudyIntervention
+    - StudyObjective
+    - StudyEndPoint
+    - StudyTargetPopulation
+    - StudyEstimand
+    - IntercurrentEvent
+    - SummaryMeasure
+    - Arm
+    - Epoch
+    - TransitionTimingConstraint
+    - AbsoluteTimingConstraint
+    - RelativeTimingConstraint
+    - DurationTimingConstraint
+    - WorkflowDef
+    - Criterion
+    - Organization
+    - Location
+    - ODMFileMetadata
+    range: Description
+    maximum_cardinality: 1
+class_uri: odm:StudyEventGroupRef
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: StudyEventGroupRef
+description: This element references a StudyEventGroupDef as it occurs within a specific
+  version of a study. The list of StudyEventGroupRefs identifies the types of study
+  group events that are allowed to occur within the study.
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/PUB/StudyEventGroupRef
+rank: 1000
+slot_usage:
+  studyEventGroupOID:
+    name: studyEventGroupOID
+    description: Reference to the StudyEventGroupDef .
+    comments:
+    - 'Required
+
+      range: oidref
+
+      The StudyEventGroupOID value must match the OID attribute for a StudyEventGroupDef
+      in this Study/MetaDataVersion. The StudyEventGroupRefs within a Protocol must
+      not have duplicate StudyEventGroupOID values.'
+    domain_of:
+    - StudyEventGroupRef
+    - AbsoluteTimingConstraint
+    range: StudyEventGroupDef
+    required: true
+  orderNumber:
+    name: orderNumber
+    description: Indicates the order in which this StudyEventGroup appears in Metadata
+      displays or data entry applications.
+    comments:
+    - 'Optional
+
+      range: positiveInteger
+
+      The StudyEventGroupRefs within a Protocol must not have duplicate OrderNumber
+      values.'
+    domain_of:
+    - StudyEventGroupRef
+    - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
+    - Parameter
+    - ReturnValue
+    - StudyEndPointRef
+    range: positiveInteger
+  mandatory:
+    name: mandatory
+    description: Indicator of whether this StudyEventGroup must appear in the study
+      clinical data for each subject per the study protocol.
+    comments:
+    - 'Required
+
+      enum values: (Yes | No)
+
+      When the value is Yes, the data for each subject in the study must include a
+      StudyEventData element with this StudyEventGroupOID.'
+    domain_of:
+    - StudyEventGroupRef
+    - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    range: YesOrNo
+    required: true
+  collectionExceptionConditionOID:
+    name: collectionExceptionConditionOID
+    description: Reference to a ConditionDef
+    comments:
+    - 'Optional
+
+      range: oidref
+
+      The CollectionExceptionConditionOID value must match the OID attribute for a
+      ConditionDef in this Study/MetaDataVersion.'
+    domain_of:
+    - StudyEventGroupRef
+    - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    range: ConditionDef
+  description:
+    name: description
+    domain_of:
+    - Study
+    - MetaDataVersion
+    - ValueListDef
+    - StudyEventGroupRef
+    - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
+    - CommentDef
+    - Protocol
+    - StudyStructure
+    - TrialPhase
+    - StudyIndication
+    - StudyIntervention
+    - StudyObjective
+    - StudyEndPoint
+    - StudyTargetPopulation
+    - StudyEstimand
+    - IntercurrentEvent
+    - SummaryMeasure
+    - Arm
+    - Epoch
+    - TransitionTimingConstraint
+    - AbsoluteTimingConstraint
+    - RelativeTimingConstraint
+    - DurationTimingConstraint
+    - WorkflowDef
+    - Criterion
+    - Organization
+    - Location
+    - ODMFileMetadata
+    range: Description
+    maximum_cardinality: 1
+attributes:
+  studyEventGroupOID:
+    name: studyEventGroupOID
+    description: Reference to the StudyEventGroupDef .
+    comments:
+    - 'Required
+
+      range: oidref
+
+      The StudyEventGroupOID value must match the OID attribute for a StudyEventGroupDef
+      in this Study/MetaDataVersion. The StudyEventGroupRefs within a Protocol must
+      not have duplicate StudyEventGroupOID values.'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: studyEventGroupOID
+    owner: StudyEventGroupRef
+    domain_of:
+    - StudyEventGroupRef
+    - AbsoluteTimingConstraint
+    range: StudyEventGroupDef
+    required: true
+  orderNumber:
+    name: orderNumber
+    description: Indicates the order in which this StudyEventGroup appears in Metadata
+      displays or data entry applications.
+    comments:
+    - 'Optional
+
+      range: positiveInteger
+
+      The StudyEventGroupRefs within a Protocol must not have duplicate OrderNumber
+      values.'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: orderNumber
+    owner: StudyEventGroupRef
+    domain_of:
+    - StudyEventGroupRef
+    - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    - CodeListItem
+    - Parameter
+    - ReturnValue
+    - StudyEndPointRef
+    range: positiveInteger
+  mandatory:
+    name: mandatory
+    description: Indicator of whether this StudyEventGroup must appear in the study
+      clinical data for each subject per the study protocol.
+    comments:
+    - 'Required
+
+      enum values: (Yes | No)
+
+      When the value is Yes, the data for each subject in the study must include a
+      StudyEventData element with this StudyEventGroupOID.'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: mandatory
+    owner: StudyEventGroupRef
+    domain_of:
+    - StudyEventGroupRef
+    - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    range: YesOrNo
+    required: true
+  collectionExceptionConditionOID:
+    name: collectionExceptionConditionOID
+    description: Reference to a ConditionDef
+    comments:
+    - 'Optional
+
+      range: oidref
+
+      The CollectionExceptionConditionOID value must match the OID attribute for a
+      ConditionDef in this Study/MetaDataVersion.'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: collectionExceptionConditionOID
+    owner: StudyEventGroupRef
+    domain_of:
+    - StudyEventGroupRef
+    - StudyEventRef
+    - ItemGroupRef
+    - ItemRef
+    range: ConditionDef
+  description:
+    name: description
+    description: 'Description reference: A free-text description of the containing
+      metadata component, unless restricted by Business Rules.'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: description
+    owner: StudyEventGroupRef
+    domain_of:
+    - Study
+    - MetaDataVersion
+    - ValueListDef
+    - StudyEventGroupRef
+    - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - Origin
+    - ItemDef
+    - CodeList
+    - CodeListItem
+    - MethodDef
+    - ConditionDef
+    - CommentDef
+    - Protocol
+    - StudyStructure
+    - TrialPhase
+    - StudyIndication
+    - StudyIntervention
+    - StudyObjective
+    - StudyEndPoint
+    - StudyTargetPopulation
+    - StudyEstimand
+    - IntercurrentEvent
+    - SummaryMeasure
+    - Arm
+    - Epoch
+    - TransitionTimingConstraint
+    - AbsoluteTimingConstraint
+    - RelativeTimingConstraint
+    - DurationTimingConstraint
+    - WorkflowDef
+    - Criterion
+    - Organization
+    - Location
+    - ODMFileMetadata
+    range: Description
+    maximum_cardinality: 1
+class_uri: odm:StudyEventGroupRef
+
+```
+</details>

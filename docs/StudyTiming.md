@@ -1,0 +1,653 @@
+# Class: StudyTiming
+
+_The StudyTiming element defines a timing constraint within the study, which can be an absolute timing constraint (e.g., start of the screening visit must be between 1 January 2022 and 31 December 2022), a relative timing constraint (e.g., visit 2 must be within 30 days after visit 1 with a window of +/- 1 week), a transition timing constraint (i.e., timing constraint on a transition within a defined workflow), or a duration timing constraint (e.g., the duration of visit 2 is planned to take hours with a window of 30 minutes)._
+
+
+
+
+URI: [odm:StudyTiming](http://www.cdisc.org/ns/odm/v2.0/StudyTiming)
+
+
+```mermaid
+erDiagram
+StudyTiming {
+    oid OID  
+    nameType name  
+}
+DurationTimingConstraint {
+    oid OID  
+    nameType name  
+    string structuralElementOID  
+    durationDatetime durationTarget  
+    durationDatetime durationPreWindow  
+    durationDatetime durationPostWindow  
+}
+Description {
+
+}
+TransitionTimingConstraint {
+    oid OID  
+    nameType name  
+    RelativeTimingConstraintType type  
+    durationDatetime timepointTarget  
+    durationDatetime timepointPreWindow  
+    durationDatetime timepointPostWindow  
+}
+MethodDef {
+    oid OID  
+    nameType name  
+    MethodType type  
+}
+Transition {
+    oid OID  
+    nameType name  
+    string sourceOID  
+    string targetOID  
+}
+RelativeTimingConstraint {
+    oid OID  
+    nameType name  
+    string predecessorOID  
+    string successorOID  
+    RelativeTimingConstraintType type  
+    durationDatetime timepointRelativeTarget  
+    durationDatetime timepointPreWindow  
+    durationDatetime timepointPostWindow  
+}
+AbsoluteTimingConstraint {
+    oid OID  
+    nameType name  
+    string timepointTarget  
+    durationDatetime timepointPreWindow  
+    durationDatetime timepointPostWindow  
+}
+StudyEventDef {
+    oid OID  
+    nameType name  
+    YesOrNo repeating  
+    EventType type  
+    text category  
+}
+StudyEventGroupDef {
+    oid OID  
+    nameType name  
+}
+
+StudyTiming ||--}o AbsoluteTimingConstraint : "absoluteTimingConstraint"
+StudyTiming ||--}o RelativeTimingConstraint : "relativeTimingConstraint"
+StudyTiming ||--}o TransitionTimingConstraint : "transitionTimingConstraint"
+StudyTiming ||--}o DurationTimingConstraint : "durationTimingConstraint"
+DurationTimingConstraint ||--|o Description : "description"
+Description ||--}o TranslatedText : "translatedText"
+TransitionTimingConstraint ||--|| Transition : "transitionOID"
+TransitionTimingConstraint ||--|o MethodDef : "methodOID"
+TransitionTimingConstraint ||--|o Description : "description"
+MethodDef ||--|o CommentDef : "commentOID"
+MethodDef ||--|o Description : "description"
+MethodDef ||--|o MethodSignature : "methodSignature"
+MethodDef ||--}o FormalExpression : "formalExpression"
+MethodDef ||--}o Alias : "alias"
+MethodDef ||--}o DocumentRef : "documentRef"
+Transition ||--|o ConditionDef : "startConditionOID"
+Transition ||--|o ConditionDef : "endConditionOID"
+RelativeTimingConstraint ||--|o Description : "description"
+AbsoluteTimingConstraint ||--|o StudyEventGroupDef : "studyEventGroupOID"
+AbsoluteTimingConstraint ||--|o StudyEventDef : "studyEventOID"
+AbsoluteTimingConstraint ||--|o Description : "description"
+StudyEventDef ||--|o CommentDef : "commentOID"
+StudyEventDef ||--|o Description : "description"
+StudyEventDef ||--}o ItemGroupRef : "itemGroupRef"
+StudyEventDef ||--|o WorkflowRef : "workflowRef"
+StudyEventDef ||--}o Coding : "coding"
+StudyEventDef ||--}o Alias : "alias"
+StudyEventGroupDef ||--|o Arm : "armOID"
+StudyEventGroupDef ||--|o Epoch : "epochOID"
+StudyEventGroupDef ||--|o CommentDef : "commentOID"
+StudyEventGroupDef ||--|o Description : "description"
+StudyEventGroupDef ||--|o WorkflowRef : "workflowRef"
+StudyEventGroupDef ||--}o Coding : "coding"
+StudyEventGroupDef ||--}o StudyEventGroupRef : "studyEventGroupRef"
+StudyEventGroupDef ||--}o StudyEventRef : "studyEventRef"
+
+```
+
+
+
+<!-- no inheritance hierarchy -->
+
+
+## Slots
+
+| Name | Cardinality* and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [OID](OID.md) | 1..1 <br/> [oid](oid.md) | Unique identifier for a StudyTiming element. | direct |
+| [name](name.md) | 1..1 <br/> [nameType](nameType.md) | Human readable identifier for a StudyTiming element. | direct |
+| [absoluteTimingConstraint](absoluteTimingConstraint.md) | 0..* <br/> [AbsoluteTimingConstraint](AbsoluteTimingConstraint.md) | AbsoluteTimingConstraint reference: The element AbsoluteTimingConstraint is u... | direct |
+| [relativeTimingConstraint](relativeTimingConstraint.md) | 0..* <br/> [RelativeTimingConstraint](RelativeTimingConstraint.md) | RelativeTimingConstraint reference: The RelativeTimingConstraint element desc... | direct |
+| [transitionTimingConstraint](transitionTimingConstraint.md) | 0..* <br/> [TransitionTimingConstraint](TransitionTimingConstraint.md) | TransitionTimingConstraint reference: The TransitionTimingConstraint element ... | direct |
+| [durationTimingConstraint](durationTimingConstraint.md) | 0..* <br/> [DurationTimingConstraint](DurationTimingConstraint.md) | DurationTimingConstraint reference: The DurationTimingConstraint constrains t... | direct |
+
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [StudyTimings](StudyTimings.md) | [studyTiming](studyTiming.md) | range | [StudyTiming](StudyTiming.md) |
+
+
+
+
+
+
+## See Also
+
+* [https://wiki.cdisc.org/display/PUB/StudyTiming](https://wiki.cdisc.org/display/PUB/StudyTiming)
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | odm:StudyTiming |
+| native | odm:StudyTiming |
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: StudyTiming
+description: The StudyTiming element defines a timing constraint within the study,
+  which can be an absolute timing constraint (e.g., start of the screening visit must
+  be between 1 January 2022 and 31 December 2022), a relative timing constraint (e.g.,
+  visit 2 must be within 30 days after visit 1 with a window of +/- 1 week), a transition
+  timing constraint (i.e., timing constraint on a transition within a defined workflow),
+  or a duration timing constraint (e.g., the duration of visit 2 is planned to take
+  hours with a window of 30 minutes).
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/PUB/StudyTiming
+rank: 1000
+slots:
+- OID
+- name
+- absoluteTimingConstraint
+- relativeTimingConstraint
+- transitionTimingConstraint
+- durationTimingConstraint
+slot_usage:
+  OID:
+    name: OID
+    description: Unique identifier for a StudyTiming element.
+    comments:
+    - 'Required
+
+      range: oid
+
+      The StudyTiming/@OID value must be unique within the study.'
+    identifier: true
+    domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
+    - ValueListDef
+    - WhereClauseDef
+    - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
+    - CommentDef
+    - StudyIndication
+    - StudyIntervention
+    - StudyObjective
+    - StudyEndPoint
+    - StudyTargetPopulation
+    - StudyEstimand
+    - Arm
+    - Epoch
+    - StudyParameter
+    - StudyTiming
+    - TransitionTimingConstraint
+    - AbsoluteTimingConstraint
+    - RelativeTimingConstraint
+    - DurationTimingConstraint
+    - WorkflowDef
+    - Transition
+    - Branching
+    - Criterion
+    - User
+    - Organization
+    - Location
+    - SignatureDef
+    - Query
+    range: oid
+    required: true
+  name:
+    name: name
+    description: Human readable identifier for a StudyTiming element.
+    comments:
+    - 'Required
+
+      range: name
+
+      The StudyTiming/@Name value must be unique within the study.'
+    domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
+    - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - Class
+    - SubClass
+    - SourceItem
+    - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - Parameter
+    - ReturnValue
+    - ConditionDef
+    - StudyObjective
+    - StudyEndPoint
+    - StudyTargetPopulation
+    - StudyEstimand
+    - Arm
+    - Epoch
+    - StudyTiming
+    - TransitionTimingConstraint
+    - AbsoluteTimingConstraint
+    - RelativeTimingConstraint
+    - DurationTimingConstraint
+    - WorkflowDef
+    - Transition
+    - Branching
+    - Criterion
+    - Organization
+    - Location
+    - Query
+    range: nameType
+    required: true
+  absoluteTimingConstraint:
+    name: absoluteTimingConstraint
+    multivalued: true
+    domain_of:
+    - StudyTiming
+    range: AbsoluteTimingConstraint
+    inlined: true
+    inlined_as_list: true
+  relativeTimingConstraint:
+    name: relativeTimingConstraint
+    multivalued: true
+    domain_of:
+    - StudyTiming
+    range: RelativeTimingConstraint
+    inlined: true
+    inlined_as_list: true
+  transitionTimingConstraint:
+    name: transitionTimingConstraint
+    multivalued: true
+    domain_of:
+    - StudyTiming
+    range: TransitionTimingConstraint
+    inlined: true
+    inlined_as_list: true
+  durationTimingConstraint:
+    name: durationTimingConstraint
+    multivalued: true
+    domain_of:
+    - StudyTiming
+    range: DurationTimingConstraint
+    inlined: true
+    inlined_as_list: true
+class_uri: odm:StudyTiming
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: StudyTiming
+description: The StudyTiming element defines a timing constraint within the study,
+  which can be an absolute timing constraint (e.g., start of the screening visit must
+  be between 1 January 2022 and 31 December 2022), a relative timing constraint (e.g.,
+  visit 2 must be within 30 days after visit 1 with a window of +/- 1 week), a transition
+  timing constraint (i.e., timing constraint on a transition within a defined workflow),
+  or a duration timing constraint (e.g., the duration of visit 2 is planned to take
+  hours with a window of 30 minutes).
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/PUB/StudyTiming
+rank: 1000
+slot_usage:
+  OID:
+    name: OID
+    description: Unique identifier for a StudyTiming element.
+    comments:
+    - 'Required
+
+      range: oid
+
+      The StudyTiming/@OID value must be unique within the study.'
+    identifier: true
+    domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
+    - ValueListDef
+    - WhereClauseDef
+    - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
+    - CommentDef
+    - StudyIndication
+    - StudyIntervention
+    - StudyObjective
+    - StudyEndPoint
+    - StudyTargetPopulation
+    - StudyEstimand
+    - Arm
+    - Epoch
+    - StudyParameter
+    - StudyTiming
+    - TransitionTimingConstraint
+    - AbsoluteTimingConstraint
+    - RelativeTimingConstraint
+    - DurationTimingConstraint
+    - WorkflowDef
+    - Transition
+    - Branching
+    - Criterion
+    - User
+    - Organization
+    - Location
+    - SignatureDef
+    - Query
+    range: oid
+    required: true
+  name:
+    name: name
+    description: Human readable identifier for a StudyTiming element.
+    comments:
+    - 'Required
+
+      range: name
+
+      The StudyTiming/@Name value must be unique within the study.'
+    domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
+    - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - Class
+    - SubClass
+    - SourceItem
+    - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - Parameter
+    - ReturnValue
+    - ConditionDef
+    - StudyObjective
+    - StudyEndPoint
+    - StudyTargetPopulation
+    - StudyEstimand
+    - Arm
+    - Epoch
+    - StudyTiming
+    - TransitionTimingConstraint
+    - AbsoluteTimingConstraint
+    - RelativeTimingConstraint
+    - DurationTimingConstraint
+    - WorkflowDef
+    - Transition
+    - Branching
+    - Criterion
+    - Organization
+    - Location
+    - Query
+    range: nameType
+    required: true
+  absoluteTimingConstraint:
+    name: absoluteTimingConstraint
+    multivalued: true
+    domain_of:
+    - StudyTiming
+    range: AbsoluteTimingConstraint
+    inlined: true
+    inlined_as_list: true
+  relativeTimingConstraint:
+    name: relativeTimingConstraint
+    multivalued: true
+    domain_of:
+    - StudyTiming
+    range: RelativeTimingConstraint
+    inlined: true
+    inlined_as_list: true
+  transitionTimingConstraint:
+    name: transitionTimingConstraint
+    multivalued: true
+    domain_of:
+    - StudyTiming
+    range: TransitionTimingConstraint
+    inlined: true
+    inlined_as_list: true
+  durationTimingConstraint:
+    name: durationTimingConstraint
+    multivalued: true
+    domain_of:
+    - StudyTiming
+    range: DurationTimingConstraint
+    inlined: true
+    inlined_as_list: true
+attributes:
+  OID:
+    name: OID
+    description: Unique identifier for a StudyTiming element.
+    comments:
+    - 'Required
+
+      range: oid
+
+      The StudyTiming/@OID value must be unique within the study.'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    identifier: true
+    alias: OID
+    owner: StudyTiming
+    domain_of:
+    - Study
+    - MetaDataVersion
+    - Standard
+    - ValueListDef
+    - WhereClauseDef
+    - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - ConditionDef
+    - CommentDef
+    - StudyIndication
+    - StudyIntervention
+    - StudyObjective
+    - StudyEndPoint
+    - StudyTargetPopulation
+    - StudyEstimand
+    - Arm
+    - Epoch
+    - StudyParameter
+    - StudyTiming
+    - TransitionTimingConstraint
+    - AbsoluteTimingConstraint
+    - RelativeTimingConstraint
+    - DurationTimingConstraint
+    - WorkflowDef
+    - Transition
+    - Branching
+    - Criterion
+    - User
+    - Organization
+    - Location
+    - SignatureDef
+    - Query
+    range: oid
+    required: true
+  name:
+    name: name
+    description: Human readable identifier for a StudyTiming element.
+    comments:
+    - 'Required
+
+      range: name
+
+      The StudyTiming/@Name value must be unique within the study.'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: name
+    owner: StudyTiming
+    domain_of:
+    - Alias
+    - MetaDataVersion
+    - Standard
+    - StudyEventGroupDef
+    - StudyEventDef
+    - ItemGroupDef
+    - Class
+    - SubClass
+    - SourceItem
+    - Resource
+    - ItemDef
+    - CodeList
+    - MethodDef
+    - Parameter
+    - ReturnValue
+    - ConditionDef
+    - StudyObjective
+    - StudyEndPoint
+    - StudyTargetPopulation
+    - StudyEstimand
+    - Arm
+    - Epoch
+    - StudyTiming
+    - TransitionTimingConstraint
+    - AbsoluteTimingConstraint
+    - RelativeTimingConstraint
+    - DurationTimingConstraint
+    - WorkflowDef
+    - Transition
+    - Branching
+    - Criterion
+    - Organization
+    - Location
+    - Query
+    range: nameType
+    required: true
+  absoluteTimingConstraint:
+    name: absoluteTimingConstraint
+    description: 'AbsoluteTimingConstraint reference: The element AbsoluteTimingConstraint
+      is used to specify when an activity, represented by either a StudyEventGroup
+      or StudyEvent, can take place.'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    multivalued: true
+    alias: absoluteTimingConstraint
+    owner: StudyTiming
+    domain_of:
+    - StudyTiming
+    range: AbsoluteTimingConstraint
+    inlined: true
+    inlined_as_list: true
+  relativeTimingConstraint:
+    name: relativeTimingConstraint
+    description: 'RelativeTimingConstraint reference: The RelativeTimingConstraint
+      element describes a relative timing constraint between 2 activities or groups
+      of activities, represented by StudyEventGroups, StudyEvents, ItemGroups, or
+      Items.'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    multivalued: true
+    alias: relativeTimingConstraint
+    owner: StudyTiming
+    domain_of:
+    - StudyTiming
+    range: RelativeTimingConstraint
+    inlined: true
+    inlined_as_list: true
+  transitionTimingConstraint:
+    name: transitionTimingConstraint
+    description: 'TransitionTimingConstraint reference: The TransitionTimingConstraint
+      element defines a timing constraint on a transition between structural elements
+      as defined in a workflow. As such, it is a non-blocking constraint. This means
+      that the transition is set on hold as long as the timing condition is not fulfilled,
+      and is executed as soon as the timing condition is fulfilled.'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    multivalued: true
+    alias: transitionTimingConstraint
+    owner: StudyTiming
+    domain_of:
+    - StudyTiming
+    range: TransitionTimingConstraint
+    inlined: true
+    inlined_as_list: true
+  durationTimingConstraint:
+    name: durationTimingConstraint
+    description: 'DurationTimingConstraint reference: The DurationTimingConstraint
+      constrains the duration of an activity represented by a study, epoch, StudyEventGroupDef,
+      StudyEventDef, ItemGroupDef, or ItemDef. It is used to constrain the duration
+      of the visit, activity, or any other structural element.'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    multivalued: true
+    alias: durationTimingConstraint
+    owner: StudyTiming
+    domain_of:
+    - StudyTiming
+    range: DurationTimingConstraint
+    inlined: true
+    inlined_as_list: true
+class_uri: odm:StudyTiming
+
+```
+</details>

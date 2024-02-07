@@ -1,0 +1,214 @@
+# Class: DateTimeStamp
+
+_Date and time when an action was performed._
+
+
+
+
+URI: [odm:DateTimeStamp](http://www.cdisc.org/ns/odm/v2.0/DateTimeStamp)
+
+
+```mermaid
+erDiagram
+DateTimeStamp {
+    datetime content  
+}
+
+
+
+```
+
+
+
+<!-- no inheritance hierarchy -->
+
+
+## Slots
+
+| Name | Cardinality* and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [content](content.md) | 0..1 <br/> [datetime](datetime.md) | multi-line text content from between XML tags | direct |
+
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [AuditRecord](AuditRecord.md) | [dateTimeStamp](dateTimeStamp.md) | range | [DateTimeStamp](DateTimeStamp.md) |
+| [Signature](Signature.md) | [dateTimeStamp](dateTimeStamp.md) | range | [DateTimeStamp](DateTimeStamp.md) |
+
+
+
+
+
+
+## See Also
+
+* [https://wiki.cdisc.org/display/PUB/DateTimeStamp](https://wiki.cdisc.org/display/PUB/DateTimeStamp)
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | odm:DateTimeStamp |
+| native | odm:DateTimeStamp |
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: DateTimeStamp
+description: Date and time when an action was performed.
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/PUB/DateTimeStamp
+rank: 1000
+slots:
+- content
+slot_usage:
+  content:
+    name: content
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: datetime
+class_uri: odm:DateTimeStamp
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: DateTimeStamp
+description: Date and time when an action was performed.
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/PUB/DateTimeStamp
+rank: 1000
+slot_usage:
+  content:
+    name: content
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: datetime
+attributes:
+  content:
+    name: content
+    description: multi-line text content from between XML tags
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    alias: content
+    owner: DateTimeStamp
+    domain_of:
+    - TranslatedText
+    - Title
+    - CheckValue
+    - Code
+    - WorkflowEnd
+    - UserName
+    - Prefix
+    - Suffix
+    - FullName
+    - GivenName
+    - FamilyName
+    - StreetName
+    - HouseNumber
+    - City
+    - StateProv
+    - Country
+    - PostalCode
+    - OtherText
+    - Meaning
+    - LegalReason
+    - DateTimeStamp
+    - ReasonForChange
+    - SourceID
+    - FlagValue
+    - FlagType
+    - Value
+    range: datetime
+    inlined: true
+class_uri: odm:DateTimeStamp
+
+```
+</details>

@@ -1,0 +1,35 @@
+# gen-doc ODM.yaml --directory ./docs2 --hierarchical-class-view 
+
+site_name: DataExchange-ODM-LinkML
+site_url: https://cdisc-org.github.io/DataExchange-ODM-LinkML
+repo_url: https://github.com/cdisc-org/DataExchange-ODM-Linkml
+
+site_dir: '../cdisc-org.github.io'
+docs_dir: './docs'
+
+theme:
+    name: mkdocs
+    nav_style: dark
+
+plugins:
+    - search
+    - mermaid2:
+        arguments:
+          startOnLoad: false
+          mermaid:
+              er: 
+                  useMaxWidth: true
+markdown_extensions: 
+    - pymdownx.superfences:
+        custom_fences:
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:mermaid2.fence_mermaid_custom
+extra_javascript:
+    - https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js
+    - https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js
+    - js/enable_zoom.js
+
+nav:
+  - Index: index.md
+  - About: about.md

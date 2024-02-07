@@ -1,0 +1,181 @@
+# Class: CDISCNotes
+
+_Explanatory text for the variable._
+
+
+
+
+URI: [odm:CDISCNotes](http://www.cdisc.org/ns/odm/v2.0/CDISCNotes)
+
+
+```mermaid
+erDiagram
+CDISCNotes {
+
+}
+TranslatedText {
+    languageType language  
+    text type  
+    contentType content  
+}
+
+CDISCNotes ||--}o TranslatedText : "translatedText"
+
+```
+
+
+
+<!-- no inheritance hierarchy -->
+
+
+## Slots
+
+| Name | Cardinality* and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [translatedText](translatedText.md) | 0..* <br/> [TranslatedText](TranslatedText.md) | TranslatedText reference: Human-readable text that is appropriate for a parti... | direct |
+
+_* See [LinkML documentation](https://linkml.io/linkml/schemas/slots.html#slot-cardinality) for cardinality definitions._
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [ItemDef](ItemDef.md) | [cDISCNotes](cDISCNotes.md) | range | [CDISCNotes](CDISCNotes.md) |
+
+
+
+
+
+
+## See Also
+
+* [https://wiki.cdisc.org/display/PUB/CDISCNotes](https://wiki.cdisc.org/display/PUB/CDISCNotes)
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | odm:CDISCNotes |
+| native | odm:CDISCNotes |
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: CDISCNotes
+description: Explanatory text for the variable.
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/PUB/CDISCNotes
+rank: 1000
+slots:
+- translatedText
+slot_usage:
+  translatedText:
+    name: translatedText
+    multivalued: true
+    domain_of:
+    - Description
+    - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
+    - ErrorMessage
+    - Decode
+    - Comment
+    range: TranslatedText
+    inlined: true
+    inlined_as_list: true
+class_uri: odm:CDISCNotes
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: CDISCNotes
+description: Explanatory text for the variable.
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+see_also:
+- https://wiki.cdisc.org/display/PUB/CDISCNotes
+rank: 1000
+slot_usage:
+  translatedText:
+    name: translatedText
+    multivalued: true
+    domain_of:
+    - Description
+    - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
+    - ErrorMessage
+    - Decode
+    - Comment
+    range: TranslatedText
+    inlined: true
+    inlined_as_list: true
+attributes:
+  translatedText:
+    name: translatedText
+    description: 'TranslatedText reference: Human-readable text that is appropriate
+      for a particular language. TranslatedText elements typically occur in a series,
+      presenting a set of alternative textual renditions for different languages and
+      types.'
+    from_schema: http://www.cdisc.org/ns/odm/v2.0
+    rank: 1000
+    multivalued: true
+    alias: translatedText
+    owner: CDISCNotes
+    domain_of:
+    - Description
+    - Question
+    - Definition
+    - Prompt
+    - CRFCompletionInstructions
+    - ImplementationNotes
+    - CDISCNotes
+    - ErrorMessage
+    - Decode
+    - Comment
+    range: TranslatedText
+    inlined: true
+    inlined_as_list: true
+class_uri: odm:CDISCNotes
+
+```
+</details>

@@ -1,0 +1,68 @@
+# Slot: legalReason
+
+
+_LegalReason reference: The responsibility statement associated with a signature (e.g., "The signer accepts responsibility for the accuracy of this data.")._
+
+
+
+URI: [odm:legalReason](http://www.cdisc.org/ns/odm/v2.0/legalReason)
+
+
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+[SignatureDef](SignatureDef.md) | Provides Metadata for signatures included in the /ODM/ClinicalData. |  yes  |
+
+
+
+
+
+
+
+## Properties
+
+* Range: [LegalReason](LegalReason.md)
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: http://www.cdisc.org/ns/odm/v2.0
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: legalReason
+description: 'LegalReason reference: The responsibility statement associated with
+  a signature (e.g., "The signer accepts responsibility for the accuracy of this data.").'
+from_schema: http://www.cdisc.org/ns/odm/v2.0
+rank: 1000
+alias: legalReason
+domain_of:
+- SignatureDef
+range: LegalReason
+
+```
+</details>

@@ -1,0 +1,1217 @@
+type AbsoluteTimingConstraint
+  {
+    oID: Oid!
+    name: NameType!
+    studyEventGroupOID: StudyEventGroupDef
+    studyEventOID: StudyEventDef
+    timepointTarget: String!
+    timepointPreWindow: DurationDatetime
+    timepointPostWindow: DurationDatetime
+    description: Description
+  }
+
+type Address
+  {
+    streetName: StreetName
+    houseNumber: HouseNumber
+    city: City
+    stateProv: StateProv
+    country: Country
+    postalCode: PostalCode
+    geoPosition: GeoPosition
+    otherText: OtherText
+  }
+
+type AdminData
+  {
+    studyOID: Study
+    user: [User]
+    organization: [Organization]
+    location: [Location]
+    signatureDef: [SignatureDef]
+  }
+
+type Alias
+  {
+    context: Text!
+    name: Text!
+  }
+
+type AnnotatedCRF
+  {
+    documentRef: [DocumentRef]
+  }
+
+type Annotation
+  {
+    seqNum: PositiveInteger!
+    transactionType: TransactionType
+    iD: Oid!
+    comment: Comment
+    coding: [Coding]
+    flag: [Flag]
+  }
+
+type Arm
+  {
+    oID: Oid!
+    name: NameType!
+    description: Description
+    workflowRef: WorkflowRef
+  }
+
+type Association
+  {
+    studyOID: Study!
+    metaDataVersionOID: MetaDataVersion!
+    keySet: KeySet
+    annotation: Annotation
+  }
+
+type AuditRecord
+  {
+    editPoint: EditPointType
+    usedMethod: YesOrNo
+    userRef: UserRef
+    locationRef: LocationRef
+    dateTimeStamp: DateTimeStamp
+    reasonForChange: ReasonForChange
+    sourceID: SourceID
+  }
+
+type Branching
+  {
+    oID: Oid!
+    name: NameType!
+    type: BranchingType!
+    targetTransition: [TargetTransition]
+    defaultTransition: [DefaultTransition]
+  }
+
+type CDISCNotes
+  {
+    translatedText: [TranslatedText]
+  }
+
+type CheckValue
+  {
+    content: ValueType
+  }
+
+type City
+  {
+    content: Text
+  }
+
+type Class
+  {
+    name: ItemGroupClass!
+    subClass: [SubClass]
+  }
+
+type ClinicalData
+  {
+    studyOID: Study!
+    metaDataVersionOID: MetaDataVersion!
+    subjectData: [SubjectData]
+    itemGroupData: [ItemGroupData]
+    query: [Query]
+    auditRecord: AuditRecord
+    signature: Signature
+    annotation: Annotation
+  }
+
+type Code
+  {
+    content: Text
+  }
+
+type CodeList
+  {
+    oID: Oid!
+    name: NameType!
+    dataType: CLDataType!
+    commentOID: CommentDef
+    standardOID: Standard
+    isNonStandard: YesOnly
+    description: Description
+    codeListItem: [CodeListItem]
+    coding: [Coding]
+    alias: [Alias]
+  }
+
+type CodeListItem
+  {
+    codedValue: ValueType!
+    rank: Decimal
+    other: YesOnly
+    orderNumber: PositiveInteger
+    extendedValue: YesOnly
+    commentOID: CommentDef
+    description: Description
+    decode: Decode
+    coding: [Coding]
+    alias: [Alias]
+  }
+
+type CodeListRef
+  {
+    codeListOID: CodeList!
+  }
+
+type Coding
+  {
+    code: Text
+    system: Uriorcurie!
+    systemName: Text
+    systemVersion: Text
+    label: Text
+    href: Uriorcurie
+    ref: Uriorcurie
+    commentOID: Text
+  }
+
+type Comment
+  {
+    sponsorOrSite: CommentType
+    translatedText: [TranslatedText]
+  }
+
+type CommentDef
+  {
+    oID: Oid!
+    description: Description
+    documentRef: [DocumentRef]
+  }
+
+type ConditionDef
+  {
+    oID: Oid!
+    name: NameType!
+    commentOID: CommentDef
+    description: Description
+    methodSignature: MethodSignature
+    formalExpression: [FormalExpression]
+    alias: [Alias]
+  }
+
+type Country
+  {
+    content: Text
+  }
+
+type CRFCompletionInstructions
+  {
+    translatedText: [TranslatedText]
+  }
+
+type Criterion
+  {
+    oID: Oid!
+    name: NameType!
+    conditionOID: ConditionDef!
+    description: Description
+    coding: [Coding]
+  }
+
+type DateTimeStamp
+  {
+    content: Datetime
+  }
+
+type Decode
+  {
+    translatedText: [TranslatedText]
+  }
+
+type DefaultTransition
+  {
+    targetTransitionOID: Transition!
+  }
+
+type Definition
+  {
+    translatedText: [TranslatedText]
+  }
+
+type Description
+  {
+    translatedText: [TranslatedText]
+  }
+
+type DocumentRef
+  {
+    leafID: Oid!
+    pDFPageRef: [PDFPageRef]
+  }
+
+type DurationTimingConstraint
+  {
+    oID: Oid!
+    name: NameType!
+    structuralElementOID: String!
+    durationTarget: DurationDatetime!
+    durationPreWindow: DurationDatetime
+    durationPostWindow: DurationDatetime
+    description: Description
+  }
+
+type Epoch
+  {
+    oID: Oid!
+    name: NameType!
+    sequenceNumber: PositiveInteger!
+    description: Description
+  }
+
+type ErrorMessage
+  {
+    translatedText: [TranslatedText]
+  }
+
+type ExclusionCriteria
+  {
+    criterion: [Criterion]
+  }
+
+type ExternalCodeLib
+  {
+    library: NameType!
+    method: NameType
+    version: Text
+    ref: Text
+    href: Uriorcurie
+  }
+
+type FamilyName
+  {
+    content: Text
+  }
+
+type Flag
+  {
+    flagValue: FlagValue
+    flagType: FlagType
+  }
+
+type FlagType
+  {
+    codeListOID: CodeList!
+    content: NameType
+  }
+
+type FlagValue
+  {
+    codeListOID: CodeList!
+    content: NameType
+  }
+
+type FormalExpression
+  {
+    context: Text
+    code: Code
+    externalCodeLib: ExternalCodeLib
+  }
+
+type FullName
+  {
+    content: Text
+  }
+
+type GeoPosition
+  {
+    longitude: Decimal
+    latitude: Decimal
+    altitude: Decimal
+  }
+
+type GivenName
+  {
+    content: Text
+  }
+
+type HouseNumber
+  {
+    content: Text
+  }
+
+type Image
+  {
+    imageFileName: FileName
+    href: Text
+    mimeType: Text
+  }
+
+type ImplementationNotes
+  {
+    translatedText: [TranslatedText]
+  }
+
+type Include
+  {
+    studyOID: Study!
+    metaDataVersionOID: MetaDataVersion!
+    href: Uriorcurie
+  }
+
+type InclusionCriteria
+  {
+    criterion: [Criterion]
+  }
+
+type InclusionExclusionCriteria
+  {
+    inclusionCriteria: InclusionCriteria
+    exclusionCriteria: ExclusionCriteria
+  }
+
+type IntercurrentEvent
+  {
+    description: Description
+  }
+
+type InvestigatorRef
+  {
+    userOID: User!
+  }
+
+type ItemData
+  {
+    itemOID: ItemDef!
+    transactionType: TransactionType
+    isNull: YesOnly
+    value: [Value]
+    query: [Query]
+    auditRecord: AuditRecord
+    signature: Signature
+    annotation: Annotation
+  }
+
+type ItemDef
+  {
+    oID: Oid!
+    name: NameType!
+    dataType: DataType!
+    length: PositiveInteger
+    displayFormat: Text
+    variableSet: Text
+    commentOID: CommentDef
+    description: Description
+    definition: Definition
+    question: Question
+    prompt: Prompt
+    cRFCompletionInstructions: CRFCompletionInstructions
+    implementationNotes: ImplementationNotes
+    cDISCNotes: CDISCNotes
+    rangeCheck: [RangeCheck]
+    codeListRef: CodeListRef
+    valueListRef: ValueListRef
+    coding: [Coding]
+    alias: [Alias]
+  }
+
+type ItemGroupData
+  {
+    itemGroupOID: ItemGroupDef!
+    itemGroupRepeatKey: RepeatKey
+    transactionType: TransactionType
+    itemGroupDataSeq: PositiveInteger
+    query: [Query]
+    itemGroupData: [ItemGroupData]
+    itemData: [ItemData]
+    auditRecord: AuditRecord
+    signature: Signature
+    annotation: Annotation
+  }
+
+type ItemGroupDef
+  {
+    oID: Oid!
+    name: NameType!
+    repeating: ItemGroupRepeatingType!
+    repeatingLimit: PositiveInteger
+    isReferenceData: YesOrNo
+    structure: Text
+    archiveLocationID: Leaf
+    datasetName: NameType
+    domain: Text
+    type: ItemGroupTypeType!
+    purpose: Text
+    standardOID: Standard
+    isNonStandard: YesOnly
+    hasNoData: YesOnly
+    commentOID: CommentDef
+    description: Description
+    itemGroupClass: Class
+    coding: [Coding]
+    workflowRef: WorkflowRef
+    origin: [Origin]
+    alias: [Alias]
+    leaf: Leaf
+    itemGroupRef: [ItemGroupRef]
+    itemRef: [ItemRef]
+  }
+
+type ItemGroupRef
+  {
+    itemGroupOID: ItemGroupDef!
+    methodOID: MethodDef
+    orderNumber: PositiveInteger
+    mandatory: YesOrNo!
+    collectionExceptionConditionOID: ConditionDef
+  }
+
+type ItemRef
+  {
+    itemOID: ItemDef!
+    keySequence: PositiveInteger
+    isNonStandard: YesOnly
+    hasNoData: YesOnly
+    methodOID: MethodDef
+    unitsItemOID: ItemDef
+    repeat: YesOnly
+    other: YesOnly
+    role: Text
+    roleCodeListOID: CodeList
+    core: CoreType
+    preSpecifiedValue: Text
+    orderNumber: PositiveInteger
+    mandatory: YesOrNo!
+    collectionExceptionConditionOID: ConditionDef
+    origin: [Origin]
+    whereClauseRef: [WhereClauseRef]
+  }
+
+type KeySet
+  {
+    studyOID: Study!
+    subjectKey: SubjectKeyType
+    metaDataVersionOID: MetaDataVersion
+    studyEventOID: StudyEventDef
+    studyEventRepeatKey: RepeatKey
+    itemGroupOID: ItemGroupDef
+    itemGroupRepeatKey: RepeatKey
+    itemOID: ItemDef
+  }
+
+type Leaf
+  {
+    iD: Oid!
+    href: Uriorcurie!
+    title: Title
+  }
+
+type LegalReason
+  {
+    content: Text
+  }
+
+type Location
+  {
+    oID: Oid!
+    name: NameType!
+    role: Text
+    organizationOID: Organization
+    description: Description
+    metaDataVersionRef: [MetaDataVersionRef]
+    address: [Address]
+    telecom: [Telecom]
+    query: [Query]
+  }
+
+type LocationRef
+  {
+    locationOID: Location!
+  }
+
+type Meaning
+  {
+    content: Text
+  }
+
+type MetaDataVersion
+  {
+    oID: Oid!
+    name: NameType!
+    commentOID: CommentDef
+    description: Description
+    include: Include
+    standards: Standards
+    annotatedCRF: AnnotatedCRF
+    supplementalDoc: SupplementalDoc
+    valueListDef: [ValueListDef]
+    whereClauseDef: [WhereClauseDef]
+    protocol: Protocol
+    workflowDef: [WorkflowDef]
+    studyEventGroupDef: [StudyEventGroupDef]
+    studyEventDef: [StudyEventDef]
+    itemGroupDef: [ItemGroupDef]
+    itemDef: [ItemDef]
+    codeList: [CodeList]
+    conditionDef: [ConditionDef]
+    methodDef: [MethodDef]
+    commentDef: [CommentDef]
+    leaf: [Leaf]
+  }
+
+type MetaDataVersionRef
+  {
+    studyOID: Study!
+    metaDataVersionOID: MetaDataVersion!
+    effectiveDate: Date!
+  }
+
+type MethodDef
+  {
+    oID: Oid!
+    name: NameType!
+    type: MethodType
+    commentOID: CommentDef
+    description: Description
+    methodSignature: MethodSignature
+    formalExpression: [FormalExpression]
+    alias: [Alias]
+    documentRef: [DocumentRef]
+  }
+
+type MethodSignature
+  {
+    parameter: [Parameter]
+    returnValue: [ReturnValue]
+  }
+
+type ODMFileMetadata
+  {
+    fileType: FileType!
+    granularity: Granularity
+    context: Context
+    fileOID: Oid!
+    creationDateTime: Datetime!
+    priorFileOID: ODMFileMetadata
+    asOfDateTime: Datetime
+    oDMVersion: ODMVersion
+    originator: Text
+    sourceSystem: Text
+    sourceSystemVersion: Text
+    description: Description
+    study: [Study]
+    adminData: [AdminData]
+    referenceData: [ReferenceData]
+    clinicalData: [ClinicalData]
+    association: [Association]
+  }
+
+type Organization
+  {
+    oID: Oid!
+    name: NameType!
+    role: Text
+    type: OrganizationType!
+    locationOID: Location
+    partOfOrganizationOID: Organization
+    description: Description
+    address: [Address]
+    telecom: [Telecom]
+  }
+
+type Origin
+  {
+    type: OriginType!
+    source: OriginSource
+    description: Description
+    sourceItems: SourceItems
+    coding: [Coding]
+    documentRef: [DocumentRef]
+  }
+
+type OtherText
+  {
+    content: Text
+  }
+
+type Parameter
+  {
+    name: NameType!
+    dataType: DataType!
+    definition: Text
+    orderNumber: PositiveInteger
+  }
+
+type ParameterValue
+  {
+    value: Text!
+    coding: [Coding]
+  }
+
+type PDFPageRef
+  {
+    pageRefs: Text
+    firstPage: PositiveInteger
+    lastPage: PositiveInteger
+    type: PDFPageType!
+    title: Text
+  }
+
+type PostalCode
+  {
+    content: Text
+  }
+
+type Prefix
+  {
+    content: Text
+  }
+
+type Prompt
+  {
+    translatedText: [TranslatedText]
+  }
+
+type Protocol
+  {
+    description: Description
+    studySummary: StudySummary
+    studyStructure: StudyStructure
+    trialPhase: TrialPhase
+    studyTimings: StudyTimings
+    studyIndications: StudyIndications
+    studyInterventions: StudyInterventions
+    studyObjectives: StudyObjectives
+    studyEndPoints: StudyEndPoints
+    studyTargetPopulation: StudyTargetPopulation
+    studyEstimands: StudyEstimands
+    inclusionExclusionCriteria: InclusionExclusionCriteria
+    studyEventGroupRef: [StudyEventGroupRef]
+    workflowRef: WorkflowRef
+    alias: [Alias]
+  }
+
+type Query
+  {
+    oID: Oid!
+    source: QuerySourceType!
+    target: Text
+    type: QueryType
+    state: QueryStateType!
+    lastUpdateDatetime: Datetime!
+    name: NameType
+    value: Value
+    auditRecord: [AuditRecord]
+  }
+
+type Question
+  {
+    translatedText: [TranslatedText]
+  }
+
+type RangeCheck
+  {
+    comparator: Comparator
+    softHard: SoftOrHard
+    itemOID: ItemDef
+    errorMessage: ErrorMessage
+    methodSignature: MethodSignature
+    formalExpression: [FormalExpression]
+    checkValue: [CheckValue]
+  }
+
+type ReasonForChange
+  {
+    content: Text
+  }
+
+type ReferenceData
+  {
+    studyOID: Study!
+    metaDataVersionOID: MetaDataVersion!
+    itemGroupData: [ItemGroupData]
+    auditRecord: AuditRecord
+    signature: Signature
+    annotation: Annotation
+  }
+
+type RelativeTimingConstraint
+  {
+    oID: Oid!
+    name: NameType!
+    predecessorOID: String
+    successorOID: String
+    type: RelativeTimingConstraintType
+    timepointRelativeTarget: DurationDatetime!
+    timepointPreWindow: DurationDatetime
+    timepointPostWindow: DurationDatetime
+    description: Description
+  }
+
+type Resource
+  {
+    type: Text!
+    name: NameType!
+    attribute: Text
+    label: Text
+    selection: [Selection]
+  }
+
+type ReturnValue
+  {
+    name: NameType!
+    dataType: DataType!
+    definition: Text
+    orderNumber: PositiveInteger
+  }
+
+type Selection
+  {
+    path: Text!
+  }
+
+type Signature
+  {
+    iD: Oid!
+    userRef: UserRef
+    locationRef: LocationRef
+    signatureRef: SignatureRef
+    dateTimeStamp: DateTimeStamp
+  }
+
+type SignatureDef
+  {
+    oID: Oid!
+    methodology: SignMethod
+    meaning: Meaning
+    legalReason: LegalReason
+  }
+
+type SignatureRef
+  {
+    signatureOID: SignatureDef!
+  }
+
+type SiteRef
+  {
+    locationOID: Location!
+  }
+
+type SourceID
+  {
+    content: Text
+  }
+
+type SourceItem
+  {
+    itemOID: ItemDef
+    itemGroupOID: ItemGroupDef
+    metaDataVersionOID: MetaDataVersion
+    studyOID: Study
+    leafID: Leaf
+    name: NameType
+    resource: [Resource]
+    coding: [Coding]
+  }
+
+type SourceItems
+  {
+    sourceItem: [SourceItem]
+    coding: [Coding]
+  }
+
+type Standard
+  {
+    oID: Oid!
+    name: StandardName!
+    type: StandardType!
+    publishingSet: StandardPublishingSet
+    version: Text!
+    status: StandardStatus!
+    commentOID: CommentDef
+  }
+
+type Standards
+  {
+    standard: [Standard]
+  }
+
+type StateProv
+  {
+    content: Text
+  }
+
+type StreetName
+  {
+    content: Text
+  }
+
+type Study
+  {
+    oID: Oid!
+    studyName: NameType!
+    protocolName: NameType!
+    versionID: NameType
+    versionName: NameType
+    status: NameType
+    description: Description
+    metaDataVersion: [MetaDataVersion]
+  }
+
+type StudyEndPoint
+  {
+    oID: Oid!
+    name: NameType!
+    type: StudyEndPointType
+    level: StudyEstimandLevel
+    description: Description
+    formalExpression: [FormalExpression]
+  }
+
+type StudyEndPointRef
+  {
+    studyEndPointOID: StudyEndPoint!
+    orderNumber: PositiveInteger
+  }
+
+type StudyEndPoints
+  {
+    studyEndPoint: [StudyEndPoint]
+  }
+
+type StudyEstimand
+  {
+    oID: Oid!
+    name: NameType!
+    level: StudyEstimandLevel
+    description: Description
+    studyTargetPopulationRef: StudyTargetPopulationRef
+    studyInterventionRef: StudyInterventionRef
+    studyEndPointRef: StudyEndPointRef
+    intercurrentEvent: [IntercurrentEvent]
+    summaryMeasure: SummaryMeasure
+  }
+
+type StudyEstimands
+  {
+    studyEstimand: [StudyEstimand]
+  }
+
+type StudyEventData
+  {
+    studyEventOID: StudyEventDef!
+    studyEventRepeatKey: RepeatKey
+    transactionType: TransactionType
+    itemGroupData: [ItemGroupData]
+    query: [Query]
+    auditRecord: AuditRecord
+    signature: Signature
+    annotation: Annotation
+  }
+
+type StudyEventDef
+  {
+    oID: Oid!
+    name: NameType!
+    repeating: YesOrNo!
+    type: EventType!
+    category: Text
+    commentOID: CommentDef
+    description: Description
+    itemGroupRef: [ItemGroupRef]
+    workflowRef: WorkflowRef
+    coding: [Coding]
+    alias: [Alias]
+  }
+
+type StudyEventGroupDef
+  {
+    oID: Oid!
+    name: NameType!
+    armOID: Arm
+    epochOID: Epoch
+    commentOID: CommentDef
+    description: Description
+    workflowRef: WorkflowRef
+    coding: [Coding]
+    studyEventGroupRef: [StudyEventGroupRef]
+    studyEventRef: [StudyEventRef]
+  }
+
+type StudyEventGroupRef
+  {
+    studyEventGroupOID: StudyEventGroupDef!
+    orderNumber: PositiveInteger
+    mandatory: YesOrNo!
+    collectionExceptionConditionOID: ConditionDef
+    description: Description
+  }
+
+type StudyEventRef
+  {
+    studyEventOID: StudyEventDef!
+    orderNumber: PositiveInteger
+    mandatory: YesOrNo!
+    collectionExceptionConditionOID: ConditionDef
+  }
+
+type StudyIndication
+  {
+    oID: Oid!
+    description: Description
+    coding: [Coding]
+  }
+
+type StudyIndications
+  {
+    studyIndication: [StudyIndication]
+  }
+
+type StudyIntervention
+  {
+    oID: Oid!
+    description: Description
+    coding: [Coding]
+  }
+
+type StudyInterventionRef
+  {
+    studyInterventionOID: StudyIntervention!
+  }
+
+type StudyInterventions
+  {
+    studyIntervention: [StudyIntervention]
+  }
+
+type StudyObjective
+  {
+    oID: Oid!
+    name: NameType!
+    level: StudyObjectiveLevel
+    description: Description
+    studyEndPointRef: [StudyEndPointRef]
+  }
+
+type StudyObjectives
+  {
+    studyObjective: [StudyObjective]
+  }
+
+type StudyParameter
+  {
+    oID: Oid!
+    term: NameType!
+    shortName: NameType
+    parameterValue: ParameterValue
+    coding: [Coding]
+  }
+
+type StudyStructure
+  {
+    description: Description
+    arm: [Arm]
+    epoch: [Epoch]
+    workflowRef: WorkflowRef
+  }
+
+type StudySummary
+  {
+    studyParameter: [StudyParameter]
+  }
+
+type StudyTargetPopulation
+  {
+    oID: Oid!
+    name: NameType!
+    description: Description
+    coding: [Coding]
+    formalExpression: [FormalExpression]
+  }
+
+type StudyTargetPopulationRef
+  {
+    studyTargetPopulationOID: StudyTargetPopulation!
+  }
+
+type StudyTiming
+  {
+    oID: Oid!
+    name: NameType!
+    absoluteTimingConstraint: [AbsoluteTimingConstraint]
+    relativeTimingConstraint: [RelativeTimingConstraint]
+    transitionTimingConstraint: [TransitionTimingConstraint]
+    durationTimingConstraint: [DurationTimingConstraint]
+  }
+
+type StudyTimings
+  {
+    studyTiming: [StudyTiming]
+  }
+
+type SubClass
+  {
+    name: ItemGroupSubClass!
+    parentClass: ItemGroupClassSubClass
+  }
+
+type SubjectData
+  {
+    subjectKey: SubjectKeyType!
+    transactionType: TransactionType
+    investigatorRef: InvestigatorRef
+    siteRef: SiteRef
+    studyEventData: [StudyEventData]
+    query: [Query]
+    auditRecord: AuditRecord
+    signature: Signature
+    annotation: Annotation
+  }
+
+type Suffix
+  {
+    content: Text
+  }
+
+type SummaryMeasure
+  {
+    description: Description
+  }
+
+type SupplementalDoc
+  {
+    documentRef: [DocumentRef]
+  }
+
+type TargetTransition
+  {
+    targetTransitionOID: Transition!
+    conditionOID: ConditionDef
+  }
+
+type Telecom
+  {
+    telecomType: TelecomTypeType!
+    value: Text!
+  }
+
+type Title
+  {
+    content: Text
+  }
+
+type Transition
+  {
+    oID: Oid!
+    name: NameType!
+    sourceOID: String!
+    targetOID: String!
+    startConditionOID: ConditionDef
+    endConditionOID: ConditionDef
+  }
+
+type TransitionTimingConstraint
+  {
+    oID: Oid!
+    name: NameType!
+    transitionOID: Transition!
+    methodOID: MethodDef
+    type: RelativeTimingConstraintType
+    timepointTarget: DurationDatetime!
+    timepointPreWindow: DurationDatetime
+    timepointPostWindow: DurationDatetime
+    description: Description
+  }
+
+type TranslatedText
+  {
+    language: LanguageType
+    type: Text!
+    content: ContentType
+  }
+
+type TrialPhase
+  {
+    value: TrialPhaseType!
+    description: Description
+  }
+
+type User
+  {
+    oID: Oid!
+    userType: UserType
+    organizationOID: Organization
+    locationOID: Location
+    userName: UserName
+    prefix: Prefix
+    suffix: Suffix
+    fullName: FullName
+    givenName: GivenName
+    familyName: FamilyName
+    image: Image
+    address: [Address]
+    telecom: [Telecom]
+  }
+
+type UserName
+  {
+    content: Text
+  }
+
+type UserRef
+  {
+    userOID: User!
+  }
+
+type Value
+  {
+    seqNum: PositiveInteger
+    content: Text
+  }
+
+type ValueListDef
+  {
+    oID: Oid!
+    description: Description
+    itemRef: [ItemRef]
+  }
+
+type ValueListRef
+  {
+    valueListOID: ValueListDef!
+  }
+
+type WhereClauseDef
+  {
+    oID: Oid!
+    commentOID: CommentDef
+    rangeCheck: [RangeCheck]
+  }
+
+type WhereClauseRef
+  {
+    whereClauseOID: WhereClauseDef!
+  }
+
+type WorkflowDef
+  {
+    oID: Oid!
+    name: NameType!
+    description: Description
+    workflowStart: WorkflowStart
+    workflowEnd: [WorkflowEnd]
+    transition: [Transition]
+    branching: [Branching]
+  }
+
+type WorkflowEnd
+  {
+    endOID: String!
+    content: Text
+  }
+
+type WorkflowRef
+  {
+    workflowOID: WorkflowDef!
+  }
+
+type WorkflowStart
+  {
+    startOID: String!
+  }
+
