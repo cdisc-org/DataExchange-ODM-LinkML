@@ -1,0 +1,269 @@
+{
+    "creationDateTime": "2009-09-07T18:19:28+01:00",
+    "fileOID": "FHIR-examples",
+    "fileType": "Snapshot",
+    "oDMVersion": "2.0",
+    "study": [
+        {
+            "OID": "fhir-odm-esource-study",
+            "description": {
+                "translatedText": [
+                    {
+                        "content": "FHIR eSource Demo Study",
+                        "language": "en",
+                        "type": "text/plain"
+                    }
+                ]
+            },
+            "metaDataVersion": [
+                {
+                    "OID": "MDV.fhir-odm",
+                    "codeList": [
+                        {
+                            "OID": "CL.LBORRESU",
+                            "codeListItem": [
+                                {
+                                    "codedValue": "10^9/L",
+                                    "coding": [
+                                        {
+                                            "code": "C67255",
+                                            "system": "https://www.cdisc.org/standards/terminology",
+                                            "systemName": "CDISC/NCI CT",
+                                            "systemVersion": "2019-12-20"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "coding": [
+                                {
+                                    "code": "C71620",
+                                    "system": "https://www.cdisc.org/standards/terminology",
+                                    "systemName": "CDISC/NCI CT",
+                                    "systemVersion": "2019-12-20"
+                                }
+                            ],
+                            "dataType": "text",
+                            "name": "Unit (LBRESU)"
+                        }
+                    ],
+                    "itemDef": [
+                        {
+                            "OID": "ODM.IT.LB.WBC.LBORRES",
+                            "coding": [
+                                {
+                                    "code": "26464-8",
+                                    "system": "http://loinc.org",
+                                    "systemName": "LOINC",
+                                    "systemVersion": "2.61"
+                                }
+                            ],
+                            "dataType": "float",
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "Result of the measurement or finding as originally received or collected.",
+                                        "language": "en",
+                                        "type": "text/plain"
+                                    }
+                                ]
+                            },
+                            "length": 4,
+                            "name": "WBC",
+                            "question": {
+                                "translatedText": [
+                                    {
+                                        "content": "Result",
+                                        "language": "en",
+                                        "type": "text/plain"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "OID": "ODM.IT.LB.WBC.LBORRESU",
+                            "codeListRef": {"codeListOID": "CL.LBORRESU"},
+                            "coding": [
+                                {
+                                    "code": "26464-8",
+                                    "system": "http://loinc.org",
+                                    "systemName": "LOINC",
+                                    "systemVersion": "2.61"
+                                }
+                            ],
+                            "dataType": "text",
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "WBC",
+                                        "language": "en",
+                                        "type": "text/plain"
+                                    }
+                                ]
+                            },
+                            "length": 6,
+                            "name": "LBORRESU"
+                        }
+                    ],
+                    "itemGroupDef": [
+                        {
+                            "OID": "ODM.IG.COMMON",
+                            "itemRef": [
+                                {
+                                    "itemOID": "ODM.IT.Common.StudyID",
+                                    "mandatory": "Yes"
+                                },
+                                {
+                                    "itemOID": "ODM.IT.Common.SiteID",
+                                    "mandatory": "Yes"
+                                },
+                                {
+                                    "itemOID": "ODM.IT.Common.SubjectID",
+                                    "mandatory": "Yes"
+                                },
+                                {
+                                    "itemOID": "ODM.IT.Common.Visit",
+                                    "mandatory": "Yes"
+                                }
+                            ],
+                            "name": "Common",
+                            "repeating": "No",
+                            "type": "Section"
+                        },
+                        {
+                            "OID": "ODM.IG.LB",
+                            "itemGroupRef": [
+                                {
+                                    "itemGroupOID": "ODM.IG.LB.WBC",
+                                    "mandatory": "Yes",
+                                    "methodOID": "ODM.MT.LB.LBORRES"
+                                }
+                            ],
+                            "itemRef": [
+                                {
+                                    "itemOID": "ODM.IT.LB.LBDTC",
+                                    "mandatory": "Yes"
+                                },
+                                {
+                                    "itemOID": "ODM.IT.LB.LBORRES",
+                                    "mandatory": "Yes"
+                                },
+                                {
+                                    "itemOID": "ODM.IT.LB.LBORRESU",
+                                    "mandatory": "Yes"
+                                },
+                                {
+                                    "itemOID": "ODM.IT.LB.LBORRES",
+                                    "mandatory": "Yes"
+                                },
+                                {
+                                    "itemOID": "ODM.IT.LB.LBORRESU",
+                                    "mandatory": "Yes"
+                                }
+                            ],
+                            "name": "LAB Measurements",
+                            "repeating": "No",
+                            "type": "Section"
+                        },
+                        {
+                            "OID": "ODM.IG.LB.WBC",
+                            "itemRef": [
+                                {
+                                    "itemOID": "ODM.IT.LB.WBC.LBORRES",
+                                    "mandatory": "Yes"
+                                },
+                                {
+                                    "itemOID": "ODM.IT.LB.WBC.LBORRESU",
+                                    "mandatory": "Yes"
+                                }
+                            ],
+                            "name": "WBC Lab Results with Unit",
+                            "origin": [
+                                {
+                                    "source": "Vendor",
+                                    "sourceItems": {
+                                        "sourceItem": [
+                                            {
+                                                "resource": [
+                                                    {
+                                                        "attribute": "identifier.value",
+                                                        "label": "patient_id",
+                                                        "name": "ResearchSubject",
+                                                        "selection": [
+                                                            {"path": "Resource[@Name='ResearchSubject']/identifier/@value"}
+                                                        ],
+                                                        "type": "HL7-FHIR"
+                                                    },
+                                                    {
+                                                        "attribute": "valueQuantity.value",
+                                                        "label": "loinc_code",
+                                                        "name": "Observation",
+                                                        "selection": [
+                                                            {"path": "Resource[@Name='Observation'][code/coding[system/@value='http://loinc.org' and code/@value='26464-8']]"}
+                                                        ],
+                                                        "type": "HL7-FHIR"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "type": "Collected"
+                                }
+                            ],
+                            "repeating": "No",
+                            "type": "Section"
+                        }
+                    ],
+                    "methodDef": [
+                        {
+                            "OID": "ODM.MT.LB.LBORRES",
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "FHIR API call definition to retrieve lab result",
+                                        "language": "en",
+                                        "type": "text/plain"
+                                    }
+                                ]
+                            },
+                            "formalExpression": [
+                                {
+                                    "code": {"content": "smart = client.FHIRClient(settings={'app_id': 'rof_adapter', 'api_base': 'https://api.logicahealth.org/STU301withSynthea/open'})\\n                        search_obs = ob.Observation.where(struct=dict(patient=patient_id, code=loinc_code))\n                        value = \"\"\\n                        if len(search_obs.perform_resources(smart.server)) > 0:\\n                            obs = search_obs.perform_resources(smart.server).pop().as_json()\\n                            value = obs[\"valueQuantity\"][\"value\"]\\n                            unit = obs[\"valueQuantity\"][\"unit\"]\\n                        return value, unit                \\n"}
+                                }
+                            ],
+                            "methodSignature": {
+                                "parameter": [
+                                    {
+                                        "dataType": "text",
+                                        "definition": "Patient ID in the EHR system",
+                                        "name": "patient_id"
+                                    },
+                                    {
+                                        "dataType": "text",
+                                        "definition": "LOINC Code",
+                                        "name": "loinc_code"
+                                    }
+                                ],
+                                "returnValue": [
+                                    {
+                                        "dataType": "text",
+                                        "definition": "Lab result from the EHR system",
+                                        "name": "LBORRES"
+                                    },
+                                    {
+                                        "dataType": "text",
+                                        "definition": "Lab result unit from the EHR system",
+                                        "name": "LBORRESU"
+                                    }
+                                ]
+                            },
+                            "name": "Retrieve Lab Result using FHIR"
+                        }
+                    ],
+                    "name": "FHIR eSource MDV"
+                }
+            ],
+            "protocolName": "FHIR-eSource-Demo-01",
+            "studyName": "FHIR eSource"
+        }
+    ]
+}

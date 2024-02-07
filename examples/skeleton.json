@@ -1,0 +1,2151 @@
+{
+    "adminData": [
+        {
+            "location": [
+                {
+                    "OID": "",
+                    "address": [
+                        {
+                            "city": {"content": ""},
+                            "country": {"content": ""},
+                            "geoPosition": {
+                                "altitude": 0,
+                                "latitude": 0,
+                                "longitude": 0
+                            },
+                            "houseNumber": {"content": ""},
+                            "otherText": {"content": ""},
+                            "postalCode": {"content": ""},
+                            "stateProv": {"content": ""},
+                            "streetName": {"content": ""}
+                        }
+                    ],
+                    "description": {
+                        "translatedText": [
+                            {
+                                "content": "",
+                                "language": "",
+                                "type": ""
+                            }
+                        ]
+                    },
+                    "metaDataVersionRef": [
+                        {
+                            "effectiveDate": "",
+                            "metaDataVersionOID": "",
+                            "studyOID": ""
+                        }
+                    ],
+                    "name": "",
+                    "organizationOID": "",
+                    "query": [
+                        {
+                            "OID": "",
+                            "auditRecord": [
+                                {
+                                    "dateTimeStamp": {"content": ""},
+                                    "editPoint": "",
+                                    "locationRef": {"locationOID": ""},
+                                    "reasonForChange": {"content": ""},
+                                    "sourceID": {"content": ""},
+                                    "usedMethod": "",
+                                    "userRef": {"userOID": ""}
+                                }
+                            ],
+                            "lastUpdateDatetime": "",
+                            "name": "",
+                            "source": "",
+                            "state": "",
+                            "target": "",
+                            "type": "",
+                            "value": {
+                                "content": "",
+                                "seqNum": 0
+                            }
+                        }
+                    ],
+                    "role": "",
+                    "telecom": [
+                        {
+                            "telecomType": "",
+                            "value": ""
+                        }
+                    ]
+                }
+            ],
+            "organization": [
+                {
+                    "OID": "",
+                    "address": [
+                        {
+                            "city": {"content": ""},
+                            "country": {"content": ""},
+                            "geoPosition": {
+                                "altitude": 0,
+                                "latitude": 0,
+                                "longitude": 0
+                            },
+                            "houseNumber": {"content": ""},
+                            "otherText": {"content": ""},
+                            "postalCode": {"content": ""},
+                            "stateProv": {"content": ""},
+                            "streetName": {"content": ""}
+                        }
+                    ],
+                    "description": {
+                        "translatedText": [
+                            {
+                                "content": "",
+                                "language": "",
+                                "type": ""
+                            }
+                        ]
+                    },
+                    "locationOID": "",
+                    "name": "",
+                    "partOfOrganizationOID": "",
+                    "role": "",
+                    "telecom": [
+                        {
+                            "telecomType": "",
+                            "value": ""
+                        }
+                    ],
+                    "type": ""
+                }
+            ],
+            "signatureDef": [
+                {
+                    "OID": "",
+                    "legalReason": {"content": ""},
+                    "meaning": {"content": ""},
+                    "methodology": ""
+                }
+            ],
+            "studyOID": "",
+            "user": [
+                {
+                    "OID": "",
+                    "address": [
+                        {
+                            "city": {"content": ""},
+                            "country": {"content": ""},
+                            "geoPosition": {
+                                "altitude": 0,
+                                "latitude": 0,
+                                "longitude": 0
+                            },
+                            "houseNumber": {"content": ""},
+                            "otherText": {"content": ""},
+                            "postalCode": {"content": ""},
+                            "stateProv": {"content": ""},
+                            "streetName": {"content": ""}
+                        }
+                    ],
+                    "familyName": {"content": ""},
+                    "fullName": {"content": ""},
+                    "givenName": {"content": ""},
+                    "image": {
+                        "href": "",
+                        "imageFileName": "",
+                        "mimeType": ""
+                    },
+                    "locationOID": "",
+                    "organizationOID": "",
+                    "prefix": {"content": ""},
+                    "suffix": {"content": ""},
+                    "telecom": [
+                        {
+                            "telecomType": "",
+                            "value": ""
+                        }
+                    ],
+                    "userName": {"content": ""},
+                    "userType": ""
+                }
+            ]
+        }
+    ],
+    "asOfDateTime": "",
+    "association": [
+        {
+            "annotation": "",
+            "keySet": {
+                "itemGroupOID": "",
+                "itemGroupRepeatKey": "",
+                "itemOID": "",
+                "metaDataVersionOID": "",
+                "studyEventOID": "",
+                "studyEventRepeatKey": "",
+                "studyOID": "",
+                "subjectKey": ""
+            },
+            "metaDataVersionOID": "",
+            "studyOID": ""
+        }
+    ],
+    "clinicalData": [
+        {
+            "annotation": "",
+            "auditRecord": {
+                "dateTimeStamp": {"content": ""},
+                "editPoint": "",
+                "locationRef": {"locationOID": ""},
+                "reasonForChange": {"content": ""},
+                "sourceID": {"content": ""},
+                "usedMethod": "",
+                "userRef": {"userOID": ""}
+            },
+            "itemGroupData": [
+                {
+                    "annotation": "",
+                    "auditRecord": {
+                        "dateTimeStamp": {"content": ""},
+                        "editPoint": "",
+                        "locationRef": {"locationOID": ""},
+                        "reasonForChange": {"content": ""},
+                        "sourceID": {"content": ""},
+                        "usedMethod": "",
+                        "userRef": {"userOID": ""}
+                    },
+                    "itemData": [
+                        {
+                            "annotation": "",
+                            "auditRecord": {
+                                "dateTimeStamp": {"content": ""},
+                                "editPoint": "",
+                                "locationRef": {"locationOID": ""},
+                                "reasonForChange": {"content": ""},
+                                "sourceID": {"content": ""},
+                                "usedMethod": "",
+                                "userRef": {"userOID": ""}
+                            },
+                            "isNull": "",
+                            "itemOID": "",
+                            "query": [
+                                {
+                                    "OID": "",
+                                    "auditRecord": [
+                                        {
+                                            "dateTimeStamp": {"content": ""},
+                                            "editPoint": "",
+                                            "locationRef": {"locationOID": ""},
+                                            "reasonForChange": {"content": ""},
+                                            "sourceID": {"content": ""},
+                                            "usedMethod": "",
+                                            "userRef": {"userOID": ""}
+                                        }
+                                    ],
+                                    "lastUpdateDatetime": "",
+                                    "name": "",
+                                    "source": "",
+                                    "state": "",
+                                    "target": "",
+                                    "type": "",
+                                    "value": {
+                                        "content": "",
+                                        "seqNum": 0
+                                    }
+                                }
+                            ],
+                            "signature": "",
+                            "transactionType": "",
+                            "value": [
+                                {
+                                    "content": "",
+                                    "seqNum": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "itemGroupData": [
+                        {}
+                    ],
+                    "itemGroupDataSeq": 0,
+                    "itemGroupOID": "",
+                    "itemGroupRepeatKey": "",
+                    "query": [
+                        {
+                            "OID": "",
+                            "auditRecord": [
+                                {
+                                    "dateTimeStamp": {"content": ""},
+                                    "editPoint": "",
+                                    "locationRef": {"locationOID": ""},
+                                    "reasonForChange": {"content": ""},
+                                    "sourceID": {"content": ""},
+                                    "usedMethod": "",
+                                    "userRef": {"userOID": ""}
+                                }
+                            ],
+                            "lastUpdateDatetime": "",
+                            "name": "",
+                            "source": "",
+                            "state": "",
+                            "target": "",
+                            "type": "",
+                            "value": {
+                                "content": "",
+                                "seqNum": 0
+                            }
+                        }
+                    ],
+                    "signature": "",
+                    "transactionType": ""
+                }
+            ],
+            "metaDataVersionOID": "",
+            "query": [
+                {
+                    "OID": "",
+                    "auditRecord": [
+                        {
+                            "dateTimeStamp": {"content": ""},
+                            "editPoint": "",
+                            "locationRef": {"locationOID": ""},
+                            "reasonForChange": {"content": ""},
+                            "sourceID": {"content": ""},
+                            "usedMethod": "",
+                            "userRef": {"userOID": ""}
+                        }
+                    ],
+                    "lastUpdateDatetime": "",
+                    "name": "",
+                    "source": "",
+                    "state": "",
+                    "target": "",
+                    "type": "",
+                    "value": {
+                        "content": "",
+                        "seqNum": 0
+                    }
+                }
+            ],
+            "signature": "",
+            "studyOID": "",
+            "subjectData": [
+                {
+                    "annotation": "",
+                    "auditRecord": {
+                        "dateTimeStamp": {"content": ""},
+                        "editPoint": "",
+                        "locationRef": {"locationOID": ""},
+                        "reasonForChange": {"content": ""},
+                        "sourceID": {"content": ""},
+                        "usedMethod": "",
+                        "userRef": {"userOID": ""}
+                    },
+                    "investigatorRef": {"userOID": ""},
+                    "query": [
+                        {
+                            "OID": "",
+                            "auditRecord": [
+                                {
+                                    "dateTimeStamp": {"content": ""},
+                                    "editPoint": "",
+                                    "locationRef": {"locationOID": ""},
+                                    "reasonForChange": {"content": ""},
+                                    "sourceID": {"content": ""},
+                                    "usedMethod": "",
+                                    "userRef": {"userOID": ""}
+                                }
+                            ],
+                            "lastUpdateDatetime": "",
+                            "name": "",
+                            "source": "",
+                            "state": "",
+                            "target": "",
+                            "type": "",
+                            "value": {
+                                "content": "",
+                                "seqNum": 0
+                            }
+                        }
+                    ],
+                    "signature": "",
+                    "siteRef": {"locationOID": ""},
+                    "studyEventData": [
+                        {
+                            "annotation": "",
+                            "auditRecord": {
+                                "dateTimeStamp": {"content": ""},
+                                "editPoint": "",
+                                "locationRef": {"locationOID": ""},
+                                "reasonForChange": {"content": ""},
+                                "sourceID": {"content": ""},
+                                "usedMethod": "",
+                                "userRef": {"userOID": ""}
+                            },
+                            "itemGroupData": [
+                                {
+                                    "annotation": "",
+                                    "auditRecord": {
+                                        "dateTimeStamp": {"content": ""},
+                                        "editPoint": "",
+                                        "locationRef": {"locationOID": ""},
+                                        "reasonForChange": {"content": ""},
+                                        "sourceID": {"content": ""},
+                                        "usedMethod": "",
+                                        "userRef": {"userOID": ""}
+                                    },
+                                    "itemData": [
+                                        {
+                                            "annotation": "",
+                                            "auditRecord": {
+                                                "dateTimeStamp": {"content": ""},
+                                                "editPoint": "",
+                                                "locationRef": {"locationOID": ""},
+                                                "reasonForChange": {"content": ""},
+                                                "sourceID": {"content": ""},
+                                                "usedMethod": "",
+                                                "userRef": {"userOID": ""}
+                                            },
+                                            "isNull": "",
+                                            "itemOID": "",
+                                            "query": [
+                                                {
+                                                    "OID": "",
+                                                    "auditRecord": [
+                                                        {
+                                                            "dateTimeStamp": {"content": ""},
+                                                            "editPoint": "",
+                                                            "locationRef": {"locationOID": ""},
+                                                            "reasonForChange": {"content": ""},
+                                                            "sourceID": {"content": ""},
+                                                            "usedMethod": "",
+                                                            "userRef": {"userOID": ""}
+                                                        }
+                                                    ],
+                                                    "lastUpdateDatetime": "",
+                                                    "name": "",
+                                                    "source": "",
+                                                    "state": "",
+                                                    "target": "",
+                                                    "type": "",
+                                                    "value": {
+                                                        "content": "",
+                                                        "seqNum": 0
+                                                    }
+                                                }
+                                            ],
+                                            "signature": "",
+                                            "transactionType": "",
+                                            "value": [
+                                                {
+                                                    "content": "",
+                                                    "seqNum": 0
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "itemGroupData": [
+                                        {}
+                                    ],
+                                    "itemGroupDataSeq": 0,
+                                    "itemGroupOID": "",
+                                    "itemGroupRepeatKey": "",
+                                    "query": [
+                                        {
+                                            "OID": "",
+                                            "auditRecord": [
+                                                {
+                                                    "dateTimeStamp": {"content": ""},
+                                                    "editPoint": "",
+                                                    "locationRef": {"locationOID": ""},
+                                                    "reasonForChange": {"content": ""},
+                                                    "sourceID": {"content": ""},
+                                                    "usedMethod": "",
+                                                    "userRef": {"userOID": ""}
+                                                }
+                                            ],
+                                            "lastUpdateDatetime": "",
+                                            "name": "",
+                                            "source": "",
+                                            "state": "",
+                                            "target": "",
+                                            "type": "",
+                                            "value": {
+                                                "content": "",
+                                                "seqNum": 0
+                                            }
+                                        }
+                                    ],
+                                    "signature": "",
+                                    "transactionType": ""
+                                }
+                            ],
+                            "query": [
+                                {
+                                    "OID": "",
+                                    "auditRecord": [
+                                        {
+                                            "dateTimeStamp": {"content": ""},
+                                            "editPoint": "",
+                                            "locationRef": {"locationOID": ""},
+                                            "reasonForChange": {"content": ""},
+                                            "sourceID": {"content": ""},
+                                            "usedMethod": "",
+                                            "userRef": {"userOID": ""}
+                                        }
+                                    ],
+                                    "lastUpdateDatetime": "",
+                                    "name": "",
+                                    "source": "",
+                                    "state": "",
+                                    "target": "",
+                                    "type": "",
+                                    "value": {
+                                        "content": "",
+                                        "seqNum": 0
+                                    }
+                                }
+                            ],
+                            "signature": "",
+                            "studyEventOID": "",
+                            "studyEventRepeatKey": "",
+                            "transactionType": ""
+                        }
+                    ],
+                    "subjectKey": "",
+                    "transactionType": ""
+                }
+            ]
+        }
+    ],
+    "context": "",
+    "creationDateTime": "",
+    "description": {
+        "translatedText": [
+            {
+                "content": "",
+                "language": "",
+                "type": ""
+            }
+        ]
+    },
+    "fileOID": "",
+    "fileType": "",
+    "granularity": "",
+    "oDMVersion": "",
+    "originator": "",
+    "priorFileOID": "",
+    "referenceData": [
+        {
+            "annotation": "",
+            "auditRecord": {
+                "dateTimeStamp": {"content": ""},
+                "editPoint": "",
+                "locationRef": {"locationOID": ""},
+                "reasonForChange": {"content": ""},
+                "sourceID": {"content": ""},
+                "usedMethod": "",
+                "userRef": {"userOID": ""}
+            },
+            "itemGroupData": [
+                {
+                    "annotation": "",
+                    "auditRecord": {
+                        "dateTimeStamp": {"content": ""},
+                        "editPoint": "",
+                        "locationRef": {"locationOID": ""},
+                        "reasonForChange": {"content": ""},
+                        "sourceID": {"content": ""},
+                        "usedMethod": "",
+                        "userRef": {"userOID": ""}
+                    },
+                    "itemData": [
+                        {
+                            "annotation": "",
+                            "auditRecord": {
+                                "dateTimeStamp": {"content": ""},
+                                "editPoint": "",
+                                "locationRef": {"locationOID": ""},
+                                "reasonForChange": {"content": ""},
+                                "sourceID": {"content": ""},
+                                "usedMethod": "",
+                                "userRef": {"userOID": ""}
+                            },
+                            "isNull": "",
+                            "itemOID": "",
+                            "query": [
+                                {
+                                    "OID": "",
+                                    "auditRecord": [
+                                        {
+                                            "dateTimeStamp": {"content": ""},
+                                            "editPoint": "",
+                                            "locationRef": {"locationOID": ""},
+                                            "reasonForChange": {"content": ""},
+                                            "sourceID": {"content": ""},
+                                            "usedMethod": "",
+                                            "userRef": {"userOID": ""}
+                                        }
+                                    ],
+                                    "lastUpdateDatetime": "",
+                                    "name": "",
+                                    "source": "",
+                                    "state": "",
+                                    "target": "",
+                                    "type": "",
+                                    "value": {
+                                        "content": "",
+                                        "seqNum": 0
+                                    }
+                                }
+                            ],
+                            "signature": "",
+                            "transactionType": "",
+                            "value": [
+                                {
+                                    "content": "",
+                                    "seqNum": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "itemGroupData": [
+                        {}
+                    ],
+                    "itemGroupDataSeq": 0,
+                    "itemGroupOID": "",
+                    "itemGroupRepeatKey": "",
+                    "query": [
+                        {
+                            "OID": "",
+                            "auditRecord": [
+                                {
+                                    "dateTimeStamp": {"content": ""},
+                                    "editPoint": "",
+                                    "locationRef": {"locationOID": ""},
+                                    "reasonForChange": {"content": ""},
+                                    "sourceID": {"content": ""},
+                                    "usedMethod": "",
+                                    "userRef": {"userOID": ""}
+                                }
+                            ],
+                            "lastUpdateDatetime": "",
+                            "name": "",
+                            "source": "",
+                            "state": "",
+                            "target": "",
+                            "type": "",
+                            "value": {
+                                "content": "",
+                                "seqNum": 0
+                            }
+                        }
+                    ],
+                    "signature": "",
+                    "transactionType": ""
+                }
+            ],
+            "metaDataVersionOID": "",
+            "signature": "",
+            "studyOID": ""
+        }
+    ],
+    "sourceSystem": "",
+    "sourceSystemVersion": "",
+    "study": [
+        {
+            "OID": "",
+            "description": {
+                "translatedText": [
+                    {
+                        "content": "",
+                        "language": "",
+                        "type": ""
+                    }
+                ]
+            },
+            "metaDataVersion": [
+                {
+                    "OID": "",
+                    "annotatedCRF": {
+                        "documentRef": [
+                            {
+                                "leafID": "",
+                                "pDFPageRef": [
+                                    {
+                                        "firstPage": 0,
+                                        "lastPage": 0,
+                                        "pageRefs": "",
+                                        "title": "",
+                                        "type": ""
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "codeList": [
+                        {
+                            "OID": "",
+                            "alias": [
+                                {
+                                    "context": "",
+                                    "name": ""
+                                }
+                            ],
+                            "codeListItem": [
+                                {
+                                    "alias": [
+                                        {
+                                            "context": "",
+                                            "name": ""
+                                        }
+                                    ],
+                                    "codedValue": "",
+                                    "coding": [
+                                        {
+                                            "code": "",
+                                            "commentOID": "",
+                                            "href": "",
+                                            "label": "",
+                                            "ref": "",
+                                            "system": "",
+                                            "systemName": "",
+                                            "systemVersion": ""
+                                        }
+                                    ],
+                                    "commentOID": "",
+                                    "decode": {
+                                        "translatedText": [
+                                            {
+                                                "content": "",
+                                                "language": "",
+                                                "type": ""
+                                            }
+                                        ]
+                                    },
+                                    "description": {
+                                        "translatedText": [
+                                            {
+                                                "content": "",
+                                                "language": "",
+                                                "type": ""
+                                            }
+                                        ]
+                                    },
+                                    "extendedValue": "",
+                                    "orderNumber": 0,
+                                    "other": "",
+                                    "rank": 0
+                                }
+                            ],
+                            "coding": [
+                                {
+                                    "code": "",
+                                    "commentOID": "",
+                                    "href": "",
+                                    "label": "",
+                                    "ref": "",
+                                    "system": "",
+                                    "systemName": "",
+                                    "systemVersion": ""
+                                }
+                            ],
+                            "commentOID": "",
+                            "dataType": "",
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "isNonStandard": "",
+                            "name": "",
+                            "standardOID": ""
+                        }
+                    ],
+                    "commentDef": [
+                        {
+                            "OID": "",
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "documentRef": [
+                                {
+                                    "leafID": "",
+                                    "pDFPageRef": [
+                                        {
+                                            "firstPage": 0,
+                                            "lastPage": 0,
+                                            "pageRefs": "",
+                                            "title": "",
+                                            "type": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "commentOID": "",
+                    "conditionDef": [
+                        {
+                            "OID": "",
+                            "alias": [
+                                {
+                                    "context": "",
+                                    "name": ""
+                                }
+                            ],
+                            "commentOID": "",
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "formalExpression": [
+                                {
+                                    "code": {"content": ""},
+                                    "context": "",
+                                    "externalCodeLib": {
+                                        "href": "",
+                                        "library": "",
+                                        "method": "",
+                                        "ref": "",
+                                        "version": ""
+                                    }
+                                }
+                            ],
+                            "methodSignature": {
+                                "parameter": [
+                                    {
+                                        "dataType": "",
+                                        "definition": "",
+                                        "name": "",
+                                        "orderNumber": 0
+                                    }
+                                ],
+                                "returnValue": [
+                                    {
+                                        "dataType": "",
+                                        "definition": "",
+                                        "name": "",
+                                        "orderNumber": 0
+                                    }
+                                ]
+                            },
+                            "name": ""
+                        }
+                    ],
+                    "description": {
+                        "translatedText": [
+                            {
+                                "content": "",
+                                "language": "",
+                                "type": ""
+                            }
+                        ]
+                    },
+                    "include": {
+                        "href": "",
+                        "metaDataVersionOID": "",
+                        "studyOID": ""
+                    },
+                    "itemDef": [
+                        {
+                            "OID": "",
+                            "alias": [
+                                {
+                                    "context": "",
+                                    "name": ""
+                                }
+                            ],
+                            "cDISCNotes": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "cRFCompletionInstructions": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "codeListRef": {"codeListOID": ""},
+                            "coding": [
+                                {
+                                    "code": "",
+                                    "commentOID": "",
+                                    "href": "",
+                                    "label": "",
+                                    "ref": "",
+                                    "system": "",
+                                    "systemName": "",
+                                    "systemVersion": ""
+                                }
+                            ],
+                            "commentOID": "",
+                            "dataType": "",
+                            "definition": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "displayFormat": "",
+                            "implementationNotes": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "length": 0,
+                            "name": "",
+                            "prompt": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "question": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "rangeCheck": [
+                                {
+                                    "checkValue": [
+                                        {"content": ""}
+                                    ],
+                                    "comparator": "",
+                                    "errorMessage": {
+                                        "translatedText": [
+                                            {
+                                                "content": "",
+                                                "language": "",
+                                                "type": ""
+                                            }
+                                        ]
+                                    },
+                                    "formalExpression": [
+                                        {
+                                            "code": {"content": ""},
+                                            "context": "",
+                                            "externalCodeLib": {
+                                                "href": "",
+                                                "library": "",
+                                                "method": "",
+                                                "ref": "",
+                                                "version": ""
+                                            }
+                                        }
+                                    ],
+                                    "itemOID": "",
+                                    "methodSignature": {
+                                        "parameter": [
+                                            {
+                                                "dataType": "",
+                                                "definition": "",
+                                                "name": "",
+                                                "orderNumber": 0
+                                            }
+                                        ],
+                                        "returnValue": [
+                                            {
+                                                "dataType": "",
+                                                "definition": "",
+                                                "name": "",
+                                                "orderNumber": 0
+                                            }
+                                        ]
+                                    },
+                                    "softHard": ""
+                                }
+                            ],
+                            "valueListRef": {"valueListOID": ""},
+                            "variableSet": ""
+                        }
+                    ],
+                    "itemGroupDef": [
+                        {
+                            "OID": "",
+                            "alias": [
+                                {
+                                    "context": "",
+                                    "name": ""
+                                }
+                            ],
+                            "archiveLocationID": "",
+                            "coding": [
+                                {
+                                    "code": "",
+                                    "commentOID": "",
+                                    "href": "",
+                                    "label": "",
+                                    "ref": "",
+                                    "system": "",
+                                    "systemName": "",
+                                    "systemVersion": ""
+                                }
+                            ],
+                            "commentOID": "",
+                            "datasetName": "",
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "domain": "",
+                            "hasNoData": "",
+                            "isNonStandard": "",
+                            "isReferenceData": "",
+                            "itemGroupClass": {
+                                "name": "",
+                                "subClass": [
+                                    {
+                                        "name": "",
+                                        "parentClass": ""
+                                    }
+                                ]
+                            },
+                            "itemGroupRef": [
+                                {
+                                    "collectionExceptionConditionOID": "",
+                                    "itemGroupOID": "",
+                                    "mandatory": "",
+                                    "methodOID": "",
+                                    "orderNumber": 0
+                                }
+                            ],
+                            "itemRef": [
+                                {
+                                    "collectionExceptionConditionOID": "",
+                                    "core": "",
+                                    "hasNoData": "",
+                                    "isNonStandard": "",
+                                    "itemOID": "",
+                                    "keySequence": 0,
+                                    "mandatory": "",
+                                    "methodOID": "",
+                                    "orderNumber": 0,
+                                    "origin": [
+                                        {
+                                            "coding": [
+                                                {
+                                                    "code": "",
+                                                    "commentOID": "",
+                                                    "href": "",
+                                                    "label": "",
+                                                    "ref": "",
+                                                    "system": "",
+                                                    "systemName": "",
+                                                    "systemVersion": ""
+                                                }
+                                            ],
+                                            "description": {
+                                                "translatedText": [
+                                                    {
+                                                        "content": "",
+                                                        "language": "",
+                                                        "type": ""
+                                                    }
+                                                ]
+                                            },
+                                            "documentRef": [
+                                                {
+                                                    "leafID": "",
+                                                    "pDFPageRef": [
+                                                        {
+                                                            "firstPage": 0,
+                                                            "lastPage": 0,
+                                                            "pageRefs": "",
+                                                            "title": "",
+                                                            "type": ""
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "source": "",
+                                            "sourceItems": {
+                                                "coding": [
+                                                    {
+                                                        "code": "",
+                                                        "commentOID": "",
+                                                        "href": "",
+                                                        "label": "",
+                                                        "ref": "",
+                                                        "system": "",
+                                                        "systemName": "",
+                                                        "systemVersion": ""
+                                                    }
+                                                ],
+                                                "sourceItem": [
+                                                    {
+                                                        "coding": [
+                                                            {
+                                                                "code": "",
+                                                                "commentOID": "",
+                                                                "href": "",
+                                                                "label": "",
+                                                                "ref": "",
+                                                                "system": "",
+                                                                "systemName": "",
+                                                                "systemVersion": ""
+                                                            }
+                                                        ],
+                                                        "itemGroupOID": "",
+                                                        "itemOID": "",
+                                                        "leafID": "",
+                                                        "metaDataVersionOID": "",
+                                                        "name": "",
+                                                        "resource": [
+                                                            {
+                                                                "attribute": "",
+                                                                "label": "",
+                                                                "name": "",
+                                                                "selection": [
+                                                                    {"path": ""}
+                                                                ],
+                                                                "type": ""
+                                                            }
+                                                        ],
+                                                        "studyOID": ""
+                                                    }
+                                                ]
+                                            },
+                                            "type": ""
+                                        }
+                                    ],
+                                    "other": "",
+                                    "preSpecifiedValue": "",
+                                    "repeat": "",
+                                    "role": "",
+                                    "roleCodeListOID": "",
+                                    "unitsItemOID": "",
+                                    "whereClauseRef": [
+                                        {"whereClauseOID": ""}
+                                    ]
+                                }
+                            ],
+                            "leaf": "",
+                            "name": "",
+                            "origin": [
+                                {
+                                    "coding": [
+                                        {
+                                            "code": "",
+                                            "commentOID": "",
+                                            "href": "",
+                                            "label": "",
+                                            "ref": "",
+                                            "system": "",
+                                            "systemName": "",
+                                            "systemVersion": ""
+                                        }
+                                    ],
+                                    "description": {
+                                        "translatedText": [
+                                            {
+                                                "content": "",
+                                                "language": "",
+                                                "type": ""
+                                            }
+                                        ]
+                                    },
+                                    "documentRef": [
+                                        {
+                                            "leafID": "",
+                                            "pDFPageRef": [
+                                                {
+                                                    "firstPage": 0,
+                                                    "lastPage": 0,
+                                                    "pageRefs": "",
+                                                    "title": "",
+                                                    "type": ""
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "source": "",
+                                    "sourceItems": {
+                                        "coding": [
+                                            {
+                                                "code": "",
+                                                "commentOID": "",
+                                                "href": "",
+                                                "label": "",
+                                                "ref": "",
+                                                "system": "",
+                                                "systemName": "",
+                                                "systemVersion": ""
+                                            }
+                                        ],
+                                        "sourceItem": [
+                                            {
+                                                "coding": [
+                                                    {
+                                                        "code": "",
+                                                        "commentOID": "",
+                                                        "href": "",
+                                                        "label": "",
+                                                        "ref": "",
+                                                        "system": "",
+                                                        "systemName": "",
+                                                        "systemVersion": ""
+                                                    }
+                                                ],
+                                                "itemGroupOID": "",
+                                                "itemOID": "",
+                                                "leafID": "",
+                                                "metaDataVersionOID": "",
+                                                "name": "",
+                                                "resource": [
+                                                    {
+                                                        "attribute": "",
+                                                        "label": "",
+                                                        "name": "",
+                                                        "selection": [
+                                                            {"path": ""}
+                                                        ],
+                                                        "type": ""
+                                                    }
+                                                ],
+                                                "studyOID": ""
+                                            }
+                                        ]
+                                    },
+                                    "type": ""
+                                }
+                            ],
+                            "purpose": "",
+                            "repeating": "",
+                            "repeatingLimit": 0,
+                            "standardOID": "",
+                            "structure": "",
+                            "type": "",
+                            "workflowRef": {"workflowOID": ""}
+                        }
+                    ],
+                    "leaf": [
+                        {
+                            "ID": "",
+                            "href": "",
+                            "title": {"content": ""}
+                        }
+                    ],
+                    "methodDef": [
+                        {
+                            "OID": "",
+                            "alias": [
+                                {
+                                    "context": "",
+                                    "name": ""
+                                }
+                            ],
+                            "commentOID": "",
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "documentRef": [
+                                {
+                                    "leafID": "",
+                                    "pDFPageRef": [
+                                        {
+                                            "firstPage": 0,
+                                            "lastPage": 0,
+                                            "pageRefs": "",
+                                            "title": "",
+                                            "type": ""
+                                        }
+                                    ]
+                                }
+                            ],
+                            "formalExpression": [
+                                {
+                                    "code": {"content": ""},
+                                    "context": "",
+                                    "externalCodeLib": {
+                                        "href": "",
+                                        "library": "",
+                                        "method": "",
+                                        "ref": "",
+                                        "version": ""
+                                    }
+                                }
+                            ],
+                            "methodSignature": {
+                                "parameter": [
+                                    {
+                                        "dataType": "",
+                                        "definition": "",
+                                        "name": "",
+                                        "orderNumber": 0
+                                    }
+                                ],
+                                "returnValue": [
+                                    {
+                                        "dataType": "",
+                                        "definition": "",
+                                        "name": "",
+                                        "orderNumber": 0
+                                    }
+                                ]
+                            },
+                            "name": "",
+                            "type": ""
+                        }
+                    ],
+                    "name": "",
+                    "protocol": {
+                        "alias": [
+                            {
+                                "context": "",
+                                "name": ""
+                            }
+                        ],
+                        "description": {
+                            "translatedText": [
+                                {
+                                    "content": "",
+                                    "language": "",
+                                    "type": ""
+                                }
+                            ]
+                        },
+                        "inclusionExclusionCriteria": {
+                            "exclusionCriteria": {
+                                "criterion": [
+                                    {
+                                        "OID": "",
+                                        "coding": [
+                                            {
+                                                "code": "",
+                                                "commentOID": "",
+                                                "href": "",
+                                                "label": "",
+                                                "ref": "",
+                                                "system": "",
+                                                "systemName": "",
+                                                "systemVersion": ""
+                                            }
+                                        ],
+                                        "conditionOID": "",
+                                        "description": {
+                                            "translatedText": [
+                                                {
+                                                    "content": "",
+                                                    "language": "",
+                                                    "type": ""
+                                                }
+                                            ]
+                                        },
+                                        "name": ""
+                                    }
+                                ]
+                            },
+                            "inclusionCriteria": {
+                                "criterion": [
+                                    {
+                                        "OID": "",
+                                        "coding": [
+                                            {
+                                                "code": "",
+                                                "commentOID": "",
+                                                "href": "",
+                                                "label": "",
+                                                "ref": "",
+                                                "system": "",
+                                                "systemName": "",
+                                                "systemVersion": ""
+                                            }
+                                        ],
+                                        "conditionOID": "",
+                                        "description": {
+                                            "translatedText": [
+                                                {
+                                                    "content": "",
+                                                    "language": "",
+                                                    "type": ""
+                                                }
+                                            ]
+                                        },
+                                        "name": ""
+                                    }
+                                ]
+                            }
+                        },
+                        "studyEndPoints": {
+                            "studyEndPoint": [
+                                {
+                                    "OID": "",
+                                    "description": {
+                                        "translatedText": [
+                                            {
+                                                "content": "",
+                                                "language": "",
+                                                "type": ""
+                                            }
+                                        ]
+                                    },
+                                    "formalExpression": [
+                                        {
+                                            "code": {"content": ""},
+                                            "context": "",
+                                            "externalCodeLib": {
+                                                "href": "",
+                                                "library": "",
+                                                "method": "",
+                                                "ref": "",
+                                                "version": ""
+                                            }
+                                        }
+                                    ],
+                                    "level": "",
+                                    "name": "",
+                                    "type": ""
+                                }
+                            ]
+                        },
+                        "studyEstimands": {
+                            "studyEstimand": [
+                                {
+                                    "OID": "",
+                                    "description": {
+                                        "translatedText": [
+                                            {
+                                                "content": "",
+                                                "language": "",
+                                                "type": ""
+                                            }
+                                        ]
+                                    },
+                                    "intercurrentEvent": [
+                                        {
+                                            "description": {
+                                                "translatedText": [
+                                                    {
+                                                        "content": "",
+                                                        "language": "",
+                                                        "type": ""
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "level": "",
+                                    "name": "",
+                                    "studyEndPointRef": {
+                                        "orderNumber": 0,
+                                        "studyEndPointOID": ""
+                                    },
+                                    "studyInterventionRef": {"studyInterventionOID": ""},
+                                    "studyTargetPopulationRef": {"studyTargetPopulationOID": ""},
+                                    "summaryMeasure": {
+                                        "description": {
+                                            "translatedText": [
+                                                {
+                                                    "content": "",
+                                                    "language": "",
+                                                    "type": ""
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "studyEventGroupRef": [
+                            {
+                                "collectionExceptionConditionOID": "",
+                                "description": {
+                                    "translatedText": [
+                                        {
+                                            "content": "",
+                                            "language": "",
+                                            "type": ""
+                                        }
+                                    ]
+                                },
+                                "mandatory": "",
+                                "orderNumber": 0,
+                                "studyEventGroupOID": ""
+                            }
+                        ],
+                        "studyIndications": {
+                            "studyIndication": [
+                                {
+                                    "OID": "",
+                                    "coding": [
+                                        {
+                                            "code": "",
+                                            "commentOID": "",
+                                            "href": "",
+                                            "label": "",
+                                            "ref": "",
+                                            "system": "",
+                                            "systemName": "",
+                                            "systemVersion": ""
+                                        }
+                                    ],
+                                    "description": {
+                                        "translatedText": [
+                                            {
+                                                "content": "",
+                                                "language": "",
+                                                "type": ""
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "studyInterventions": {
+                            "studyIntervention": [
+                                {
+                                    "OID": "",
+                                    "coding": [
+                                        {
+                                            "code": "",
+                                            "commentOID": "",
+                                            "href": "",
+                                            "label": "",
+                                            "ref": "",
+                                            "system": "",
+                                            "systemName": "",
+                                            "systemVersion": ""
+                                        }
+                                    ],
+                                    "description": {
+                                        "translatedText": [
+                                            {
+                                                "content": "",
+                                                "language": "",
+                                                "type": ""
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "studyObjectives": {
+                            "studyObjective": [
+                                {
+                                    "OID": "",
+                                    "description": {
+                                        "translatedText": [
+                                            {
+                                                "content": "",
+                                                "language": "",
+                                                "type": ""
+                                            }
+                                        ]
+                                    },
+                                    "level": "",
+                                    "name": "",
+                                    "studyEndPointRef": [
+                                        {
+                                            "orderNumber": 0,
+                                            "studyEndPointOID": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "studyStructure": {
+                            "arm": [
+                                {
+                                    "OID": "",
+                                    "description": {
+                                        "translatedText": [
+                                            {
+                                                "content": "",
+                                                "language": "",
+                                                "type": ""
+                                            }
+                                        ]
+                                    },
+                                    "name": "",
+                                    "workflowRef": {"workflowOID": ""}
+                                }
+                            ],
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "epoch": [
+                                {
+                                    "OID": "",
+                                    "description": {
+                                        "translatedText": [
+                                            {
+                                                "content": "",
+                                                "language": "",
+                                                "type": ""
+                                            }
+                                        ]
+                                    },
+                                    "name": "",
+                                    "sequenceNumber": 0
+                                }
+                            ],
+                            "workflowRef": {"workflowOID": ""}
+                        },
+                        "studySummary": {
+                            "studyParameter": [
+                                {
+                                    "OID": "",
+                                    "coding": [
+                                        {
+                                            "code": "",
+                                            "commentOID": "",
+                                            "href": "",
+                                            "label": "",
+                                            "ref": "",
+                                            "system": "",
+                                            "systemName": "",
+                                            "systemVersion": ""
+                                        }
+                                    ],
+                                    "parameterValue": {
+                                        "coding": [
+                                            {
+                                                "code": "",
+                                                "commentOID": "",
+                                                "href": "",
+                                                "label": "",
+                                                "ref": "",
+                                                "system": "",
+                                                "systemName": "",
+                                                "systemVersion": ""
+                                            }
+                                        ],
+                                        "value": ""
+                                    },
+                                    "shortName": "",
+                                    "term": ""
+                                }
+                            ]
+                        },
+                        "studyTargetPopulation": "",
+                        "studyTimings": {
+                            "studyTiming": [
+                                {
+                                    "OID": "",
+                                    "absoluteTimingConstraint": [
+                                        {
+                                            "OID": "",
+                                            "description": {
+                                                "translatedText": [
+                                                    {
+                                                        "content": "",
+                                                        "language": "",
+                                                        "type": ""
+                                                    }
+                                                ]
+                                            },
+                                            "name": "",
+                                            "studyEventGroupOID": "",
+                                            "studyEventOID": "",
+                                            "timepointPostWindow": "",
+                                            "timepointPreWindow": "",
+                                            "timepointTarget": ""
+                                        }
+                                    ],
+                                    "durationTimingConstraint": [
+                                        {
+                                            "OID": "",
+                                            "description": {
+                                                "translatedText": [
+                                                    {
+                                                        "content": "",
+                                                        "language": "",
+                                                        "type": ""
+                                                    }
+                                                ]
+                                            },
+                                            "durationPostWindow": "",
+                                            "durationPreWindow": "",
+                                            "durationTarget": "",
+                                            "name": "",
+                                            "structuralElementOID": ""
+                                        }
+                                    ],
+                                    "name": "",
+                                    "relativeTimingConstraint": [
+                                        {
+                                            "OID": "",
+                                            "description": {
+                                                "translatedText": [
+                                                    {
+                                                        "content": "",
+                                                        "language": "",
+                                                        "type": ""
+                                                    }
+                                                ]
+                                            },
+                                            "name": "",
+                                            "predecessorOID": "",
+                                            "successorOID": "",
+                                            "timepointPostWindow": "",
+                                            "timepointPreWindow": "",
+                                            "timepointRelativeTarget": "",
+                                            "type": ""
+                                        }
+                                    ],
+                                    "transitionTimingConstraint": [
+                                        {
+                                            "OID": "",
+                                            "description": {
+                                                "translatedText": [
+                                                    {
+                                                        "content": "",
+                                                        "language": "",
+                                                        "type": ""
+                                                    }
+                                                ]
+                                            },
+                                            "methodOID": "",
+                                            "name": "",
+                                            "timepointPostWindow": "",
+                                            "timepointPreWindow": "",
+                                            "timepointTarget": "",
+                                            "transitionOID": "",
+                                            "type": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "trialPhase": {
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "value": ""
+                        },
+                        "workflowRef": {"workflowOID": ""}
+                    },
+                    "standards": {
+                        "standard": [
+                            {
+                                "OID": "",
+                                "commentOID": "",
+                                "name": "",
+                                "publishingSet": "",
+                                "status": "",
+                                "type": "",
+                                "version": ""
+                            }
+                        ]
+                    },
+                    "studyEventDef": [
+                        {
+                            "OID": "",
+                            "alias": [
+                                {
+                                    "context": "",
+                                    "name": ""
+                                }
+                            ],
+                            "category": "",
+                            "coding": [
+                                {
+                                    "code": "",
+                                    "commentOID": "",
+                                    "href": "",
+                                    "label": "",
+                                    "ref": "",
+                                    "system": "",
+                                    "systemName": "",
+                                    "systemVersion": ""
+                                }
+                            ],
+                            "commentOID": "",
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "itemGroupRef": [
+                                {
+                                    "collectionExceptionConditionOID": "",
+                                    "itemGroupOID": "",
+                                    "mandatory": "",
+                                    "methodOID": "",
+                                    "orderNumber": 0
+                                }
+                            ],
+                            "name": "",
+                            "repeating": "",
+                            "type": "",
+                            "workflowRef": {"workflowOID": ""}
+                        }
+                    ],
+                    "studyEventGroupDef": [
+                        {
+                            "OID": "",
+                            "armOID": "",
+                            "coding": [
+                                {
+                                    "code": "",
+                                    "commentOID": "",
+                                    "href": "",
+                                    "label": "",
+                                    "ref": "",
+                                    "system": "",
+                                    "systemName": "",
+                                    "systemVersion": ""
+                                }
+                            ],
+                            "commentOID": "",
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "epochOID": "",
+                            "name": "",
+                            "studyEventGroupRef": [
+                                {
+                                    "collectionExceptionConditionOID": "",
+                                    "description": {
+                                        "translatedText": [
+                                            {
+                                                "content": "",
+                                                "language": "",
+                                                "type": ""
+                                            }
+                                        ]
+                                    },
+                                    "mandatory": "",
+                                    "orderNumber": 0,
+                                    "studyEventGroupOID": ""
+                                }
+                            ],
+                            "studyEventRef": [
+                                {
+                                    "collectionExceptionConditionOID": "",
+                                    "mandatory": "",
+                                    "orderNumber": 0,
+                                    "studyEventOID": ""
+                                }
+                            ],
+                            "workflowRef": {"workflowOID": ""}
+                        }
+                    ],
+                    "supplementalDoc": {
+                        "documentRef": [
+                            {
+                                "leafID": "",
+                                "pDFPageRef": [
+                                    {
+                                        "firstPage": 0,
+                                        "lastPage": 0,
+                                        "pageRefs": "",
+                                        "title": "",
+                                        "type": ""
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "valueListDef": [
+                        {
+                            "OID": "",
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "itemRef": [
+                                {
+                                    "collectionExceptionConditionOID": "",
+                                    "core": "",
+                                    "hasNoData": "",
+                                    "isNonStandard": "",
+                                    "itemOID": "",
+                                    "keySequence": 0,
+                                    "mandatory": "",
+                                    "methodOID": "",
+                                    "orderNumber": 0,
+                                    "origin": [
+                                        {
+                                            "coding": [
+                                                {
+                                                    "code": "",
+                                                    "commentOID": "",
+                                                    "href": "",
+                                                    "label": "",
+                                                    "ref": "",
+                                                    "system": "",
+                                                    "systemName": "",
+                                                    "systemVersion": ""
+                                                }
+                                            ],
+                                            "description": {
+                                                "translatedText": [
+                                                    {
+                                                        "content": "",
+                                                        "language": "",
+                                                        "type": ""
+                                                    }
+                                                ]
+                                            },
+                                            "documentRef": [
+                                                {
+                                                    "leafID": "",
+                                                    "pDFPageRef": [
+                                                        {
+                                                            "firstPage": 0,
+                                                            "lastPage": 0,
+                                                            "pageRefs": "",
+                                                            "title": "",
+                                                            "type": ""
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "source": "",
+                                            "sourceItems": {
+                                                "coding": [
+                                                    {
+                                                        "code": "",
+                                                        "commentOID": "",
+                                                        "href": "",
+                                                        "label": "",
+                                                        "ref": "",
+                                                        "system": "",
+                                                        "systemName": "",
+                                                        "systemVersion": ""
+                                                    }
+                                                ],
+                                                "sourceItem": [
+                                                    {
+                                                        "coding": [
+                                                            {
+                                                                "code": "",
+                                                                "commentOID": "",
+                                                                "href": "",
+                                                                "label": "",
+                                                                "ref": "",
+                                                                "system": "",
+                                                                "systemName": "",
+                                                                "systemVersion": ""
+                                                            }
+                                                        ],
+                                                        "itemGroupOID": "",
+                                                        "itemOID": "",
+                                                        "leafID": "",
+                                                        "metaDataVersionOID": "",
+                                                        "name": "",
+                                                        "resource": [
+                                                            {
+                                                                "attribute": "",
+                                                                "label": "",
+                                                                "name": "",
+                                                                "selection": [
+                                                                    {"path": ""}
+                                                                ],
+                                                                "type": ""
+                                                            }
+                                                        ],
+                                                        "studyOID": ""
+                                                    }
+                                                ]
+                                            },
+                                            "type": ""
+                                        }
+                                    ],
+                                    "other": "",
+                                    "preSpecifiedValue": "",
+                                    "repeat": "",
+                                    "role": "",
+                                    "roleCodeListOID": "",
+                                    "unitsItemOID": "",
+                                    "whereClauseRef": [
+                                        {"whereClauseOID": ""}
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "whereClauseDef": [
+                        {
+                            "OID": "",
+                            "commentOID": "",
+                            "rangeCheck": [
+                                {
+                                    "checkValue": [
+                                        {"content": ""}
+                                    ],
+                                    "comparator": "",
+                                    "errorMessage": {
+                                        "translatedText": [
+                                            {
+                                                "content": "",
+                                                "language": "",
+                                                "type": ""
+                                            }
+                                        ]
+                                    },
+                                    "formalExpression": [
+                                        {
+                                            "code": {"content": ""},
+                                            "context": "",
+                                            "externalCodeLib": {
+                                                "href": "",
+                                                "library": "",
+                                                "method": "",
+                                                "ref": "",
+                                                "version": ""
+                                            }
+                                        }
+                                    ],
+                                    "itemOID": "",
+                                    "methodSignature": {
+                                        "parameter": [
+                                            {
+                                                "dataType": "",
+                                                "definition": "",
+                                                "name": "",
+                                                "orderNumber": 0
+                                            }
+                                        ],
+                                        "returnValue": [
+                                            {
+                                                "dataType": "",
+                                                "definition": "",
+                                                "name": "",
+                                                "orderNumber": 0
+                                            }
+                                        ]
+                                    },
+                                    "softHard": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "workflowDef": [
+                        {
+                            "OID": "",
+                            "branching": [
+                                {
+                                    "OID": "",
+                                    "defaultTransition": [
+                                        {"targetTransitionOID": ""}
+                                    ],
+                                    "name": "",
+                                    "targetTransition": [
+                                        {
+                                            "conditionOID": "",
+                                            "targetTransitionOID": ""
+                                        }
+                                    ],
+                                    "type": ""
+                                }
+                            ],
+                            "description": {
+                                "translatedText": [
+                                    {
+                                        "content": "",
+                                        "language": "",
+                                        "type": ""
+                                    }
+                                ]
+                            },
+                            "name": "",
+                            "transition": [
+                                {
+                                    "OID": "",
+                                    "endConditionOID": "",
+                                    "name": "",
+                                    "sourceOID": "",
+                                    "startConditionOID": "",
+                                    "targetOID": ""
+                                }
+                            ],
+                            "workflowEnd": [
+                                {
+                                    "content": "",
+                                    "endOID": ""
+                                }
+                            ],
+                            "workflowStart": {"startOID": ""}
+                        }
+                    ]
+                }
+            ],
+            "protocolName": "",
+            "status": "",
+            "studyName": "",
+            "versionID": "",
+            "versionName": ""
+        }
+    ]
+}
